@@ -1,0 +1,370 @@
+{
+  "application": {
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "dataChecks": 379,
+    "passed": true,
+    "pipelineChecks": 115,
+    "secClaimsVerified": 80
+  },
+  "closedAt": "2026-10-26T03:53:27.671547Z",
+  "images": [
+    {
+      "bytesExactCorrespondingPrior": true,
+      "image": "production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267"
+    },
+    {
+      "bytesExactCorrespondingPrior": true,
+      "image": "production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75"
+    },
+    {
+      "bytesExactCorrespondingPrior": true,
+      "image": "local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "bytesExactCorrespondingPrior": true,
+      "image": "local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    }
+  ],
+  "inputSeals": [
+    {
+      "bytes": 9879,
+      "inode": 1984436,
+      "mtimeNs": 1792986807680792422,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/copy-index.json",
+      "sha256": "3bd45eff65d15bfd50b2e08e102bc0f452408fa7ed1e49f99887843ca5ee8b3f"
+    },
+    {
+      "bytes": 4790,
+      "inode": 3638108,
+      "mtimeNs": 1792985476122446997,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-primary-capture-build-spec-v0.2-2026-10-25.md",
+      "sha256": "23a233774b4623e1efd13d5242ee985376a389a85f8fe0ee6571addff3bb9572"
+    },
+    {
+      "bytes": 2825,
+      "inode": 3640810,
+      "mtimeNs": 1792986807675189154,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-primary-capture-implementation-2026-10-25.md",
+      "sha256": "7ce1371ade807f4a50e5683cbea3936490c4a1778b1fe0626ab135a87aab88a5"
+    },
+    {
+      "bytes": 8734,
+      "inode": 3637698,
+      "mtimeNs": 1792985295940211729,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-primary-capture-original-proposal-2026-10-25.md",
+      "sha256": "0fbe6cb4abf22fbaac28c3c8454cd1ee6f05e5283492650b6f57614336d7e96c"
+    },
+    {
+      "bytes": 25176,
+      "inode": 3637896,
+      "mtimeNs": 1792985315963013249,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-primary-capture-plan-2026-10-25.json",
+      "sha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1"
+    },
+    {
+      "bytes": 2994,
+      "inode": 3640787,
+      "mtimeNs": 1792986807632596346,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/baseline-build.log.gz",
+      "sha256": "e47c7bd9992caffe5b246c46a15dc058789ab0774c572e86c02bc29b5a8d35ae"
+    },
+    {
+      "bytes": 147,
+      "inode": 3640788,
+      "mtimeNs": 1792986807633019428,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/baseline-renders.log.gz",
+      "sha256": "aee820335598b914ca51ccae9cbef324254d51bf9814c73be60c919d6f3c7ba1"
+    },
+    {
+      "bytes": 58,
+      "inode": 3640789,
+      "mtimeNs": 1792986807633329469,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/baseline-server.log.gz",
+      "sha256": "ea768a0422be9a5efa28c4a2b6e87656d5793bcc6df6be912ef4c39a00724320"
+    },
+    {
+      "bytes": 205,
+      "inode": 3640790,
+      "mtimeNs": 1792986807633592511,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/final-additions.log.gz",
+      "sha256": "bd407794cd47dea1f4d67c8267db3e903ee653093779a202a0ffd5f9695acf78"
+    },
+    {
+      "bytes": 798,
+      "inode": 3640791,
+      "mtimeNs": 1792986807633911594,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/focused-final.log.gz",
+      "sha256": "23c64dc717eef308b2e2f504f2b566f44731f6965b44b488e309501cb4b49664"
+    },
+    {
+      "bytes": 205,
+      "inode": 3637898,
+      "mtimeNs": 1792985316220167307,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/generated-pins.json",
+      "sha256": "0c7983f5f0477757394346bb051fcc8ef0cfdb40fda8dbdea295d4e3440895e5"
+    },
+    {
+      "bytes": 33772,
+      "inode": 3640809,
+      "mtimeNs": 1792986807674820030,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/implementation-receipt.json",
+      "sha256": "6f82ca084a40a9a7813e3df5363110280c463ae12f3046ac629200b031fba4e4"
+    },
+    {
+      "bytes": 704,
+      "inode": 3640792,
+      "mtimeNs": 1792986807634392218,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/initial-pacing-failure-reproduction.log.gz",
+      "sha256": "994e229c3158cec210874a43a56595306f8dae497299ae83380aa48a8932baae"
+    },
+    {
+      "bytes": 146,
+      "inode": 3640793,
+      "mtimeNs": 1792986807634665176,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/local-renders.log.gz",
+      "sha256": "c3116c1915d7ba777e2ad70c1a007643af9b61c2fba86fb919169ec2479c2eb4"
+    },
+    {
+      "bytes": 58,
+      "inode": 3640794,
+      "mtimeNs": 1792986807634940175,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/local-server.log.gz",
+      "sha256": "96e42d10187ab23ca00d582d6a13602b211674123e8367e85343187bab457978"
+    },
+    {
+      "bytes": 25575,
+      "inode": 3640795,
+      "mtimeNs": 1792986807638762919,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/npm-test-final.log.gz",
+      "sha256": "0f7ce2c7b6d1b5860d76182fafe824d9b6c3476af95bfd5ccace4609d00b8784"
+    },
+    {
+      "bytes": 25569,
+      "inode": 3640796,
+      "mtimeNs": 1792986807642947913,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/npm-test-sealed.log.gz",
+      "sha256": "dc98e42def99d8ee8deaae41f30de4a3832b108f4aa2127dac6de17d7b39ea6e"
+    },
+    {
+      "bytes": 25628,
+      "inode": 3640797,
+      "mtimeNs": 1792986807646921365,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/npm-test.log.gz",
+      "sha256": "f7fdd78b7f9a6eeb4b4e6f1e7a6cf404b76700d7bcd1bae3806e9b6ddc7ee758"
+    },
+    {
+      "bytes": 14292,
+      "inode": 3640798,
+      "mtimeNs": 1792986807649194861,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-absent-final.log.gz",
+      "sha256": "2a5e0c88844c4d206bf71e81e9ee937818661422e8c0bf8536af61c6ec5b958f"
+    },
+    {
+      "bytes": 17739,
+      "inode": 3640808,
+      "mtimeNs": 1792986807671529368,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-absent-sealed-v2.json",
+      "sha256": "451b8e0bb78c6de9b27a43c264581b88096e079df50af522167f34373db9d70f"
+    },
+    {
+      "bytes": 28301,
+      "inode": 3640799,
+      "mtimeNs": 1792986807653709646,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-absent-sealed-v2.log.gz",
+      "sha256": "002dd395074f09395531e98978f6a4ba6830e8b29ad5d64ccbdc476a0cfccf61"
+    },
+    {
+      "bytes": 14079,
+      "inode": 3640800,
+      "mtimeNs": 1792986807655887976,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-absent-sealed.log.gz",
+      "sha256": "42ab08e9275ca8ec30397583c6afd6c7e34d764d5b2d24abc959d8fc567eba90"
+    },
+    {
+      "bytes": 27655,
+      "inode": 3640801,
+      "mtimeNs": 1792986807659546220,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-absent.log.gz",
+      "sha256": "ae0994d55f648c3c2adc594e300e53f727f9151ddcb4013de66a356d2eb11939"
+    },
+    {
+      "bytes": 28487,
+      "inode": 3640802,
+      "mtimeNs": 1792986807663420214,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-present-final.log.gz",
+      "sha256": "d95d723b9ef5a401b9b76b458b711ce3167596dd30ec395ed02c74db7fb0f0dd"
+    },
+    {
+      "bytes": 27667,
+      "inode": 3640803,
+      "mtimeNs": 1792986807666954959,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-present-sealed.log.gz",
+      "sha256": "95f7dedc70f408137f2f1ef6e880f293c4996863a848c7f9db3c01d878b236ad"
+    },
+    {
+      "bytes": 27589,
+      "inode": 3640804,
+      "mtimeNs": 1792986807670473661,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/operations-present.log.gz",
+      "sha256": "cc82d65d8b6dfa74be927ad3ba6677290074edc9608c27abeff9f8c83199bb0c"
+    },
+    {
+      "bytes": 157,
+      "inode": 3640805,
+      "mtimeNs": 1792986807670797619,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/production-renders.log.gz",
+      "sha256": "bebe8204a85ff32b5ed121b079edc4bc1d571f6c51166df23f00d06814715a58"
+    },
+    {
+      "bytes": 32200,
+      "inode": 3637701,
+      "mtimeNs": 1792985295941016769,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/proposal-inputs.json",
+      "sha256": "ee28a95de94c17b6a2e30c5feef06e8cf9ed790ff1a97607a7e7775ab7465398"
+    },
+    {
+      "bytes": 20007,
+      "inode": 3640807,
+      "mtimeNs": 1792986807671390244,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/retained-preflight.json",
+      "sha256": "245a75dae205a679400ee00e0f1ac65a83647676060dce3c4cb54031aae86623"
+    },
+    {
+      "bytes": 228,
+      "inode": 3640806,
+      "mtimeNs": 1792986807671010994,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-2026-10-25/transition-pointer-final.log.gz",
+      "sha256": "79f7786dc6a3c874c294ab1028952d2902f99861adcc302edf1bf0bd340ff09e"
+    },
+    {
+      "bytes": 26818,
+      "inode": 3637763,
+      "mtimeNs": 1792985348519716988,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/ops/ci/collect.py",
+      "sha256": "eccbc0805471e97c3e7ed261e9592cb6423165ca62d16cdec7c5f4c4f89b22a3"
+    },
+    {
+      "bytes": 2452310,
+      "inode": 3637897,
+      "mtimeNs": 1792985316218033936,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/ops/ci/fixtures/prnewswire-primary-retained-readset.json.gz",
+      "sha256": "490b649e268337ceb47cc4c3080bfbc6e3d6fd69d58224e40bc6cd40b1cde2b9"
+    },
+    {
+      "bytes": 23729,
+      "inode": 3637902,
+      "mtimeNs": 1792985862713828642,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/ops/ci/test_prnewswire_primary_capture.py",
+      "sha256": "a2cbd3e0c41d07a80646eb2f53f49082e2a32ebca31ee0927daaaf19ae806557"
+    },
+    {
+      "bytes": 9303,
+      "inode": 3637905,
+      "mtimeNs": 1792986807631824347,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/status.md",
+      "sha256": "3d80bf7e735143ba255bc02807f5b515839d13b13085cc4874bbcc6fe783da86"
+    },
+    {
+      "bytes": 20263,
+      "inode": 3637900,
+      "mtimeNs": 1792986019606560224,
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market/web/scripts/pipeline/prnewswire_primary_capture.py",
+      "sha256": "88ae350323bed4215071e9171c4e357b9a10f4e3912ccdda09de953fc4e558c8"
+    },
+    {
+      "bytes": 33772,
+      "inode": 1984434,
+      "mtimeNs": 1792986807675072597,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/handback.json",
+      "sha256": "6f82ca084a40a9a7813e3df5363110280c463ae12f3046ac629200b031fba4e4"
+    },
+    {
+      "bytes": 986229,
+      "inode": 1918946,
+      "mtimeNs": 1792985551546034126,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267"
+    },
+    {
+      "bytes": 986229,
+      "inode": 3630862,
+      "mtimeNs": 1792936849978414038,
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267"
+    },
+    {
+      "bytes": 418882,
+      "inode": 1918947,
+      "mtimeNs": 1792985555063041151,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75"
+    },
+    {
+      "bytes": 418882,
+      "inode": 3630864,
+      "mtimeNs": 1792936853577722841,
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75"
+    },
+    {
+      "bytes": 989395,
+      "inode": 1918949,
+      "mtimeNs": 1792985558663039824,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "bytes": 989395,
+      "inode": 3630863,
+      "mtimeNs": 1792936850747356425,
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "bytes": 436460,
+      "inode": 1918950,
+      "mtimeNs": 1792985561920038623,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    },
+    {
+      "bytes": 436460,
+      "inode": 3630865,
+      "mtimeNs": 1792936854022935037,
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    },
+    {
+      "bytes": 989395,
+      "inode": 1922028,
+      "mtimeNs": 1792985663532001166,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/baseline-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "bytes": 436460,
+      "inode": 1922029,
+      "mtimeNs": 1792985666817999954,
+      "path": "/var/tmp/smp-prn-current-primary-build-20261025/baseline-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    }
+  ],
+  "opsAbsent": {
+    "explicitSkips": 60,
+    "frozenReadAttempts": [],
+    "passed": 932,
+    "portablePRNCoreSkipped": [],
+    "total": 992
+  },
+  "opsPresent": 992,
+  "ownedFilesVerified": 34,
+  "status": "PASS",
+  "workerCopyIndexSha256": "3bd45eff65d15bfd50b2e08e102bc0f452408fa7ed1e49f99887843ca5ee8b3f",
+  "workerHistory": "Superseded pacing/adapter-negative runs and absence-driver failures are retained in the indexed worker evidence. Final exact-code log attribution is operations-present-sealed and operations-absent-sealed-v2.",
+  "workerReceiptSha256": "6f82ca084a40a9a7813e3df5363110280c463ae12f3046ac629200b031fba4e4"
+}

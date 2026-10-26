@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "verdict": "CONTROLLED_INTEGRATION_PASS_DORMANT",
+  "closedAt": "2026-10-26T04:17:24.770286Z",
+  "baseHead": "ba2785900fea41c11db90fb1268fb85d5de596c3",
+  "workerAcceptedByRoot": true,
+  "rootIndependentlyReviewedEntireModuleAndMergedCaller": true,
+  "rootViewedAllFourFinalImages": true,
+  "copiedWorkerFiles": 32,
+  "copiedIndependentReceiptFiles": 17,
+  "copiedIndependentReports": 2,
+  "collectMerge": {
+    "original3bb": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500
+    },
+    "reviewedPRN": {
+      "sha256": "eccbc0805471e97c3e7ed261e9592cb6423165ca62d16cdec7c5f4c4f89b22a3",
+      "bytes": 26818
+    },
+    "currentCyeraBefore": {
+      "sha256": "e8272dcc4e606478dad5c386848ab8efd1c85244b53fb240222b821933486872",
+      "bytes": 26803
+    },
+    "merged": {
+      "sha256": "58ed42abc717fa300391d6e561870c5c1c6f17833a72a9383a5dc3d43af03316",
+      "bytes": 27109
+    }
+  },
+  "exactUnchangedCyeraBranch": true,
+  "operationsPresent": {
+    "testsRun": 1015,
+    "passed": 1015,
+    "seconds": 528.113
+  },
+  "operationsAbsent": {
+    "testsRun": 1015,
+    "passed": 954,
+    "skipped": 61,
+    "seconds": 654.19,
+    "frozenReadAttempts": [],
+    "PRNAndCyeraCoreSkipped": []
+  },
+  "ordinaryFixtureNpm": {
+    "passed": true,
+    "data": 379,
+    "pipeline": 115,
+    "secClaims": 80,
+    "browserPassed": 42,
+    "browserSkipped": 1
+  },
+  "combinedRouteChecks": 11,
+  "protection": {
+    "verdict": "PASS",
+    "checkedExistingTracked": 2845,
+    "changedExisting": [
+      "ops/ci/collect.py"
+    ],
+    "copiedFilesAuthenticated": 51,
+    "statusAndBacklogOwnedByOtherWorkerAndNotWritten": true,
+    "threeWayCollectPins": {
+      "original3bb": {
+        "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+        "bytes": 26500
+      },
+      "reviewedPRN": {
+        "sha256": "eccbc0805471e97c3e7ed261e9592cb6423165ca62d16cdec7c5f4c4f89b22a3",
+        "bytes": 26818
+      },
+      "currentCyeraBefore": {
+        "sha256": "e8272dcc4e606478dad5c386848ab8efd1c85244b53fb240222b821933486872",
+        "bytes": 26803
+      },
+      "merged": {
+        "sha256": "58ed42abc717fa300391d6e561870c5c1c6f17833a72a9383a5dc3d43af03316",
+        "bytes": 27109
+      }
+    },
+    "exactUnchangedCyeraBranch": true,
+    "strippingOnlyPRNReproducesPrior": true,
+    "criticalCurrentPins": {
+      "contracts/market.json": {
+        "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+        "bytes": 287122
+      },
+      "contracts/source-qualification-probes.json": {
+        "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+        "bytes": 173
+      },
+      "contracts/factual-corrections.json": {
+        "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+        "bytes": 43099
+      },
+      "web/src/data/tracker/factualCorrectionPolicy.json": {
+        "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+        "bytes": 2341
+      },
+      "web/src/data/generated/dailyMarket.json": {
+        "sha256": "7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f",
+        "bytes": 7696749
+      },
+      "web/src/data/generated/factualCorrections.json": {
+        "sha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+        "bytes": 106
+      }
+    }
+  },
+  "visual": {
+    "production-1440.png": {
+      "vmPath": "/var/tmp/smp-prn-controlled-integration-20261026/production-1440.png",
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-current-primary-final-production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "bytes": 986229
+    },
+    "production-390.png": {
+      "vmPath": "/var/tmp/smp-prn-controlled-integration-20261026/production-390.png",
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-current-primary-final-production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "bytes": 418882
+    },
+    "local-1440.png": {
+      "vmPath": "/var/tmp/smp-prn-controlled-integration-20261026/local-1440.png",
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-current-primary-final-local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395
+    },
+    "local-390.png": {
+      "vmPath": "/var/tmp/smp-prn-controlled-integration-20261026/local-390.png",
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-current-primary-final-local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460
+    }
+  },
+  "visibleUIChanged": false,
+  "publicDataAtCapture": {
+    "sourceIntake": "264/557",
+    "eventCounters": [
+      29,
+      11,
+      19,
+      10,
+      11,
+      44
+    ]
+  },
+  "localFixtureAtCapture": {
+    "sourceIntake": "not collected",
+    "eventCounters": [
+      29,
+      11,
+      19,
+      11,
+      12,
+      42
+    ]
+  },
+  "publisher40266519925": {
+    "conclusion": "failure",
+    "headSha": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+    "status": "completed",
+    "updatedAt": "2026-10-26T04:07:52Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40266519925"
+  },
+  "actualOctober26Admissions": "Root reports actual collector40263678287 accepted all8 groups. This unit preserves them and grants no new admission. Public screenshot remains prior dataset after failed publisher.",
+  "actualGateOverlayNpmVerified": false,
+  "nextSeparateTask": "Root authorized test-only historical Q4 fixture repair and explicitly derived actual-input prepare_data replay; not part of this integration.",
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "runtimeStateWrites": 0,
+  "commit": false,
+  "push": false,
+  "mainChanged": false,
+  "activePlanSelected": false,
+  "statusOrBacklogWritten": false,
+  "receipts": [
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/local-renders.log.gz",
+      "sha256": "6cdf13d935037170b0573e81ed6f91cace6f00582afd9b137426c5a2a8924ba0",
+      "bytes": 144,
+      "uncompressed": {
+        "sha256": "7ea9341735b5bbfb949b8e52e0a8d9c3afc485cbebe8c3cbf710c99f9341be10",
+        "bytes": 238
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/local-server.log.gz",
+      "sha256": "591319922aa8c398d7e152a0007e7235139be19cf5c0c04b0ffb213c318179f6",
+      "bytes": 58,
+      "uncompressed": {
+        "sha256": "5e2e26bdfa5cbe2bfd5a506a4dffeb0f70ed1718ac466ac3e01900c84467e24e",
+        "bytes": 39
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/npm-test.log.gz",
+      "sha256": "097423aafadcbc2509cf290d785286c535b16eebff8d6c95f10a303a0bb5d4d3",
+      "bytes": 25590,
+      "uncompressed": {
+        "sha256": "3b21201787e2e5a60bec7b3928110ea30bfc70190deb706b77110e69e19129fb",
+        "bytes": 127486
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/operations-absent.log.gz",
+      "sha256": "e29949209e5cee203bb37264275a3d835e662b90277150e6eda630349b9457a3",
+      "bytes": 29041,
+      "uncompressed": {
+        "sha256": "34124571417e3697849f7b644f59e5384a4711330e0a67687dfbbf45e6c5a904",
+        "bytes": 193023
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/operations-present.log.gz",
+      "sha256": "f26ee404104275296fdb86e7f7a7e3d4e97b517d0a23552c3946208ff7195771",
+      "bytes": 28366,
+      "uncompressed": {
+        "sha256": "676c2efb098de34041f7a264c4c475dba88e57351cd53da61f462a31f20f904e",
+        "bytes": 189164
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/production-renders.log.gz",
+      "sha256": "9a27f60d2a8b46cf785b66c91ab2071b5f657922190864b7602fc82d794ae304",
+      "bytes": 157,
+      "uncompressed": {
+        "sha256": "01421b598626cbad353342182ef6c4bb94dcce6a5a068873f6c8c9c1e82ec61e",
+        "bytes": 268
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/operations-absent.json",
+      "sha256": "ef175409eb1271484e9c3192854541154cf0f8a9262cc1646c7e39f11436233c",
+      "bytes": 18046
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/combined-route-check.json",
+      "sha256": "9bc95937c61bc550dc0e1d03c7f9f99e2c06f3efe1c7fb41059b33274d15fc1c",
+      "bytes": 3300
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/publisher-status-before-render.json",
+      "sha256": "52a20cad0050e4deaf815c1bad20b5b76746cbd53f14cce20d4739b82bc621d1",
+      "bytes": 207
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/render-text.json",
+      "sha256": "c2a90ec6c199ed9224cc880532d5c7e60167493ec78fcb20d7fca7ed3c08bd59",
+      "bytes": 37489
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/protection-verification.json",
+      "sha256": "f507162b86735f7f9900316c7b819d9aca2223e1f529be270df00017963f1682",
+      "bytes": 1840
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/controlled-copy-receipt.json.gz",
+      "sha256": "4b523a0d12ee85a0b94fbe1b4b6f7a1f55da23c901cdf31e1b637ec29942920b",
+      "bytes": 295791,
+      "uncompressed": {
+        "sha256": "14d43fe9045ec6a1fc104bb8fceced8308e810ec12a2a544017590e1938d8dd9",
+        "bytes": 1207941
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/combined-route-check.py",
+      "sha256": "aa2eec06641487684d54df5ef946d4ede8841d7790c0ec352565e9163128b9ba",
+      "bytes": 5228
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/fresh-absence-driver.py",
+      "sha256": "2da3673ed677b06e193863e8721b267925f16a60ac01a2662c704bf17d306f18",
+      "bytes": 1807
+    }
+  ]
+}

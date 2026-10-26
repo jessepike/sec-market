@@ -1,0 +1,167 @@
+{
+  "acceptedSpecSha256": "23a233774b4623e1efd13d5242ee985376a389a85f8fe0ee6571addff3bb9572",
+  "actualOriginalGraph": {
+    "completeOriginalReplays": [
+      {
+        "explicitRows": 7,
+        "fetchReservations": 116,
+        "genericRows": 25,
+        "proof": {
+          "frozenWrites": 0,
+          "fullLegacyTraversalReplay": true,
+          "runId": "40190857026",
+          "sourceRequests": 0
+        },
+        "runId": "40190857026"
+      },
+      {
+        "explicitRows": 7,
+        "fetchReservations": 116,
+        "genericRows": 25,
+        "proof": {
+          "frozenWrites": 0,
+          "fullLegacyTraversalReplay": true,
+          "runId": "40193925490",
+          "sourceRequests": 0
+        },
+        "runId": "40193925490"
+      }
+    ],
+    "consumedInputCount": 422,
+    "currentJ": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+    "frozenWrites": 0,
+    "manifestFiles": 52273,
+    "manifestSha256": "13d956802cd881c0d6805c00c0dee48de07bd6615196e69f74fbf4056a710e34",
+    "models": 0,
+    "originalH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "sourceClocksRebased": false,
+    "sourceRequests": 0,
+    "status": "PASS"
+  },
+  "artifactDateLabel": "2026-10-25",
+  "base": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "checks": [
+    "The exact ordered GETs join Cato page1/card1 AWS Security Competency 302898714, written Oct06, and Chainguard page1/card0 Checks302907718, written Oct14. Both unchanged source objects retain release_distribution family and declared www.prnewswire.com authority.",
+    "Exact current J inverses to original H. Both complete original diagnostics 40190857026 and 40193925490 replay 25 generic source rows, seven explicit rows and 116 charges each, independently of the retained report assertion.",
+    "The unchanged PRN derive_report, verify_report and primary_shape reproduce all seven list pages, 125 Cato listing URLs/127 known union/two current records, and 47 Chainguard URLs/five current records. Two absent Cato seeds are older than Sep25; history pages6-8 remain unresolved without becoming a universal current-window blocker or recall claim.",
+    "Original as-of 2026-10-25T12:42:16.956348Z and Sep25-Oct25 calendar window remain unchanged. ET gains no inferred numeric offset. All supplied publication dates must match the selected written calendar day; modification literals remain independently preserved.",
+    "The small closed adapter accepts only the exact canonical171-byte J transition-pointer key/value and authenticates raw size/hash for every reference before unchanged legacy validators. Equal parsed JSON with altered raw whitespace rejects.",
+    "Every plan field/leaf, duplicate or extra key, nonfinite JSON, raw whitespace, target order, source/host/policy, descriptor and consumed raw input substitution rejects before operation writes or reservations. H or another successor policy cannot stand in for J.",
+    "At most two logical fetches, previous=None, attempt=2. Real Fetcher with fake opener makes one wire attempt per logical call for 500/502/503/504, with honest charge/failure retention. Existing bounded redirect behavior remains and any diagnostic redirect or changed final URL holds.",
+    "A first successful fetch at5499 exhausts quota5500; second requestedAt and reservation stay null. Deadline/cancellation after the first response yields one call and one charge, retains its body and leaves the second unrequested. A reservation remains charged for an actual guard race after durable reserve under unchanged rules.",
+    "Requests contains target/denial records, not an asserted wire-count. Null requestedAt plus denial/unknown fields identifies no transport. Unreached targets have explicit held result rows. Available failure bodies/status remain raw; omitted transport fields remain absent in the raw observation and unknown in derived results.",
+    "Saturated 1511fetch/80calls/40documents becomes only1513/80/40 in a scratch overlay. No generic23-source fanout, models, reviewed documents, semantic facts, coverage, freshness or gates. All24 report-field omissions and report/clock/observation/reservation/credit changes reject.",
+    "Existing caller context/lease/escrow safeguards precede Fetcher construction. The positive routing test uses a synthetic checkpoint and mocked context/escrow acceptance; no real remote acknowledgement is claimed. A denied context fails before transport.",
+    "The protected base audit leaves2756 blobs exact; the only existing tracked changes are the explicit collect hunk and a worker local status note. J/disabled plan, eight requests aa2ffd87, stamp58d93745, old six group policies, generated data, source clocks, dates and baselines remain unchanged.",
+    "Frozen8b3811 still has six actual admissions, four fact-provenance refs and38 holds. These are retained-baseline preservation checks, not a claim about the separate in-flight ordinary collection. No real archive, session, budget or admission was written."
+  ],
+  "closedAt": "2026-10-26T03:56:12.077847+00:00",
+  "commands": {
+    "absent": "orb run -m dev python3 /mnt/mac/private/tmp/smp-prn-primary-independent-review.py --absent",
+    "actual": "orb run -m dev python3 /mnt/mac/private/tmp/smp-prn-primary-actual-replay.py",
+    "present": "orb run -m dev python3 /mnt/mac/private/tmp/smp-prn-primary-independent-review.py"
+  },
+  "currentPolicySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "disabledPlanRawSha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+  "dormantPlanRawCanonicalSha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1",
+  "fixture": {
+    "authority": "Portable test fixture only; every payload compared against actual manifest and bytes",
+    "bytes": 2452310,
+    "entries": 63,
+    "sha256": "490b649e268337ceb47cc4c3080bfbc6e3d6fd69d58224e40bc6cd40b1cde2b9"
+  },
+  "independentAbsent": {
+    "frozenReadAttempts": [],
+    "passed": 25,
+    "skipped": [
+      [
+        "test_both_original_diagnostics_replay_in_full_under_H (test_prnewswire_primary_capture.FullHistoricalReplay.test_both_original_diagnostics_replay_in_full_under_H)",
+        "Explicit full archive original-H replay only"
+      ],
+      [
+        "test_all_portable_payloads_equal_actual_manifest_if_present (__main__.Independent.test_all_portable_payloads_equal_actual_manifest_if_present)",
+        "Actual manifest comparison only; all portable capture cases still execute"
+      ]
+    ],
+    "status": "PASS",
+    "testsRun": 27
+  },
+  "independentPresent": {
+    "extraResults": [
+      {
+        "portableActualEntriesAuthenticated": 63
+      },
+      "Deadline after first response: one actual call and charge; second unrequested; first raw body retained",
+      {
+        "missingReportFieldsRejected": 24
+      },
+      "H/current-J separation, whole policy/host/extra fields, reversed ordered targets and raw plan whitespace rejected",
+      "Written calendar dates and supplied modification literals preserved; ET gains no invented offset",
+      "1511/80/40 -> 1513/80/40; ordered exact two requests, normal heads unchanged",
+      {
+        "CatoCurrent": 2,
+        "CatoList": 125,
+        "CatoUnion": 127,
+        "ChainguardCurrent": 5,
+        "ChainguardList": 47,
+        "asOf": "2026-10-25T12:42:16.956348Z",
+        "olderMissingSeeds": 2
+      }
+    ],
+    "passed": 27,
+    "skipped": [],
+    "status": "PASS",
+    "testsRun": 27
+  },
+  "inputSealsBeforeAfterExact": true,
+  "limits": {
+    "coverageCredit": false,
+    "finishCheckoutWrites": 0,
+    "freshnessCredit": false,
+    "modelRequests": 0,
+    "normalIntakeActivation": false,
+    "publication": false,
+    "realStateWrites": 0,
+    "selection": false,
+    "semanticAdmission": false,
+    "sourceRequests": 0
+  },
+  "moduleSha256": "88ae350323bed4215071e9171c4e357b9a10f4e3912ccdda09de953fc4e558c8",
+  "openMaterialFindings": [],
+  "originalProposalSha256": "0fbe6cb4abf22fbaac28c3c8454cd1ee6f05e5283492650b6f57614336d7e96c",
+  "priorWorkerFailures": "Earlier pacing reproduction, adapter-negative assertion and fresh-absence driver/discovery failures remain in the sealed worker evidence. Final exact-code attribution is operations-present-sealed and operations-absent-sealed-v2; no earlier failed run was credited as passing.",
+  "recommendation": "Accept the dormant unit with these exact pins and perform the small controlled collect merge verification. Current primary response capture, cold body acceptance, source-role activation, normal intake and publication remain distinct evidence.",
+  "requiredControlledIntegration": {
+    "collect": "Merge only the PRN explicit dispatch hunk into current collect.py; preserve bounded_cyera_primary_capture in both operation recognition and elif dispatch. Do not overwrite the newer file with this3bb base copy.",
+    "status": "Merge the bounded local note into current status if useful; never replace root newer status with the worktree file.",
+    "verification": "Focused combined route check must verify Cyera, PRN and existing Q4 operations remain reachable before any live selection. This review covers the isolated unit, not a completed merge."
+  },
+  "schemaVersion": 1,
+  "scope": "Independent offline review of dormant exact two-current-primary PR Newswire capture; no operation selection or live capture",
+  "testsSha256": "a2cbd3e0c41d07a80646eb2f53f49082e2a32ebca31ee0927daaaf19ae806557",
+  "verdict": "PASS",
+  "workerEvidence": {
+    "application": {
+      "browserPassed": 42,
+      "browserSkipped": 1,
+      "dataChecks": 379,
+      "passed": true,
+      "pipelineChecks": 115,
+      "secClaimsVerified": 80
+    },
+    "copyIndexSha256": "3bd45eff65d15bfd50b2e08e102bc0f452408fa7ed1e49f99887843ca5ee8b3f",
+    "correspondingPriorImagesByteExact": 4,
+    "imageLimits": "Production and local retain their existing data-fixture difference. Each new image matches its corresponding prior surface; no visible change is claimed.",
+    "opsAbsent": {
+      "explicitSkips": 60,
+      "frozenReadAttempts": [],
+      "passed": 932,
+      "portablePRNCoreSkipped": [],
+      "total": 992
+    },
+    "opsPresent": 992,
+    "ownedFilesAuthenticated": 34,
+    "receiptSha256": "6f82ca084a40a9a7813e3df5363110280c463ae12f3046ac629200b031fba4e4"
+  },
+  "worktree": "/Users/jessepike/.codex/worktrees/prn-current-primary/sec-market"
+}

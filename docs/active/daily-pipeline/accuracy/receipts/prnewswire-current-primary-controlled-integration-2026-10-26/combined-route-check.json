@@ -1,0 +1,103 @@
+{
+  "verdict": "PASS",
+  "cases": [
+    {
+      "operation": "bounded_cyera_primary_capture",
+      "exactBranchSelected": true,
+      "crossActivation": false,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_prnewswire_primary_capture",
+      "exactBranchSelected": true,
+      "crossActivation": false,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_q4_controller_capture",
+      "exactBranchSelected": true,
+      "crossActivation": false,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_q4_initial_data_capture",
+      "exactBranchSelected": true,
+      "crossActivation": false,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_q4_primary_qualification",
+      "exactBranchSelected": true,
+      "crossActivation": false,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_orca_qualification",
+      "exactBranchSelected": true,
+      "crossActivation": false,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_cyera_primary_capture",
+      "actualWrongPlanRejectedBeforeOperationIO": true,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "directValidatorReads": 0,
+      "directValidatorWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_prnewswire_primary_capture",
+      "actualWrongPlanRejectedBeforeOperationIO": true,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "directValidatorReads": 0,
+      "directValidatorWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_q4_controller_capture",
+      "actualWrongPlanRejectedBeforeOperationIO": true,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "directValidatorReads": 0,
+      "directValidatorWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_q4_initial_data_capture",
+      "actualWrongPlanRejectedBeforeOperationIO": true,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "directValidatorReads": 0,
+      "directValidatorWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    },
+    {
+      "operation": "bounded_q4_primary_qualification",
+      "actualWrongPlanRejectedBeforeOperationIO": true,
+      "budgetEscrowFetchCalls": 0,
+      "durableWrites": 0,
+      "directValidatorReads": 0,
+      "directValidatorWrites": 0,
+      "inMemoryExistingFailureReceipts": 1
+    }
+  ],
+  "mergedCollectSha256": "58ed42abc717fa300391d6e561870c5c1c6f17833a72a9383a5dc3d43af03316",
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "realStateWrites": 0,
+  "note": "Caller failure audit receipts went to an in-memory sink only. Direct real wrong-plan validators performed zero reads/writes. Exact branch sentinels are synthetic and grant no capture credit."
+}

@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "verdict": "RETAINED_PROOF_REPLAY_PASS_CURRENT_PRIMARY_RESPONSES_STILL_MISSING",
+  "currentContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "exactInverseOriginalH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "currentArchive": {
+    "commit": "8b3811df40cfdbec9d5ed52252524294566c88e0",
+    "manifest": {
+      "sha256": "13d956802cd881c0d6805c00c0dee48de07bd6615196e69f74fbf4056a710e34",
+      "bytes": 10865016,
+      "mtimeNs": 1792937415346733935
+    },
+    "entries": 52273
+  },
+  "originalAsOf": "2026-10-25T12:42:16.956348Z",
+  "retainedReportPin": {
+    "sha256": "f9d5f7a414d4c4fefc32e7d7f54691814bda120aa0854771a47d13e3e9a797f1",
+    "bytes": 415403,
+    "mtimeNs": 1792936198175140732
+  },
+  "targets": [
+    {
+      "sourceId": "cato:official:1",
+      "supplierId": "cato",
+      "method": "GET",
+      "url": "https://www.prnewswire.com/news-releases/cato-networks-achieves-aws-security-competency-in-ai-security-302898714.html",
+      "selectedRecord": {
+        "sourceId": "cato:official:1",
+        "pageNumber": 1,
+        "cardIndex": 1,
+        "url": "https://www.prnewswire.com/news-releases/cato-networks-achieves-aws-security-competency-in-ai-security-302898714.html",
+        "title": "Cato Networks Achieves AWS Security Competency in AI Security",
+        "language": "en-US",
+        "dateLiteral": "Oct 06, 2026, 08:30 ET",
+        "calendarDay": "2026-10-06",
+        "timezone": null,
+        "dateAnomaly": null,
+        "boundaryAmbiguous": false
+      },
+      "listPageBodySha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+      "listPageBodyBytes": 225773,
+      "listPage": {
+        "runId": "40190857026",
+        "resultIndex": 5,
+        "targetId": "cato-index",
+        "targetSha256": "adc7123c4b955c8f6ad93346330e64ad920757c91e9e09f4c5da94434a8233a7",
+        "url": "https://www.prnewswire.com/news/cato-networks/",
+        "body": {
+          "bytes": 225773,
+          "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+          "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+        },
+        "observation": {
+          "bytes": 483,
+          "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+          "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0"
+        },
+        "fetchedAt": "2026-10-25T11:59:13.911738Z"
+      },
+      "currentWindowItems": 2,
+      "dailyWindowComplete": true,
+      "historicalEnumerationComplete": false,
+      "knownInventoryUrls": 125,
+      "knownEvidenceUnionUrls": 127,
+      "olderBoundary": {
+        "sourceId": "cato:official:1",
+        "pageNumber": 1,
+        "cardIndex": 2,
+        "url": "https://www.prnewswire.com/news-releases/cato-networks-joins-the-world-economic-forums-innovator-communities-bringing-real-world-cybersecurity-expertise-to-cross-sector-collaboration-on-the-future-of-tech-302861916.html",
+        "title": "Cato Networks Joins the World Economic Forum's Innovator Communities, Bringing Real-World Cybersecurity Expertise to Cross-Sector Collaboration on the Future of Tech",
+        "language": "en-US",
+        "dateLiteral": "Sep 08, 2026, 08:30 ET",
+        "calendarDay": "2026-09-08",
+        "timezone": null,
+        "dateAnomaly": null,
+        "boundaryAmbiguous": false
+      },
+      "pendingLiteralPaginationUrls": [
+        "https://www.prnewswire.com/news/cato-networks/?page=6&pagesize=25",
+        "https://www.prnewswire.com/news/cato-networks/?page=7&pagesize=25",
+        "https://www.prnewswire.com/news/cato-networks/?page=8&pagesize=25"
+      ],
+      "knownSeedsOutsideObservedList": [
+        {
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "sourceId": "cato:citation:TR-cato-3",
+          "shape": {
+            "canonical": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+            "heading": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
+            "readableCharacters": 5806,
+            "readableSha256": "a9d98f3034852e89f6328e49ae3cce3c854918da9252d2940bd8ff49bae4a54d",
+            "suppliedJsonLd": {
+              "@context": "https://schema.org",
+              "@type": "NewsArticle",
+              "mainEntityOfPage": {
+                "@id": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html"
+              },
+              "headline": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
+              "image": [
+                ""
+              ],
+              "datePublished": "2026-07-27T15:30:00+03:00",
+              "dateModified": "2026-07-27T15:30:47+03:00",
+              "description": "/PRNewswire/ -- Cato Networks, the converged network and security cloud for the AI era, today announced that it has surpassed $415 million in ARR, with 42%...",
+              "publisher": {
+                "@type": "Organization",
+                "name": "",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.prnewswire.com"
+                }
+              }
+            },
+            "jsonLdScriptTextSha256": "c23813db18170d2ccbf4ec39190c95583b31aca546f8e1c9a980e364051b716f",
+            "publicationMetadata": [
+              {
+                "kind": "jsonld_published",
+                "value": "2026-07-27T15:30:00+03:00"
+              }
+            ],
+            "publicationCalendarDay": "2026-07-27",
+            "indexTimezone": null,
+            "publicationComparison": "written_calendar_day"
+          },
+          "body": {
+            "bytes": 70562,
+            "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+            "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+          },
+          "originalFull200FetchedAt": "2026-10-25T06:46:00.068042Z",
+          "originalReuseChain": [
+            {
+              "body": {
+                "bytes": 70562,
+                "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+                "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T09:55:57.612162Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "httpStatus": 304,
+              "lastModified": "Sun, 25 Oct 2026 06:46:00 GMT",
+              "observationId": "12ebd03fe58ab3a8239e989a0a55cd9334f992785e0e7a020af4637c5c8fdeda",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "reusesObservationId": "3d7f10be24556aa2964f6bdf6c74c82975d5c77d87579355cf24eb71ba086172",
+              "sourceId": "cato:citation:TR-cato-3",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            {
+              "body": {
+                "bytes": 70562,
+                "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+                "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T06:46:00.068042Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "httpStatus": 200,
+              "lastModified": "Sun, 25 Oct 2026 06:46:00 GMT",
+              "observationId": "3d7f10be24556aa2964f6bdf6c74c82975d5c77d87579355cf24eb71ba086172",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "sourceId": "cato:citation:TR-cato-3",
+              "status": "fetched",
+              "transportId": "6fccedd7257e82e6657ec6b6ec6ab59aa11bf814f8ec7c44ff36f93aa4b501a8",
+              "transportReused": false
+            }
+          ],
+          "presentInObservedList": false,
+          "calendarWindowState": "older_calendar_day"
+        },
+        {
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+          "sourceId": "cato:citation:TR-cato-2",
+          "shape": {
+            "canonical": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+            "heading": "Cato Networks Surpasses $350 Million ARR with 43% YoY Growth in 2025",
+            "readableCharacters": 4528,
+            "readableSha256": "ce2499bbe5d3fad5bc48c2b6216480653989bf7036b3fb5e91e6e0ae66b3b25f",
+            "suppliedJsonLd": {
+              "@context": "https://schema.org",
+              "@type": "NewsArticle",
+              "mainEntityOfPage": {
+                "@id": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html"
+              },
+              "headline": "Cato Networks Surpasses $350 Million ARR with 43% YoY Growth in 2025",
+              "image": [
+                ""
+              ],
+              "datePublished": "2026-02-24T15:30:00+02:00",
+              "dateModified": "2026-02-24T15:30:43+02:00",
+              "description": "/PRNewswire/ -- Cato Networks, the SASE leader, today announced that its 2025 annual recurring revenue (ARR) surpassed $350 million, an increase of 43%...",
+              "publisher": {
+                "@type": "Organization",
+                "name": "",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.prnewswire.com"
+                }
+              }
+            },
+            "jsonLdScriptTextSha256": "508ba811a52a693049cb012d90b74272a79e11331819d384f86b3495fb965b35",
+            "publicationMetadata": [
+              {
+                "kind": "jsonld_published",
+                "value": "2026-02-24T15:30:00+02:00"
+              }
+            ],
+            "publicationCalendarDay": "2026-02-24",
+            "indexTimezone": null,
+            "publicationComparison": "written_calendar_day"
+          },
+          "body": {
+            "bytes": 71379,
+            "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+            "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+          },
+          "originalFull200FetchedAt": "2026-10-24T18:30:03.989885Z",
+          "originalReuseChain": [
+            {
+              "body": {
+                "bytes": 71379,
+                "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+                "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T09:56:20.442847Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "httpStatus": 304,
+              "lastModified": "Wed, 21 Oct 2026 14:02:49 GMT",
+              "observationId": "660599732d6bedf2be4fb0a2a1bdb7bdf32bd894228b8c3d04f8edaaea40c795",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "reusesObservationId": "3bd6416cb8b73669dcb928bb12f3e430e52ec95d3003758d1cd827c1bdd17c98",
+              "sourceId": "cato:citation:TR-cato-2",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            {
+              "body": {
+                "bytes": 71379,
+                "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+                "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T06:46:21.790624Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "httpStatus": 304,
+              "lastModified": "Wed, 21 Oct 2026 14:02:49 GMT",
+              "observationId": "3bd6416cb8b73669dcb928bb12f3e430e52ec95d3003758d1cd827c1bdd17c98",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "reusesObservationId": "23b32afd2660473dd306d147045d385320e408a89d73b43d07bec5c79eb05092",
+              "sourceId": "cato:citation:TR-cato-2",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            {
+              "body": {
+                "bytes": 71379,
+                "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+                "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-24T18:30:03.989885Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "httpStatus": 200,
+              "lastModified": "Wed, 21 Oct 2026 14:02:49 GMT",
+              "observationId": "23b32afd2660473dd306d147045d385320e408a89d73b43d07bec5c79eb05092",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "sourceId": "cato:citation:TR-cato-2",
+              "status": "fetched",
+              "transportId": "702478929523aede195043fe5169364ff63425918a079fbfdf9a825706113c68",
+              "transportReused": false
+            }
+          ],
+          "presentInObservedList": false,
+          "calendarWindowState": "older_calendar_day"
+        }
+      ],
+      "sourceScopeComplete": false,
+      "existingPrimaryTemplate": {
+        "sourceId": "cato:citation:TR-cato-1",
+        "url": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "body": {
+          "bytes": 219126,
+          "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+          "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+        },
+        "shape": {
+          "canonical": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+          "heading": "Cato Networks Raises $359 Million at a Valuation of More Than $4.8 Billion",
+          "readableCharacters": 7054,
+          "readableSha256": "40bf45a3c74c3a198ad3c7b1768212e4e60b26c0244606429a3329b3af706b36",
+          "suppliedJsonLd": {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+              "@id": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html"
+            },
+            "headline": "Cato Networks Raises $359 Million at a Valuation of More Than $4.8 Billion",
+            "image": [
+              "https://mma.prnewswire.com/media/2721481/Shlomo_Kramer.jpg?p=facebook"
+            ],
+            "datePublished": "2025-06-30T06:00:00-04:00",
+            "dateModified": "2025-06-30T06:00:34-04:00",
+            "description": "/PRNewswire/ -- Cato Networks, the SASE leader, today announced its Series G funding round, raising $359 million led by new investors including Vitruvian...",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Cision PR Newswire",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.prnewswire.com/content/dam/prnewswire/homepage/prn_cision_logo_desktop.png"
+              }
+            }
+          },
+          "jsonLdScriptTextSha256": "f31c6c39019127cb5eff53088cec7f93f44436a73896ba869e0b856e3671040b",
+          "publicationMetadata": [
+            {
+              "kind": "jsonld_published",
+              "value": "2025-06-30T06:00:00-04:00"
+            }
+          ],
+          "publicationCalendarDay": "2025-06-30",
+          "indexTimezone": null,
+          "publicationComparison": "written_calendar_day"
+        },
+        "originalFull200FetchedAt": "2026-10-24T18:29:41.178689Z",
+        "latestRevalidationAt": "2026-10-25T09:55:56.706174Z",
+        "originalReuseChain": [
+          {
+            "body": {
+              "bytes": 219126,
+              "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+              "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+            },
+            "contentType": "text/html; charset=UTF-8",
+            "etag": null,
+            "fetchedAt": "2026-10-25T09:55:56.706174Z",
+            "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+            "httpStatus": 304,
+            "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+            "observationId": "f4bb402f41bf51f0fa6f0de86573f27f1e00346ed933a18524a92d1a75fdd370",
+            "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+            "reusesObservationId": "275cb7e6d51a87516eeff169cf8b803b8ca677cce8e1618ea21fb65f63a02bcf",
+            "sourceId": "cato:citation:TR-cato-1",
+            "status": "not_modified",
+            "transportReused": false
+          },
+          {
+            "body": {
+              "bytes": 219126,
+              "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+              "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+            },
+            "contentType": "text/html; charset=UTF-8",
+            "etag": null,
+            "fetchedAt": "2026-10-25T06:45:58.074850Z",
+            "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+            "httpStatus": 304,
+            "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+            "observationId": "275cb7e6d51a87516eeff169cf8b803b8ca677cce8e1618ea21fb65f63a02bcf",
+            "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+            "reusesObservationId": "d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc",
+            "sourceId": "cato:citation:TR-cato-1",
+            "status": "not_modified",
+            "transportReused": false
+          },
+          {
+            "body": {
+              "bytes": 219126,
+              "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+              "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+            },
+            "contentType": "text/html; charset=UTF-8",
+            "etag": null,
+            "fetchedAt": "2026-10-24T18:29:41.178689Z",
+            "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+            "httpStatus": 200,
+            "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+            "observationId": "d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc",
+            "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+            "sourceId": "cato:citation:TR-cato-1",
+            "status": "fetched",
+            "transportId": "cff01ea2f8945f22117d75fc2ad87d899d44ccb698bc1f624117544bfee7cefc",
+            "transportReused": false
+          }
+        ],
+        "noClockRenewal": true
+      },
+      "currentSourceSha256": "8a03fa1c619021c0b45987ea009a2d35a4ba4cb5b418c4b87196d14af9825b9a"
+    },
+    {
+      "sourceId": "chainguard:official:1",
+      "supplierId": "chainguard",
+      "method": "GET",
+      "url": "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html",
+      "selectedRecord": {
+        "sourceId": "chainguard:official:1",
+        "pageNumber": 1,
+        "cardIndex": 0,
+        "url": "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html",
+        "title": "Introducing Chainguard Checks: Reinventing Continuous Integration for the Agentic Era",
+        "language": "en-US",
+        "dateLiteral": "Oct 14, 2026, 01:00 ET",
+        "calendarDay": "2026-10-14",
+        "timezone": null,
+        "dateAnomaly": null,
+        "boundaryAmbiguous": false
+      },
+      "listPageBodySha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+      "listPageBodyBytes": 243971,
+      "listPage": {
+        "runId": "40190857026",
+        "resultIndex": 6,
+        "targetId": "chainguard-index",
+        "targetSha256": "14b7ee5b9a2b872091ec5313bb7e7ab7bf6dbf3b7cc23f9ad59a8f946d2750f1",
+        "url": "https://www.prnewswire.com/news/chainguard/",
+        "body": {
+          "bytes": 243971,
+          "key": "objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+          "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f"
+        },
+        "observation": {
+          "bytes": 477,
+          "key": "objects/60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+          "sha256": "60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008"
+        },
+        "fetchedAt": "2026-10-25T11:59:15.734685Z"
+      },
+      "currentWindowItems": 5,
+      "dailyWindowComplete": true,
+      "historicalEnumerationComplete": true,
+      "knownInventoryUrls": 47,
+      "knownEvidenceUnionUrls": 47,
+      "olderBoundary": {
+        "sourceId": "chainguard:official:1",
+        "pageNumber": 1,
+        "cardIndex": 5,
+        "url": "https://www.prnewswire.com/news-releases/chainguard-named-a-cve-numbering-authority-advancing-open-source-vulnerability-disclosure-302886770.html",
+        "title": "Chainguard Named a CVE Numbering Authority, Advancing Open Source Vulnerability Disclosure",
+        "language": "en-US",
+        "dateLiteral": "Sep 22, 2026, 17:22 ET",
+        "calendarDay": "2026-09-22",
+        "timezone": null,
+        "dateAnomaly": null,
+        "boundaryAmbiguous": false
+      },
+      "pendingLiteralPaginationUrls": [],
+      "knownSeedsOutsideObservedList": [],
+      "sourceScopeComplete": true,
+      "existingPrimaryTemplate": {
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "url": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "body": {
+          "bytes": 219802,
+          "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+          "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+        },
+        "shape": {
+          "canonical": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+          "heading": "Chainguard Announces $280 Million Growth Financing from General Catalyst to Usher in Next Era of Trusted Open Source Software",
+          "readableCharacters": 6144,
+          "readableSha256": "4cc83e19ec90977a86d21fb61467a862db82d25ff4b87026f5f3097657ca56dd",
+          "suppliedJsonLd": {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+              "@id": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html"
+            },
+            "headline": "Chainguard Announces $280 Million Growth Financing from General Catalyst to Usher in Next Era of Trusted Open Source Software",
+            "image": [
+              "https://mma.prnewswire.com/media/2649083/Chainguard_Logo.jpg?p=facebook"
+            ],
+            "datePublished": "2025-10-23T11:00:00-04:00",
+            "dateModified": "2025-10-23T11:01:03-04:00",
+            "description": "/PRNewswire/ -- Chainguard, the trusted source for open source, today announced $280 million in growth financing from General Catalyst's Customer Value Fund...",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Cision PR Newswire",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.prnewswire.com/content/dam/prnewswire/homepage/prn_cision_logo_desktop.png"
+              }
+            }
+          },
+          "jsonLdScriptTextSha256": "c98ea4dcb482917e20d2d15fc73ae60b7ebcc2083e00e8d3087941c56f5a643b",
+          "publicationMetadata": [
+            {
+              "kind": "jsonld_published",
+              "value": "2025-10-23T11:00:00-04:00"
+            }
+          ],
+          "publicationCalendarDay": "2025-10-23",
+          "indexTimezone": null,
+          "publicationComparison": "written_calendar_day"
+        },
+        "originalFull200FetchedAt": "2026-10-25T06:46:06.412965Z",
+        "latestRevalidationAt": "2026-10-25T09:56:03.419230Z",
+        "originalReuseChain": [
+          {
+            "body": {
+              "bytes": 219802,
+              "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+              "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+            },
+            "contentType": "text/html; charset=UTF-8",
+            "etag": null,
+            "fetchedAt": "2026-10-25T09:56:03.419230Z",
+            "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+            "httpStatus": 304,
+            "lastModified": "Sun, 25 Oct 2026 06:46:06 GMT",
+            "observationId": "3cf41845c38fb55d6e61fab671a9fe329f1df4f8be5417f997b3cb2b02a80ae4",
+            "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+            "reusesObservationId": "b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e",
+            "sourceId": "chainguard:citation:TR-chainguard-2",
+            "status": "not_modified",
+            "transportReused": false
+          },
+          {
+            "body": {
+              "bytes": 219802,
+              "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+              "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+            },
+            "contentType": "text/html; charset=UTF-8",
+            "etag": null,
+            "fetchedAt": "2026-10-25T06:46:06.412965Z",
+            "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+            "httpStatus": 200,
+            "lastModified": "Sun, 25 Oct 2026 06:46:06 GMT",
+            "observationId": "b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e",
+            "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+            "sourceId": "chainguard:citation:TR-chainguard-2",
+            "status": "fetched",
+            "transportId": "7d4999fc30936f7093fc4b6bb3fcaec4445166210b8c6d09cdd498e8592a4747",
+            "transportReused": false
+          }
+        ],
+        "noClockRenewal": true
+      },
+      "currentSourceSha256": "80eca52f173a73bc1baeab6b9a5b23f550dde1fdd58c8afd55835ee8ad05ead9"
+    }
+  ],
+  "existingExactTargetTransportMatches": [],
+  "metadataSearch": {
+    "normalObservationRecords": 10927,
+    "smallImmutableObjectsAtMost4096Bytes": 8912,
+    "totalInspected": 19839,
+    "matchingTopLevelRequestedOrFinalUrls": 0,
+    "scopeLimit": "All normal observation JSON plus small immutable objects in this authenticated current J archive. This is not a semantic search of arbitrary bodies or other archives."
+  },
+  "allConsultedInputsUnchanged": true,
+  "consultedArchiveInputs": 19870,
+  "externalInputSeals": {
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122,
+      "mtimeNs": 1792936426875241385
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/source-qualification-probes.json": {
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "bytes": 173,
+      "mtimeNs": 1792936426894661837
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247,
+      "mtimeNs": 1792935622804568489
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/derived-report.json": {
+      "sha256": "f9d5f7a414d4c4fefc32e7d7f54691814bda120aa0854771a47d13e3e9a797f1",
+      "bytes": 415403,
+      "mtimeNs": 1792936198175140732
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548,
+      "mtimeNs": 1792935986822360171
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422,
+      "mtimeNs": 1792935986822662588
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/q4_qualification_origin.py": {
+      "sha256": "fc1480799866d9b62360891c48e218242f1e6f01be54dad4767f6ba094b10848",
+      "bytes": 12678,
+      "mtimeNs": 1792936426983385310
+    }
+  },
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "qualified": false,
+  "sourceChecksCredited": 0,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "facts": []
+}

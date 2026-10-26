@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS",
+  "checkedExistingTracked": 2845,
+  "changedExisting": [
+    "ops/ci/collect.py"
+  ],
+  "copiedFilesAuthenticated": 51,
+  "statusAndBacklogOwnedByOtherWorkerAndNotWritten": true,
+  "threeWayCollectPins": {
+    "original3bb": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500
+    },
+    "reviewedPRN": {
+      "sha256": "eccbc0805471e97c3e7ed261e9592cb6423165ca62d16cdec7c5f4c4f89b22a3",
+      "bytes": 26818
+    },
+    "currentCyeraBefore": {
+      "sha256": "e8272dcc4e606478dad5c386848ab8efd1c85244b53fb240222b821933486872",
+      "bytes": 26803
+    },
+    "merged": {
+      "sha256": "58ed42abc717fa300391d6e561870c5c1c6f17833a72a9383a5dc3d43af03316",
+      "bytes": 27109
+    }
+  },
+  "exactUnchangedCyeraBranch": true,
+  "strippingOnlyPRNReproducesPrior": true,
+  "criticalCurrentPins": {
+    "contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "bytes": 173
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+      "bytes": 43099
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+      "bytes": 2341
+    },
+    "web/src/data/generated/dailyMarket.json": {
+      "sha256": "7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f",
+      "bytes": 7696749
+    },
+    "web/src/data/generated/factualCorrections.json": {
+      "sha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+      "bytes": 106
+    }
+  }
+}

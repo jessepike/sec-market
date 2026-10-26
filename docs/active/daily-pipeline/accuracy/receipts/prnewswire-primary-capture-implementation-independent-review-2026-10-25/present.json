@@ -1,0 +1,35 @@
+{
+  "absent": false,
+  "errors": [],
+  "extraResults": [
+    {
+      "portableActualEntriesAuthenticated": 63
+    },
+    "Deadline after first response: one actual call and charge; second unrequested; first raw body retained",
+    {
+      "missingReportFieldsRejected": 24
+    },
+    "H/current-J separation, whole policy/host/extra fields, reversed ordered targets and raw plan whitespace rejected",
+    "Written calendar dates and supplied modification literals preserved; ET gains no invented offset",
+    "1511/80/40 -> 1513/80/40; ordered exact two requests, normal heads unchanged",
+    {
+      "CatoCurrent": 2,
+      "CatoList": 125,
+      "CatoUnion": 127,
+      "ChainguardCurrent": 5,
+      "ChainguardList": 47,
+      "asOf": "2026-10-25T12:42:16.956348Z",
+      "olderMissingSeeds": 2
+    }
+  ],
+  "failures": [],
+  "frozenReadAttempts": [],
+  "frozenWrites": 0,
+  "models": 0,
+  "passed": 27,
+  "scope": "offline dormant build review",
+  "skipped": [],
+  "sourceRequests": 0,
+  "status": "PASS",
+  "testsRun": 27
+}

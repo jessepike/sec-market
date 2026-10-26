@@ -1,0 +1,100 @@
+{
+  "closedAt": "2026-10-26T03:56:12.077847+00:00",
+  "files": [
+    {
+      "bytes": 1454,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/absent.json",
+      "sha256": "ae712c23e5746a8af019783ef5bec75caa7a98cf538adceaaa4171bc9f4c9d8e"
+    },
+    {
+      "bytes": 1292,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/absent.log.gz",
+      "sha256": "24bd79a05702689dc7dfb24c1022e1a79d40aa7e85a9ff4543fdbb7f3759cd71"
+    },
+    {
+      "bytes": 147812,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/actual-full-graph-replay.json",
+      "sha256": "6ad4da719f9b1f1682e8c0b2860d3efad63e495a66f187991fb540171de49e18"
+    },
+    {
+      "bytes": 425,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/actual-replay.log.gz",
+      "sha256": "5ed4ac58729b9388836e123e66a2775e2a5a9cd4ed1717655981ad9661d310c6"
+    },
+    {
+      "bytes": 3251,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/authenticate_worker.py",
+      "sha256": "fe697dd21c99c3780ad10565878967534f1e8f21489532b6f01d95d54c94dd8e"
+    },
+    {
+      "bytes": 383427,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/base-blobs.raw",
+      "sha256": "6a72eea293b5867ebd67b5b1201904325577e03143520eaaf4db260607043b4b"
+    },
+    {
+      "bytes": 389738,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/final-input-seals.json",
+      "sha256": "416edf454c79bb911c55e3b3a8bd8082388d628dbcb77b421bf7efac5ab656d7"
+    },
+    {
+      "bytes": 19126,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/portable-actual-seals.json",
+      "sha256": "99c5f156dc5995b54c36e2473f480d82fbb5ceb775a767aba2dc8d8c9ab18ae7"
+    },
+    {
+      "bytes": 1028,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/present.json",
+      "sha256": "dbc530bcbccc338006ca9c238e3c19f8c4b0dc35ee7af8e76da9edca07d8d333"
+    },
+    {
+      "bytes": 1183,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/present.log.gz",
+      "sha256": "1243a0e0b9d0ac37318ee989ae180cb8fee4d173c0e3dba5a1f5891e54a0f9e1"
+    },
+    {
+      "bytes": 11337,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/protected-proof-before-worker-status.json",
+      "sha256": "7ef129369ad20905829e26c39bddbd785850fa35ae2e3f8c431695ca4b1ed8c4"
+    },
+    {
+      "bytes": 11583,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/protected-proof.json",
+      "sha256": "4392dcc53aaa29a172a663cd0c672258d149ccd710ca1ee0321334743b3b46d9"
+    },
+    {
+      "bytes": 3381,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/replay_actual.py",
+      "sha256": "fe4ae75209e6cc5ad4df06a59b8a56970daf616cd0eeac1db72daf429578c8fc"
+    },
+    {
+      "bytes": 8213,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/review.py",
+      "sha256": "7201dae2a3dc5816dc37c1a393e00a2307d8974659be2639bb3264ee97e83954"
+    },
+    {
+      "bytes": 4271,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/verify_protected.py",
+      "sha256": "5dc8f4feb85ec981c3f8e33da93608ad96ec15bce117ba67d9bf23e6eaf2f1fb"
+    },
+    {
+      "bytes": 17789,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-capture-implementation-independent-review-2026-10-25/worker-evidence-authentication.json",
+      "sha256": "fe0797f1ef2913f08021a19dcd659a4c30d9e647a828b99f7d1becbc39c5845e"
+    }
+  ],
+  "reports": [
+    {
+      "bytes": 3723,
+      "path": "docs/active/daily-pipeline/accuracy/prnewswire-primary-capture-implementation-independent-review-2026-10-25.md",
+      "sha256": "1cb83ffec3e56e8c3f11171ada38c06fc4cddae7017c084027c1333574270779"
+    },
+    {
+      "bytes": 10421,
+      "path": "docs/active/daily-pipeline/accuracy/prnewswire-primary-capture-implementation-independent-review-2026-10-25.json",
+      "sha256": "6a69a99cfff822549ada21f59ed91d6795e142444883dd487ecae557cf5f739e"
+    }
+  ],
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "writesStopped": true
+}
