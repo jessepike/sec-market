@@ -1,7 +1,7 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-10-25
+updated: 2026-10-26
 ---
 
 # Current state
@@ -62,6 +62,12 @@ remain unmeasured.
 
 ## Current source work
 
+The independently reviewed [dormant Cyera current-primary unit](docs/active/daily-pipeline/accuracy/cyera-current-primary-controlled-integration-2026-10-26.md)
+is accepted and copied into this finish checkout. Combined checks pass 995 operational tests;
+archive absence passes 935 with 60 explicit retained-input skips. Its 56 cards, five seeds and one
+bounded primary capture give no source or fact credit. The candidate plan remains unselected;
+source policy J, disabled plan ef9ee1ba and the current eight correction requests remain unchanged.
+
 Current source policy J is 47b9f226…66593a with exact disabled plan ef9ee1ba. Main 40fe14bb
 passed preview/main application checks; preview was READY and the main Git production build
 CANCELED. Main pushes do not publish. The source audit preserves every preceding diagnostic and
@@ -92,8 +98,9 @@ SentinelOne's planned 8%/$25 million repair. All 972 operational checks pass; ar
 pass 913 with 59 explicit skips. Full web validation passes 379 data and 115 pipeline checks,
 build/80 SEC claims, and 42 browser checks with one existing fixture skip; four renders are unchanged.
 The separate historical-six web-test delta retains the initial failed fixture run and the final
-passing run. Main selection, actual semantic admission and new production publication remain
-pending. October 25 calls/gates are spent; successful independent review needs at least two calls,
+passing run. The eight-request selection is on main 3bb9e40c. Root reports ordinary manual
+collector 40263678287 in progress; no new semantic admission or publication is claimed. October 25
+calls/gates were spent; successful independent review needs at least two calls,
 two documents and zero correction fetches after natural October 26 renewal. Pending groups hold
 publication before gate spending; no freshness fallback is selected by this build. The other seven
 atomic proposals remain outside the active request contract.

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "reviewedAt": "2026-10-25T14:50:16.791293+00:00",
+  "acceptedSpec": {
+    "path": "/Users/jessepike/.codex/worktrees/cyera-current-primary/sec-market/docs/active/daily-pipeline/accuracy/cyera-one-primary-build-execution-spec-v0.2-2026-10-25.md",
+    "sha256": "4356cae1aefc85238030c9688d36ed572a1301ef57137a71aeb0e1fd39acd509",
+    "bytes": 17130,
+    "mtimeNs": 1792939625076257068
+  },
+  "originalDraftPins": {
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-retained-56-card-inventory.csv": {
+      "sha256": "2de6dd83504c513f12087960e77d0bfc3251c2be5836991cbcc67a1da7a583a4",
+      "bytes": 18265,
+      "mtimeNs": 1792938975945469750
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-primary-J-candidate-plan-2026-10-25.json": {
+      "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+      "bytes": 5090,
+      "mtimeNs": 1792938975948026415
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/draft-preflight.json": {
+      "sha256": "e0ed53395125d48310a20d2303c925285134630187e6f02c03181ad8a9de075b",
+      "bytes": 2100,
+      "mtimeNs": 1792938975950075789
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/original-H-seven-target-plan.json": {
+      "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+      "bytes": 8977,
+      "mtimeNs": 1792938975823165837
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-one-primary-build-execution-spec-2026-10-25.md": {
+      "sha256": "78eef42356afef9e6374c575c16bd4657d87bd04a84ef9314eabf653dae63ab4",
+      "bytes": 15586,
+      "mtimeNs": 1792939301857996508
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/draft-file-pins.json": {
+      "sha256": "ac4a5be4c5def34cf64a1610daf6221e91922bcacabb7a753ad8b0b3d18f2d03",
+      "bytes": 817,
+      "mtimeNs": 1792939301858347174
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-one-primary-build-execution-spec-v0.2-2026-10-25.md": {
+      "sha256": "4356cae1aefc85238030c9688d36ed572a1301ef57137a71aeb0e1fd39acd509",
+      "bytes": 17130,
+      "mtimeNs": 1792939625072926017
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/v0.2-worktree-copy-pins.json": {
+      "sha256": "ed7e94275d0ed8a45c7f55d222791ccd2048eb9ab33e566a569a234ae5caee61",
+      "bytes": 1882,
+      "mtimeNs": 1792939625080156752
+    }
+  },
+  "materialFinding": {
+    "id": "CYERA-SPEC-F1",
+    "status": "resolved_in_accepted_v0.2",
+    "issue": "Existing default Fetcher recursively retries500/502/503/504, so a no-automatic-retry claim needs explicit existing attempt=2.",
+    "acceptedFix": "fetcher.fetch(source, exact_url, previous=None, attempt=2); no Fetcher change or caller retry. Existing bounded redirects remain allowed transport and held for sample acceptance; no unconditional one-wire redirect claim.",
+    "independentCounterexampleAndFix": [
+      {
+        "attempt": 0,
+        "wireAttempts": 3,
+        "response": {
+          "requestedUrl": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+          "fetchedAt": "2026-10-25T14:47:42.968556Z",
+          "status": "failed",
+          "httpStatus": 503,
+          "errorCode": "HTTP_503"
+        }
+      },
+      {
+        "attempt": 2,
+        "wireAttempts": 1,
+        "response": {
+          "requestedUrl": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+          "fetchedAt": "2026-10-25T14:47:42.968593Z",
+          "status": "failed",
+          "httpStatus": 503,
+          "errorCode": "HTTP_503"
+        }
+      }
+    ]
+  },
+  "remainingFindings": [],
+  "independentChecks": {
+    "exactJInverseToH": true,
+    "fullOriginalSevenTargetPlanValidated": true,
+    "strictChargedParentCyeraObservationValidated": true,
+    "all56CsvRowsReconstructedFromPinnedBody": true,
+    "all5DeclaredSeedsPresent": true,
+    "currentRows": 1,
+    "olderBoundary": "2026-09-22",
+    "oldestRetainedDate": "2022-03-29",
+    "currentSampleUrl": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+    "samplePublicationDay": "2026-10-16",
+    "sourceIndexWindow": "2026-09-25 through2026-10-25 anchored only to original2026-10-25T12:41:43.919481Z index observation",
+    "unknownIndexTimezonePreserved": true
+  },
+  "designAssessment": {
+    "closedAuthority": "Exact J and canonical plan25bf0f\u2026, fixed CSV hash/location, exact source/sample and originalH graph are checked before operation-specific writes/reservation.",
+    "listProof": "Unique issuer H1/canonical and CMS container/card identities; full ordered56rows and5seeds plus older boundary suffice for the declared bounded window. No universal recall or whole-history claim.",
+    "budgetAndLease": "Max1logicalfetch, existing budget/store/contract context, actual lease/escrow/day/deadline/final-in-flight guards;0model/document/gate allowances.",
+    "primaryAndFailures": "Use unchanged generic shape/readability and narrow supplied-publication helper; absent metadata unknown, conflicts held. Retain returned raw response/body before classification; no invented missing fields.",
+    "portableTests": "Mandatory clean-host parser/single-fetch/guard/metadata/tampering coverage plus explicit external-only fullgraph replay skips. Actual execution still requires implementation review and real terminal receipt.",
+    "noNewAuthority": "Dormant two modules and minimal explicit collect dispatch only; no J/source/allowlist/old-route or generic parser relaxation."
+  },
+  "boundaries": {
+    "implementationReviewed": false,
+    "actualPrimaryCaptured": false,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "realStateWrites": 0,
+    "checkoutWrites": 0,
+    "qualificationCoverageFreshnessPublicationCredit": false
+  },
+  "receiptsRelative": "receipts/cyera-one-primary-build-spec-independent-review-2026-10-25"
+}

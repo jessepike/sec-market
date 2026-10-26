@@ -1,0 +1,30 @@
+{
+  "format": "JSON array of seed URL strings, filtered from full cards in original DOM/card order",
+  "authoredExpression": "digest([c['url'] for c in cards if c['url'] in source['seedEvidenceUrls']])",
+  "originalAuthorScript": {
+    "path": "/tmp/smp-cyera-primary-spec-draft-20261025.py",
+    "sha256": "5907b9d38ce90690cec2b13efe3f1294c029678c56fabb6e06cf27c48be326b3",
+    "bytes": 8705,
+    "line": 62
+  },
+  "recoveredFromCsv": {
+    "path": "cyera-retained-56-card-inventory.csv",
+    "sha256": "2de6dd83504c513f12087960e77d0bfc3251c2be5836991cbcc67a1da7a583a4",
+    "bytes": 18265,
+    "predicate": "row['knownSeed'] == 'True'",
+    "order": "existing rowIndex order0 through55"
+  },
+  "value": [
+    "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+    "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+    "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+    "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+    "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises"
+  ],
+  "canonicalValueFile": "cyera-known-seed-membership-hash-value.json",
+  "canonicalValueSha256": "055a5fd979ed3309d7104665970231ff3052ea52bc56bcbc1444e167caf21949",
+  "canonicalValueBytes": 599,
+  "serialization": "UTF-8, ensure_ascii=False, separators=(comma,colon), no trailing newline",
+  "candidatePlanSha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+  "candidatePlanUnchanged": true
+}

@@ -1,0 +1,53 @@
+{
+  "status": "PASS_READ_ONLY_DRAFT_PREFLIGHT",
+  "currentPolicySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "originalPolicySha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "cyeraOriginalCurrentRowsExact": true,
+  "sourceSha256": "6121c066ba4624d6406a3dc586d6a4cea3adcf38ff09275b9296d1e7083da6f0",
+  "unmodifiedStrictHChargedParentReplay": true,
+  "fullOriginalHSevenTargetPlanValidated": true,
+  "originalHPlanRawSha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+  "parentTargetIndex": 1,
+  "parentTargetId": "cyera-press-list",
+  "bodyPin": {
+    "bytes": 361350,
+    "key": "objects/6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941",
+    "sha256": "6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941"
+  },
+  "actualFetchedAt": "2026-10-25T12:41:43.919481Z",
+  "cardCount": 56,
+  "seedCount": 5,
+  "allFiveCurrentSeedsPresent": true,
+  "currentWindowCards": 1,
+  "olderBoundary": "2026-09-22",
+  "sample": {
+    "rowIndex": 0,
+    "url": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+    "title": "Cyera\u2019s AI Security Platform Is Now Available in Claude Marketplace",
+    "dateLiteral": "Oct 16, 2026",
+    "calendarDay": "2026-10-16",
+    "cmsCollectionId": "694bb73db5c685fb23d95442",
+    "cmsItemId": "6ad280f3ddf27281a38264cf"
+  },
+  "candidatePlan": {
+    "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+    "canonicalSha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+    "bytes": 5090
+  },
+  "currentValidatorRejection": "QUALIFICATION_PLAN_OPERATION_UNKNOWN",
+  "wholeOperationBounds": {
+    "currentCandidateCount": 23,
+    "candidateKinds": {
+      "official_discovery": 23
+    },
+    "perGenericMaximum": 10,
+    "legacyExplicitTargetsRequired": 7,
+    "legacyMaximum": 237,
+    "hypotheticalGenericPlusOne": 231,
+    "newClosedOperationMaximum": 1
+  },
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "frozenWrites": 0,
+  "checkoutWrites": 0
+}

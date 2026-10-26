@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_WITH_ACCEPTED_RETRY_AMENDMENT",
+  "originalInputSeals": {
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-retained-56-card-inventory.csv": {
+      "sha256": "2de6dd83504c513f12087960e77d0bfc3251c2be5836991cbcc67a1da7a583a4",
+      "bytes": 18265,
+      "mtimeNs": 1792938975945469750
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-primary-J-candidate-plan-2026-10-25.json": {
+      "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+      "bytes": 5090,
+      "mtimeNs": 1792938975948026415
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/draft-preflight.json": {
+      "sha256": "e0ed53395125d48310a20d2303c925285134630187e6f02c03181ad8a9de075b",
+      "bytes": 2100,
+      "mtimeNs": 1792938975950075789
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/original-H-seven-target-plan.json": {
+      "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+      "bytes": 8977,
+      "mtimeNs": 1792938975823165837
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-one-primary-build-execution-spec-2026-10-25.md": {
+      "sha256": "78eef42356afef9e6374c575c16bd4657d87bd04a84ef9314eabf653dae63ab4",
+      "bytes": 15586,
+      "mtimeNs": 1792939301857996508
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/draft-file-pins.json": {
+      "sha256": "ac4a5be4c5def34cf64a1610daf6221e91922bcacabb7a753ad8b0b3d18f2d03",
+      "bytes": 817,
+      "mtimeNs": 1792939301858347174
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/cyera-one-primary-build-execution-spec-v0.2-2026-10-25.md": {
+      "sha256": "4356cae1aefc85238030c9688d36ed572a1301ef57137a71aeb0e1fd39acd509",
+      "bytes": 17130,
+      "mtimeNs": 1792939625072926017
+    },
+    "/var/tmp/smp-cyera-primary-build-spec-20261025/v0.2-worktree-copy-pins.json": {
+      "sha256": "ed7e94275d0ed8a45c7f55d222791ccd2048eb9ab33e566a569a234ae5caee61",
+      "bytes": 1882,
+      "mtimeNs": 1792939625080156752
+    }
+  },
+  "actualArchiveManifestSha256": "13d956802cd881c0d6805c00c0dee48de07bd6615196e69f74fbf4056a710e34",
+  "exactJInverseToH": true,
+  "fullOriginalSevenTargetPlanValidated": true,
+  "strictChargedParentCyeraObservationValidated": true,
+  "actualCyeraTask": {
+    "taskId": "ed4efbce40842341fe927359413639ff65e9fe4a4ed4cc406f085749e87c2d20",
+    "sourceId": "cyera:official:1",
+    "supplierId": "cyera",
+    "kind": "collect",
+    "required": true
+  },
+  "all56CsvRowsIndependentlyReconstructed": true,
+  "all5SeedsPresent": true,
+  "currentRows": 1,
+  "olderBoundary": "2026-09-22",
+  "earliestDay": "2022-03-29",
+  "equalDatePairs": 0,
+  "existingFetcherRetryCounterexampleAndFix": [
+    {
+      "attempt": 0,
+      "wireAttempts": 3,
+      "response": {
+        "requestedUrl": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+        "fetchedAt": "2026-10-25T14:47:42.968556Z",
+        "status": "failed",
+        "httpStatus": 503,
+        "errorCode": "HTTP_503"
+      }
+    },
+    {
+      "attempt": 2,
+      "wireAttempts": 1,
+      "response": {
+        "requestedUrl": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+        "fetchedAt": "2026-10-25T14:47:42.968593Z",
+        "status": "failed",
+        "httpStatus": 503,
+        "errorCode": "HTTP_503"
+      }
+    }
+  ],
+  "consultedArchiveInputSeals": {
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json": {
+      "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "bytes": 204449,
+      "mtimeNs": 1792937415384486881
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/source-qualification-transitions/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a.json": {
+      "sha256": "f0ee49752483c559a4a7db068a4ba31b66be3a431969d913c56bc43fca580113",
+      "bytes": 171,
+      "mtimeNs": 1792937421113081663
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/d573ed7951f03610e630df97964e2498093a96a53686d6be885cf8019549bf67": {
+      "sha256": "d573ed7951f03610e630df97964e2498093a96a53686d6be885cf8019549bf67",
+      "bytes": 1002,
+      "mtimeNs": 1792937418957741117
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/ci/source-probe-runs/40193925490-1.json": {
+      "sha256": "b8647f4b94b840e240f2d5362e1ab090479c9a08d9a31f85647097dec0bf29b4",
+      "bytes": 104384,
+      "mtimeNs": 1792937415371817844
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711": {
+      "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+      "bytes": 8977,
+      "mtimeNs": 1792937418384734501
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/ci/source-probe-runs/40190857026-1.json": {
+      "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766",
+      "bytes": 89630,
+      "mtimeNs": 1792937415371650052
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2": {
+      "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+      "bytes": 4162,
+      "mtimeNs": 1792937416627526416
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d": {
+      "sha256": "e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d",
+      "bytes": 421,
+      "mtimeNs": 1792937419170293468
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a": {
+      "sha256": "72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+      "bytes": 642600,
+      "mtimeNs": 1792937417541173552
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85": {
+      "sha256": "5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85",
+      "bytes": 452,
+      "mtimeNs": 1792937417285478131
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d": {
+      "sha256": "80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+      "bytes": 275623,
+      "mtimeNs": 1792937417740439116
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0": {
+      "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+      "bytes": 483,
+      "mtimeNs": 1792937418732759895
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8": {
+      "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+      "bytes": 225773,
+      "mtimeNs": 1792937418443536233
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008": {
+      "sha256": "60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+      "bytes": 477,
+      "mtimeNs": 1792937417327742409
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f": {
+      "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+      "bytes": 243971,
+      "mtimeNs": 1792937419304879344
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/68ba38e5b523f7aae607d38b83e9cde31383bde9395b109ac377397cdd3b63b4": {
+      "sha256": "68ba38e5b523f7aae607d38b83e9cde31383bde9395b109ac377397cdd3b63b4",
+      "bytes": 482,
+      "mtimeNs": 1792937417423937547
+    },
+    "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/objects/6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941": {
+      "sha256": "6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941",
+      "bytes": 361350,
+      "mtimeNs": 1792937417359917275
+    }
+  },
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "realStateWrites": 0,
+  "checkoutWrites": 0
+}

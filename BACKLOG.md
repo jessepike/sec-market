@@ -48,6 +48,10 @@ the old 25-candidate queue remains frozen. The retained Cato/Chainguard PR Newsw
 passes independent review, 961 combined-J operational checks and unchanged renders. It grants no
 operational source credit; its scope/normal integration is separate work.
 
+The independently reviewed [dormant Cyera unit](docs/active/daily-pipeline/accuracy/cyera-current-primary-controlled-integration-2026-10-26.md)
+passes 995 combined operational checks and 935 archive-absent checks with 60 explicit skips.
+Its exact retained 56-card/five-seed proof and single primary capture remain dormant; the active disabled J plan is unchanged and no source credit is added.
+
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|
 | Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |
@@ -57,7 +61,7 @@ operational source credit; its scope/normal integration is separate work.
 | Automatic exact-artifact publication |Pending| Observe the next ordinary publisher with naturally renewed UTC allowance, its independent exact-main gate, actual accepted artifact and production bytes. Do not manually retry, refund, reset or buy capacity. |
 | Repaired scheduled-main monitor |Actual behavior accepted; real gaps remain red| Genuine scheduled run 40191154739 passed all 36 runner tests and exact-main replay. The public-byte reader and original-plan binding work; issue 10 updated for real coverage/review/held/publisher gaps. |
 | Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
-| Remaining record corrections |Prepared for preview; real admission pending| The independently reviewed [two-group priority build](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.md) prepares eight requests, preserving the old six and appending Varonis then SentinelOne. All 972 ops pass; archive-absent 913 pass/59 explicit skips; full npm passes 379 data, 115 pipeline, build/80 SEC and 42 browser checks with one existing fixture skip. Main selection remains pending; actual semantic reviews and publication wait for naturally renewed October 26 capacity. October 25 calls/gates stay spent. Pending groups block before gate spending and no fallback is selected. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract. Preserve WitnessAI's metric-date uncertainty. |
+| Remaining record corrections |Selected on main; real admission pending| The independently reviewed [two-group priority build](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.md) prepares eight requests, preserving the old six and appending Varonis then SentinelOne. All 972 ops pass; archive-absent 913 pass/59 explicit skips; full npm passes 379 data, 115 pipeline, build/80 SEC and 42 browser checks with one existing fixture skip. Selection is on main 3bb9e40c; root reports ordinary manual collector 40263678287 in progress. Actual semantic admission and publication remain unproved pending its authenticated result. October 25 calls/gates stay spent. Pending groups block before gate spending and no fallback is selected. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract. Preserve WitnessAI's metric-date uncertainty. |
 
 The 254 missing bindings reconcile to 39 official-announcement, 52 investor/acquirer,
 74 independent-reporting, 67 distribution and 22 regulatory obligations. The reviewed four-neutral

@@ -1,0 +1,99 @@
+{
+  "files": [
+    {
+      "bytes": 1604,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/absent-driver-v1.log.gz",
+      "sha256": "1764dd6b637bf61949b52087bad5f23c54198d462b9035ded25e0872b808b47b"
+    },
+    {
+      "bytes": 1414,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/absent.log.gz",
+      "sha256": "aa660eb66524bfc08a88c70d54669d958943da73541536aa54f1e3b8d15ec478"
+    },
+    {
+      "bytes": 4812,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/actual-state-preservation.json",
+      "sha256": "21ac1f83dcf6048e576997f7180936ce02f05906ec863019622f502ad6322229"
+    },
+    {
+      "bytes": 374003,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/base-blobs.raw",
+      "sha256": "74da635963dee121948bdc41c9eeae3e7a6bc441e7944ad6cb0927da3dc5a986"
+    },
+    {
+      "bytes": 205842,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/final-input-seals.json",
+      "sha256": "bed206d5be36d6d20cbf99677c6508e8692d57263c7da5a100dc51c294c066c8"
+    },
+    {
+      "bytes": 5097,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/portable-payload-actual-seals.json",
+      "sha256": "9d99ae468db3fbf4a6bef0dd64e464ea2018002b64ef5ce90286f5964dd0e0a6"
+    },
+    {
+      "bytes": 1494,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/present-driver-v1.log.gz",
+      "sha256": "a9e883654f2b41f4caf27f1d79f1ebe6e8e344d33255993206b39e9378b84f94"
+    },
+    {
+      "bytes": 1296,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/present.log.gz",
+      "sha256": "94c904617a75a6a23b839592639eaa9741961a0173b2032376e23bb75419ad2e"
+    },
+    {
+      "bytes": 1796,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/review-absent-driver-v1.json",
+      "sha256": "ba6eea73ae446b187c503a0dbd4e00812a6b521eef736aae76e0b40c19bde9e2"
+    },
+    {
+      "bytes": 1397,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/review-absent.json",
+      "sha256": "9766a8abec00e803fe6bfcf249e1ca8393ca34de0e04933c5333a2546c6e9f75"
+    },
+    {
+      "bytes": 1316,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/review-present-driver-v1.json",
+      "sha256": "ca757053b62e1837de3bec8fca68366cd607fa245d4275d713cc2cb3a5724904"
+    },
+    {
+      "bytes": 917,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/review-present.json",
+      "sha256": "729578365b8098a7c1614978519e7905d068b2769450948d6defcb3ab6f940c5"
+    },
+    {
+      "bytes": 8560,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/review.py",
+      "sha256": "1cbe8acadd71979a88575a3687899b379dd89c19fbab1cd38d07256381712edf"
+    },
+    {
+      "bytes": 107210,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/seals-and-protected-proof.json",
+      "sha256": "1532d5e6828f6048f5e88b91c5422408d6d58cb09ab5931ea9a51981539883e4"
+    },
+    {
+      "bytes": 4441,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/verify_seals.py",
+      "sha256": "653ce50521801522b42e6659c0648d5e9a1240a2ef7366978f2b8ef313c6cf5e"
+    },
+    {
+      "bytes": 1542,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-current-primary-build-independent-review-2026-10-25/verify_state.py",
+      "sha256": "bf841d34ca81d29268d69ea7a592398d20ad2b34cdbc1c6fa00357acbd1a4df2"
+    }
+  ],
+  "reports": [
+    {
+      "bytes": 3428,
+      "path": "docs/active/daily-pipeline/accuracy/cyera-current-primary-build-independent-review-2026-10-25.md",
+      "sha256": "b4afb23824ac60a040859ed9a652a2ff690ebcb23235b7fc8e2ea646c6738c39"
+    },
+    {
+      "bytes": 12724,
+      "path": "docs/active/daily-pipeline/accuracy/cyera-current-primary-build-independent-review-2026-10-25.json",
+      "sha256": "a2f6f18563b94957c9aaca0c2f5ab3271637e6c412fea0d60fa2b7ae59de88c6"
+    }
+  ],
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "writesStopped": true
+}

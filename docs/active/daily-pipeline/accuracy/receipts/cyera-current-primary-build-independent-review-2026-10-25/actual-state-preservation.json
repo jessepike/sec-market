@@ -1,0 +1,94 @@
+{
+  "actualAdmissions": 6,
+  "budget": {
+    "calls": 80,
+    "documents": 39,
+    "fetches": 1511
+  },
+  "factProvenance": 4,
+  "newAdmissions": 0,
+  "originalEventObjects": 8,
+  "reviewAuthority": "offline dormant build only; pending two correction groups are outside this historical-six worktree",
+  "reviewQueue": 38,
+  "seals": [
+    {
+      "bytes": 215,
+      "inode": 1840638,
+      "mtimeNs": 1792937415385276340,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/correction-admissions/270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6/a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240-eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5.json",
+      "sha256": "33ae8a80c327b0fadc063f4b7c5c888c9f3fdc52a1eb9c2937169c2a0236b063"
+    },
+    {
+      "bytes": 225,
+      "inode": 1840640,
+      "mtimeNs": 1792937415385406298,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/correction-admissions/36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f/af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15-b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255.json",
+      "sha256": "ff899e425f9300cd7778d7a03640383e17e1475beee239170721ddcc27def1ad"
+    },
+    {
+      "bytes": 215,
+      "inode": 1840642,
+      "mtimeNs": 1792937415385518298,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/correction-admissions/4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5/ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c-7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b.json",
+      "sha256": "18ce0bc5862bcc74ad410ab76ff040a20377f0fca574410f8d2a847e1794eb90"
+    },
+    {
+      "bytes": 224,
+      "inode": 1840644,
+      "mtimeNs": 1792937415385619339,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/correction-admissions/c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a/f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb-a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200.json",
+      "sha256": "ed5eed1e498243f6c3b605776ba6d90ef0aab04c4091c9e4dbfb1455deaa2f36"
+    },
+    {
+      "bytes": 215,
+      "inode": 1840646,
+      "mtimeNs": 1792937415385705423,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/correction-admissions/d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087/b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3-2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da.json",
+      "sha256": "63ebfc98b0200253d56d4a45edc988d85ca79fcb5fc7943181bbd70299390015"
+    },
+    {
+      "bytes": 217,
+      "inode": 1840648,
+      "mtimeNs": 1792937415385809548,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/correction-admissions/dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390/46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3-f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a.json",
+      "sha256": "6c8bedd8dfbc4cebdc9dd9dd0b511a3e22662a84ea18e39f478cbb69ff038df9"
+    },
+    {
+      "bytes": 42,
+      "inode": 1841684,
+      "mtimeNs": 1792937415438790740,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/heads/budget-2026-10-25.json",
+      "sha256": "237e229cb66a10913b6117731abce1c764112d515fd405a83274c0d9ab3bc581"
+    },
+    {
+      "bytes": 258,
+      "inode": 1841689,
+      "mtimeNs": 1792937415440451198,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/heads/correction-collection.json",
+      "sha256": "2388e09ab84cf4a60b08a3bec614a99f3c1a8420d1f5b7c46d8c4748d11c615c"
+    },
+    {
+      "bytes": 1087435,
+      "inode": 1841690,
+      "mtimeNs": 1792937415441315406,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/heads/dailySnapshot.json",
+      "sha256": "b87e7d4f977d7d0c861509a8ae5bb6401c4ee678349dc60a5c223cfd255d6a32"
+    },
+    {
+      "bytes": 14,
+      "inode": 1846666,
+      "mtimeNs": 1792937415698444243,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/heads/gate-budget-2026-10-25.json",
+      "sha256": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54"
+    },
+    {
+      "bytes": 174,
+      "inode": 1846668,
+      "mtimeNs": 1792937415698553452,
+      "path": "/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted/state/heads/production.json",
+      "sha256": "eeacc6111b7f10171a3bf7342410b4e0eae529b24b14b63ebe643f0967c0e871"
+    }
+  ],
+  "sourceClockAndDatesRebased": false,
+  "status": "PASS"
+}

@@ -1,0 +1,41 @@
+{
+  "absent": false,
+  "authority": "offline review only",
+  "errors": [],
+  "extraResults": [
+    {
+      "current": 1,
+      "historical": 55,
+      "matchedSeeds": 5,
+      "membershipBytes": 599,
+      "rows": 56,
+      "timezone": null
+    },
+    {
+      "missingReportFieldsRejected": 24
+    },
+    "whole J/H boundary, unknown root/source keys/host substitution and raw plan whitespace rejected",
+    {
+      "portableActualEntriesCompared": 17
+    },
+    "1511/80/39 -> 1512/80/39; no normal heads changed",
+    {
+      "ambiguousCardSubtreeNegatives": 4,
+      "closedNestedTitlePositive": true
+    }
+  ],
+  "failures": [
+    [
+      "test_all_referenced_raw_whitespace_is_authenticated (__main__.Independent.test_all_referenced_raw_whitespace_is_authenticated)",
+      "Traceback (most recent call last):\n  File \"/mnt/mac/private/tmp/smp-cyera-independent-review.py\", line 63, in test_all_referenced_raw_whitespace_is_authenticated\n    with self.assertRaises((ValueError,TypeError,KeyError,AssertionError)):\nAssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'KeyError'>, <class 'AssertionError'>) not raised\n"
+    ]
+  ],
+  "frozenReadAttempts": [],
+  "frozenWrites": 0,
+  "modelCalls": 0,
+  "passed": 29,
+  "skipped": [],
+  "sourceRequests": 0,
+  "status": "FAIL",
+  "testsRun": 30
+}

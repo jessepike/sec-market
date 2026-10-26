@@ -1,0 +1,46 @@
+{
+  "absent": true,
+  "authority": "offline review only",
+  "errors": [],
+  "extraResults": [
+    {
+      "rawReferencedWhitespaceSubstitutionsRejected": 16,
+      "semanticHeadChangesCoveredSeparately": true
+    },
+    {
+      "current": 1,
+      "historical": 55,
+      "matchedSeeds": 5,
+      "membershipBytes": 599,
+      "rows": 56,
+      "timezone": null
+    },
+    {
+      "missingReportFieldsRejected": 24
+    },
+    "whole J/H boundary, unknown root/source keys/host substitution and raw plan whitespace rejected",
+    "1511/80/39 -> 1512/80/39; no normal heads changed",
+    {
+      "ambiguousCardSubtreeNegatives": 4,
+      "closedNestedTitlePositive": true
+    }
+  ],
+  "failures": [],
+  "frozenReadAttempts": [],
+  "frozenWrites": 0,
+  "modelCalls": 0,
+  "passed": 28,
+  "skipped": [
+    [
+      "test_full_original_H_diagnostic_replay_from_authenticated_J_read_only (test_cyera_primary_capture.FullActualArchiveTests.test_full_original_H_diagnostic_replay_from_authenticated_J_read_only)",
+      "Full actual-J archive replay only; portable core tests always run"
+    ],
+    [
+      "test_portable_payloads_equal_manifest_and_bytes_if_present (__main__.Independent.test_portable_payloads_equal_manifest_and_bytes_if_present)",
+      "Actual manifest comparison only; portable hash checks run in 22 core tests"
+    ]
+  ],
+  "sourceRequests": 0,
+  "status": "PASS",
+  "testsRun": 30
+}

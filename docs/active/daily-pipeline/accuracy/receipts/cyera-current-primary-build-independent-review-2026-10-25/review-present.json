@@ -1,0 +1,40 @@
+{
+  "absent": false,
+  "authority": "offline review only",
+  "errors": [],
+  "extraResults": [
+    {
+      "rawReferencedWhitespaceSubstitutionsRejected": 16,
+      "semanticHeadChangesCoveredSeparately": true
+    },
+    {
+      "current": 1,
+      "historical": 55,
+      "matchedSeeds": 5,
+      "membershipBytes": 599,
+      "rows": 56,
+      "timezone": null
+    },
+    {
+      "missingReportFieldsRejected": 24
+    },
+    "whole J/H boundary, unknown root/source keys/host substitution and raw plan whitespace rejected",
+    {
+      "portableActualEntriesCompared": 17
+    },
+    "1511/80/39 -> 1512/80/39; no normal heads changed",
+    {
+      "ambiguousCardSubtreeNegatives": 4,
+      "closedNestedTitlePositive": true
+    }
+  ],
+  "failures": [],
+  "frozenReadAttempts": [],
+  "frozenWrites": 0,
+  "modelCalls": 0,
+  "passed": 30,
+  "skipped": [],
+  "sourceRequests": 0,
+  "status": "PASS",
+  "testsRun": 30
+}
