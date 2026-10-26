@@ -1,0 +1,30 @@
+{
+  "verdict": "PASS",
+  "archive": {
+    "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+    "manifestSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+    "files": 56266
+  },
+  "archiveCommitMetadataAuthenticated": true,
+  "manifestRawSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+  "manifestBytes": 11744291,
+  "manifestEntryCount": 56266,
+  "manifestHashMatchesActualRunnerAcknowledgment": true,
+  "immutableCommitLatestRunHeadMatchesManifest": true,
+  "receiptObjectHashSizeMatchesHeadAndManifest": true,
+  "archivedCoverageMatchesAcknowledgedObject": true,
+  "sourceContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "archivedCoverage": {
+    "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+    "checkedAt": "2026-10-26T03:36:39.548064Z",
+    "historical": true,
+    "receiptSha256": "95870c767fbb1493bd1a057e393b553d7141af4ef7b2689c6c3d118dbbbc30c3",
+    "inventorySha256": "7864e589a70438ec36f70edd0adef7934bbb64f0df47b3b4cc5368d39bd662a4",
+    "successfulTasks": 265,
+    "requiredTasks": 557,
+    "complete": false
+  },
+  "full56266FileRestoreVerifiedByActualRunner": true,
+  "observerIndependentlyDownloadedAllSourceBodies": false,
+  "observerScope": "Authenticates artifact transport/identity and acknowledged immutable archive manifest, latest-run head and coverage object. The actual tested runner performed the full archive integrity restore. No source clocks renewed."
+}

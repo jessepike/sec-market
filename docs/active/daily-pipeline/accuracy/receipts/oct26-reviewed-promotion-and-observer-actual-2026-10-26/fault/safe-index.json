@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "path": "run-metadata.json",
+      "sha256": "2085c05320f16aa771f8c86e713d0054aac7dc6c0b881feea9213c469bafa0eb",
+      "bytes": 3644
+    },
+    {
+      "path": "reporter-receipt.json",
+      "sha256": "2d3571a3a5746a83fd7cf9d00f910c64525ca74e7b3d27768cb9c94b51631289",
+      "bytes": 199
+    },
+    {
+      "path": "observer-issue15-safe.json",
+      "sha256": "3122d8322fff58fe4a16c3505e2c595b4eec8b5803ba2379141a0db42fe13213",
+      "bytes": 444
+    },
+    {
+      "path": "health-issue10-preservation.json",
+      "sha256": "8f3a7599295a76d450f7e2eef90a091feca0c64bede17fcde4c5457d82054b8c",
+      "bytes": 362
+    },
+    {
+      "path": "acceptance.json",
+      "sha256": "2f0daafba31db112b9cd39eabb16e37f43f911e65dd6b2d38a0d2453f4304d50",
+      "bytes": 2064
+    },
+    {
+      "path": "acceptance.md",
+      "sha256": "f9548bdb29a638333f56a63f92f3669a5ed9d97fbc6e10d2b0c13d998e1b3b02",
+      "bytes": 1647
+    }
+  ],
+  "rawLogsAndFullIssuesExcluded": true,
+  "selfExcluded": true
+}

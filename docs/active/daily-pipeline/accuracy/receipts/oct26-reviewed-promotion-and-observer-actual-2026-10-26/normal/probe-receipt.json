@@ -1,0 +1,43 @@
+{
+  "healthy": false,
+  "checkedAt": "2026-10-26T05:50:28.999454Z",
+  "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+  "reasons": [
+    "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+    "OVERDUE_OR_INCOMPLETE_COVERAGE",
+    "DAILY_INTAKE_INCOMPLETE",
+    "PROCESSING_PENDING_11133",
+    "PROCESSING_HELD_14",
+    "HISTORICAL_REVIEW_PENDING_11133",
+    "INDEPENDENT_PROBE_FAILED",
+    "ContractError"
+  ],
+  "publicationEnabled": true,
+  "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40182324149",
+  "successfulTasks": 265,
+  "requiredTasks": 557,
+  "coverageMeasure": "daily_source_intake_v2",
+  "processing": {
+    "changedDocuments": 1,
+    "complete": false,
+    "heldDocuments": 14,
+    "inventoryDocuments": 11185,
+    "pendingDocuments": 11133,
+    "reviewedDocuments": 52,
+    "unknownDateDocuments": 534
+  },
+  "historicalReview": {
+    "complete": false,
+    "heldDocuments": 14,
+    "inventoryDocuments": 11185,
+    "pendingDocuments": 11133,
+    "reviewedDocuments": 52
+  },
+  "notification": {
+    "delivery": "github_issue_updated",
+    "url": "https://github.com/jessepike/sec-market/issues/10",
+    "number": 10,
+    "state": "open",
+    "notificationTransport": "GitHub account notification settings"
+  }
+}

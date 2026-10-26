@@ -1,0 +1,67 @@
+{
+  "verdict": "ACTUAL_CANARY_SUCCESS_ARTIFACT_ARCHIVE_ACK_AUTHENTICATED",
+  "closedAtUtc": "2026-10-26T05:53:11.700868+00:00",
+  "runId": 40275425806,
+  "jobId": 121417053043,
+  "exactAppRevision": "a8d92efacc6fc8717b901ed607fdea17c8fd60e4",
+  "runUrl": "https://github.com/jessepike/sec-market/actions/runs/40275425806",
+  "event": "push",
+  "branch": "preview",
+  "runAttempt": 1,
+  "timings": {
+    "guardSeconds": 403.0,
+    "archiveSeconds": 43.0,
+    "wholeJobSeconds": 464.0,
+    "wholeRunCreatedToUpdatedSeconds": 467.0
+  },
+  "guards": {
+    "tests": 1018,
+    "passed": 956,
+    "explicitArchiveSkips": 62,
+    "localPortableExplicitArchiveSkips": 61,
+    "extraHostedSkip": [
+      {
+        "test": "test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present (test_regulatory_index.RegulatoryIndexTests.test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present)",
+        "reason": "'Historical read-only archive absent; synthetic neutral-index mechanics still run'"
+      }
+    ],
+    "unittestSeconds": 402.187,
+    "stepSeconds": 403.0,
+    "cpuSeconds": null,
+    "cpuNotReportedByHostedRunner": true
+  },
+  "artifact": {
+    "verdict": "PASS",
+    "artifactId": 12630361480,
+    "zipDigestMatchesGitHubMetadata": true,
+    "zipSha256": "fc8d6bbb9b3e2c632fcb1481d78e9f79bbf4004e13c08284a4af518769e59e96",
+    "zipBytes": 11937,
+    "metadataBytes": 11937,
+    "member": "smp-runtime-canary.json",
+    "receiptSha256": "c71ce2b2790a509f8b677e66649afd1aae3398923eacebb15b431cf3ef43e5ca",
+    "receiptBytes": 24229,
+    "actualRunIdAndRevisionBound": true,
+    "runtimeReceiptPassed": true,
+    "allNoncollectionZeroCreditFieldsVerified": true
+  },
+  "archiveAcknowledgment": {
+    "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+    "manifestSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+    "files": 56266
+  },
+  "runtimeCheckedAt": "2026-10-26T05:47:25.021019Z",
+  "archivedCoverageCheckedAt": "2026-10-26T03:36:39.548064Z",
+  "historicalCoverageClockPreserved": true,
+  "coverageComplete": false,
+  "coverageSuccessful": 265,
+  "coverageRequired": 557,
+  "marketSourceRequests": 0,
+  "modelCalls": 0,
+  "observerDispatches": 0,
+  "observerGateReservations": 0,
+  "observerStateRefMutations": 0,
+  "observerFinishWrites": 0,
+  "publicationCredit": false,
+  "descendantShaCanaryClaim": false,
+  "descendantRequirement": "A later watchdog descendant requires separate explicit complete canary dependency-tree equality/inheritance proof; this receipt authenticates only exact a8d92ef."
+}

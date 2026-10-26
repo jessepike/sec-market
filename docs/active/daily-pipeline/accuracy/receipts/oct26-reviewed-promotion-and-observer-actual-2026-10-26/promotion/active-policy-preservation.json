@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS_ACTIVE_POLICY_PLAN_REQUESTS_UNCHANGED",
+  "sourcePolicyCanonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "correctionOuterPolicySha256": "1c629249347b9bdacaf4fadf563e1a0ed807b96c0cbb02e3e2492ae00a839e5b",
+  "files": {
+    "contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122,
+      "exactPrePromotionMain": true
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+      "bytes": 43099,
+      "exactPrePromotionMain": true
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "bytes": 173,
+      "exactPrePromotionMain": true
+    },
+    "ops/ci/collection-request.json": {
+      "sha256": "ccdafe852f2b7968430110770bece658ca10c69f01d0684bf9e3b8931dab0bf3",
+      "bytes": 376,
+      "exactPrePromotionMain": true
+    }
+  },
+  "newSourcePlansSelected": false
+}

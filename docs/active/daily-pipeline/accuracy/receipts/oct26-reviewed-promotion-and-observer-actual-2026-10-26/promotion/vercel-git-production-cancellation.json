@@ -1,0 +1,28 @@
+{
+  "deploymentId": "dpl_4TR9E43nPwXadXqauiac8v7dKc2B",
+  "source": "git",
+  "target": "production",
+  "state": "CANCELED",
+  "gitCommitSha": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "gitCommitRef": "main",
+  "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+  "teamId": "team_gRV7FrVjjr1PPI1IvgoCEJrH",
+  "errorLink": "https://vercel.com/docs/platform/projects#ignored-build-step",
+  "events": [
+    {
+      "created": 1792994455350,
+      "type": "stdout",
+      "text": "Cloning github.com/jessepike/sec-market (Branch: main, Commit: f514cfe)"
+    },
+    {
+      "created": 1792994459553,
+      "type": "stdout",
+      "text": "Running \"test \"$VERCEL_GIT_COMMIT_REF\" = main || test \"$VERCEL_GIT_COMMIT_REF\" = data/archive\""
+    },
+    {
+      "created": 1792994459588,
+      "type": "stderr",
+      "text": "The deployment was canceled because the Ignored Build Step command returned exit code 0."
+    }
+  ]
+}

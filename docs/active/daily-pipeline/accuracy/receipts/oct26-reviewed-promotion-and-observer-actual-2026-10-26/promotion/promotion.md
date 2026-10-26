@@ -1,0 +1,17 @@
+# Actual reviewed-main promotion and observer acceptance
+
+Main and preview now equal `f514cfe017a60b3dea50bc4da37980f4b892f657`. The public data release remains old sequence 4. Genuine current-J/eight-group native collection and ordinary publication proof remain open.
+
+Root reports the existing GitHub App update used expected old main `3bb9e40c8f6324aa4f419fbe13022ec4dcaece55`, exact f514 target and force=false after the actual installed Git guard passed. Independent ref reads, fast-forward ancestry and clean finish agree. Individually captured Git status/trace and the direct Orb→Git invocation exited 0. Earlier shell-driver outer exit-1 anomalies remain recorded separately from their proven inner Git exit 0. No guard or policy was weakened.
+
+Actual main web run `40277379961` passed on exact f514. Vercel confirms exact-main Git production deployment `dpl_4TR9E43nPwXadXqauiac8v7dKc2B` CANCELED. Its real build events show the configured branch check and cancellation because the Ignored Build Step returned 0. The direct Git production path stayed closed.
+
+After promotion and the observer drill, all 106 files across the public and immutable old-release hosts still match the acknowledged sequence-4 artifact byte for byte. Public remains release `fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4`, app 6d5e87fe, snapshot 8ba13011. Six old corrections remain public; the two newly admitted groups remain private. Archive ref remains `5ddcbc51613f125c12cdc724db821384886722f5`. Eight independently fetched heads match the full authenticated archive: 444 fetches/76 calls/37 documents, gate attempts 1 of 2, prior publisher lease released `2026-10-26T04:07:01.428398Z`. The publication-budget head remains absent; no fictional zero is assigned.
+
+Actual ancestor canary `40275425806` passed 956 tests plus 62 explicit archive-only skips, total 1,018, and authenticated its runtime artifact and 56,266-entry archive. Final f514 inherits that evidence through exact equality of the complete 456-file canary dependency closure; no f514 canary run is invented. Actual f514 preview web and READY deployment were verified separately.
+
+Manual normal observer `40276390970`, fault `40276665629` and recovery `40276796045` prove actual GitHub notification, deliberate failure delivery and recovery. The intended failure skipped the trusted probe and opened issue 15 assigned to Jesse with the exact run URL while all of issue 10 stayed unchanged. Recovery closed only issue 15 after trusted notification acknowledgement; health issue 10 stayed open with real gaps. Coverage, backlog and ContractError diagnostics remain red. These manual runs prove no native scheduling, healthy pipeline or phone/email delivery.
+
+Root deleted only the exact temporary fault ref; independent host ls-remote confirms absence. The clean drill worktree remains detached at d3a64651 because the app refused archiving a pinned chat/workspace. It was retained intact, without deleting source artifacts or other worktrees.
+
+Private intake remains 265/557, public 264/557. The 292 private gaps remain 254 missing bindings, 23 candidates, nine 403s, four 429s, one WitnessAI 504 and one unapproved host. Native collection due 05:17 UTC has no observed creation/start/result in the captured queue. The final gate stays reserved for a genuine ordinary scheduled publisher/callback. No manual second publisher, reset, refund, source activation or purchased capacity occurred.

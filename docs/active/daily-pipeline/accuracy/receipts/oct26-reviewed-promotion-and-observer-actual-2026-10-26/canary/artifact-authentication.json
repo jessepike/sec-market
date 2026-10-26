@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "artifactId": 12630361480,
+  "zipDigestMatchesGitHubMetadata": true,
+  "zipSha256": "fc8d6bbb9b3e2c632fcb1481d78e9f79bbf4004e13c08284a4af518769e59e96",
+  "zipBytes": 11937,
+  "metadataBytes": 11937,
+  "member": "smp-runtime-canary.json",
+  "receiptSha256": "c71ce2b2790a509f8b677e66649afd1aae3398923eacebb15b431cf3ef43e5ca",
+  "receiptBytes": 24229,
+  "actualRunIdAndRevisionBound": true,
+  "runtimeReceiptPassed": true,
+  "allNoncollectionZeroCreditFieldsVerified": true
+}

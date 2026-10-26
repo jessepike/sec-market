@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS_EXACT_REMOTE_FAULT_REF_ABSENT",
+  "command": "host git ls-remote origin refs/heads/codex/observer-alert-acceptance-20261026",
+  "exitCode": 0,
+  "stdoutEmpty": true,
+  "expectedDeletedRevision": "d3a646515b65187731a37027049769cfd6356fbc"
+}

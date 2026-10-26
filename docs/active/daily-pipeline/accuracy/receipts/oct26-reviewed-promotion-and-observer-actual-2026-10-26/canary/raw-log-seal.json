@@ -1,0 +1,24 @@
+{
+  "path": "/var/tmp/smp-canary-observer-40275425806/job.log",
+  "sha256": "a1d2f57cb21c0dcbf2a7db7b454855e5e11131e1b3ebd34b34157800d0212ebe",
+  "bytes": 276525,
+  "vmOnly": true,
+  "guardSummary": {
+    "tests": 1018,
+    "passed": 956,
+    "explicitArchiveSkips": 62,
+    "localPortableExplicitArchiveSkips": 61,
+    "extraHostedSkip": [
+      {
+        "test": "test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present (test_regulatory_index.RegulatoryIndexTests.test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present)",
+        "reason": "'Historical read-only archive absent; synthetic neutral-index mechanics still run'"
+      }
+    ],
+    "unittestSeconds": 402.187,
+    "stepSeconds": 403.0,
+    "cpuSeconds": null,
+    "cpuNotReportedByHostedRunner": true
+  },
+  "rawArchiveManifestVmOnly": true,
+  "rawCoverageObjectVmOnly": true
+}

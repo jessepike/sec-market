@@ -1,0 +1,8 @@
+{
+  "retainedPath": "/Users/jessepike/.codex/worktrees/observer-alert-drill/sec-market",
+  "head": "d3a646515b65187731a37027049769cfd6356fbc",
+  "clean": true,
+  "detached": true,
+  "archiveWorktreeRefusal": "Root reports chat/workspace pinned; protected clean detached worktree retained rather than removed.",
+  "unrelatedWorktreesUntouchedByAudit": true
+}

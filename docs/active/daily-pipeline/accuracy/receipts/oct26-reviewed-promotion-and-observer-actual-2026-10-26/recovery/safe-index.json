@@ -1,0 +1,61 @@
+{
+  "files": [
+    {
+      "path": "run-metadata.json",
+      "bytes": 3644,
+      "sha256": "7e7458afd59e094f79a6bff5e5277846528c7644d059333d3f990f657244eb30"
+    },
+    {
+      "path": "probe-receipt.json",
+      "bytes": 1274,
+      "sha256": "47580ebe4c6fd343fa4693c5a4c40f2edcc44efbc321a591de915a4a69d8a5b2"
+    },
+    {
+      "path": "reporter-receipt.json",
+      "bytes": 200,
+      "sha256": "16cc825dc3b75589d9e0cf2eb12c77e02c56ac815811de236c53324a4e407486"
+    },
+    {
+      "path": "observer-issue15-safe.json",
+      "bytes": 364,
+      "sha256": "f7c6b93e0b0663e62caab0d02d1ccfe7131fd5f0d0eeb7dc5c1e3893bef9687c"
+    },
+    {
+      "path": "health-issue10-safe.json",
+      "bytes": 351,
+      "sha256": "bf2184e8b82577b589f4ff31353359ba8eaac9fa45f615ef8c6372e0e1dafd30"
+    },
+    {
+      "path": "main-ref-after.json",
+      "bytes": 75,
+      "sha256": "4dfac34474b1ab53b88bae9bdb53268f3e620e878bb0d03a418760e3480b4da0"
+    },
+    {
+      "path": "preview-ref-after.json",
+      "bytes": 78,
+      "sha256": "1240d568214e0da93e96f6534606101b99d766038484015c4b06bbc595237c0d"
+    },
+    {
+      "path": "archive-ref-after.json",
+      "bytes": 88,
+      "sha256": "d18482dc8d11e7ddddd168479d815342981fdb645612be248fcf7bdc4ab4c653"
+    },
+    {
+      "path": "public-receipt-after.json",
+      "bytes": 1103,
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28"
+    },
+    {
+      "path": "acceptance.json",
+      "bytes": 2778,
+      "sha256": "66fae5c8a26ec8cdcb67bc9a6e3472d83d710e5f33f1b72b8e80c7f322f0bf6a"
+    },
+    {
+      "path": "acceptance.md",
+      "bytes": 2051,
+      "sha256": "b6fc975fe60e3f90aaab35ef77b8c94c04f8f0739ee06bb2dc434cfbf101f15f"
+    }
+  ],
+  "rawLogsAndFullIssuesExcluded": true,
+  "selfExcluded": true
+}

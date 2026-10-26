@@ -1,0 +1,120 @@
+{
+  "status": {
+    "gitDryRunExit": 0
+  },
+  "exitEvents": [
+    {
+      "event": "child_exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c",
+      "code": 0,
+      "child_id": 0,
+      "pid": 978590
+    },
+    {
+      "event": "child_exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c",
+      "code": 0,
+      "child_id": 1,
+      "pid": 978602
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.816363Z-H34c6fcec-P000eeeb3",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.816363Z-H34c6fcec-P000eeeb3",
+      "code": 0
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.817402Z-H34c6fcec-P000eeeb4",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.817402Z-H34c6fcec-P000eeeb4",
+      "code": 0
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.818663Z-H34c6fcec-P000eeeb5",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.818663Z-H34c6fcec-P000eeeb5",
+      "code": 0
+    },
+    {
+      "event": "child_exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a",
+      "code": 0,
+      "child_id": 1,
+      "pid": 978610
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c/20261026T055753.605911Z-H34c6fcec-P000eeef3",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c/20261026T055753.605911Z-H34c6fcec-P000eeef3",
+      "code": 0
+    },
+    {
+      "event": "child_exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c",
+      "code": 0,
+      "child_id": 2,
+      "pid": 978675
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b/20261026T055752.074009Z-H34c6fcec-P000eee9c",
+      "code": 0
+    },
+    {
+      "event": "child_exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b",
+      "code": 0,
+      "child_id": 0,
+      "pid": 978588
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a/20261026T055752.069146Z-H34c6fcec-P000eee9b",
+      "code": 0
+    },
+    {
+      "event": "child_exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a",
+      "code": 0,
+      "child_id": 0,
+      "pid": 978587
+    },
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a",
+      "code": 0
+    }
+  ],
+  "rawTraceExcluded": true
+}

@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS_READY_FOR_ROOT_GUARDED_FAST_FORWARD_REF_UPDATE",
+  "expectedOldMain": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "exactApprovedPreviewTarget": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "force": false,
+  "expectedShaRequired": true,
+  "priorEvidenceIndexSha256": "c690a58ba93f609b68352b8b1290b09cd3b2281ce74e0cbe9776ec4112ea0eb5",
+  "priorDecisionSupersededOnlyForGitExitHold": true,
+  "actualIndividualGitDryRunExit": 0,
+  "gitStatusReceiptSha256": "08800aa9bb9b370819743592012f34be0f0f9c60217dc8aa7f6dda79e749986f",
+  "gitTraceSha256": "a5701d69b1f8c686907cbb99625c3a01564e57f12c2a244dd3ad51031c6a84f0",
+  "allRecordedExitEventsZero": true,
+  "topLevelGitExitEvents": [
+    {
+      "event": "exit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a",
+      "code": 0
+    },
+    {
+      "event": "atexit",
+      "sid": "20261026T055752.062360Z-H34c6fcec-P000eee9a",
+      "code": 0
+    }
+  ],
+  "actualInstalledHookGuardPass": true,
+  "directOrbEnvGitOuterExitReportedByRoot": 0,
+  "directOrbExecSession": 10471,
+  "directOrbFinalChunk": "7b80cb",
+  "priorBashDriverOuterWrapperAnomalies": [
+    1,
+    1
+  ],
+  "anomaliesDoNotOverrideIndividuallyCapturedGitExit": true,
+  "rootMustReReadExactRemoteRefsImmediatelyBeforeMutation": true,
+  "rootMustReadFetchVerifyRefsAndAncestryAfterMutation": true,
+  "reviewerRefMutation": false,
+  "publicationCredit": false,
+  "nativeScheduleCredit": false,
+  "pendingActuals": [
+    "Genuine current-J/eight-group native collector receipt",
+    "Ordinary publisher independent gate and archive/public artifact acknowledgement",
+    "Production exact release facts/review drawers/browser/public-file proof"
+  ]
+}

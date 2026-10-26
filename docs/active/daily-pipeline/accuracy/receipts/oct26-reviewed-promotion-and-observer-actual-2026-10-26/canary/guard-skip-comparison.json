@@ -1,0 +1,261 @@
+{
+  "actualSkipped": 62,
+  "localPortableSkipped": 61,
+  "extraActual": [
+    {
+      "test": "test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present (test_regulatory_index.RegulatoryIndexTests.test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present)",
+      "reason": "'Historical read-only archive absent; synthetic neutral-index mechanics still run'"
+    }
+  ],
+  "missingActual": [],
+  "actualSkips": [
+    {
+      "test": "test_actual_rejected_pages_replay_under_explicit_v2_modes_without_changing_bytes (test_bounded_candidate_retained_paths.BoundedCandidateRetainedPathTests.test_actual_rejected_pages_replay_under_explicit_v2_modes_without_changing_bytes)",
+      "reason": "'authenticated bounded-run archive is a local replay input'"
+    },
+    {
+      "test": "test_original_retained_card_reconstructs_exact_warning_without_new_date (test_bounded_v5_warning_replay.BoundedV5WarningReplayTests.test_original_retained_card_reconstructs_exact_warning_without_new_date)",
+      "reason": "'authenticated actual V4 body is VM-local'"
+    },
+    {
+      "test": "test_full_original_H_diagnostic_replay_from_authenticated_J_read_only (test_cyera_primary_capture.FullActualArchiveTests.test_full_original_H_diagnostic_replay_from_authenticated_J_read_only)",
+      "reason": "'Full actual-J archive replay only; portable core tests always run'"
+    },
+    {
+      "test": "test_actual_roots_pages_and_terminal_are_layout_evidence_not_traversal (test_html_archive_discovery.HtmlArchiveDiscoveryTests.test_actual_roots_pages_and_terminal_are_layout_evidence_not_traversal)",
+      "reason": "'authenticated response bundles are local replay inputs'"
+    },
+    {
+      "test": "test_authenticated_v2_examples_are_v3_parseable_but_not_rewritten (test_html_archive_v3.HtmlArchiveV3Tests.test_authenticated_v2_examples_are_v3_parseable_but_not_rewritten)",
+      "reason": "'authenticated V2 target bodies are VM-local'"
+    },
+    {
+      "test": "test_authenticated_v3_page_bodies_replay_only_under_v4 (test_html_archive_v4.HtmlArchiveV4Tests.test_authenticated_v3_page_bodies_replay_only_under_v4)",
+      "reason": "'authenticated actual-page bundle is local integration evidence; synthetic grammar tests still run'"
+    },
+    {
+      "test": "test_actual_v4_terminal_and_mislink_are_only_reinterpreted_by_v5 (test_html_v5_discovery.HtmlV5DiscoveryTests.test_actual_v4_terminal_and_mislink_are_only_reinterpreted_by_v5)",
+      "reason": "'authenticated V4 target bundle and archive are local replay inputs'"
+    },
+    {
+      "test": "test_reviewed_actual_parent_bytes_and_original_statuses_preflight_read_only (test_neutral_sec_qualification.ArchivedRelationshipPreflightTests.test_reviewed_actual_parent_bytes_and_original_statuses_preflight_read_only)",
+      "reason": "'Authenticated local archive unavailable; no network fallback'"
+    },
+    {
+      "test": "test_exact_original_endpoint_authority_and_root_to_missing_page_two (test_orca_qualification.ActualOrcaBodyTests.test_exact_original_endpoint_authority_and_root_to_missing_page_two)",
+      "reason": "'authenticated archive is a local-only test input'"
+    },
+    {
+      "test": "test_actual_pages_one_two_missing_three_yield_exact_twenty_incomplete (test_ping_discovery.PingDiscoveryTests.test_actual_pages_one_two_missing_three_yield_exact_twenty_incomplete)",
+      "reason": "'actual immutable archive is supplied only for local replay'"
+    },
+    {
+      "test": "test_actual_terminal_body_is_recognized_without_claiming_traversal (test_ping_discovery.PingDiscoveryTests.test_actual_terminal_body_is_recognized_without_claiming_traversal)",
+      "reason": "'authenticated terminal body is a local replay input'"
+    },
+    {
+      "test": "test_SYNTHETIC_successful_two_group_review_cost_and_order_never_touch_real_state (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_SYNTHETIC_successful_two_group_review_cost_and_order_never_touch_real_state)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_completion_after_source_expiry_cannot_admit_second_group (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_completion_after_source_expiry_cannot_admit_second_group)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_each_actual_source_age_has_inclusive_30h_limit_at_start_and_completion (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_each_actual_source_age_has_inclusive_30h_limit_at_start_and_completion)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_literal_excerpt_and_source_body_clock_mismatches_reject (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_literal_excerpt_and_source_body_clock_mismatches_reject)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_new_J_retains_exact_old_packet_sources_whole_texts_and_200_304_clocks (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_new_J_retains_exact_old_packet_sources_whole_texts_and_200_304_clocks)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_six_old_admissions_replay_without_reservations_before_two_pending_groups (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_six_old_admissions_replay_without_reservations_before_two_pending_groups)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_synthetic_marker_and_rejected_review_remain_pending_without_gate (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_synthetic_marker_and_rejected_review_remain_pending_without_gate)",
+      "reason": "'Full authenticated actual J archive available only in offline evidence VM'"
+    },
+    {
+      "test": "test_actual_all_cards_locale_paths_and_separate_completion (test_prnewswire_press_list.ActualPressListTests.test_actual_all_cards_locale_paths_and_separate_completion)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_both_original_diagnostics_replay_in_full_under_H (test_prnewswire_primary_capture.FullHistoricalReplay.test_both_original_diagnostics_replay_in_full_under_H)",
+      "reason": "'Explicit full archive original-H replay only'"
+    },
+    {
+      "test": "test_actual_complete_proposal_separates_window_history_seed_scope_and_zero_credit (test_prnewswire_retained_window.RetainedTests.test_actual_complete_proposal_separates_window_history_seed_scope_and_zero_credit)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_both_complete_original_diagnostics_replay_without_frozen_writes (test_prnewswire_retained_window.RetainedTests.test_both_complete_original_diagnostics_replay_without_frozen_writes)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_duplicate_plan_json_keys_and_nonfinite_constants_reject (test_prnewswire_retained_window.RetainedTests.test_duplicate_plan_json_keys_and_nonfinite_constants_reject)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_every_descriptor_scalar_and_missing_extra_fields_reject (test_prnewswire_retained_window.RetainedTests.test_every_descriptor_scalar_and_missing_extra_fields_reject)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_legitimate_modification_date_difference_is_preserved (test_prnewswire_retained_window.RetainedTests.test_legitimate_modification_date_difference_is_preserved)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_omitted_card_history_or_boundary_and_forged_credit_cannot_replay (test_prnewswire_retained_window.RetainedTests.test_omitted_card_history_or_boundary_and_forged_credit_cannot_replay)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_original_primary_article_token_exception_is_closed (test_prnewswire_retained_window.RetainedTests.test_original_primary_article_token_exception_is_closed)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_primary_original_full200_and_real304_chain_are_preserved (test_prnewswire_retained_window.RetainedTests.test_primary_original_full200_and_real304_chain_are_preserved)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact (test_prnewswire_retained_window.RetainedTests.test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_source_policy_mutation_rejects_without_historical_authority_bridge (test_prnewswire_retained_window.RetainedTests.test_source_policy_mutation_rejects_without_historical_authority_bridge)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_store_cannot_forge_record_plan_page_primary_or_clock_even_with_rehashed_body (test_prnewswire_retained_window.RetainedTests.test_store_cannot_forge_record_plan_page_primary_or_clock_even_with_rehashed_body)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_supplied_primary_metadata_identity_conflicts_and_hidden_container_reject (test_prnewswire_retained_window.RetainedTests.test_supplied_primary_metadata_identity_conflicts_and_hidden_container_reject)",
+      "reason": "'Requires authenticated retained 9e4a archive'"
+    },
+    {
+      "test": "test_actual_charged_parent_proofs_and_six_exact_disclosures_read_only (test_q4_controller_capture.ActualQ4ParentTests.test_actual_charged_parent_proofs_and_six_exact_disclosures_read_only)",
+      "reason": "'Requires frozen authenticated seven-source archive'"
+    },
+    {
+      "test": "test_actual_original_plan_row_body_time_source_and_charge_proofs_reject_mutations (test_q4_controller_capture.ActualQ4ParentTests.test_actual_original_plan_row_body_time_source_and_charge_proofs_reject_mutations)",
+      "reason": "'Requires frozen authenticated seven-source archive'"
+    },
+    {
+      "test": "test_all_six_old_admissions_and_hashes_replay_unchanged (test_q4_initial_data_capture.ActualProofTests.test_all_six_old_admissions_and_hashes_replay_unchanged)",
+      "reason": "'Requires actual authenticated 9634 archive'"
+    },
+    {
+      "test": "test_changed_actual_record_plan_wrappers_raw_api_and_html_fail_closed (test_q4_initial_data_capture.ActualProofTests.test_changed_actual_record_plan_wrappers_raw_api_and_html_fail_closed)",
+      "reason": "'Requires actual authenticated 9634 archive'"
+    },
+    {
+      "test": "test_complete_original_capture_and_two_source_controller_html_joins (test_q4_initial_data_capture.ActualProofTests.test_complete_original_capture_and_two_source_controller_html_joins)",
+      "reason": "'Requires actual authenticated 9634 archive'"
+    },
+    {
+      "test": "test_real_proof_preflight_capture_finalize_and_replay_in_isolated_writable_overlay (test_q4_initial_data_capture.ActualProofTests.test_real_proof_preflight_capture_finalize_and_replay_in_isolated_writable_overlay)",
+      "reason": "'Requires actual authenticated 9634 archive'"
+    },
+    {
+      "test": "test_actual_complete_graph_and_all_five_inventory_only_origins (test_q4_normal_intake.ActualArchiveProofTests.test_actual_complete_graph_and_all_five_inventory_only_origins)",
+      "reason": "'Full actual archive unavailable; portable committed-proof and ordinary tests still run'"
+    },
+    {
+      "test": "test_six_correction_admissions_and_group_policies_replay_without_any_work (test_q4_normal_intake.ActualArchiveProofTests.test_six_correction_admissions_and_group_policies_replay_without_any_work)",
+      "reason": "'Full actual archive unavailable; portable committed-proof and ordinary tests still run'"
+    },
+    {
+      "test": "test_all_actual_arrays_keep_206_323_records_and_original_3_4_window (test_q4_press_list.ActualPressListTests.test_all_actual_arrays_keep_206_323_records_and_original_3_4_window)",
+      "reason": "'Requires authenticated actual d660 archive'"
+    },
+    {
+      "test": "test_real_arrays_have_no_fixed_count_ceiling_and_later_calendar_can_be_quiet (test_q4_press_list.ActualPressListTests.test_real_arrays_have_no_fixed_count_ceiling_and_later_calendar_can_be_quiet)",
+      "reason": "'Requires authenticated actual d660 archive'"
+    },
+    {
+      "test": "test_all_six_old_admission_hashes_and_original_bytes_replay (test_q4_primary_qualification.ActualProofTests.test_all_six_old_admission_hashes_and_original_bytes_replay)",
+      "reason": "'Requires actual authenticated d660 archive'"
+    },
+    {
+      "test": "test_changed_original_envelope_body_wrapper_html_and_controller_fail_closed (test_q4_primary_qualification.ActualProofTests.test_changed_original_envelope_body_wrapper_html_and_controller_fail_closed)",
+      "reason": "'Requires actual authenticated d660 archive'"
+    },
+    {
+      "test": "test_real_parent_with_fictional_samples_in_separate_writable_overlay (test_q4_primary_qualification.ActualProofTests.test_real_parent_with_fictional_samples_in_separate_writable_overlay)",
+      "reason": "'Requires actual authenticated d660 archive'"
+    },
+    {
+      "test": "test_whole_actual_report_graph_row_two_and_original_window_replay_read_only (test_q4_primary_qualification.ActualProofTests.test_whole_actual_report_graph_row_two_and_original_window_replay_read_only)",
+      "reason": "'Requires actual authenticated d660 archive'"
+    },
+    {
+      "test": "test_actual_audit_identity_is_required (test_q4_retained_primary_template.ActualProofTests.test_actual_audit_identity_is_required)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_actual_both_samples_replay_original_hold_and_complete_graph_without_credit (test_q4_retained_primary_template.ActualProofTests.test_actual_both_samples_replay_original_hold_and_complete_graph_without_credit)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_actual_identity_headings_and_supplied_metadata_remain_literal (test_q4_retained_primary_template.ActualProofTests.test_actual_identity_headings_and_supplied_metadata_remain_literal)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_all_original_identity_clock_plan_and_html_substitutions_fail_at_pins (test_q4_retained_primary_template.ActualProofTests.test_all_original_identity_clock_plan_and_html_substitutions_fail_at_pins)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_every_report_field_and_nested_finding_tampering_rejects (test_q4_retained_primary_template.ActualProofTests.test_every_report_field_and_nested_finding_tampering_rejects)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_generic_primary_helper_and_original_accepted_zero_are_unchanged (test_q4_retained_primary_template.ActualProofTests.test_generic_primary_helper_and_original_accepted_zero_are_unchanged)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_malformed_conflicting_decoy_and_hidden_html_cannot_replace_exact_bodies (test_q4_retained_primary_template.ActualProofTests.test_malformed_conflicting_decoy_and_hidden_html_cannot_replace_exact_bodies)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_one_source_failure_cannot_return_complete_proposal (test_q4_retained_primary_template.ActualProofTests.test_one_source_failure_cannot_return_complete_proposal)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_original_report_replay_is_required_before_template_extraction (test_q4_retained_primary_template.ActualProofTests.test_original_report_replay_is_required_before_template_extraction)",
+      "reason": "'Retained actual archive is available only in the offline evidence VM'"
+    },
+    {
+      "test": "test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present (test_regulatory_index.RegulatoryIndexTests.test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present)",
+      "reason": "'Historical read-only archive absent; synthetic neutral-index mechanics still run'"
+    },
+    {
+      "test": "test_all_six_actual_admissions_and_policy_hashes_replay_unchanged (test_s1_exact_filing_transport.ActualTransportTests.test_all_six_actual_admissions_and_policy_hashes_replay_unchanged)",
+      "reason": "'Requires retained read-only seven-source archive'"
+    },
+    {
+      "test": "test_authentic_304_and_full_200_keep_original_clocks_and_literal_body (test_s1_exact_filing_transport.ActualTransportTests.test_authentic_304_and_full_200_keep_original_clocks_and_literal_body)",
+      "reason": "'Requires retained read-only seven-source archive'"
+    },
+    {
+      "test": "test_freshness_complete_body_literal_excerpt_and_size_guards_remain (test_s1_exact_filing_transport.ActualTransportTests.test_freshness_complete_body_literal_excerpt_and_size_guards_remain)",
+      "reason": "'Requires retained read-only seven-source archive'"
+    },
+    {
+      "test": "test_missing_attestation_preserves_exact_final_identity (test_s1_exact_filing_transport.ActualTransportTests.test_missing_attestation_preserves_exact_final_identity)",
+      "reason": "'Requires retained read-only seven-source archive'"
+    },
+    {
+      "test": "test_neighbor_url_spellings_never_pass (test_s1_exact_filing_transport.ActualTransportTests.test_neighbor_url_spellings_never_pass)",
+      "reason": "'Requires retained read-only seven-source archive'"
+    },
+    {
+      "test": "test_observation_body_id_source_time_status_and_reuse_joins (test_s1_exact_filing_transport.ActualTransportTests.test_observation_body_id_source_time_status_and_reuse_joins)",
+      "reason": "'Requires retained read-only seven-source archive'"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "verdict": "PASS_REVIEWED_MAIN_PROMOTION_OLD_PRODUCTION_REMAINS_CURRENT",
+  "observedAt": "2026-10-26T06:09:30.621026+00:00",
+  "oldMain": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "main": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "preview": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "ancestryVerified": true,
+  "finishClean": true,
+  "rootReportedExistingAppUpdate": {
+    "expectedSha": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+    "target": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+    "force": false,
+    "succeeded": true
+  },
+  "actualInstalledGuardAndGitDryRun": "PASS: individually captured Git/trace exit0 and root direct Orb outer0; preceding wrapper anomalies preserved",
+  "mainWebRun": {
+    "id": 40277379961,
+    "revision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "gitProductionDeployment": {
+    "id": "dpl_4TR9E43nPwXadXqauiac8v7dKc2B",
+    "state": "CANCELED",
+    "reason": "Ignored Build Step returned0",
+    "revision": "f514cfe017a60b3dea50bc4da37980f4b892f657"
+  },
+  "publicRelease": {
+    "id": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+    "sequence": 4,
+    "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+    "snapshotSha256": "8ba13011b9d29b875082a551800d57e265238fd7ffd649ff7b99f7072ab25a89",
+    "exactHostFileChecks": 106,
+    "newCorrectionGroupsPublic": false
+  },
+  "privateState": {
+    "archive": "5ddcbc51613f125c12cdc724db821384886722f5",
+    "sourceLedger": {
+      "calls": 76,
+      "documents": 37,
+      "fetches": 444
+    },
+    "gateLedger": {
+      "attempts": 1
+    },
+    "lease": {
+      "sessionId": "github-publisher-40266519925-1",
+      "releasedAt": "2026-10-26T04:07:01.428398Z"
+    },
+    "allEightHeadsExact": true
+  },
+  "actualCanary": {
+    "runId": 40275425806,
+    "actualRevision": "a8d92efacc6fc8717b901ed607fdea17c8fd60e4",
+    "tests": 1018,
+    "passes": 956,
+    "explicitArchiveSkips": 62,
+    "f514InheritedClosureFiles": 456,
+    "finalShaWasNotCanaryRun": true
+  },
+  "manualObserverRuns": {
+    "normal": 40276390970,
+    "fault": 40276665629,
+    "recovery": 40276796045,
+    "actualGitHubFailureDeliveryAndRecovery": "PASS",
+    "observerIssue15": "closed",
+    "healthIssue10": "open",
+    "genericContractErrorPreserved": true
+  },
+  "faultCleanup": {
+    "temporaryRemoteRefDeleted": true,
+    "protectedCleanDetachedWorktreeRetained": true,
+    "rootReportedArchiveRefusal": "Pinned chat/workspace"
+  },
+  "nativeCurrentJSchedule": "UNOBSERVED_PENDING",
+  "ordinaryNewPublication": "PENDING_ONE_GATE_REMAINS",
+  "coverage": {
+    "privateSuccessful": 265,
+    "publicSuccessful": 264,
+    "required": 557,
+    "missingBindings": 254,
+    "candidateSources": 23,
+    "http403": 9,
+    "http429": 4,
+    "http504": 1,
+    "unapprovedHost": 1
+  },
+  "noResetRefund": true,
+  "noSourceModelApiBillingAdditionalDispatchOrFinishWriteByAuditThisUnit": true
+}

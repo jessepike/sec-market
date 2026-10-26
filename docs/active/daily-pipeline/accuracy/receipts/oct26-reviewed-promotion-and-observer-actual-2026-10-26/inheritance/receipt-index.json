@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "path": "canary-inheritance-binding.json",
+      "bytes": 2137,
+      "sha256": "6d3b892164a9ca5d2a52b843879125a62be2b93c5af8b847989c584bb7a4762a"
+    },
+    {
+      "path": "dependency-closure.json",
+      "bytes": 86765,
+      "sha256": "1a073223b00b1417a2105f0a0b7828fd55e4fab273679813682278474e5987c8"
+    },
+    {
+      "path": "preview-vercel-ready.json",
+      "bytes": 504,
+      "sha256": "ce34cc2d2c2727bf0241b8c786a51d9185f403277adc1187348a7968e57f5ba9"
+    },
+    {
+      "path": "transport-decision.json",
+      "bytes": 4992,
+      "sha256": "05995ea32f8e050ef8cb29dcbc1ae06cee1a8836525b981da1ca7cf316a6eda7"
+    },
+    {
+      "path": "transport-decision.md",
+      "bytes": 4513,
+      "sha256": "c8eff2e82834cd71e7417b16965cf35206bb4042829eb6251c1ddf9dac8e0b3d"
+    },
+    {
+      "path": "web-run-terminal.json",
+      "bytes": 2300,
+      "sha256": "3954c59706be65e6ae373d787d08d83127caca363876c5a1da6f4c68d1c25e95"
+    }
+  ],
+  "selfExcluded": true
+}

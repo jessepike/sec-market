@@ -1,0 +1,59 @@
+{
+  "verdict": "PASS_ACTUAL_MANUAL_OBSERVER_FAILURE_DELIVERY",
+  "runId": 40276665629,
+  "event": "workflow_dispatch",
+  "faultRevision": "d3a646515b65187731a37027049769cfd6356fbc",
+  "cleanParent": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "oneChangedFile": "ops/watchdog/test_observer_controlled_fault.py",
+  "intentionalTestSha256": "858208e35930967e685e451d36890906d442272b00386f455fd25e46d12065b8",
+  "tests": {
+    "total": 56,
+    "passed": 55,
+    "intendedFailures": 1,
+    "seconds": 1.56
+  },
+  "trustedProbe": "skipped",
+  "reporter": {
+    "delivery": "github_issue_updated",
+    "number": 15,
+    "state": "open",
+    "url": "https://github.com/jessepike/sec-market/issues/15",
+    "observerRecovered": false,
+    "healthIssueChanged": false
+  },
+  "observerIssue": {
+    "number": 15,
+    "title": "Daily pipeline observer could not complete",
+    "state": "open",
+    "html_url": "https://github.com/jessepike/sec-market/issues/15",
+    "created_at": "2026-10-26T05:53:36Z",
+    "updated_at": "2026-10-26T05:53:36Z",
+    "assignees": [
+      "jessepike"
+    ],
+    "bodySha256": "be4a7e699feef8f3ce4e1e988ee1fe15c46b78186eb689ebbae28f5098683a60",
+    "exactFaultRunUrlPresent": true,
+    "testFailureAndProbeSkippedPresent": true
+  },
+  "healthIssuePreservation": {
+    "entireParsedIssue10Unchanged": true,
+    "beforeRawSha256": "e22512c5e1945e525a21934ac2e00ab6d103c38b8bce1b01ef6bbbef1bb3ea32",
+    "afterRawSha256": "e22512c5e1945e525a21934ac2e00ab6d103c38b8bce1b01ef6bbbef1bb3ea32",
+    "bodySha256": "b4d58d5890a0a0bfe62fa940fdaa0fb701d966f5e739ad5035c222d58fda7618",
+    "updatedAt": "2026-10-26T05:50:35Z",
+    "state": "open"
+  },
+  "nativeScheduleCredit": false,
+  "publicationCredit": false,
+  "sourceModelGateCredit": false,
+  "rawVmOnlyLogs": {
+    "daily-pipeline.log": {
+      "bytes": 29327,
+      "sha256": "ca69056fbd9784b86b46bf6460b0c11a9e3200656bdbcdac9e01a823390c2295"
+    },
+    "observer-alert.log": {
+      "bytes": 11152,
+      "sha256": "fb069060a847780cb67b3b6d9ca45a394232c849a2c21c8ecfc88bdf5fd581c2"
+    }
+  }
+}

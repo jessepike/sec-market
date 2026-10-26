@@ -1,0 +1,87 @@
+{
+  "verdict": "PASS_ACTUAL_MANUAL_OBSERVER_RECOVERY_REAL_HEALTH_GAPS_REMAIN_OPEN",
+  "runId": 40276796045,
+  "event": "workflow_dispatch",
+  "revision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "runConclusion": "failure",
+  "tests": {
+    "total": 55,
+    "passed": 55,
+    "seconds": 2.314
+  },
+  "trustedProbeExitCode": 2,
+  "probe": {
+    "healthy": false,
+    "checkedAt": "2026-10-26T05:54:54.797659Z",
+    "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+    "reasons": [
+      "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_11133",
+      "PROCESSING_HELD_14",
+      "HISTORICAL_REVIEW_PENDING_11133",
+      "INDEPENDENT_PROBE_FAILED",
+      "ContractError"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40182324149",
+    "successfulTasks": 265,
+    "requiredTasks": 557,
+    "coverageMeasure": "daily_source_intake_v2",
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 14,
+      "inventoryDocuments": 11185,
+      "pendingDocuments": 11133,
+      "reviewedDocuments": 52,
+      "unknownDateDocuments": 534
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 14,
+      "inventoryDocuments": 11185,
+      "pendingDocuments": 11133,
+      "reviewedDocuments": 52
+    },
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "reporter": {
+    "delivery": "github_issue_updated",
+    "number": 15,
+    "state": "closed",
+    "url": "https://github.com/jessepike/sec-market/issues/15",
+    "observerRecovered": true,
+    "healthIssueChanged": false
+  },
+  "observerIssueState": "closed",
+  "observerIssueExactRecoveryRunUrl": true,
+  "realHealthIssueState": "open",
+  "refsAfter": {
+    "main": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+    "preview": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+    "archive": "5ddcbc51613f125c12cdc724db821384886722f5"
+  },
+  "publicReleaseAfter": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "actualPrivateStateMutation": false,
+  "nativeScheduleCredit": false,
+  "publicationCredit": false,
+  "phoneEmailDelivery": "UNMEASURED",
+  "rawVmOnlyLogPins": {
+    "daily-pipeline.log": {
+      "bytes": 37740,
+      "sha256": "0204664999ed2e2a8c31a9e1f27f1d11b86632d075685752f45b0772e9e49287"
+    },
+    "observer-alert.log": {
+      "bytes": 11157,
+      "sha256": "5a08c1a9f5cbef3ef084ec22922799badcd56799f8c4f391bc741cc8c3d67ed9"
+    }
+  }
+}

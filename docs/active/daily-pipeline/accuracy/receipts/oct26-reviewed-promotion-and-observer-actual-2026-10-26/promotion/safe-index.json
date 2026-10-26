@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "path": "main-ref.json",
+      "bytes": 75,
+      "sha256": "b9e4a5fe7a881fad1deef77addffbcb41f22de833bf2c09a6d2bfe66f86cb558"
+    },
+    {
+      "path": "preview-ref.json",
+      "bytes": 78,
+      "sha256": "1240d568214e0da93e96f6534606101b99d766038484015c4b06bbc595237c0d"
+    },
+    {
+      "path": "archive-ref.json",
+      "bytes": 88,
+      "sha256": "d18482dc8d11e7ddddd168479d815342981fdb645612be248fcf7bdc4ab4c653"
+    },
+    {
+      "path": "public-receipt.json",
+      "bytes": 1103,
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28"
+    },
+    {
+      "path": "main-web-run.json",
+      "bytes": 2300,
+      "sha256": "a78edfe5273a5046b49a8ced83dd532fd55241228254ac3ee84a50efa586df64"
+    },
+    {
+      "path": "collector-queue.json",
+      "bytes": 376,
+      "sha256": "6d423617d6082173eecd360a7d00f6cd4593d3df1005f2388e04d6ab9e84c3c3"
+    },
+    {
+      "path": "publisher-queue.json",
+      "bytes": 369,
+      "sha256": "8d3af85826ab0ba267c1a05e59c2f7650b31baea129fc7fbedac5e4ef1840279"
+    },
+    {
+      "path": "vercel-git-production-cancellation.json",
+      "bytes": 923,
+      "sha256": "21479e6f6823674e10d7a0f253c1b68c27f2e81cf72c97040d6b6c15eb99b789"
+    },
+    {
+      "path": "private-state-verification.json",
+      "bytes": 1961,
+      "sha256": "76f3b3eed753cf320516e9032b04e7aa0de9b830e3a175d293be2e8cb5c11a2a"
+    },
+    {
+      "path": "fault-worktree-retention.json",
+      "bytes": 358,
+      "sha256": "690e30a7ed21bd17e1adaa3124e566fc0bbca9f38c5afcfb658d1d9399af78f0"
+    },
+    {
+      "path": "fault-ref-cleanup-verification.json",
+      "bytes": 261,
+      "sha256": "76c6413aad37704d3deaba0ecc85e4b26e741c163348af6595f81579ebe7324e"
+    },
+    {
+      "path": "active-policy-preservation.json",
+      "bytes": 1076,
+      "sha256": "a32ea87ca9f11719bbf5c89f5d8c308bfec4cab4b08fa2fa1cef0cd266588993"
+    },
+    {
+      "path": "public-static-verification.json",
+      "bytes": 31620,
+      "sha256": "cd97f2e1599d13fc1cbc8e4af81fb53675ce0eafb43d9237197e7479c554ecc4"
+    },
+    {
+      "path": "public-check.py",
+      "bytes": 1973,
+      "sha256": "b2e84503c5530e4be2cd500c117395f89252250d3c49ca7c804713a0e6577f56"
+    },
+    {
+      "path": "promotion.json",
+      "bytes": 2958,
+      "sha256": "17213299cec97135a3474d50a0a171901cee3ed9b91f6ea28bc58456513dc200"
+    },
+    {
+      "path": "promotion.md",
+      "bytes": 3466,
+      "sha256": "7017f275426569d38187ce7dc5f49de46f45989d860fc9d367f041e60284c7f9"
+    }
+  ],
+  "rawHeadsExcluded": true,
+  "selfExcluded": true
+}

@@ -42,7 +42,9 @@ The [actual October 26 ordinary J collection](docs/active/daily-pipeline/accurac
 passes 265/557, with a full authenticated 56,260-entry archive and exact reconciliation. The earlier
 40199860540 remains the dated 266/557 result. October 26 JFrog returned 200 and Rapid7 a genuine
 normal 304; all 529 original URLs/dates remain exact. All eight requested correction groups now
-have real accepted admissions. The [first actual publisher/gate failure](docs/active/daily-pipeline/accuracy/oct26-first-publication-attempt-actual-2026-10-26.md)
+have real accepted admissions. All eight requests entered main at 3bb9e40c and remain selected
+on pinned f514cfe0. The historical fixture is repaired; publication awaits the ordinary native final
+gate. The [first actual publisher/gate failure](docs/active/daily-pipeline/accuracy/oct26-first-publication-attempt-actual-2026-10-26.md)
 is retained; new correction publication and genuine current-J schedule proof remain open. The next
 native collector was due October 26 at 05:17 UTC; no actual creation/start/result is claimed yet.
 Use the [23-candidate queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md),
@@ -57,8 +59,9 @@ The local candidate also contains independently reviewed dormant [PR Newswire cu
 5a4df6e9](docs/active/daily-pipeline/accuracy/prnewswire-current-primary-controlled-integration-2026-10-26.md).
 The three-file historical fixture repair passes independent red/green checks and the complete
 actual-input local suite: 380 data, 115 pipeline, 80 SEC and 43 browser checks, zero skips.
-All original assertions and runtime verifiers remain unchanged. Promotion and the final ordinary
-scheduled publisher/callback remain open; the first actual gate stays charged and public sequence 4 stays current.
+All original assertions and runtime verifiers remain unchanged. Reviewed code is now on main
+f514cfe0; the final ordinary scheduled publisher/callback remains open. The first actual gate stays
+charged and public sequence 4 stays current.
 
 Actual preview canary 40270223152 timed out after ten minutes before its archive check; it
 produced no artifact and spent no gate. The independently reviewed local [twenty-minute canary
@@ -69,8 +72,10 @@ artifacts and no gate charge. The reviewed local [PR Newswire mechanics test rep
 preserves all 20 original test bodies and 3,058 other tracked files; the complete portable suite
 passes 957 tests plus 61 unchanged explicit archive-only skips (1,018 total) in 261.460 seconds
 including discovery, with a separate unchanged original-H pass. Preview canary 40275425806
-and web run 40275425734 on a8d92efa are terminal success; assigned artifact authentication
-remains pending. Main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
+and web run 40275425734 on a8d92efa are authenticated successes. The actual canary passed
+956 tests plus 62 explicit archive-only skips (1,018 total), with its runtime artifact and archive
+acknowledgement authenticated. Final f514 inherits the exact 456-file dependency closure; no
+f514 canary run is claimed. Public release fc8bf098/sequence 4 is unchanged.
 
 Native scheduled publisher 40271992393 required owner force-cancel after ordinary cancellation
 continued into restoration. It produced no artifact/publication; authenticated archive 5ddcbc51,
@@ -83,8 +88,19 @@ October 25 update. The native collector due October 26 at 05:17 UTC remains unob
 The reviewed [watchdog observer repair](docs/active/daily-pipeline/accuracy/watchdog-observer-repair-2026-10-26/report.md)
 now passes all 55 local tests and independent review, with zero skips. It retains the historical
 H contract and every original assertion, leaves the production probe unchanged, and separately
-reports observer failures. Actual notification and failure/recovery delivery remain pending;
-genuine current-J/eight-group native collection and publication receipts remain open.
+reports observer failures. [Three actual manual runs](docs/active/daily-pipeline/accuracy/oct26-reviewed-promotion-and-observer-actual-2026-10-26.md)
+proved normal notification, deliberate test-failure alert delivery and clean-preview recovery.
+Fault run 40276665629 skipped the probe, opened assigned observer issue 15 and left issue 10
+wholly unchanged. Recovery 40276796045 closed only issue 15 after a trusted acknowledgement;
+health issue 10 stays open with real coverage/backlog and ContractError diagnostics.
+
+Main and preview now equal f514cfe0 after the actual installed Git guard and non-forced expected-
+3bb App promotion. Main web 40277379961 passed; the exact-main Vercel Git production build was
+CANCELED by its configured Ignored Build Step. All 106 old-public/immutable-host files and eight
+private heads remain exact; source 444/76/37, one of two gates spent and the released lease are
+unchanged. The exact temporary fault ref was deleted; its clean detached worktree remains
+protected by a pinned chat. Main stays fixed for the next ordinary native publisher/callback.
+The manual observer drill gives no genuine current-J/eight-group schedule or publication credit.
 
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|
@@ -92,7 +108,7 @@ genuine current-J/eight-group native collection and publication receipts remain 
 | Candidate sources |23| Finish each source's scope, current window, pagination/terminal and readable primary sample. The [current exact J queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md) joins all actual task IDs and original full/304 clocks. |
 | Access failures |15| The earlier audit retains nine 403s, four Axonius 429s and the Sysdig host-policy failure. October 26 adds WitnessAI HTTP_504 as the sole 266→265 intake regression. Preserve its old inventory; use respectful bounded diagnostics. |
 | Current and historical review |11,133 pending each| Preserve all URLs/dates/holds and exact verified resolutions. The Upwind source-document marker now has an actual checked resolution; the Sonatype mislinked card and seven Aqua failed revalidations retain their separate holds. |
-| Automatic exact-artifact publication |First October 26 attempt failed; one gate remains| The independently reviewed three-file test repair passes full local actual-data checks. Promote the reviewed candidate through preview/main, then preserve the final slot for a genuine ordinary scheduled publisher/callback; no manual second dispatch, refund, reset or purchased capacity. |
+| Automatic exact-artifact publication |First October 26 attempt failed; one gate remains| The reviewed test repair is on pinned main f514cfe0 after actual canary inheritance and main web passed. Preserve the final slot for a genuine ordinary scheduled publisher/callback; no manual second dispatch, refund, reset or purchased capacity. |
 | Repaired scheduled-main monitor |Actual behavior accepted; real gaps remain red| Genuine scheduled run 40191154739 passed all 36 runner tests and exact-main replay. The public-byte reader and original-plan binding work; issue 10 updated for real coverage/review/held/publisher gaps. |
 | Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
 | Remaining record corrections |All eight privately admitted; new two not public| Actual collector 40263678287 accepted Varonis then SentinelOne with two real reviews and exact primary bindings. Old six public history rows remain exact. First publisher/gate failed a separate historical fixture test. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract; keep WitnessAI metric-date uncertainty. |

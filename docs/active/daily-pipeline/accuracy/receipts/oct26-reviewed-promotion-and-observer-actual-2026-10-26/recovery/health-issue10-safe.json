@@ -1,0 +1,12 @@
+{
+  "number": 10,
+  "title": "Daily pipeline needs attention",
+  "state": "open",
+  "html_url": "https://github.com/jessepike/sec-market/issues/10",
+  "updated_at": "2026-10-26T05:55:02Z",
+  "assignees": [
+    "jessepike"
+  ],
+  "bodySha256": "b96fbd3eb4a87143d3c416e90c2c153672b70aef4f9e5aefbe5e0cd1656cdb0e",
+  "exactRecoveryRunUrlPresent": false
+}

@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "bounded-git-exit-evidence.json",
+      "bytes": 3737,
+      "sha256": "aef43a897bb2abd45dcfd5c226f6b75e3e4f84ddcd480c91aaf01738f36d0e07"
+    },
+    {
+      "path": "decision.json",
+      "bytes": 1686,
+      "sha256": "ff29c898fa4f588ed0fad7092adb69c66b1506f77e7a35e32c1ffe2b9a52a8ed"
+    },
+    {
+      "path": "decision.md",
+      "bytes": 2243,
+      "sha256": "471d993b12fdcd4ce34e308bf5ff32c33e07b96abcfb5fd0ef0ed4945a65c7b7"
+    }
+  ],
+  "selfExcluded": true
+}

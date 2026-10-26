@@ -1,0 +1,109 @@
+{
+  "decision": "ALL_EVIDENCE_PREREQUISITES_PASS_HOLD_FOR_EXPLICIT_GIT_DRY_RUN_EXIT_DIAGNOSIS",
+  "expectedOldMain": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "approvedPreviewTarget": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "canaryInheritance": {
+    "verdict": "PASS_AUTHENTICATED_ANCESTOR_CANARY_WITH_EXACT_FINAL_DEPENDENCY_INHERITANCE",
+    "workerIndexSha256": "1f4f8663a3bd635c938f42a9b7ac153400f877db3bac65000a21f45d8719a1cb",
+    "workerPayloadCount": 12,
+    "allPayloadsAuthenticated": true,
+    "actualRunId": 40275425806,
+    "actualRunRevision": "a8d92efacc6fc8717b901ed607fdea17c8fd60e4",
+    "finalInheritedRevision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+    "finalRevisionWasNotCanaryRun": true,
+    "artifact": {
+      "verdict": "PASS",
+      "artifactId": 12630361480,
+      "zipDigestMatchesGitHubMetadata": true,
+      "zipSha256": "fc8d6bbb9b3e2c632fcb1481d78e9f79bbf4004e13c08284a4af518769e59e96",
+      "zipBytes": 11937,
+      "metadataBytes": 11937,
+      "member": "smp-runtime-canary.json",
+      "receiptSha256": "c71ce2b2790a509f8b677e66649afd1aae3398923eacebb15b431cf3ef43e5ca",
+      "receiptBytes": 24229,
+      "actualRunIdAndRevisionBound": true,
+      "runtimeReceiptPassed": true,
+      "allNoncollectionZeroCreditFieldsVerified": true
+    },
+    "archiveAcknowledgment": {
+      "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+      "manifestSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+      "files": 56266
+    },
+    "guardCounts": {
+      "tests": 1018,
+      "passed": 956,
+      "explicitArchiveSkips": 62,
+      "localPortableExplicitArchiveSkips": 61,
+      "extraHostedSkip": [
+        {
+          "test": "test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present (test_regulatory_index.RegulatoryIndexTests.test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present)",
+          "reason": "'Historical read-only archive absent; synthetic neutral-index mechanics still run'"
+        }
+      ],
+      "unittestSeconds": 402.187,
+      "stepSeconds": 403.0,
+      "cpuSeconds": null,
+      "cpuNotReportedByHostedRunner": true
+    },
+    "timings": {
+      "guardSeconds": 403.0,
+      "archiveSeconds": 43.0,
+      "wholeJobSeconds": 464.0,
+      "wholeRunCreatedToUpdatedSeconds": 467.0
+    },
+    "closureSha256": "1a073223b00b1417a2105f0a0b7828fd55e4fab273679813682278474e5987c8",
+    "completeClosureFiles": 456,
+    "sourceModelPublicationCredit": false
+  },
+  "finalWebRun": {
+    "runId": 40276383543,
+    "conclusion": "success",
+    "revision": "f514cfe017a60b3dea50bc4da37980f4b892f657"
+  },
+  "previewReady": {
+    "verificationTool": "vercel_get_deployment",
+    "deploymentId": "dpl_UgzJWNPoN7qqeikj7UtGxyRzML6U",
+    "url": "security-market-pulse-laio60ab4-pikeholdings.vercel.app",
+    "readyState": "READY",
+    "state": "READY",
+    "gitCommitSha": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+    "gitCommitRef": "preview",
+    "target": null,
+    "alias": [
+      "security-market-pulse-git-preview-pikeholdings.vercel.app"
+    ],
+    "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+    "teamId": "team_gRV7FrVjjr1PPI1IvgoCEJrH"
+  },
+  "manualObserverAcceptanceIndexes": {
+    "/var/tmp/smp-oct26-watchdog-normal-40276390970/safe-index.json": "2a3e22329945f1c0926b4d89968505b6cf4ea3bb7c71a85c66803466c8296616",
+    "/var/tmp/smp-oct26-watchdog-fault-40276665629/safe-index.json": "53a99ffaeb84b4966efdfed9f527212fb89e8553863735dd7b293c28dbef2eff",
+    "/var/tmp/smp-oct26-watchdog-recovery-40276796045/safe-index.json": "d6a8440dc34c30a875c1e16f26cdbcedcfde8ee39d9353c5e27e1cabd20371f4"
+  },
+  "manualOnlyNoScheduleCredit": true,
+  "installedGitHook": {
+    "path": "/mnt/mac/Users/jessepike/code/projects/sec-market/.git/hooks/pre-push",
+    "sha256": "759cff8fbcfabefba202a55add8927e5fe539e0303d14c530c677bd6747d7152",
+    "actualGuardPassed": true,
+    "dryRunLogSha256": "6c6d4f74e6ad6f703bdb9f0b736d73651da9b85715f47a77835dcecd1c555885",
+    "dryRunLogBytes": 458,
+    "outerExitCodeReportedByRoot": 1,
+    "individualGitExitCode": "UNRESOLVED_NOT_PROVEN_ZERO"
+  },
+  "remainingTransportControls": [
+    "Resolve and record individual Git dry-run exit status; do not infer zero from guard text",
+    "Exact clean checked-out main HEAD equals final preview target, explicit PROMOTE=1, installed Git-invoked guard passed",
+    "Re-read remote main exact old3bb and preview exactf514 immediately before update",
+    "Existing GitHub App update_ref main sha=f514 force=false expected_sha=3bb only",
+    "Fetch/read verify exact main/preview target and fast-forward ancestry after mutation"
+  ],
+  "noActualRemoteMainMutationByReviewer": true,
+  "noDeploymentPublicationClaim": true,
+  "spentGateAttempts": 1,
+  "gateAllowance": 2,
+  "sourcePolicySelectionUnchanged": true,
+  "activeSourceAdmissionNoNewCredit": true,
+  "nativeCurrentJScheduleProof": "OPEN_UNOBSERVED",
+  "factualCorrectionPublicationProof": "OPEN_OLD_PUBLIC_SIX_ONLY"
+}

@@ -1,0 +1,14 @@
+{
+  "number": 15,
+  "title": "Daily pipeline observer could not complete",
+  "state": "open",
+  "html_url": "https://github.com/jessepike/sec-market/issues/15",
+  "created_at": "2026-10-26T05:53:36Z",
+  "updated_at": "2026-10-26T05:53:36Z",
+  "assignees": [
+    "jessepike"
+  ],
+  "bodySha256": "be4a7e699feef8f3ce4e1e988ee1fe15c46b78186eb689ebbae28f5098683a60",
+  "exactFaultRunUrlPresent": true,
+  "testFailureAndProbeSkippedPresent": true
+}

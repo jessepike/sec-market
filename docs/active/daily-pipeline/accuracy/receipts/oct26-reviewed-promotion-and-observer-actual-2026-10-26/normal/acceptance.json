@@ -1,0 +1,92 @@
+{
+  "verdict": "PASS_MANUAL_OBSERVER_NOTIFICATION_ACCEPTANCE_PIPELINE_UNHEALTHY",
+  "runId": 40276390970,
+  "event": "workflow_dispatch",
+  "revision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "runConclusion": "failure",
+  "tests": {
+    "count": 55,
+    "result": "PASS",
+    "seconds": 1.601
+  },
+  "probeExitCode": 2,
+  "probe": {
+    "healthy": false,
+    "checkedAt": "2026-10-26T05:50:28.999454Z",
+    "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+    "reasons": [
+      "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_11133",
+      "PROCESSING_HELD_14",
+      "HISTORICAL_REVIEW_PENDING_11133",
+      "INDEPENDENT_PROBE_FAILED",
+      "ContractError"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40182324149",
+    "successfulTasks": 265,
+    "requiredTasks": 557,
+    "coverageMeasure": "daily_source_intake_v2",
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 14,
+      "inventoryDocuments": 11185,
+      "pendingDocuments": 11133,
+      "reviewedDocuments": 52,
+      "unknownDateDocuments": 534
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 14,
+      "inventoryDocuments": 11185,
+      "pendingDocuments": 11133,
+      "reviewedDocuments": 52
+    },
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "reporter": {
+    "delivery": "no_alert_needed",
+    "observerRecovered": true,
+    "healthIssueChanged": false
+  },
+  "healthIssue": {
+    "number": 10,
+    "title": "Daily pipeline needs attention",
+    "state": "open",
+    "html_url": "https://github.com/jessepike/sec-market/issues/10",
+    "updated_at": "2026-10-26T05:50:35Z",
+    "assignees": [
+      "jessepike"
+    ],
+    "bodySha256": "b4d58d5890a0a0bfe62fa940fdaa0fb701d966f5e739ad5035c222d58fda7618",
+    "checkedAtPresent": true,
+    "allReasonsPresent": true
+  },
+  "archiveAfter": {
+    "ref": "refs/archive/market-evidence",
+    "sha": "5ddcbc51613f125c12cdc724db821384886722f5"
+  },
+  "publicReleaseAfter": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "sourceModelPublicationCredit": false,
+  "nativeScheduleCredit": false,
+  "rawVmOnlyLogs": {
+    "daily-pipeline.log": {
+      "sha256": "b60192b92050ab742651aedee6e6cc45539f2ce00460e0d9f63ca12b4eec9f70",
+      "bytes": 37175
+    },
+    "observer-alert.log": {
+      "sha256": "ea24b636b052ba1592b8607c5f91dd1dfd7ce351b64197ba8eb1fad9538c7ef2",
+      "bytes": 11059
+    }
+  },
+  "diagnostic": "INDEPENDENT_PROBE_FAILED and ContractError remain actual unhealthy reasons; no claim that all publication checks completed."
+}

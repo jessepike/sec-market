@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "path": "run-metadata.json",
+      "bytes": 3644,
+      "sha256": "0b76e8571edf64a220f42cf3d4c6e8038206acc17fd9fa00887d795fce304b19"
+    },
+    {
+      "path": "probe-receipt.json",
+      "bytes": 1274,
+      "sha256": "6a061e3bbb8bfb23e8fe8229e6a230d841bc1ccb2a37f5d54a8bc8b7343026f6"
+    },
+    {
+      "path": "reporter-receipt.json",
+      "bytes": 96,
+      "sha256": "04a84b70f8081983a62071d4d61ed59fb6c554beea402958883789d51bae5139"
+    },
+    {
+      "path": "health-issue10-safe.json",
+      "bytes": 369,
+      "sha256": "3154910d54a3130374c376d0e1a72a118fadc4b4cb22686574081dc50e05d423"
+    },
+    {
+      "path": "archive-ref-after.json",
+      "bytes": 88,
+      "sha256": "d18482dc8d11e7ddddd168479d815342981fdb645612be248fcf7bdc4ab4c653"
+    },
+    {
+      "path": "public-receipt-after.json",
+      "bytes": 1103,
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28"
+    },
+    {
+      "path": "acceptance.json",
+      "bytes": 2963,
+      "sha256": "2d8fc6e018f9e3a47f25a39ff2ee697231fb03d91084dc09705d62bdfd6ed4bc"
+    },
+    {
+      "path": "acceptance.md",
+      "bytes": 2015,
+      "sha256": "399f5dfaa655ffd9ab686b4fbe4ed7ecc645a951a17bf10185d115d9bef790ea"
+    }
+  ],
+  "rawLogsExcluded": true,
+  "selfExcluded": true
+}

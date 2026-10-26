@@ -1,0 +1,54 @@
+{
+  "verdict": "PASS_AUTHENTICATED_ANCESTOR_CANARY_WITH_EXACT_FINAL_DEPENDENCY_INHERITANCE",
+  "workerIndexSha256": "1f4f8663a3bd635c938f42a9b7ac153400f877db3bac65000a21f45d8719a1cb",
+  "workerPayloadCount": 12,
+  "allPayloadsAuthenticated": true,
+  "actualRunId": 40275425806,
+  "actualRunRevision": "a8d92efacc6fc8717b901ed607fdea17c8fd60e4",
+  "finalInheritedRevision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "finalRevisionWasNotCanaryRun": true,
+  "artifact": {
+    "verdict": "PASS",
+    "artifactId": 12630361480,
+    "zipDigestMatchesGitHubMetadata": true,
+    "zipSha256": "fc8d6bbb9b3e2c632fcb1481d78e9f79bbf4004e13c08284a4af518769e59e96",
+    "zipBytes": 11937,
+    "metadataBytes": 11937,
+    "member": "smp-runtime-canary.json",
+    "receiptSha256": "c71ce2b2790a509f8b677e66649afd1aae3398923eacebb15b431cf3ef43e5ca",
+    "receiptBytes": 24229,
+    "actualRunIdAndRevisionBound": true,
+    "runtimeReceiptPassed": true,
+    "allNoncollectionZeroCreditFieldsVerified": true
+  },
+  "archiveAcknowledgment": {
+    "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+    "manifestSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+    "files": 56266
+  },
+  "guardCounts": {
+    "tests": 1018,
+    "passed": 956,
+    "explicitArchiveSkips": 62,
+    "localPortableExplicitArchiveSkips": 61,
+    "extraHostedSkip": [
+      {
+        "test": "test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present (test_regulatory_index.RegulatoryIndexTests.test_actual_historical_issuer_pages_when_pinned_readonly_archive_is_present)",
+        "reason": "'Historical read-only archive absent; synthetic neutral-index mechanics still run'"
+      }
+    ],
+    "unittestSeconds": 402.187,
+    "stepSeconds": 403.0,
+    "cpuSeconds": null,
+    "cpuNotReportedByHostedRunner": true
+  },
+  "timings": {
+    "guardSeconds": 403.0,
+    "archiveSeconds": 43.0,
+    "wholeJobSeconds": 464.0,
+    "wholeRunCreatedToUpdatedSeconds": 467.0
+  },
+  "closureSha256": "1a073223b00b1417a2105f0a0b7828fd55e4fab273679813682278474e5987c8",
+  "completeClosureFiles": 456,
+  "sourceModelPublicationCredit": false
+}
