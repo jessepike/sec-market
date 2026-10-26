@@ -39,6 +39,23 @@ NOW = '2026-10-25T15:00:00Z'
 NEXT_DAY = '2026-10-26T00:00:00Z'
 ARCHIVE = Path('/var/tmp/smp-q4-ordinary-j-40199860540-20261025/capture/extracted')
 
+# Only these transport/report unit cases substitute an authenticated normalized
+# preflight context. Authority/raw-proof and full end-to-end cases stay uncached.
+MECHANICS_METHODS = frozenset({
+    'test_actual_fetcher_5xx_is_one_wire_attempt_one_charge_and_status_is_retained',
+    'test_budget_binding_exclusivity_and_lease_context_denials_precede_transport',
+    'test_changed_live_plan_or_failed_preflight_cannot_write_or_charge',
+    'test_day_crossing_before_transport_keeps_charged_fetch',
+    'test_exhausted_quota_day_deadline_cancel_and_final_guard_keep_truthful_charges',
+    'test_first_success_second_quota_denial_has_one_charge_and_unreached_hold',
+    'test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body',
+    'test_missing_transport_fields_remain_unknown_with_original_raw_observation',
+    'test_report_observation_reservation_and_credit_tampering_rejects',
+    'test_required_template_metadata_and_all_present_publication_days',
+    'test_shared_caller_preflight_failure_retains_zero_credit_outer_fields',
+    'test_transport_read_size_failures_are_charged_and_unobserved_fields_stay_unknown',
+})
+
 
 class Clock:
     wall, elapsed = NOW, 0
@@ -84,6 +101,34 @@ class ResponseFetcher:
 
 
 class CaptureTests(unittest.TestCase):
+    _normalized_mechanics_bytes = None
+
+    @classmethod
+    def authenticated_mechanics_bytes(cls):
+        if cls._normalized_mechanics_bytes is None:
+            # This is test-only normalization, authenticated once through the
+            # unchanged production validator and sealed portable input graph.
+            with patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK')), \
+                 patch.object(LocalStore, '__init__', side_effect=AssertionError('NO_FROZEN_STORE')):
+                contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+                normalized = operation.validate_plan(contract, FixtureStore(), PLAN.read_bytes())
+            cls._normalized_mechanics_bytes = canonical({
+                'targets': normalized['targets'], 'streams': normalized['streams']})
+        return cls._normalized_mechanics_bytes
+
+    def start_normalized_mechanics_boundary(self):
+        if self._testMethodName not in MECHANICS_METHODS:
+            return
+        frozen = self.authenticated_mechanics_bytes()
+        def normalized_context(contract, store, plan):
+            # validate_plan still parses/hashes the plan and checks its contract
+            # before this explicit unit boundary. Every return is a fresh copy.
+            context = json.loads(frozen)
+            return context['targets'], context['streams']
+        boundary = patch.object(operation, '_validate_capture', side_effect=normalized_context)
+        self.mechanics_boundary = boundary.start()
+        self.addCleanup(boundary.stop)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(); self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name); self.clock = Clock(); self.base = FixtureStore()
@@ -95,6 +140,7 @@ class CaptureTests(unittest.TestCase):
         self.net.start(); self.addCleanup(self.net.stop)
         self.normal = {'heads/latest-run.json': {'old': 'normal'}, 'heads/production.json': {'old': 'production'}}
         for key, value in self.normal.items(): self.local.write_once(key, value)
+        self.start_normalized_mechanics_boundary()
     def budget(self):
         return PersistentProbeBudget(self.store, self.contract, clock=self.clock.now, monotonic=self.clock.monotonic)
     def capture(self, fetcher=None, budget=None):
@@ -317,6 +363,58 @@ class CaptureTests(unittest.TestCase):
             result=collect.execute_source_probe(self.root,self.store,{'checkpointProfile':'source_probe','sessionId':'synthetic','appRevision':'a'*40},self.contract,1200)
         self.assertEqual(events,['escrow','transport']);self.assertEqual(result['facts'],[])
         self.assertTrue(result['diagnostic']['proposalEvidenceComplete']);self.assertEqual(result['modelCalls'],0)
+
+
+
+class MechanicsBoundaryTests(unittest.TestCase):
+    def test_all_authority_and_full_capture_examples_remain_outside_unit_boundary(self):
+        uncached = {
+            'test_every_consumed_original_input_is_authenticated',
+            'test_full_consumed_actual_graph_is_portable_and_read_only',
+            'test_partial_failure_retains_both_actual_results',
+            'test_plan_policy_and_descriptor_substitutions_reject_before_writes_or_reservations',
+            'test_shared_leased_caller_routes_directly_and_preserves_outer_zeros',
+            'test_transition_pointer_raw_hash_is_checked_even_if_json_value_matches',
+            'test_two_logical_gets_no_generic_candidates_or_other_credits',
+        }
+        methods = {name for name in dir(CaptureTests) if name.startswith('test_')}
+        self.assertEqual(methods - MECHANICS_METHODS, uncached)
+        self.assertTrue(MECHANICS_METHODS.isdisjoint(uncached))
+        self.assertEqual(len(MECHANICS_METHODS), 12)
+        for name in uncached:
+            case = CaptureTests(name)
+            with patch.object(case, 'authenticated_mechanics_bytes', side_effect=AssertionError('UNCACHED_REQUIRED')):
+                case.start_normalized_mechanics_boundary()
+            self.assertFalse(hasattr(case, 'mechanics_boundary'))
+
+    def test_normalized_bytes_match_fresh_uncached_full_sealed_graph(self):
+        frozen = CaptureTests.authenticated_mechanics_bytes()
+        contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        with patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK')), \
+             patch.object(LocalStore, '__init__', side_effect=AssertionError('NO_FROZEN_STORE')):
+            normalized = operation.validate_plan(contract, FixtureStore(), PLAN.read_bytes())
+        self.assertEqual(frozen, canonical({'targets': normalized['targets'], 'streams': normalized['streams']}))
+        self.assertIs(type(frozen), bytes)
+
+    def test_unit_context_copies_and_outer_plan_contract_checks_remain_live(self):
+        case = CaptureTests('test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body')
+        self.addCleanup(case.doCleanups)
+        case.setUp()
+        self.assertTrue(hasattr(case, 'mechanics_boundary'))
+        changed = copy.deepcopy(case.contract)
+        changed['sources'][0]['extra'] = True
+        for raw, contract in ((b'[]', case.contract), (b'{}', case.contract),
+                              (case.raw + b' ', case.contract), (case.raw, changed)):
+            with self.subTest(raw=raw[:20]), self.assertRaises((ValueError, KeyError, TypeError)):
+                operation.validate_plan(contract, case.store, raw)
+        case.mechanics_boundary.assert_not_called()
+        first = operation.validate_plan(case.contract, case.store, case.raw)
+        first['targets'][0]['url'] = 'synthetic-mutated-copy'
+        first['streams'][0]['records'].clear()
+        second = operation.validate_plan(case.contract, case.store, case.raw)
+        self.assertEqual(second['targets'][0]['url'], case.plan['sources'][0]['url'])
+        self.assertEqual(len(second['streams'][0]['records']), 125)
+        self.assertEqual(case.mechanics_boundary.call_count, 2)
 
 
 @unittest.skipUnless((ARCHIVE/'archive-manifest.json').exists(),'Explicit full archive original-H replay only')

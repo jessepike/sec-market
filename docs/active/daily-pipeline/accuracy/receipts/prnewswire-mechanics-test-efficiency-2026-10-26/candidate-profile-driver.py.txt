@@ -1,0 +1,57 @@
+from pathlib import Path
+import os,sys,json,time,unittest,socket,hashlib,resource
+from unittest.mock import patch
+from collections import Counter
+
+APP=Path('/var/tmp/smp-prn-mechanics-efficiency-build-20261026/application')
+OUT=Path('/var/tmp/smp-prn-mechanics-efficiency-build-20261026/portable-profile');OUT.mkdir(exist_ok=True)
+permitted={APP.parent,OUT}
+roots=[p for p in Path('/var/tmp').glob('smp-*') if p.is_dir() and p not in permitted]
+attempts=[]
+def frozen(value):
+    try:p=Path(value)
+    except TypeError:return False
+    return any(p==r or r in p.parents for r in roots)
+exists,is_file,is_dir=Path.exists,Path.is_file,Path.is_dir
+def audit(event,args):
+    if event=='open' and args and isinstance(args[0],(str,bytes)) and frozen(args[0]):
+        attempts.append(str(args[0]));raise AssertionError('NO_FROZEN_ARCHIVE_READ')
+sys.addaudithook(audit)
+os.chdir(APP);sys.path[:0]=[str(APP),str(APP/'ops/ci'),str(APP/'web/scripts/pipeline')]
+counts=Counter();rows=[]
+class Timed(unittest.TextTestResult):
+    def startTest(self,test):
+        self.begin=time.monotonic();self.cpu=time.process_time();self.before=counts.copy()
+        print(json.dumps({'event':'start','test':test.id(),'atMonotonic':self.begin}),flush=True)
+        return super().startTest(test)
+    def stopTest(self,test):
+        row={'test':test.id(),'wallSeconds':time.monotonic()-self.begin,'cpuSeconds':time.process_time()-self.cpu,'counters':dict(counts-self.before)}
+        rows.append(row);print(json.dumps({'event':'stop',**row}),flush=True)
+        (OUT/'per-test-progress.json').write_text(json.dumps(rows,indent=2)+'\n')
+        return super().stopTest(test)
+
+def wrap(obj,name):
+    original=getattr(obj,name)
+    def measured(*a,**kw):
+        counts[name+'Calls']+=1
+        start=time.process_time()
+        try:return original(*a,**kw)
+        finally:counts[name+'CpuSeconds']+=time.process_time()-start
+    return patch.object(obj,name,measured)
+
+with patch.object(Path,'exists',lambda p:False if frozen(p) else exists(p)), \
+     patch.object(Path,'is_file',lambda p:False if frozen(p) else is_file(p)), \
+     patch.object(Path,'is_dir',lambda p:False if frozen(p) else is_dir(p)), \
+     patch.object(socket.socket,'connect',side_effect=AssertionError('NO_NETWORK')):
+    import test_prnewswire_primary_capture as t
+    import prnewswire_primary_capture as operation
+    import prnewswire_retained_window as retained
+    with wrap(operation,'validate_plan'),wrap(operation,'_validate_capture'),wrap(retained,'derive_report'),wrap(retained,'verify_report'),wrap(t.FixtureStore,'raw'):
+        suite=unittest.defaultTestLoader.loadTestsFromModule(t)
+        started=time.monotonic();cpu=time.process_time()
+        with (OUT/'test-output.log').open('w') as log:
+            result=unittest.TextTestRunner(stream=log,verbosity=2,resultclass=Timed).run(suite)
+        summary={'kind':'TEST_ONLY_NORMALIZED_CONTEXT_F59_PRN_PROFILE','wallSeconds':time.monotonic()-started,'cpuSeconds':time.process_time()-cpu,'testsRun':result.testsRun,'passed':result.testsRun-len(result.skipped)-len(result.failures)-len(result.errors),'skipped':[{'test':str(x),'reason':reason} for x,reason in result.skipped],'errors':len(result.errors),'failures':len(result.failures),'frozenReads':attempts,'networkDenied':True,'maxRssKiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,'counters':dict(counts),'rows':rows}
+        (OUT/'summary.json').write_text(json.dumps(summary,indent=2)+'\n')
+        print(json.dumps({k:v for k,v in summary.items() if k not in ['rows','skipped']}),flush=True)
+        raise SystemExit(0 if result.wasSuccessful() and not attempts else 1)

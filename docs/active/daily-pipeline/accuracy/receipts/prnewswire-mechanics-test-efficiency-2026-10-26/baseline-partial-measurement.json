@@ -1,0 +1,231 @@
+{
+  "kind": "PARTIAL_DIAGNOSTIC_NOT_FULL_PASS",
+  "exitCode": 130,
+  "stoppedByWorkerAfterConclusiveMeasurements": true,
+  "fullBaselineRunClaimed": false,
+  "completedMeasurements": [
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_actual_fetcher_5xx_is_one_wire_attempt_one_charge_and_status_is_retained",
+      "wallSeconds": 33.94207350513898,
+      "cpuSeconds": 33.939468452,
+      "counters": {
+        "validate_planCalls": 40,
+        "_validate_captureCalls": 40,
+        "rawCalls": 10000,
+        "rawCpuSeconds": 1.2673819079997983,
+        "derive_reportCalls": 80,
+        "derive_reportCpuSeconds": 32.59812583100001,
+        "verify_reportCalls": 40,
+        "verify_reportCpuSeconds": 16.398400148000015,
+        "_validate_captureCpuSeconds": 33.570122954,
+        "validate_planCpuSeconds": 33.62336158
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_budget_binding_exclusivity_and_lease_context_denials_precede_transport",
+      "wallSeconds": 1.7928503369912505,
+      "cpuSeconds": 1.7883762840000017,
+      "counters": {
+        "validate_planCalls": 2,
+        "_validate_captureCalls": 2,
+        "rawCalls": 500,
+        "rawCpuSeconds": 0.06329507800003142,
+        "derive_reportCalls": 4,
+        "derive_reportCpuSeconds": 1.6250646599999996,
+        "verify_reportCalls": 2,
+        "verify_reportCpuSeconds": 0.8123728719999903,
+        "_validate_captureCpuSeconds": 1.672662117999998,
+        "validate_planCpuSeconds": 1.6754184110000025
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_changed_live_plan_or_failed_preflight_cannot_write_or_charge",
+      "wallSeconds": 0.8679970318917185,
+      "cpuSeconds": 0.8675203720000013,
+      "counters": {
+        "validate_planCalls": 1,
+        "_validate_captureCalls": 1,
+        "rawCalls": 250,
+        "rawCpuSeconds": 0.03180611400001965,
+        "derive_reportCalls": 2,
+        "derive_reportCpuSeconds": 0.8049887060000032,
+        "verify_reportCalls": 1,
+        "verify_reportCpuSeconds": 0.4099064149999947,
+        "_validate_captureCpuSeconds": 0.8286126229999979,
+        "validate_planCpuSeconds": 0.8299856220000024
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_day_crossing_before_transport_keeps_charged_fetch",
+      "wallSeconds": 8.52852185210213,
+      "cpuSeconds": 8.528492968999998,
+      "counters": {
+        "validate_planCalls": 10,
+        "_validate_captureCalls": 10,
+        "rawCalls": 2500,
+        "rawCpuSeconds": 0.3173841470001548,
+        "derive_reportCalls": 20,
+        "derive_reportCpuSeconds": 8.20965209399997,
+        "verify_reportCalls": 10,
+        "verify_reportCpuSeconds": 4.11857327500001,
+        "_validate_captureCpuSeconds": 8.452764468000012,
+        "validate_planCpuSeconds": 8.466563387
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_every_consumed_original_input_is_authenticated",
+      "wallSeconds": 9.940064080059528,
+      "cpuSeconds": 9.937026671000005,
+      "counters": {
+        "validate_planCalls": 63,
+        "_validate_captureCalls": 63,
+        "rawCalls": 3749,
+        "rawCpuSeconds": 0.5034878129998859,
+        "derive_reportCalls": 60,
+        "derive_reportCpuSeconds": 8.721843840999973,
+        "_validate_captureCpuSeconds": 9.796991835999961,
+        "validate_planCpuSeconds": 9.875810672000021
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_exhausted_quota_day_deadline_cancel_and_final_guard_keep_truthful_charges",
+      "wallSeconds": 42.51026604301296,
+      "cpuSeconds": 42.50739171,
+      "counters": {
+        "validate_planCalls": 50,
+        "_validate_captureCalls": 50,
+        "rawCalls": 12500,
+        "rawCpuSeconds": 1.5908752769996752,
+        "derive_reportCalls": 100,
+        "derive_reportCpuSeconds": 40.925074632999966,
+        "verify_reportCalls": 50,
+        "verify_reportCpuSeconds": 20.630179171999934,
+        "_validate_captureCpuSeconds": 42.14652283599997,
+        "validate_planCpuSeconds": 42.21684179399998
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_first_success_second_quota_denial_has_one_charge_and_unreached_hold",
+      "wallSeconds": 8.543516681995243,
+      "cpuSeconds": 8.543494675000005,
+      "counters": {
+        "validate_planCalls": 10,
+        "_validate_captureCalls": 10,
+        "rawCalls": 2500,
+        "rawCpuSeconds": 0.31617838200006076,
+        "derive_reportCalls": 20,
+        "derive_reportCpuSeconds": 8.181764720999965,
+        "verify_reportCalls": 10,
+        "verify_reportCpuSeconds": 4.116759816999988,
+        "_validate_captureCpuSeconds": 8.426708427000023,
+        "validate_planCpuSeconds": 8.440905341000004
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_full_consumed_actual_graph_is_portable_and_read_only",
+      "wallSeconds": 0.7539206130895764,
+      "cpuSeconds": 0.75391458,
+      "counters": {
+        "validate_planCalls": 1,
+        "_validate_captureCalls": 1,
+        "rawCalls": 250,
+        "rawCpuSeconds": 0.031340668000012784,
+        "derive_reportCalls": 2,
+        "derive_reportCpuSeconds": 0.6888299139999958,
+        "verify_reportCalls": 1,
+        "verify_reportCpuSeconds": 0.35268024799999864,
+        "_validate_captureCpuSeconds": 0.721806954999991,
+        "validate_planCpuSeconds": 0.7231552049999976
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body",
+      "wallSeconds": 137.2677441679407,
+      "cpuSeconds": 137.25297788900002,
+      "counters": {
+        "validate_planCalls": 160,
+        "_validate_captureCalls": 160,
+        "rawCalls": 40000,
+        "rawCpuSeconds": 5.105345016996665,
+        "derive_reportCalls": 320,
+        "derive_reportCpuSeconds": 131.59823778199961,
+        "verify_reportCalls": 160,
+        "verify_reportCpuSeconds": 66.33849457599997,
+        "_validate_captureCpuSeconds": 135.55442338900008,
+        "validate_planCpuSeconds": 135.78331522799994
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_missing_transport_fields_remain_unknown_with_original_raw_observation",
+      "wallSeconds": 42.47807219182141,
+      "cpuSeconds": 42.47834917,
+      "counters": {
+        "validate_planCalls": 50,
+        "_validate_captureCalls": 50,
+        "rawCalls": 12500,
+        "rawCpuSeconds": 1.5819769210006314,
+        "derive_reportCalls": 100,
+        "derive_reportCpuSeconds": 40.732641463000164,
+        "verify_reportCalls": 50,
+        "verify_reportCpuSeconds": 20.469626380000193,
+        "_validate_captureCpuSeconds": 41.949224298999894,
+        "validate_planCpuSeconds": 42.01898996399984
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_partial_failure_retains_both_actual_results",
+      "wallSeconds": 8.525268208002672,
+      "cpuSeconds": 8.52526450900001,
+      "counters": {
+        "validate_planCalls": 10,
+        "_validate_captureCalls": 10,
+        "rawCalls": 2500,
+        "rawCpuSeconds": 0.3162644909992878,
+        "derive_reportCalls": 20,
+        "derive_reportCpuSeconds": 8.13603013900007,
+        "verify_reportCalls": 10,
+        "verify_reportCpuSeconds": 4.104460737000068,
+        "_validate_captureCpuSeconds": 8.389654134000011,
+        "validate_planCpuSeconds": 8.403624470000125
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_plan_policy_and_descriptor_substitutions_reject_before_writes_or_reservations",
+      "wallSeconds": 0.26701703597791493,
+      "cpuSeconds": 0.266957581999975,
+      "counters": {
+        "validate_planCalls": 451,
+        "_validate_captureCalls": 1,
+        "rawCalls": 4,
+        "rawCpuSeconds": 0.0002462489999857098,
+        "_validate_captureCpuSeconds": 0.01917491599999721,
+        "validate_planCpuSeconds": 0.10004083499967464
+      }
+    },
+    {
+      "test": "test_prnewswire_primary_capture.CaptureTests.test_report_observation_reservation_and_credit_tampering_rejects",
+      "wallSeconds": 18.240663419943303,
+      "cpuSeconds": 18.240829848000033,
+      "counters": {
+        "validate_planCalls": 21,
+        "_validate_captureCalls": 21,
+        "rawCalls": 5250,
+        "rawCpuSeconds": 0.6744239650004715,
+        "derive_reportCalls": 42,
+        "derive_reportCpuSeconds": 17.486052264999955,
+        "verify_reportCalls": 21,
+        "verify_reportCpuSeconds": 8.752941798000109,
+        "_validate_captureCpuSeconds": 18.004624766000006,
+        "validate_planCpuSeconds": 18.03412339299996
+      }
+    }
+  ],
+  "interruptedMethod": "test_required_template_metadata_and_all_present_publication_days",
+  "fiveXxWallSeconds": 33.94207350513898,
+  "fiveXxCpuSeconds": 33.939468452,
+  "fiveXxValidatePlanCalls": 40,
+  "fiveXxRetainedDerivations": 80,
+  "fiveXxDeriveCpuSeconds": 32.598125831,
+  "httpMatrixWallSeconds": 137.268,
+  "httpMatrixDerivations": 320
+}

@@ -64,8 +64,13 @@ Preview canary 40270223152 on repair commit 34e55f78 timed out at its ten-minute
 Its archive check was skipped and it produced no artifact or gate charge. The independently
 reviewed [canary allowance repair](docs/active/daily-pipeline/accuracy/runtime-canary-timeout-repair-2026-10-26.md)
 changes only that job limit to twenty minutes; all 16 focused tests pass, with every assertion
-and operational budget unchanged. Actual preview canary 40271927460 is running on ee5c2851;
-no successful result is claimed. Main stays 3bb9e40c and public release fc8bf098/sequence 4 remains current.
+and operational budget unchanged. Actual preview canary 40271927460 on ee5c2851 also timed
+out at twenty minutes, before its archive check, with zero artifacts and no gate charge.
+The independently reviewed local [PR Newswire mechanics test repair](docs/active/daily-pipeline/accuracy/prnewswire-mechanics-test-efficiency-2026-10-26.md)
+preserves all 20 original test bodies and 3,058 other tracked files. Its full portable suite
+passes 1,018 tests: 957 passes and the same 61 explicit archive-only skips, in 261.460 seconds
+including discovery. The separate unchanged original-H replay passes. This local result has
+no actual canary credit; main stays 3bb9e40c and public release fc8bf098/sequence 4 remains current.
 
 Native scheduled publisher 40271992393 started old main at 05:00:49 UTC. Ordinary cancellation
 did not stop its always() job; owner force-cancel ended it before any remotely persisted
@@ -80,7 +85,9 @@ observed. Manual callback 40265523640 skipped publication. Genuine current-J/eig
 and publication receipts remain open. The older genuine H run 40182324149 and failed October 25
 publisher 40190348786 remain dated historical evidence; their spent allowances were not erased.
 Genuine monitor 40191154739 proved its repaired reader and delivery, then correctly reported
-coverage/review/held/publisher gaps. Sustained durability and phone/email delivery remain unmeasured.
+coverage/review/held/publisher gaps. Later native monitor 40273459773 failed its 36-test preflight
+with four failures and three errors before --notify; issue 10 remained at its October 25 update.
+Sustained durability and phone/email delivery remain unmeasured.
 
 ## Current source work
 

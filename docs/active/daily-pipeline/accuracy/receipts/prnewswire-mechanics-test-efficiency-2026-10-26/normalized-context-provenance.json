@@ -1,0 +1,12 @@
+{
+  "kind": "ONCE_AUTHENTICATED_TEST_ONLY_NORMALIZED_CONTEXT",
+  "sha256": "24f17825e0e9c7a3afd8213267911a32ee52195bcecd1f7f5f5cb7bc231b527d",
+  "bytes": 321487,
+  "targets": 2,
+  "streams": 2,
+  "fixtureRawGzipSha256": "490b649e268337ceb47cc4c3080bfbc6e3d6fd69d58224e40bc6cd40b1cde2b9",
+  "planRawCanonicalSha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1",
+  "marketCanonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "construction": "Unchanged full validate_plan, denied socket and LocalStore initialization, canonical immutable bytes; each mechanics use JSON-decodes fresh copies.",
+  "authorityRawGraphCasesUncached": true
+}

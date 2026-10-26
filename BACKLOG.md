@@ -63,15 +63,22 @@ scheduled publisher/callback remain open; the first actual gate stays charged an
 Actual preview canary 40270223152 timed out after ten minutes before its archive check; it
 produced no artifact and spent no gate. The independently reviewed local [twenty-minute canary
 allowance](docs/active/daily-pipeline/accuracy/runtime-canary-timeout-repair-2026-10-26.md) changes only
-that job timeout; 16 focused tests pass and all assertions/budgets remain exact. Its next actual
-canary result is pending; main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
+that job timeout; 16 focused tests pass and all assertions/budgets remain exact. Actual canary
+40271927460 on ee5c2851 also timed out at twenty minutes before its archive check, with zero
+artifacts and no gate charge. The reviewed local [PR Newswire mechanics test repair](docs/active/daily-pipeline/accuracy/prnewswire-mechanics-test-efficiency-2026-10-26.md)
+preserves all 20 original test bodies and 3,058 other tracked files; the complete portable suite
+passes 957 tests plus 61 unchanged explicit archive-only skips (1,018 total) in 261.460 seconds
+including discovery, with a separate unchanged original-H pass. Actual repaired-canary proof
+remains open; main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
 
 Native scheduled publisher 40271992393 required owner force-cancel after ordinary cancellation
 continued into restoration. It produced no artifact/publication; authenticated archive 5ddcbc51,
 source 444/76/37, gate count one of two, released prior lease and all 106 public-file bytes stay
 exact. Its reviewed local [!cancelled() job-predicate repair](docs/active/daily-pipeline/accuracy/publisher-job-cancellation-repair-2026-10-26.md)
-preserves every other guard. Actual preview canary 40271927460 on ee5c2851 remains running; no
-future pass or exercised cancellation is claimed. The scheduled failure and manual intervention remain recorded.
+preserves every other guard. Its actual cancellation behavior remains unexercised. The scheduled
+failure and manual intervention remain recorded. Native monitor 40273459773 then failed its
+36-test preflight with four failures and three errors before --notify; issue 10 stayed at its
+October 25 update. The native collector due October 26 at 05:17 UTC remains unobserved.
 
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|

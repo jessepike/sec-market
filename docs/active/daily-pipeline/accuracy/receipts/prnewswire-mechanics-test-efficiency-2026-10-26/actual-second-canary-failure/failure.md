@@ -1,0 +1,11 @@
+# Actual twenty-minute preview canary timeout
+
+Canary `40271927460`, a preview push on exact candidate `ee5c2851a3e0d58455d1dddd8ae74eddf753714e`, ended cancelled. GitHub records: “The job has exceeded the maximum execution time of 20m0s”. The job ran from `05:00:16Z` to `05:20:33Z`; its guard step ran from `05:00:26Z` to `05:20:30Z` before cancellation. Archive verification was skipped and receipt upload failed because no canary JSON existed. There are zero artifacts and no successful runtime or current-eight-group canary proof.
+
+The log contains 580 completed test outcomes, 561 ok and 19 explicit skips, before the unfinished suite was cancelled. Tests continued progressing through the PR Newswire capture module. The largest logged-line gap was 318.606 seconds around `test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body`, followed by 155.352 seconds around required publication metadata, 101.057 seconds around quota/day/deadline guards and 97.550 seconds around missing transport fields. The last completed case was `test_transition_pointer_raw_hash_is_checked_even_if_json_value_matches` at `05:19:53.6644008Z`. These gaps are timestamp differences between GitHub log lines, not independent per-test CPU/wall timers. They show expensive progressing cases and do not establish one test hung for the whole job.
+
+The assigned worker is profiling the unchanged tests locally with network denied. A runtime repair must follow measured CPU/wall evidence while preserving every assertion and actual-source authority check. No third timeout increase, skip, bypass or new hosted experiment was performed by this audit.
+
+After termination the actual remote evidence ref remains `5ddcbc51613f125c12cdc724db821384886722f5`. Its previously authenticated source counters remain 444 fetches, 76 calls and 37 documents; gate count remains one of two. The failed canary supplied no collection, model, source, semantic, coverage, gate or publication credit. Main remains held pending the required evidence.
+
+Raw job log remains VM-only: 142,551 bytes, SHA-256 `fdbc1c9da8469d3b24258ba4e28c1ae39b7840548410fe442eaa026a9eeadd4d`. Safe metadata, bounded timings and annotations are indexed separately.

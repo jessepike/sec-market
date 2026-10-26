@@ -1,0 +1,12 @@
+test_all_authority_and_full_capture_examples_remain_outside_unit_boundary (test_prnewswire_primary_capture.MechanicsBoundaryTests.test_all_authority_and_full_capture_examples_remain_outside_unit_boundary) ... ok
+test_normalized_bytes_match_fresh_uncached_full_sealed_graph (test_prnewswire_primary_capture.MechanicsBoundaryTests.test_normalized_bytes_match_fresh_uncached_full_sealed_graph) ... ok
+test_unit_context_copies_and_outer_plan_contract_checks_remain_live (test_prnewswire_primary_capture.MechanicsBoundaryTests.test_unit_context_copies_and_outer_plan_contract_checks_remain_live) ... ok
+test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body (test_prnewswire_primary_capture.CaptureTests.test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body) ... ok
+test_report_observation_reservation_and_credit_tampering_rejects (test_prnewswire_primary_capture.CaptureTests.test_report_observation_reservation_and_credit_tampering_rejects) ... ok
+test_partial_failure_retains_both_actual_results (test_prnewswire_primary_capture.CaptureTests.test_partial_failure_retains_both_actual_results) ... ok
+test_both_original_diagnostics_replay_in_full_under_H (test_prnewswire_primary_capture.FullHistoricalReplay.test_both_original_diagnostics_replay_in_full_under_H) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 10.890s
+
+OK

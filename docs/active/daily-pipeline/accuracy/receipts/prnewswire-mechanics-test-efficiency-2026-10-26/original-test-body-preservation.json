@@ -1,0 +1,10 @@
+{
+  "originalTestMethods": 20,
+  "allOriginalMethodBodiesByteExact": true,
+  "beforeSha256": "a2cbd3e0c41d07a80646eb2f53f49082e2a32ebca31ee0927daaaf19ae806557",
+  "afterSha256": "3891361f221e0532147c079579ca21811901f7377102e78b70158e594d3aa254",
+  "newBoundaryChecks": 3,
+  "explicitMechanicsMethods": 12,
+  "uncachedCaptureMethods": 7,
+  "fullHistoricalReplayUnchanged": true
+}

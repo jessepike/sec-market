@@ -1,0 +1,82 @@
+{
+  "verdict": "PASS_INDEPENDENTLY_REVIEWED_ROOT_ACCEPTED",
+  "baseRevision": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+  "testFileSha256": "3891361f221e0532147c079579ca21811901f7377102e78b70158e594d3aa254",
+  "scope": "ONE_TEST_FILE_AND_NEW_DOCS_RECEIPTS_ONLY",
+  "originalMethodProof": {
+    "originalTestMethods": 20,
+    "allOriginalMethodBodiesByteExact": true,
+    "beforeSha256": "a2cbd3e0c41d07a80646eb2f53f49082e2a32ebca31ee0927daaaf19ae806557",
+    "afterSha256": "3891361f221e0532147c079579ca21811901f7377102e78b70158e594d3aa254",
+    "newBoundaryChecks": 3,
+    "explicitMechanicsMethods": 12,
+    "uncachedCaptureMethods": 7,
+    "fullHistoricalReplayUnchanged": true
+  },
+  "mechanicsBoundary": {
+    "explicitAllowlistMethods": 12,
+    "uncachedAuthorityAndEndToEndCaptureMethods": 7,
+    "normalization": "Full unchanged validator once under denied network/LocalStore initialization; immutable canonical bytes and fresh copies",
+    "normalizedContextSha256": "24f17825e0e9c7a3afd8213267911a32ee52195bcecd1f7f5f5cb7bc231b527d",
+    "allOriginalCounterexamplesAndAssertionsRetained": true,
+    "outerPlanContractHashChecksStillLive": true,
+    "productionVerificationChanged": false
+  },
+  "prnModule": {
+    "tests": 23,
+    "passed": 22,
+    "unchangedExplicitOriginalHArchiveOnlySkips": 1,
+    "wallSeconds": 42.66072605899535,
+    "cpuSeconds": 42.655112837000004,
+    "frozenReads": [],
+    "networkDenied": true
+  },
+  "fullPortableGuard": {
+    "tests": 1018,
+    "passed": 957,
+    "unchangedExplicitArchiveSkips": 61,
+    "unittestWallSeconds": 261.012,
+    "wallIncludingDiscoverySeconds": 261.45970633090474,
+    "cpuSeconds": null,
+    "cpuNotInstrumented": true,
+    "frozenReads": [],
+    "portablePRNCoreSkipped": [],
+    "networkDenied": true,
+    "underFiveMinutes": true
+  },
+  "separateOriginalHReplay": {
+    "passed": true,
+    "tests": 1,
+    "seconds": 1.606,
+    "unchangedFullBothDiagnostics": true
+  },
+  "trackedSourceProtection": {
+    "tracked": 3059,
+    "unchanged": 3058,
+    "onlyChanged": "ops/ci/test_prnewswire_primary_capture.py",
+    "allProductionWebContractsPoliciesFixturesWorkflowsByteExact": true
+  },
+  "actualFailureSafeIndexSha256": "eb9fc9b670305be6e60409dc4dd4848f5fc16a8d4606879fe410b520096c7ce9",
+  "rawHostedLogsVmOnly": true,
+  "baselineProfilePartialExit130": true,
+  "fullNpmRepeated": false,
+  "inheritedActualOverlayNpm": "Unchanged production web/contracts/runtime inherit reviewed34e 380data/115pipeline/80SEC/43browser actual overlay evidence; no fresh npm claim",
+  "finishWrites": 0,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "stateWrites": 0,
+  "gateReservations": 0,
+  "gitMutations": 0,
+  "dispatches": 0,
+  "hostedCanaryPassClaimed": false,
+  "closedAtUtc": "2026-10-26T05:37:24.535128+00:00",
+  "independentReview": {
+    "verdict": "PASS",
+    "tests": 7,
+    "passed": 7,
+    "skipped": 0,
+    "seconds": 10.89,
+    "reviewSha256": "068691797dca29f96b4811e6adc38ba7903b6122ca27e04260132b26d164f4d5",
+    "indexSha256": "f950e6469f335f2f0435716573315ec3f2e0b0bd07cbb2715b9d29ad36b2bb02"
+  }
+}

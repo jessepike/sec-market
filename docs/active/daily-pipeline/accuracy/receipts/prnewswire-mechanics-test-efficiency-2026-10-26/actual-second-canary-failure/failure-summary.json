@@ -1,0 +1,172 @@
+{
+  "verdict": "ACTUAL_SECOND_CANARY_TWENTY_MINUTE_TIMEOUT",
+  "actualCanaryRunId": 40271927460,
+  "appRevision": "ee5c2851a3e0d58455d1dddd8ae74eddf753714e",
+  "event": "push",
+  "jobId": 121406395266,
+  "jobStartedAt": "2026-10-26T05:00:16Z",
+  "jobCompletedAt": "2026-10-26T05:20:33Z",
+  "guard": {
+    "completed_at": "2026-10-26T05:20:30Z",
+    "conclusion": "cancelled",
+    "name": "Verify credential persistence helper using fictional data",
+    "started_at": "2026-10-26T05:00:26Z",
+    "status": "completed"
+  },
+  "archiveVerification": {
+    "completed_at": "2026-10-26T05:20:30Z",
+    "conclusion": "skipped",
+    "name": "Verify archived evidence integrity from the private GitHub runner without source requests",
+    "started_at": "2026-10-26T05:20:30Z",
+    "status": "completed"
+  },
+  "artifactCount": 0,
+  "runtimeReceiptExists": false,
+  "successfulRuntimeOrCurrent8ArchiveCredit": false,
+  "guardSuiteFinished": false,
+  "loggedOutcomes": {
+    "ok": 561,
+    "skipped": 19
+  },
+  "largestTestLineTimestampGaps": [
+    {
+      "seconds": 318.606424,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_full_consumed_actual_graph_is_portable_and_read_only",
+      "previousAt": "2026-10-26T05:09:02.4353390Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body",
+      "nextAt": "2026-10-26T05:14:21.0417631Z"
+    },
+    {
+      "seconds": 155.352326,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_report_observation_reservation_and_credit_tampering_rejects",
+      "previousAt": "2026-10-26T05:17:00.0248300Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_required_template_metadata_and_all_present_publication_days",
+      "nextAt": "2026-10-26T05:19:35.3771563Z"
+    },
+    {
+      "seconds": 101.056554,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_every_consumed_original_input_is_authenticated",
+      "previousAt": "2026-10-26T05:06:58.7327589Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_exhausted_quota_day_deadline_cancel_and_final_guard_keep_truthful_charges",
+      "nextAt": "2026-10-26T05:08:39.7893127Z"
+    },
+    {
+      "seconds": 97.550245,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body",
+      "previousAt": "2026-10-26T05:14:21.0417631Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_missing_transport_fields_remain_unknown_with_original_raw_observation",
+      "nextAt": "2026-10-26T05:15:58.5920083Z"
+    },
+    {
+      "seconds": 80.514884,
+      "previousTest": "test_prnewswire_press_list.PressListTests.test_unsafe_source_transport_and_metadata_urls_reject",
+      "previousAt": "2026-10-26T05:04:46.4681401Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_actual_fetcher_5xx_is_one_wire_attempt_one_charge_and_status_is_retained",
+      "nextAt": "2026-10-26T05:06:06.9830249Z"
+    },
+    {
+      "seconds": 64.808786,
+      "previousTest": "test_cyera_primary_capture.CaptureTests.test_full_consumed_actual_graph_is_portable_and_read_only",
+      "previousAt": "2026-10-26T05:01:27.6116449Z",
+      "nextTest": "test_cyera_primary_capture.CaptureTests.test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body",
+      "nextAt": "2026-10-26T05:02:32.4204304Z"
+    },
+    {
+      "seconds": 48.229011,
+      "previousTest": "test_cyera_primary_capture.CaptureTests.test_http_redirect_identity_mime_body_and_time_failures_keep_returned_body",
+      "previousAt": "2026-10-26T05:02:32.4204304Z",
+      "nextTest": "test_cyera_primary_capture.CaptureTests.test_invalid_or_conflicting_supplied_metadata_and_wrong_heading_hold",
+      "nextAt": "2026-10-26T05:03:20.6494413Z"
+    },
+    {
+      "seconds": 41.478874,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_plan_policy_and_descriptor_substitutions_reject_before_writes_or_reservations",
+      "previousAt": "2026-10-26T05:16:18.5459567Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_report_observation_reservation_and_credit_tampering_rejects",
+      "nextAt": "2026-10-26T05:17:00.0248300Z"
+    },
+    {
+      "seconds": 25.582047,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_day_crossing_before_transport_keeps_charged_fetch",
+      "previousAt": "2026-10-26T05:06:33.1507119Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_every_consumed_original_input_is_authenticated",
+      "nextAt": "2026-10-26T05:06:58.7327589Z"
+    },
+    {
+      "seconds": 20.446305,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_exhausted_quota_day_deadline_cancel_and_final_guard_keep_truthful_charges",
+      "previousAt": "2026-10-26T05:08:39.7893127Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_first_success_second_quota_denial_has_one_charge_and_unreached_hold",
+      "nextAt": "2026-10-26T05:09:00.2356178Z"
+    },
+    {
+      "seconds": 20.086611,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_changed_live_plan_or_failed_preflight_cannot_write_or_charge",
+      "previousAt": "2026-10-26T05:06:13.0641003Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_day_crossing_before_transport_keeps_charged_fetch",
+      "nextAt": "2026-10-26T05:06:33.1507119Z"
+    },
+    {
+      "seconds": 20.055282,
+      "previousTest": "test_cyera_primary_capture.CaptureTests.test_invalid_or_conflicting_supplied_metadata_and_wrong_heading_hold",
+      "previousAt": "2026-10-26T05:03:20.6494413Z",
+      "nextTest": "test_cyera_primary_capture.CaptureTests.test_missing_transport_fields_remain_unknown_with_original_raw_observation",
+      "nextAt": "2026-10-26T05:03:40.7047230Z"
+    },
+    {
+      "seconds": 19.967597,
+      "previousTest": "test_cyera_primary_capture.CaptureTests.test_every_consumed_original_input_is_authenticated",
+      "previousAt": "2026-10-26T05:01:07.2374363Z",
+      "nextTest": "test_cyera_primary_capture.CaptureTests.test_exhausted_quota_day_deadline_cancel_and_final_guard_keep_truthful_charges",
+      "nextAt": "2026-10-26T05:01:27.2050332Z"
+    },
+    {
+      "seconds": 19.448835,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_missing_transport_fields_remain_unknown_with_original_raw_observation",
+      "previousAt": "2026-10-26T05:15:58.5920083Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_partial_failure_retains_both_actual_results",
+      "nextAt": "2026-10-26T05:16:18.0408432Z"
+    },
+    {
+      "seconds": 18.174844,
+      "previousTest": "test_prnewswire_primary_capture.CaptureTests.test_shared_caller_preflight_failure_retains_zero_credit_outer_fields",
+      "previousAt": "2026-10-26T05:19:35.4287283Z",
+      "nextTest": "test_prnewswire_primary_capture.CaptureTests.test_shared_leased_caller_routes_directly_and_preserves_outer_zeros",
+      "nextAt": "2026-10-26T05:19:53.6035724Z"
+    }
+  ],
+  "lastCompletedTest": {
+    "at": "2026-10-26T05:19:53.6644008Z",
+    "test": "test_prnewswire_primary_capture.CaptureTests.test_transition_pointer_raw_hash_is_checked_even_if_json_value_matches",
+    "method": "test_transition_pointer_raw_hash_is_checked_even_if_json_value_matches",
+    "module": "test_prnewswire_primary_capture",
+    "status": "ok"
+  },
+  "diagnosisState": "Log demonstrates continuing test progression; no single full-job stall or test assertion failure is established. Local unchanged-test CPU/wall profile is pending before any repair. No blind timeout increase is authorized by this audit.",
+  "rawLogSha256": "fdbc1c9da8469d3b24258ba4e28c1ae39b7840548410fe442eaa026a9eeadd4d",
+  "rawLogBytes": 142551,
+  "rawLogVMOnly": true,
+  "archiveRefAfter": {
+    "object": {
+      "sha": "5ddcbc51613f125c12cdc724db821384886722f5",
+      "type": "commit"
+    },
+    "ref": "refs/archive/market-evidence"
+  },
+  "priorBudgetsRemainExactBySameImmutableArchive": {
+    "calls": 76,
+    "documents": 37,
+    "fetches": 444,
+    "gateAttempts": 1,
+    "gateLimit": 2
+  },
+  "noSourceModelOrPublicationCredit": true,
+  "auditorActions": {
+    "sourceModelRequests": 0,
+    "realStateWrites": 0,
+    "dispatches": 0,
+    "cancellations": 0,
+    "reservations": 0,
+    "finishWrites": 0
+  }
+}

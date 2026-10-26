@@ -1,0 +1,25 @@
+{
+  "verdict": "PASS",
+  "files": [
+    {
+      "path": "review.md",
+      "sha256": "068691797dca29f96b4811e6adc38ba7903b6122ca27e04260132b26d164f4d5",
+      "bytes": 3313
+    },
+    {
+      "path": "review.json",
+      "sha256": "745e01add62ce706f46c31c075f814a51b95b9cddb21646d590822c017e7114c",
+      "bytes": 3089
+    },
+    {
+      "path": "source-protection.json",
+      "sha256": "afbca0c11598973f70b2e1de67145dea2ec81aa0fdcef1f9ecc8a623331f8ab8",
+      "bytes": 626
+    },
+    {
+      "path": "selected-independent-tests.log",
+      "sha256": "a31d2b56849e9305d7040929b0b93694265abfb0d1cd33d87a62939be1b47a08",
+      "bytes": 1407
+    }
+  ]
+}

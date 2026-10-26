@@ -1,0 +1,75 @@
+{
+  "verdict": "PASS",
+  "findings": [],
+  "baseRevision": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+  "testModuleSha256": "3891361f221e0532147c079579ca21811901f7377102e78b70158e594d3aa254",
+  "sourceProtection": {
+    "base": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+    "changedOnly": [
+      "ops/ci/test_prnewswire_primary_capture.py"
+    ],
+    "trackedFiles": 3059,
+    "unchangedFiles": 3058,
+    "all20OriginalTestBodiesByteExact": true,
+    "newTestBodies": [
+      "MechanicsBoundaryTests.test_all_authority_and_full_capture_examples_remain_outside_unit_boundary",
+      "MechanicsBoundaryTests.test_normalized_bytes_match_fresh_uncached_full_sealed_graph",
+      "MechanicsBoundaryTests.test_unit_context_copies_and_outer_plan_contract_checks_remain_live"
+    ],
+    "afterSha256": "3891361f221e0532147c079579ca21811901f7377102e78b70158e594d3aa254"
+  },
+  "scope": "Test-only mechanics unit boundary; no production cache or validator change",
+  "mechanicsAllowlistSize": 12,
+  "uncachedCaptureAuthorityMethods": 7,
+  "all63RawInputMutationLoopBodyExact": true,
+  "independentSelectedTests": {
+    "run": 7,
+    "pass": 7,
+    "skip": 0,
+    "seconds": 10.89,
+    "includes": "Three new boundary tests, HTTP/report counterexamples, uncached complete partial-failure capture and full original-H replay"
+  },
+  "workerCompletePortableGuard": {
+    "tests": 1018,
+    "pass": 957,
+    "unchangedExplicitArchiveOnlySkips": 61,
+    "unittestSeconds": 261.012,
+    "driverWallSeconds": 261.46,
+    "cpuTime": "not measured for full suite",
+    "network": "socket denied",
+    "frozenReads": 0,
+    "logSha256": "25743bdf50cb17932b3bb424ca1a5a030b04097e0285f3280a53777147c64372"
+  },
+  "workerPrnModule": {
+    "tests": 23,
+    "portablePass": 22,
+    "originalHistoricalArchiveSkip": 1,
+    "wallSeconds": 42.661,
+    "cpuSeconds": 42.655
+  },
+  "workerSeparateOriginalHReplay": {
+    "pass": true,
+    "logSha256": "f1dd6ede9ca867d4614e1ce56234b2e4b7e3b87e989fe62a69286bbe95827205"
+  },
+  "contextProvenance": "Constructed once by unchanged full validate_plan over sealed63-input portable graph; targets/streams frozen as canonical bytes and returned as fresh JSON copies only inside explicit mechanics allowlist. All outer plan/contract pinning, execute/finalize/report/transport checks remain live.",
+  "preservedUncachedProof": [
+    "complete two-GET success/finalize/replay",
+    "shared leased-caller success",
+    "complete partial failure/finalize/replay",
+    "all63 raw-input mutations",
+    "all plan/policy/descriptor mutations",
+    "pointer whitespace/raw hash mutation",
+    "full consumed read-only graph",
+    "both original H diagnostics"
+  ],
+  "limitations": "Local guard target below five minutes met; no actual hosted canary, native collection, gate or publication success claimed. Next real canary must complete archive verification and artifact upload.",
+  "reviewActions": {
+    "finishWrites": 0,
+    "productionWrites": 0,
+    "sourceModelRequests": 0,
+    "realStateWrites": 0,
+    "dispatches": 0,
+    "cancellations": 0,
+    "reservations": 0
+  }
+}

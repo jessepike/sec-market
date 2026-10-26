@@ -1,0 +1,15 @@
+{
+  "base": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+  "changedOnly": [
+    "ops/ci/test_prnewswire_primary_capture.py"
+  ],
+  "trackedFiles": 3059,
+  "unchangedFiles": 3058,
+  "all20OriginalTestBodiesByteExact": true,
+  "newTestBodies": [
+    "MechanicsBoundaryTests.test_all_authority_and_full_capture_examples_remain_outside_unit_boundary",
+    "MechanicsBoundaryTests.test_normalized_bytes_match_fresh_uncached_full_sealed_graph",
+    "MechanicsBoundaryTests.test_unit_context_copies_and_outer_plan_contract_checks_remain_live"
+  ],
+  "afterSha256": "3891361f221e0532147c079579ca21811901f7377102e78b70158e594d3aa254"
+}

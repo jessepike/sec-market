@@ -1,0 +1,67 @@
+{
+  "files": [
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/full-portable-ops.log.gz",
+      "sha256": "265f25ca70c4a7fccf29939ee635faa39b4c0e3474077d7d9ef6a6bfd3310c34",
+      "bytes": 29150,
+      "uncompressedSha256": "25743bdf50cb17932b3bb424ca1a5a030b04097e0285f3280a53777147c64372",
+      "uncompressedBytes": 193621
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/full-original-h-replay.log.gz",
+      "sha256": "d2096cb07c21c01e810c95a97898dd7f4f05260f32fcd515043128135e5ff3bd",
+      "bytes": 150,
+      "uncompressedSha256": "f1dd6ede9ca867d4614e1ce56234b2e4b7e3b87e989fe62a69286bbe95827205",
+      "uncompressedBytes": 267
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/candidate-prn-tests.log.gz",
+      "sha256": "4e19c68942c509f91c4487cc9743da07604cbcd694846dd53c85a6e2da8faccb",
+      "bytes": 1047,
+      "uncompressedSha256": "a1b06ee2593fe665a3ec886b4bb7ab07e6efbcd124d241828a2ed85e288be8a1",
+      "uncompressedBytes": 4558
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/candidate-prn-profile-progress.log.gz",
+      "sha256": "d5e433cdbab15ff91c74e6cde20e8e079baa3845d4f521ae708573e9c328764a",
+      "bytes": 2839,
+      "uncompressedSha256": "c417e41ab767a5d7936a32357301d5fbd68bd42a87fc484ac12e1b2c0f0c5612",
+      "uncompressedBytes": 13600
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/candidate-prn-profile.json.gz",
+      "sha256": "49378d1085cd6f6c21a3dd4b45500599ab3bf2b799cc2a32a18f012c0bce0160",
+      "bytes": 2617,
+      "uncompressedSha256": "31fba7ca656cd90fb936716235c1cc52ea989f85898dfc3cfc13947527c82d3f",
+      "uncompressedBytes": 11274
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/tracked-source-protection.json.gz",
+      "sha256": "f7b7a72aaf7b3dac76cb90a874cd8cb05fd5916b35b41cfff8b8f7e351241a99",
+      "bytes": 253182,
+      "uncompressedSha256": "8675eee952112d3a00842f66d49d5f8fdb86d4a92331f25f2f3ac7a77ba2907e",
+      "uncompressedBytes": 1173060
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/baseline-partial-profile.log.gz",
+      "sha256": "8989d63782f8afe2e60bee3a3e7867003f404d05d5d2e93a92985a949cdf7822",
+      "bytes": 3442,
+      "uncompressedSha256": "ca3c2118bf3164b49523d56ee6baca93fac8dc2333ccd0e3a437268c3af2c3c2",
+      "uncompressedBytes": 15808
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/baseline-partial-test-output.log.gz",
+      "sha256": "0964790933cfe5da6e569ced4335d2c80bd3114f51df96a75c6e1755ec6ca09f",
+      "bytes": 617,
+      "uncompressedSha256": "5a81c82ce104773a26f16e0685709016b524f993e5d301e1b63a0545e95e4285",
+      "uncompressedBytes": 2651
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-mechanics-test-efficiency-2026-10-26/baseline-partial-per-test.json.gz",
+      "sha256": "50834db21910542cdcb07aa3ea90cd0e1b9af9e1a1644972f0bbf1ba865cccb9",
+      "bytes": 1992,
+      "uncompressedSha256": "54f6fd734ec437b9a42a340d8ebf25a3ad5cddc24122a2d43664ac16b2b747d5",
+      "uncompressedBytes": 8779
+    }
+  ]
+}
