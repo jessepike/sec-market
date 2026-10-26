@@ -1,0 +1,119 @@
+{
+  "kind": "DERIVED_OFFLINE_PREPARE_DATA_REPLAY_NOT_ACTUAL_FAILED_GATE_EXPORT",
+  "actualFailedGateRunId": 40266928448,
+  "actualApplicationRevision": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "actualGateInputArchive": {
+    "commit": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+    "manifestSha256": "4c00a5cc5c2cf162b6d1d7816236fd2561faf894f5adede334e6f3f33e3a6da3",
+    "files": 56262
+  },
+  "all56262InputEntriesAuthenticatedAndCopied": true,
+  "inputMutableHeadsDifferentFromLaterFailureArchive": [
+    "state/heads/cloud-governance.json",
+    "state/heads/cloud-lease.json",
+    "state/heads/worker-heartbeat.json"
+  ],
+  "localReplayTime": "2026-10-26T04:15:20.629309Z",
+  "derivedSnapshotRawSha256": "74cec6e38ca699353205b83d198de5141b0cf93486b8293890b60290791e96e4",
+  "derivedSnapshotInternalSha256": "4d5bf5bfa52f2d246bdea71b3a49704cd5f45aacf264038011df863fb18ceb81",
+  "derivedSnapshotRawBytes": 1560943,
+  "derivedSnapshotPath": "/var/tmp/smp-oct26-publish-40266519925/candidate-replay/derived-snapshot.json",
+  "preparedApplication": "/var/tmp/smp-oct26-publish-40266519925/candidate-replay/application",
+  "copiedTemporaryState": "/var/tmp/smp-oct26-publish-40266519925/candidate-replay/copied-gate-input/state",
+  "prepareDataOutput": "/var/tmp/smp-oct26-publish-40266519925/candidate-replay/prepare-data-output",
+  "generatedOverlay": "/var/tmp/smp-oct26-publish-40266519925/candidate-replay/generated-overlay",
+  "generatedOverlayFiles": [
+    {
+      "path": "web/src/data/generated/certifiedCoverage.json",
+      "sha256": "318c85c3d569c152376e75870f3086db3e00064fcf9db81330e66a2f037607cb",
+      "bytes": 165444
+    },
+    {
+      "path": "web/src/data/generated/certifiedVerification.json",
+      "sha256": "b3284e9572086fc3a0b269964900bea9f7972f1070804d4f71d3082d4b0d69fd",
+      "bytes": 107867
+    },
+    {
+      "path": "web/src/data/generated/dailyMarket.json",
+      "sha256": "74cec6e38ca699353205b83d198de5141b0cf93486b8293890b60290791e96e4",
+      "bytes": 1560943
+    },
+    {
+      "path": "web/src/data/generated/dailyMarket.seal.json",
+      "sha256": "eccaa10aaa3a2e613c5ac2462d87a59da329f7d23afe6d7d1125a8650d6ca6ba",
+      "bytes": 258
+    },
+    {
+      "path": "web/src/data/generated/edgarFacts.json",
+      "sha256": "5f61e6d16a3aad8f837599e00c0a8050201c8908e053aac0328ca9905dc766fa",
+      "bytes": 108307
+    },
+    {
+      "path": "web/src/data/generated/factualCorrections.json",
+      "sha256": "299527839f4d23a498cfe48be39e599dbd75debb8ea19c6bb343a4e826e5ac71",
+      "bytes": 37212
+    },
+    {
+      "path": "web/src/data/generated/factualCorrections.seal.json",
+      "sha256": "a142128d67272d1a9618b5dfde69586eb312cf4e37d09c2a0385cee3235d0173",
+      "bytes": 957
+    },
+    {
+      "path": "web/src/data/generated/filingEvidence.json",
+      "sha256": "67b0d99095041ea5c6cc57812d0da61bcb2f7d3c0cc3f645aaedcfd6b96a59cf",
+      "bytes": 27482
+    },
+    {
+      "path": "web/src/data/generated/filingRun.json",
+      "sha256": "31c152fc73f2cef4426961c6311be02184e1497ae3d8e48d17bbad031212cb97",
+      "bytes": 3091
+    }
+  ],
+  "all8RealRetainedAdmissionReferencesPreserved": true,
+  "allSixPriorPublishedCorrectionRowsExact": true,
+  "newTwoPublicationDatesInDerivedProjection": "2026-10-26",
+  "allOriginalSourceClocksUnchanged": true,
+  "sourceExpiry": "2026-10-27T09:26:58.065250+00:00",
+  "coverage": {
+    "successfulTasks": 265,
+    "requiredTasks": 557
+  },
+  "reviewQueue": 44,
+  "actualPrivateSourceSnapshotInternalSha256": "0a7539d85251692b5c3aed1861b462d9c2f4727d2bf100d8248888252246dc44",
+  "actualPriorPublicAck": [
+    {
+      "host": "https://securitymarketpulse.com",
+      "path": "/deployment-receipt.json",
+      "responseSha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+      "provenance": "Actual106-file public-byte audit before replay; pinned acknowledged response; no replay network"
+    }
+  ],
+  "preTestSecPhases": [
+    {
+      "name": "refresh:edgar",
+      "returncode": 0,
+      "logSha256": "95f4e9712e6b5c7b82000bfa02398404746664e8269b7c7a6ff2df07c4cef90c",
+      "network": "Every fetch intercepted by pinned SEC-cache hook with no fallback"
+    },
+    {
+      "name": "refresh:filing-events",
+      "returncode": 0,
+      "logSha256": "69ba0480c0dea9784f20640db29c30bdd650120f46aab9caabcab2d20b45dd3b",
+      "network": "Every fetch intercepted by pinned SEC-cache hook with no fallback"
+    },
+    {
+      "name": "certify:sec",
+      "returncode": 0,
+      "logSha256": "860f9cd035909c44cc8ab198d1350d28b64e74efbc3f4dc3724b73dfa3e47e98",
+      "network": "Every fetch intercepted by pinned SEC-cache hook with no fallback"
+    }
+  ],
+  "frozenArchiveInputsUnchanged": true,
+  "realArchiveStateWrites": 0,
+  "sourceOrModelNetworkRequests": 0,
+  "publicAckNetworkRequestsDuringReplay": 0,
+  "modelRequests": 0,
+  "dispatches": 0,
+  "reservationsOnRealState": 0,
+  "limits": "This deterministically replays prepare_data and archived-only SEC pre-test phases at a labelled local clock. The failed gate exported no snapshot/build/release-input, so these bytes are derived offline inputs, never claimed as its actual exported artifact."
+}

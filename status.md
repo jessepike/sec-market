@@ -52,6 +52,14 @@ remain exact for sequence 4; Vercel confirms READY. No new release or new-releas
 exists. The final gate slot is reserved for an ordinary scheduled publisher/callback after the
 fixture repair passes review and full local actual-data replay. No manual second dispatch.
 
+The independently reviewed [historical fixture repair](docs/active/daily-pipeline/accuracy/q4-historical-test-fixture-repair-spec-2026-10-26.md)
+now passes the current-candidate actual-input local replay: 380 data tests, 115 pipeline tests,
+all 80 SEC claims and 43 browser tests, with zero skips. Its three test-only files preserve all
+original assertions and the unchanged verifier; both unrepaired counterexamples fail. All eight
+admissions, old six history rows/dates and source clocks remain exact. Local candidate 05ee1292
+includes dormant PR Newswire unit 5a4df6e9; preview/main promotion and the final ordinary gate
+remain root-owned. This local pass changes no actual spent allowance or public release.
+
 The next native collector is due October 26 at 05:17 UTC; its creation/start/result are not yet
 observed. Manual callback 40265523640 skipped publication. Genuine current-J/eight-group schedule
 and publication receipts remain open. The older genuine H run 40182324149 and failed October 25

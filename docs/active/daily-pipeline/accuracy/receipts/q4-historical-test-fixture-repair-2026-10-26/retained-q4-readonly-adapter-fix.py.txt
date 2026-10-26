@@ -1,0 +1,13 @@
+from pathlib import Path
+p=Path('/mnt/mac/tmp/q4-replay-prepare-data.py');s=p.read_text().replace('self.root=S;self.touched={}','self.root=S;self.touched={};self.existing_put_assertions=0')
+s=s.replace(" def get(self,ref):\n  raw=self.raw(ref['key']);assert len(raw)==ref['bytes']and digest(raw)==ref['sha256'];return raw", """ def get(self,ref):
+  raw=self.raw(ref['key']);assert len(raw)==ref['bytes']and digest(raw)==ref['sha256'];return raw
+ def put(self,value):
+  raw=value if type(value)is bytes else canonical(value)
+  ref={'key':'objects/'+digest(raw),'sha256':digest(raw),'bytes':len(raw)}
+  assert self.get(ref)==raw
+  self.existing_put_assertions+=1
+  return ref""")
+s=s.replace("'readOnlyAdapterHasNoWriteMethods':True", "'putIsExistingImmutableAssertionOnly':True,'existingObjectPutAssertions':store.existing_put_assertions")
+p.write_text(s)
+Path('/var/tmp/smp-q4-historical-fixture-repair-20261026/initial-adapter-failure-note.txt').write_text('Initial offline current-candidate prepare_data attempt stopped at validation.verify_statement with AttributeError: ReadOnly object has no attribute put. The adapter was extended only to recompute a content-addressed reference and assert those exact bytes already exist under the authenticated manifest. It cannot create or modify objects. Runtime code is unchanged. This note records the console failure; it is not a reconstructed failed-gate log.\n')

@@ -2,6 +2,8 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { createHash } from 'node:crypto'
+import { gunzipSync } from 'node:zlib'
 import { verifyQ4BaselineMigration, verifyQ4PolicyTransition, Q4_J } from '../scripts/pipeline/daily_q4_baseline_migration.mjs'
 
 const read = path => JSON.parse(readFileSync(fileURLToPath(new URL(path, import.meta.url))))
@@ -9,7 +11,16 @@ const original = read('../scripts/migration-proofs/q4-h-original/market.json')
 const current = read('../../contracts/market.json')
 const registry = read('../scripts/migration-proofs/q4-h-original/authority.json')
 const transition = read('../scripts/migration-proofs/q4-h-original/transition.json')
-const snapshot = read('../src/data/generated/dailyMarket.json')
+// Accepted prospective J baseline, frozen from immutable Git blob 3794b800ffc9d691604d77ed1d06a3a8daebf517.
+// Fresh gate data is a different snapshot and must never replace this historical fixture.
+const packed = readFileSync(fileURLToPath(new URL('./fixtures/q4-prospective-j-baseline-2026-10-25.json.gz', import.meta.url)))
+const sha256 = raw => createHash('sha256').update(raw).digest('hex')
+assert.equal(packed.length, 555404)
+assert.equal(sha256(packed), '643cfc12299d2841d37ca7589fe76de56b9ba40266b1643c7e67d3213e71c051')
+const frozen = gunzipSync(packed)
+assert.equal(frozen.length, 7696749)
+assert.equal(sha256(frozen), '7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f')
+const snapshot = JSON.parse(frozen.toString('utf8'))
 
 test('exact H/J policies invert independently and preserve all other sources and types', () => {
   assert.deepEqual(verifyQ4PolicyTransition(original, current, transition, registry), original)

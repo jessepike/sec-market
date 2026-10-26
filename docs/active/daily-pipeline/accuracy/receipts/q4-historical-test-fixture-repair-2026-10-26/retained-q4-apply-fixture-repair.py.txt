@@ -1,0 +1,70 @@
+from pathlib import Path
+import json,hashlib
+F=Path('/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022');O=Path('/var/tmp/smp-q4-historical-fixture-repair-20261026')
+p=F/'web/tests/q4-baseline-migration.test.mjs';old=p.read_text();assert hashlib.sha256(old.encode()).hexdigest()=='eeedb79be6f456d0a084d56aff99caac1c526fb527254265d1790e876a7f2629'
+fixture=F/'web/tests/fixtures/q4-prospective-j-baseline-2026-10-25.json.gz';regression=F/'web/tests/q4-baseline-fixture-independence.test.mjs';assert not fixture.exists()and not regression.exists()
+new=old.replace("import { fileURLToPath } from 'node:url'", "import { fileURLToPath } from 'node:url'\nimport { createHash } from 'node:crypto'\nimport { gunzipSync } from 'node:zlib'")
+new=new.replace("const snapshot = read('../src/data/generated/dailyMarket.json')", """// Accepted prospective J baseline, frozen from immutable Git blob 3794b800ffc9d691604d77ed1d06a3a8daebf517.
+// Fresh gate data is a different snapshot and must never replace this historical fixture.
+const packed = readFileSync(fileURLToPath(new URL('./fixtures/q4-prospective-j-baseline-2026-10-25.json.gz', import.meta.url)))
+const sha256 = raw => createHash('sha256').update(raw).digest('hex')
+assert.equal(packed.length, 555404)
+assert.equal(sha256(packed), '643cfc12299d2841d37ca7589fe76de56b9ba40266b1643c7e67d3213e71c051')
+const frozen = gunzipSync(packed)
+assert.equal(frozen.length, 7696749)
+assert.equal(sha256(frozen), '7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f')
+const snapshot = JSON.parse(frozen.toString('utf8'))""")
+assert new[new.index("test('exact H/J"):]==old[old.index("test('exact H/J"):]
+fixture.parent.mkdir(parents=True,exist_ok=True);fixture.write_bytes((O/fixture.name).read_bytes());p.write_text(new)
+regression.write_text('''import test from 'node:test'
+import assert from 'node:assert/strict'
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { spawnSync } from 'node:child_process'
+
+// Reproduce the gate's fresh generated-data substitution without changing any source file.
+// The historical test must pass while an attempted read returns a fresh J counterexample.
+test('historical Q4 assertions ignore a fresh generated snapshot overlay', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'q4-fresh-overlay-'))
+  try {
+    const trace = join(directory, 'generated-reads.txt')
+    const hook = join(directory, 'fresh-overlay.mjs')
+    const generated = fileURLToPath(new URL('../src/data/generated/dailyMarket.json', import.meta.url))
+    const historical = fileURLToPath(new URL('./q4-baseline-migration.test.mjs', import.meta.url))
+    writeFileSync(trace, '')
+    const fresh = JSON.stringify({
+      schemaVersion: 1,
+      contractSha256: '47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a',
+      runId: 'SYNTHETIC_FRESH_J_OVERLAY',
+      coverage: { intake: { evaluated: true }, successfulTasks: 265, requiredTasks: 557 },
+    })
+    writeFileSync(hook, `
+      import fs from 'node:fs'
+      import { fileURLToPath } from 'node:url'
+      import { syncBuiltinESMExports } from 'node:module'
+      const original = fs.readFileSync
+      fs.readFileSync = function (path, ...args) {
+        const name = path instanceof URL ? fileURLToPath(path) : String(path)
+        if (name === ${JSON.stringify(generated)}) {
+          fs.appendFileSync(${JSON.stringify(trace)}, String(process.pid) + '\\\\n')
+          return Buffer.from(${JSON.stringify(fresh)})
+        }
+        return original.call(this, path, ...args)
+      }
+      syncBuiltinESMExports()
+    `)
+    const result = spawnSync(process.execPath, ['--import', hook, '--test', historical], {
+      encoding: 'utf8', timeout: 45000,
+    })
+    assert.equal(result.error, undefined)
+    assert.equal(result.status, 0, result.stdout + result.stderr)
+    assert.equal(readFileSync(trace, 'utf8'), '', 'the historical assertion consumed mutable generated data')
+  } finally {
+    rmSync(directory, { recursive: true, force: true })
+  }
+})
+''')
+receipt={'base':'05ee1292e70ead4d54c0cdc8566c1a5101349866','immutableFixtureCommit':'5a4df6e954e50564007e768b77a5d596de5a924c','immutableFixtureGitBlob':'3794b800ffc9d691604d77ed1d06a3a8daebf517','rawFixtureSha256':'7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f','rawFixtureBytes':7696749,'allOriginalTestBodiesByteExact':True,'files':[{'path':str(x.relative_to(F)),'sha256':hashlib.sha256(x.read_bytes()).hexdigest(),'bytes':len(x.read_bytes())}for x in (p,fixture,regression)]}
+(O/'repair-source-pins.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))

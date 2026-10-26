@@ -1,0 +1,42 @@
+"""Current-candidate deterministic replay over exact retained gate input, with no writable store."""
+from pathlib import Path
+import sys,json,hashlib,socket
+from unittest.mock import patch
+O=Path('/var/tmp/smp-q4-historical-fixture-repair-20261026');A=O/'app';B=Path('/var/tmp/smp-oct26-publish-40266519925');D=B/'candidate-replay';S=D/'copied-gate-input/state';DEST=O/'prepare-data-output';DEST.mkdir(exist_ok=True)
+sys.path[:0]=[str(A/'web/scripts/pipeline'),str(A/'ops/ci')]
+import gate
+from contracts import canonical,digest
+from vercel import VercelAdapter
+manifest_raw=(S.parent/'archive-manifest.json').read_bytes();assert digest(manifest_raw)=='4c00a5cc5c2cf162b6d1d7816236fd2561faf894f5adede334e6f3f33e3a6da3';entries={r['key']:r for r in json.loads(manifest_raw)['files']};assert len(entries)==56262
+receipt=json.loads((D/'derived-prepare-data-receipt.json').read_bytes());ack=json.loads((B/'failure-verification/public-deployment-receipt.json').read_bytes());assert digest(canonical(ack))==receipt['actualPriorPublicAck'][0]['responseSha256']
+class ReadOnly:
+ def __init__(self):self.root=S;self.touched={};self.existing_put_assertions=0
+ def _path(self,key):
+  assert isinstance(key,str)and not key.startswith('/')and '..'not in Path(key).parts
+  p=S/key;assert not p.is_symlink()and p.resolve().is_relative_to(S);return p
+ def raw(self,key):
+  p=self._path(key);row=entries.get('state/'+key)
+  if row is None:assert not p.exists();return None
+  raw=p.read_bytes();assert len(raw)==row['bytes']and digest(raw)==row['sha256'];st=p.stat();self.touched[key]={'sha256':digest(raw),'bytes':len(raw),'mtimeNs':st.st_mtime_ns,'inode':st.st_ino};return raw
+ def read(self,key):
+  raw=self.raw(key);return json.loads(raw)if raw is not None else None
+ def get(self,ref):
+  raw=self.raw(ref['key']);assert len(raw)==ref['bytes']and digest(raw)==ref['sha256'];return raw
+ def put(self,value):
+  raw=value if type(value)is bytes else canonical(value)
+  ref={'key':'objects/'+digest(raw),'sha256':digest(raw),'bytes':len(raw)}
+  assert self.get(ref)==raw
+  self.existing_put_assertions+=1
+  return ref
+store=ReadOnly();ack_reads=[]
+def pinned_get(host,path):
+ assert(host,path)==('https://securitymarketpulse.com','/deployment-receipt.json');ack_reads.append({'host':host,'path':path,'canonicalResponseSha256':digest(canonical(ack))});return ack
+with patch.object(socket,'socket',side_effect=AssertionError('NO_REPLAY_NETWORK')),patch.object(VercelAdapter,'_get',side_effect=pinned_get),patch.object(gate,'utcnow',return_value=receipt['localReplayTime']):
+ contract,coverage,snapshot,raw,cache,collection_hash=gate.prepare_data(A,store,DEST)
+assert digest(raw)==receipt['derivedSnapshotRawSha256']and len(raw)==receipt['derivedSnapshotRawBytes']and snapshot['snapshotSha256']==receipt['derivedSnapshotInternalSha256']
+for key,before in store.touched.items():
+ p=S/key;raw=p.read_bytes();st=p.stat();assert {'sha256':digest(raw),'bytes':len(raw),'mtimeNs':st.st_mtime_ns,'inode':st.st_ino}==before
+bundle=json.loads((A/'web/src/data/generated/factualCorrections.json').read_bytes());assert len(bundle['groups'])==8 and [g['date']for g in bundle['groups'][-2:]]==['2026-10-26','2026-10-26'];assert snapshot['coverage']['successfulTasks']==265 and len(snapshot['reviewQueue'])==44
+assert(snapshot['coverage']['validUntil'])==receipt['sourceExpiry']
+result={'verdict':'PASS','kind':'CURRENT_CANDIDATE_DERIVED_OFFLINE_PREPARE_DATA_NOT_ACTUAL_GATE_EXPORT','baseRevision':'05ee1292e70ead4d54c0cdc8566c1a5101349866','actualGateInput':receipt['actualGateInputArchive'],'fixedLocalReplayTime':receipt['localReplayTime'],'snapshotRawSha256':digest((A/'web/src/data/generated/dailyMarket.json').read_bytes()),'snapshotInternalSha256':snapshot['snapshotSha256'],'byteExactAuditorDerivedSnapshot':True,'all8Groups':len(bundle['groups']),'sourceExpiry':snapshot['coverage']['validUntil'],'consultedStateFiles':len(store.touched),'allConsultedStateUnchanged':True,'putIsExistingImmutableAssertionOnly':True,'existingObjectPutAssertions':store.existing_put_assertions,'stateSeals':store.touched,'publicAckReplay':ack_reads,'sourceRequests':0,'modelRequests':0,'gateReservations':0,'dispatches':0,'realStateWrites':0,'cacheManifest':str(cache),'collectionReceiptSha256':collection_hash}
+(O/'prepare-data-replay.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({k:v for k,v in result.items()if k!='stateSeals'}))

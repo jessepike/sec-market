@@ -1,0 +1,116 @@
+{
+  "files": [
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/actual-overlay-npm-test.log",
+      "rawSha256": "60ec9c99713bc577ac99efc1072509cb3b766104a11197b7f29efbaca0c4dff9",
+      "rawBytes": 128688,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/actual-overlay-npm-test.log.gz",
+      "sha256": "9fd6add7a28f0fcb765e63bd5213290fcd7d4f47ef4f06c42670fdcfba9eaa3d",
+      "bytes": 26028
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/actual-overlay-unrepaired-test.log",
+      "rawSha256": "13ad8909c57a926929b940740089093c47a1efcb40e7f57d060e6672f2f3d760",
+      "rawBytes": 1710,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/actual-overlay-unrepaired-test.log.gz",
+      "sha256": "76b048806e6855dc6d7aa21d0a69ac2fdb4d993f5c9412f32c79a86a43ad6159",
+      "bytes": 681
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/derived-renders.log",
+      "rawSha256": "d4973e3fbaa6184d1a0124bc80c03e3b6a101d9b94bd38b9fb44b97ba02fc4fa",
+      "rawBytes": 266,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/derived-renders.log.gz",
+      "sha256": "955091d620969ced6f4255a7cfa87795da7b81d0808ca34ad57acc5eca10a707",
+      "bytes": 156
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/derived-server.log",
+      "rawSha256": "ab8e1c7607c9e972994884be39626a46e652dc568bd8ca33f80c79cab232239e",
+      "rawBytes": 39,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/derived-server.log.gz",
+      "sha256": "61244096f2b63bcae8dd529f78df3edcf96019cd7d31c06af622c797da15a070",
+      "bytes": 58
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/prepare-data-replay.log",
+      "rawSha256": "f0f4a1af95e2529bd86a29fa22085ca0b2480706495b932176b38448964567e5",
+      "rawBytes": 1332,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/prepare-data-replay.log.gz",
+      "sha256": "ec68ca27f6e973770dadec566142fae4d08c58c6c1d295d749ce0caf6fb1526b",
+      "bytes": 859
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/production-renders.log",
+      "rawSha256": "c8fd0cf199e1b84bca8049a2a01f2a77f9747fce56d1a2d1ed4557f23548ee1a",
+      "rawBytes": 272,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/production-renders.log.gz",
+      "sha256": "9d055d3a1955f0ba9414cc89043365bbaf8d3b94dd81f77b97e7cc6047cdbdba",
+      "bytes": 158
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/regression-unrepaired-fixed-harness.log",
+      "rawSha256": "441b92311b6d00fdea738ef252790ad245c33289d6a90bcae9344c3be3495f75",
+      "rawBytes": 2905,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/regression-unrepaired-fixed-harness.log.gz",
+      "sha256": "4c3d00cc3f5aed70020bc5e49acb6fdadedd57e8615d052ed9bc0136d8254943",
+      "bytes": 926
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/regression-unrepaired-test.log",
+      "rawSha256": "dc6bff3b1f757ae4e789e9e57eea1892d5ba0e4efe3ba4485690ecab1c624752",
+      "rawBytes": 320,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/regression-unrepaired-test.log.gz",
+      "sha256": "5fdc7f8d286d4ee378b03f3dc1f07db623d74ae83d408650d4ef2bde4bb8fb0b",
+      "bytes": 202
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/logs/repaired-target-tests.log",
+      "rawSha256": "6c95c6272d1dd396a87206dd368281a886db097f885e5c9b39471ab5177ce98d",
+      "rawBytes": 784,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/repaired-target-tests.log.gz",
+      "sha256": "fb698858849acf67c55b7f9bb4c698b5d99f8b0b3326b63db3280ae28c6b5ebd",
+      "bytes": 341
+    },
+    {
+      "source": "/var/tmp/smp-oct26-publish-40266519925/gate-failure/refresh-edgar.log",
+      "rawSha256": "9f1d696001a027ad2f72527ee4393127b3847c4a7499f5a5b5757592f708b1a7",
+      "rawBytes": 1621,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/actual-failed-gate-refresh-edgar.log.gz",
+      "sha256": "2500f13ba9f40f9196f40fec1fc925063ed2d2b3342016a3608a42b505f065ad",
+      "bytes": 374
+    },
+    {
+      "source": "/var/tmp/smp-oct26-publish-40266519925/gate-failure/refresh-filing-events.log",
+      "rawSha256": "b4f3bd56c11411b65fbbfccdc1ba4e72009ef086373b4154d6395ece0b754468",
+      "rawBytes": 7261,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/actual-failed-gate-refresh-filing-events.log.gz",
+      "sha256": "518ab0cffbd307e56496a83e9061ee6e210cf0793f8f72fd943fdf3f7c27ce1f",
+      "bytes": 1608
+    },
+    {
+      "source": "/var/tmp/smp-oct26-publish-40266519925/gate-failure/certify-sec.log",
+      "rawSha256": "860f9cd035909c44cc8ab198d1350d28b64e74efbc3f4dc3724b73dfa3e47e98",
+      "rawBytes": 2293,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/actual-failed-gate-certify-sec.log.gz",
+      "sha256": "7fb9e974966ae1b6963ede9ef08aa2b7789f5f513d785b54164f4bc9f94079dc",
+      "bytes": 524
+    },
+    {
+      "source": "/var/tmp/smp-oct26-publish-40266519925/gate-failure/test.log",
+      "rawSha256": "8242e8acfe007f4c2123fb8c0b7d18356f68222d4256c6c509ff602d0d5ed90a",
+      "rawBytes": 95573,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/actual-failed-gate-test.log.gz",
+      "sha256": "9583976dc1c95819308727df1bef24c13a6cd00d67bfe2587b786d1d824ca06a",
+      "bytes": 18340
+    },
+    {
+      "source": "/var/tmp/smp-q4-historical-fixture-repair-20261026/prepare-data-replay.json",
+      "rawSha256": "c825318770b6778499e8de43c9ccbead2bef527d6f28ae052c1650ec3cccf653",
+      "rawBytes": 7928861,
+      "retained": "docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/prepare-data-replay.json.gz",
+      "sha256": "2eef4251122fd553342806a5b552d55f9fbe0c96ff791588362fb4e7c353cf0d",
+      "bytes": 2356267
+    }
+  ]
+}

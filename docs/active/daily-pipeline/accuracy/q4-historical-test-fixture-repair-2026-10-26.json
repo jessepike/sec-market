@@ -1,0 +1,128 @@
+{
+  "verdict": "PASS",
+  "closedAtUtc": "2026-10-26T04:37:55.538907+00:00",
+  "baseRevision": "05ee1292e70ead4d54c0cdc8566c1a5101349866",
+  "scope": "TEST_ONLY_HISTORICAL_FIXTURE_REPAIR",
+  "frozenFixture": {
+    "base": "05ee1292e70ead4d54c0cdc8566c1a5101349866",
+    "immutableFixtureCommit": "5a4df6e954e50564007e768b77a5d596de5a924c",
+    "immutableFixtureGitBlob": "3794b800ffc9d691604d77ed1d06a3a8daebf517",
+    "rawFixtureSha256": "7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f",
+    "rawFixtureBytes": 7696749,
+    "allOriginalTestBodiesByteExact": true,
+    "files": [
+      {
+        "path": "web/tests/q4-baseline-migration.test.mjs",
+        "sha256": "c4f639c9958e576b1acedc752d06c659f127db1f0f259d28913f44954fb9c54e",
+        "bytes": 3502
+      },
+      {
+        "path": "web/tests/fixtures/q4-prospective-j-baseline-2026-10-25.json.gz",
+        "sha256": "643cfc12299d2841d37ca7589fe76de56b9ba40266b1643c7e67d3213e71c051",
+        "bytes": 555404
+      },
+      {
+        "path": "web/tests/q4-baseline-fixture-independence.test.mjs",
+        "sha256": "d2ccafa49ed1b58a3cf16868715459fa0d67a8db603261a8ef3ee86d28594133",
+        "bytes": 2539
+      }
+    ]
+  },
+  "originalAssertionBodiesByteExact": true,
+  "protectedRuntimePolicyWorkflowScriptFiles": 298,
+  "unchangedRuntimeVerifierSha256": "9ea35fcfdc0b5ae9a85a4dfc4392a74ee883408ae392f0f5a446bc16d65d06a2",
+  "tests": {
+    "narrow": {
+      "passed": 3,
+      "failed": 0
+    },
+    "unrepairedActualOverlay": {
+      "expectedRed": true,
+      "failedTests": 1
+    },
+    "fixedRegressionAgainstOriginal": {
+      "expectedRed": true,
+      "failedTests": 1
+    },
+    "fullNpm": {
+      "exitCode": 0,
+      "data": 380,
+      "pipeline": 115,
+      "secClaims": 80,
+      "browser": 43,
+      "skipped": 0,
+      "workingDirectory": "/var/tmp/smp-q4-historical-fixture-repair-20261026/test-application/web",
+      "command": "env -u NODE_OPTIONS -u SMP_SEC_CACHE_MANIFEST VERCEL_GIT_COMMIT_SHA=05ee1292e70ead4d54c0cdc8566c1a5101349866 npm test"
+    }
+  },
+  "derivedReplay": {
+    "label": "DERIVED_OFFLINE_NOT_ACTUAL_FAILED_GATE_EXPORT",
+    "actualInputArchive": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+    "manifest": "4c00a5cc5c2cf162b6d1d7816236fd2561faf894f5adede334e6f3f33e3a6da3",
+    "authenticatedInputEntries": 56262,
+    "fixedClock": "2026-10-26T04:15:20.629309Z",
+    "rawSnapshotSha256": "74cec6e38ca699353205b83d198de5141b0cf93486b8293890b60290791e96e4",
+    "internalSnapshotSha256": "4d5bf5bfa52f2d246bdea71b3a49704cd5f45aacf264038011df863fb18ceb81",
+    "ownPrepareDataMatchesAuditor": true,
+    "allEightActualAdmissionsPreserved": true,
+    "oldSixPublishedRowsDatesExact": true,
+    "sourceExpiry": "2026-10-27T09:26:58.065250+00:00",
+    "stateInputsRehashed": 27795,
+    "allStateInputsUnchanged": true,
+    "allNineGeneratedOverlayInputsUnchangedAfterNpm": true,
+    "existingImmutableObjectAssertions": 8,
+    "realStateWrites": 0,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "gateReservations": 0,
+    "dispatches": 0
+  },
+  "independentReview": {
+    "verdict": "PASS",
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-historical-test-fixture-repair-2026-10-26/independent/review.md",
+    "indexSha256": "ebbb61dec17ea1ee7ff4cbdb58e577ba45b4e20016658aceb73479c3ba8c9513"
+  },
+  "initialHarnessCorrections": [
+    "The first regression harness inherited NODE_TEST_CONTEXT and falsely returned success without executing nested tests. That log is retained and excluded from pass evidence. The final harness removes that variable, requires exactly two child tests/pass counts, fails against the original and passes against the repair.",
+    "The first read-only prepare_data adapter omitted put and failed before projection. The corrected adapter only asserts pre-existing immutable content-addressed bytes; eight assertions occurred and zero real writes occurred. Initial failure note and source helper retained."
+  ],
+  "renderImages": [
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-production-1440.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "bytes": 986229,
+      "width": 1440,
+      "height": 8358
+    },
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-production-390.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "bytes": 418882,
+      "width": 390,
+      "height": 7611
+    },
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-derived-candidate-1440.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/derived-candidate-1440.png",
+      "sha256": "d677f9a8784a8222ed9a354e32c3e67d1c359d34123b0ab79268d589c136b1ee",
+      "bytes": 984941,
+      "width": 1440,
+      "height": 8358
+    },
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-derived-candidate-390.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/derived-candidate-390.png",
+      "sha256": "5c6c57b1e3ef08c37912c5304baf3ca0266c5b34f49a7394082e886185a6f123",
+      "bytes": 418378,
+      "width": 390,
+      "height": 7611
+    }
+  ],
+  "rootViewedFourNewImages": true,
+  "publicationCredit": false,
+  "gitMutationsByWorker": false,
+  "statusBacklogWritesByWorker": false,
+  "finishGeneratedDataPoliciesRequestsStampDisabledPlanUnchangedByWorker": true
+}

@@ -53,13 +53,20 @@ The independently reviewed [dormant Cyera unit](docs/active/daily-pipeline/accur
 passes 995 combined operational checks and 935 archive-absent checks with 60 explicit skips.
 Its exact retained 56-card/five-seed proof and single primary capture remain dormant; the active disabled J plan is unchanged and no source credit is added.
 
+The local candidate also contains independently reviewed dormant [PR Newswire current-primary unit
+5a4df6e9](docs/active/daily-pipeline/accuracy/prnewswire-current-primary-controlled-integration-2026-10-26.md).
+The three-file historical fixture repair passes independent red/green checks and the complete
+actual-input local suite: 380 data, 115 pipeline, 80 SEC and 43 browser checks, zero skips.
+All original assertions and runtime verifiers remain unchanged. Promotion and the final ordinary
+scheduled publisher/callback remain open; the first actual gate stays charged and public sequence 4 stays current.
+
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|
 | Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |
 | Candidate sources |23| Finish each source's scope, current window, pagination/terminal and readable primary sample. The [current exact J queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md) joins all actual task IDs and original full/304 clocks. |
 | Access failures |15| The earlier audit retains nine 403s, four Axonius 429s and the Sysdig host-policy failure. October 26 adds WitnessAI HTTP_504 as the sole 266→265 intake regression. Preserve its old inventory; use respectful bounded diagnostics. |
 | Current and historical review |11,133 pending each| Preserve all URLs/dates/holds and exact verified resolutions. The Upwind source-document marker now has an actual checked resolution; the Sonatype mislinked card and seven Aqua failed revalidations retain their separate holds. |
-| Automatic exact-artifact publication |First October 26 attempt failed; one gate remains| Repair the historical fixture input, review and run full local actual-data checks. Preserve the final slot for a genuine ordinary scheduled publisher/callback; no manual second dispatch, refund, reset or purchased capacity. |
+| Automatic exact-artifact publication |First October 26 attempt failed; one gate remains| The independently reviewed three-file test repair passes full local actual-data checks. Promote the reviewed candidate through preview/main, then preserve the final slot for a genuine ordinary scheduled publisher/callback; no manual second dispatch, refund, reset or purchased capacity. |
 | Repaired scheduled-main monitor |Actual behavior accepted; real gaps remain red| Genuine scheduled run 40191154739 passed all 36 runner tests and exact-main replay. The public-byte reader and original-plan binding work; issue 10 updated for real coverage/review/held/publisher gaps. |
 | Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
 | Remaining record corrections |All eight privately admitted; new two not public| Actual collector 40263678287 accepted Varonis then SentinelOne with two real reviews and exact primary bindings. Old six public history rows remain exact. First publisher/gate failed a separate historical fixture test. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract; keep WitnessAI metric-date uncertainty. |

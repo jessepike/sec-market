@@ -1,0 +1,25 @@
+{
+  "base": "05ee1292e70ead4d54c0cdc8566c1a5101349866",
+  "immutableFixtureCommit": "5a4df6e954e50564007e768b77a5d596de5a924c",
+  "immutableFixtureGitBlob": "3794b800ffc9d691604d77ed1d06a3a8daebf517",
+  "rawFixtureSha256": "7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f",
+  "rawFixtureBytes": 7696749,
+  "allOriginalTestBodiesByteExact": true,
+  "files": [
+    {
+      "path": "web/tests/q4-baseline-migration.test.mjs",
+      "sha256": "c4f639c9958e576b1acedc752d06c659f127db1f0f259d28913f44954fb9c54e",
+      "bytes": 3502
+    },
+    {
+      "path": "web/tests/fixtures/q4-prospective-j-baseline-2026-10-25.json.gz",
+      "sha256": "643cfc12299d2841d37ca7589fe76de56b9ba40266b1643c7e67d3213e71c051",
+      "bytes": 555404
+    },
+    {
+      "path": "web/tests/q4-baseline-fixture-independence.test.mjs",
+      "sha256": "d2ccafa49ed1b58a3cf16868715459fa0d67a8db603261a8ef3ee86d28594133",
+      "bytes": 2539
+    }
+  ]
+}

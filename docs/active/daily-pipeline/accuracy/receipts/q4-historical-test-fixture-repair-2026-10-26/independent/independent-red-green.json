@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "repairedTests": {
+    "tests": 3,
+    "pass": 3,
+    "fail": 0
+  },
+  "redCounterexamples": {
+    "unrepaired-actual-overlay": {
+      "returncode": 1,
+      "failureObserved": true
+    },
+    "unrepaired-fixed-regression": {
+      "returncode": 1,
+      "failureObserved": true
+    }
+  }
+}

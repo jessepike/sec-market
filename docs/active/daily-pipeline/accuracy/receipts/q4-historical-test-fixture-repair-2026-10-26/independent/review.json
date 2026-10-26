@@ -1,0 +1,63 @@
+{
+  "verdict": "PASS",
+  "findings": [],
+  "scope": "Test-only Q4 historical fixture repair and derived actual-input local replay; no remote gate or publication credit",
+  "baseRevision": "05ee1292e70ead4d54c0cdc8566c1a5101349866",
+  "exactPatchFiles": {
+    "web/tests/q4-baseline-migration.test.mjs": {
+      "sha256": "c4f639c9958e576b1acedc752d06c659f127db1f0f259d28913f44954fb9c54e",
+      "bytes": 3502
+    },
+    "web/tests/q4-baseline-fixture-independence.test.mjs": {
+      "sha256": "d2ccafa49ed1b58a3cf16868715459fa0d67a8db603261a8ef3ee86d28594133",
+      "bytes": 2539
+    },
+    "web/tests/fixtures/q4-prospective-j-baseline-2026-10-25.json.gz": {
+      "sha256": "643cfc12299d2841d37ca7589fe76de56b9ba40266b1643c7e67d3213e71c051",
+      "bytes": 555404
+    }
+  },
+  "originalHistoricalAssertionAndMutationBodiesByteExact": true,
+  "runtimePolicyWorkflowScriptFilesByteExact": 298,
+  "independentlyRunRepairedTests": {
+    "tests": 3,
+    "pass": 3,
+    "fail": 0,
+    "skip": 0
+  },
+  "independentRedCounterexamples": [
+    "Unrepaired original test fails against actual-data generated overlay",
+    "Fixed child-process independence regression fails against original mutable-input test"
+  ],
+  "immutableBaselineOrigin": {
+    "gitCommit": "5a4df6e954e50564007e768b77a5d596de5a924c",
+    "gitBlob": "3794b800ffc9d691604d77ed1d06a3a8daebf517",
+    "rawSha256": "7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f",
+    "rawBytes": 7696749
+  },
+  "unchangedVerifierAcceptsFrozenAndRejectsFresh": true,
+  "workerFullNpmReviewed": {
+    "terminalExit": 0,
+    "dataTests": 380,
+    "pipelineTests": 115,
+    "secClaims": 80,
+    "browserTests": 43,
+    "skips": 0,
+    "logSha256": "60ec9c99713bc577ac99efc1072509cb3b766104a11197b7f29efbaca0c4dff9"
+  },
+  "independentOverlayStateCheck": {
+    "status": "PASS",
+    "currentCandidatePrepareDataByteExactToIndependentAuditor": true,
+    "unchangedConsultedStateFiles": 27795,
+    "all9OverlayFilesStillExactAfterFullNpm": true,
+    "all8AdmissionRefsOld6DatesAndOriginalSourceClocksPreserved": "Byte-exact output with independently authenticated original auditor projection",
+    "sourceExpiry": "2026-10-27T09:26:58.065250+00:00"
+  },
+  "actualFailedGateExportAbsent": true,
+  "localReplayClock": "2026-10-26T04:15:20.629309Z",
+  "actualGateInput": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+  "actualGateInputManifestSha256": "4c00a5cc5c2cf162b6d1d7816236fd2561faf894f5adede334e6f3f33e3a6da3",
+  "actualGateInputEntries": 56262,
+  "realNetworkModelGateStateWrites": 0,
+  "remainingActualGateAllowance": "First real gate remains charged; this local pass spends no gate and grants no public release."
+}

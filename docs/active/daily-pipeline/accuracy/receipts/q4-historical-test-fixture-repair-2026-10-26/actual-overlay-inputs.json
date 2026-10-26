@@ -1,0 +1,64 @@
+{
+  "kind": "DERIVED_OFFLINE_PREPARE_DATA_REPLAY_NOT_ACTUAL_FAILED_GATE_EXPORT",
+  "derivedReceiptSha256": "13a70e80b735b3410003d897e401bc1a46039e535ee96cb8d63521b84a4e78ba",
+  "fixedClock": "2026-10-26T04:15:20.629309Z",
+  "base": "05ee1292e70ead4d54c0cdc8566c1a5101349866",
+  "overlay": [
+    {
+      "path": "web/src/data/generated/certifiedCoverage.json",
+      "sha256": "318c85c3d569c152376e75870f3086db3e00064fcf9db81330e66a2f037607cb",
+      "bytes": 165444,
+      "beforeSha256": "c470e2a7e213cb3b36badd5dedbfd5deee72cabf12dd264fdf78bd5d07905bc7"
+    },
+    {
+      "path": "web/src/data/generated/certifiedVerification.json",
+      "sha256": "b3284e9572086fc3a0b269964900bea9f7972f1070804d4f71d3082d4b0d69fd",
+      "bytes": 107867,
+      "beforeSha256": "d676f6f18421ed28bf25cda364095343ee3dd8ebcfe9b8a3af84ed1dd9fe6fb6"
+    },
+    {
+      "path": "web/src/data/generated/dailyMarket.json",
+      "sha256": "74cec6e38ca699353205b83d198de5141b0cf93486b8293890b60290791e96e4",
+      "bytes": 1560943,
+      "beforeSha256": "7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f"
+    },
+    {
+      "path": "web/src/data/generated/dailyMarket.seal.json",
+      "sha256": "eccaa10aaa3a2e613c5ac2462d87a59da329f7d23afe6d7d1125a8650d6ca6ba",
+      "bytes": 258,
+      "beforeSha256": "6e0cec0115cd21a6165b901b91f563da5588e8e335147e05715d95ce1ba065d7"
+    },
+    {
+      "path": "web/src/data/generated/edgarFacts.json",
+      "sha256": "5f61e6d16a3aad8f837599e00c0a8050201c8908e053aac0328ca9905dc766fa",
+      "bytes": 108307,
+      "beforeSha256": "847ce9d3306e28ab2ccdd6ec8c5481894fe43c13a5adb77533cdc2e1e654faaa"
+    },
+    {
+      "path": "web/src/data/generated/factualCorrections.json",
+      "sha256": "299527839f4d23a498cfe48be39e599dbd75debb8ea19c6bb343a4e826e5ac71",
+      "bytes": 37212,
+      "beforeSha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21"
+    },
+    {
+      "path": "web/src/data/generated/factualCorrections.seal.json",
+      "sha256": "a142128d67272d1a9618b5dfde69586eb312cf4e37d09c2a0385cee3235d0173",
+      "bytes": 957,
+      "beforeSha256": null
+    },
+    {
+      "path": "web/src/data/generated/filingEvidence.json",
+      "sha256": "67b0d99095041ea5c6cc57812d0da61bcb2f7d3c0cc3f645aaedcfd6b96a59cf",
+      "bytes": 27482,
+      "beforeSha256": "bd8bed402f3b3c4356cc91df31a43fcf1f7ca5ae8efe3fa1526e1042db5d8142"
+    },
+    {
+      "path": "web/src/data/generated/filingRun.json",
+      "sha256": "31c152fc73f2cef4426961c6311be02184e1497ae3d8e48d17bbad031212cb97",
+      "bytes": 3091,
+      "beforeSha256": "a107858dc998207bd7ee04eb9d3b18556ed9f2454baa6c5654f67d21372fb94e"
+    }
+  ],
+  "all8AdmissionProofFromAuditor": true,
+  "old6PublicRowsFromAuditor": true
+}

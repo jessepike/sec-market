@@ -1,0 +1,15 @@
+# Independent review of the historical Q4 fixture repair
+
+Result: PASS. The three-file test repair is ready for root integration. No unresolved findings remain in this scope. Passing this local review grants no remote gate, publication or scheduled-run credit.
+
+The repaired historical test is `c4f639c9958e576b1acedc752d06c659f127db1f0f259d28913f44954fb9c54e`; compressed fixture is `643cfc12299d2841d37ca7589fe76de56b9ba40266b1643c7e67d3213e71c051`; independence regression is `d2ccafa49ed1b58a3cf16868715459fa0d67a8db603261a8ef3ee86d28594133`. All original assertion and mutation bodies remain byte-exact. The 298 runtime, policy, workflow and script files compared with the unmodified candidate remain byte-exact.
+
+The deterministic compressed fixture is 555,404 bytes and contains exactly 7,696,749 bytes from immutable Git blob `3794b800ffc9d691604d77ed1d06a3a8daebf517` at accepted candidate `5a4df6e954e50564007e768b77a5d596de5a924c`. Its raw SHA-256 is `7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f`. The unchanged verifier accepts this historical baseline and rejects the fresh actual-data snapshot.
+
+An independent VM copy passed all three repaired tests. Both red counterexamples independently failed as required: the original historical test with the real derived actual overlay, and the fixed child-process read-trap regression with the original historical test restored. The regression requires both historical child tests to execute and pass, then asserts that neither read mutable generated data.
+
+The worker's terminal full `npm test` exits zero on current base `05ee1292e70ead4d54c0cdc8566c1a5101349866` plus the exact three-file repair: 380 data tests, 115 pipeline tests, all 80 SEC claims, and 43 browser tests; zero skips. The reviewer inspected that complete terminal log without duplicating the full run. All nine generated overlay files remain byte-exact after that build/test. The reviewer separately rehashed all 27,795 consulted copied-state files and verified their byte counts, modification times and inodes unchanged.
+
+Current-candidate `prepare_data` independently reproduced the auditor's snapshot byte for byte from exact actual gate input `96d66bde96d333223557bdd78ef8df821b8e67a9`, manifest `4c00a5cc5c2cf162b6d1d7816236fd2561faf894f5adede334e6f3f33e3a6da3`, 56,262 entries, at explicitly local replay time `2026-10-26T04:15:20.629309Z`. Raw snapshot SHA-256 remains `74cec6e38ca699353205b83d198de5141b0cf93486b8293890b60290791e96e4`. This is derived offline evidence: the failed actual gate exported no prepared snapshot. The projection preserves all eight actual admissions, the six prior public correction rows/dates, original source clocks and expiry `2026-10-27T09:26:58.065250+00:00`.
+
+The first actual gate remains charged, and sequence 4 remains the verified public release. This review performed no real source/model requests, gate reservation, dispatch, archive-state write, commit or push. Root controls promotion and the final ordinary scheduled publisher/callback.

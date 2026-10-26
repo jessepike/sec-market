@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "currentCandidatePrepareDataByteExactToIndependentAuditor": true,
+  "unchangedConsultedStateFiles": 27795,
+  "all9OverlayFilesStillExactAfterFullNpm": true,
+  "all8AdmissionRefsOld6DatesAndOriginalSourceClocksPreserved": "Byte-exact output with independently authenticated original auditor projection",
+  "sourceExpiry": "2026-10-27T09:26:58.065250+00:00"
+}

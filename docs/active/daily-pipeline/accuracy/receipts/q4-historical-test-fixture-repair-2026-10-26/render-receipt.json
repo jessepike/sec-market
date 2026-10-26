@@ -1,0 +1,41 @@
+{
+  "builtFromFinishedNpmOutput": true,
+  "rebuiltForScreenshots": false,
+  "workerViewedAllFour": true,
+  "rootViewedAllFourAndAccepted": true,
+  "images": [
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-production-1440.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "bytes": 986229,
+      "width": 1440,
+      "height": 8358
+    },
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-production-390.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "bytes": 418882,
+      "width": 390,
+      "height": 7611
+    },
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-derived-candidate-1440.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/derived-candidate-1440.png",
+      "sha256": "d677f9a8784a8222ed9a354e32c3e67d1c359d34123b0ab79268d589c136b1ee",
+      "bytes": 984941,
+      "width": 1440,
+      "height": 8358
+    },
+    {
+      "hostPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-fixture-repair-derived-candidate-390.png",
+      "vmPath": "/var/tmp/smp-q4-historical-fixture-repair-20261026/derived-candidate-390.png",
+      "sha256": "5c6c57b1e3ef08c37912c5304baf3ca0266c5b34f49a7394082e886185a6f123",
+      "bytes": 418378,
+      "width": 390,
+      "height": 7611
+    }
+  ],
+  "comparison": "Layout and dimensions unchanged. Derived private eight-group data:265/557 intake versus public264/557;52/11185 documents reviewed versus38/10655;Oct26 rolling window versusOct25;9 restructurings versus10; qualified S1 text changes. No UI improvement claim. Production remains prior fc8 release."
+}
