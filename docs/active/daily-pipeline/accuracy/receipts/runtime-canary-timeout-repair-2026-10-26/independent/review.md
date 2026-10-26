@@ -1,0 +1,13 @@
+# Independent review of the canary timeout repair
+
+Result: PASS for the narrow 10-to-20-minute canary job allowance. No unresolved findings remain in this scope. A new actual hosted canary must still finish all guards, the archive check and artifact upload before it supplies successful evidence.
+
+The actual failed run is `40270223152` at candidate `34e55f78275925f4e07070a5bae510fcf23e4ebc`. GitHub explicitly records the ten-minute execution deadline. Its guard step was interrupted from `04:40:09Z` to `04:50:11Z`, the archive check was skipped, and zero artifacts exist. No test assertion-failure banner appeared before interruption; that does not establish that the unfinished suite passed.
+
+The workflow's only changed token is `timeout-minutes: 10` to `timeout-minutes: 20`. Before SHA-256 is `1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717`; after is `107ab41bbbd86174949068210274abcafd896860a801924e2e428a2834a99f2a`. Independent protection checks rehashed all 3,003 tracked files: this workflow alone changed; the other 3,002 remain exact. Test/assertion bodies, commands, step ordering, permissions, environment, credential expressions, concurrency, artifact retention, runtime and all budgets remain unchanged.
+
+The accepted 1,015-test receipts independently show 528.113 seconds with retained archives present and 654.190 seconds in fresh archive absence (61 explicit retained-input skips). The portable suite alone exceeds the old 600-second whole-job limit. Twenty minutes provides 545.810 seconds, about nine minutes, beyond that observed suite for setup, archive restore and upload. This is a bounded operational allowance; hosted variation or later workload growth can still exceed it.
+
+The native collector stays at 35 minutes with its separate 1,200-second internal collection deadline. Using the observed portable guard duration plus a full collection leaves 245.810 seconds, about four minutes, for all other phases. The publisher stays at 55 minutes with a separate 35-minute independent-gate wait, leaving 545.810 seconds at the observed guard duration. The independent gate job also stays at 35 minutes. Those margins are finite and require actual next-run timing evidence. This patch neither guarantees worst-case native completion nor increases any source/model/document/gate/publication allowance.
+
+The reviewer independently ran all 16 existing runtime-canary tests with socket connections denied; all passed without skips. The full unchanged suite was not rerun for this one-token workflow edit; its exact prior receipt timings are retained. No source/model request, dispatch, real state write, gate reservation, commit, push or new successful runtime/collection/publication credit was produced by this review.

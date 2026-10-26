@@ -1,0 +1,66 @@
+{
+  "verdict": "PASS",
+  "findings": [],
+  "scope": "Bounded runtime-canary job timeout only; subsequent actual hosted completion and receipt required",
+  "baseRevision": "34e55f78275925f4e07070a5bae510fcf23e4ebc",
+  "exactWorkflowChange": {
+    "status": "PASS",
+    "trackedFiles": 3003,
+    "unchangedFiles": 3002,
+    "onlyChanged": [
+      ".github/workflows/subscription-runtime-canary.yml"
+    ],
+    "onlyMutation": "timeout-minutes: 10 to20",
+    "beforeSha256": "1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717",
+    "afterSha256": "107ab41bbbd86174949068210274abcafd896860a801924e2e428a2834a99f2a",
+    "allTestsAssertionsRuntimeOtherWorkflowsCredentialsBudgetsExact": true
+  },
+  "actualFailure": {
+    "runId": 40270223152,
+    "jobId": 121401232257,
+    "annotation": "The job has exceeded the maximum execution time of 10m0s",
+    "guardStartedAt": "2026-10-26T04:40:09Z",
+    "guardEndedAt": "2026-10-26T04:50:11Z",
+    "archiveCheck": "skipped",
+    "artifacts": 0,
+    "assertionFailureBannerRecorded": false
+  },
+  "priorSuiteTimings": {
+    "present": {
+      "compressedLogSha256": "f26ee404104275296fdb86e7f7a7e3d4e97b517d0a23552c3946208ff7195771",
+      "testsRun": 1015,
+      "seconds": 528.113,
+      "skipCount": 0,
+      "successful": true
+    },
+    "absent": {
+      "compressedLogSha256": "e29949209e5cee203bb37264275a3d835e662b90277150e6eda630349b9457a3",
+      "testsRun": 1015,
+      "seconds": 654.19,
+      "skipCount": 61,
+      "successful": true
+    }
+  },
+  "independentFocusedTests": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0,
+    "socketConnectDenied": true
+  },
+  "unchangedNativeLimits": {
+    "collectorJobMinutes": 35,
+    "collectorInternalSeconds": 1200,
+    "publisherJobMinutes": 55,
+    "publisherIndependentGateWaitMinutes": 35,
+    "gateJobMinutes": 35
+  },
+  "arithmeticAtObservedPortableDurationSeconds": {
+    "canaryRemainingForSetupRestoreUpload": 545.81,
+    "collectorRemainingAfterGuardAndFullInternalCollection": 245.80999999999995,
+    "publisherRemainingAfterGuardAndFullGateWait": 545.81
+  },
+  "timingAssessment": "20 minutes is a bounded reasonable allowance above an observed 654.190-second suite that already exceeds the original 600-second whole-job cap. Margins are finite, not guarantees for hosted runner variance or worst-case native setup/archive phases. No native allowance changes and no successful canary, collection, gate or publication credit are implied.",
+  "allTestsAssertionsCommandsStepsPermissionsEnvCredentialsConcurrencyArtifactRetentionExact": true,
+  "auditorRealSourceModelStateWritesDispatchesReservations": 0
+}

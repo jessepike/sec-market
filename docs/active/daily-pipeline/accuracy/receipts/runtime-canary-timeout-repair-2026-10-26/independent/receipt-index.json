@@ -1,0 +1,30 @@
+{
+  "verdict": "PASS",
+  "files": [
+    {
+      "path": "review.md",
+      "sha256": "33404408461aab966e491b04bcbff258ac481d1f8b7294899bebba3ae14bb175",
+      "bytes": 2760
+    },
+    {
+      "path": "review.json",
+      "sha256": "d182293792f40412789b98bd8e469e92d3998906a142344a7a0e6c322990e133",
+      "bytes": 2650
+    },
+    {
+      "path": "protection.json",
+      "sha256": "51743e68e56dca84a63bd1d3463041a045b5d19133334e0159533205ece41cf0",
+      "bytes": 444
+    },
+    {
+      "path": "focused-tests.log",
+      "sha256": "2a5f78504632eedc21ebfb507bd19c78a7b17b1b62f5829fa45b11c8a3df15e6",
+      "bytes": 2657
+    },
+    {
+      "path": "prior-suite-timings.json",
+      "sha256": "49394c63384ca75e93d477d473019c4aaa2fdda89103a3dd35c91e24a614327a",
+      "bytes": 410
+    }
+  ]
+}

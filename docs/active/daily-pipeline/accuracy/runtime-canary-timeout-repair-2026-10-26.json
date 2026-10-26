@@ -1,0 +1,97 @@
+{
+  "verdict": "PASS_REVIEWABLE_ONE_LINE_CANARY_TIMEOUT_REPAIR",
+  "baseRevision": "34e55f78275925f4e07070a5bae510fcf23e4ebc",
+  "scope": "ONE_CANARY_JOB_TIMEOUT_TOKEN_AND_REPAIR_DOCUMENTS",
+  "workflow": {
+    "path": ".github/workflows/subscription-runtime-canary.yml",
+    "beforeSha256": "1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717",
+    "afterSha256": "107ab41bbbd86174949068210274abcafd896860a801924e2e428a2834a99f2a",
+    "bytes": 1676,
+    "beforeTimeoutMinutes": 10,
+    "afterTimeoutMinutes": 20,
+    "otherwiseByteExact": true,
+    "otherwiseParsedYamlExact": true
+  },
+  "actualFailure": {
+    "runId": 40270223152,
+    "jobId": 121401232257,
+    "conclusion": "cancelled",
+    "annotation": "The job has exceeded the maximum execution time of 10m0s",
+    "guardsInterrupted": true,
+    "archiveStep": "skipped",
+    "artifacts": 0,
+    "successfulRuntimeCanaryCredit": false,
+    "rawLogVmOnly": true
+  },
+  "focusedTests": {
+    "passed": 16,
+    "failed": 0,
+    "skipped": 0,
+    "networkDenied": true
+  },
+  "priorFullSuite": {
+    "tests": 1015,
+    "presentSeconds": 528.113,
+    "freshAbsentSeconds": 654.19,
+    "freshAbsentPassed": 954,
+    "freshAbsentExplicitArchiveSkips": 61,
+    "frozenReads": 0,
+    "freshRunClaimed": false
+  },
+  "protection": {
+    "verdict": "PASS",
+    "trackedFiles": 3003,
+    "unchangedTrackedFiles": 3002,
+    "changedTrackedFiles": [
+      {
+        "path": ".github/workflows/subscription-runtime-canary.yml",
+        "before": {
+          "sha256": "1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717",
+          "bytes": 1676
+        },
+        "after": {
+          "sha256": "107ab41bbbd86174949068210274abcafd896860a801924e2e428a2834a99f2a",
+          "bytes": 1676
+        }
+      }
+    ],
+    "exactOneTokenReplacement": true,
+    "parsedWorkflowOtherwiseIdentical": true,
+    "fullUnittestCommandUnchanged": true,
+    "otherWorkflowsAllByteExact": true,
+    "testsRuntimeBudgetsCredentialsAllByteExact": true
+  },
+  "nativeTiming": {
+    "collectorJobMinutes": 35,
+    "collectorInternalMaximumSeconds": 1200,
+    "observedGuardPlusFullInternalSeconds": 1854.19,
+    "remainingSecondsForOtherPhases": 545.81,
+    "publisherJobMinutes": 55,
+    "independentGateWaitMinutes": 35,
+    "observedGuardPlusFullGateWaitSeconds": 2754.19,
+    "independentGateJobMinutes": 35,
+    "nativeTimingsGuaranteed": false,
+    "otherProofJobLimitsUnchanged": {
+      "publisherProbe": 15,
+      "accountBootstrap": 20,
+      "rollbackDrill": 25
+    }
+  },
+  "retries": 0,
+  "dispatches": 0,
+  "gateReservations": 0,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "credentialsOrEnvironmentChanges": false,
+  "testsOrAssertionsChanged": false,
+  "gitMutations": false,
+  "statusBacklogWrites": false,
+  "publicationCredit": false,
+  "closedAtUtc": "2026-10-26T04:55:35.787328+00:00",
+  "independentReview": {
+    "verdict": "PASS",
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/runtime-canary-timeout-repair-2026-10-26/independent/review.md",
+    "sha256": "33404408461aab966e491b04bcbff258ac481d1f8b7294899bebba3ae14bb175",
+    "indexSha256": "de33ed67f4739ee45f81f78f9700c7fafcaa3c2f1b33cae88d58bf55c2f02b19"
+  }
+}

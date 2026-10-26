@@ -60,6 +60,12 @@ actual-input local suite: 380 data, 115 pipeline, 80 SEC and 43 browser checks, 
 All original assertions and runtime verifiers remain unchanged. Promotion and the final ordinary
 scheduled publisher/callback remain open; the first actual gate stays charged and public sequence 4 stays current.
 
+Actual preview canary 40270223152 timed out after ten minutes before its archive check; it
+produced no artifact and spent no gate. The independently reviewed local [twenty-minute canary
+allowance](docs/active/daily-pipeline/accuracy/runtime-canary-timeout-repair-2026-10-26.md) changes only
+that job timeout; 16 focused tests pass and all assertions/budgets remain exact. Its next actual
+canary result is pending; main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
+
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|
 | Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |

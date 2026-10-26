@@ -56,9 +56,16 @@ The independently reviewed [historical fixture repair](docs/active/daily-pipelin
 now passes the current-candidate actual-input local replay: 380 data tests, 115 pipeline tests,
 all 80 SEC claims and 43 browser tests, with zero skips. Its three test-only files preserve all
 original assertions and the unchanged verifier; both unrepaired counterexamples fail. All eight
-admissions, old six history rows/dates and source clocks remain exact. Local candidate 05ee1292
+admissions, old six history rows/dates and source clocks remain exact. Local repair commit 34e55f78
 includes dormant PR Newswire unit 5a4df6e9; preview/main promotion and the final ordinary gate
 remain root-owned. This local pass changes no actual spent allowance or public release.
+
+Preview canary 40270223152 on repair commit 34e55f78 timed out at its ten-minute job limit.
+Its archive check was skipped and it produced no artifact or gate charge. The independently
+reviewed [canary allowance repair](docs/active/daily-pipeline/accuracy/runtime-canary-timeout-repair-2026-10-26.md)
+changes only that job limit to twenty minutes; all 16 focused tests pass, with every assertion
+and operational budget unchanged. An actual new canary result remains pending. Main stays
+3bb9e40c and public release fc8bf098/sequence 4 remains current.
 
 The next native collector is due October 26 at 05:17 UTC; its creation/start/result are not yet
 observed. Manual callback 40265523640 skipped publication. Genuine current-J/eight-group schedule

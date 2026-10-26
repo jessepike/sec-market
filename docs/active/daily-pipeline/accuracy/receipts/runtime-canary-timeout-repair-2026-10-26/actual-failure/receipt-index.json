@@ -1,0 +1,40 @@
+{
+  "verdict": "ACTUAL_CANARY_TIMEOUT_NO_ARTIFACT",
+  "files": [
+    {
+      "path": "failure.md",
+      "sha256": "01c1e74eec1ce947e52e17bdc656381d110c744eabb6574188c6cb661275a53d",
+      "bytes": 1492
+    },
+    {
+      "path": "failure-summary.json",
+      "sha256": "84ab34c983ff49502a88cd43f9538726a3fabaa90b38808849ebb9883514b8ed",
+      "bytes": 4060
+    },
+    {
+      "path": "run.json",
+      "sha256": "755b38aaf398d9847e5168b7802ac54063b0f4c08c257d58109eea8517805539",
+      "bytes": 348
+    },
+    {
+      "path": "job.json",
+      "sha256": "882baf9abc7d90b76ddd5851422290b0b138ba8bc57ce660b34ca18ee6317efc",
+      "bytes": 1863
+    },
+    {
+      "path": "failure-annotations.json",
+      "sha256": "20edc4c0382bd47fc8d060aec8f1632c7fca21f1571fc1b5be5aabe63661c834",
+      "bytes": 373
+    },
+    {
+      "path": "artifacts.json",
+      "sha256": "bf6638afd0bdbf03a3236bb78ff0fe1a70b76eb9f5ba9b8102624fde8ac48cef",
+      "bytes": 33
+    },
+    {
+      "path": "bounded-diagnostic.json",
+      "sha256": "a4d582626466badca370d8199b962403a1b2be1de5c4fc9bced5fe096d6b65a8",
+      "bytes": 1747
+    }
+  ]
+}

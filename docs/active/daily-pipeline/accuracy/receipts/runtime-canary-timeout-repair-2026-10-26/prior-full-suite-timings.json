@@ -1,0 +1,40 @@
+{
+  "sourcePath": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-current-primary-controlled-integration-2026-10-26.json",
+  "sourceSha256": "2e6f523556ebbab9e994c494b3913e4fdbe8193fc1c348c5a7fba473fcf2108a",
+  "baseRevision": "ba2785900fea41c11db90fb1268fb85d5de596c3",
+  "present": {
+    "testsRun": 1015,
+    "passed": 1015,
+    "seconds": 528.113
+  },
+  "freshAbsent": {
+    "testsRun": 1015,
+    "passed": 954,
+    "skipped": 61,
+    "seconds": 654.19,
+    "frozenReadAttempts": [],
+    "PRNAndCyeraCoreSkipped": []
+  },
+  "scope": "Existing unchanged test suite evidence; no fresh full-suite run claimed",
+  "suiteSourcesRemainByteExact": true,
+  "rawLogReceipts": [
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/operations-absent.log.gz",
+      "sha256": "e29949209e5cee203bb37264275a3d835e662b90277150e6eda630349b9457a3",
+      "bytes": 29041,
+      "uncompressed": {
+        "sha256": "34124571417e3697849f7b644f59e5384a4711330e0a67687dfbbf45e6c5a904",
+        "bytes": 193023
+      }
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-current-primary-controlled-integration-2026-10-26/operations-present.log.gz",
+      "sha256": "f26ee404104275296fdb86e7f7a7e3d4e97b517d0a23552c3946208ff7195771",
+      "bytes": 28366,
+      "uncompressed": {
+        "sha256": "676c2efb098de34041f7a264c4c475dba88e57351cd53da61f462a31f20f904e",
+        "bytes": 189164
+      }
+    }
+  ]
+}

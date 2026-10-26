@@ -1,0 +1,16 @@
+{
+  "present": {
+    "compressedLogSha256": "f26ee404104275296fdb86e7f7a7e3d4e97b517d0a23552c3946208ff7195771",
+    "testsRun": 1015,
+    "seconds": 528.113,
+    "skipCount": 0,
+    "successful": true
+  },
+  "absent": {
+    "compressedLogSha256": "e29949209e5cee203bb37264275a3d835e662b90277150e6eda630349b9457a3",
+    "testsRun": 1015,
+    "seconds": 654.19,
+    "skipCount": 61,
+    "successful": true
+  }
+}

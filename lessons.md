@@ -209,3 +209,7 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 - A source-specific HTML parser must reject literal `inert` ancestry as well as hidden markup.
   Test the actual retained page with inert headings, cards and enclosing elements. Keep any
   observed streaming-envelope exception narrow and leave shared parser rules unchanged.
+- Measure the complete portable guard suite against its whole-job deadline. The current suite
+  takes 654.190 seconds with archives absent, so a ten-minute canary cannot reach its archive
+  check. Keep every guard and allow bounded time for the suite, setup and receipt delivery;
+  inspect native collector and publisher timing separately.

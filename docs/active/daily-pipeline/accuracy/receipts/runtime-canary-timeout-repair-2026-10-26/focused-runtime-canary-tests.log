@@ -1,0 +1,21 @@
+test_changed_archived_attempt_fails (test_runtime_canary.RuntimeCanaryTests.test_changed_archived_attempt_fails) ... ok
+test_changed_attempt_inventory_fails (test_runtime_canary.RuntimeCanaryTests.test_changed_attempt_inventory_fails) ... ok
+test_changed_deterministic_plan_fails (test_runtime_canary.RuntimeCanaryTests.test_changed_deterministic_plan_fails) ... ok
+test_content_addressed_coverage_reference_is_checked (test_runtime_canary.RuntimeCanaryTests.test_content_addressed_coverage_reference_is_checked) ... ok
+test_current_contract_mismatch_fails_after_verified_restore (test_runtime_canary.RuntimeCanaryTests.test_current_contract_mismatch_fails_after_verified_restore) ... ok
+test_exhausted_daily_ledger_has_zero_requests_and_identical_restored_state (test_runtime_canary.RuntimeCanaryTests.test_exhausted_daily_ledger_has_zero_requests_and_identical_restored_state) ... ok
+test_failed_restore_does_not_run_source_or_state_work (test_runtime_canary.RuntimeCanaryTests.test_failed_restore_does_not_run_source_or_state_work) ... ok
+test_failure_receipt_never_claims_source_work_or_copies_remote_error_text (test_runtime_canary.RuntimeCanaryTests.test_failure_receipt_never_claims_source_work_or_copies_remote_error_text) ... ok
+test_missing_coverage_fails_honestly (test_runtime_canary.RuntimeCanaryTests.test_missing_coverage_fails_honestly) ... ok
+test_non_github_or_wrong_repository_starts_no_archive_restore (test_runtime_canary.RuntimeCanaryTests.test_non_github_or_wrong_repository_starts_no_archive_restore) ... ok
+test_pass_cannot_be_mistaken_for_live_source_connectivity_or_coverage (test_runtime_canary.RuntimeCanaryTests.test_pass_cannot_be_mistaken_for_live_source_connectivity_or_coverage) ... ok
+test_real_archive_manifest_verification_rejects_corrupted_body (test_runtime_canary.RuntimeCanaryTests.test_real_archive_manifest_verification_rejects_corrupted_body) ... ok
+test_v2_archive_reports_intake_and_pending_reviews_without_live_credit (test_runtime_canary.RuntimeCanaryTests.test_v2_archive_reports_intake_and_pending_reviews_without_live_credit) ... ok
+test_workflow_wording_and_permissions_describe_archive_only_scope (test_runtime_canary.RuntimeCanaryTests.test_workflow_wording_and_permissions_describe_archive_only_scope) ... ok
+test_wrong_coverage_denominator_fails (test_runtime_canary.RuntimeCanaryTests.test_wrong_coverage_denominator_fails) ... ok
+test_wrong_private_hosting_context_starts_no_archive_restore (test_runtime_canary.RuntimeCanaryTests.test_wrong_private_hosting_context_starts_no_archive_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.057s
+
+OK

@@ -1,0 +1,11 @@
+{
+  "workingDirectory": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022",
+  "runtime": "OrbStack dev Python3",
+  "command": "python3 -B with unittest.defaultTestLoader.loadTestsFromName(\"test_runtime_canary\") and unittest.TextTestRunner(verbosity=2); socket.socket.connect patched to raise AssertionError(\"NO_NETWORK\")",
+  "exitCode": 0,
+  "testsRun": 16,
+  "passed": 16,
+  "skipped": 0,
+  "seconds": 0.057,
+  "sourceModelGateRequests": 0
+}
