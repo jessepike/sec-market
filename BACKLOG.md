@@ -19,15 +19,15 @@ navigation SEC-074 follow reliable current operation.
 | Public release | App 6d5e87fe, release fc8bf098, sequence 4, snapshot 8ba13011. Manual publisher 40172130763 and gate 40172376435 passed; manual drill 40173134585 restored the release with 106 exact host-file comparisons. |
 | Current public data | Intake 264/557; processing 38/history 39 of 10,655, held 10, queue 37. Public expiry October 26 at 12:45:29.479727 UTC. Varonis and six corrections remain live. |
 | Genuine scheduled collection | Actual 40182324149 passed on main 71c39356 under H. GitHub started 4 hours 33 minutes 43 seconds late. All 48,030 archive entries, 557 tasks, old facts/dates/holds and six admissions replay correctly. |
-| Current private processing/history | Actual J: processing 40/11,184, pending 11,144; history 41/11,184, pending 11,143; held 11, changed one, unknown dates 291. |
-| Private review queue | All 37 preceding held identities persist. New HiddenLayer funding candidate lacks a fact date; total 38. No new accepted facts/events. |
-| Private freshness | Actual J full/304 observations derive expiry October 26 at 20:00:16.075798 UTC. This does not renew public freshness. |
-| Automatic publication | Actual callback 40183462577 and genuine scheduled publisher 40190348786 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate/new release. Assigned issue 14 updated 11:51:44. Both callback drills skipped. |
-| Current allowances |1,511/5,500 fetches, 80/80 calls, 39/40 charged documents, gates 2/2; released lease. Ordinary J used 410 fetches/zero calls/one document reservation; full 52,273-entry archive and 557-result replay pass. |
+| Current private processing/history | Actual October 26 J: processing/history 52/11,185 each, pending 11,133 each; held 14, changed one, unknown dates 534. |
+| Private review queue | Of 38 old rows, 37 remain exact and one Upwind document marker is preserved in its strictly verified actual resolution. Seven new holds yield 44. Four prior fact references remain exact; no new ordinary facts/events. |
+| Private freshness | Actual October 26 J source observations derive expiry October 27 at 09:26:58.065250 UTC. Public expiry stays separate. |
+| Automatic publication | Actual October 26 manual publisher 40266519925/gate 40266928448 failed the historical Q4 baseline fixture test after 80 SEC claims passed and data tests passed 378/379. No new release; all 106 public/immutable-host files remain exact for sequence 4. |
+| Current allowances | October 26 settled 444/5,500 fetches, 76/80 calls, 37/40 documents, one of two gates spent; publication-budget head absent and writer lease released. October 25 spent ledgers remain exact; no reset/refund. |
 | Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
-The audited 264 passes comprise 196 citation-integrity checks, 48 SEC checks, 17 official-
-announcement checks and three investor/acquirer checks. This composition matters when assessing
+The current private 265 passes comprise 196 citation-integrity checks, 48 SEC checks, 18 official-
+announcement checks and three investor/acquirer checks. Public intake remains 264/557. This composition matters when assessing
 the breadth of recurring market coverage.
 
 [Scheduled audit](docs/active/daily-pipeline/accuracy/scheduled-h-acceptance-2026-10-25.md),
@@ -38,15 +38,16 @@ Later recovery does not establish uninterrupted freshness.
 
 Remaining work is explicit:
 
-JFrog/Rapid7's [actual ordinary J run 40199860540](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-actual-source-review-2026-10-25.md)
-passes 266/557 intake: 196 citation, 48 SEC, 19 official-announcement and three investor/acquirer
-checks. Both new indices returned real HTTP 200; all 529 original URLs/dates survive with zero
-new semantic reviews. Read-only canary 40199362753 attempt 2 passes against that actual archive.
-Actual scheduled J collection and public publication remain pending. Use the new exact
-[23-candidate queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md);
-the old 25-candidate queue remains frozen. The retained Cato/Chainguard PR Newswire offline parser
-passes independent review, 961 combined-J operational checks and unchanged renders. It grants no
-operational source credit; its scope/normal integration is separate work.
+The [actual October 26 ordinary J collection](docs/active/daily-pipeline/accuracy/oct26-ordinary-collection-actual-2026-10-26.md)
+passes 265/557, with a full authenticated 56,260-entry archive and exact reconciliation. The earlier
+40199860540 remains the dated 266/557 result. October 26 JFrog returned 200 and Rapid7 a genuine
+normal 304; all 529 original URLs/dates remain exact. All eight requested correction groups now
+have real accepted admissions. The [first actual publisher/gate failure](docs/active/daily-pipeline/accuracy/oct26-first-publication-attempt-actual-2026-10-26.md)
+is retained; new correction publication and genuine current-J schedule proof remain open. The next
+native collector is due October 26 at 05:17 UTC; no actual creation/start/result is claimed yet.
+Use the [23-candidate queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md),
+keeping the old 25-candidate queue frozen. Cato/Chainguard's reviewed offline PR Newswire parser
+remains separate source work with no operational source credit.
 
 The independently reviewed [dormant Cyera unit](docs/active/daily-pipeline/accuracy/cyera-current-primary-controlled-integration-2026-10-26.md)
 passes 995 combined operational checks and 935 archive-absent checks with 60 explicit skips.
@@ -56,12 +57,12 @@ Its exact retained 56-card/five-seed proof and single primary capture remain dor
 |---|---|---|
 | Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |
 | Candidate sources |23| Finish each source's scope, current window, pagination/terminal and readable primary sample. The [current exact J queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md) joins all actual task IDs and original full/304 clocks. |
-| Access failures |14| The [retained access audit](docs/active/daily-pipeline/accuracy/h-access-failure-triage-2026-10-25.md) binds nine HTTP 403s, four Axonius HTTP 429s and one Sysdig host-policy exception without an observation. No endpoint/allowlist repair is proved. Add bounded redirect/denial/Retry-After telemetry, then respectful host cooldown; keep every failure and charge. The separate charged Sysdig generic ContractError has no proved HTTP status. |
-| Current and historical review |11,144/11,143 pending| Preserve all URLs/dates/holds. The five qualified HTML/Q4 streams pass intake but have unfinished review. Upwind revalidation and the exact Sonatype mislinked card still need primary review. Seven Aqua failed revalidations retain their earlier held receipts. |
-| Automatic exact-artifact publication |Pending| Observe the next ordinary publisher with naturally renewed UTC allowance, its independent exact-main gate, actual accepted artifact and production bytes. Do not manually retry, refund, reset or buy capacity. |
+| Access failures |15| The earlier audit retains nine 403s, four Axonius 429s and the Sysdig host-policy failure. October 26 adds WitnessAI HTTP_504 as the sole 266→265 intake regression. Preserve its old inventory; use respectful bounded diagnostics. |
+| Current and historical review |11,133 pending each| Preserve all URLs/dates/holds and exact verified resolutions. The Upwind source-document marker now has an actual checked resolution; the Sonatype mislinked card and seven Aqua failed revalidations retain their separate holds. |
+| Automatic exact-artifact publication |First October 26 attempt failed; one gate remains| Repair the historical fixture input, review and run full local actual-data checks. Preserve the final slot for a genuine ordinary scheduled publisher/callback; no manual second dispatch, refund, reset or purchased capacity. |
 | Repaired scheduled-main monitor |Actual behavior accepted; real gaps remain red| Genuine scheduled run 40191154739 passed all 36 runner tests and exact-main replay. The public-byte reader and original-plan binding work; issue 10 updated for real coverage/review/held/publisher gaps. |
 | Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
-| Remaining record corrections |Selected on main; real admission pending| The independently reviewed [two-group priority build](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.md) prepares eight requests, preserving the old six and appending Varonis then SentinelOne. All 972 ops pass; archive-absent 913 pass/59 explicit skips; full npm passes 379 data, 115 pipeline, build/80 SEC and 42 browser checks with one existing fixture skip. Selection is on main 3bb9e40c; root reports ordinary manual collector 40263678287 in progress. Actual semantic admission and publication remain unproved pending its authenticated result. October 25 calls/gates stay spent. Pending groups block before gate spending and no fallback is selected. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract. Preserve WitnessAI's metric-date uncertainty. |
+| Remaining record corrections |All eight privately admitted; new two not public| Actual collector 40263678287 accepted Varonis then SentinelOne with two real reviews and exact primary bindings. Old six public history rows remain exact. First publisher/gate failed a separate historical fixture test. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract; keep WitnessAI metric-date uncertainty. |
 
 The 254 missing bindings reconcile to 39 official-announcement, 52 investor/acquirer,
 74 independent-reporting, 67 distribution and 22 regulatory obligations. The reviewed four-neutral
@@ -183,7 +184,10 @@ scheduled audit40182324149 now passes; its automatic publisher 40183462577 faile
 gate allowance and created assigned issue 14. Later scheduled publisher40190348786 failed the same
 limit. Genuine repaired scheduled monitor40191154739 passed its36 runner tests and exact-main replay,
 then correctly failed on actual coverage/review/publisher gaps and updated issue10. The public-byte
-reader and original-plan binding are accepted. Successful automatic H publication remains pending.
+reader and original-plan binding are accepted. Successful automatic H publication remains historical unfinished evidence. October 26 manual
+collector 40263678287 admitted all eight groups; publisher 40266519925/gate 40266928448 then
+failed the historical fixture test. Source use is 444/76/37 and one of two gates is spent.
+Genuine current-J/eight-group scheduled collection and its new production receipt remain pending.
 The owner has not set the acceptance duration (previous recommendation: 30 days).
 **Authorization:** D-104 through D-110; [current activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
 
@@ -191,13 +195,15 @@ The owner has not set the acceptance duration (previous recommendation: 30 days)
 
 Sequence this after SEC-072's current-operation fixes and runtime proof. Keep its gaps visible now.
 
-Bounded daily collection for all 74 existing suppliers is authorized and implemented. Genuine
-scheduled collector 40182324149 passed 264/557 under H with a fully authenticated archive and
-exact replay. Actual ordinary J run 40199860540 now passes 266/557; the 291 gaps comprise
-254 missing bindings, 23 candidates, nine HTTP 403, four HTTP 429 and one unapproved host.
-Public intake remains 264/557 from the earlier manual recovery release. Genuine scheduled J
-collection and its publication remain pending after daily-gate exhaustion. The current private
-queue preserves all 38 held identities. Old 121/557 keeps its original combined definition.
+Bounded daily collection for all 74 existing suppliers is authorized and implemented. Historical
+H scheduled collector 40182324149 passed 264/557. The [October 26 actual ordinary J audit](docs/active/daily-pipeline/accuracy/oct26-ordinary-collection-actual-2026-10-26.md)
+passes 265/557 with all 557 obligations replayed. The 292 gaps are 254 missing bindings,
+23 candidates, nine HTTP 403, four HTTP 429, one WitnessAI HTTP 504 and one unapproved host.
+Public intake remains 264/557 because the first October 26 gate failed its historical fixture test.
+All eight corrections are privately admitted; only the old six remain public. The current queue
+accounts for all 38 old rows as 37 unchanged plus one exact verified Upwind document resolution,
+then adds seven new holds for 44. Genuine current-J scheduled collection and new publication
+remain open. Old 121/557 keeps its original combined definition.
 Resolve source registration, blocks, dated evidence, typed ownership/financial adapters and retained
 historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage

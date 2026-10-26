@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/tmp/smp-oct26-ordinary-40263678287/replay.py", line 200, in <module>
+    require(len(oldq)==len(prior['reviewQueue'])==38 and set(oldq).issubset(newq),'Old held identity removed')
+  File "/var/tmp/smp-oct26-ordinary-40263678287/application/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: Old held identity removed

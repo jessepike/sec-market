@@ -1,0 +1,45 @@
+{
+  "readyForRootPublication": true,
+  "actualOrdinaryCollectionRunId": "40263678287",
+  "appRevision": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "sourcePolicySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "correctionPolicySha256": "1c629249347b9bdacaf4fadf563e1a0ed807b96c0cbb02e3e2492ae00a839e5b",
+  "archive": {
+    "commit": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+    "files": 56260,
+    "manifestSha256": "b1ad7fb77d5133a8eef7eb282864127795fac53fc3e25414056de988dc7ad1b4",
+    "parentCommit": "1fa5509d961135dd20a9239fa8fcf4830ab9ee46",
+    "ref": "refs/archive/market-evidence"
+  },
+  "allManifestEntriesAuthenticated": 56260,
+  "full557ReconciliationValid": true,
+  "allEightGroupsAccepted": true,
+  "pendingGroups": [],
+  "oldSixAdmissionsPoliciesHistoryExact": true,
+  "all38OldHeldRowsAccountedFor": true,
+  "unchangedOldHeldRows": 37,
+  "verifiedResolvedOldDocumentMarkers": 1,
+  "actualIntakeSuccessful": 265,
+  "actualIntakeRequired": 557,
+  "sourceValidUntil": "2026-10-27T09:26:58.065250+00:00",
+  "settledOctober26Budget": {
+    "budget": {
+      "calls": 76,
+      "documents": 37,
+      "fetches": 444
+    },
+    "gate-budget": null,
+    "publication-budget": null
+  },
+  "writerLease": {
+    "expiresAt": "2026-10-26T06:25:12.967082Z",
+    "releasedAt": "2026-10-26T03:43:19.335796Z",
+    "role": "collector",
+    "sessionId": "github-40263678287-1",
+    "startedAt": "2026-10-26T03:25:12.967082Z"
+  },
+  "genuineScheduleProof": false,
+  "publicationProof": false,
+  "manualCallbackPublishSkipped": true,
+  "independentGateAndActualPublicAcknowledgementStillRequired": true
+}

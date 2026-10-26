@@ -198,3 +198,14 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   committed evidence fixtures for portable source/transport tests; explicitly separate external
   full-archive replay tests and exercise fresh-process absence before promotion. Inspect the
   failed step before attributing a canary failure to an expected policy transition.
+
+## 2026-10-26 · Exercise the publication data before spending a gate
+
+- Historical migration tests need fixed, authenticated historical inputs. The release gate
+  replaces generated application data with the actual collection before testing; a passing
+  checked-in baseline run cannot prove that this publication path passes. Replay the full gate
+  locally with actual archived inputs before using another charged gate attempt. Keep the
+  original failure and its charge.
+- A source-specific HTML parser must reject literal `inert` ancestry as well as hidden markup.
+  Test the actual retained page with inert headings, cards and enclosing elements. Keep any
+  observed streaming-envelope exception narrow and leave shared parser rules unchanged.

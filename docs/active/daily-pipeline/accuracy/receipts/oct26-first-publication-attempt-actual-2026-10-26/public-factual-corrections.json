@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "policySha256": "e73486942362f387ccdf2ca70df5333fcebaebf39ef5bd0f5ecf3a53c1c51614",
+  "checkedAt": "2026-10-25T07:22:36.541639Z",
+  "groups": [
+    {
+      "id": "FC-20261023-checkpoint-sase",
+      "supplierId": "checkpoint-sase",
+      "reasonCode": "incorrect-issuance-period",
+      "date": "2026-10-24",
+      "note": "Correction, 2026-10-24. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The July issuance entry is withdrawn.",
+      "targets": [
+        {
+          "operation": "withdraw",
+          "original": {
+            "date": "2026-07-30",
+            "evidenceIds": [
+              "TR-checkpoint-4"
+            ],
+            "id": "EV-checkpoint-2",
+            "rung": 1,
+            "supplierId": "checkpoint-sase",
+            "text": "$2 billion in convertible senior notes issued during Q2 2026, ~$1.8 billion net proceeds.",
+            "type": "debt"
+          },
+          "originalSha256": "b120cfaa27eb08d07cc6abe78eb00e5a46992ecb0401c6fd78ad8123d31d1b0e",
+          "proposedValue": null,
+          "targetId": "event:EV-checkpoint-2"
+        },
+        {
+          "operation": "replace",
+          "original": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-4",
+            "canonicalUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "Q2 2026",
+            "excerpt": "$2 billion in convertible senior notes issued during Q2 2026, ~$1.8 billion net proceeds.",
+            "id": "TR-checkpoint-4",
+            "interpretation": "",
+            "limitations": "",
+            "organization": "Check Point Software Technologies Ltd.",
+            "publicationDate": "2026-07-30",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "IR",
+            "tags": [
+              "tracker",
+              "network-sase"
+            ],
+            "title": "Check Point Convertible Notes Issuance"
+          },
+          "originalSha256": "76b9dd382e9a891978f98600e50309f59e9336f473d63a4b00b0121e07f1dd20",
+          "proposedValue": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-4",
+            "canonicalUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "Q2 2026 cash comparison referencing the December 2025 convertible offering",
+            "excerpt": "The increase in cash is primarily a result of the $1.8 billion proceeds from our $2 billion convertible senior notes offering net of issuance costs and net of purchased capped calls.",
+            "id": "TR-checkpoint-4",
+            "interpretation": "",
+            "limitations": "The $1.8 billion amount is after issuance costs and purchased capped calls; it does not establish a Q2 2026 issuance. The December 2025 offering is separately sourced.",
+            "organization": "Check Point Software Technologies Ltd.",
+            "publicationDate": "2026-07-30",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "IR",
+            "tags": [
+              "tracker",
+              "network-sase"
+            ],
+            "title": "Check Point Software Reports 2026 Second-Quarter Financial Results"
+          },
+          "targetId": "evidence:TR-checkpoint-4"
+        }
+      ],
+      "admission": {
+        "candidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+        "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+        "policySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+        "admittedAt": "2026-10-24T00:36:49.557183Z",
+        "reviewSha256": "26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0",
+        "result": "accepted"
+      }
+    },
+    {
+      "id": "FC-20261023-optiv",
+      "supplierId": "optiv",
+      "reasonCode": "agreement-date-status",
+      "date": "2026-10-24",
+      "note": "Correction, 2026-10-24. The Optiv lender-agreement entry gave 8 May 2026 and described a completed extension. Its cited announcement is dated 16 March 2026 and describes an agreement with extensions to take effect upon closing. The entry is corrected to the announcement date and conditional status.",
+      "targets": [
+        {
+          "operation": "replace",
+          "original": {
+            "date": "2026-05-08",
+            "evidenceIds": [
+              "TR-optiv-3"
+            ],
+            "id": "EV-optiv-2",
+            "rung": 1,
+            "supplierId": "optiv",
+            "text": "Optiv closed a lender agreement amending and extending its First Lien Credit Agreement to August 2028 and Second Lien to August 2029.",
+            "type": "debt"
+          },
+          "originalSha256": "68afb31b23da5d0da64c20f037b93fc50c602cfd659d8eecaf20f3283ce495dc",
+          "proposedValue": {
+            "date": "2026-03-16",
+            "evidenceIds": [
+              "TR-optiv-3"
+            ],
+            "id": "EV-optiv-2",
+            "rung": 1,
+            "supplierId": "optiv",
+            "text": "Optiv announced an agreement with creditors to amend and extend its credit facilities. Upon closing, the amendments would extend the First Lien Credit Agreement to August 2028 and the Second Lien Credit Agreement to August 2029.",
+            "type": "debt"
+          },
+          "targetId": "event:EV-optiv-2"
+        },
+        {
+          "operation": "replace",
+          "original": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-optiv-3",
+            "canonicalUrl": "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "May 2026",
+            "excerpt": "Optiv's lenders agreed to amend and extend the First Lien Credit Agreement to August 2028 and the Second Lien to August 2029, with more than 99% of First Lien and 100% of Second Lien holders participating.",
+            "id": "TR-optiv-3",
+            "interpretation": "",
+            "limitations": "",
+            "organization": "Optiv Inc.",
+            "publicationDate": "2026-05-08",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "OFFICIAL",
+            "tags": [
+              "tracker",
+              "managed-security"
+            ],
+            "title": "Optiv Lender Agreement Amendment"
+          },
+          "originalSha256": "245e407e28b8048cb98b760db8dd77a4aef73722dfac87094da07c0ec36144fe",
+          "proposedValue": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-optiv-3",
+            "canonicalUrl": "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "March 16, 2026 agreement announcement; extensions conditional on closing",
+            "excerpt": "today announced it has entered into an agreement with creditors holding more than 99% of its First Lien Term Loan and 100% of its Second Lien Term Loan (together the “Credit Facilities”) to amend and extend the maturities of its existing Credit Facilities. Upon closing, the amendments will extend the maturity of Optiv's First Lien Credit Agreement to August 2028 and its Second Lien Credit Agreement to August 2029",
+            "id": "TR-optiv-3",
+            "interpretation": "",
+            "limitations": "The release describes entered agreements and extensions upon closing; it does not establish a closing date.",
+            "organization": "Optiv Inc.",
+            "publicationDate": "2026-03-16",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "OFFICIAL",
+            "tags": [
+              "tracker",
+              "managed-security"
+            ],
+            "title": "Optiv Lender Agreement Amendment"
+          },
+          "targetId": "evidence:TR-optiv-3"
+        }
+      ],
+      "admission": {
+        "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+        "evidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+        "policySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "admittedAt": "2026-10-24T00:06:23.550203Z",
+        "reviewSha256": "faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c",
+        "result": "accepted"
+      }
+    },
+    {
+      "id": "FC-20261023-splunk",
+      "supplierId": "splunk",
+      "reasonCode": "unsupported-entity-allocation",
+      "date": "2026-10-24",
+      "note": "Correction, 2026-10-24. The Splunk restructuring entry described a fixed $1 billion charge that included Splunk integration. The cited Cisco filing describes estimated future company-wide charges of up to $1 billion and provides no Splunk allocation. The Splunk-specific entry is withdrawn pending supporting evidence.",
+      "targets": [
+        {
+          "operation": "withdraw",
+          "original": {
+            "date": "2026-05-13",
+            "evidenceIds": [
+              "TR-splunk-2"
+            ],
+            "id": "EV-splunk-1",
+            "rung": 1,
+            "supplierId": "splunk",
+            "text": "Cisco disclosed a $1 billion restructuring charge in an 8-K filing, including charges related to Splunk integration.",
+            "type": "restructuring"
+          },
+          "originalSha256": "7f77d3d0ceda35c7b38ecfa7d55f9f71a0c67515195a17e7a153d3b8a96063a7",
+          "proposedValue": null,
+          "targetId": "event:EV-splunk-1"
+        },
+        {
+          "operation": "replace",
+          "original": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-splunk-2",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "May 2026",
+            "excerpt": "Cisco disclosed up to $1 billion pre-tax restructuring charges to invest in silicon, optics, security, and artificial intelligence, including $450 million in Q4 FY2026.",
+            "id": "TR-splunk-2",
+            "interpretation": "",
+            "limitations": "Cisco company-wide restructuring; not Splunk-specific by name.",
+            "organization": "Cisco Systems, Inc.",
+            "publicationDate": "2026-05-13",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "FILING",
+            "tags": [
+              "tracker",
+              "secops"
+            ],
+            "title": "Cisco Restructuring Charges - 8-K Item 2.05"
+          },
+          "originalSha256": "9ef47b2e8fe8364c3a0853dfdd20b20f82bdae9cdee950b4830ff7d0568de81b",
+          "proposedValue": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-splunk-2",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "May 2026",
+            "excerpt": "Cisco currently estimates that it will recognize pre-tax charges to its GAAP financial results of up to $1 billion consisting of severance and other one-time termination benefits, and other costs.",
+            "id": "TR-splunk-2",
+            "interpretation": "",
+            "limitations": "Cisco company-wide estimated future pre-tax charges; the filing does not establish a Splunk allocation.",
+            "organization": "Cisco Systems, Inc.",
+            "publicationDate": "2026-05-13",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "FILING",
+            "tags": [
+              "tracker",
+              "secops"
+            ],
+            "title": "Cisco Restructuring Charges - 8-K Item 2.05"
+          },
+          "targetId": "evidence:TR-splunk-2"
+        }
+      ],
+      "admission": {
+        "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+        "evidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+        "policySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "admittedAt": "2026-10-24T00:06:29.666148Z",
+        "reviewSha256": "f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887",
+        "result": "accepted"
+      }
+    },
+    {
+      "id": "FC-20261023-zscaler",
+      "supplierId": "zscaler",
+      "reasonCode": "incorrect-resignation-date",
+      "date": "2026-10-24",
+      "note": "Correction, 2026-10-24. The Zscaler entry dated 24 September 2026 included a board resignation with an incorrect effective date. Raj Judge resigned from the board effective 15 April 2026. That clause is removed; the September entry retains the Chief Revenue Officer transition.",
+      "targets": [
+        {
+          "operation": "replace",
+          "original": {
+            "date": "2026-09-24",
+            "evidenceIds": [
+              "TR-zscaler-4"
+            ],
+            "id": "EV-zscaler-2",
+            "rung": 1,
+            "supplierId": "zscaler",
+            "text": "CRO Mike Rich stepped down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026.",
+            "type": "exec-change"
+          },
+          "originalSha256": "d31acc6c715157cb47c3fee921ef994a309b7ad28bbf12835b10b65caf91dd8d",
+          "proposedValue": {
+            "date": "2026-09-24",
+            "evidenceIds": [
+              "TR-zscaler-4"
+            ],
+            "id": "EV-zscaler-2",
+            "rung": 1,
+            "supplierId": "zscaler",
+            "text": "Zscaler disclosed that Ross Tackett would succeed Mike Rich as Chief Revenue Officer effective October 1, 2026. Rich would remain as a strategic advisor through December 31, 2026.",
+            "type": "exec-change"
+          },
+          "targetId": "event:EV-zscaler-2"
+        },
+        {
+          "operation": "replace",
+          "original": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-4",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "Quarter ended July 31, 2026",
+            "excerpt": "CRO Mike Rich stepping down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026, with employment ending July 31, 2026.",
+            "id": "TR-zscaler-4",
+            "interpretation": "",
+            "limitations": "Changes do not affect CEO or CFO positions.",
+            "organization": "Zscaler, Inc.",
+            "publicationDate": "2026-09-24",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "FILING",
+            "tags": [
+              "tracker",
+              "network-sase"
+            ],
+            "title": "Zscaler Executive Leadership Changes"
+          },
+          "originalSha256": "2d6feee592f99fe0abccadb2deb29e3bce9e7dec2f1730ee2445e8a4b57ba6ed",
+          "proposedValue": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-4",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "Leadership transition disclosed September 24, 2026; effective October 1, 2026",
+            "excerpt": "Mr. Tackett will succeed Mike Rich, who will step down as an officer effective October 1, 2026, but will remain with the Company as a strategic advisor for a transition period through December 31, 2026.",
+            "id": "TR-zscaler-4",
+            "interpretation": "",
+            "limitations": "This filing supports the CRO transition. Raj Judge board resignation is separately sourced in TR-zscaler-6 with an April 15, 2026 effective date.",
+            "organization": "Zscaler, Inc.",
+            "publicationDate": "2026-09-24",
+            "retrievedAt": "2026-09-25",
+            "sourceClass": "FILING",
+            "tags": [
+              "tracker",
+              "network-sase"
+            ],
+            "title": "Zscaler Executive Leadership Changes"
+          },
+          "targetId": "evidence:TR-zscaler-4"
+        }
+      ],
+      "admission": {
+        "candidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+        "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+        "policySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+        "admittedAt": "2026-10-24T00:36:59.336802Z",
+        "reviewSha256": "0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc",
+        "result": "accepted"
+      }
+    },
+    {
+      "id": "FC-20261023-expel",
+      "supplierId": "expel",
+      "reasonCode": "expanded-round-total",
+      "date": "2026-10-24",
+      "note": "Correction, 2026-10-24. Expel increased the total size of its Series E round to $171.3 million in October 2022. That amount was not an additional $171.3 million. The funding field now labels the expanded round total and keeps cumulative company financing separate.",
+      "targets": [
+        {
+          "operation": "replace",
+          "original": {
+            "amount": "$171.3 million (extension; initial Series E $140.3M on 2021-11-18, total funding $288.8 million)",
+            "date": "2022-10-03",
+            "evidenceIds": [
+              "TR-expel-1",
+              "TR-expel-2"
+            ],
+            "lead": "CapitalG and Paladin Capital Group",
+            "stage": "Series E (extension)",
+            "valuation": "over $1 billion (as of the 2021-11-18 initial close)"
+          },
+          "originalSha256": "a6043aacba424de89221285c27060717edec36ab1e019eda26542fac059eb440",
+          "proposedValue": {
+            "amount": "$171.3 million (expanded Series E total; initial Series E $140.3 million; cumulative company funding $288.8 million)",
+            "date": "2022-10-03",
+            "evidenceIds": [
+              "TR-expel-1",
+              "TR-expel-2"
+            ],
+            "lead": "CapitalG and Paladin Capital Group",
+            "stage": "Series E (expanded round)",
+            "valuation": "over $1 billion (as of the 2021-11-18 initial close)"
+          },
+          "targetId": "supplier:expel:lastRound"
+        },
+        {
+          "operation": "replace",
+          "original": {
+            "evidenceIds": [
+              "TR-expel-1",
+              "TR-expel-2"
+            ],
+            "status": "Independent, venture-backed. Series E extension raised an additional $171.3M on October 3, 2022, bringing total funding to $288.8M. Initial Series E of $140.3M closed November 18, 2021 at a valuation over $1 billion."
+          },
+          "originalSha256": "c2bfb07b34e1593f8e0bbd7e5c86985e0e8a27c6d5ac169655e22c3890f439b7",
+          "proposedValue": {
+            "evidenceIds": [
+              "TR-expel-1",
+              "TR-expel-2"
+            ],
+            "status": "Expel reported that its Series E round had expanded to $171.3 million on October 3, 2022, bringing cumulative company funding to $288.8 million. The initial Series E was $140.3 million on November 18, 2021 at a valuation over $1 billion."
+          },
+          "targetId": "supplier:expel:ownership"
+        },
+        {
+          "operation": "replace",
+          "original": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-expel-2",
+            "canonicalUrl": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "N/A (funding announcement)",
+            "excerpt": "Expel...announced an additional $171.3 million in Series E funding, led by CapitalG and Paladin Capital Group, with participation from existing investors Scale Venture Partners, March Capital, Index Ventures, and Battery Ventures, bringing total funding raised to $288.8 million.",
+            "id": "TR-expel-2",
+            "interpretation": "",
+            "limitations": "AUTO-001 fix pass 4, item 8: the tracker previously had no ownership field for Expel at all.",
+            "organization": "Expel, Inc.",
+            "publicationDate": "2022-10-03",
+            "retrievedAt": "2026-09-30",
+            "sourceClass": "OFFICIAL",
+            "tags": [
+              "tracker",
+              "managed-security"
+            ],
+            "title": "Expel Investors Fuel Rapid Growth With Additional Series E Investment, Bringing Total Funding to $288 Million"
+          },
+          "originalSha256": "185078dfe5fcdaacb9ab526924dd0df81a8af8e1e4e48d4dd440228c6c4d4628",
+          "proposedValue": {
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-expel-2",
+            "canonicalUrl": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+            "conflictingEvidenceIds": [],
+            "economicPeriod": "N/A (funding announcement)",
+            "excerpt": "Herndon, Va. October 3, 2022 – Expel , the managed security provider that aims to make security easy to understand, use and improve, today announced that it has increased its Series E funding round , led by Alphabet’s independent growth fund CapitalG and Paladin Capital Group to $171.3 million. The additional investment includes participation from existing investors Scale Venture Partners, March Capital, Index Ventures, and Battery Ventures and brings the company’s total funding to $288.8 million.",
+            "id": "TR-expel-2",
+            "interpretation": "",
+            "limitations": "The $171.3 million amount is the expanded Series E round total, not an additional increment; $288.8 million is cumulative company funding.",
+            "organization": "Expel, Inc.",
+            "publicationDate": "2022-10-03",
+            "retrievedAt": "2026-09-30",
+            "sourceClass": "OFFICIAL",
+            "tags": [
+              "tracker",
+              "managed-security"
+            ],
+            "title": "Expel Investors Fuel Rapid Growth With Additional Series E Investment, Bringing Total Funding to $288 Million"
+          },
+          "targetId": "evidence:TR-expel-2"
+        }
+      ],
+      "admission": {
+        "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+        "evidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+        "policySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+        "admittedAt": "2026-10-24T00:06:43.307502Z",
+        "reviewSha256": "d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f",
+        "result": "accepted"
+      }
+    },
+    {
+      "id": "XAGE-SOURCE-CLASS-20261023",
+      "supplierId": "xage",
+      "reasonCode": "paid_release_mislabelled_independent",
+      "date": "2026-10-24",
+      "note": "On 2026-10-24, corrected source TR-xage-1 from INDEPENDENT to OFFICIAL because Yahoo Finance labels it a paid Xage Security release with a GlobeNewswire dateline. Yahoo Finance remains the publisher; the quoted financial and operating figures are unchanged and are not certified by this source-role correction.",
+      "targets": [
+        {
+          "targetId": "evidence:TR-xage-1",
+          "operation": "reclassify_publisher_disclosure",
+          "original": {
+            "id": "TR-xage-1",
+            "title": "Xage Security hits record growth",
+            "organization": "Yahoo Finance",
+            "publicationDate": "2026-03-18",
+            "economicPeriod": "N/A (company update)",
+            "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+            "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+            "sourceClass": "INDEPENDENT",
+            "interpretation": "",
+            "limitations": "Trade-press relay of company-stated figures; not independently confirmed against a direct Xage or Piva Capital primary release, though an SEC Form D filed the same date (2026-03-18) is consistent with a Reg D raise around this period.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+            "tags": [
+              "tracker",
+              "ot-iot"
+            ],
+            "retrievedAt": "2026-09-25"
+          },
+          "originalSha256": "62bb8bcce0698b5f164867d9bc070be77ee4eebde095947dd96eb8a693d0d6fb",
+          "proposedValue": {
+            "id": "TR-xage-1",
+            "title": "Xage Security hits record growth",
+            "organization": "Yahoo Finance",
+            "publicationDate": "2026-03-18",
+            "economicPeriod": "N/A (company update)",
+            "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+            "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+            "sourceClass": "OFFICIAL",
+            "interpretation": "",
+            "limitations": "Yahoo Finance labels this page as a paid press release and attributes it to Xage Security with a GlobeNewswire dateline. It is issuer-attributed release material republished by Yahoo Finance, not independent editorial reporting. This publication-role correction does not independently verify the financial, funding or operating figures in the unchanged excerpt.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+            "tags": [
+              "tracker",
+              "ot-iot"
+            ],
+            "retrievedAt": "2026-09-25"
+          }
+        }
+      ],
+      "admission": {
+        "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+        "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+        "policySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+        "admittedAt": "2026-10-24T00:06:50.078120Z",
+        "reviewSha256": "5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46",
+        "result": "accepted",
+        "reviewScope": "publisher_disclosure_only"
+      },
+      "reviewScope": "publisher_disclosure_only"
+    }
+  ]
+}

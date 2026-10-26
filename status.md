@@ -8,7 +8,8 @@ updated: 2026-10-26
 
 D-110 activation/verification remains approved; do not ask again. D-111 prioritizes consistent,
 accurate, fresh operation; D-112 separates daily intake, processing and historical review.
-Preserve all 74 suppliers, 557 obligations, original URLs/dates, six admissions and every hold.
+Preserve all 74 suppliers, 557 obligations, original URLs/dates, the six old admissions and all eight
+current accepted groups. Keep every hold or its exact verified resolution accounted for.
 Reader value, general claim precision/recall and sustained multi-day durability remain unmeasured.
 Search and ownership/funding/stage navigation are queued as SEC-073/074.
 
@@ -27,38 +28,36 @@ at 06:39; the recovery does not erase that failure window.
 
 ## Current private collection and remaining acceptance
 
-[Actual ordinary J collector 40199860540](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-actual-source-review-2026-10-25.md)
-passed on main 40fe14bb. All 52,273 archive entries authenticate and all 557 attempts replay.
-JFrog/Rapid7 each made one normal HTTP 200 index request, retaining 206/323 records and all
-529 original URLs/dates. Both pass intake; neither adds reviewed documents or semantic facts.
+[Ordinary manual collector 40263678287](docs/active/daily-pipeline/accuracy/oct26-ordinary-collection-actual-2026-10-26.md)
+passed on main 3bb9e40c. All 56,260 acknowledged archive entries authenticate and all 557
+obligations replay. All eight real correction groups are admitted; zero are pending. The two
+new Varonis/SentinelOne groups remain private until an accepted publication. The old six
+policies/admissions/history dates remain exact. Their selected 09:56 source clocks and complete
+304-to-200 graphs remain exact; new ordinary 304s have identical bodies and URL/content type.
 
-| Private result | Current accepted evidence |
+| Private result | Actual October 26 evidence |
 | --- | --- |
-| Intake |266/557: 196 citation, 48 SEC, 19 official-announcement and three investor/acquirer checks. |
-| Remaining gaps |291: 254 missing bindings, 23 candidates, nine HTTP 403, four HTTP 429, one unapproved host. |
-| Processing/history |40/41 reviewed of 11,184; 11,144/11,143 pending, 11 held documents, one changed, 291 unknown dates. |
-| Continuity |All four prior fact references, six admissions/group policies and 38 held rows remain exact. No new accepted facts/events. |
-| Source expiry |October 26 at 20:00:16.075798 UTC; public expiry remains separate. |
-| Settled October 25 ledger |1,511/5,500 fetches, 80/80 calls, 39/40 charged documents, gates 2/2; lease released 14:06:46 UTC. This run used zero model calls. |
+| Intake |265/557: 196 citation, 48 SEC, 18 official-announcement and three investor/acquirer checks. |
+| Gaps |292: 254 missing bindings, 23 candidates, nine HTTP 403, four HTTP 429, one HTTP 504 and one unapproved host. WitnessAI's 504 is the sole regression from prior J's 266. |
+| Processing/history |52/52 reviewed of 11,185; 11,133/11,133 pending, 14 held documents, one changed, 534 unknown dates. |
+| Continuity |Four prior fact references and all 557 obligation identities remain exact. Of 38 old held rows, 37 remain queued and one exact Upwind marker has a strictly verified actual resolution. Seven new holds yield queue 44. No new ordinary semantic facts/events. |
+| Source expiry |October 27 at 09:26:58.065250 UTC; public expiry remains separate. |
+| Settled October 26 ledger |444/5,500 fetches, 76/80 calls, 37/40 documents; one of two gates spent, publication-budget head absent. No reset/refund. Publisher lease released 04:07:01.428398 UTC. |
 
-Read-only hosted canary 40199362753 attempt 2 passed against actual J archive 8b3811df at
-14:11 UTC without requests/state changes. Its original attempt reached the strict old-H/new-J
-hold; the preceding 40197621420 failed earlier during VM-only test setup. The separately reviewed
-portable fixture repair cleared that setup failure while keeping ordinary source tests runnable.
-Actual manual callback 40200771059 skipped publication. All four public files remain byte-exact.
+[Actual publisher 40266519925 and gate 40266928448](docs/active/daily-pipeline/accuracy/oct26-first-publication-attempt-actual-2026-10-26.md)
+failed the historical Q4 baseline test: it reads the fresh generated daily snapshot as its frozen
+zero-credit fixture. SEC certification passed all 80 claims; the data suite passed 378/379.
+The full 56,266-entry failure archive authenticates. All 106 public/immutable-host file checks
+remain exact for sequence 4; Vercel confirms READY. No new release or new-release screenshot
+exists. The final gate slot is reserved for an ordinary scheduled publisher/callback after the
+fixture repair passes review and full local actual-data replay. No manual second dispatch.
 
-[Genuine scheduled H collector 40182324149](docs/active/daily-pipeline/accuracy/scheduled-h-acceptance-2026-10-25.md)
-passed 264/557 on main 71c39356, starting 09:50:43 UTC, 4h33m43s after 05:17. This remains
-historical H evidence. Genuine scheduled J collection and new production publication remain open.
-[Scheduled publisher 40190348786](docs/active/daily-pipeline/accuracy/scheduled-publisher-attempt-2026-10-25.md)
-failed DAILY_GATE_BUDGET_EXHAUSTED and updated assigned issue 14. Wait for ordinary next-UTC
-capacity; do not retry a publisher/gate today, reset/refund counters or add paid fallback.
-
-[Genuine repaired monitor 40191154739](docs/active/daily-pipeline/accuracy/scheduled-monitor-acceptance-2026-10-25.md)
-passed its 36 runner tests and exact-main replay; its actual workflow correctly stayed red for
-coverage/review/held gaps and publisher failure, updating issue 10. The public-byte reader and
-original-plan binding work. GitHub issue delivery is proven; phone/email and sustained durability
-remain unmeasured.
+The next native collector is due October 26 at 05:17 UTC; its creation/start/result are not yet
+observed. Manual callback 40265523640 skipped publication. Genuine current-J/eight-group schedule
+and publication receipts remain open. The older genuine H run 40182324149 and failed October 25
+publisher 40190348786 remain dated historical evidence; their spent allowances were not erased.
+Genuine monitor 40191154739 proved its repaired reader and delivery, then correctly reported
+coverage/review/held/publisher gaps. Sustained durability and phone/email delivery remain unmeasured.
 
 ## Current source work
 
@@ -68,12 +67,12 @@ archive absence passes 935 with 60 explicit retained-input skips. Its 56 cards, 
 bounded primary capture give no source or fact credit. The candidate plan remains unselected;
 source policy J, disabled plan ef9ee1ba and the current eight correction requests remain unchanged.
 
-Current source policy J is 47b9f226…66593a with exact disabled plan ef9ee1ba. Main 40fe14bb
-passed preview/main application checks; preview was READY and the main Git production build
-CANCELED. Main pushes do not publish. The source audit preserves every preceding diagnostic and
+Current source policy J is 47b9f226…66593a with exact disabled plan ef9ee1ba. The eight-request
+selection is on main 3bb9e40c; its actual first gate failure is recorded above. Earlier 40fe14bb
+passed preview/main checks; preview was READY and its main Git production build CANCELED. Main pushes do not publish. The source audit preserves every preceding diagnostic and
 all 48,420 prior entries. The earlier 25-candidate queue stays frozen; use the new
 [23-candidate J queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md),
-which also joins all 557 actual task results. JFrog/Rapid7 real normal 304 behavior is not yet observed.
+which also joins all 557 actual task results. October 26 observed Rapid7's genuine normal 304 and another JFrog HTTP 200; all 529 original URLs/dates remain exact.
 
 The independently reviewed [PR Newswire offline parser](docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.md)
 is on preview 1057c3f0. Current-J combined checks pass 961 operations tests, all 80 SEC claims,
@@ -92,18 +91,12 @@ Sysdig's generic ContractError has no proved HTTP status. Bounded failure/redire
 telemetry and respectful cooldown are next repairs; do not guess aliases or bypass access.
 
 The [two priority correction build](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.md)
-passes independent review. Its eight-request pending inventory is prepared for preview, preserving
-all six old groups/admissions and adding Varonis's unsupported workforce/date repair followed by
-SentinelOne's planned 8%/$25 million repair. All 972 operational checks pass; archive-absent checks
-pass 913 with 59 explicit skips. Full web validation passes 379 data and 115 pipeline checks,
-build/80 SEC claims, and 42 browser checks with one existing fixture skip; four renders are unchanged.
-The separate historical-six web-test delta retains the initial failed fixture run and the final
-passing run. The eight-request selection is on main 3bb9e40c. Root reports ordinary manual
-collector 40263678287 in progress; no new semantic admission or publication is claimed. October 25
-calls/gates were spent; successful independent review needs at least two calls,
-two documents and zero correction fetches after natural October 26 renewal. Pending groups hold
-publication before gate spending; no freshness fallback is selected by this build. The other seven
-atomic proposals remain outside the active request contract.
+passed independent review and selected eight requests on main 3bb9e40c. Actual October 26
+semantic reviews now accept Varonis's conditional workforce withdrawal/end-of-life repair and
+SentinelOne's planned approximately 8%/estimated approximately $25 million repair. Both complete
+primary texts and actual review hashes replay; no source was rebound. Publication remains blocked
+by the separately recorded historical test fixture failure. All old six published correction
+rows remain live and exact. The other seven atomic proposals remain outside the active contract.
 
 ## Remaining work and checkout boundary
 

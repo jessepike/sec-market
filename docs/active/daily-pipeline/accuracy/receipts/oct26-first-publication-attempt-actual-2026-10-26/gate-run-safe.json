@@ -1,0 +1,24 @@
+{
+  "id": 40266928448,
+  "html_url": "https://github.com/jessepike/sec-market/actions/runs/40266928448",
+  "event": "workflow_dispatch",
+  "path": ".github/workflows/market-release-gate.yml",
+  "head_branch": "main",
+  "head_sha": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "status": "completed",
+  "conclusion": "failure",
+  "run_attempt": 1,
+  "created_at": "2026-10-26T04:01:32Z",
+  "updated_at": "2026-10-26T04:06:57Z",
+  "run_started_at": "2026-10-26T04:01:32Z",
+  "jobs": [
+    {
+      "id": 121391249903,
+      "name": "gate",
+      "status": "completed",
+      "conclusion": "failure",
+      "started_at": "2026-10-26T04:01:36Z",
+      "completed_at": "2026-10-26T04:06:56Z"
+    }
+  ]
+}

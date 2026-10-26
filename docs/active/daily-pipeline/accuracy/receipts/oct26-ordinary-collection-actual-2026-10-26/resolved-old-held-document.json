@@ -1,0 +1,108 @@
+{
+  "scope": "Actual resolved prior document marker, no new market fact",
+  "resolution": {
+    "currentOrigin": {
+      "attemptId": "7befeba39154d913bb4225c4aae4527adcaf988f642292aa4f376a5ee6858d87",
+      "receipt": {
+        "bytes": 12426,
+        "key": "objects/ba3032bd3dbb3572ed9ec6d13a3e2125c672b1ba20ec339e0579c804efd785d9",
+        "sha256": "ba3032bd3dbb3572ed9ec6d13a3e2125c672b1ba20ec339e0579c804efd785d9"
+      },
+      "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+      "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+    },
+    "currentProcessingManifest": {
+      "bytes": 519078,
+      "key": "objects/2d4e444c2fd7c67a4d3c54dfc687c258a0d107acc522e114f763e5a5371d293d",
+      "sha256": "2d4e444c2fd7c67a4d3c54dfc687c258a0d107acc522e114f763e5a5371d293d"
+    },
+    "kind": "source_document_revalidation_resolution",
+    "marker": {
+      "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+      "kind": "source_document_revalidation",
+      "origin": {
+        "attemptId": "4495525a9865491f0ee7b977841d94f7d542d598f22a0e422e726b61ca215c59",
+        "receipt": {
+          "bytes": 9901,
+          "key": "objects/26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+          "sha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8"
+        },
+        "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+        "taskId": "90bf4f7a42f5d7a635301a84af316712e039b8c2e80cf4f68c88fddc553666ba"
+      },
+      "processingManifest": {
+        "bytes": 518485,
+        "key": "objects/6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e",
+        "sha256": "6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e"
+      },
+      "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+      "receiptSha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/threat-post"
+    },
+    "resolutionSha256": "8100f0cba7b17181efb8a59b5cd01916329df958416984014c12fd498eec8c89",
+    "resolvedAt": "2026-10-26T03:40:38.985027Z",
+    "schemaVersion": 1,
+    "sourceObservationId": "dd43c1278a7864df9cce753e439c86cc6e9cf803c8ab1ace6f704fc98a8b46ec",
+    "sourceObservationSha256": "93de5175ea532999c3a3b663d0cf427a45f487e30cf822c88c18e803ba0af73f"
+  },
+  "currentDocumentValidationRef": {
+    "key": "objects/2c95ff1c0807273083367a49f2f4361281b71899333c2425554410f55d162a40",
+    "sha256": "2c95ff1c0807273083367a49f2f4361281b71899333c2425554410f55d162a40",
+    "bytes": 843
+  },
+  "currentDocumentValidation": {
+    "body": {
+      "bytes": 426831,
+      "key": "objects/41ffb20523e662c5e854f376296aaa79ffa1d45ba4677590359aaa3360e1d025",
+      "sha256": "41ffb20523e662c5e854f376296aaa79ffa1d45ba4677590359aaa3360e1d025"
+    },
+    "candidateHashes": [],
+    "contractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+    "emptyReview": {
+      "bytes": 190,
+      "key": "objects/cb10e1691c677a5eb742d72d86c059a0618d45d3f609071c8230b72bdd3966e0",
+      "sha256": "cb10e1691c677a5eb742d72d86c059a0618d45d3f609071c8230b72bdd3966e0"
+    },
+    "factRefs": [],
+    "heldClaims": [],
+    "inputContext": {
+      "compressedInput": null,
+      "contentType": "text/html; charset=UTF-8",
+      "extractor": 3,
+      "finalUrl": "https://www.upwind.io/feed/threat-post",
+      "modelTextSha256": "950c14e2a85527b50f8839114c1e50babdfea1adc82589814845a0899844a782",
+      "requestedUrl": "https://www.upwind.io/feed/threat-post",
+      "sourceId": "upwind:official:1"
+    },
+    "supplierId": "upwind"
+  },
+  "actualIndependentEmptyReview": {
+    "evidenceSha256": "41ffb20523e662c5e854f376296aaa79ffa1d45ba4677590359aaa3360e1d025",
+    "noRelevantFacts": true,
+    "policySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a"
+  },
+  "currentSourceObservation": {
+    "body": {
+      "bytes": 426831,
+      "key": "objects/41ffb20523e662c5e854f376296aaa79ffa1d45ba4677590359aaa3360e1d025",
+      "sha256": "41ffb20523e662c5e854f376296aaa79ffa1d45ba4677590359aaa3360e1d025"
+    },
+    "contentType": "text/html; charset=UTF-8",
+    "etag": null,
+    "fetchedAt": "2026-10-26T03:35:42.722192Z",
+    "finalUrl": "https://www.upwind.io/feed/threat-post",
+    "httpStatus": 200,
+    "lastModified": "Mon, 26 Oct 2026 03:35:42 GMT",
+    "observationId": "dd43c1278a7864df9cce753e439c86cc6e9cf803c8ab1ace6f704fc98a8b46ec",
+    "requestedUrl": "https://www.upwind.io/feed/threat-post",
+    "sourceId": "upwind:official:1",
+    "status": "fetched",
+    "transportId": "3c0b80a4a359f5ff2a47d5534a7a5e174a96d218da84af6c9d8d4a90c74584ac",
+    "transportReused": false
+  },
+  "priorMarkerPreservedVerbatim": true,
+  "newSemanticMarketFacts": 0,
+  "verification": "Existing collector_continuity/verify_document_resolution strict replay; separate final audit records full frozen-input seals"
+}

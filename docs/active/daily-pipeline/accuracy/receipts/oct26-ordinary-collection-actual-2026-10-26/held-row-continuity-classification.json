@@ -1,0 +1,79 @@
+{
+  "oldCount": 38,
+  "oldUnique": 38,
+  "newCount": 44,
+  "newUnique": 44,
+  "missingByOldAuditIdentity": [
+    {
+      "old": {
+        "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+        "kind": "source_document_revalidation",
+        "origin": {
+          "attemptId": "4495525a9865491f0ee7b977841d94f7d542d598f22a0e422e726b61ca215c59",
+          "receipt": {
+            "bytes": 9901,
+            "key": "objects/26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+            "sha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8"
+          },
+          "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+          "taskId": "90bf4f7a42f5d7a635301a84af316712e039b8c2e80cf4f68c88fddc553666ba"
+        },
+        "processingManifest": {
+          "bytes": 518485,
+          "key": "objects/6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e",
+          "sha256": "6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e"
+        },
+        "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+        "receiptSha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+        "sourceId": "upwind:official:1",
+        "supplierId": "upwind",
+        "url": "https://www.upwind.io/feed/threat-post"
+      },
+      "currentSameFactId": []
+    }
+  ],
+  "newRows": [
+    {
+      "factId": "b1540367ed83e5f0b30b317f1ec84df53bd25747c8a5058b39ffce4e7913be30",
+      "reason": "Source entity not established",
+      "receiptSha256": "07775b0af6d5a3f99bffe6d7eef58e22b54c470f81a1d2bf86b29284b15d2994",
+      "supplierId": "reliaquest"
+    },
+    {
+      "factId": "51cb2bb35eaba969fb4ce1f76054d5414b494154c892ef6778af990913ee8952",
+      "reason": "Source entity not established",
+      "receiptSha256": "c04f26dd7bea562ebdc2a4ae8f777a39af302eec60cab0f8d92ae216bfb32c96",
+      "supplierId": "reliaquest"
+    },
+    {
+      "factId": "5ca271ee95288ee7208691ba9e209569dc50427c5bb8f040e1e9fc35c5282881",
+      "reason": "Source entity not established",
+      "receiptSha256": "f949a321d26740790f24e66b1cd0e2dcb539acea0ecaeb59283f99f53593c13b",
+      "supplierId": "reliaquest"
+    },
+    {
+      "factId": "da13f3b749521bc46cda25c83ea033ab2e01bde097a92f0be05537200c664a17",
+      "reason": "Fact date missing",
+      "receiptSha256": "698ba7b56b163b8828abe93d3fb09fd6a9c3ade50e514a73466dacbac6c44395",
+      "supplierId": "delinea"
+    },
+    {
+      "factId": "4c54b993893c8102369d1c7e21f7130158cdddc2e319195069a32ac4f039833f",
+      "reason": "Fact date missing",
+      "receiptSha256": "9b4ef6e810b8e2fd68f1d491800005959a9325dfd0bbe097264e4d3595e6b2aa",
+      "supplierId": "delinea"
+    },
+    {
+      "factId": "1af765bd360c352468094cb912eade19b2c3da456ace13ebcd692c036facb6b4",
+      "reason": "Fact date missing",
+      "receiptSha256": "59e1506c96def70e6a74402c9a6fc8bd45c3f539df32ff1e8fcb5da0de38ff35",
+      "supplierId": "delinea"
+    },
+    {
+      "factId": "398c69f2e9180874237781d100ac7076fbd79acff0878afe4800fbf92df346e7",
+      "reason": "Fact date missing",
+      "receiptSha256": "788b37f3804fd8edc98d3df9ec3ea2083e8f144df4de754de41a20771abcaae3",
+      "supplierId": "hiddenlayer"
+    }
+  ]
+}

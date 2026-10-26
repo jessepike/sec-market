@@ -1,0 +1,72 @@
+{
+  "actualPublisherRunId": "40266519925",
+  "publisherConclusion": "failure",
+  "safeReceipt": {
+    "published": false,
+    "reason": "PUBLISHER_FAILED",
+    "errorType": "ContractError"
+  },
+  "publisherArtifactId": 12626629099,
+  "publisherArtifactDigest": "sha256:20a1531c37d0cd136f60237bf3b39e89b0e12e8279a61d1b982212109441dd91",
+  "publisherArtifactZipSha256": "20a1531c37d0cd136f60237bf3b39e89b0e12e8279a61d1b982212109441dd91",
+  "publisherReceiptSha256": "d633f1802bfc9f8fa9f14ff37fa6156d59e567bff8d8ca33b97d4707bb470e79",
+  "acknowledgedArchive": null,
+  "observedArchive": {
+    "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+    "manifestSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+    "files": 56266,
+    "ref": "refs/archive/market-evidence"
+  },
+  "archivePinSource": "exactArchiveRefAfterTerminalFailure",
+  "manifestGitBlobSha1": "859ee1d0f0ee578374439d54d05131f17dde1f24",
+  "manifestBytes": 11744291,
+  "manifestEntries": 56266,
+  "allManifestEntriesVerified": true,
+  "baselineArchiveCommit": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+  "baselineManifestSha256": "b1ad7fb77d5133a8eef7eb282864127795fac53fc3e25414056de988dc7ad1b4",
+  "baselineEntries": 56260,
+  "priorImmutableEntriesExact": true,
+  "changedMutableHeads": [
+    "state/heads/cloud-governance.json",
+    "state/heads/cloud-lease.json",
+    "state/heads/worker-heartbeat.json"
+  ],
+  "addedEntries": [
+    "state/cloud/sessions/d354747a34879906775a13e90537f4265929601b43d946f282d84116aa3fd16d/2685cd31165c5b2c58fcffa4118d76223f34b73a99aeb6b9ab7c1266789fd2a6.json",
+    "state/cloud/sessions/d354747a34879906775a13e90537f4265929601b43d946f282d84116aa3fd16d/7bd2ebdb38bb1bf2f5cfb3e03baa7d135977db4bba2d9d2f6290430d35a4a346.json",
+    "state/cloud/sessions/d354747a34879906775a13e90537f4265929601b43d946f282d84116aa3fd16d/a27f8175cc5f6808acf541403bc2f225c58a7da1479f71d9e739fc0546125b96.json",
+    "state/cloud/sessions/d354747a34879906775a13e90537f4265929601b43d946f282d84116aa3fd16d/ab568d5976e6b3ad6ab03b19ed12fc1904ff20b3c0eb7c135d188fc9fc85c212.json",
+    "state/gate-requests/96d66bde96d333223557bdd78ef8df821b8e67a9.json",
+    "state/heads/gate-budget-2026-10-26.json"
+  ],
+  "archiveAncestry": [
+    {
+      "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+      "parent": "e4820ad03d26de72894f3ba815dad0442227b20d",
+      "tree": "172990fc7e5d2ccdbe7bb3746a421f5db54f87cb",
+      "rawSha256": "d30c2183cd66b6d38f13f8fde6ea6266deecd6cf9538d4e53aeadcea28b40769"
+    },
+    {
+      "commit": "e4820ad03d26de72894f3ba815dad0442227b20d",
+      "parent": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+      "tree": "49fe1fc0aab73a7a33c61c1b268401c51ad9e74f",
+      "rawSha256": "26a15aa14a8a287a3c29e2d440660ca6ee1cd16c979b5f87b2087ec666182fa7"
+    },
+    {
+      "commit": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+      "parent": "defa4303cd6d1078736f45d5da0a87ea65b92c2c",
+      "tree": "22b9a7a04ae1b3a1de23db80fe602fd3a5c8905a",
+      "rawSha256": "805b366faec2978794eba2e66284ef38a67fc5252f242fed20976db1e118f95f"
+    },
+    {
+      "commit": "defa4303cd6d1078736f45d5da0a87ea65b92c2c",
+      "parent": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+      "tree": "e1aea2b3267e035cbf5ac0f414851234cfda76f0",
+      "rawSha256": "bf0be75bc14c21c547d2fd14fa98be18be54fc834c0f61bd7143395a7291a954"
+    }
+  ],
+  "baselineIsAncestor": true,
+  "archiveRefAtRead": "5ddcbc51613f125c12cdc724db821384886722f5",
+  "ackIsCurrentAtRead": true,
+  "materialization": "Unchanged authenticated files hardlinked read-only from exact ordinary collector archive; changed/new files fetched from exact Git commit and hash checked; no source/archive-state writes."
+}

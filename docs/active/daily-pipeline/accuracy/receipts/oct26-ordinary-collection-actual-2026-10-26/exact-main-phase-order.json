@@ -1,0 +1,40 @@
+{
+  "scope": "Exact main 3bb9e40c8f6324aa4f419fbe13022ec4dcaece55 call path, not a claim of actual runtime admission",
+  "firstPhaseKinds": [
+    "sec_facts",
+    "sec_submissions",
+    "sec_documents",
+    "sec_index",
+    "citation"
+  ],
+  "ordering": "The completed first pool.map precedes correction_work; its uncached citation models defer before extraction and document reservations. Other discovery kinds and deferred citations run only after correction_work returns.",
+  "ordinaryUncachedExtractionCanConsumeModelBudgetBeforeCorrections": false,
+  "sourcePointers": {
+    "engine.py": [
+      "73-106: phase split and completed pool barrier",
+      "241-263: deterministic SEC and readable filing handling",
+      "294-336: citation deferral before document/call reservations"
+    ],
+    "collect.py": [
+      "61-87: committed correction processor",
+      "369-378: actual BoundedPipeline correction_work installation"
+    ],
+    "corrections.py": [
+      "538-598: ordered groups, cached admissions, per-group reservation/review"
+    ]
+  },
+  "inputFiles": {
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    "ops/ci/collect.py": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "actualAcknowledgedCommit": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+  "baselineCommit": "8b3811df40cfdbec9d5ed52252524294566c88e0",
+  "baselineIsAncestor": true,
+  "immediatePriorArchive": "4f3bb5f02895089f2ea8678b457002e9ea0e91f1",
+  "immediatePriorIsAncestor": true,
+  "commits": [
+    {
+      "commit": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+      "tree": "d88167c26a8bab7e315ef6563d9f0253ea6d1a03",
+      "parent": "1fa5509d961135dd20a9239fa8fcf4830ab9ee46",
+      "rawSha256": "c872ebb3884a1efad44efd218011e91747c937ed325e11eb61904d6f9e84bd80",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence b1ad7fb77d5133a8eef7eb282864127795fac53fc3e25414056de988dc7ad1b4"
+    },
+    {
+      "commit": "1fa5509d961135dd20a9239fa8fcf4830ab9ee46",
+      "tree": "5038c53579579cc361ff8ecf0475a5d12c454152",
+      "parent": "274a1106bb9a00bd64d8f0f8e6af0fe1e5316d96",
+      "rawSha256": "0347db86e21bd85d02d9290a45c1f7f40c5823971bd345855d5ec468973328d7",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 6a1c609de0b9fce059ae4d47229c96d6817541ccae3ef45fa31cd5f512855063"
+    },
+    {
+      "commit": "274a1106bb9a00bd64d8f0f8e6af0fe1e5316d96",
+      "tree": "f96e0066ed1e327f7e7c5b103c93ec3106b0537a",
+      "parent": "fb445c4d580ba63233c1e4f664ec5ff2d4ea450d",
+      "rawSha256": "bb20fc0b949bae6ed05a61e5f011a8070c597a3873707723cc7591c73caf6cb8",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 0298a3bb9e431e0827fff1b43449e4ae429d0f92c4e08c2ef247683e646a9770"
+    },
+    {
+      "commit": "fb445c4d580ba63233c1e4f664ec5ff2d4ea450d",
+      "tree": "9b828f7d0c8d1b1198a079c4bb15a0a805fb84a9",
+      "parent": "83c91ad9cf6a5cedf38028c17dbfe8e99e5fb2eb",
+      "rawSha256": "78dd75954d16678258444c5f22f6d3a3ec6b8084b083be3f7074726b220d84f4",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence cebbb72f8f1766aaf77fc09290308dc515ad786abf13ae48cc6912a7882f1639"
+    },
+    {
+      "commit": "83c91ad9cf6a5cedf38028c17dbfe8e99e5fb2eb",
+      "tree": "df1e290bd14a9a60542a84e250db1305ed0e3078",
+      "parent": "4f3bb5f02895089f2ea8678b457002e9ea0e91f1",
+      "rawSha256": "d45558da4420b1e9d3c2f9e5e9237d13f0fabcd3a9b1dec9f768a7666fb08495",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence e6ba9cf56f0b2b35478bcfe6855cd5bb5ec00a590c855c5a59a519807197d1a8"
+    },
+    {
+      "commit": "4f3bb5f02895089f2ea8678b457002e9ea0e91f1",
+      "tree": "5c08213c1308edefc7f72e173b1bf96c1ed65c5f",
+      "parent": "31cc6e5c5c6014e39672adc3a674b0aff9439ef8",
+      "rawSha256": "41f00838b405b3c333e9ac7a5b93f15c94a9e0c00d9d2973e63539812734db17",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence f12ad7bd521272e8737374197d8e13392f140156e3035964df0940abfa428619"
+    },
+    {
+      "commit": "31cc6e5c5c6014e39672adc3a674b0aff9439ef8",
+      "tree": "2ac5f2c0b7f1c8210aa6d58f2cff41cd797c89d8",
+      "parent": "214cb53495c076fac274a033d573c06d6cd128e7",
+      "rawSha256": "0fbae96f5896e5084aec9798838b2e0d430c6396d27b661d9cfdac158210d087",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 03e80905a099104583906ac6894e13341bb856f9803ddf09c5d7339cbf5eadca"
+    },
+    {
+      "commit": "214cb53495c076fac274a033d573c06d6cd128e7",
+      "tree": "c5e15030635e608dd42915889d25c3c3f86d8342",
+      "parent": "8b3811df40cfdbec9d5ed52252524294566c88e0",
+      "rawSha256": "d144165d5f400e8b4e7f77c0ef202de0636f0b2cf6b28764b004e9bbace57e56",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 44265beead1b67b17ac0b56f1d9b401acb815477e678f583d97a6ca1de5d11b7"
+    }
+  ],
+  "archiveRefAtRead": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+  "tipIsCurrentAtRead": true
+}

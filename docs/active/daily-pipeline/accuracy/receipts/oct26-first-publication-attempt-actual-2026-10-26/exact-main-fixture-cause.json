@@ -1,0 +1,24 @@
+{
+  "revision": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "actualFailedGate": 40266928448,
+  "actualFailureArtifact": 12627410461,
+  "cause": "Historical test reads mutable web/src/data/generated/dailyMarket.json; actual gate replaces that file with the fresh ordinary snapshot before npm test. Frozen migration verifier correctly rejects the live snapshot as a historical zero-credit fixture.",
+  "historicalTestReads": "web/tests/q4-baseline-migration.test.mjs:12",
+  "testAssertsFrozenZeroCreditProjection": "web/tests/q4-baseline-migration.test.mjs:32",
+  "strictVerifierRejectsDifferentProjection": "web/scripts/pipeline/daily_q4_baseline_migration.mjs:78",
+  "gateReplacesGeneratedSnapshotBeforeNpmTest": "web/scripts/pipeline/gate.py:80",
+  "files": {
+    "web/tests/q4-baseline-migration.test.mjs": {
+      "bytes": 2735,
+      "sha256": "eeedb79be6f456d0a084d56aff99caac1c526fb527254265d1790e876a7f2629"
+    },
+    "web/scripts/pipeline/daily_q4_baseline_migration.mjs": {
+      "bytes": 5347,
+      "sha256": "9ea35fcfdc0b5ae9a85a4dfc4392a74ee883408ae392f0f5a446bc16d65d06a2"
+    },
+    "web/scripts/pipeline/gate.py": {
+      "bytes": 10850,
+      "sha256": "6a8fe075a79b9569e9f3194f1f969678540e61f54dc4e4c2bd07f959332cc5aa"
+    }
+  }
+}
