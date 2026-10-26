@@ -1,0 +1,3 @@
+{
+  "externalHarnessOnly": "The first evaluator run reached its cardinality check after evaluating all contexts but expected1152 instead of the correct576. Corrected only that receipt-harness count, restored the original workflow and reran from the original baseline. Final576 assertions and exact policy/YAML protections pass. No production/test policy changed."
+}

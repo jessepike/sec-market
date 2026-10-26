@@ -1,0 +1,5 @@
+{
+  "finding": "Initial evaluator correctly covered normalized lowercase preflight outputs but overclaimed exact case-sensitive string semantics. GitHub string comparisons ignore case.",
+  "resolution": "No workflow change. Added case-insensitive equality, uppercase readiness cases, 960 total checks and explicit declared-context scope; removed exact-string language. Restored baseline and reran all protections/checks.",
+  "workflowSha256Unchanged": "c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1"
+}

@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "archiveCommit": "5ddcbc51613f125c12cdc724db821384886722f5",
+  "manifestSha256": "8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e",
+  "authenticatedArchiveEntries": 56266,
+  "currentRemoteHeads": {
+    "cloud-governance.json": {
+      "sha256": "ab568d5976e6b3ad6ab03b19ed12fc1904ff20b3c0eb7c135d188fc9fc85c212",
+      "bytes": 20618,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "latest-run.json": {
+      "sha256": "e4cc7d6fa31c92e2858b4c5dd9a77cd459bef68bda8e9b52893bed261ab08a99",
+      "bytes": 261,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "correction-collection.json": {
+      "sha256": "a4982baa9fcf0d152f6fd55c8c6f0d5d7ab34fc971e28f06ee3313b81c87a0a8",
+      "bytes": 258,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "budget-2026-10-26.json": {
+      "sha256": "6509ec932924ea35e8bd38361b54ea17e3ec98c72f2271bd0a167c3b20f6310a",
+      "bytes": 41,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "cloud-lease.json": {
+      "sha256": "93dfc19363325dd1fc7196b14edbf6872c7c08aec017bc1b9de9afd64defd62c",
+      "bytes": 193,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "gate-budget-2026-10-26.json": {
+      "sha256": "ee154d68dd2fa267b709aabffaa398ef5d01b42b79d82592f8ca0a5a8dbb0a3a",
+      "bytes": 14,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "production.json": {
+      "sha256": "eeacc6111b7f10171a3bf7342410b4e0eae529b24b14b63ebe643f0967c0e871",
+      "bytes": 174,
+      "byteExactPriorAuthenticatedArchive": true
+    },
+    "worker-heartbeat.json": {
+      "sha256": "3bd90fbf5cdc2f7303a64580850dc093a83c9f5f6c8511ba768e58ebfef5f07c",
+      "bytes": 342,
+      "byteExactPriorAuthenticatedArchive": true
+    }
+  },
+  "sourceLedger": {
+    "calls": 76,
+    "documents": 37,
+    "fetches": 444
+  },
+  "gateLedger": {
+    "attempts": 1
+  },
+  "lease": {
+    "sessionId": "github-publisher-40266519925-1",
+    "releasedAt": "2026-10-26T04:07:01.428398Z"
+  },
+  "newBootstrapOrLeaseClaimRemotelyPersisted": false,
+  "newRunArchiveEntries": 0,
+  "currentEightGroupHeadExact": true,
+  "publicReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "ephemeralLocalClaimOrRestoreState": "Unobserved after forced runner cancellation; no zero-use claim is inferred from absent logs."
+}

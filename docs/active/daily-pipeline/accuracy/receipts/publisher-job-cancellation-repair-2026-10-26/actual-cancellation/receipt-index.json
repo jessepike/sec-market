@@ -1,0 +1,60 @@
+{
+  "verdict": "ACTUAL_SCHEDULED_PUBLISHER_CANCELLED_BY_OWNER_NO_PUBLICATION",
+  "files": [
+    {
+      "path": "cancellation.md",
+      "sha256": "bbe3ab309b884edd3fc9226927f70abfe2bc83dbcebbc3a0b7be102654687d22",
+      "bytes": 3350
+    },
+    {
+      "path": "cancellation-summary.json",
+      "sha256": "0df30eec1f2cce12cb70f5fafac8d7762a63cae34705e733c250939b050d63b1",
+      "bytes": 5144
+    },
+    {
+      "path": "run.json",
+      "sha256": "fdd0734b85877b2eb15e2caa5baece9cf1406226b21a3f97c5d5294fb51fe902",
+      "bytes": 349
+    },
+    {
+      "path": "job.json",
+      "sha256": "5ed7a646a7bbf99fd2d7814a10d5f660002cae46558558aed3bd346ca07baeed",
+      "bytes": 2490
+    },
+    {
+      "path": "artifacts.json",
+      "sha256": "bf6638afd0bdbf03a3236bb78ff0fe1a70b76eb9f5ba9b8102624fde8ac48cef",
+      "bytes": 33
+    },
+    {
+      "path": "archive-ref.json",
+      "sha256": "5867d2ea631e8fa26ffcfde32e314a20d326aa14f6f0788f97e910e17fed0246",
+      "bytes": 115
+    },
+    {
+      "path": "latest-gates.json",
+      "sha256": "f39512c20d8d52d079fd70fb7107ef0fa2b790585539ac5fe7e1d3c4131c903a",
+      "bytes": 907
+    },
+    {
+      "path": "bounded-log-signals.json",
+      "sha256": "e5b35d5d0cd3860df6f898e90e0e05d3bfa54e093978487814b977b60ed35c9b",
+      "bytes": 391
+    },
+    {
+      "path": "persisted-state-verification.json",
+      "sha256": "d0bab3e935c53ac3ff7e1d9b9f641b5ba13e92535b6502ab240e14f842dda048",
+      "bytes": 2352
+    },
+    {
+      "path": "public-static-verification.json",
+      "sha256": "cd97f2e1599d13fc1cbc8e4af81fb53675ce0eafb43d9237197e7479c554ecc4",
+      "bytes": 31620
+    },
+    {
+      "path": "public-check.py",
+      "sha256": "b2e84503c5530e4be2cd500c117395f89252250d3c49ca7c804713a0e6577f56",
+      "bytes": 1973
+    }
+  ]
+}

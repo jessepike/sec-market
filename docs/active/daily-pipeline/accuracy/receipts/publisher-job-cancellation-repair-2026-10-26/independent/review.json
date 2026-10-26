@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS",
+  "findings": [],
+  "closedFinding": "Worker evaluator now uses documented case-insensitive string equality for declared contexts;960 cases pass, workflow unchanged.",
+  "workflowPatch": {
+    "verdict": "PASS",
+    "baseRevision": "ee5c2851a3e0d58455d1dddd8ae74eddf753714e",
+    "trackedFilesCompared": 3027,
+    "unchangedFiles": 3026,
+    "onlyChangedFile": ".github/workflows/subscription-publisher.yml",
+    "beforeSha256": "b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b",
+    "afterSha256": "c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1",
+    "exactSinglePredicateAndWrapperOnly": true,
+    "parsedYamlOtherwiseExact": true,
+    "independentExpressionCases": 2880,
+    "allCancelledCasesDenied": 1440,
+    "allUncancelledEligibilityPreserved": true,
+    "GitHubCaseInsensitiveStringComparisonsIncluded": true,
+    "testScope": "Declared string outputs and boolean GitHub private/cancelled contexts; no general expression-engine equivalence claimed.",
+    "realSourceModelStateWritesDispatchesReservations": 0
+  },
+  "workerFinalCases": 960,
+  "independentCases": 2880,
+  "independentCancelledCasesDenied": 1440,
+  "recoveryAssessment": "Existing startup recovery proves exact terminated GitHub owner/attempt and preserves budget bytes. Gate reservation is persisted before dispatch. Forced kill or KeyboardInterrupt need not execute Exception/checkpoint/final receipt paths; no cleanup/recovery success or zero ephemeral use is inferred. This patch only changes job cancellation eligibility.",
+  "actualFailure": {
+    "runId": 40271992393,
+    "scheduledSuccess": false,
+    "manualIntervention": true,
+    "archive": "5ddcbc51613f125c12cdc724db821384886722f5",
+    "gateAttempts": 1,
+    "gateLimit": 2,
+    "sourceLedger": {
+      "fetches": 444,
+      "calls": 76,
+      "documents": 37
+    },
+    "publicFileChecks": 106,
+    "noNewRemoteBootstrapLease": true,
+    "ephemeralState": "unknown"
+  },
+  "pendingProof": "No future actual cancellation behavior exercised. Root chooses integration point; ongoing ee5 canary continues unchanged.",
+  "reviewerRealSourceModelStateBranchFinishWritesDispatchesCancellationsReservations": 0
+}

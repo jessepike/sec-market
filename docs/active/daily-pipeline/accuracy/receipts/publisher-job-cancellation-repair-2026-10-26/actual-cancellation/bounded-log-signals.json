@@ -1,0 +1,11 @@
+{
+  "rawLogSha256": "cae42628aa3d9c833c296ef6c6e03642fa274b7283bcd0bd451d79d8e74b247b",
+  "rawLogBytes": 233902,
+  "rawLogVMOnly": true,
+  "signals": [
+    "2026-10-26T05:03:05.2637930Z Ran 972 tests in 90.559s",
+    "2026-10-26T05:03:05.2638643Z OK (skipped=60)",
+    "2026-10-26T05:04:46.8733376Z ##[error]Process completed with exit code 143."
+  ],
+  "applicationReceiptEmitted": false
+}

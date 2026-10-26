@@ -1,0 +1,9 @@
+{
+  "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-cancellation",
+  "retrievedAtUtc": "2026-10-26T05:14:58.979893+00:00",
+  "primarySource": "GitHub Docs",
+  "paraphrase": "GitHub re-evaluates running job conditions during cancellation. A condition still true keeps the job running; the documentation gives always() as its example. Jobs selected for cancellation receive runner cancellation messages and process signals. !cancelled() is an explicit status predicate and is false when the workflow is cancelled.",
+  "scope": "Official semantics checked; this unit runs no remote cancellation experiment.",
+  "expressionOperatorsUrl": "https://docs.github.com/en/actions/reference/workflows-and-actions/expressions",
+  "stringComparison": "GitHub ignores case when comparing strings. Final evaluator covers lowercase true/false/empty and uppercase TRUE/FALSE with this rule for its declared string/Boolean contexts."
+}

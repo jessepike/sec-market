@@ -64,10 +64,18 @@ Preview canary 40270223152 on repair commit 34e55f78 timed out at its ten-minute
 Its archive check was skipped and it produced no artifact or gate charge. The independently
 reviewed [canary allowance repair](docs/active/daily-pipeline/accuracy/runtime-canary-timeout-repair-2026-10-26.md)
 changes only that job limit to twenty minutes; all 16 focused tests pass, with every assertion
-and operational budget unchanged. An actual new canary result remains pending. Main stays
-3bb9e40c and public release fc8bf098/sequence 4 remains current.
+and operational budget unchanged. Actual preview canary 40271927460 is running on ee5c2851;
+no successful result is claimed. Main stays 3bb9e40c and public release fc8bf098/sequence 4 remains current.
 
-The next native collector is due October 26 at 05:17 UTC; its creation/start/result are not yet
+Native scheduled publisher 40271992393 started old main at 05:00:49 UTC. Ordinary cancellation
+did not stop its always() job; owner force-cancel ended it before any remotely persisted
+bootstrap/gate request. It is an intervened scheduled failure, with zero artifacts. Remote
+archive 5ddcbc51, source 444/76/37, gate count one of two, released prior lease and all 106 public
+files remain exact. The independently reviewed local [publisher cancellation predicate repair](docs/active/daily-pipeline/accuracy/publisher-job-cancellation-repair-2026-10-26.md)
+changes only the outer job status check to !cancelled(), retaining every callback and budget guard.
+Its future actual cancellation behavior remains unexercised; no reset/refund or new publication is claimed.
+
+The native collector was due October 26 at 05:17 UTC; its creation/start/result are not yet
 observed. Manual callback 40265523640 skipped publication. Genuine current-J/eight-group schedule
 and publication receipts remain open. The older genuine H run 40182324149 and failed October 25
 publisher 40190348786 remain dated historical evidence; their spent allowances were not erased.

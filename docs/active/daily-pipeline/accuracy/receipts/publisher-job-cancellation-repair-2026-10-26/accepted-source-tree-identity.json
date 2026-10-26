@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "trees": {
+    "web": {
+      "34e": "ae800ae94e313bb5210769e3afec54f7034b3646",
+      "ee5": "ae800ae94e313bb5210769e3afec54f7034b3646",
+      "byteExactGitTree": true
+    },
+    "ops": {
+      "34e": "4afce840cecac3d8357fbeac564999b07f84cb7f",
+      "ee5": "4afce840cecac3d8357fbeac564999b07f84cb7f",
+      "byteExactGitTree": true
+    },
+    "contracts": {
+      "34e": "9dd892a5126b64481ba97d660fc7b501cf40c265",
+      "ee5": "9dd892a5126b64481ba97d660fc7b501cf40c265",
+      "byteExactGitTree": true
+    }
+  },
+  "isolatedPatchLeavesTheseTreesUnchanged": true
+}

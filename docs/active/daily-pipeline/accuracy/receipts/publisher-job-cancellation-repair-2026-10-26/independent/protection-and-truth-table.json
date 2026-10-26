@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "baseRevision": "ee5c2851a3e0d58455d1dddd8ae74eddf753714e",
+  "trackedFilesCompared": 3027,
+  "unchangedFiles": 3026,
+  "onlyChangedFile": ".github/workflows/subscription-publisher.yml",
+  "beforeSha256": "b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b",
+  "afterSha256": "c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1",
+  "exactSinglePredicateAndWrapperOnly": true,
+  "parsedYamlOtherwiseExact": true,
+  "independentExpressionCases": 2880,
+  "allCancelledCasesDenied": 1440,
+  "allUncancelledEligibilityPreserved": true,
+  "GitHubCaseInsensitiveStringComparisonsIncluded": true,
+  "testScope": "Declared string outputs and boolean GitHub private/cancelled contexts; no general expression-engine equivalence claimed.",
+  "realSourceModelStateWritesDispatchesReservations": 0
+}

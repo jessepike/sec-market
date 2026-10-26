@@ -1,0 +1,125 @@
+from pathlib import Path
+import re,json,itertools,hashlib,subprocess,copy
+import yaml
+
+unit=Path('/var/tmp/smp-publisher-job-cancellation-repair-20261026')
+app=unit/'application'
+def sha(raw):return hashlib.sha256(raw).hexdigest()
+names=subprocess.check_output(['git','-C','/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022','ls-tree','-r','--name-only','ee5c2851a3e0d58455d1dddd8ae74eddf753714e']).decode().splitlines()
+pins={n:{'sha256':sha((app/n).read_bytes()),'bytes':(app/n).stat().st_size} for n in names}
+(unit/'before-tracked-pins.json').write_text(json.dumps(pins,indent=2)+'\n')
+workflow=app/'.github/workflows/subscription-publisher.yml'
+raw=workflow.read_bytes();(unit/'workflow-before.yml').write_bytes(raw)
+before=yaml.safe_load(raw)
+old=before['jobs']['publish']['if']
+assert old.startswith('always() && ')
+new='${{ !cancelled() && '+old.removeprefix('always() && ')+' }}'
+line='    if: '+old+'\n';replacement='    if: '+new+'\n'
+assert raw.count(line.encode())==1
+updated=raw.replace(line.encode(),replacement.encode())
+workflow.write_bytes(updated)
+after=yaml.safe_load(updated)
+assert after['jobs']['publish']['if']==new
+normalized=copy.deepcopy(after);normalized['jobs']['publish']['if']=old
+assert normalized==before
+
+# Parse the actual workflow expression using its small explicit grammar.
+# No GitHub workflow or remote service is invoked by these offline checks.
+class Parser:
+    def __init__(self,text):
+        if text.startswith('${{'):
+            assert text.endswith('}}');text=text[3:-2].strip()
+        self.tokens=[];pos=0
+        pattern=re.compile(r"\s*(\|\||&&|==|!=|[!()]|'[^']*'|[A-Za-z_][A-Za-z0-9_.-]*)")
+        while pos<len(text):
+            m=pattern.match(text,pos);assert m,(text,pos)
+            self.tokens.append(m.group(1));pos=m.end()
+        self.i=0
+    def take(self,value=None):
+        if self.i>=len(self.tokens):return None
+        t=self.tokens[self.i]
+        if value is not None and t!=value:return None
+        self.i+=1;return t
+    def atom(self):
+        if self.take('!'):return ('not',self.atom())
+        if self.take('('):
+            n=self.or_expr();assert self.take(')');return n
+        token=self.take();assert token
+        if token.startswith("'"):return ('literal',token[1:-1])
+        if token in ['true','false']:return ('literal',token=='true')
+        if self.take('('):
+            assert self.take(')');assert token in ['always','cancelled'];return ('status',token)
+        return ('value',token)
+    def equality(self):
+        node=self.atom()
+        if self.i<len(self.tokens) and self.tokens[self.i] in ['==','!=']:
+            op=self.take();node=(op,node,self.atom())
+        return node
+    def and_expr(self):
+        node=self.equality()
+        while self.take('&&'):node=('and',node,self.equality())
+        return node
+    def or_expr(self):
+        node=self.and_expr()
+        while self.take('||'):node=('or',node,self.and_expr())
+        return node
+    def parse(self):
+        result=self.or_expr();assert self.i==len(self.tokens);return result
+
+def evaluate(n,context):
+    op=n[0]
+    if op=='literal':return n[1]
+    if op=='value':return context[n[1]]
+    if op=='status':return True if n[1]=='always' else context['cancelled']
+    if op=='not':return not evaluate(n[1],context)
+    if op=='and':return bool(evaluate(n[1],context) and evaluate(n[2],context))
+    if op=='or':return bool(evaluate(n[1],context) or evaluate(n[2],context))
+    if op in ['==','!=']:
+        left,right=evaluate(n[1],context),evaluate(n[2],context)
+        # The declared contexts use Boolean private flags and string outputs.
+        # GitHub compares strings without regard to case; no mixed types here.
+        if isinstance(left,str) and isinstance(right,str):left,right=left.casefold(),right.casefold()
+        equal=left==right
+        return equal if op=='==' else not equal
+    raise AssertionError(op)
+old_ast=Parser(old).parse();new_ast=Parser(new).parse()
+rows=[]
+for event,cancelled,repo,private,ref,ready,result in itertools.product(
+    ['schedule','workflow_dispatch','workflow_run'],[False,True],
+    ['jessepike/sec-market','other/repo'],[False,True],
+    ['refs/heads/main','refs/heads/preview'],['true','false','','TRUE','FALSE'],
+    ['skipped','success','failure','cancelled']):
+    c={'github.event_name':event,'cancelled':cancelled,'github.repository':repo,
+       'github.event.repository.private':private,'github.ref':ref,
+       'needs.callback-preflight.outputs.ready':ready,'preflightResult':result}
+    eligibility=(repo=='jessepike/sec-market' and private and ref=='refs/heads/main'
+                 and (event in ['schedule','workflow_dispatch'] or ready.casefold()=='true'))
+    actual_old=evaluate(old_ast,c);actual_new=evaluate(new_ast,c)
+    assert actual_old==eligibility
+    assert actual_new==(eligibility and not cancelled)
+    if not cancelled:assert actual_old==actual_new
+    rows.append({'context':c,'old':actual_old,'new':actual_new,'expected':eligibility and not cancelled})
+assert len(rows)==960
+checks={'schema':'OFFLINE_ACTUAL_YAML_EXPRESSION_TRUTH_TABLE','remoteGitHubEvaluation':False,
+        'beforeExpression':old,'afterExpression':new,'parsedOldAst':old_ast,'parsedNewAst':new_ast,
+        'cases':len(rows),'allCasesPass':True,'allCancelledContextsDenied':True,
+        'unchangedUncancelledEligibility':True,'scheduleAndManualSkippedPreflightAccepted':True,
+        'callbacksRequireExistingTrueComparison':True,'caseInsensitiveStringEquality':True,
+        'declaredContextTypes':'Boolean private/cancelled flags; string identity/event/ref/readiness values. No claim about generic mixed-type GitHub coercion.',
+        'statusFunctionExplicitSoNoImplicitSuccessGate':True,
+        'rows':rows}
+(unit/'expression-truth-table.json').write_text(json.dumps(checks,indent=2)+'\n')
+changes=[]
+for name,entry in pins.items():
+    b=(app/name).read_bytes();current={'sha256':sha(b),'bytes':len(b)}
+    if entry!=current:changes.append({'path':name,'before':entry,'after':current})
+assert [r['path'] for r in changes]==['.github/workflows/subscription-publisher.yml']
+proof={'verdict':'PASS','baseRevision':'ee5c2851a3e0d58455d1dddd8ae74eddf753714e',
+       'trackedFiles':len(pins),'unchangedTrackedFiles':len(pins)-1,'changedTrackedFiles':changes,
+       'exactSingleJobPredicateSubstitution':True,'otherwiseParsedYamlIdentical':True,
+       'allStepsAndCleanupIfsByteExact':True,'callbackPreflightByteExact':True,
+       'concurrencyPermissionsTimeoutsBudgetsCredentialsCommandsByteExact':True,
+       'allOtherWorkflowsTestsWebOpsContractsByteExact':True,
+       'casesPassed':len(rows),'sourceRequests':0,'modelRequests':0,'gateReservations':0,'dispatches':0}
+(unit/'protection-and-expression-verification.json').write_text(json.dumps(proof,indent=2)+'\n')
+print(json.dumps(proof,indent=2))

@@ -1,0 +1,91 @@
+{
+  "verdict": "PASS_INDEPENDENTLY_REVIEWED_PENDING_ROOT_CONTROLLED_COPY",
+  "baseRevision": "ee5c2851a3e0d58455d1dddd8ae74eddf753714e",
+  "scope": "ONLY_PUBLISHER_JOB_CANCELLATION_PREDICATE_AND_DOCS",
+  "actualCancelledRun": 40271992393,
+  "actualRunWasOldMain": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "cause": "job always() remains true during normal cancellation re-evaluation",
+  "workflowProof": {
+    "verdict": "PASS",
+    "baseRevision": "ee5c2851a3e0d58455d1dddd8ae74eddf753714e",
+    "trackedFiles": 3027,
+    "unchangedTrackedFiles": 3026,
+    "changedTrackedFiles": [
+      {
+        "path": ".github/workflows/subscription-publisher.yml",
+        "before": {
+          "sha256": "b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b",
+          "bytes": 3870
+        },
+        "after": {
+          "sha256": "c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1",
+          "bytes": 3881
+        }
+      }
+    ],
+    "exactSingleJobPredicateSubstitution": true,
+    "otherwiseParsedYamlIdentical": true,
+    "allStepsAndCleanupIfsByteExact": true,
+    "callbackPreflightByteExact": true,
+    "concurrencyPermissionsTimeoutsBudgetsCredentialsCommandsByteExact": true,
+    "allOtherWorkflowsTestsWebOpsContractsByteExact": true,
+    "casesPassed": 960,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "gateReservations": 0,
+    "dispatches": 0
+  },
+  "truthTable": {
+    "cases": 960,
+    "source": "actual parsed YAML expression",
+    "remoteGitHubEvaluation": false,
+    "allCancelledDenied": true,
+    "allUncancelledEligibilityPreserved": true,
+    "scheduleAndManualWithSkippedPreflightAccepted": true,
+    "wrongRepoPrivateRefDenied": true,
+    "callbackRequiresExistingTrueComparison": true,
+    "caseInsensitiveStringEquality": true,
+    "declaredContextTypes": "Boolean private/cancelled; string identity/event/ref/readiness. No generic mixed-type coercion claim."
+  },
+  "sourceTreeIdentity": {
+    "web": {
+      "34e": "ae800ae94e313bb5210769e3afec54f7034b3646",
+      "ee5": "ae800ae94e313bb5210769e3afec54f7034b3646",
+      "byteExactGitTree": true
+    },
+    "ops": {
+      "34e": "4afce840cecac3d8357fbeac564999b07f84cb7f",
+      "ee5": "4afce840cecac3d8357fbeac564999b07f84cb7f",
+      "byteExactGitTree": true
+    },
+    "contracts": {
+      "34e": "9dd892a5126b64481ba97d660fc7b501cf40c265",
+      "ee5": "9dd892a5126b64481ba97d660fc7b501cf40c265",
+      "byteExactGitTree": true
+    }
+  },
+  "testsRepeated": false,
+  "canaryRestarted": false,
+  "runtimeChange": false,
+  "stepCleanupConditionsUnchanged": true,
+  "finishWrites": "none remaining; spec moved out before patch",
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "gateReservations": 0,
+  "dispatches": 0,
+  "stateWrites": 0,
+  "gitMutations": 0,
+  "actualNewPredicateCancellationObserved": false,
+  "publicationCredit": false,
+  "recovery": "Existing owner-terminal lease recovery, budgets, tested publication journal and remote checkpoints unchanged. Force-cancel remains recovery when ordinary cancellation does not terminate. Ephemeral local state of actual killed runner unknown.",
+  "closedAtUtc": "2026-10-26T05:18:27.970238+00:00",
+  "independentReview": {
+    "verdict": "PASS",
+    "path": "/var/tmp/smp-publisher-job-cancellation-repair-20261026/application/docs/active/daily-pipeline/accuracy/receipts/publisher-job-cancellation-repair-2026-10-26/independent/review.md",
+    "sha256": "b4dd7563eedf9477a32b5d2405a4cb61f84f6a28a4b201ed375f04aa2a1f486f",
+    "indexSha256": "c6af13b377c6a861197839b4a23b2d735a40d01772b88333b9d56d17f705c25c",
+    "reviewerCases": 2880,
+    "reviewerCancelledCasesDenied": 1440,
+    "allUncancelledEligibilityPreserved": true
+  }
+}

@@ -1,0 +1,17 @@
+# Independent review of publisher job cancellation repair
+
+Result: PASS. No unresolved findings remain. The publish job changes only its outer `always()` status predicate to expression-wrapped `!cancelled()`. This grants no exercised future cancellation, source, gate or publication success.
+
+Old workflow SHA-256: `b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b` (3,870 bytes). New: `c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1` (3,881 bytes). The reviewer independently compared the isolated application to exact ee5 candidate files: all 3,026 other tracked files remain identical. Restoring the old predicate makes the complete parsed YAML structures identical. Callback preflight, all steps and cleanup conditions, commands, permissions, credentials, timeouts, concurrency and budgets remain exact.
+
+Actual scheduled publisher `40271992393` continued into restoration after ordinary cancellation and required owner force-cancel. [GitHub documents](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-cancellation) that a job whose condition remains true continues after ordinary cancellation. The new predicate becomes false on workflow cancellation while keeping an explicit status check so skipped callback-preflight does not block eligible scheduled/manual runs.
+
+The reviewer independently evaluated 2,880 contexts parsed from the actual old/new YAML expressions. All 1,440 cancelled contexts reject; all uncancelled eligibility results remain identical. Eligible scheduled/manual cases work with skipped preflight; workflow_run keeps the same readiness condition; wrong repository, public repository and non-main refs retain their denial. The cases include uppercase strings under [GitHub's case-insensitive comparison rules](https://docs.github.com/en/actions/reference/workflows-and-actions/expressions). This is a bounded check of declared string outputs and boolean contexts, not a general replacement expression engine.
+
+One finding was closed: the worker initially used Python case-sensitive equality and exact-string wording. It corrected the evaluator to documented case-insensitive equality, expanded its original 576 cases to 960 with uppercase readiness values, and removed the unsupported general semantic claim. All 960 pass; workflow bytes did not change.
+
+Existing recovery remains unchanged. Startup recovery proves the exact GitHub lease owner/attempt terminal before release and preserves budget bytes. The real gate reservation is checkpointed remotely before dispatch. Forced kill or Python KeyboardInterrupt need not execute Exception/checkpoint, cleanup or receipt paths. The patch therefore supplies no guarantee of interrupted publication recovery, child-workflow termination, cleanup or zero ephemeral usage.
+
+For the actual cancelled run, remote archive stays `5ddcbc51613f125c12cdc724db821384886722f5`, gate count stays one of two, source counters stay 444 fetches/76 calls/37 documents, and all 106 public-file checks still match release 4. No new bootstrap/lease claim was persisted remotely; ephemeral local state remains unknown. This scheduled attempt remains an owner-intervened failure with no refund/reset.
+
+No source, test, assertion, state, branch or finish file was changed by this reviewer. No dispatch, cancellation, model/source request, gate reservation or restart occurred. Root owns the controlled integration point; ongoing ee5 canary continues undisturbed.

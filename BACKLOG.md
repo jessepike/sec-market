@@ -44,7 +44,7 @@ passes 265/557, with a full authenticated 56,260-entry archive and exact reconci
 normal 304; all 529 original URLs/dates remain exact. All eight requested correction groups now
 have real accepted admissions. The [first actual publisher/gate failure](docs/active/daily-pipeline/accuracy/oct26-first-publication-attempt-actual-2026-10-26.md)
 is retained; new correction publication and genuine current-J schedule proof remain open. The next
-native collector is due October 26 at 05:17 UTC; no actual creation/start/result is claimed yet.
+native collector was due October 26 at 05:17 UTC; no actual creation/start/result is claimed yet.
 Use the [23-candidate queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md),
 keeping the old 25-candidate queue frozen. Cato/Chainguard's reviewed offline PR Newswire parser
 remains separate source work with no operational source credit.
@@ -65,6 +65,13 @@ produced no artifact and spent no gate. The independently reviewed local [twenty
 allowance](docs/active/daily-pipeline/accuracy/runtime-canary-timeout-repair-2026-10-26.md) changes only
 that job timeout; 16 focused tests pass and all assertions/budgets remain exact. Its next actual
 canary result is pending; main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
+
+Native scheduled publisher 40271992393 required owner force-cancel after ordinary cancellation
+continued into restoration. It produced no artifact/publication; authenticated archive 5ddcbc51,
+source 444/76/37, gate count one of two, released prior lease and all 106 public-file bytes stay
+exact. Its reviewed local [!cancelled() job-predicate repair](docs/active/daily-pipeline/accuracy/publisher-job-cancellation-repair-2026-10-26.md)
+preserves every other guard. Actual preview canary 40271927460 on ee5c2851 remains running; no
+future pass or exercised cancellation is claimed. The scheduled failure and manual intervention remain recorded.
 
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|

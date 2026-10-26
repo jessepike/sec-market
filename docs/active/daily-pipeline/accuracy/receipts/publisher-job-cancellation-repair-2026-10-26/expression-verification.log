@@ -1,0 +1,30 @@
+{
+  "verdict": "PASS",
+  "baseRevision": "ee5c2851a3e0d58455d1dddd8ae74eddf753714e",
+  "trackedFiles": 3027,
+  "unchangedTrackedFiles": 3026,
+  "changedTrackedFiles": [
+    {
+      "path": ".github/workflows/subscription-publisher.yml",
+      "before": {
+        "sha256": "b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b",
+        "bytes": 3870
+      },
+      "after": {
+        "sha256": "c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1",
+        "bytes": 3881
+      }
+    }
+  ],
+  "exactSingleJobPredicateSubstitution": true,
+  "otherwiseParsedYamlIdentical": true,
+  "allStepsAndCleanupIfsByteExact": true,
+  "callbackPreflightByteExact": true,
+  "concurrencyPermissionsTimeoutsBudgetsCredentialsCommandsByteExact": true,
+  "allOtherWorkflowsTestsWebOpsContractsByteExact": true,
+  "casesPassed": 960,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "gateReservations": 0,
+  "dispatches": 0
+}

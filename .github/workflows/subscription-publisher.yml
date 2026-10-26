@@ -38,7 +38,7 @@ jobs:
           PY
   publish:
     needs: [callback-preflight]
-    if: always() && github.repository == 'jessepike/sec-market' && github.event.repository.private == true && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || needs.callback-preflight.outputs.ready == 'true')
+    if: ${{ !cancelled() && github.repository == 'jessepike/sec-market' && github.event.repository.private == true && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || needs.callback-preflight.outputs.ready == 'true') }}
     concurrency:
       # Skipped/read-only callbacks never replace a pending collector.
       group: sec-market-subscription-account
