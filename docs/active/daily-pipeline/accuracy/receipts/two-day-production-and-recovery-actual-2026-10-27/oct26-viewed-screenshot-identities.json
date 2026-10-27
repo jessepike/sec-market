@@ -1,0 +1,34 @@
+{
+  "oct26-native-production-1440.png": {
+    "hostPath": "/Users/jessepike/.codex/visualizations/2026/10/23/01a166e5-b87b-7a80-a1dd-962e829ee39a/oct26-native-production-1440.png",
+    "sha256": "254518b6a932dc9dbabbec8e1b74c8bb52c1b73373ff9c6df2790115c085c9f7",
+    "bytes": 984884,
+    "width": 1440,
+    "height": 8358,
+    "rootViewed": true
+  },
+  "oct26-native-production-390.png": {
+    "hostPath": "/Users/jessepike/.codex/visualizations/2026/10/23/01a166e5-b87b-7a80-a1dd-962e829ee39a/oct26-native-production-390.png",
+    "sha256": "aa3727cffb5ea64a60fd8a1d46e98f3b1474ed80bf224beadb6c22864d1c2bb8",
+    "bytes": 418245,
+    "width": 390,
+    "height": 7611,
+    "rootViewed": true
+  },
+  "oct26-native-previous-1440.png": {
+    "hostPath": "/Users/jessepike/.codex/visualizations/2026/10/23/01a166e5-b87b-7a80-a1dd-962e829ee39a/oct26-native-previous-1440.png",
+    "sha256": "35d1a82a725eda96eef776ac71a39658296750e6aca838c8e66ba9114a7477d0",
+    "bytes": 986737,
+    "width": 1440,
+    "height": 8358,
+    "rootViewed": true
+  },
+  "oct26-native-previous-390.png": {
+    "hostPath": "/Users/jessepike/.codex/visualizations/2026/10/23/01a166e5-b87b-7a80-a1dd-962e829ee39a/oct26-native-previous-390.png",
+    "sha256": "ab642208a7bdb2504c557cb8cdfdb7d5e8ac648d47c37675185fd914f35959a0",
+    "bytes": 420376,
+    "width": 390,
+    "height": 7629,
+    "rootViewed": true
+  }
+}

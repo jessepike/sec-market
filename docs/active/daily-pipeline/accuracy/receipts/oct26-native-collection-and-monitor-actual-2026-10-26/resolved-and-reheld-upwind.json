@@ -1,0 +1,99 @@
+[
+  {
+    "newVerifiedCurrentMarker": {
+      "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+      "kind": "source_document_revalidation",
+      "origin": {
+        "attemptId": "9be3d1817e891b42f94e84c6e8afd5d500a1534e23654d3ddfb2bae49a8432b6",
+        "receipt": {
+          "bytes": 15628,
+          "key": "objects/5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+          "sha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74"
+        },
+        "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+        "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+      },
+      "processingManifest": {
+        "bytes": 520507,
+        "key": "objects/b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d",
+        "sha256": "b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d"
+      },
+      "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+      "receiptSha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/threat-post"
+    },
+    "preservedResolution": {
+      "currentOrigin": {
+        "attemptId": "7befeba39154d913bb4225c4aae4527adcaf988f642292aa4f376a5ee6858d87",
+        "receipt": {
+          "bytes": 12426,
+          "key": "objects/ba3032bd3dbb3572ed9ec6d13a3e2125c672b1ba20ec339e0579c804efd785d9",
+          "sha256": "ba3032bd3dbb3572ed9ec6d13a3e2125c672b1ba20ec339e0579c804efd785d9"
+        },
+        "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+        "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+      },
+      "currentProcessingManifest": {
+        "bytes": 519078,
+        "key": "objects/2d4e444c2fd7c67a4d3c54dfc687c258a0d107acc522e114f763e5a5371d293d",
+        "sha256": "2d4e444c2fd7c67a4d3c54dfc687c258a0d107acc522e114f763e5a5371d293d"
+      },
+      "kind": "source_document_revalidation_resolution",
+      "marker": {
+        "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+        "kind": "source_document_revalidation",
+        "origin": {
+          "attemptId": "4495525a9865491f0ee7b977841d94f7d542d598f22a0e422e726b61ca215c59",
+          "receipt": {
+            "bytes": 9901,
+            "key": "objects/26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+            "sha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8"
+          },
+          "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+          "taskId": "90bf4f7a42f5d7a635301a84af316712e039b8c2e80cf4f68c88fddc553666ba"
+        },
+        "processingManifest": {
+          "bytes": 518485,
+          "key": "objects/6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e",
+          "sha256": "6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e"
+        },
+        "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+        "receiptSha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+        "sourceId": "upwind:official:1",
+        "supplierId": "upwind",
+        "url": "https://www.upwind.io/feed/threat-post"
+      },
+      "resolutionSha256": "8100f0cba7b17181efb8a59b5cd01916329df958416984014c12fd498eec8c89",
+      "resolvedAt": "2026-10-26T03:40:38.985027Z",
+      "schemaVersion": 1,
+      "sourceObservationId": "dd43c1278a7864df9cce753e439c86cc6e9cf803c8ab1ace6f704fc98a8b46ec",
+      "sourceObservationSha256": "93de5175ea532999c3a3b663d0cf427a45f487e30cf822c88c18e803ba0af73f"
+    },
+    "resolvedOriginalMarker": {
+      "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+      "kind": "source_document_revalidation",
+      "origin": {
+        "attemptId": "4495525a9865491f0ee7b977841d94f7d542d598f22a0e422e726b61ca215c59",
+        "receipt": {
+          "bytes": 9901,
+          "key": "objects/26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+          "sha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8"
+        },
+        "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+        "taskId": "90bf4f7a42f5d7a635301a84af316712e039b8c2e80cf4f68c88fddc553666ba"
+      },
+      "processingManifest": {
+        "bytes": 518485,
+        "key": "objects/6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e",
+        "sha256": "6462d6d2aaed7a66e9691e3e1b81192107e1b8cbf2428a476692eae93463603e"
+      },
+      "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+      "receiptSha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/threat-post"
+    }
+  }
+]

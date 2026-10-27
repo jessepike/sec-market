@@ -1,0 +1,220 @@
+{
+  "scope": "ACTUAL_NATIVE_MONITOR_RECOVERY",
+  "run": {
+    "id": 40331772533,
+    "event": "schedule",
+    "head_sha": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+    "head_branch": "main",
+    "created_at": "2026-10-26T13:34:32Z",
+    "updated_at": "2026-10-26T13:35:16Z",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/40331772533"
+  },
+  "jobs": [
+    {
+      "id": 121602746983,
+      "name": "daily-pipeline",
+      "conclusion": "failure",
+      "started_at": "2026-10-26T13:34:35Z",
+      "completed_at": "2026-10-26T13:35:05Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:36Z",
+          "completed_at": "2026-10-26T13:34:37Z"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:37Z",
+          "completed_at": "2026-10-26T13:34:45Z"
+        },
+        {
+          "name": "Test the independent coverage and publication observer",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:45Z",
+          "completed_at": "2026-10-26T13:34:47Z"
+        },
+        {
+          "name": "Independently check the outside worker, coverage and deployed receipt",
+          "conclusion": "failure",
+          "started_at": "2026-10-26T13:34:47Z",
+          "completed_at": "2026-10-26T13:35:03Z"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:35:03Z",
+          "completed_at": "2026-10-26T13:35:03Z"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:35:03Z",
+          "completed_at": "2026-10-26T13:35:03Z"
+        }
+      ]
+    },
+    {
+      "id": 121602747248,
+      "name": "probe",
+      "conclusion": "success",
+      "started_at": "2026-10-26T13:34:35Z",
+      "completed_at": "2026-10-26T13:34:53Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:37Z",
+          "completed_at": "2026-10-26T13:34:37Z"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:37Z",
+          "completed_at": "2026-10-26T13:34:49Z"
+        },
+        {
+          "name": "Measure",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:49Z",
+          "completed_at": "2026-10-26T13:34:49Z"
+        },
+        {
+          "name": "Raise or clear the alert",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:49Z",
+          "completed_at": "2026-10-26T13:34:50Z"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:50Z",
+          "completed_at": "2026-10-26T13:34:51Z"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:34:51Z",
+          "completed_at": "2026-10-26T13:34:51Z"
+        }
+      ]
+    },
+    {
+      "id": 121603023958,
+      "name": "observer-alert",
+      "conclusion": "success",
+      "started_at": "2026-10-26T13:35:09Z",
+      "completed_at": "2026-10-26T13:35:15Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:35:10Z",
+          "completed_at": "2026-10-26T13:35:11Z"
+        },
+        {
+          "name": "Report observer failure independently of checkout and tests",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:35:11Z",
+          "completed_at": "2026-10-26T13:35:13Z"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success",
+          "started_at": "2026-10-26T13:35:13Z",
+          "completed_at": "2026-10-26T13:35:13Z"
+        }
+      ]
+    }
+  ],
+  "watchdogTests": {
+    "total": 55,
+    "passed": 55,
+    "skipped": 0,
+    "seconds": 2.297
+  },
+  "actualProbeReceipt": {
+    "healthy": false,
+    "checkedAt": "2026-10-26T13:34:47.893325Z",
+    "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+    "reasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_11136",
+      "PROCESSING_HELD_14",
+      "HISTORICAL_REVIEW_PENDING_11135",
+      "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+      "PUBLIC_PROCESSING_PENDING_11136",
+      "PUBLIC_PROCESSING_HELD_14",
+      "PUBLIC_HISTORICAL_REVIEW_PENDING_11135",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "HELD_CLAIMS_45"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40313013614",
+    "successfulTasks": 261,
+    "requiredTasks": 557,
+    "coverageMeasure": "daily_source_intake_v2",
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 14,
+      "inventoryDocuments": 11188,
+      "pendingDocuments": 11136,
+      "reviewedDocuments": 52,
+      "unknownDateDocuments": 291
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 14,
+      "inventoryDocuments": 11188,
+      "pendingDocuments": 11135,
+      "reviewedDocuments": 53
+    },
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "actualReporterReceipt": {
+    "delivery": "no_alert_needed",
+    "observerRecovered": true,
+    "healthIssueChanged": false
+  },
+  "noContractErrorInActualProbe": true,
+  "realGapAlertPreserved": true,
+  "issues": {
+    "10": {
+      "number": 10,
+      "state": "open",
+      "title": "Daily pipeline needs attention",
+      "html_url": "https://github.com/jessepike/sec-market/issues/10",
+      "updated_at": "2026-10-26T13:35:02Z",
+      "closed_at": null,
+      "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-26T13:34:47.893325Z\n\nReasons: OVERDUE_OR_INCOMPLETE_COVERAGE, DAILY_INTAKE_INCOMPLETE, PROCESSING_PENDING_11136, PROCESSING_HELD_14, HISTORICAL_REVIEW_PENDING_11135, PUBLIC_DAILY_INTAKE_INCOMPLETE, PUBLIC_PROCESSING_PENDING_11136, PUBLIC_PROCESSING_HELD_14, PUBLIC_HISTORICAL_REVIEW_PENDING_11135, PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE, HELD_CLAIMS_45\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)"
+    },
+    "14": {
+      "number": 14,
+      "state": "closed",
+      "title": "Daily market publisher needs attention",
+      "html_url": "https://github.com/jessepike/sec-market/issues/14",
+      "updated_at": "2026-10-26T11:54:54Z",
+      "closed_at": "2026-10-26T11:54:54Z",
+      "body": "The daily publisher recovered.\n\n[Runner receipt and logs](https://github.com/jessepike/sec-market/actions/runs/40316085839). Runner result: success.\n\nIncomplete coverage stays incomplete. A successful runner alone does not prove publication, full coverage or phone/email delivery."
+    }
+  },
+  "rawLogHashes": {
+    "job-121602746983.log": "e60552d0b7d16468970162a39e001eb5269a3b1c5ef80acce08352f2e9c39fb3",
+    "job-121602747248.log": "303fc3e55bf4577ac5d08f3c520c4d75c933c2603c4c3f15ec6a1d7f44509657",
+    "job-121603023958.log": "a3adec059dd8f06336bdc817c5b2925767cafab13f0b0d0892228be604bc9df0"
+  },
+  "phoneEmailDeliveryProven": false,
+  "scheduledCollectionDelay": "5h53m07s",
+  "sustainedReliabilityProven": false
+}

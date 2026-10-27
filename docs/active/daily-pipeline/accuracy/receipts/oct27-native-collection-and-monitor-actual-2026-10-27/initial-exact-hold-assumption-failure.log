@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/tmp/smp-oct27-native-40489959161/replay.py", line 217, in <module>
+    require(row.get('kind')=='source_document_revalidation' and len(resolutions)==1,'Old held row missing without exact verified document resolution')
+  File "/var/tmp/smp-oct27-native-40489959161/application/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: Old held row missing without exact verified document resolution

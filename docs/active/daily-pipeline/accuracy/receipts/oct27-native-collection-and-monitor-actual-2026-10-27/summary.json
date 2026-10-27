@@ -1,0 +1,434 @@
+{
+  "actualRun": "40489959161",
+  "event": "schedule",
+  "appRevision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "archive": {
+    "commit": "ac082a358d1ce897854d9a08a964bdfbd335a06e",
+    "files": 62602,
+    "manifestSha256": "3aca334fd331a89142cae4efeaa06eab5922c6b38eb8ac53f88aae1ac2861503",
+    "parentCommit": "5a696e3b20909d054fa4bd2c34d86152bab49a5a",
+    "ref": "refs/archive/market-evidence"
+  },
+  "all62602ManifestEntriesAuthenticated": true,
+  "all557ReconciledExactly": true,
+  "delay": {
+    "runId": "40489959161",
+    "event": "schedule",
+    "expectedUtc": "2026-10-27T05:17:00+00:00",
+    "createdAt": "2026-10-27T10:37:47Z",
+    "completedAt": "2026-10-27T11:04:54Z",
+    "delaySeconds": 19247,
+    "delay": "5h20m47s",
+    "sourceProbeStepSkipped": true,
+    "singleNativeCycleProven": true,
+    "sustainedReliabilityProven": false
+  },
+  "intake": {
+    "successful": 266,
+    "required": 557,
+    "gaps": 291,
+    "composition": {
+      "citation": 196,
+      "SEC": 48,
+      "official": 19,
+      "investor": 3
+    },
+    "gapBreakdown": {
+      "HTTP_403": 9,
+      "HTTP_429": 4,
+      "NO_REGISTERED_DISCOVERY_SOURCE": 254,
+      "SOURCE_BINDING_UNVERIFIED": 23,
+      "Unapproved source/redirect host": 1
+    }
+  },
+  "processing": {
+    "changedDocuments": 1,
+    "complete": false,
+    "heldDocuments": 17,
+    "inventoryDocuments": 11196,
+    "pendingDocuments": 11133,
+    "reviewedDocuments": 63,
+    "unknownDateDocuments": 292
+  },
+  "historicalReview": {
+    "complete": false,
+    "heldDocuments": 17,
+    "inventoryDocuments": 11196,
+    "pendingDocuments": 11133,
+    "reviewedDocuments": 63
+  },
+  "reviewQueue": {
+    "prior": 45,
+    "current": 48,
+    "byteExactPriorRows": 42,
+    "refreshedStillHeldRows": [
+      {
+        "factId": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+        "reason": "Fact date missing",
+        "receiptSha256": "4dfdcaeada677aa4733aa3e7dabff2f41000d16ba2f62eb1ef766aaf793b7d4e",
+        "supplierId": "aqua"
+      },
+      {
+        "factId": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+        "reason": "Fact date missing",
+        "receiptSha256": "64d01a868951a1206d917fdca252163eed632a246370818f686052ee0a3bb118",
+        "supplierId": "aqua"
+      }
+    ],
+    "verifiedResolvedRows": [
+      {
+        "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+        "kind": "source_document_revalidation",
+        "origin": {
+          "attemptId": "9be3d1817e891b42f94e84c6e8afd5d500a1534e23654d3ddfb2bae49a8432b6",
+          "receipt": {
+            "bytes": 15628,
+            "key": "objects/5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+            "sha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74"
+          },
+          "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+          "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+        },
+        "processingManifest": {
+          "bytes": 520507,
+          "key": "objects/b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d",
+          "sha256": "b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d"
+        },
+        "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+        "receiptSha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+        "sourceId": "upwind:official:1",
+        "supplierId": "upwind",
+        "url": "https://www.upwind.io/feed/threat-post"
+      }
+    ],
+    "newRows": [
+      {
+        "factId": "02e98e7f25817ad55ef5522706778a71b8532f655a32cbef461eee0f0886e203",
+        "reason": "Fact date missing",
+        "receiptSha256": "d5a02c7a8a10c85d35771b45440ee53a970c993b6c4022e187bafb6080832df4",
+        "supplierId": "aqua"
+      },
+      {
+        "factId": "43fb0f38c80d69b05ccd83e0bfff7477ee5cd3496ca9679821c29458850c3ce0",
+        "reason": "Fact date missing",
+        "receiptSha256": "54034a438ada3326e1f72ba0ce90f8809a79748331a2ff4255ee642890898696",
+        "supplierId": "hiddenlayer"
+      },
+      {
+        "factId": "ef9797ad6df84a2c3a74fc020294078cddfa8db9c8fed78bfc60db71ad28502e",
+        "reason": "Fact date missing",
+        "receiptSha256": "957d78330d92cd4497b3f6b0cabfb242089a2b987c5c420d9a5d8e8818005f74",
+        "supplierId": "witnessai"
+      },
+      {
+        "factId": "6a5710974e36fcf7db2de826367bb5373172f3d33e8621a7cba4451cd759fd78",
+        "reason": "Fact date missing",
+        "receiptSha256": "715f0e9df262123514be5d032caef6a392dcc50c8f4337499c7eb27a188ce4c8",
+        "supplierId": "witnessai"
+      }
+    ]
+  },
+  "originalFourFactRefsAndDatesPreserved": true,
+  "original529Q4DatesPreserved": true,
+  "corrections": {
+    "accepted": 8,
+    "pending": 0,
+    "nativeCorrectionAttempts": 0,
+    "oldAdmissionReviewSourceClockBytesExact": true,
+    "previousEightPublishedHistoryRowsExact": true,
+    "latestPrimaryBodiesAndMetadataMatch": true
+  },
+  "sourceClockMinimum": "2026-10-27T10:48:26.281000+00:00",
+  "sourceClockMaximum": "2026-10-27T10:54:57.053126+00:00",
+  "sourceValidUntil": "2026-10-28T16:48:26.281000+00:00",
+  "collectorCheckpointBudget": {
+    "budget": {
+      "calls": 67,
+      "documents": 31,
+      "fetches": 449
+    },
+    "gate-budget": null,
+    "publication-budget": null
+  },
+  "collectorLease": {
+    "expiresAt": "2026-10-27T13:46:37.958534Z",
+    "releasedAt": "2026-10-27T11:03:58.278814Z",
+    "role": "collector",
+    "sessionId": "github-40489959161-1",
+    "startedAt": "2026-10-27T10:46:37.958534Z"
+  },
+  "laterCheckpoint": {
+    "archiveRefAtRead": "15009eeec54f5df60070d19f8b29ef1e27821aa1",
+    "checkedAt": "2026-10-27T14:58:59.081572+00:00",
+    "immutableGitBlobReadsVerified": true,
+    "heads": {
+      "production": {
+        "value": {
+          "deploymentId": "https://security-market-pulse-hzte4a2bp-pikeholdings.vercel.app",
+          "releaseId": "f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911",
+          "sequence": 6
+        },
+        "rawSha256": "156c9d73bd936050da04948b88c901f8308deed299002a653ce4a1ff503cefb8",
+        "gitBlob": "75dc51c2dd66153b8b7217fd48bf6e0bc2ba49a9"
+      },
+      "budget-2026-10-27": {
+        "value": {
+          "calls": 67,
+          "documents": 31,
+          "fetches": 449
+        },
+        "rawSha256": "f1b944e3b9b18184147b544c9822b20c9e3f8ec46d24c67956a864b3c59dace2",
+        "gitBlob": "8dc0177891d6a17098f58f1541d33c0b564c8570"
+      },
+      "gate-budget-2026-10-27": {
+        "value": {
+          "attempts": 1
+        },
+        "rawSha256": "ee154d68dd2fa267b709aabffaa398ef5d01b42b79d82592f8ca0a5a8dbb0a3a",
+        "gitBlob": "2aa59f54d9485ac7461031bf4371dd567dec9ed3"
+      },
+      "publication-budget-2026-10-27": {
+        "value": {
+          "attempts": [
+            "f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911"
+          ]
+        },
+        "rawSha256": "7d7925beeaafe923f8cdafb600c90b7c2cf39c41a697dfc3472c712dfc92a146",
+        "gitBlob": "ac5e05654d9f11c8a460aaa7eed12ec6aec7c6e9"
+      },
+      "cloud-lease": {
+        "value": {
+          "expiresAt": "2026-10-27T15:34:20.372465Z",
+          "releasedAt": "2026-10-27T12:34:59.556440Z",
+          "role": "governance",
+          "sessionId": "github-publisher-40503928106-1",
+          "startedAt": "2026-10-27T12:34:20.372465Z"
+        },
+        "rawSha256": "b0b503579725d6c41b22568b1cc20197bd9ed2b662d8b7a5ca7700bd47f6c178",
+        "gitBlob": "9bbcbebe8e2f6134a122b780fad41723e0a9341c"
+      }
+    }
+  },
+  "nativeMonitor": {
+    "run": {
+      "id": 40505667479,
+      "event": "schedule",
+      "head_sha": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+      "head_branch": "main",
+      "created_at": "2026-10-27T12:40:48Z",
+      "updated_at": "2026-10-27T12:41:25Z",
+      "conclusion": "failure",
+      "html_url": "https://github.com/jessepike/sec-market/actions/runs/40505667479"
+    },
+    "jobs": [
+      {
+        "id": 122194215475,
+        "name": "daily-pipeline",
+        "conclusion": "failure",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:40:53Z",
+            "completed_at": "2026-10-27T12:40:54Z"
+          },
+          {
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:40:54Z",
+            "completed_at": "2026-10-27T12:41:00Z"
+          },
+          {
+            "name": "Test the independent coverage and publication observer",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:00Z",
+            "completed_at": "2026-10-27T12:41:03Z"
+          },
+          {
+            "name": "Independently check the outside worker, coverage and deployed receipt",
+            "conclusion": "failure",
+            "started_at": "2026-10-27T12:41:03Z",
+            "completed_at": "2026-10-27T12:41:15Z"
+          },
+          {
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:15Z",
+            "completed_at": "2026-10-27T12:41:15Z"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:15Z",
+            "completed_at": "2026-10-27T12:41:15Z"
+          }
+        ]
+      },
+      {
+        "id": 122194215937,
+        "name": "probe",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:40:53Z",
+            "completed_at": "2026-10-27T12:40:54Z"
+          },
+          {
+            "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:40:54Z",
+            "completed_at": "2026-10-27T12:41:01Z"
+          },
+          {
+            "name": "Measure",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:01Z",
+            "completed_at": "2026-10-27T12:41:01Z"
+          },
+          {
+            "name": "Raise or clear the alert",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:01Z",
+            "completed_at": "2026-10-27T12:41:03Z"
+          },
+          {
+            "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:03Z",
+            "completed_at": "2026-10-27T12:41:03Z"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:03Z",
+            "completed_at": "2026-10-27T12:41:03Z"
+          }
+        ]
+      },
+      {
+        "id": 122194438629,
+        "name": "observer-alert",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:21Z",
+            "completed_at": "2026-10-27T12:41:21Z"
+          },
+          {
+            "name": "Report observer failure independently of checkout and tests",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:21Z",
+            "completed_at": "2026-10-27T12:41:22Z"
+          },
+          {
+            "name": "Complete job",
+            "conclusion": "success",
+            "started_at": "2026-10-27T12:41:22Z",
+            "completed_at": "2026-10-27T12:41:22Z"
+          }
+        ]
+      }
+    ],
+    "tests": {
+      "total": 55,
+      "pass": 55,
+      "seconds": 2.59
+    },
+    "actualProbe": {
+      "healthy": false,
+      "checkedAt": "2026-10-27T12:41:03.630491Z",
+      "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+      "reasons": [
+        "OVERDUE_OR_INCOMPLETE_COVERAGE",
+        "DAILY_INTAKE_INCOMPLETE",
+        "PROCESSING_PENDING_11133",
+        "PROCESSING_HELD_17",
+        "HISTORICAL_REVIEW_PENDING_11133",
+        "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+        "PUBLIC_PROCESSING_PENDING_11133",
+        "PUBLIC_PROCESSING_HELD_17",
+        "PUBLIC_HISTORICAL_REVIEW_PENDING_11133",
+        "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+        "HELD_CLAIMS_48"
+      ],
+      "publicationEnabled": true,
+      "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40489959161",
+      "successfulTasks": 266,
+      "requiredTasks": 557,
+      "coverageMeasure": "daily_source_intake_v2",
+      "processing": {
+        "changedDocuments": 1,
+        "complete": false,
+        "heldDocuments": 17,
+        "inventoryDocuments": 11196,
+        "pendingDocuments": 11133,
+        "reviewedDocuments": 63,
+        "unknownDateDocuments": 292
+      },
+      "historicalReview": {
+        "complete": false,
+        "heldDocuments": 17,
+        "inventoryDocuments": 11196,
+        "pendingDocuments": 11133,
+        "reviewedDocuments": 63
+      },
+      "notification": {
+        "delivery": "github_issue_updated",
+        "url": "https://github.com/jessepike/sec-market/issues/10",
+        "number": 10,
+        "state": "open",
+        "notificationTransport": "GitHub account notification settings"
+      }
+    },
+    "actualReporter": {
+      "delivery": "no_alert_needed",
+      "observerRecovered": true,
+      "healthIssueChanged": false
+    },
+    "noContractError": true,
+    "realGapsRemain": true,
+    "issues": {
+      "10": {
+        "number": 10,
+        "state": "open",
+        "title": "Daily pipeline needs attention",
+        "html_url": "https://github.com/jessepike/sec-market/issues/10",
+        "updated_at": "2026-10-27T12:41:15Z",
+        "closed_at": null,
+        "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-27T12:41:03.630491Z\n\nReasons: OVERDUE_OR_INCOMPLETE_COVERAGE, DAILY_INTAKE_INCOMPLETE, PROCESSING_PENDING_11133, PROCESSING_HELD_17, HISTORICAL_REVIEW_PENDING_11133, PUBLIC_DAILY_INTAKE_INCOMPLETE, PUBLIC_PROCESSING_PENDING_11133, PUBLIC_PROCESSING_HELD_17, PUBLIC_HISTORICAL_REVIEW_PENDING_11133, PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE, HELD_CLAIMS_48\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)"
+      },
+      "14": {
+        "number": 14,
+        "state": "closed",
+        "title": "Daily market publisher needs attention",
+        "html_url": "https://github.com/jessepike/sec-market/issues/14",
+        "updated_at": "2026-10-26T11:54:54Z",
+        "closed_at": "2026-10-26T11:54:54Z",
+        "body": "The daily publisher recovered.\n\n[Runner receipt and logs](https://github.com/jessepike/sec-market/actions/runs/40316085839). Runner result: success.\n\nIncomplete coverage stays incomplete. A successful runner alone does not prove publication, full coverage or phone/email delivery."
+      }
+    },
+    "rawLogHashes": {
+      "job-122194215475.log": "d5d7ba12174b4c72d3d1bdc3a31bd5b232795f86c7607e57ef7788da03071929",
+      "job-122194215937.log": "a473ed9f28cbb20b78ed4e07f0fd6ef5dfd689e88a82e8a87ea5acf0ddb5b046",
+      "job-122194438629.log": "ddb8aaad6c743dd1df0fee168e7768fd20bdfa9fbaba090a6bc6ff0ac6d475d0"
+    },
+    "phoneEmailDeliveryProven": false,
+    "sustainedReliabilityProven": false
+  },
+  "immutableInputsUnchanged": {
+    "actual": "b8a412635a23ef2732d1a3a48e16c7b13ddfe7b17e11c050f1b7c83e82959a11",
+    "actualFiles": 62602,
+    "baseline": "5ed9040e51ae03afb143224899c27da6b23693415f8ad05d7f72bdad7526879e",
+    "baselineFiles": 52273,
+    "unchangedAfter": true
+  },
+  "sourceModelGateRequestsByAudit": 0,
+  "realStateOrRefWritesByAudit": 0,
+  "fullCoverageClaimed": false,
+  "sustainedReliabilityClaimed": false,
+  "phoneEmailDeliveryProven": false
+}

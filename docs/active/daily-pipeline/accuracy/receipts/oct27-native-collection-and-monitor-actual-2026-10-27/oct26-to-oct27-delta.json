@@ -1,0 +1,555 @@
+{
+  "priorRun": "40313013614",
+  "currentRun": "40489959161",
+  "all557IdentitiesExact": true,
+  "priorSuccessful": 261,
+  "currentSuccessful": 266,
+  "transitions": [
+    {
+      "obligation": [
+        "aqua",
+        "aqua:citation:TR-aqua-4",
+        null,
+        "collect"
+      ],
+      "priorGap": true,
+      "currentGap": false,
+      "prior": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": "HTTP_502",
+        "intakeOutcome": "not_checked",
+        "outcome": "not_checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": "HTTP_502",
+        "processingOutcome": "not_checked",
+        "sourceId": "aqua:citation:TR-aqua-4",
+        "supplierId": "aqua",
+        "taskId": "9340e3fbda1183ff58af2d21f6da441ccd6d9e11ca322821cc3bacb508c24d74"
+      },
+      "current": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": null,
+        "intakeOutcome": "checked",
+        "outcome": "checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": null,
+        "processingOutcome": "checked_no_change",
+        "sourceId": "aqua:citation:TR-aqua-4",
+        "supplierId": "aqua",
+        "taskId": "be7a5dece0c5ae1b99df5a723df3260ea06f0e241486a19c3a51cc42ca1e40ba"
+      },
+      "actualAttempts": [
+        {
+          "attemptId": "182ba4703dac08a0831906603f40b9dc405a03595b2b385caf1ee1e8bd5bec4e",
+          "completedAt": "2026-10-27T10:49:00.471949Z",
+          "discoveryComplete": true,
+          "errorCode": null,
+          "itemManifest": {
+            "bytes": 133,
+            "key": "objects/64ffe0deefa61a0d2690d0eda275712c648b3fd19d2ad48c6d721351f67797e0",
+            "sha256": "64ffe0deefa61a0d2690d0eda275712c648b3fd19d2ad48c6d721351f67797e0"
+          },
+          "newFactIds": [],
+          "observationIds": [
+            "5728324ed0022a1004ebed4f6eba8afceb7c19451f5e756d404a090340c8b322"
+          ],
+          "outcome": "checked_no_change",
+          "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+          "sourceId": "aqua:citation:TR-aqua-4",
+          "startedAt": "2026-10-27T10:49:00.192427Z",
+          "supplierId": "aqua",
+          "taskId": "be7a5dece0c5ae1b99df5a723df3260ea06f0e241486a19c3a51cc42ca1e40ba",
+          "validatedFacts": []
+        }
+      ]
+    },
+    {
+      "obligation": [
+        "nozomi",
+        "nozomi:citation:TR-nozomi-1",
+        null,
+        "collect"
+      ],
+      "priorGap": true,
+      "currentGap": false,
+      "prior": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": "HTTP_502",
+        "intakeOutcome": "not_checked",
+        "outcome": "not_checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": "HTTP_502",
+        "processingOutcome": "not_checked",
+        "sourceId": "nozomi:citation:TR-nozomi-1",
+        "supplierId": "nozomi",
+        "taskId": "1aedb75d35fd5f9479b9f15a1c32b19330f6bc9a7a99b15c25a109c2daa01dd1"
+      },
+      "current": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": null,
+        "intakeOutcome": "checked",
+        "outcome": "checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": null,
+        "processingOutcome": "checked_no_change",
+        "sourceId": "nozomi:citation:TR-nozomi-1",
+        "supplierId": "nozomi",
+        "taskId": "463d344a4542af5aca421e4bfacdfe97c32ce49849e604c0ceb7148cd701bfe3"
+      },
+      "actualAttempts": [
+        {
+          "attemptId": "192d64bf1f15c8cdda2b5e2af8bf2e1faeef2716b58c38f9ab11d9fc6148b99e",
+          "completedAt": "2026-10-27T10:49:20.286010Z",
+          "discoveryComplete": true,
+          "errorCode": null,
+          "itemManifest": {
+            "bytes": 137,
+            "key": "objects/5d040dee723878bcae50ce0649854d5f146989543417008649ee47dc41dee2cb",
+            "sha256": "5d040dee723878bcae50ce0649854d5f146989543417008649ee47dc41dee2cb"
+          },
+          "newFactIds": [],
+          "observationIds": [
+            "9ed3f40930dfa02010fd915839d7bc2890d5a22f62173f828e4d44e4718d1657"
+          ],
+          "outcome": "checked_no_change",
+          "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+          "sourceId": "nozomi:citation:TR-nozomi-1",
+          "startedAt": "2026-10-27T10:49:19.634594Z",
+          "supplierId": "nozomi",
+          "taskId": "463d344a4542af5aca421e4bfacdfe97c32ce49849e604c0ceb7148cd701bfe3",
+          "validatedFacts": []
+        }
+      ]
+    },
+    {
+      "obligation": [
+        "cato",
+        "cato:citation:TR-cato-1",
+        null,
+        "collect"
+      ],
+      "priorGap": true,
+      "currentGap": false,
+      "prior": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": "HTTP_502",
+        "intakeOutcome": "not_checked",
+        "outcome": "not_checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": "HTTP_502",
+        "processingOutcome": "not_checked",
+        "sourceId": "cato:citation:TR-cato-1",
+        "supplierId": "cato",
+        "taskId": "0c74d75a8ad2f46214dd4a244c7a85702ee128738d3d41ddf9ce7650b64b807e"
+      },
+      "current": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": null,
+        "intakeOutcome": "checked",
+        "outcome": "checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": null,
+        "processingOutcome": "checked_no_change",
+        "sourceId": "cato:citation:TR-cato-1",
+        "supplierId": "cato",
+        "taskId": "c0d6b4669206a44a3e50ecc29978ca5424b93011ffe1dece0ef1db85e32ff473"
+      },
+      "actualAttempts": [
+        {
+          "attemptId": "c9df8df0e1e07b843b155fa4d53a1308bf91d5f5a512d9d42fb87a0dbe594658",
+          "completedAt": "2026-10-27T10:48:55.052394Z",
+          "discoveryComplete": true,
+          "errorCode": null,
+          "itemManifest": {
+            "bytes": 133,
+            "key": "objects/dbd5f22c388f02cee1ce00c5557fc44bc3089dfe8ceec72196619526c589d996",
+            "sha256": "dbd5f22c388f02cee1ce00c5557fc44bc3089dfe8ceec72196619526c589d996"
+          },
+          "newFactIds": [],
+          "observationIds": [
+            "897037fe7e6a67e3fa606a49095dc0e4dbfdee8868038d154f6c92f3b4e6239e"
+          ],
+          "outcome": "checked_no_change",
+          "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+          "sourceId": "cato:citation:TR-cato-1",
+          "startedAt": "2026-10-27T10:48:54.452815Z",
+          "supplierId": "cato",
+          "taskId": "c0d6b4669206a44a3e50ecc29978ca5424b93011ffe1dece0ef1db85e32ff473",
+          "validatedFacts": []
+        }
+      ]
+    },
+    {
+      "obligation": [
+        "ping-identity",
+        "ping-identity:citation:TR-ping-3",
+        null,
+        "collect"
+      ],
+      "priorGap": true,
+      "currentGap": false,
+      "prior": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": "HTTP_502",
+        "intakeOutcome": "not_checked",
+        "outcome": "not_checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": "HTTP_502",
+        "processingOutcome": "not_checked",
+        "sourceId": "ping-identity:citation:TR-ping-3",
+        "supplierId": "ping-identity",
+        "taskId": "cd006fcd3c19439c7b6f3bdc12d02ce4f292687a0a4057208b8b70678d9c03c3"
+      },
+      "current": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": null,
+        "intakeOutcome": "checked",
+        "outcome": "checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": null,
+        "processingOutcome": "checked_no_change",
+        "sourceId": "ping-identity:citation:TR-ping-3",
+        "supplierId": "ping-identity",
+        "taskId": "4be395a4ef3a48abcacb1f5e0d3ccc655ea533e6022f1395259eae3b751c8a47"
+      },
+      "actualAttempts": [
+        {
+          "attemptId": "563a6a8aea130a32c231d4f148fa0a5423718562c77cb65ba7651668f0b09d08",
+          "completedAt": "2026-10-27T10:48:54.729250Z",
+          "discoveryComplete": true,
+          "errorCode": null,
+          "itemManifest": {
+            "bytes": 142,
+            "key": "objects/c88b21b0c744f8d414fa062554e60330d9b9d00feb8bff472acbc6ad0828d49e",
+            "sha256": "c88b21b0c744f8d414fa062554e60330d9b9d00feb8bff472acbc6ad0828d49e"
+          },
+          "newFactIds": [],
+          "observationIds": [
+            "0d5d2f1e6ede6944680a812a6eea07775454c713989caf0d14ae34f14af3fa84"
+          ],
+          "outcome": "checked_no_change",
+          "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+          "sourceId": "ping-identity:citation:TR-ping-3",
+          "startedAt": "2026-10-27T10:48:54.244525Z",
+          "supplierId": "ping-identity",
+          "taskId": "4be395a4ef3a48abcacb1f5e0d3ccc655ea533e6022f1395259eae3b751c8a47",
+          "validatedFacts": []
+        }
+      ]
+    },
+    {
+      "obligation": [
+        "nozomi",
+        "nozomi:citation:TR-nozomi-2",
+        null,
+        "collect"
+      ],
+      "priorGap": true,
+      "currentGap": false,
+      "prior": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": "HTTP_502",
+        "intakeOutcome": "not_checked",
+        "outcome": "not_checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": "HTTP_502",
+        "processingOutcome": "not_checked",
+        "sourceId": "nozomi:citation:TR-nozomi-2",
+        "supplierId": "nozomi",
+        "taskId": "6e6228a42880ded5456ca0515b4460eef86aab13212161595900ef9ba5818f01"
+      },
+      "current": {
+        "historicalReview": {
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0
+        },
+        "intakeErrorCode": null,
+        "intakeOutcome": "checked",
+        "outcome": "checked",
+        "processing": {
+          "changedDocuments": 0,
+          "complete": true,
+          "heldDocuments": 0,
+          "inventoryDocuments": 0,
+          "pendingDocuments": 0,
+          "reviewedDocuments": 0,
+          "unknownDateDocuments": 0
+        },
+        "processingErrorCode": null,
+        "processingOutcome": "checked_no_change",
+        "sourceId": "nozomi:citation:TR-nozomi-2",
+        "supplierId": "nozomi",
+        "taskId": "b0e7b37a5ef107c8159f4ae804d751900bf94f403403d98c1f2df209725eed3e"
+      },
+      "actualAttempts": [
+        {
+          "attemptId": "8673dbac3e5375eaaee3e8a21ca0562461f6289958dd9bf607ede9ac8d7d6816",
+          "completedAt": "2026-10-27T10:49:20.012164Z",
+          "discoveryComplete": true,
+          "errorCode": null,
+          "itemManifest": {
+            "bytes": 137,
+            "key": "objects/8452b0e7d66b8840f8fc8753d176ac77558655304702a546d2188b28557c10e1",
+            "sha256": "8452b0e7d66b8840f8fc8753d176ac77558655304702a546d2188b28557c10e1"
+          },
+          "newFactIds": [],
+          "observationIds": [
+            "e8df2a9214c1f56dec218ea6f6ea5a9bee4492a138519607b3fae7f9c3806fa9"
+          ],
+          "outcome": "checked_no_change",
+          "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+          "sourceId": "nozomi:citation:TR-nozomi-2",
+          "startedAt": "2026-10-27T10:49:19.345872Z",
+          "supplierId": "nozomi",
+          "taskId": "b0e7b37a5ef107c8159f4ae804d751900bf94f403403d98c1f2df209725eed3e",
+          "validatedFacts": []
+        }
+      ]
+    }
+  ],
+  "allPriorInventoryPairsRetained": true,
+  "priorInventoryPairs": 28243,
+  "currentInventoryPairs": 28252,
+  "addedInventoryPairs": [
+    [
+      "arctic-wolf:official:1",
+      "https://arcticwolf.com/resources/blog/php2shell-is-a-wake-up-call-for-every-business-leader/"
+    ],
+    [
+      "arctic-wolf:official:1",
+      "https://arcticwolf.com/resources/blog/threat-actors-abuse-microsoft-teams-external-chat-for-initial-access/"
+    ],
+    [
+      "crwd:sec_submissions",
+      "0001968582-26-001075"
+    ],
+    [
+      "delinea:official:1",
+      "https://delinea.com/news/delinea-named-a-leader-in-2026-gartner-magic-quadrant-for-privileged-access-management-for-eighth-consecutive-time"
+    ],
+    [
+      "proofpoint:official:1",
+      "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-joins-microsoft-integrated-cloud-email-security-ices-ecosystem"
+    ],
+    [
+      "upwind:official:1",
+      "https://www.upwind.io/feed/threat-post/cve-2026-110720-consul-k8s-cross-namespace-acl-binding-rules-bypass-enables-privilege-escalation"
+    ],
+    [
+      "upwind:official:1",
+      "https://www.upwind.io/feed/threat-post/cve-2026-115188-mautic-7-campaign-import-unrestricted-file-upload-enables-web-shell-rce"
+    ],
+    [
+      "upwind:official:1",
+      "https://www.upwind.io/feed/threat-post/cve-2026-116587-go-jose-jwk-rsa-parsing-triggers-cubic-time-rsa-privatekey-validate-dos"
+    ],
+    [
+      "upwind:official:1",
+      "https://www.upwind.io/feed/threat-post/multiple-cves-zip2-rust-zip-extraction-flaws-enable-file-overwrite-and-remote-dos"
+    ]
+  ],
+  "queue": {
+    "prior": 45,
+    "current": 48,
+    "byteExactPriorRows": 42,
+    "refreshedStillHeldRows": [
+      {
+        "factId": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+        "reason": "Fact date missing",
+        "receiptSha256": "4dfdcaeada677aa4733aa3e7dabff2f41000d16ba2f62eb1ef766aaf793b7d4e",
+        "supplierId": "aqua"
+      },
+      {
+        "factId": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+        "reason": "Fact date missing",
+        "receiptSha256": "64d01a868951a1206d917fdca252163eed632a246370818f686052ee0a3bb118",
+        "supplierId": "aqua"
+      }
+    ],
+    "verifiedResolvedRows": [
+      {
+        "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+        "kind": "source_document_revalidation",
+        "origin": {
+          "attemptId": "9be3d1817e891b42f94e84c6e8afd5d500a1534e23654d3ddfb2bae49a8432b6",
+          "receipt": {
+            "bytes": 15628,
+            "key": "objects/5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+            "sha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74"
+          },
+          "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+          "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+        },
+        "processingManifest": {
+          "bytes": 520507,
+          "key": "objects/b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d",
+          "sha256": "b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d"
+        },
+        "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+        "receiptSha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+        "sourceId": "upwind:official:1",
+        "supplierId": "upwind",
+        "url": "https://www.upwind.io/feed/threat-post"
+      }
+    ],
+    "newRows": [
+      {
+        "factId": "02e98e7f25817ad55ef5522706778a71b8532f655a32cbef461eee0f0886e203",
+        "reason": "Fact date missing",
+        "receiptSha256": "d5a02c7a8a10c85d35771b45440ee53a970c993b6c4022e187bafb6080832df4",
+        "supplierId": "aqua"
+      },
+      {
+        "factId": "43fb0f38c80d69b05ccd83e0bfff7477ee5cd3496ca9679821c29458850c3ce0",
+        "reason": "Fact date missing",
+        "receiptSha256": "54034a438ada3326e1f72ba0ce90f8809a79748331a2ff4255ee642890898696",
+        "supplierId": "hiddenlayer"
+      },
+      {
+        "factId": "ef9797ad6df84a2c3a74fc020294078cddfa8db9c8fed78bfc60db71ad28502e",
+        "reason": "Fact date missing",
+        "receiptSha256": "957d78330d92cd4497b3f6b0cabfb242089a2b987c5c420d9a5d8e8818005f74",
+        "supplierId": "witnessai"
+      },
+      {
+        "factId": "6a5710974e36fcf7db2de826367bb5373172f3d33e8621a7cba4451cd759fd78",
+        "reason": "Fact date missing",
+        "receiptSha256": "715f0e9df262123514be5d032caef6a392dcc50c8f4337499c7eb27a188ce4c8",
+        "supplierId": "witnessai"
+      }
+    ]
+  },
+  "oldFactReferences": 4,
+  "currentFactReferences": 4,
+  "oldEvents": 8,
+  "currentEvents": 8
+}

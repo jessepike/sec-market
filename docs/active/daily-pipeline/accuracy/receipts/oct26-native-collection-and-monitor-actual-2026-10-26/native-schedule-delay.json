@@ -1,0 +1,14 @@
+{
+  "runId": "40313013614",
+  "event": "schedule",
+  "appRevision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "expectedScheduleUtc": "2026-10-26T05:17:00+00:00",
+  "actualCreatedAt": "2026-10-26T11:10:07Z",
+  "delaySeconds": 21187,
+  "delay": "5h53m07s",
+  "workflowSha256": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+  "scheduleExpression": "17 5 * * *",
+  "ordinarySourceProbeStepSkipped": true,
+  "singleSuccessfulScheduledRunProven": true,
+  "sustainedReliabilityProven": false
+}

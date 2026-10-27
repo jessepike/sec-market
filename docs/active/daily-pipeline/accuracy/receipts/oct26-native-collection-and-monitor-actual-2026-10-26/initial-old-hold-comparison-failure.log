@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/tmp/smp-oct26-native-40313013614/replay.py", line 211, in <module>
+    require(newq[key]==row,'Old held row changed')
+  File "/var/tmp/smp-oct26-native-40313013614/application/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: Old held row changed

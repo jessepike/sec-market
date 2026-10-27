@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "indexKind": "bounded safe evidence handoff",
+  "createdOn": "2026-10-27",
+  "scope": "Oct 26 and Oct 27 automated publication, exact-byte verification, Oct 26 rollback-and-restore exercise, and Vercel readiness observations",
+  "sourceBoundary": "No source checkout, finish files, Git refs, credentials, build ZIPs, source HTML, or runner logs are included.",
+  "evidenceFiles": [
+    {
+      "date": "2026-10-26",
+      "kind": "publication-audit-report",
+      "path": "/tmp/smp-production-publication-audit-20261026.md",
+      "sha256": "f6bf3dfbc6d3de0aa4f23ed95abc76ac5c108dc305c141cfcd1513dd942b443c"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "two-day-publication-recovery-index",
+      "path": "/tmp/smp-two-day-publication-recovery-index-20261027.md",
+      "sha256": "2ee67af6c29599c66c545f52a78155eb73051ae71bd8370d8d4fb2abb60c540c"
+    },
+    {
+      "date": "2026-10-26",
+      "kind": "publisher-receipt",
+      "runId": "40316085839",
+      "path": "/var/tmp/smp-prod-audit-40316085839-40317378869/publisher/daily-publication-receipt/smp-publish-receipt.json",
+      "sha256": "5626f9b7cd3a6c8a737dcab9046be9292df743fed8e184492d4446b2cb3badf1"
+    },
+    {
+      "date": "2026-10-26",
+      "kind": "gate-receipt",
+      "runId": "40317378869",
+      "path": "/var/tmp/smp-prod-audit-40316085839-40317378869/gate/daily-market-gate/gate-receipt.json",
+      "sha256": "1d176f34d619037e90f95ab92dbbb3f6874ee6abbc5fcf6e2bcc0522df897290"
+    },
+    {
+      "date": "2026-10-26",
+      "kind": "exact-static-byte-verification-receipt",
+      "path": "/var/tmp/smp-prod-audit-40316085839-40317378869/byte-verification-receipt-rootpaths.json",
+      "sha256": "67be0a40d1a7d18431293a382782e90df89adccdf34b9b65ae4af04025d64c4a",
+      "requests": 106,
+      "matches": 106
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "publisher-receipt",
+      "runId": "40493431849",
+      "path": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/publisher/smp-publish-receipt.json",
+      "sha256": "55d10de32f21d3d4d5a1a8c89ce562f5b133ad6949b5d9e83eb4b326f3bad92e"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "gate-receipt",
+      "runId": "40494821057",
+      "path": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/gate/gate-receipt.json",
+      "sha256": "992b7ba7ae033cdd9701e43cef9f6881d7c2964e0389e894ed681826d397394c"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "exact-static-byte-verification-receipt",
+      "path": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/byte-verification-receipt.json",
+      "sha256": "5e05057b0f68a5f4e0a0b04cb436a4cb902088b1b895ccdaad860d6c8bb0741c",
+      "requests": 106,
+      "matches": 106
+    },
+    {
+      "date": "2026-10-26",
+      "kind": "rollback-and-restore-drill-receipt",
+      "runId": "40348882047",
+      "artifactId": "12663820521",
+      "artifactDigest": "sha256:33edca3f91033d46f488f24b3f783c7db072430ffb123d66fb0fc5c14bc00594",
+      "path": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/drill/smp-rollback-drill-receipt.json",
+      "sha256": "f2345ff74a13f443a2a39d9640eafa6d83a51ca8705880c6ef5ece65c18eb111"
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "bounded-vercel-ready-projection",
+      "path": "/tmp/smp-vercel-ready-projection-20261027.json",
+      "sha256": "67c3093854c1ba596d784ba146460f821176447c3602b51f60c8b2980523b000"
+    }
+  ],
+  "githubArtifactMetadata": [
+    {
+      "runId": "40316085839",
+      "id": "12647383973",
+      "name": "daily-publication-receipt",
+      "digest": "sha256:f09293d4402dd7f1d8d5294a32b4540c3344136a877af0d5d76847ebfe5934f0",
+      "expiresAt": "2026-11-09T11:54:51Z"
+    },
+    {
+      "runId": "40317378869",
+      "id": "12647572637",
+      "name": "daily-market-gate",
+      "digest": "sha256:5a067970e607e42a51448c8f81f407953606fa7c52def65c7d3f7503bbe517a9",
+      "expiresAt": "2026-11-02T11:52:19Z"
+    },
+    {
+      "runId": "40317378869",
+      "id": "12648535226",
+      "name": "daily-market-gate-screenshots",
+      "digest": "sha256:bd44c152502c0d0eacd6f25649e2a0e97a40f05a7f8ab3f232472ac533a164db",
+      "expiresAt": "2026-11-02T11:52:48Z"
+    },
+    {
+      "runId": "40348882047",
+      "id": "12663820521",
+      "name": "production-rollback-drill-receipt",
+      "digest": "sha256:33edca3f91033d46f488f24b3f783c7db072430ffb123d66fb0fc5c14bc00594",
+      "expiresAt": "2026-11-09T15:36:47Z"
+    },
+    {
+      "runId": "40493431849",
+      "id": "12730468850",
+      "name": "daily-publication-receipt",
+      "digest": "sha256:f5569ce54a64f91b8564a6e6c7d4a9a9466d6bae359f936f5839eb85ec675778",
+      "expiresAt": "2026-11-10T11:28:05Z"
+    },
+    {
+      "runId": "40494821057",
+      "id": "12729909242",
+      "name": "daily-market-gate",
+      "digest": "sha256:0cafc52ff5f80a500252b6c4b01ced3ab8b0abfb5b64bb1f30101411e9d97aaa",
+      "expiresAt": "2026-11-03T11:25:28Z"
+    },
+    {
+      "runId": "40494821057",
+      "id": "12729704563",
+      "name": "daily-market-gate-screenshots",
+      "digest": "sha256:711514c705925bd5848e858748e0014c295c31116b01cee250c9df2bf609772a",
+      "expiresAt": "2026-11-03T11:26:00Z"
+    }
+  ],
+  "releasePins": [
+    {
+      "date": "2026-10-26",
+      "releaseId": "00ce24b2f1c77c5164bc9e41cd931ab8ff7f501cc1e5ed156c6372fef896c878",
+      "sequence": 5,
+      "immutableDeployment": "https://security-market-pulse-5sjl32w82-pikeholdings.vercel.app",
+      "coverageValidUntil": "2026-10-27T17:20:38.962028+00:00"
+    },
+    {
+      "date": "2026-10-27",
+      "releaseId": "f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911",
+      "sequence": 6,
+      "immutableDeployment": "https://security-market-pulse-hzte4a2bp-pikeholdings.vercel.app",
+      "coverageValidUntil": "2026-10-28T16:48:26.281000+00:00",
+      "coverage": {
+        "suppliers": 74,
+        "successfulTasks": 266,
+        "requiredTasks": 557,
+        "complete": false,
+        "outcome": "degraded"
+      },
+      "archiveReleaseCommit": "9a88d7c3a83a2a9270172f969b978df849eb4c46",
+      "archiveCurrentAtRead": "15009eeec54f5df60070d19f8b29ef1e27821aa1",
+      "currentProductionHead": {
+        "releaseId": "f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911",
+        "sequence": 6,
+        "deploymentId": "https://security-market-pulse-hzte4a2bp-pikeholdings.vercel.app"
+      }
+    }
+  ],
+  "currentSourceLeaseCheckpoint": {
+    "path": "/var/tmp/smp-oct27-native-40489959161/later-checkpoint/later-heads-proof.json",
+    "sha256": "ffe810b44ca9ba6bbdf526e58add316b6bb00b583a729d45b49a860f875ad4ec",
+    "archiveRefAtRead": "15009eeec54f5df60070d19f8b29ef1e27821aa1",
+    "checkedAt": "2026-10-27T14:58:59.081572+00:00",
+    "immutableGitBlobReadsVerified": true,
+    "heads": {
+      "production": {
+        "value": {
+          "deploymentId": "https://security-market-pulse-hzte4a2bp-pikeholdings.vercel.app",
+          "releaseId": "f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911",
+          "sequence": 6
+        },
+        "rawSha256": "156c9d73bd936050da04948b88c901f8308deed299002a653ce4a1ff503cefb8",
+        "gitBlob": "75dc51c2dd66153b8b7217fd48bf6e0bc2ba49a9"
+      },
+      "budget-2026-10-27": {
+        "value": {"calls": 67, "documents": 31, "fetches": 449},
+        "rawSha256": "f1b944e3b9b18184147b544c9822b20c9e3f8ec46d24c67956a864b3c59dace2",
+        "gitBlob": "8dc0177891d6a17098f58f1541d33c0b564c8570"
+      },
+      "gate-budget-2026-10-27": {
+        "value": {"attempts": 1},
+        "rawSha256": "ee154d68dd2fa267b709aabffaa398ef5d01b42b79d82592f8ca0a5a8dbb0a3a",
+        "gitBlob": "2aa59f54d9485ac7461031bf4371dd567dec9ed3"
+      },
+      "publication-budget-2026-10-27": {
+        "value": {"attempts": ["f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911"]},
+        "rawSha256": "7d7925beeaafe923f8cdafb600c90b7c2cf39c41a697dfc3472c712dfc92a146",
+        "gitBlob": "ac5e05654d9f11c8a460aaa7eed12ec6aec7c6e9"
+      },
+      "cloud-lease": {
+        "value": {
+          "expiresAt": "2026-10-27T15:34:20.372465Z",
+          "releasedAt": "2026-10-27T12:34:59.556440Z",
+          "role": "governance",
+          "sessionId": "github-publisher-40503928106-1",
+          "startedAt": "2026-10-27T12:34:20.372465Z"
+        },
+        "rawSha256": "b0b503579725d6c41b22568b1cc20197bd9ed2b662d8b7a5ca7700bd47f6c178",
+        "gitBlob": "9bbcbebe8e2f6134a122b780fad41723e0a9341c"
+      }
+    }
+  }
+}

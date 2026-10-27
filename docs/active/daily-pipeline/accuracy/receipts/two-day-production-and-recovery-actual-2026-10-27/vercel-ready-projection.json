@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "observations": [
+    {
+      "observedDate": "2026-10-26",
+      "source": "Vercel MCP get_deployment direct response observed 2026-10-26; raw response is not separately retained",
+      "deploymentId": "dpl_DyoF7FWJgq3E8HPhpSGhhVk6TcCh",
+      "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "projectName": "security-market-pulse",
+      "url": "security-market-pulse-5sjl32w82-pikeholdings.vercel.app",
+      "state": "READY",
+      "readyState": "READY",
+      "target": "production",
+      "createdAtMs": 1793015585997,
+      "readyAtMs": 1793015588330,
+      "expiryFieldPresent": false
+    },
+    {
+      "observedDate": "2026-10-27",
+      "source": "Vercel MCP get_deployment read result",
+      "deploymentId": "dpl_D492WhfeRk124FjGCEQLtm8b37PM",
+      "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "projectName": "security-market-pulse",
+      "url": "security-market-pulse-hzte4a2bp-pikeholdings.vercel.app",
+      "state": "READY",
+      "readyState": "READY",
+      "target": "production",
+      "createdAtMs": 1793100373468,
+      "readyAtMs": 1793100375690,
+      "expiryFieldPresent": false
+    }
+  ]
+}

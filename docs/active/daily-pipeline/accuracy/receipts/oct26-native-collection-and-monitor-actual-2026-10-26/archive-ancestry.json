@@ -1,0 +1,83 @@
+{
+  "actualAcknowledgedCommit": "62c021b6913b030fcda3b8910f87d42a9924ca50",
+  "baselineCommit": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+  "baselineIsAncestor": true,
+  "immediatePriorArchive": "5ddcbc51613f125c12cdc724db821384886722f5",
+  "immediatePriorIsAncestor": true,
+  "commits": [
+    {
+      "commit": "62c021b6913b030fcda3b8910f87d42a9924ca50",
+      "tree": "2132dd061aeac018851193eea6488c2aed964234",
+      "parent": "5eb295ef29c1df03c3cb353a9d29d5e8ba6912c2",
+      "rawSha256": "636be1dff65631d78bbd05e5fdecbf5b6a52298dc97b4c8b335296e73ea6240c",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 6e27ab067585fe2611a0596ba5cf63f54a159ccdc87092e0cc61034b2e06dc19"
+    },
+    {
+      "commit": "5eb295ef29c1df03c3cb353a9d29d5e8ba6912c2",
+      "tree": "c58cca3b0ea7815c94a4e2c87310d7c681f444f6",
+      "parent": "cbfe7784576930d4d324a1fb66acb8962f75f6a2",
+      "rawSha256": "4f62f252827020565bae34a86a9a29a1e65ed20aee7e9d72b360f14a3bd1c911",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 376ede3ae3221081a9f1bb2b247ac8f398d48b1824c75a9881cbf785aab18c79"
+    },
+    {
+      "commit": "cbfe7784576930d4d324a1fb66acb8962f75f6a2",
+      "tree": "88b38698f79a7c825ca822b54ad413a5da716cb7",
+      "parent": "f328a11642974b47afcd76d7cb2adda70a6b18e5",
+      "rawSha256": "d8f4ed084a6683031c7b9821ec25862a3cb8fadf90b97c9085f261018fbdef22",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 9f4288eeab3769364af02e1a3ae3a7e1dad84478f28d3b11402530bffb48e058"
+    },
+    {
+      "commit": "f328a11642974b47afcd76d7cb2adda70a6b18e5",
+      "tree": "fa1ff8988edc762e585e7394b0dbb949b5c9bc5b",
+      "parent": "1d25d08d5e0842c48913e8c5e702a74ae72ce2ec",
+      "rawSha256": "9a0783f506d4fea39e73f5c60990dccf4a257db87bed2bc5d617c2f47fba7b2b",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence c242645ebc9b2d5da1312d253080e26a06b5a2cdebf1551152ba49fc2e7de2ae"
+    },
+    {
+      "commit": "1d25d08d5e0842c48913e8c5e702a74ae72ce2ec",
+      "tree": "06527d1d6a9f67bfedf9c1687cf1656dedb2f4cc",
+      "parent": "5ddcbc51613f125c12cdc724db821384886722f5",
+      "rawSha256": "4a5624dedd0c521e9e759db7470011cfb0402ac14f486d845cb9299db406032a",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 0f26da072f963ed4b342d09a989d22957ec6edd6055e0b7dfb08619737dd78c5"
+    },
+    {
+      "commit": "5ddcbc51613f125c12cdc724db821384886722f5",
+      "tree": "172990fc7e5d2ccdbe7bb3746a421f5db54f87cb",
+      "parent": "e4820ad03d26de72894f3ba815dad0442227b20d",
+      "rawSha256": "d30c2183cd66b6d38f13f8fde6ea6266deecd6cf9538d4e53aeadcea28b40769",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 8f58843e0121ce686ec7bbcff5994cd10ca96f1ab827a591358bc21e752e992e"
+    },
+    {
+      "commit": "e4820ad03d26de72894f3ba815dad0442227b20d",
+      "tree": "49fe1fc0aab73a7a33c61c1b268401c51ad9e74f",
+      "parent": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+      "rawSha256": "26a15aa14a8a287a3c29e2d440660ca6ee1cd16c979b5f87b2087ec666182fa7",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 4c30ed6aacc85554010399681d01b6118cf8695e6c272acdfe127ef10ad3cc3e"
+    },
+    {
+      "commit": "96d66bde96d333223557bdd78ef8df821b8e67a9",
+      "tree": "22b9a7a04ae1b3a1de23db80fe602fd3a5c8905a",
+      "parent": "defa4303cd6d1078736f45d5da0a87ea65b92c2c",
+      "rawSha256": "805b366faec2978794eba2e66284ef38a67fc5252f242fed20976db1e118f95f",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence 4c00a5cc5c2cf162b6d1d7816236fd2561faf894f5adede334e6f3f33e3a6da3"
+    },
+    {
+      "commit": "defa4303cd6d1078736f45d5da0a87ea65b92c2c",
+      "tree": "e1aea2b3267e035cbf5ac0f414851234cfda76f0",
+      "parent": "6cf79ce0af6cfd63f8ed237465e5c6bf0800ff9c",
+      "rawSha256": "bf0be75bc14c21c547d2fd14fa98be18be54fc834c0f61bd7143395a7291a954",
+      "rawBytes": 1188,
+      "message": "data(archive): retain evidence fa877dbfdd3d9aef3c08a70fa482479459a512de6043036e88debfaa3ac25668"
+    }
+  ],
+  "archiveRefAtRead": "6a0c2436d8f02769840f4f822b6f336076b11169",
+  "tipIsCurrentAtRead": false
+}

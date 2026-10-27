@@ -1,0 +1,90 @@
+{
+  "scope": "ACTUAL_NATIVE_COLLECTION_AND_MONITOR",
+  "runId": "40313013614",
+  "files": {
+    "actual-monitor-recovery.json": {
+      "sha256": "15043a014d4eb92e0415473fe450b29f6753cbfbb4f7850378ff91c746b182c7",
+      "bytes": 7977
+    },
+    "actual-oct26-native-audit.json.gz": {
+      "sha256": "727d39306a1e8054512c6865e148ae528fab778ce6e0c30edc4a8bc06da0fcf9",
+      "bytes": 383662
+    },
+    "ancestry.py": {
+      "sha256": "4324223b219317142a4caaefd97cd516db85652896adb78ea44f174223e2f3cd",
+      "bytes": 1614
+    },
+    "archive-ancestry.json": {
+      "sha256": "b9f7f3a62768c5075ca0233940cafe26e5bf61f05f17ae724261639bf11ec374",
+      "bytes": 4147
+    },
+    "collection-receipt.json": {
+      "sha256": "7430f4024c64242425bdd589af5d54828625e3f0a6e745057744ad982c8d39e3",
+      "bytes": 26344
+    },
+    "download-proof.json": {
+      "sha256": "bdfcf3dcd8e9045a9867e70b0f100b5c61c466a6e6d6fd92c5452836fef7da05",
+      "bytes": 1333
+    },
+    "download.py": {
+      "sha256": "efe63bc3c556ac0e1dbbe048ffe96f12aeaa0b3d15e65beb7765d1c164432eac",
+      "bytes": 4395
+    },
+    "eight-retained-real-correction-reviews.json": {
+      "sha256": "426e0e05adf4b9a4edc7fcc89fa1dd2991911581ab2ddc97525cb676a4e1cd5f",
+      "bytes": 86021
+    },
+    "final-readonly-replay.log": {
+      "sha256": "80dddf62f3598c7393df7990acd750c2ebe6f3c79fc76dd40e3e9e5bd24166cd",
+      "bytes": 23212
+    },
+    "full557-coverage.json.gz": {
+      "sha256": "dfdf2c3c9bea97674a1a7655dcd52b3d4cb833430b16454554e2664d588d4a0d",
+      "bytes": 258847
+    },
+    "full557-plan.json.gz": {
+      "sha256": "63d2e3cfa9b70e1199b104eca475fef19ab7c1a1bb6bd92f5af48582954eec95",
+      "bytes": 28361
+    },
+    "initial-held-row-comparison.json": {
+      "sha256": "4585b9d49e9982cc983cf851e1a1457fe640cfaa41842ccb9ebd3ef0a2127165",
+      "bytes": 2532
+    },
+    "initial-old-hold-comparison-failure.log": {
+      "sha256": "71b3073ba0b7fc4dc6a7aec21c819820db98be85f5cfb5d66f5b5d45f80af3ae",
+      "bytes": 358
+    },
+    "latest-primary-source-comparisons.json": {
+      "sha256": "944679be0c249e7c97eafd92c39342438e0881d6c0270cbbf51800721088d264",
+      "bytes": 8606
+    },
+    "manual-to-native-task-delta.json": {
+      "sha256": "6b86809e124be727f34ee0a3062116ac60657fd9844976066764faad8aa6f732",
+      "bytes": 38168
+    },
+    "monitor-audit.py": {
+      "sha256": "49f9cd053fa826799fabb38faff353438cc729a6ad7765de8f12b6fe3e7f42f5",
+      "bytes": 2643
+    },
+    "native-schedule-delay.json": {
+      "sha256": "e04205261090811405af59c90dfd2ad15274abf9ed73487b7adcb4c2fbbff20a",
+      "bytes": 513
+    },
+    "replay.py": {
+      "sha256": "1002e7f48cbdb4b9a6f1af6d4d385441773511014618a315d62cee0145b0dbe6",
+      "bytes": 28614
+    },
+    "report.md": {
+      "sha256": "d277116cc444b8c2010598275d8c62e72f374449c74a2d8c053517ff69222c92",
+      "bytes": 5716
+    },
+    "resolved-and-reheld-upwind.json": {
+      "sha256": "7ebc8a442934b2970558b3db4ae5955e9ab6a59be4d33d93265d44f92bf9de11",
+      "bytes": 4894
+    },
+    "summary.json": {
+      "sha256": "5cfb0b069da0185e38c089add515dfae01ebfa345e7f79abeb3ecc580cc33408",
+      "bytes": 3815
+    }
+  }
+}

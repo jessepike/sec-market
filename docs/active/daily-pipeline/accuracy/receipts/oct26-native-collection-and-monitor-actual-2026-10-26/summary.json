@@ -1,0 +1,130 @@
+{
+  "scope": "ACTUAL_NATIVE_COLLECTION_AND_MONITOR",
+  "runId": "40313013614",
+  "event": "schedule",
+  "appRevision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "nativeScheduleDelay": "5h53m07s",
+  "archive": {
+    "commit": "62c021b6913b030fcda3b8910f87d42a9924ca50",
+    "files": 58999,
+    "manifestSha256": "6e27ab067585fe2611a0596ba5cf63f54a159ccdc87092e0cc61034b2e06dc19",
+    "parentCommit": "5eb295ef29c1df03c3cb353a9d29d5e8ba6912c2",
+    "ref": "refs/archive/market-evidence"
+  },
+  "full557ReconciliationPass": true,
+  "intake": {
+    "successful": 261,
+    "required": 557,
+    "gaps": 296,
+    "composition": {
+      "citation": 191,
+      "SEC": 48,
+      "official": 19,
+      "investor": 3
+    },
+    "gapBreakdown": {
+      "HTTP_403": 9,
+      "HTTP_429": 4,
+      "HTTP_502": 5,
+      "NO_REGISTERED_DISCOVERY_SOURCE": 254,
+      "SOURCE_BINDING_UNVERIFIED": 23,
+      "Unapproved source/redirect host": 1
+    }
+  },
+  "processing": {
+    "changedDocuments": 1,
+    "complete": false,
+    "heldDocuments": 14,
+    "inventoryDocuments": 11188,
+    "pendingDocuments": 11136,
+    "reviewedDocuments": 52,
+    "unknownDateDocuments": 291
+  },
+  "historicalReview": {
+    "complete": false,
+    "heldDocuments": 14,
+    "inventoryDocuments": 11188,
+    "pendingDocuments": 11135,
+    "reviewedDocuments": 53
+  },
+  "reviewQueue": 45,
+  "manual44HoldsByteExact": true,
+  "oldOctober25Holds": {
+    "unchanged": 37,
+    "originalResolutionPreservedAndVerified": 1,
+    "resolvedDocumentNowHasNewVerifiedNativeMarker": 1
+  },
+  "allFourPriorFactReferencesExact": true,
+  "allOriginal529Q4DatesExact": true,
+  "corrections": {
+    "accepted": 8,
+    "pending": 0,
+    "nativeNewAttempts": 0,
+    "allPriorAdmissionBytesDatesReviewsExact": true,
+    "actualVaronisAndS1BodiesAndMetadataMatchSelectedBindings": true
+  },
+  "sourceClockMinimum": "2026-10-26T11:20:38.962028+00:00",
+  "sourceClockMaximum": "2026-10-26T11:25:41.518647+00:00",
+  "sourceValidUntil": "2026-10-27T17:20:38.962028+00:00",
+  "settledBudgetAtCollectionAck": {
+    "budget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 860
+    },
+    "gate-budget": {
+      "attempts": 1
+    },
+    "publication-budget": null
+  },
+  "nativeIncrement": {
+    "fetches": 416,
+    "calls": 4,
+    "documents": 3
+  },
+  "collectorLease": {
+    "expiresAt": "2026-10-26T14:18:52.727802Z",
+    "releasedAt": "2026-10-26T11:33:42.030488Z",
+    "role": "collector",
+    "sessionId": "github-40313013614-1",
+    "startedAt": "2026-10-26T11:18:52.727802Z"
+  },
+  "nativeMonitor": {
+    "runId": "40331772533",
+    "watchdogTests": 55,
+    "actualUnhealthyReasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_11136",
+      "PROCESSING_HELD_14",
+      "HISTORICAL_REVIEW_PENDING_11135",
+      "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+      "PUBLIC_PROCESSING_PENDING_11136",
+      "PUBLIC_PROCESSING_HELD_14",
+      "PUBLIC_HISTORICAL_REVIEW_PENDING_11135",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "HELD_CLAIMS_45"
+    ],
+    "noContractError": true,
+    "issue10": "OPEN",
+    "issue14": "CLOSED",
+    "actualReporterReceipt": {
+      "delivery": "no_alert_needed",
+      "observerRecovered": true,
+      "healthIssueChanged": false
+    }
+  },
+  "frozenInputSeals": {
+    "actual": "f93ad36735d5f16a4ccab38290f0a9a1d26f543a6cbaab25b1cb5db74edc2ace",
+    "actualFiles": 58999,
+    "baseline": "5ed9040e51ae03afb143224899c27da6b23693415f8ad05d7f72bdad7526879e",
+    "baselineFiles": 52273,
+    "unchangedAfter": true
+  },
+  "parentOwnsLaterPublicationArtifactLiveFilesAndLaterGateCounters": true,
+  "sourceModelGateRequestsByAudit": 0,
+  "stateOrRefMutationByAudit": 0,
+  "fullCoverageProven": false,
+  "sustainedReliabilityProven": false,
+  "phoneEmailDeliveryProven": false
+}

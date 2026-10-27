@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "drill": {
+    "drillId": "719a77f7040907ed5abcbb9b0f5c02abdc403e841ab0e86ac7bdf864ad895dde",
+    "startedAt": "2026-10-26T15:33:53.684193Z",
+    "current": {
+      "deploymentId": "https://security-market-pulse-5sjl32w82-pikeholdings.vercel.app",
+      "releaseId": "00ce24b2f1c77c5164bc9e41cd931ab8ff7f501cc1e5ed156c6372fef896c878",
+      "sequence": 5
+    },
+    "baseline": {
+      "deploymentId": "https://security-market-pulse-fqk0jyft3-pikeholdings.vercel.app",
+      "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+      "sequence": 4
+    },
+    "phase": "passed",
+    "productionHeadRemains": "00ce24b2f1c77c5164bc9e41cd931ab8ff7f501cc1e5ed156c6372fef896c878",
+    "checkedAt": "2026-10-26T15:35:53.195172Z",
+    "baselineByteInventoryAvailable": true,
+    "baselineBytesVerified": true,
+    "currentBytesVerified": true,
+    "completedAt": "2026-10-26T15:35:53.195159Z"
+  },
+  "archive": {
+    "commit": "acf5d0a74b57788a9bd710dab646a23afd930dfc",
+    "parentCommit": "e956ba86b48282e09a1195b98c05fc02f035dc99",
+    "manifestSha256": "d190c23c3d06d733834a846ac419e5471ba6ec9f9cf2a7f8642ba89a4036b6e9",
+    "files": 59030,
+    "ref": "refs/archive/market-evidence"
+  }
+}

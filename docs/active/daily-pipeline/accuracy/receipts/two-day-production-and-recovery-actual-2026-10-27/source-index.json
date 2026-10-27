@@ -1,0 +1,57 @@
+{
+  "oct26-publication-report.md": {
+    "source": "/mnt/mac/tmp/smp-production-publication-audit-20261026.md",
+    "sha256": "f6bf3dfbc6d3de0aa4f23ed95abc76ac5c108dc305c141cfcd1513dd942b443c",
+    "bytes": 4330
+  },
+  "two-day-publication-index.md": {
+    "source": "/mnt/mac/tmp/smp-two-day-publication-recovery-index-20261027.md",
+    "sha256": "2ee67af6c29599c66c545f52a78155eb73051ae71bd8370d8d4fb2abb60c540c",
+    "bytes": 5378
+  },
+  "oct26-publisher-receipt.json": {
+    "source": "/var/tmp/smp-prod-audit-40316085839-40317378869/publisher/daily-publication-receipt/smp-publish-receipt.json",
+    "sha256": "5626f9b7cd3a6c8a737dcab9046be9292df743fed8e184492d4446b2cb3badf1",
+    "bytes": 717
+  },
+  "oct26-gate-receipt.json": {
+    "source": "/var/tmp/smp-prod-audit-40316085839-40317378869/gate/daily-market-gate/gate-receipt.json",
+    "sha256": "1d176f34d619037e90f95ab92dbbb3f6874ee6abbc5fcf6e2bcc0522df897290",
+    "bytes": 2213
+  },
+  "oct26-exact-106-byte-receipt.json": {
+    "source": "/var/tmp/smp-prod-audit-40316085839-40317378869/byte-verification-receipt-rootpaths.json",
+    "sha256": "67be0a40d1a7d18431293a382782e90df89adccdf34b9b65ae4af04025d64c4a",
+    "bytes": 61176
+  },
+  "oct27-publisher-receipt.json": {
+    "source": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/publisher/smp-publish-receipt.json",
+    "sha256": "55d10de32f21d3d4d5a1a8c89ce562f5b133ad6949b5d9e83eb4b326f3bad92e",
+    "bytes": 717
+  },
+  "oct27-gate-receipt.json": {
+    "source": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/gate/gate-receipt.json",
+    "sha256": "992b7ba7ae033cdd9701e43cef9f6881d7c2964e0389e894ed681826d397394c",
+    "bytes": 2123
+  },
+  "oct27-exact-106-byte-receipt.json": {
+    "source": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/byte-verification-receipt.json",
+    "sha256": "5e05057b0f68a5f4e0a0b04cb436a4cb902088b1b895ccdaad860d6c8bb0741c",
+    "bytes": 61706
+  },
+  "oct26-rollback-and-restore-receipt.json": {
+    "source": "/var/tmp/smp-oct27-proof-40493431849-40494821057-40348882047/drill/smp-rollback-drill-receipt.json",
+    "sha256": "f2345ff74a13f443a2a39d9640eafa6d83a51ca8705880c6ef5ece65c18eb111",
+    "bytes": 1235
+  },
+  "publication-recovery-safe-index.json": {
+    "source": "/mnt/mac/tmp/smp-publication-recovery-safe-index-20261027.json",
+    "sha256": "6e6732b4220c005e1bf438923228713c61b7f20d13c2a9888ced233a022dda96",
+    "bytes": 8473
+  },
+  "vercel-ready-projection.json": {
+    "source": "/mnt/mac/tmp/smp-vercel-ready-projection-20261027.json",
+    "sha256": "67c3093854c1ba596d784ba146460f821176447c3602b51f60c8b2980523b000",
+    "bytes": 1162
+  }
+}

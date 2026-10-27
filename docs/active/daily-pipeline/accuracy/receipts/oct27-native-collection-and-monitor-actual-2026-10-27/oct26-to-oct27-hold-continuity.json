@@ -1,0 +1,357 @@
+[
+  {
+    "kind": "same_candidate_still_held_after_new_review",
+    "oldRow": {
+      "factId": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+      "reason": "Fact date missing",
+      "receiptSha256": "4dfdcaeada677aa4733aa3e7dabff2f41000d16ba2f62eb1ef766aaf793b7d4e",
+      "supplierId": "aqua"
+    },
+    "currentRow": {
+      "factId": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+      "reason": "Fact date missing",
+      "receiptSha256": "d8a16784dee0dbf53930cbee47ebec9c94b5e094e418de1e53e9a1c1c83d083f",
+      "supplierId": "aqua"
+    },
+    "oldHeldObject": {
+      "candidate": {
+        "amount": null,
+        "currency": null,
+        "effectiveDate": null,
+        "eventStatus": "announced",
+        "predicate": "leadership_change",
+        "qualifier": "exact",
+        "quote": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company.",
+        "scope": "company",
+        "supplierId": "aqua",
+        "valueText": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company."
+      },
+      "candidateSha256": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+      "evidence": {
+        "bytes": 242024,
+        "key": "objects/b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+        "sha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2"
+      },
+      "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+      "reason": "Fact date missing",
+      "review": {
+        "bytes": 425,
+        "key": "objects/c3a31efe1f2397829eb8cca90a423c4432be0e01d99dc1c558e4299fbc404dd9",
+        "sha256": "c3a31efe1f2397829eb8cca90a423c4432be0e01d99dc1c558e4299fbc404dd9"
+      },
+      "sourceObservationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+      "supplierId": "aqua"
+    },
+    "currentHeldObject": {
+      "candidate": {
+        "amount": null,
+        "currency": null,
+        "effectiveDate": null,
+        "eventStatus": "announced",
+        "predicate": "leadership_change",
+        "qualifier": "exact",
+        "quote": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company.",
+        "scope": "company",
+        "supplierId": "aqua",
+        "valueText": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company."
+      },
+      "candidateSha256": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+      "evidence": {
+        "bytes": 242024,
+        "key": "objects/23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f",
+        "sha256": "23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f"
+      },
+      "policySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+      "reason": "Fact date missing",
+      "review": {
+        "bytes": 425,
+        "key": "objects/f8aaa364ae71beb8db9c7b09069c32defd6c437c300e3ed31bfe2dc1df560407",
+        "sha256": "f8aaa364ae71beb8db9c7b09069c32defd6c437c300e3ed31bfe2dc1df560407"
+      },
+      "sourceObservationId": "0946295c11bec11062ac5aab1826db40b73f025486894490f70a31c347452c1c",
+      "supplierId": "aqua"
+    },
+    "oldReview": {
+      "candidateSha256": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+      "checks": {
+        "currency_units": "pass",
+        "entity": "pass",
+        "event_status": "pass",
+        "period_date": "pass",
+        "qualifiers": "pass",
+        "source_support": "pass",
+        "value": "pass"
+      },
+      "evidenceSha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+      "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+      "result": "accepted"
+    },
+    "currentReview": {
+      "candidateSha256": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+      "checks": {
+        "currency_units": "pass",
+        "entity": "pass",
+        "event_status": "pass",
+        "period_date": "pass",
+        "qualifiers": "pass",
+        "source_support": "pass",
+        "value": "pass"
+      },
+      "evidenceSha256": "23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f",
+      "policySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+      "result": "accepted"
+    },
+    "oldSourceObservation": {
+      "body": {
+        "bytes": 242024,
+        "key": "objects/b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+        "sha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "fetchedAt": "2026-10-20T21:45:39.420608Z",
+      "finalUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "httpStatus": 200,
+      "lastModified": "Tue, 20 Oct 2026 21:45:39 GMT",
+      "observationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+      "requestedUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "sourceId": "aqua:official:1",
+      "status": "fetched"
+    },
+    "currentSourceObservation": {
+      "body": {
+        "bytes": 242024,
+        "key": "objects/23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f",
+        "sha256": "23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "fetchedAt": "2026-10-27T10:49:07.447108Z",
+      "finalUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "httpStatus": 200,
+      "lastModified": "Tue, 27 Oct 2026 10:49:07 GMT",
+      "observationId": "0946295c11bec11062ac5aab1826db40b73f025486894490f70a31c347452c1c",
+      "requestedUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "sourceId": "aqua:official:1",
+      "status": "fetched",
+      "transportId": "4e3f50c79a85753fbd47570191ae674cc2a364f3c3a4848f06755e3c7c81d8c3",
+      "transportReused": true
+    }
+  },
+  {
+    "kind": "same_candidate_still_held_after_new_review",
+    "oldRow": {
+      "factId": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+      "reason": "Fact date missing",
+      "receiptSha256": "64d01a868951a1206d917fdca252163eed632a246370818f686052ee0a3bb118",
+      "supplierId": "aqua"
+    },
+    "currentRow": {
+      "factId": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+      "reason": "Fact date missing",
+      "receiptSha256": "c1962a59dc75342365610f11ab38339dd356a265bbebe93446adc641f9d17555",
+      "supplierId": "aqua"
+    },
+    "oldHeldObject": {
+      "candidate": {
+        "amount": null,
+        "currency": null,
+        "effectiveDate": null,
+        "eventStatus": "announced",
+        "predicate": "leadership_change",
+        "qualifier": "exact",
+        "quote": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO, and former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer.",
+        "scope": "company",
+        "supplierId": "aqua",
+        "valueText": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO"
+      },
+      "candidateSha256": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+      "evidence": {
+        "bytes": 242024,
+        "key": "objects/b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+        "sha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2"
+      },
+      "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+      "reason": "Fact date missing",
+      "review": {
+        "bytes": 425,
+        "key": "objects/4294317e00c972932b28b89ca2e8fa957348228b2d1ff8498836480e9eb2482d",
+        "sha256": "4294317e00c972932b28b89ca2e8fa957348228b2d1ff8498836480e9eb2482d"
+      },
+      "sourceObservationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+      "supplierId": "aqua"
+    },
+    "currentHeldObject": {
+      "candidate": {
+        "amount": null,
+        "currency": null,
+        "effectiveDate": null,
+        "eventStatus": "announced",
+        "predicate": "leadership_change",
+        "qualifier": "exact",
+        "quote": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO, and former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer.",
+        "scope": "company",
+        "supplierId": "aqua",
+        "valueText": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO"
+      },
+      "candidateSha256": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+      "evidence": {
+        "bytes": 242024,
+        "key": "objects/23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f",
+        "sha256": "23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f"
+      },
+      "policySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+      "reason": "Fact date missing",
+      "review": {
+        "bytes": 425,
+        "key": "objects/d3a4c65f7288cca6db419937e40705caa679b6afc86a6b7854c4707d60dfb4e7",
+        "sha256": "d3a4c65f7288cca6db419937e40705caa679b6afc86a6b7854c4707d60dfb4e7"
+      },
+      "sourceObservationId": "0946295c11bec11062ac5aab1826db40b73f025486894490f70a31c347452c1c",
+      "supplierId": "aqua"
+    },
+    "oldReview": {
+      "candidateSha256": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+      "checks": {
+        "currency_units": "pass",
+        "entity": "pass",
+        "event_status": "pass",
+        "period_date": "pass",
+        "qualifiers": "pass",
+        "source_support": "pass",
+        "value": "pass"
+      },
+      "evidenceSha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+      "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+      "result": "accepted"
+    },
+    "currentReview": {
+      "candidateSha256": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+      "checks": {
+        "currency_units": "pass",
+        "entity": "pass",
+        "event_status": "pass",
+        "period_date": "pass",
+        "qualifiers": "pass",
+        "source_support": "pass",
+        "value": "pass"
+      },
+      "evidenceSha256": "23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f",
+      "policySha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+      "result": "accepted"
+    },
+    "oldSourceObservation": {
+      "body": {
+        "bytes": 242024,
+        "key": "objects/b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+        "sha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "fetchedAt": "2026-10-20T21:45:39.420608Z",
+      "finalUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "httpStatus": 200,
+      "lastModified": "Tue, 20 Oct 2026 21:45:39 GMT",
+      "observationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+      "requestedUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "sourceId": "aqua:official:1",
+      "status": "fetched"
+    },
+    "currentSourceObservation": {
+      "body": {
+        "bytes": 242024,
+        "key": "objects/23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f",
+        "sha256": "23e73139677f16db374b476506aa23283f26405dfa96d54afa68e5b9d1f5ee8f"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "etag": null,
+      "fetchedAt": "2026-10-27T10:49:07.447108Z",
+      "finalUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "httpStatus": 200,
+      "lastModified": "Tue, 27 Oct 2026 10:49:07 GMT",
+      "observationId": "0946295c11bec11062ac5aab1826db40b73f025486894490f70a31c347452c1c",
+      "requestedUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "sourceId": "aqua:official:1",
+      "status": "fetched",
+      "transportId": "4e3f50c79a85753fbd47570191ae674cc2a364f3c3a4848f06755e3c7c81d8c3",
+      "transportReused": true
+    }
+  },
+  {
+    "kind": "document_revalidation",
+    "old": {
+      "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+      "kind": "source_document_revalidation",
+      "origin": {
+        "attemptId": "9be3d1817e891b42f94e84c6e8afd5d500a1534e23654d3ddfb2bae49a8432b6",
+        "receipt": {
+          "bytes": 15628,
+          "key": "objects/5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+          "sha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74"
+        },
+        "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+        "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+      },
+      "processingManifest": {
+        "bytes": 520507,
+        "key": "objects/b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d",
+        "sha256": "b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d"
+      },
+      "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+      "receiptSha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/threat-post"
+    },
+    "current": null,
+    "resolutions": [
+      {
+        "currentOrigin": {
+          "attemptId": "ca5675ed1a85e632d2e55c1a69ec79b1e71d6a9fca8c9b36faf10e79b9600875",
+          "receipt": {
+            "bytes": 15070,
+            "key": "objects/69a331cf1e0500ae0bfc9b8399ad45101672d44c6f5eca41406b7d8629211924",
+            "sha256": "69a331cf1e0500ae0bfc9b8399ad45101672d44c6f5eca41406b7d8629211924"
+          },
+          "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+          "taskId": "cee88f8aff2cae062f3a30df340856792dd52e3d63c27afe0aef55a3161f13b1"
+        },
+        "currentProcessingManifest": {
+          "bytes": 523062,
+          "key": "objects/d86bc30b480c3aa309a31874aecd073c78e81d6912b7fd403ccaa6fb4061ffef",
+          "sha256": "d86bc30b480c3aa309a31874aecd073c78e81d6912b7fd403ccaa6fb4061ffef"
+        },
+        "kind": "source_document_revalidation_resolution",
+        "marker": {
+          "factId": "a153767b6d5ca2e5a92527826dfd233a9aaee2045d78dc386fbcdeac87cdb266",
+          "kind": "source_document_revalidation",
+          "origin": {
+            "attemptId": "9be3d1817e891b42f94e84c6e8afd5d500a1534e23654d3ddfb2bae49a8432b6",
+            "receipt": {
+              "bytes": 15628,
+              "key": "objects/5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+              "sha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74"
+            },
+            "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+            "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+          },
+          "processingManifest": {
+            "bytes": 520507,
+            "key": "objects/b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d",
+            "sha256": "b2f091725588d43077cb0e05b7e014369ba942dc645c23cff2fde974a335a94d"
+          },
+          "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+          "receiptSha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+          "sourceId": "upwind:official:1",
+          "supplierId": "upwind",
+          "url": "https://www.upwind.io/feed/threat-post"
+        },
+        "resolutionSha256": "ef8179168ea9fb77b1f81e7ca538dddcd4cfd4d5455d2e5cf85647b7ccb1f058",
+        "resolvedAt": "2026-10-27T11:00:34.041297Z",
+        "schemaVersion": 1,
+        "sourceObservationId": "512fa4547078aa6ef0f49a050e55412417d5b4879f80c44d98619862308816d1",
+        "sourceObservationSha256": "6d248aa980c91b084490e6e8ac20714684834af6c9538b25e620c5bedf08b2b3"
+      }
+    ]
+  }
+]
