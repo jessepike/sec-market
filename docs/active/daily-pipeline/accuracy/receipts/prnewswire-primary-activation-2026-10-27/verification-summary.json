@@ -1,0 +1,41 @@
+{
+  "consumedArchiveFiles": 422,
+  "coverageCredit": false,
+  "currentPlanSelected": false,
+  "finishWrites": 0,
+  "focusedTests": [
+    "test_two_logical_gets_no_generic_candidates_or_other_credits",
+    "test_changed_live_plan_or_failed_preflight_cannot_write_or_charge",
+    "test_budget_binding_exclusivity_and_lease_context_denials_precede_transport",
+    "test_shared_leased_caller_routes_directly_and_preserves_outer_zeros"
+  ],
+  "gateAttempts": 0,
+  "liveReservations": 0,
+  "modelCalls": 0,
+  "networkAttempts": [],
+  "onlyChangedFile": "contracts/source-qualification-probes.json",
+  "originalHReplays": [
+    {
+      "frozenWrites": 0,
+      "fullLegacyTraversalReplay": true,
+      "runId": "40190857026",
+      "sourceRequests": 0
+    },
+    {
+      "frozenWrites": 0,
+      "fullLegacyTraversalReplay": true,
+      "runId": "40193925490",
+      "sourceRequests": 0
+    }
+  ],
+  "preflight": "current-actual-preflight.json",
+  "seconds": 18.36945208767429,
+  "skips": [],
+  "sourceFiles": 3212,
+  "sourceQualified": false,
+  "sourceRequests": 0,
+  "status": "PASS",
+  "testsPassed": 4,
+  "unchangedHeads": 10301,
+  "unchangedOtherFiles": 3211
+}

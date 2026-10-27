@@ -1,0 +1,10 @@
+test_two_logical_gets_no_generic_candidates_or_other_credits (test_prnewswire_primary_capture.CaptureTests.test_two_logical_gets_no_generic_candidates_or_other_credits) ... ok
+test_changed_live_plan_or_failed_preflight_cannot_write_or_charge (test_prnewswire_primary_capture.CaptureTests.test_changed_live_plan_or_failed_preflight_cannot_write_or_charge) ... ok
+test_budget_binding_exclusivity_and_lease_context_denials_precede_transport (test_prnewswire_primary_capture.CaptureTests.test_budget_binding_exclusivity_and_lease_context_denials_precede_transport) ... ok
+test_shared_leased_caller_routes_directly_and_preserves_outer_zeros (test_prnewswire_primary_capture.CaptureTests.test_shared_leased_caller_routes_directly_and_preserves_outer_zeros) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 15.499s
+
+OK
+{"status": "PASS", "testsPassed": 4, "consumedArchiveFiles": 422, "unchangedOtherFiles": 3211, "sourceRequests": 0, "seconds": 18.36961142066866}

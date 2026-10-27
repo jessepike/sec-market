@@ -1,0 +1,64 @@
+{
+  "actualBaseCommit": "6e0da6379b15e0759a3504ad46f1489350624dc9",
+  "committed": false,
+  "coverageCredit": false,
+  "currentBaseDifference": "documentation only; all non-documentation code/contract/configuration pins authenticate",
+  "cyeraPrerequisite": {
+    "acceptedCalendarDay": "2026-10-16",
+    "acknowledgedArchiveCommit": "066d52b826cb3408429be4cff3ff604f14c7cb4a",
+    "appRevision": "1b2176087ca148c066f6d21efb4d7fc80daa7504",
+    "authenticatedEntries": 62632,
+    "bodyBytes": 266519,
+    "conclusion": "success",
+    "githubRunId": "40529776219",
+    "httpStatus": 200,
+    "independentFullReplay": {
+      "bytes": 1067599,
+      "consumedFrozenEntries": 238,
+      "receipt": "actual-cyera-prerequisite-audit.json",
+      "sha256": "cfa8329537930ff76884bc6cc707a7c17c1d9577d2dea35bcb6608ed6dfd1c18",
+      "status": "PASS"
+    },
+    "logicalRequests": 1,
+    "manifestSha256": "e244ddc834b54198b45cfde18a0059dbc20f9b3ad79e2add0a990a4c3f9fa8ae",
+    "readableCharacters": 8040,
+    "reportedUnchanged": "other normal heads, gate count one, publication reservation, public sequence six, 48 holds and eight admissions/clocks",
+    "settledSourceLedger": {
+      "calls": 67,
+      "documents": 31,
+      "fetches": 450
+    },
+    "source": "root accepted auditor-authenticated actual result; bounded safe audit copied byte-exact",
+    "sourceQualification": false,
+    "writerLeaseReleasedAt": "2026-10-27T15:26:39.561695Z"
+  },
+  "dispatched": false,
+  "gateAttempts": 0,
+  "liveSelectionAuthority": "root accepted exact outside PRN unit and explicitly authorized this controlled copy",
+  "modelCalls": 0,
+  "newLiveReservations": 0,
+  "outsideAssemblyCommit": "1b2176087ca148c066f6d21efb4d7fc80daa7504",
+  "postPRNRestoration": {
+    "bytes": 173,
+    "file": "post-capture-disabled-J-plan.json",
+    "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01"
+  },
+  "prnPreflightArchive": {
+    "commit": "ac082a358d1ce897854d9a08a964bdfbd335a06e",
+    "entries": 62602,
+    "manifestSha256": "3aca334fd331a89142cae4efeaa06eab5922c6b38eb8ac53f88aae1ac2861503",
+    "status": "original sealed outside preflight retained unchanged; not rerun against latest Cyera archive"
+  },
+  "pushed": false,
+  "replacedCyeraPlan": {
+    "bytes": 5090,
+    "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f"
+  },
+  "selectedPlan": {
+    "bytes": 25176,
+    "sha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1"
+  },
+  "sourcePolicyChanged": false,
+  "sourceQualified": false,
+  "sourceRequests": 0
+}

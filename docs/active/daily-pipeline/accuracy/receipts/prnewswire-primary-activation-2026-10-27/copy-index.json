@@ -1,0 +1,43 @@
+{
+  "assembly": "git archive of exact accepted commit; selected only inside isolated VM copy",
+  "baseCommit": "1b2176087ca148c066f6d21efb4d7fc80daa7504",
+  "changes": [
+    {
+      "after": {
+        "bytes": 25176,
+        "sha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1"
+      },
+      "before": {
+        "bytes": 5090,
+        "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f"
+      },
+      "source": "selected-prn-plan.json",
+      "target": "contracts/source-qualification-probes.json"
+    }
+  ],
+  "existingDispatch": {
+    "bytes": 27109,
+    "path": "ops/ci/collect.py",
+    "sha256": "58ed42abc717fa300391d6e561870c5c1c6f17833a72a9383a5dc3d43af03316"
+  },
+  "existingModule": {
+    "bytes": 20263,
+    "path": "web/scripts/pipeline/prnewswire_primary_capture.py",
+    "sha256": "88ae350323bed4215071e9171c4e357b9a10f4e3912ccdda09de953fc4e558c8"
+  },
+  "postCaptureRestoration": {
+    "bytes": 173,
+    "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+    "source": "post-capture-disabled-J-plan.json"
+  },
+  "realSelectionPerformed": false,
+  "requestsPerformed": 0,
+  "requiresBeforeActualDispatch": [
+    "acknowledged actual Cyera record",
+    "root review of this exact unit",
+    "exact current shared ledger and lease/escrow check",
+    "reviewed preview/main source revision"
+  ],
+  "sourcePolicyChange": false,
+  "trackedFiles": 3212
+}

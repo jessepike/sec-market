@@ -1,0 +1,301 @@
+{
+  "allowanceClaim": "none; exact current shared-budget check remains root-owned before actual dispatch",
+  "archiveCommit": "ac082a358d1ce897854d9a08a964bdfbd335a06e",
+  "coverageCredit": false,
+  "fullOriginalHReplays": [
+    {
+      "frozenWrites": 0,
+      "fullLegacyTraversalReplay": true,
+      "runId": "40190857026",
+      "sourceRequests": 0
+    },
+    {
+      "frozenWrites": 0,
+      "fullLegacyTraversalReplay": true,
+      "runId": "40193925490",
+      "sourceRequests": 0
+    }
+  ],
+  "manifestFiles": 62602,
+  "manifestSha256": "3aca334fd331a89142cae4efeaa06eab5922c6b38eb8ac53f88aae1ac2861503",
+  "maximumLogicalRequests": 2,
+  "modelCalls": 0,
+  "newReservations": 0,
+  "operation": "bounded_prnewswire_primary_capture",
+  "originalAsOf": "2026-10-25T12:42:16.956348Z",
+  "policyCanonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "seconds": 2.3318503578193486,
+  "selectedPlanBytes": 25176,
+  "selectedPlanRawSha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1",
+  "sourceRequests": 0,
+  "status": "PASS",
+  "streams": [
+    {
+      "currentWindowItems": [
+        "https://www.prnewswire.com/news-releases/cato-networks-appoints-former-palo-alto--netskope-executive-chad-gardner-as-chief-revenue-officer-302898809.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-achieves-aws-security-competency-in-ai-security-302898714.html"
+      ],
+      "dailyWindowComplete": true,
+      "historicalEnumerationComplete": false,
+      "knownEvidenceUnion": 127,
+      "knownSeedsOutsideObservedList": [
+        {
+          "body": {
+            "bytes": 70562,
+            "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+            "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+          },
+          "calendarWindowState": "older_calendar_day",
+          "originalFull200FetchedAt": "2026-10-25T06:46:00.068042Z",
+          "originalReuseChain": [
+            {
+              "body": {
+                "bytes": 70562,
+                "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+                "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T09:55:57.612162Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "httpStatus": 304,
+              "lastModified": "Sun, 25 Oct 2026 06:46:00 GMT",
+              "observationId": "12ebd03fe58ab3a8239e989a0a55cd9334f992785e0e7a020af4637c5c8fdeda",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "reusesObservationId": "3d7f10be24556aa2964f6bdf6c74c82975d5c77d87579355cf24eb71ba086172",
+              "sourceId": "cato:citation:TR-cato-3",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            {
+              "body": {
+                "bytes": 70562,
+                "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+                "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T06:46:00.068042Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "httpStatus": 200,
+              "lastModified": "Sun, 25 Oct 2026 06:46:00 GMT",
+              "observationId": "3d7f10be24556aa2964f6bdf6c74c82975d5c77d87579355cf24eb71ba086172",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+              "sourceId": "cato:citation:TR-cato-3",
+              "status": "fetched",
+              "transportId": "6fccedd7257e82e6657ec6b6ec6ab59aa11bf814f8ec7c44ff36f93aa4b501a8",
+              "transportReused": false
+            }
+          ],
+          "presentInObservedList": false,
+          "shape": {
+            "canonical": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+            "heading": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
+            "indexTimezone": null,
+            "jsonLdScriptTextSha256": "c23813db18170d2ccbf4ec39190c95583b31aca546f8e1c9a980e364051b716f",
+            "publicationCalendarDay": "2026-07-27",
+            "publicationComparison": "written_calendar_day",
+            "publicationMetadata": [
+              {
+                "kind": "jsonld_published",
+                "value": "2026-07-27T15:30:00+03:00"
+              }
+            ],
+            "readableCharacters": 5806,
+            "readableSha256": "a9d98f3034852e89f6328e49ae3cce3c854918da9252d2940bd8ff49bae4a54d",
+            "suppliedJsonLd": {
+              "@context": "https://schema.org",
+              "@type": "NewsArticle",
+              "dateModified": "2026-07-27T15:30:47+03:00",
+              "datePublished": "2026-07-27T15:30:00+03:00",
+              "description": "/PRNewswire/ -- Cato Networks, the converged network and security cloud for the AI era, today announced that it has surpassed $415 million in ARR, with 42%...",
+              "headline": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
+              "image": [
+                ""
+              ],
+              "mainEntityOfPage": {
+                "@id": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.prnewswire.com"
+                },
+                "name": ""
+              }
+            }
+          },
+          "sourceId": "cato:citation:TR-cato-3",
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html"
+        },
+        {
+          "body": {
+            "bytes": 71379,
+            "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+            "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+          },
+          "calendarWindowState": "older_calendar_day",
+          "originalFull200FetchedAt": "2026-10-24T18:30:03.989885Z",
+          "originalReuseChain": [
+            {
+              "body": {
+                "bytes": 71379,
+                "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+                "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T09:56:20.442847Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "httpStatus": 304,
+              "lastModified": "Wed, 21 Oct 2026 14:02:49 GMT",
+              "observationId": "660599732d6bedf2be4fb0a2a1bdb7bdf32bd894228b8c3d04f8edaaea40c795",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "reusesObservationId": "3bd6416cb8b73669dcb928bb12f3e430e52ec95d3003758d1cd827c1bdd17c98",
+              "sourceId": "cato:citation:TR-cato-2",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            {
+              "body": {
+                "bytes": 71379,
+                "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+                "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-25T06:46:21.790624Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "httpStatus": 304,
+              "lastModified": "Wed, 21 Oct 2026 14:02:49 GMT",
+              "observationId": "3bd6416cb8b73669dcb928bb12f3e430e52ec95d3003758d1cd827c1bdd17c98",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "reusesObservationId": "23b32afd2660473dd306d147045d385320e408a89d73b43d07bec5c79eb05092",
+              "sourceId": "cato:citation:TR-cato-2",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            {
+              "body": {
+                "bytes": 71379,
+                "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+                "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-24T18:30:03.989885Z",
+              "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "httpStatus": 200,
+              "lastModified": "Wed, 21 Oct 2026 14:02:49 GMT",
+              "observationId": "23b32afd2660473dd306d147045d385320e408a89d73b43d07bec5c79eb05092",
+              "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+              "sourceId": "cato:citation:TR-cato-2",
+              "status": "fetched",
+              "transportId": "702478929523aede195043fe5169364ff63425918a079fbfdf9a825706113c68",
+              "transportReused": false
+            }
+          ],
+          "presentInObservedList": false,
+          "shape": {
+            "canonical": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+            "heading": "Cato Networks Surpasses $350 Million ARR with 43% YoY Growth in 2025",
+            "indexTimezone": null,
+            "jsonLdScriptTextSha256": "508ba811a52a693049cb012d90b74272a79e11331819d384f86b3495fb965b35",
+            "publicationCalendarDay": "2026-02-24",
+            "publicationComparison": "written_calendar_day",
+            "publicationMetadata": [
+              {
+                "kind": "jsonld_published",
+                "value": "2026-02-24T15:30:00+02:00"
+              }
+            ],
+            "readableCharacters": 4528,
+            "readableSha256": "ce2499bbe5d3fad5bc48c2b6216480653989bf7036b3fb5e91e6e0ae66b3b25f",
+            "suppliedJsonLd": {
+              "@context": "https://schema.org",
+              "@type": "NewsArticle",
+              "dateModified": "2026-02-24T15:30:43+02:00",
+              "datePublished": "2026-02-24T15:30:00+02:00",
+              "description": "/PRNewswire/ -- Cato Networks, the SASE leader, today announced that its 2025 annual recurring revenue (ARR) surpassed $350 million, an increase of 43%...",
+              "headline": "Cato Networks Surpasses $350 Million ARR with 43% YoY Growth in 2025",
+              "image": [
+                ""
+              ],
+              "mainEntityOfPage": {
+                "@id": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.prnewswire.com"
+                },
+                "name": ""
+              }
+            }
+          },
+          "sourceId": "cato:citation:TR-cato-2",
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html"
+        }
+      ],
+      "observedItems": 125,
+      "sourceId": "cato:official:1",
+      "sourceScopeComplete": false
+    },
+    {
+      "currentWindowItems": [
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-harness-proven-vulnerabilities-and-ready-to-merge-fixes-from-frontier-ai-no-model-access-required-302907725.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-libraries-for-go-and-net-secure-endpoints-to-protect-organizations-from-supply-chain-attacks-302907708.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-workspaces-hardened-hardware-isolated-environments-for-faster-agentic-development-302907716.html",
+        "https://www.prnewswire.com/news-releases/chainguard-research-nine-in-ten-security-leaders-say-ai-attacks-have-changed-their-job-more-than-anything-in-a-decade-but-the-ability-to-act-hasnt-kept-pace-302907743.html"
+      ],
+      "dailyWindowComplete": true,
+      "historicalEnumerationComplete": true,
+      "knownEvidenceUnion": 47,
+      "knownSeedsOutsideObservedList": [],
+      "observedItems": 47,
+      "sourceId": "chainguard:official:1",
+      "sourceScopeComplete": true
+    }
+  ],
+  "targets": [
+    {
+      "family": "release_distribution",
+      "selectedRecord": {
+        "boundaryAmbiguous": false,
+        "calendarDay": "2026-10-06",
+        "cardIndex": 1,
+        "dateAnomaly": null,
+        "dateLiteral": "Oct 06, 2026, 08:30 ET",
+        "language": "en-US",
+        "pageNumber": 1,
+        "sourceId": "cato:official:1",
+        "timezone": null,
+        "title": "Cato Networks Achieves AWS Security Competency in AI Security",
+        "url": "https://www.prnewswire.com/news-releases/cato-networks-achieves-aws-security-competency-in-ai-security-302898714.html"
+      },
+      "sourceId": "cato:official:1",
+      "url": "https://www.prnewswire.com/news-releases/cato-networks-achieves-aws-security-competency-in-ai-security-302898714.html"
+    },
+    {
+      "family": "release_distribution",
+      "selectedRecord": {
+        "boundaryAmbiguous": false,
+        "calendarDay": "2026-10-14",
+        "cardIndex": 0,
+        "dateAnomaly": null,
+        "dateLiteral": "Oct 14, 2026, 01:00 ET",
+        "language": "en-US",
+        "pageNumber": 1,
+        "sourceId": "chainguard:official:1",
+        "timezone": null,
+        "title": "Introducing Chainguard Checks: Reinventing Continuous Integration for the Agentic Era",
+        "url": "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html"
+      },
+      "sourceId": "chainguard:official:1",
+      "url": "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html"
+    }
+  ]
+}

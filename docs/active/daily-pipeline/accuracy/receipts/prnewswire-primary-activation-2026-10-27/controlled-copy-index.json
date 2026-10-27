@@ -1,0 +1,94 @@
+{
+  "activePlanChange": {
+    "after": {
+      "bytes": 25176,
+      "sha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1"
+    },
+    "before": {
+      "bytes": 5090,
+      "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f"
+    },
+    "target": "contracts/source-qualification-probes.json"
+  },
+  "actualBaseCommit": "6e0da6379b15e0759a3504ad46f1489350624dc9",
+  "authenticatedWholeTrackedTreeBeforeFiles": 3275,
+  "copiedPayloads": [
+    {
+      "bytes": 5723,
+      "outsideRelativePath": "activation-spec.md",
+      "sha256": "b94e271322b9ba52525289463c6e125768f409ce03995dcee282a7cbdfb4734f",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/activation-spec.md"
+    },
+    {
+      "bytes": 1333,
+      "outsideRelativePath": "archive-download-proof.json",
+      "sha256": "4781f717f1cfa78c1d9e5a33205862d984fc6f75cb9029c2c9c7d5e187319c6f",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/archive-download-proof.json"
+    },
+    {
+      "bytes": 1440,
+      "outsideRelativePath": "copy-index.json",
+      "sha256": "8557cc5bd0626b47bed29303281e2558813408e2b8604fae247996d1115fd3b7",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/copy-index.json"
+    },
+    {
+      "bytes": 15757,
+      "outsideRelativePath": "current-actual-preflight.json",
+      "sha256": "1def3b1b5148d34419b15c17c8b7a58f8b35d4d33094a668faf032e828c68934",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/current-actual-preflight.json"
+    },
+    {
+      "bytes": 5090,
+      "outsideRelativePath": "original-cyera-selected-plan.json",
+      "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/original-cyera-selected-plan.json"
+    },
+    {
+      "bytes": 173,
+      "outsideRelativePath": "post-capture-disabled-J-plan.json",
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/post-capture-disabled-J-plan.json"
+    },
+    {
+      "bytes": 2636514,
+      "outsideRelativePath": "readset-before-after.json",
+      "sha256": "1c05b3b736d8cddfe6c567fb77af658653e5675de1f78052cf6430e656aee614",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/readset-before-after.json"
+    },
+    {
+      "bytes": 25176,
+      "outsideRelativePath": "selected-prn-plan.json",
+      "sha256": "01e468f5d73ddb28edbde014a0b725f7d202340a692964d01f6fd174faec7fb1",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/selected-prn-plan.json"
+    },
+    {
+      "bytes": 677546,
+      "outsideRelativePath": "source-before.json",
+      "sha256": "9aa89265b53ae04c013c21127958cb0f89fa15db3ab80d9afececa189197104c",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/source-before.json"
+    },
+    {
+      "bytes": 1159,
+      "outsideRelativePath": "verification-summary.json",
+      "sha256": "2e20bb7f166b25920689402df1bc137f3199971f5bf0cb913d74c595960f6e55",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/verification-summary.json"
+    },
+    {
+      "bytes": 1003,
+      "outsideRelativePath": "verification.log",
+      "sha256": "5b6447313ea5a875389f803b31a3a99e0657757017bf516b427b413ec58e005d",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/verification.log"
+    },
+    {
+      "bytes": 7019,
+      "outsideRelativePath": "verify.py",
+      "sha256": "4a8ac375e9422b714223fb8f019939d45e8dcfea07c1b2b8ae16fd2c9e686390",
+      "targetRelativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-primary-activation-2026-10-27/verify.py"
+    }
+  ],
+  "onlyChangedExistingTrackedFile": "contracts/source-qualification-probes.json",
+  "outsideReceiptIndexMeaning": "binds full original VM assembly; source/ payloads stay outside and are not copied into this receipt directory",
+  "outsideReceiptIndexSha256": "8bcd76d89dbae01853ecabf30012ce511bdb74c644b7662f369e4d4bc65980ba",
+  "unchangedNonDocumentationAssemblyPins": 503,
+  "unchangedOtherTrackedFiles": 3274
+}
