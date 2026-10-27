@@ -1,0 +1,108 @@
+{
+  "coverageCredit": false,
+  "fileCount": 20,
+  "files": [
+    {
+      "bytes": 1694816,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/current-actual-preflight.json",
+      "sha256": "1b5a816971a80c349f605b028bc1de117ce1e647b76ef56f944f2f837721ab75"
+    },
+    {
+      "bytes": 0,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/current-actual-preflight.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1333,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/current-archive-download-proof.json",
+      "sha256": "4781f717f1cfa78c1d9e5a33205862d984fc6f75cb9029c2c9c7d5e187319c6f"
+    },
+    {
+      "bytes": 173,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/disabled-plan.json",
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01"
+    },
+    {
+      "bytes": 4321,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/focused-tests.log",
+      "sha256": "65c7a3432e66071c7a053b34e1d06c595fc735d971082d5d0598d610e6f5c561"
+    },
+    {
+      "bytes": 2923,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/historical-fixture-repair.md",
+      "sha256": "693509908630c677b6fc3567a174967c4ad3ef60646045bdbb163e52945bfaed"
+    },
+    {
+      "bytes": 9037,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/preflight.py",
+      "sha256": "0b98b8fee7b10147d9272b250b1972ef080ea0be7419a9780b1fb9f9b4db12d1"
+    },
+    {
+      "bytes": 7004,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/q4-cyera-affected-green-v2.log",
+      "sha256": "fdc647a5b758566eecd02dc258957573e0179fd7bfd151f396d7abdbb82e3b55"
+    },
+    {
+      "bytes": 7765,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/q4-cyera-affected-green.log",
+      "sha256": "877ed74a322589b1fa326372238f994b9272944e5351796ca09be03252c12225"
+    },
+    {
+      "bytes": 1069,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/q4-historical-selected-red.log",
+      "sha256": "eb70b07a99131181d1c87d41af7476d15898753da4d66023c184dabd64f9c0ae"
+    },
+    {
+      "bytes": 283,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/q4-quiet-targeted-diagnostic.log",
+      "sha256": "f543857efa2d96956e11074afff2e421b8afe067835a06ce18d682c1cceb5c96"
+    },
+    {
+      "bytes": 8461,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/qualification-next-unit.md",
+      "sha256": "89fb0aa2253167e9abc06febaef72b69e2b275a7d9d9bfd940f1dea8b02cb65c"
+    },
+    {
+      "bytes": 5209,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/seal.py",
+      "sha256": "ae62a598ea0d317e49baff6eb5c1dfbd57139f5e8cbfb2da1c873ad48aec652f"
+    },
+    {
+      "bytes": 845,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/selection.json",
+      "sha256": "4a089f55f8a48a48920730ba984890fa35042a62ed55dfe7e46eac9cde36bdd0"
+    },
+    {
+      "bytes": 43944,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/source-dependencies.json",
+      "sha256": "081dc58e447a8696331aa96a40e9b6610f422d88790cdc2c19e83b07b27ba0b1"
+    },
+    {
+      "bytes": 98,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/source-hash-host-final.txt",
+      "sha256": "3d6e77ffe67afe440b7cc8a6f2749dfc11e82b27b68c06448c3164f8a4d2ee42"
+    },
+    {
+      "bytes": 164,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/source-hash-vm-final.txt",
+      "sha256": "65a792fb2624ffbb24822c316c219fc23b26a41ac0a727640a0c69efd7294946"
+    },
+    {
+      "bytes": 162840,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/tracked-before.json.gz",
+      "sha256": "cca39143b251966928b79cd8526b21cb09fc7eac2f9b403fc2cd8f5bfb002236"
+    },
+    {
+      "bytes": 1050,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/tracked-protection.json",
+      "sha256": "c328872d89c3f65018817a3a89a32248cac1b7c2a7f84867ed8918f75db20ed0"
+    },
+    {
+      "bytes": 2853,
+      "path": "docs/active/daily-pipeline/accuracy/receipts/cyera-primary-activation-2026-10-27/verification-summary.json",
+      "sha256": "a3eddb694f9db42415e75dc0d7a53742b9472aef4f1f9d94c3eab53109af7a32"
+    }
+  ],
+  "schemaVersion": 1,
+  "sourceRequests": 0
+}

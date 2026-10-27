@@ -1,0 +1,79 @@
+{
+  "activePlanSelected": true,
+  "affectedFinal": {
+    "log": "q4-cyera-affected-green-v2.log",
+    "passed": true,
+    "seconds": 113.869,
+    "sha256": "fdc647a5b758566eecd02dc258957573e0179fd7bfd151f396d7abdbb82e3b55",
+    "skips": 0,
+    "tests": 37
+  },
+  "baseHead": "cf46b338903236ae4fd492b27308ccfdcd14f59f",
+  "committed": false,
+  "coverageCredit": false,
+  "currentActualPlanPreflight": {
+    "acknowledgedArchiveCommit": "ac082a358d1ce897854d9a08a964bdfbd335a06e",
+    "manifestFiles": 62602,
+    "manifestSha256": "3aca334fd331a89142cae4efeaa06eab5922c6b38eb8ac53f88aae1ac2861503",
+    "policyCanonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+    "readSetFiles": 17,
+    "selectedPlanRawSha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+    "status": "PASS"
+  },
+  "dispatched": false,
+  "documentReservations": 0,
+  "finalCommand": "PYTHONDONTWRITEBYTECODE=1 PYTHONPYCACHEPREFIX=/var/tmp/smp-cyera-activation-fresh-bytecode-20261027 PYTHONPATH=ops/ci:web/scripts/pipeline python3 -m unittest -v test_q4_normal_intake test_cyera_press_list test_cyera_primary_capture",
+  "firstAffectedFailure": {
+    "attribute": "assertEqu",
+    "cause": "Unproven; fresh isolated bytecode-prefix run passes unchanged source. First error retained.",
+    "file": "ops/ci/test_q4_normal_intake.py",
+    "sourceSha256ObservedBeforeFreshRerun": "21e93d92d0a54ef5faa5529af4c8a5001db207ad508503903fc2c38738383114"
+  },
+  "focused": {
+    "log": "focused-tests.log",
+    "passed": true,
+    "seconds": 80.461,
+    "sha256": "65c7a3432e66071c7a053b34e1d06c595fc735d971082d5d0598d610e6f5c561",
+    "skips": 0,
+    "tests": 23
+  },
+  "gateAttempts": 0,
+  "isolatedQuietMethodDiagnostic": {
+    "log": "q4-quiet-targeted-diagnostic.log",
+    "passed": true,
+    "seconds": 0.036,
+    "sha256": "f543857efa2d96956e11074afff2e421b8afe067835a06ce18d682c1cceb5c96",
+    "skips": 0,
+    "tests": 1
+  },
+  "modelCalls": 0,
+  "originalDisabledBytesPreserved": true,
+  "preservedFailures": [
+    {
+      "log": "q4-historical-selected-red.log",
+      "passed": false,
+      "seconds": 0.054,
+      "sha256": "eb70b07a99131181d1c87d41af7476d15898753da4d66023c184dabd64f9c0ae",
+      "skips": 0,
+      "tests": 1
+    },
+    {
+      "log": "q4-cyera-affected-green.log",
+      "passed": false,
+      "seconds": 120.933,
+      "sha256": "877ed74a322589b1fa326372238f994b9272944e5351796ca09be03252c12225",
+      "skips": 0,
+      "tests": 37
+    }
+  ],
+  "published": false,
+  "pushed": false,
+  "runtimeGuardsChanged": false,
+  "runtimeSourcePolicyChanged": false,
+  "scope": "exact reviewed Cyera one-primary plan selection and one historical Q4 fixture test",
+  "sealedAt": "2026-10-27T15:06:37.919215+00:00",
+  "sourceDependencies": 223,
+  "sourceQualified": false,
+  "sourceRequests": 0,
+  "status": "PASS"
+}

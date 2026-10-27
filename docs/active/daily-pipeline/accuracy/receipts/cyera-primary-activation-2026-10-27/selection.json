@@ -1,0 +1,24 @@
+{
+  "authority": "D-110/D-111/D-112; root delegated exact reviewed plan selection",
+  "baseHead": "cf46b338903236ae4fd492b27308ccfdcd14f59f",
+  "coverageCredit": false,
+  "dispatched": false,
+  "documentReservations": 0,
+  "executed": false,
+  "explicitRetries": 0,
+  "gateAttempts": 0,
+  "maximumLogicalRequests": 1,
+  "modelCalls": 0,
+  "originalPlanBytes": 173,
+  "originalPlanRawSha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+  "qualifiedSources": 0,
+  "request": {
+    "body": null,
+    "method": "GET",
+    "url": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace"
+  },
+  "selectedPlanBytes": 5090,
+  "selectedPlanRawSha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f",
+  "semanticAdmission": false,
+  "sourceChecksCredited": 0
+}

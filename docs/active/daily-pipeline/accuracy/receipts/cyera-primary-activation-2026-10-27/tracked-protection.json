@@ -1,0 +1,34 @@
+{
+  "baseHead": "cf46b338903236ae4fd492b27308ccfdcd14f59f",
+  "changedTrackedFiles": {
+    "contracts/source-qualification-probes.json": {
+      "after": {
+        "bytes": 5090,
+        "sha256": "25bf0ff72555188e7a8446b9499f3b8ba56c9327e397f8b70a5ce9deb82d350f"
+      },
+      "before": {
+        "bytes": 173,
+        "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01"
+      }
+    },
+    "ops/ci/test_q4_normal_intake.py": {
+      "after": {
+        "bytes": 25777,
+        "sha256": "21e93d92d0a54ef5faa5529af4c8a5001db207ad508503903fc2c38738383114"
+      },
+      "before": {
+        "bytes": 25658,
+        "sha256": "8c4b747eb0182050ccaeb2c5464ace37989d118216bce8f966f6cd2620a4d588"
+      }
+    }
+  },
+  "concurrentDocumentationChangesExcludedFromOperatorOwnership": [],
+  "disabledOriginalPreserved": true,
+  "operatorOwnedPaths": [
+    "contracts/source-qualification-probes.json",
+    "ops/ci/test_q4_normal_intake.py"
+  ],
+  "selectedPlanExact": true,
+  "trackedFiles": 3191,
+  "unexpectedProtectedChanges": []
+}

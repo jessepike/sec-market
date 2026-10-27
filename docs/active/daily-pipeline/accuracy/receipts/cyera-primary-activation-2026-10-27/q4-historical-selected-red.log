@@ -1,0 +1,14 @@
+test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact (test_q4_normal_intake.ActualProofTests.test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact) ... FAIL
+
+======================================================================
+FAIL: test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact (test_q4_normal_intake.ActualProofTests.test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_q4_normal_intake.py", line 113, in test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact
+    self.assertEqual(active.read_bytes(), proposed.read_bytes())
+AssertionError: b'{"historicalReplay":{"archive":{"commit":"9[5052 chars]a"}}' != b'{"marketSha256":"47b9f22636f0e6ea79cf830ae9[126 chars]:[]}'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.054s
+
+FAILED (failures=1)

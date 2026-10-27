@@ -1,0 +1,26 @@
+{
+  "runId": "40489959161",
+  "appRevision": "f514cfe017a60b3dea50bc4da37980f4b892f657",
+  "runConclusion": "success",
+  "artifactId": 12729375952,
+  "githubArtifactDigest": "sha256:8b4f4e79c061ba0a97a81906b1dcdc9216ac629c4a773c5108a3b8a85a2dc448",
+  "artifactZipSha256": "8b4f4e79c061ba0a97a81906b1dcdc9216ac629c4a773c5108a3b8a85a2dc448",
+  "rawReceiptSha256": "bf1bbfc2a1b96d33d5696b715f02378dd9b7facf4eb67265e900dc18d82a60c8",
+  "archiveAck": {
+    "commit": "ac082a358d1ce897854d9a08a964bdfbd335a06e",
+    "parentCommit": "5a696e3b20909d054fa4bd2c34d86152bab49a5a",
+    "manifestSha256": "3aca334fd331a89142cae4efeaa06eab5922c6b38eb8ac53f88aae1ac2861503",
+    "files": 62602,
+    "ref": "refs/archive/market-evidence"
+  },
+  "archiveCommit": "ac082a358d1ce897854d9a08a964bdfbd335a06e",
+  "manifestSha256": "3aca334fd331a89142cae4efeaa06eab5922c6b38eb8ac53f88aae1ac2861503",
+  "manifestBytes": 13135778,
+  "manifestGitBlobSha1": "dae86646aadf9d485cfa816fbfe08f309e8a0d95",
+  "manifestEntries": 62602,
+  "allManifestEntriesVerified": true,
+  "archiveTarSha256": "3977bf7a7f6e5fbc1dec01916b51d75eb51cc6edbfd045b8016ef6b909a160d5",
+  "extractedRoot": "/var/tmp/smp-oct27-native-40489959161/capture/extracted",
+  "actualOrdinaryJIntakeReconciliation": "pending separate read-only replay",
+  "qualificationCreditFromDownload": false
+}

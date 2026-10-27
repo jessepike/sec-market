@@ -95,7 +95,7 @@ class ActualProofTests(unittest.TestCase):
         self.assertTrue(all(key.startswith('objects/') or canonical(json.loads(body)) == body
                             for key, body in self.checked['files'].items()))
 
-    def test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact(self):
+    def test_historical_H_probe_plan_rejects_under_J_and_frozen_disabled_J_is_exact(self):
         class NoRead:
             def get(self, *_): raise AssertionError('must reject policy before reads')
             def read(self, *_): raise AssertionError('must reject policy before reads')
@@ -108,10 +108,12 @@ class ActualProofTests(unittest.TestCase):
             path.write_bytes(historical)
             with self.assertRaises(ValueError):
                 validate_qualification_probe_plan(self.contract, NoRead(), path)
-        active = ROOT / 'contracts/source-qualification-probes.json'
         proposed = ROOT / 'docs/active/daily-pipeline/accuracy/q4-normal-intake-disabled-J-plan-2026-10-25.json'
-        self.assertEqual(active.read_bytes(), proposed.read_bytes())
-        checked = validate_qualification_probe_plan(self.contract, NoRead(), active)
+        with tempfile.TemporaryDirectory() as directory:
+            frozen = Path(directory) / 'historical-ef9-J.json'
+            frozen.write_bytes(proposed.read_bytes())
+            self.assertEqual(frozen.read_bytes(), proposed.read_bytes())
+            checked = validate_qualification_probe_plan(self.contract, NoRead(), frozen)
         self.assertEqual(checked['rawSha256'], 'ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01')
         self.assertEqual(checked['maxRequests'], 0)
         self.assertEqual(checked['plan']['sources'], [])
