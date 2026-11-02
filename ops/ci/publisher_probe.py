@@ -86,6 +86,14 @@ class PublisherAuth:
         shutil.rmtree(self.root)
 
 
+def _field_type(mapping, key):
+    """Expose JSON shape only; never retain an unexpected native value."""
+    if key not in mapping:
+        return 'missing'
+    return {type(None): 'null', dict: 'object', list: 'array', str: 'string',
+            bool: 'boolean', int: 'number', float: 'number'}.get(type(mapping[key]), 'invalid')
+
+
 def execute(root):
     if os.environ.get('GITHUB_ACTIONS') != 'true' or os.environ.get('GITHUB_REPOSITORY') != PROJECT:
         raise RuntimeError('PRIVATE_GITHUB_RUNNER_REQUIRED')
@@ -100,6 +108,21 @@ def execute(root):
         resource_fields = {key: resource.get(key) if type(resource.get(key)) is expected else None
                            for key, expected in [('buildMachineType', str), ('buildMachineSelection', str),
                                                  ('elasticConcurrencyEnabled', bool)]}
+        defaults = project.get('defaultResourceConfig')
+        valid_resource = isinstance(project.get('resourceConfig'), dict)
+        valid_defaults = isinstance(defaults, dict)
+        resource_fields.update({
+            'resourceConfigPresent': 'resourceConfig' in project,
+            'resourceConfigType': _field_type(project, 'resourceConfig'),
+            'elasticConcurrencyEnabledPresent': 'elasticConcurrencyEnabled' in resource if valid_resource else None,
+            'elasticConcurrencyEnabledType': _field_type(resource, 'elasticConcurrencyEnabled') if valid_resource else 'unavailable',
+            'defaultResourceConfigPresent': 'defaultResourceConfig' in project,
+            'defaultResourceConfigType': _field_type(project, 'defaultResourceConfig'),
+            'defaultElasticConcurrencyEnabled': defaults.get('elasticConcurrencyEnabled')
+                if valid_defaults and type(defaults.get('elasticConcurrencyEnabled')) is bool else None,
+            'defaultElasticConcurrencyEnabledPresent': 'elasticConcurrencyEnabled' in defaults if valid_defaults else None,
+            'defaultElasticConcurrencyEnabledType': _field_type(defaults, 'elasticConcurrencyEnabled') if valid_defaults else 'unavailable',
+        })
         return {'publisherAccessPassed': True, 'githubRunId': os.environ['GITHUB_RUN_ID'],
                 **resource_fields,
                 'projectId': PROJECT_ID, 'teamId': TEAM_ID, 'scope': SCOPE,

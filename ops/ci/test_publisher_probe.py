@@ -22,10 +22,12 @@ class PublisherCredentialTests(unittest.TestCase):
         self.assertFalse(receipt['publishPermissionAccepted'])
         self.assertFalse(receipt['deploymentAttempted'])
 
-    def resource_probe(self, resource_config, *, include=True):
+    def resource_probe(self, resource_config, *, include=True, default_resource_config=None, include_default=False):
         project = {'id': PROJECT_ID, 'accountId': TEAM_ID, 'rootDirectory': 'web', 'framework': 'vite'}
         if include:
             project['resourceConfig'] = resource_config
+        if include_default:
+            project['defaultResourceConfig'] = default_resource_config
         with tempfile.TemporaryDirectory() as folder, patch.dict(os.environ, {
             'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': 'jessepike/sec-market',
             'GITHUB_RUN_ID': 'fictional-run', 'VERCEL_TOKEN': 'fictional-token',
@@ -37,6 +39,7 @@ class PublisherCredentialTests(unittest.TestCase):
         self.assertFalse(receipt['deploymentAttempted'])
         self.assertFalse(receipt['publishPermissionAccepted'])
         self.assertNotIn('resourceConfig', receipt)
+        self.assertNotIn('defaultResourceConfig', receipt)
         return receipt
 
     def test_native_resource_readback_exposes_only_three_typed_fields(self):
@@ -67,6 +70,66 @@ class PublisherCredentialTests(unittest.TestCase):
                 self.assertEqual(receipt['buildMachineSelection'], selection if type(selection) is str else None)
                 self.assertEqual(receipt['elasticConcurrencyEnabled'], concurrency if type(concurrency) is bool else None)
                 self.assertNotIn('fictional-resource-secret', json.dumps(receipt))
+
+    def test_override_and_default_diagnostics_preserve_raw_unknowns_without_effective_setting(self):
+        for override in ({}, {'elasticConcurrencyEnabled': None}, {'elasticConcurrencyEnabled': False},
+                         {'elasticConcurrencyEnabled': True}, {'elasticConcurrencyEnabled': 'false'}):
+            for default in (False, True, None, 'false', {'hidden': 'fictional-default-secret'}):
+                with self.subTest(override=override, default=default):
+                    receipt = self.resource_probe(override, default_resource_config={
+                        'elasticConcurrencyEnabled': default, 'hidden': 'fictional-default-secret'}, include_default=True)
+                    self.assertTrue(receipt['resourceConfigPresent'])
+                    self.assertEqual(receipt['resourceConfigType'], 'object')
+                    self.assertEqual(receipt['elasticConcurrencyEnabledPresent'], 'elasticConcurrencyEnabled' in override)
+                    self.assertEqual(receipt['elasticConcurrencyEnabledType'],
+                                     'missing' if not override else {type(None): 'null', bool: 'boolean', str: 'string'}[type(override['elasticConcurrencyEnabled'])])
+                    self.assertTrue(receipt['defaultResourceConfigPresent'])
+                    self.assertEqual(receipt['defaultResourceConfigType'], 'object')
+                    self.assertTrue(receipt['defaultElasticConcurrencyEnabledPresent'])
+                    self.assertEqual(receipt['defaultElasticConcurrencyEnabled'], default if type(default) is bool else None)
+                    self.assertEqual(receipt['defaultElasticConcurrencyEnabledType'],
+                                     {type(None): 'null', bool: 'boolean', str: 'string', dict: 'object'}[type(default)])
+                    if type(override.get('elasticConcurrencyEnabled')) is bool:
+                        self.assertEqual(receipt['elasticConcurrencyEnabled'], override['elasticConcurrencyEnabled'])
+                    else:
+                        self.assertIsNone(receipt['elasticConcurrencyEnabled'])
+                    self.assertNotIn('fictional-default-secret', json.dumps(receipt))
+                    self.assertFalse(any('effective' in name.lower() for name in receipt))
+
+    def test_resource_shape_diagnostics_distinguish_missing_null_and_malformed_objects(self):
+        for value, expected in [(None, 'null'), ([], 'array'), ('bad', 'string'), (False, 'boolean'), (1, 'number')]:
+            with self.subTest(value=value):
+                receipt = self.resource_probe(value, default_resource_config=value, include_default=True)
+                for prefix in ('resourceConfig', 'defaultResourceConfig'):
+                    self.assertTrue(receipt[prefix + 'Present'])
+                    self.assertEqual(receipt[prefix + 'Type'], expected)
+                for prefix in ('elasticConcurrencyEnabled', 'defaultElasticConcurrencyEnabled'):
+                    self.assertIsNone(receipt[prefix])
+                    self.assertIsNone(receipt[prefix + 'Present'])
+                    self.assertEqual(receipt[prefix + 'Type'], 'unavailable')
+        receipt = self.resource_probe(None, include=False)
+        for prefix in ('resourceConfig', 'defaultResourceConfig'):
+            self.assertFalse(receipt[prefix + 'Present'])
+            self.assertEqual(receipt[prefix + 'Type'], 'missing')
+        receipt = self.resource_probe({}, default_resource_config={}, include_default=True)
+        self.assertIsNone(receipt['defaultElasticConcurrencyEnabled'])
+        self.assertFalse(receipt['defaultElasticConcurrencyEnabledPresent'])
+        self.assertEqual(receipt['defaultElasticConcurrencyEnabledType'], 'missing')
+
+    def test_read_only_workflow_retains_all_guards_and_only_reduces_its_test_selection(self):
+        workflow = (Path(__file__).resolve().parents[2] / '.github/workflows/subscription-publisher-probe.yml').read_text()
+        self.assertEqual(workflow.count("run: python3 -m unittest discover -s ops/ci -p 'test_publisher_probe.py' -v"), 1)
+        self.assertIn("github.repository == 'jessepike/sec-market' && github.event.repository.private == true", workflow)
+        self.assertIn("if: contains(github.event.head_commit.message, '[stage-publisher]')", workflow)
+        self.assertIn('persist-credentials: false', workflow)
+        self.assertIn('VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}', workflow)
+        self.assertIn('contents: read', workflow)
+        self.assertIn('actions: read', workflow)
+        self.assertIn('name: publisher-access-receipt', workflow)
+        self.assertIn('if-no-files-found: error', workflow)
+        self.assertIn('Remove ephemeral publisher credentials', workflow)
+        full_ci = (Path(__file__).resolve().parents[2] / '.github/workflows/web.yml').read_text()
+        self.assertIn("python3 -m unittest discover -s ops/ci -p 'test_*.py'", full_ci)
 
     def test_failure_classification_never_returns_raw_transport_or_credentials(self):
         for message, category in [
