@@ -1,0 +1,42 @@
+{
+  "base": "1e6aa6f97",
+  "sourceCommit": "d5eec6481c624d59af9e8fd0f777925c1b9c3cba",
+  "changedExistingPaths": [
+    ".github/workflows/subscription-publisher-probe.yml",
+    "ops/ci/publisher_probe.py",
+    "ops/ci/test_publisher_probe.py"
+  ],
+  "otherExistingTrackedPathsExact": 3589,
+  "workflowOnlySingleTestPatternChanged": true,
+  "privateGuardSecretConditionsArtifactPathsCleanupAllExact": true,
+  "stageGuardUIKCoreExact": true,
+  "focusedProbeTests": {
+    "passed": 12,
+    "skipped": 0
+  },
+  "existingExactCIGuardTests": {
+    "passed": 13,
+    "skipped": 0
+  },
+  "actionlint": {
+    "binary": "/var/tmp/smp-actionlint-1.7.12/actionlint",
+    "passed": true,
+    "exitCode": 0
+  },
+  "environment": "OrbStack dev",
+  "originalNativeReceipt": {
+    "path": "/Users/jessepike/.codex/worktrees/market-managed-runtime/sec-market/docs/active/daily-pipeline/receipts/disabled-branch-readonly-2026-11-02/publisher-access-receipt.json",
+    "sha256": "7012c0882097389dae7d24b3d67faff9e52896e45679c7c5ed3b3276e21f57d8",
+    "bytes": 504,
+    "runId": "41520910334",
+    "buildMachineType": "basic",
+    "buildMachineSelection": "fixed",
+    "elasticConcurrencyEnabled": null,
+    "unchangedNotInterpretedAsFalse": true
+  },
+  "realNewNativeFieldsObserved": false,
+  "push": false,
+  "dispatch": false,
+  "effectiveConcurrencyDerived": false,
+  "guardRelaxed": false
+}

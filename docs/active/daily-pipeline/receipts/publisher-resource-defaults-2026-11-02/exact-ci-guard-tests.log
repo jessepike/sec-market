@@ -1,0 +1,32 @@
+test_accepts_exact_successful_push_suite_and_attempt (test_verified_ci_guards.ExactCodeCiTests.test_accepts_exact_successful_push_suite_and_attempt) ... ok
+test_api_rejects_duplicate_nonfinite_and_oversized_json (test_verified_ci_guards.ExactCodeCiTests.test_api_rejects_duplicate_nonfinite_and_oversized_json) ... ok
+test_changed_checkout_or_wrong_runtime_context_cannot_reuse_ci (test_verified_ci_guards.ExactCodeCiTests.test_changed_checkout_or_wrong_runtime_context_cannot_reuse_ci) ... {"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+ok
+test_incomplete_or_oversized_lists_are_not_proof (test_verified_ci_guards.ExactCodeCiTests.test_incomplete_or_oversized_lists_are_not_proof) ... ok
+test_invalid_revision_never_reaches_api (test_verified_ci_guards.ExactCodeCiTests.test_invalid_revision_never_reaches_api) ... ok
+test_missing_or_api_uncertain_proof_runs_full_suite_and_propagates_failure (test_verified_ci_guards.ExactCodeCiTests.test_missing_or_api_uncertain_proof_runs_full_suite_and_propagates_failure) ... {"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_NOT_AVAILABLE"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_NOT_AVAILABLE"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+ok
+test_modified_runtime_tests_or_untracked_source_cannot_reuse_ci (test_verified_ci_guards.ExactCodeCiTests.test_modified_runtime_tests_or_untracked_source_cannot_reuse_ci) ... {"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+{"mode": "full_suite_fallback", "reason": "EXACT_CODE_CI_UNVERIFIED"}
+ok
+test_preview_push_is_valid_but_other_refs_are_not (test_verified_ci_guards.ExactCodeCiTests.test_preview_push_is_valid_but_other_refs_are_not) ... ok
+test_primary_collection_callback_daily_recovery_and_independent_monitor_remain (test_verified_ci_guards.ExactCodeCiTests.test_primary_collection_callback_daily_recovery_and_independent_monitor_remain) ... ok
+test_rejects_missing_failed_skipped_ambiguous_or_other_attempt_job (test_verified_ci_guards.ExactCodeCiTests.test_rejects_missing_failed_skipped_ambiguous_or_other_attempt_job) ... ok
+test_rejects_untrusted_run_identity_or_completion (test_verified_ci_guards.ExactCodeCiTests.test_rejects_untrusted_run_identity_or_completion) ... ok
+test_verified_code_avoids_only_repeated_suite (test_verified_ci_guards.ExactCodeCiTests.test_verified_code_avoids_only_repeated_suite) ... ok
+test_workflow_retains_full_ci_suite_and_uses_readback_in_both_hosted_jobs (test_verified_ci_guards.ExactCodeCiTests.test_workflow_retains_full_ci_suite_and_uses_readback_in_both_hosted_jobs) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.002s
+
+OK
+{"jobId": 456, "mode": "exact_code_ci_verified", "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "runAttempt": 2, "runId": 123, "sourceTree": "cccccccccccccccccccccccccccccccccccccccc", "suiteStep": "Verify all operational guards for exact code"}

@@ -1,0 +1,64 @@
+name: durable publisher acceptance
+
+on:
+  push:
+    branches: [preview]
+    paths: ['ops/ci/publisher-request.json']
+  workflow_dispatch:
+
+permissions: {}
+concurrency:
+  group: sec-market-publisher-probe
+  cancel-in-progress: false
+
+jobs:
+  publisher-access-and-stage:
+    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[probe-publisher]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Install exact official publisher client
+        run: |
+          npm install --prefix "$RUNNER_TEMP/smp-vercel-cli" --no-save --package-lock=false vercel@64.7.0
+          echo "$RUNNER_TEMP/smp-vercel-cli/node_modules/.bin" >> "$GITHUB_PATH"
+      - name: Verify credential isolation with fictional data
+        run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
+      - name: Verify read access to the existing Vercel project only
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: python3 ops/ci/publisher_probe.py --root "$RUNNER_TEMP/smp-publisher-auth" --output "$RUNNER_TEMP/smp-publisher-receipt.json"
+      - name: Stage and verify archived prebuilt payload without promoting
+        if: contains(github.event.head_commit.message, '[stage-publisher]')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          gh auth setup-git --hostname github.com
+          operation=$(jq -r '.operation' ops/ci/publisher-request.json)
+          if [ "$operation" = stage_verified_preview_gate ]; then
+            python3 ops/ci/stage_gate.py --request ops/ci/publisher-request.json --root "$RUNNER_TEMP/smp-publisher-stage" --output "$RUNNER_TEMP/smp-publisher-stage-receipt.json"
+          else
+            python3 ops/ci/publisher_stage.py --root "$RUNNER_TEMP/smp-publisher-stage" --output "$RUNNER_TEMP/smp-publisher-stage-receipt.json"
+          fi
+      - name: Retain only the nonsecret publisher receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: publisher-access-receipt
+          path: |
+            ${{ runner.temp }}/smp-publisher-receipt.json
+            ${{ runner.temp }}/smp-publisher-stage-receipt.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Remove ephemeral publisher credentials
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/smp-publisher-auth" "$RUNNER_TEMP/smp-publisher-stage"
