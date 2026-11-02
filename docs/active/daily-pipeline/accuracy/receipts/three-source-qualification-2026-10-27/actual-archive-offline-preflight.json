@@ -1,0 +1,181 @@
+{
+  "kind": "three_source_actual_archive_offline_preflight",
+  "archive": {
+    "commit": "e5f189981428adf720c783c613685fbd969fd16c",
+    "manifestSha256": "d6be094e27da036581b5bdef63b1cf1e7a0574f4cc68fccdac0091e48d35efd6",
+    "entries": 62644
+  },
+  "contractSha256": "6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68",
+  "seedManifestSha256": "01d8478e12f6ee53b977f144ac18305cac302e05f564710b7a9009fface67dcd",
+  "immutableUnionFiles": 135,
+  "qualificationInventories": {
+    "ping-identity:official:1": {
+      "documents": 242,
+      "itemsSha256": "226af03e5ebf611596fa18746e7b90b8562f5f741e33c96bdd8459d6e090589a",
+      "completedAt": "2026-10-24T17:38:02.691908Z"
+    },
+    "delinea:official:1": {
+      "documents": 290,
+      "itemsSha256": "92117424b5448fb56ad9c00ff27a56cb58649ef19a8684cf6b7bdf2066b13f93",
+      "completedAt": "2026-10-24T17:38:02.691908Z"
+    },
+    "sonatype:official:1": {
+      "documents": 205,
+      "itemsSha256": "01c30b57b2240972d239e58b4af4dc893532ff23f33edc69867cc8f32ce4b8ad",
+      "completedAt": "2026-10-24T17:38:02.691908Z"
+    },
+    "jfrog:official:1": {
+      "documents": 206,
+      "itemsSha256": "75edc6095fb895b5ac2903749f97433c58da18440343cf30914d2f817f629e78",
+      "completedAt": "2026-10-25T11:20:11.500772Z"
+    },
+    "rapid7:official:1": {
+      "documents": 323,
+      "itemsSha256": "c0691a7c6042ff434c93c99c9acb75bfc075a52c2b950051d24ad80e8eb1ea5e",
+      "completedAt": "2026-10-25T11:20:11.500772Z"
+    },
+    "cato:official:1": {
+      "documents": 127,
+      "itemsSha256": "8114e030a2f7d66ca0e8880a230c6ef885c03bde11e3697519ed67993c59e0b3",
+      "completedAt": "2026-10-27T15:49:15.139840Z"
+    },
+    "chainguard:official:1": {
+      "documents": 47,
+      "itemsSha256": "7b5422085cedecd0eaaa40daf0296a7a786dfb3c8b1c21455bddaeccaab13aa4",
+      "completedAt": "2026-10-27T15:49:15.139840Z"
+    },
+    "cyera:official:1": {
+      "documents": 56,
+      "itemsSha256": "875e8624704a37889e37c25f0d8062f458376331e4c32e74a9cec0d64065d7fd",
+      "completedAt": "2026-10-27T15:49:15.139840Z"
+    }
+  },
+  "legacySeedPreservation": {
+    "inventoryPairs": 27710,
+    "inventoryPairsSha256": "50d4c8d2655ae4cc81a74dc8178ff49fd5199956e725f2051aa2c7a549236b59",
+    "retainedInventoryPairs": 10655,
+    "retainedInventoryPairsSha256": "83debad51f9e8a3a14ea78afd1e7b5cf86c820ccb0df4325b6a889182fdd4e80",
+    "retainedBindings": 39,
+    "retainedBindingsSha256": "b55dcf4603a632890a36d24692aedacc20e440630a5dfb72d8e7fe965e79a670",
+    "factReferences": 52,
+    "factReferencesSha256": "bf02a2d835309ad81289a78789d45e5de30d63348a9e8d95fdaf5780f3a1df64",
+    "reviewQueueEntries": 38,
+    "reviewQueueSha256": "28228e972db489d6058d674ab481e64ee2aeb4215fce569862835c073f704a36",
+    "snapshotSha256": "35f75a9235129b577a134b4150884e8438d80898335873c1b402c35ea34eafed",
+    "protectedReferencesSha256": "d16c7f5b7a5f4600a7072ad22130ed525ff92144ea74a9a69be7af04cd3f27e2"
+  },
+  "currentReviewQueue": {
+    "entries": 48,
+    "sha256": "6e29d5953c2d60600e107cd2cf814fec7ef160d3d02d581d512980c4db4bd64a"
+  },
+  "currentCorrectionAdmissions": [
+    {
+      "admission": {
+        "bytes": 1522,
+        "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+        "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+      },
+      "groupId": "FC-20261023-checkpoint-sase"
+    },
+    {
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+      },
+      "groupId": "FC-20261023-optiv"
+    },
+    {
+      "admission": {
+        "bytes": 988,
+        "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+      },
+      "groupId": "FC-20261023-splunk"
+    },
+    {
+      "admission": {
+        "bytes": 1460,
+        "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+        "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+      },
+      "groupId": "FC-20261023-zscaler"
+    },
+    {
+      "admission": {
+        "bytes": 1493,
+        "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+      },
+      "groupId": "FC-20261023-expel"
+    },
+    {
+      "admission": {
+        "bytes": 1340,
+        "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+      },
+      "groupId": "XAGE-SOURCE-CLASS-20261023"
+    },
+    {
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/fa334190f65307bc4152eb736f717bd3f046a5f55d0bc32298c3938fda86ea48",
+        "sha256": "fa334190f65307bc4152eb736f717bd3f046a5f55d0bc32298c3938fda86ea48"
+      },
+      "groupId": "FC-PROPOSED-20261025-varonis-event-qualifiers"
+    },
+    {
+      "admission": {
+        "bytes": 1816,
+        "key": "objects/201fb809359981aacbc8a820e1dc776a4637a57009e627503af7fe7ce289f7fc",
+        "sha256": "201fb809359981aacbc8a820e1dc776a4637a57009e627503af7fe7ce289f7fc"
+      },
+      "groupId": "FC-PROPOSED-20261025-s1-event-qualifiers"
+    }
+  ],
+  "originalAdmissionTimes": {
+    "FC-20261023-checkpoint-sase": "2026-10-24T00:36:49.557183Z",
+    "FC-20261023-optiv": "2026-10-24T00:06:23.550203Z",
+    "FC-20261023-splunk": "2026-10-24T00:06:29.666148Z",
+    "FC-20261023-zscaler": "2026-10-24T00:36:59.336802Z",
+    "FC-20261023-expel": "2026-10-24T00:06:43.307502Z",
+    "XAGE-SOURCE-CLASS-20261023": "2026-10-24T00:06:50.078120Z",
+    "FC-PROPOSED-20261025-varonis-event-qualifiers": "2026-10-26T03:28:07.160054Z",
+    "FC-PROPOSED-20261025-s1-event-qualifiers": "2026-10-26T03:28:26.072754Z"
+  },
+  "publishedCorrectionGroupsPreserved": 8,
+  "publishedCorrectionGroupsSha256": "1638891993e51d036e7c4d2d5296d59d9588b1eb57d70725bc89b1e4c9836652",
+  "publishedGroupDates": {
+    "FC-20261023-checkpoint-sase": "2026-10-24",
+    "FC-20261023-optiv": "2026-10-24",
+    "FC-20261023-splunk": "2026-10-24",
+    "FC-20261023-zscaler": "2026-10-24",
+    "FC-20261023-expel": "2026-10-24",
+    "XAGE-SOURCE-CLASS-20261023": "2026-10-24",
+    "FC-PROPOSED-20261025-varonis-event-qualifiers": "2026-10-26",
+    "FC-PROPOSED-20261025-s1-event-qualifiers": "2026-10-26"
+  },
+  "production": {
+    "deploymentId": "https://security-market-pulse-hzte4a2bp-pikeholdings.vercel.app",
+    "releaseId": "f1f67666db35e28cd4998503afd4bc65c1ef6da5e06fef8065e103bda8aa2911",
+    "sequence": 6
+  },
+  "settledBudget": {
+    "calls": 67,
+    "documents": 31,
+    "fetches": 452
+  },
+  "frozenHeads": 10303,
+  "frozenHeadsUnchanged": true,
+  "consumedFrozenEntries": 12064,
+  "consumedFrozenEntriesUnchanged": true,
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "reservations": 0,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "stateWrites": 0,
+  "publicationAttempts": 0,
+  "durationSeconds": 21.286
+}

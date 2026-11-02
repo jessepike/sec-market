@@ -4,6 +4,8 @@ import { resolve } from 'node:path'
 import { verifyProspectiveV2Migration } from './pipeline/daily_baseline_migration.mjs'
 import { Q4_J, verifyQ4BaselineMigration } from './pipeline/daily_q4_baseline_migration.mjs'
 
+import { THREE_K, verifyThreeBaselineMigration } from './pipeline/daily_three_source_baseline_migration.mjs'
+
 const canonical = x => Array.isArray(x) ? '[' + x.map(canonical).join(',') + ']' : x && typeof x === 'object' ? '{' + Object.keys(x).sort().map(k => JSON.stringify(k) + ':' + canonical(x[k])).join(',') + '}' : JSON.stringify(x)
 const hash = x => createHash('sha256').update(canonical(x)).digest('hex')
 const measure = 'daily_source_intake_v2'
@@ -63,7 +65,8 @@ function verifyV2(contract, data, coverage, rows, required) {
   if (uncollected) {
     const old = data.supersededPolicy
     if (old?.snapshot?.coverage?.schemaVersion === 2) {
-      if (hash(contract) === Q4_J) verifyQ4BaselineMigration(data, contract, required)
+      if (hash(contract) === THREE_K) verifyThreeBaselineMigration(data, contract, required)
+      else if (hash(contract) === Q4_J) verifyQ4BaselineMigration(data, contract, required)
       else verifyProspectiveV2Migration(data, contract, required)
       return
     }

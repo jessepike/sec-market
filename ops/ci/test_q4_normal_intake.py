@@ -13,6 +13,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / 'web/scripts/pipeline'), str(ROOT / 'ops/ci')]
+from q4_intake_fixtures import frozen_j_asset
 from contracts import canonical, digest, plan_run, validate_contract
 from historical_correction_fixtures import historical_requests, historical_repo
 from discovery import discover
@@ -33,7 +34,7 @@ class ActualProofTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.store = CommittedSeed(ROOT)
-        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        cls.contract = frozen_j_asset(ROOT)
         # Guard-only tests keep their existing mocked-preflight boundary. The
         # complete unmocked preflight is a separately labeled external test.
         cls.checked = {'files': cls.store.files, 'manifestSha256': cls.store.manifest_sha256,
@@ -119,7 +120,7 @@ class ActualProofTests(unittest.TestCase):
         self.assertEqual(checked['plan']['sources'], [])
 
     def test_python_zero_credit_baseline_exact_and_mutations_reject(self):
-        value = json.loads((ROOT / 'web/src/data/generated/dailyMarket.json').read_bytes())
+        value = frozen_j_asset(ROOT, 'dailyMarket.json')
         baseline.verify(ROOT, self.contract, self.overlay, value)
         self.assertEqual(value['coverage']['successfulTasks'], 0)
         self.assertIsNone(value['coverage']['validUntil'])
@@ -157,13 +158,16 @@ class ActualProofTests(unittest.TestCase):
                 return {'archive': archive, 'receipt': {'phase': phase, 'sessionId': current['sessionId'],
                     'appRevision': current['appRevision'], 'role': 'collector',
                     'contractSha256': digest(self.contract), 'result': result}}
-            runtime = SimpleNamespace(REPO=ROOT, utcnow=lambda: NOW,
+            frozen_repo = root / 'historical-j-repo'
+            (frozen_repo / 'contracts').mkdir(parents=True)
+            (frozen_repo / 'contracts/market.json').write_bytes(canonical(self.contract))
+            runtime = SimpleNamespace(REPO=frozen_repo, utcnow=lambda: NOW,
                 require_lease=collect.session_runtime.require_lease, checkpoint=checkpoint)
             before = copy.deepcopy(state.read('heads/cloud-lease.json'))
             with patch.dict(os.environ, env, clear=True), \
                  patch.object(seed, 'validate_seed', return_value=self.checked):
-                one = seed.seed_before_collection(ROOT, root, state, session, self.contract, runtime)
-                two = seed.seed_before_collection(ROOT, root, state, session, self.contract, runtime)
+                one = seed.seed_before_collection(frozen_repo, root, state, session, self.contract, runtime)
+                two = seed.seed_before_collection(frozen_repo, root, state, session, self.contract, runtime)
                 self.assertEqual(one, two)
                 self.assertEqual(state.read('heads/cloud-lease.json'), before)
                 self.assertEqual(len(calls), 2)
@@ -174,13 +178,13 @@ class ActualProofTests(unittest.TestCase):
                     self.assertIsNone(state.read(key))
                 runtime.checkpoint = lambda *_: {}
                 with self.assertRaises(ValueError):
-                    seed.seed_before_collection(ROOT, root, state, session, self.contract, runtime)
+                    seed.seed_before_collection(frozen_repo, root, state, session, self.contract, runtime)
                 runtime.checkpoint = checkpoint
                 lease = state.read('heads/cloud-lease.json')
                 state.compare_and_swap('cloud-lease', lease, {**lease, 'releasedAt': NOW})
                 with patch.object(state, 'write_once', side_effect=AssertionError('denied before import')):
                     with self.assertRaises(ValueError):
-                        seed.seed_before_collection(ROOT, root, state, session, self.contract, runtime)
+                        seed.seed_before_collection(frozen_repo, root, state, session, self.contract, runtime)
 
     def test_zero_calls_real_subscription_guard_preserves_inventory_and_six_fetch_bound(self):
         from agents import SubscriptionAgent
@@ -246,7 +250,7 @@ class ActualArchiveProofTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.store = ReadOnlyArchive()
-        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        cls.contract = frozen_j_asset(ROOT)
         with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')), \
              patch.object(LocalStore, '__init__', side_effect=AssertionError('frozen initialization prohibited')):
             cls.checked = seed.validate_seed(ROOT, cls.store, cls.contract, NOW)
@@ -299,7 +303,7 @@ class ActualArchiveProofTests(unittest.TestCase):
 class OrdinaryDiscoveryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        cls.contract = frozen_j_asset(ROOT)
         cls.archive = CommittedSeed(ROOT)
         cls.raw = {}
         for sid, sha in zip(q4.SOURCE_IDS, ('f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19',

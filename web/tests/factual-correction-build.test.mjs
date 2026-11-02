@@ -12,6 +12,9 @@ const historicalRequests = readFileSync(new URL('../../ops/ci/fixtures/accepted-
 const historicalStamp = readFileSync(new URL('../../ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json', import.meta.url))
 assert.equal(digest(historicalRequests), '9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00')
 assert.equal(digest(historicalStamp), '365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2')
+const historicalMarket = readFileSync(new URL('../scripts/migration-proofs/three-source-j-original/market.json', import.meta.url))
+assert.equal(historicalMarket.length, 206939)
+assert.equal(digest(historicalMarket), '47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a')
 const design = JSON.parse(readFileSync(new URL('../../docs/active/daily-pipeline/accuracy/source-classification-admission-design-2026-10-23.json', import.meta.url)))
 const reviewPolicy = (group, market, baselineSha256) => digest({
   schemaVersion: 1, rulesVersion: 'dated-factual-correction-review-1', baselineSha256,
@@ -34,7 +37,8 @@ function fixture(t, enabled = true) {
   const files = ['contracts/market.json', 'contracts/factual-corrections.json', 'contracts/factual-baseline.json', 'web/src/data/tracker/originals.json', 'web/src/data/tracker/factualCorrectionPolicy.json', 'web/src/data/generated/factualCorrections.json']
   for (const file of files) {
     mkdirSync(resolve(root, file, '..'), { recursive: true })
-    const bytes = file === 'contracts/factual-corrections.json' ? historicalRequests
+    const bytes = file === 'contracts/market.json' ? historicalMarket
+      : file === 'contracts/factual-corrections.json' ? historicalRequests
       : file === 'web/src/data/tracker/factualCorrectionPolicy.json' ? historicalStamp
         : readFileSync(new URL('../../' + file, import.meta.url))
     writeFileSync(resolve(root, file), bytes)

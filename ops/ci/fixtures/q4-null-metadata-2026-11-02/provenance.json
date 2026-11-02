@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Portable parser regression fixtures only; no new transport, freshness, qualification or publication credit.",
+  "archive": {
+    "commit": "52632a360f4099f142ed0e10e46338e1d91f1bc9",
+    "manifestSha256": "3cb739133b60e03d418480e53ee8c454dca616efa8d3585fde87c5eb9ac61438",
+    "manifestEntries": 69873,
+    "manifestUrl": "https://github.com/jessepike/sec-market/blob/52632a360f4099f142ed0e10e46338e1d91f1bc9/archive-manifest.json"
+  },
+  "provenanceLimit": "These four selected entries were authenticated against the complete immutable archive during the November 2 read-only audit. The subset is not a Merkle proof and cannot independently authenticate the complete archive. Optional full-manifest replay verifies that original binding.",
+  "compression": {
+    "format": "gzip",
+    "filename": "",
+    "mtime": 0,
+    "compresslevel": 9,
+    "maximumDecodedBodyBytes": 2000000
+  },
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "bodyGzip": {
+        "file": "jfrog.json.gz",
+        "bytes": 33403,
+        "sha256": "e594bc351afc10712ff42978219379731b0690afe410da377e7301b671d5caf1"
+      },
+      "body": {
+        "bytes": 292860,
+        "sha256": "55403fd7a14cff45307e52173b26530fc766b2e5db66e1b7c1f8393ebd80836f"
+      },
+      "observation": {
+        "file": "jfrog-observation.json",
+        "bytes": 1112,
+        "sha256": "05f1b3dcb0cb1f7e98e1ff349bdbfbbfedcaff58b274372902abda874aabeb2e"
+      },
+      "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "fetchedAt": "2026-11-02T13:46:22.619755Z",
+      "contentType": "application/json; charset=utf-8",
+      "httpStatus": 200
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "bodyGzip": {
+        "file": "rapid7.json.gz",
+        "bytes": 34515,
+        "sha256": "90a82e4abe9caf36037be26671e168bdba75020aa3f9cecd6beb8813c8278734"
+      },
+      "body": {
+        "bytes": 427470,
+        "sha256": "4c6671119e33f158028fb690656b4c1ffe336ae86ac151ca2e6117bfd05d1ad9"
+      },
+      "observation": {
+        "file": "rapid7-observation.json",
+        "bytes": 1115,
+        "sha256": "dd0e01931667da797d6d6a89dfc94869aa53033fa09b6e94741bb42e11813cce"
+      },
+      "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "fetchedAt": "2026-11-02T13:44:14.102782Z",
+      "contentType": "application/json; charset=utf-8",
+      "httpStatus": 200
+    }
+  ],
+  "selectedManifestEntries": [
+    {
+      "bytes": 427470,
+      "key": "state/objects/4c6671119e33f158028fb690656b4c1ffe336ae86ac151ca2e6117bfd05d1ad9",
+      "sha256": "4c6671119e33f158028fb690656b4c1ffe336ae86ac151ca2e6117bfd05d1ad9"
+    },
+    {
+      "bytes": 292860,
+      "key": "state/objects/55403fd7a14cff45307e52173b26530fc766b2e5db66e1b7c1f8393ebd80836f",
+      "sha256": "55403fd7a14cff45307e52173b26530fc766b2e5db66e1b7c1f8393ebd80836f"
+    },
+    {
+      "bytes": 1115,
+      "key": "state/observations/c3bdaa3870c77084028484941ac4eb1927f4215fc494b41d02490802d82f7abe.json",
+      "sha256": "dd0e01931667da797d6d6a89dfc94869aa53033fa09b6e94741bb42e11813cce"
+    },
+    {
+      "bytes": 1112,
+      "key": "state/observations/e78db4c33b31cf39ef0ba4758fe84e7c99e57dfc651d7463b1de968f0838c727.json",
+      "sha256": "05f1b3dcb0cb1f7e98e1ff349bdbfbbfedcaff58b274372902abda874aabeb2e"
+    }
+  ]
+}

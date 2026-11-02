@@ -416,9 +416,9 @@
       ],
       "family": "release_distribution",
       "id": "cato:official:1",
-      "kind": "official_discovery",
+      "kind": "html_index",
       "maxPages": 60,
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "scopePrefixes": [
         "/news",
@@ -434,7 +434,35 @@
         "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html"
       ],
       "supplierId": "cato",
-      "url": "https://www.prnewswire.com/"
+      "url": "https://www.prnewswire.com/news/cato-networks/",
+      "htmlCompleteness": "prnewswire-issuer-calendar-window-v1",
+      "qualificationOrigin": {
+        "schemaVersion": 1,
+        "kind": "bounded_three_source_qualification",
+        "originalContract": {
+          "key": "contracts/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a.json",
+          "sha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+          "bytes": 206939
+        },
+        "descriptor": {
+          "key": "objects/43700f2e6946adfe8a61d1a2ea113182077b5ebe742e00e47db01f989152a9f5",
+          "sha256": "43700f2e6946adfe8a61d1a2ea113182077b5ebe742e00e47db01f989152a9f5",
+          "bytes": 1862
+        },
+        "proof": {
+          "key": "objects/de6bfe05ec4b1539dbe87d560b568e9e2a475a8f1475a10506b843967970c67f",
+          "sha256": "de6bfe05ec4b1539dbe87d560b568e9e2a475a8f1475a10506b843967970c67f",
+          "bytes": 405227
+        },
+        "sourceResultIndex": 0,
+        "originalSourceSha256": "8a03fa1c619021c0b45987ea009a2d35a4ba4cb5b418c4b87196d14af9825b9a",
+        "proposedAdapterSha256": "06226996416c637c53f6348e7b5ef2ecbd35b56f88353ff5419b87cc305bfdcd",
+        "inventoryManifest": {
+          "key": "objects/48fc31044ab37a5f9f47fa19066b72668eaabc72a850e24b5f7580b6db438362",
+          "sha256": "48fc31044ab37a5f9f47fa19066b72668eaabc72a850e24b5f7580b6db438362",
+          "bytes": 19165
+        }
+      }
     },
     {
       "allowedHosts": [
@@ -442,9 +470,9 @@
       ],
       "family": "release_distribution",
       "id": "chainguard:official:1",
-      "kind": "official_discovery",
+      "kind": "html_index",
       "maxPages": 60,
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "scopePrefixes": [
         "/news",
@@ -458,7 +486,35 @@
         "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html"
       ],
       "supplierId": "chainguard",
-      "url": "https://www.prnewswire.com/"
+      "url": "https://www.prnewswire.com/news/chainguard/",
+      "htmlCompleteness": "prnewswire-issuer-calendar-window-v1",
+      "qualificationOrigin": {
+        "schemaVersion": 1,
+        "kind": "bounded_three_source_qualification",
+        "originalContract": {
+          "key": "contracts/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a.json",
+          "sha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+          "bytes": 206939
+        },
+        "descriptor": {
+          "key": "objects/43700f2e6946adfe8a61d1a2ea113182077b5ebe742e00e47db01f989152a9f5",
+          "sha256": "43700f2e6946adfe8a61d1a2ea113182077b5ebe742e00e47db01f989152a9f5",
+          "bytes": 1862
+        },
+        "proof": {
+          "key": "objects/de6bfe05ec4b1539dbe87d560b568e9e2a475a8f1475a10506b843967970c67f",
+          "sha256": "de6bfe05ec4b1539dbe87d560b568e9e2a475a8f1475a10506b843967970c67f",
+          "bytes": 405227
+        },
+        "sourceResultIndex": 1,
+        "originalSourceSha256": "80eca52f173a73bc1baeab6b9a5b23f550dde1fdd58c8afd55835ee8ad05ead9",
+        "proposedAdapterSha256": "2a8288bc725ece9f5f1593b14fe3f5a1580fddef6a8f1b8ee1f270a87531d778",
+        "inventoryManifest": {
+          "key": "objects/57d56ae30167d1c0d6fbcc669724f0dd2e9304b5baa8d908e0c9652291627e02",
+          "sha256": "57d56ae30167d1c0d6fbcc669724f0dd2e9304b5baa8d908e0c9652291627e02",
+          "bytes": 7904
+        }
+      }
     },
     {
       "allowedHosts": [
@@ -670,9 +726,9 @@
       ],
       "family": "official_announcements",
       "id": "cyera:official:1",
-      "kind": "official_discovery",
+      "kind": "html_index",
       "maxPages": 60,
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "scopePrefixes": [
         "/news",
@@ -690,16 +746,74 @@
         "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises"
       ],
       "supplierId": "cyera",
-      "url": "https://www.cyera.com/"
+      "url": "https://www.cyera.com/newsroom/press-releases",
+      "htmlCompleteness": "cyera-press-list-finite-html-v1",
+      "qualificationOrigin": {
+        "schemaVersion": 1,
+        "kind": "bounded_three_source_qualification",
+        "originalContract": {
+          "key": "contracts/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a.json",
+          "sha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+          "bytes": 206939
+        },
+        "descriptor": {
+          "key": "objects/43700f2e6946adfe8a61d1a2ea113182077b5ebe742e00e47db01f989152a9f5",
+          "sha256": "43700f2e6946adfe8a61d1a2ea113182077b5ebe742e00e47db01f989152a9f5",
+          "bytes": 1862
+        },
+        "proof": {
+          "key": "objects/de6bfe05ec4b1539dbe87d560b568e9e2a475a8f1475a10506b843967970c67f",
+          "sha256": "de6bfe05ec4b1539dbe87d560b568e9e2a475a8f1475a10506b843967970c67f",
+          "bytes": 405227
+        },
+        "sourceResultIndex": 2,
+        "originalSourceSha256": "6121c066ba4624d6406a3dc586d6a4cea3adcf38ff09275b9296d1e7083da6f0",
+        "proposedAdapterSha256": "557c8739d5beff5b9797daaaac9a8fd35af33e366c00c9ea9b7c17259166e02c",
+        "inventoryManifest": {
+          "key": "objects/c6cbdd1280cc9ccf893903e55c9499dc61ce1894fee225f998c043116cec22ca",
+          "sha256": "c6cbdd1280cc9ccf893903e55c9499dc61ce1894fee225f998c043116cec22ca",
+          "bytes": 7652
+        }
+      }
     },
     {
       "allowedHosts": [
         "delinea.com"
       ],
       "family": "official_announcements",
+      "htmlCompleteness": "delinea-news-pagination-v5",
       "id": "delinea:official:1",
       "kind": "html_index",
       "maxPages": 60,
+      "qualificationOrigin": {
+        "activationBaseSha256": "34888dde5b3c0d9a4c2f75b1d3c23de983b922d10a1e009cd7217f1de2a0e82c",
+        "diagnostic": {
+          "bytes": 318196,
+          "key": "ci/source-probe-runs/40116695719-1.json",
+          "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be"
+        },
+        "inventoryManifest": {
+          "bytes": 7591,
+          "key": "objects/a08e0148be17108b185a7d82d9408a0e569bc7ce460ff8842f2eddd0db73a5a7",
+          "sha256": "a08e0148be17108b185a7d82d9408a0e569bc7ce460ff8842f2eddd0db73a5a7"
+        },
+        "kind": "bounded_html_qualification",
+        "originalContract": {
+          "bytes": 200746,
+          "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
+          "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
+        },
+        "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
+        "plan": {
+          "bytes": 5338,
+          "key": "objects/ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
+          "sha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3"
+        },
+        "proposedAdapterSha256": "f82ba9671a5f1a6289860efa4997d672a68acc678953d6ae6b32722b41976b53",
+        "schemaVersion": 1,
+        "sourceResultIndex": 1,
+        "sourceResultSha256": "52d89f2e1a944824f0d57395aa6b75ef6a417688aadd88068a2090a8f9d4d7ee"
+      },
       "registration": "verified",
       "required": true,
       "scopePrefixes": [
@@ -715,37 +829,7 @@
         "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor"
       ],
       "supplierId": "delinea",
-      "url": "https://delinea.com/news",
-      "htmlCompleteness": "delinea-news-pagination-v5",
-      "qualificationOrigin": {
-        "schemaVersion": 1,
-        "kind": "bounded_html_qualification",
-        "originalContract": {
-          "bytes": 200746,
-          "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
-          "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
-        },
-        "diagnostic": {
-          "bytes": 318196,
-          "key": "ci/source-probe-runs/40116695719-1.json",
-          "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be"
-        },
-        "plan": {
-          "bytes": 5338,
-          "key": "objects/ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
-          "sha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3"
-        },
-        "sourceResultIndex": 1,
-        "sourceResultSha256": "52d89f2e1a944824f0d57395aa6b75ef6a417688aadd88068a2090a8f9d4d7ee",
-        "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
-        "proposedAdapterSha256": "f82ba9671a5f1a6289860efa4997d672a68acc678953d6ae6b32722b41976b53",
-        "activationBaseSha256": "34888dde5b3c0d9a4c2f75b1d3c23de983b922d10a1e009cd7217f1de2a0e82c",
-        "inventoryManifest": {
-          "key": "objects/a08e0148be17108b185a7d82d9408a0e569bc7ce460ff8842f2eddd0db73a5a7",
-          "sha256": "a08e0148be17108b185a7d82d9408a0e569bc7ce460ff8842f2eddd0db73a5a7",
-          "bytes": 7591
-        }
-      }
+      "url": "https://delinea.com/news"
     },
     {
       "allowedHosts": [
@@ -1308,6 +1392,33 @@
       "id": "jfrog:official:1",
       "kind": "q4_press_list",
       "maxPages": 60,
+      "qualificationOrigin": {
+        "adapterSha256": "1806af8e93712f07da5a28bf590ecdce8f2b352c63559a2d0a46d90afcb01744",
+        "descriptor": {
+          "bytes": 6105,
+          "key": "objects/0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+          "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b"
+        },
+        "inventoryManifest": {
+          "bytes": 30669,
+          "key": "objects/db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
+          "sha256": "db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4"
+        },
+        "kind": "bounded_q4_press_qualification",
+        "originalContract": {
+          "bytes": 204449,
+          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+        },
+        "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+        "proof": {
+          "bytes": 7571,
+          "key": "objects/eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+          "sha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714"
+        },
+        "schemaVersion": 1,
+        "sourceResultIndex": 0
+      },
       "registration": "verified",
       "required": true,
       "scopePrefixes": [
@@ -1322,34 +1433,7 @@
         "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
       ],
       "supplierId": "jfrog",
-      "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
-      "qualificationOrigin": {
-        "schemaVersion": 1,
-        "kind": "bounded_q4_press_qualification",
-        "originalContract": {
-          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
-          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
-          "bytes": 204449
-        },
-        "descriptor": {
-          "key": "objects/0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
-          "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
-          "bytes": 6105
-        },
-        "proof": {
-          "key": "objects/eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
-          "sha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
-          "bytes": 7571
-        },
-        "sourceResultIndex": 0,
-        "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
-        "adapterSha256": "1806af8e93712f07da5a28bf590ecdce8f2b352c63559a2d0a46d90afcb01744",
-        "inventoryManifest": {
-          "key": "objects/db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
-          "sha256": "db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
-          "bytes": 30669
-        }
-      }
+      "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1"
     },
     {
       "allowedHosts": [
@@ -1646,9 +1730,39 @@
         "press.pingidentity.com"
       ],
       "family": "official_announcements",
+      "htmlCompleteness": "ping-release-pagination-v3",
       "id": "ping-identity:official:1",
       "kind": "html_index",
       "maxPages": 60,
+      "qualificationOrigin": {
+        "activationBaseSha256": "ec451ef128579c92e4942a9ca4c65704620012ca7357f814c10c06fd818c2ba8",
+        "diagnostic": {
+          "bytes": 318196,
+          "key": "ci/source-probe-runs/40116695719-1.json",
+          "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be"
+        },
+        "inventoryManifest": {
+          "bytes": 28411,
+          "key": "objects/0a4c4ff4dd5b7b98aff24dc388ad4a95cca214f0bb9950094b089d599763573b",
+          "sha256": "0a4c4ff4dd5b7b98aff24dc388ad4a95cca214f0bb9950094b089d599763573b"
+        },
+        "kind": "bounded_html_qualification",
+        "originalContract": {
+          "bytes": 200746,
+          "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
+          "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
+        },
+        "originalSourceSha256": "b38afb84403d53cadcda401c89b10a1f66ef57ec4e119466a89daea6cee3998e",
+        "plan": {
+          "bytes": 5338,
+          "key": "objects/ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
+          "sha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3"
+        },
+        "proposedAdapterSha256": "b071ca029730ddd2dfaf7e7f41a6073b89f4e54979da3cc7fddb7c9c509e7700",
+        "schemaVersion": 1,
+        "sourceResultIndex": 0,
+        "sourceResultSha256": "06bd006b38fbded414dc44b06b8c840209b8d2f3e081314ad5927c9061d9360e"
+      },
       "registration": "verified",
       "required": true,
       "scopePrefixes": [
@@ -1664,37 +1778,7 @@
         "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity"
       ],
       "supplierId": "ping-identity",
-      "url": "https://press.pingidentity.com/news-releases",
-      "htmlCompleteness": "ping-release-pagination-v3",
-      "qualificationOrigin": {
-        "schemaVersion": 1,
-        "kind": "bounded_html_qualification",
-        "originalContract": {
-          "bytes": 200746,
-          "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
-          "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
-        },
-        "diagnostic": {
-          "bytes": 318196,
-          "key": "ci/source-probe-runs/40116695719-1.json",
-          "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be"
-        },
-        "plan": {
-          "bytes": 5338,
-          "key": "objects/ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
-          "sha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3"
-        },
-        "sourceResultIndex": 0,
-        "sourceResultSha256": "06bd006b38fbded414dc44b06b8c840209b8d2f3e081314ad5927c9061d9360e",
-        "originalSourceSha256": "b38afb84403d53cadcda401c89b10a1f66ef57ec4e119466a89daea6cee3998e",
-        "proposedAdapterSha256": "b071ca029730ddd2dfaf7e7f41a6073b89f4e54979da3cc7fddb7c9c509e7700",
-        "activationBaseSha256": "ec451ef128579c92e4942a9ca4c65704620012ca7357f814c10c06fd818c2ba8",
-        "inventoryManifest": {
-          "key": "objects/0a4c4ff4dd5b7b98aff24dc388ad4a95cca214f0bb9950094b089d599763573b",
-          "sha256": "0a4c4ff4dd5b7b98aff24dc388ad4a95cca214f0bb9950094b089d599763573b",
-          "bytes": 28411
-        }
-      }
+      "url": "https://press.pingidentity.com/news-releases"
     },
     {
       "allowedHosts": [
@@ -1877,6 +1961,33 @@
       "id": "rapid7:official:1",
       "kind": "q4_press_list",
       "maxPages": 60,
+      "qualificationOrigin": {
+        "adapterSha256": "e33f08be7a81675ce1d8c925dd78d5165ac6b87eaf3ad71f1264856744f27cf3",
+        "descriptor": {
+          "bytes": 6105,
+          "key": "objects/0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+          "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b"
+        },
+        "inventoryManifest": {
+          "bytes": 49495,
+          "key": "objects/ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
+          "sha256": "ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25"
+        },
+        "kind": "bounded_q4_press_qualification",
+        "originalContract": {
+          "bytes": 204449,
+          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+        },
+        "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+        "proof": {
+          "bytes": 7571,
+          "key": "objects/eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+          "sha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714"
+        },
+        "schemaVersion": 1,
+        "sourceResultIndex": 1
+      },
       "registration": "verified",
       "required": true,
       "scopePrefixes": [
@@ -1891,34 +2002,7 @@
         "https://investors.rapid7.com/news/news-details/2026/Rapid7-Appoints-Wael-Mohamed-Chief-Executive-Officer-Corey-Thomas-to-Become-Executive-Chairman/default.aspx"
       ],
       "supplierId": "rapid7",
-      "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
-      "qualificationOrigin": {
-        "schemaVersion": 1,
-        "kind": "bounded_q4_press_qualification",
-        "originalContract": {
-          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
-          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
-          "bytes": 204449
-        },
-        "descriptor": {
-          "key": "objects/0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
-          "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
-          "bytes": 6105
-        },
-        "proof": {
-          "key": "objects/eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
-          "sha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
-          "bytes": 7571
-        },
-        "sourceResultIndex": 1,
-        "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
-        "adapterSha256": "e33f08be7a81675ce1d8c925dd78d5165ac6b87eaf3ad71f1264856744f27cf3",
-        "inventoryManifest": {
-          "key": "objects/ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
-          "sha256": "ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
-          "bytes": 49495
-        }
-      }
+      "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1"
     },
     {
       "allowedHosts": [
@@ -2202,9 +2286,39 @@
         "www.sonatype.com"
       ],
       "family": "official_announcements",
+      "htmlCompleteness": "sonatype-press-pagination-v5",
       "id": "sonatype:official:1",
       "kind": "html_index",
       "maxPages": 60,
+      "qualificationOrigin": {
+        "activationBaseSha256": "164b5bf3ee95554ecdfc0ecf63c70392e5c63e0c47ff510f2a3974f2adca8b05",
+        "diagnostic": {
+          "bytes": 318196,
+          "key": "ci/source-probe-runs/40116695719-1.json",
+          "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be"
+        },
+        "inventoryManifest": {
+          "bytes": 7599,
+          "key": "objects/e0a1bbfeaaff1ed8e05fdc45810f244101c8df649db6473e2d552d1cba42fffb",
+          "sha256": "e0a1bbfeaaff1ed8e05fdc45810f244101c8df649db6473e2d552d1cba42fffb"
+        },
+        "kind": "bounded_html_qualification",
+        "originalContract": {
+          "bytes": 200746,
+          "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
+          "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
+        },
+        "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
+        "plan": {
+          "bytes": 5338,
+          "key": "objects/ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
+          "sha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3"
+        },
+        "proposedAdapterSha256": "eff087aaa5493dd6fa588f92877a767e5c0edcdcce72789fb0f35dd06cb4ec74",
+        "schemaVersion": 1,
+        "sourceResultIndex": 2,
+        "sourceResultSha256": "326d94819f4fbdecc30008f25ee094203f34d0cf492100079d4c261df79175f3"
+      },
       "registration": "verified",
       "required": true,
       "scopePrefixes": [
@@ -2220,37 +2334,7 @@
         "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth"
       ],
       "supplierId": "sonatype",
-      "url": "https://www.sonatype.com/press-releases",
-      "htmlCompleteness": "sonatype-press-pagination-v5",
-      "qualificationOrigin": {
-        "schemaVersion": 1,
-        "kind": "bounded_html_qualification",
-        "originalContract": {
-          "bytes": 200746,
-          "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
-          "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
-        },
-        "diagnostic": {
-          "bytes": 318196,
-          "key": "ci/source-probe-runs/40116695719-1.json",
-          "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be"
-        },
-        "plan": {
-          "bytes": 5338,
-          "key": "objects/ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
-          "sha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3"
-        },
-        "sourceResultIndex": 2,
-        "sourceResultSha256": "326d94819f4fbdecc30008f25ee094203f34d0cf492100079d4c261df79175f3",
-        "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
-        "proposedAdapterSha256": "eff087aaa5493dd6fa588f92877a767e5c0edcdcce72789fb0f35dd06cb4ec74",
-        "activationBaseSha256": "164b5bf3ee95554ecdfc0ecf63c70392e5c63e0c47ff510f2a3974f2adca8b05",
-        "inventoryManifest": {
-          "key": "objects/e0a1bbfeaaff1ed8e05fdc45810f244101c8df649db6473e2d552d1cba42fffb",
-          "sha256": "e0a1bbfeaaff1ed8e05fdc45810f244101c8df649db6473e2d552d1cba42fffb",
-          "bytes": 7599
-        }
-      }
+      "url": "https://www.sonatype.com/press-releases"
     },
     {
       "allowedHosts": [

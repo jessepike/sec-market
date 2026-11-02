@@ -1,0 +1,212 @@
+{
+  "kind": "three_source_local_implementation_validation",
+  "state": "locally_verified_not_activated",
+  "baseAppRevision": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+  "controlledCopyBase": "d7375bf347c43a1ada506e2e76cca5d7d786df6a",
+  "canonicalK": "6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68",
+  "disabledKPlan": {
+    "sha256": "cfd9932130a94d2763b7e7ebae904d0658ea658d0f917ffc0602ae112f3efb35",
+    "bytes": 173
+  },
+  "checks": {
+    "operations": {
+      "tests": 1044,
+      "pass": 1044,
+      "skips": 0,
+      "testSeconds": 204.755,
+      "wallSeconds": 205.25
+    },
+    "application": {
+      "dataTests": 382,
+      "pipelineTests": 115,
+      "browserPass": 42,
+      "existingOptionalBrowserSkip": 1,
+      "wallSeconds": 21.69
+    },
+    "newSourceAdapterAndOrdinaryEngine": {
+      "tests": 17,
+      "pass": 17,
+      "seconds": 6.229
+    },
+    "newOriginAndSeed": {
+      "tests": 9,
+      "pass": 9,
+      "includedInFinalOperations": true
+    },
+    "secCertification": {
+      "suppliers": 16,
+      "proofs": 80,
+      "updated": 0,
+      "checkedNoChange": 256,
+      "failed": 0
+    },
+    "pythonJsMigration": {
+      "tests": 4,
+      "pass": 4,
+      "skips": 0
+    },
+    "actualArchivePreflight": {
+      "seconds": 21.286,
+      "eightCachedAdmissions": true,
+      "sourceRequests": 0,
+      "modelCalls": 0,
+      "reservations": 0,
+      "stateWrites": 0
+    },
+    "actualKCorrectionBuild": {
+      "unchangedGroups": 8,
+      "existingJsVerifier": true,
+      "gateRuns": 0,
+      "publicationAttempts": 0
+    }
+  },
+  "visual": {
+    "comparison": "Local committed prospective J static baseline versus K candidate; this is not production/hosted-preview approval.",
+    "viewports": {
+      "1440": {
+        "pageHeight": 8379,
+        "beforeSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "afterSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "exactPngEquality": true,
+        "candidateFirstScreenInspected": true
+      },
+      "390": {
+        "pageHeight": 7749,
+        "beforeSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "afterSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "exactPngEquality": true,
+        "candidateFirstScreenInspected": true
+      }
+    }
+  },
+  "failureAndRepairNotes": [
+    "Original historical Q4 runtime repository guard rejected mutable K while its test subject was J; test now supplies an explicit frozen-J temporary repository. Production guard unchanged.",
+    "Seven historical six-correction JS build tests and one Python publisher test copied mutable K alongside their frozen J stamp. Tests now pin frozen J market; every substantive assertion and production correction logic remains.",
+    "New test fixture missing LocalStore import and cloned NOW name were repaired. First failure logs remain outside this candidate.",
+    "One operational rerun was interrupted after noticing the publisher fixture replacement had not matched the actual source line. The final full run used the corrected file.",
+    "Incomplete sourceWindow reasons originally differed between a real quota denial and offline missing-observation replay. Root accepted a deterministic DAILY_WINDOW_UNPROVED proof reason; detailed receipt error and real HTTP status/MIME remain retained. No completeness or observation field is ignored."
+  ],
+  "logs": {
+    "adapters-first.log": {
+      "sha256": "431884f04880e5a85a1b646357d9b2c18955e13306816b6fa693ef83610f5232",
+      "bytes": 2173,
+      "path": "/var/tmp/smp-three-source-build-20261027/adapters-first.log"
+    },
+    "adapters-retained-replay.log": {
+      "sha256": "0f7ad82a8952237972b4e38fc8d28249c94299cd1ae880606337daf40dac79fd",
+      "bytes": 3646,
+      "path": "/var/tmp/smp-three-source-build-20261027/adapters-retained-replay.log"
+    },
+    "adapters-complete.log": {
+      "sha256": "dbdbdf0b0544262c964bca130b46485456e0a4fe36c26ad5c4a27005c937ff96",
+      "bytes": 3104,
+      "path": "/var/tmp/smp-three-source-build-20261027/adapters-complete.log"
+    },
+    "adapters-complete-2.log": {
+      "sha256": "9cc48494f028fd9e0babfed85fee637c80ba393c06365a16ab5d8b5d0103697f",
+      "bytes": 3104,
+      "path": "/var/tmp/smp-three-source-build-20261027/adapters-complete-2.log"
+    },
+    "ordinary-first.log": {
+      "sha256": "aeccd84318da955af58c590a46dcae4ca57f7076d31062f73b57b01efd7b0518",
+      "bytes": 2206,
+      "path": "/var/tmp/smp-three-source-build-20261027/ordinary-first.log"
+    },
+    "ordinary-adapter-final.log": {
+      "sha256": "1710576ad478154326d613b1a994f59ed3cda320938629775a05f9d8f8cd3380",
+      "bytes": 3371,
+      "path": "/var/tmp/smp-three-source-build-20261027/ordinary-adapter-final.log"
+    },
+    "origin-seed-first.log": {
+      "sha256": "e3f8dd5b84eb5c64b3cd48df653575ab88046063a451e210322b5d57ccb2e70a",
+      "bytes": 2258,
+      "path": "/var/tmp/smp-three-source-build-20261027/origin-seed-first.log"
+    },
+    "origin-seed-2.log": {
+      "sha256": "e521506641c88b536ef79cfff01831d46accffe5df035ab80a5da3aa905e6c91",
+      "bytes": 3729,
+      "path": "/var/tmp/smp-three-source-build-20261027/origin-seed-2.log"
+    },
+    "origin-seed-3.log": {
+      "sha256": "fe3354f71a885e4378d65aea7ce1236d3179fcb40953a5a3c92fa84267fcdd7b",
+      "bytes": 3801,
+      "path": "/var/tmp/smp-three-source-build-20261027/origin-seed-3.log"
+    },
+    "origin-seed-4.log": {
+      "sha256": "1abc811806f53695702772a323ab761f2e99119a0026e9ec4ee7f2f6ad3383cd",
+      "bytes": 1549,
+      "path": "/var/tmp/smp-three-source-build-20261027/origin-seed-4.log"
+    },
+    "seed-runtime-final.log": {
+      "sha256": "485929d3edbebd09d14039dfe0e86a04da7e47219e3969ddd4f48e4a0b32489d",
+      "bytes": 2648,
+      "path": "/var/tmp/smp-three-source-build-20261027/seed-runtime-final.log"
+    },
+    "seed-runtime-final-2.log": {
+      "sha256": "16ba89e7e0e85669178fa11f54bb784c78ae2aee7b9afd69d61f60af6abb4492",
+      "bytes": 2657,
+      "path": "/var/tmp/smp-three-source-build-20261027/seed-runtime-final-2.log"
+    },
+    "seed-guard-final.log": {
+      "sha256": "4168be4d4abb52faaf37907a8586167a076d8215f4c5524952a82bc3a94c5788",
+      "bytes": 478,
+      "path": "/var/tmp/smp-three-source-build-20261027/seed-guard-final.log"
+    },
+    "affected-first.log": {
+      "sha256": "b1b93d2168afec0bb6fd5d64793eea6c4234d3a4047b724cae556c9f1eef2bc4",
+      "bytes": 17929,
+      "path": "/var/tmp/smp-three-source-build-20261027/affected-first.log"
+    },
+    "operations-full-first.log": {
+      "sha256": "83ad28e09b39ccd1b8fabb387d0d089b026be6a6d1d522cb7462aa742776d5b5",
+      "bytes": 196802,
+      "path": "/var/tmp/smp-three-source-build-20261027/operations-full-first.log"
+    },
+    "operations-full-final.log": {
+      "sha256": "d89c4640ae621b883aa171e1f465356dc2d32bf9ce0860af5eeb4703f8baaa6c",
+      "bytes": 47359,
+      "path": "/var/tmp/smp-three-source-build-20261027/operations-full-final.log"
+    },
+    "operations-full-final-2.log": {
+      "sha256": "e9ffcc717c7f3687ff82f80d8f60c12973ee76ee0ca41c5f8bee6e0d50c0c348",
+      "bytes": 194910,
+      "path": "/var/tmp/smp-three-source-build-20261027/operations-full-final-2.log"
+    },
+    "application-full-first.log": {
+      "sha256": "96352bbb8e78f31cef338d52e8957274819ef5ab588497680e290c2026e2ad75",
+      "bytes": 106759,
+      "path": "/var/tmp/smp-three-source-build-20261027/application-full-first.log"
+    },
+    "application-full-2.log": {
+      "sha256": "23b193eb42c6535bc408413a38a0b652e8ecbf51d1579dce3e1af4d31b90988d",
+      "bytes": 128136,
+      "path": "/var/tmp/smp-three-source-build-20261027/application-full-2.log"
+    },
+    "baseline-js.log": {
+      "sha256": "cb7097a125629c4ec2d385e7a38029c041b21670d6340f3c66767c5ad9200884",
+      "bytes": 996,
+      "path": "/var/tmp/smp-three-source-build-20261027/baseline-js.log"
+    },
+    "sec-certification.log": {
+      "sha256": "394334469cd9f5f2dfc22158b5621d6faa2c13a81ccf11771f2881a474d30431",
+      "bytes": 2293,
+      "path": "/var/tmp/smp-three-source-build-20261027/sec-certification.log"
+    },
+    "visual-capture.log": {
+      "sha256": "3c3fdb2640d35dda83717323bcdb94e58abb8933908e91f12312d8b54965cc40",
+      "bytes": 76,
+      "path": "/var/tmp/smp-three-source-build-20261027/visual-capture.log"
+    }
+  },
+  "limits": [
+    "No commit, push, promotion, actual new normal collection or publication was performed.",
+    "Current public sequence6, source clocks, old dates,48holds, eight admissions and spent ledger452/67/31 remain unchanged.",
+    "Canary and dormant Rubrik patches are separate reviewed units and are not included in this core copy index.",
+    "Hosted checks/activation remain blocked pending runner architecture review and GitHub account admission."
+  ],
+  "newPaidServices": false,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "gateRuns": 0,
+  "publicationAttempts": 0
+}

@@ -13,6 +13,7 @@ from unittest.mock import Mock, patch
 ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT/'web/scripts/pipeline'),str(ROOT/'ops/ci')]
 from agents import SubscriptionAgent
+from q4_intake_fixtures import frozen_j_asset
 from contracts import canonical,digest,instant
 from corrections import load_policy,group_review_policy,validate_sources,process_corrections,project_bundle,_index,replay_admission
 from historical_correction_fixtures import historical_requests,historical_stamp,historical_repo
@@ -57,7 +58,7 @@ class Overlay:
  def write_once(self,key,value):return self.local.write_once(key,value)
 class PendingPolicyTests(unittest.TestCase):
  def setUp(self):
-  self.market=read(ROOT/'contracts/market.json');self.requests=read(ROOT/'contracts/factual-corrections.json');self.packet=read(PACKET)
+  self.market=frozen_j_asset(ROOT);self.requests=read(ROOT/'contracts/factual-corrections.json');self.packet=read(PACKET);self.repo=self.enterContext(candidate_repo(self.requests,self.market))
  def test_exact_packet_append_version_and_current_J_with_immutable_old_six(self):
   self.assertEqual(digest(PACKET.read_bytes()),'ffe9400b6f5d1750032ed7d6a1c04c190f43084fa0adde61a47edb3c2244519a')
   self.assertEqual(digest(self.market),'47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a')
@@ -68,7 +69,7 @@ class PendingPolicyTests(unittest.TestCase):
    while oldraw[i].isspace()or oldraw[i]==',':i+=1
    _,end=decoder.raw_decode(oldraw,i);self.assertEqual(newraw[i:end],oldraw[i:end]);i=end
  def test_only_outer_stamp_changes_and_generated_projection_remains_disabled(self):
-  ctx=load_policy(ROOT,self.market);current=read(ROOT/'web/src/data/tracker/factualCorrectionPolicy.json');self.assertEqual(current,stamp(self.requests,self.market))
+  ctx=load_policy(self.repo,self.market);current=read(self.repo/'web/src/data/tracker/factualCorrectionPolicy.json');self.assertEqual(current,stamp(self.requests,self.market))
   for gid,policy in historical_stamp()['reviewPolicySha256ByGroup'].items():self.assertEqual(ctx['reviewPolicySha256ByGroup'][gid],policy)
   self.assertNotEqual(ctx['policySha256'],historical_stamp()['policySha256'])
   self.assertEqual(read(ROOT/'web/src/data/generated/factualCorrections.json'),{'schemaVersion':1,'enabled':False,'policySha256':None,'checkedAt':None,'groups':[]})
@@ -86,14 +87,14 @@ class PendingPolicyTests(unittest.TestCase):
     with candidate_repo(q,self.market)as repo:load_policy(repo,self.market)
  def test_pending_current_inventory_blocks_projection_before_any_gate_or_model(self):
   with tempfile.TemporaryDirectory(prefix='synthetic-pending-correction-gate-')as tmp:
-   store=LocalStore(Path(tmp));ctx=load_policy(ROOT,self.market);pending={'runId':'SYNTHETIC-PENDING','checkedAt':NOW,'policySha256':ctx['policySha256'],'admitted':[],'pending':[{'groupId':g['id'],'reason':'PENDING_REAL_INDEPENDENT_REVIEW'}for g in self.packet['groups']],'attempts':[]}
+   store=LocalStore(Path(tmp));ctx=load_policy(self.repo,self.market);pending={'runId':'SYNTHETIC-PENDING','checkedAt':NOW,'policySha256':ctx['policySha256'],'admitted':[],'pending':[{'groupId':g['id'],'reason':'PENDING_REAL_INDEPENDENT_REVIEW'}for g in self.packet['groups']],'attempts':[]}
    store.compare_and_swap('correction-collection',None,{'runId':pending['runId'],'outcome':store.put(pending)})
-   with self.assertRaisesRegex(ValueError,'pending'):preflight_corrections(ROOT,store,self.market,pending['runId'],None,NOW)
+   with self.assertRaisesRegex(ValueError,'pending'):preflight_corrections(self.repo,store,self.market,pending['runId'],None,NOW)
    self.assertIsNone(store.read('heads/gate-budget-2026-10-26.json'));self.assertIsNone(store.read('heads/publication-budget-2026-10-26.json'))
 @unittest.skipUnless((ARCHIVE/'archive-manifest.json').exists(),'Full authenticated actual J archive available only in offline evidence VM')
 class ActualSourceAndSyntheticMechanicsTests(unittest.TestCase):
  def setUp(self):
-  self.market=read(ROOT/'contracts/market.json');self.requests=read(ROOT/'contracts/factual-corrections.json');self.packet=read(PACKET);self.base=ReadOnlyJ();self.addCleanup(self.base.unchanged,self)
+  self.market=frozen_j_asset(ROOT);self.requests=read(ROOT/'contracts/factual-corrections.json');self.packet=read(PACKET);self.repo=self.enterContext(candidate_repo(self.requests,self.market));self.base=ReadOnlyJ();self.addCleanup(self.base.unchanged,self)
   self.tmp=tempfile.TemporaryDirectory(prefix='SYNTHETIC-NON-ADMITTING-priority-corrections-');self.addCleanup(self.tmp.cleanup)
   self.local=LocalStore(Path(self.tmp.name));self.store=Overlay(self.local,self.base);self.charges=[];self.reviewed=[];self.transform=lambda x:x
   self.runner=Mock(side_effect=self.synthetic_runner);self.agent=SubscriptionAgent(self.market['model'],runner=self.runner)
@@ -105,7 +106,7 @@ class ActualSourceAndSyntheticMechanicsTests(unittest.TestCase):
   payload=json.loads(kwargs['input'].split('UNTRUSTED CORRECTION AND PRIMARY EVIDENCE:\n')[1]);self.reviewed.append(payload['group']['id'] if'group'in payload else payload.get('correction',{}).get('id'))
   response={key:payload[key]for key in('candidateSha256','evidenceSetSha256','policySha256')};response.update(result='accepted',checks={key:'pass'for key in REVIEW_CHECKS});response=self.transform(response)
   Path(args[args.index('--output-last-message')+1]).write_text(json.dumps(response));return subprocess.CompletedProcess(args,0,'','')
- def process(self,**kwargs):return process_corrections(ROOT,self.store,self.market,self.agent,self.reserve,NOW,clock=lambda:NOW,**kwargs)
+ def process(self,**kwargs):return process_corrections(self.repo,self.store,self.market,self.agent,self.reserve,NOW,clock=lambda:NOW,**kwargs)
  def test_new_J_retains_exact_old_packet_sources_whole_texts_and_200_304_clocks(self):
   for group,chars in zip(self.packet['groups'],(26465,8295)):
    docs=validate_sources(group,self.base,self.market,NOW);self.assertEqual(len(docs[0]['text']),chars)
@@ -130,10 +131,10 @@ class ActualSourceAndSyntheticMechanicsTests(unittest.TestCase):
     group=copy.deepcopy(self.packet['groups'][index]);group['sources'][0][field]=value
     with self.subTest(field=field),self.assertRaises(ValueError):validate_sources(group,self.base,self.market,NOW)
  def test_six_old_admissions_replay_without_reservations_before_two_pending_groups(self):
-  result=process_corrections(ROOT,self.store,self.market,None,self.reserve,NOW,clock=lambda:NOW)
+  result=process_corrections(self.repo,self.store,self.market,None,self.reserve,NOW,clock=lambda:NOW)
   self.assertEqual(len(result['admitted']),6);self.assertEqual(len(result['pending']),2);self.assertFalse(self.charges)
   self.assertEqual([r['groupId']for r in result['pending']],[g['id']for g in self.packet['groups']])
-  ctx=load_policy(ROOT,self.market)
+  ctx=load_policy(self.repo,self.market)
   for group in self.requests['groups'][:6]:
    policy=ctx['reviewPolicySha256ByGroup'][group['id']];ref=self.base.read(_index(group,policy))['admission'];self.assertEqual(replay_admission(group,ref,self.base,self.market,policy,NOW)['sources'],group['sources'])
  def test_SYNTHETIC_successful_two_group_review_cost_and_order_never_touch_real_state(self):
@@ -146,11 +147,11 @@ class ActualSourceAndSyntheticMechanicsTests(unittest.TestCase):
   self.agent.synthetic=True;result=self.process();self.assertEqual(len(result['pending']),2);self.assertFalse(self.charges)
   del self.agent.synthetic;self.transform=lambda response:{**response,'result':'rejected'};result=self.process();self.assertEqual(len(result['pending']),2);self.assertEqual(len(result['admitted']),6)
   head={'runId':'SYNTHETIC-REJECTED','checkedAt':NOW,**result};self.local.compare_and_swap('correction-collection',None,{'runId':head['runId'],'outcome':self.local.put(head)})
-  with self.assertRaisesRegex(ValueError,'pending'):preflight_corrections(ROOT,self.store,self.market,head['runId'],None,NOW)
+  with self.assertRaisesRegex(ValueError,'pending'):preflight_corrections(self.repo,self.store,self.market,head['runId'],None,NOW)
   self.assertIsNone(self.local.read('heads/gate-budget-2026-10-26.json'))
  def test_completion_after_source_expiry_cannot_admit_second_group(self):
   expiry=instant(self.packet['groups'][1]['sources'][0]['fetchedAt'])+timedelta(hours=30,microseconds=1)
-  result=process_corrections(ROOT,self.store,self.market,self.agent,self.reserve,NOW,clock=lambda:expiry.isoformat().replace("+00:00","Z"))
+  result=process_corrections(self.repo,self.store,self.market,self.agent,self.reserve,NOW,clock=lambda:expiry.isoformat().replace("+00:00","Z"))
   self.assertEqual(len(result['admitted']),7);self.assertEqual(len(result['pending']),1);self.assertIn('expired',result['pending'][0]['reason'])
   self.assertEqual(len(self.charges),4)
 if __name__=='__main__':unittest.main()

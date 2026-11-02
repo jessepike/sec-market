@@ -9,7 +9,7 @@ from pathlib import Path
 
 from agents import ModelUnavailable
 from contracts import canonical, digest, instant, plan_run, require, utcnow
-from discovery import Page, decoded_discovery_body, discover
+from discovery import Page, decoded_discovery_body, discover, Q4_CURRENT_PROFILE
 from documents import article_input, readable_document, verify_article_input
 from selection import select_documents
 from validation import reconcile, verify_statement, mentions_entity
@@ -211,7 +211,12 @@ class Pipeline:
                 retained = {url for url, date in previous.get("itemDates", {}).items() if date >= cutoff}
                 require(retained.issubset(found["items"]), "SEC_INDEX_REMOVED_WITHIN_RETENTION")
             receipt["discoveryComplete"] = found["complete"]
+            if source['kind'] == 'q4_press_list':
+                require(found.get('discoveryProfile') == Q4_CURRENT_PROFILE,
+                        'Q4 ordinary discovery implementation profile differs')
             manifest = self.store.put({"sourceId": source["id"], "items": found["items"], "observations": list(receipt["observationIds"]),
+                                      **({'sourceWindow': found['sourceWindow']} if 'sourceWindow' in found else {}),
+                                      **({'discoveryProfile': Q4_CURRENT_PROFILE} if source['kind'] == 'q4_press_list' else {}),
                                       **({'itemModified': found.get('itemModified', {}), 'itemDates': found.get('itemDates', {})}
                                          if separated(self.contract) and audit_bounded(source, self.contract) else {})})
             receipt["itemManifest"] = manifest
@@ -431,7 +436,9 @@ class Pipeline:
                             selection_history.pop(url, None)
                             if separated(self.contract) and self.audit_index.proofs.get((source['id'], url)):
                                 required_revalidation.add(url)
-                    selected_inventory = {**found, "items": sorted(retained_items)}
+                    from three_source_qualification_origin import scheduling_view
+                    selected_inventory = {**scheduling_view(found, self.contract, source, self.store, receipt['startedAt']),
+                                          "items": sorted(retained_items)}
                     if separated(self.contract):
                         selected_inventory['requiredRevalidation'] = sorted(required_revalidation)
                     ordered, deferred = select_documents(selected_inventory, selection_history, self.contract["collection"], self.clock(),
@@ -487,7 +494,7 @@ class Pipeline:
                             continue
                         if any(binding['url'] == url for binding in receipt['retainedAuditBindings']) and url not in checked_primary:
                             continue
-                        audit_history[url] = {"modified": found.get("itemModified", {}).get(url, ""), "checkedAt": self.clock()}
+                        audit_history[url] = {"modified": selected_inventory.get("itemModified", {}).get(url, ""), "checkedAt": self.clock()}
                         validation = json.loads(self.store.get(document['validation']))
                         if 'compressedInput' in validation:
                             audit_history[url].update(body=validation['body'], compressedInput=validation['compressedInput'])
@@ -643,6 +650,7 @@ class Pipeline:
         plan = self.store.read('runs/' + receipt['runId'] + '/plan.json')
         if not receipt.get('itemManifest'):
             receipt['itemManifest'] = self.store.put({'sourceId': source['id'], 'items': [], 'observations': [],
+                                                      **({'discoveryProfile': Q4_CURRENT_PROFILE} if source['kind'] == 'q4_press_list' else {}),
                                                       'itemModified': {}, 'itemDates': {}})
         manifest = json.loads(self.store.get(receipt['itemManifest']))
         predecessors = self.audit_index.predecessors(source['id'], self.contract, receipt['attemptId'], receipt['startedAt'])

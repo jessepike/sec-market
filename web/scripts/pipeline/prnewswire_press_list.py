@@ -32,7 +32,7 @@ def _walk(node):
 
 def _active(node):
     while node:
-        if node.tag in INERT or "hidden" in node.attrs or node.attrs.get("aria-hidden", "").lower() == "true" or re.search(
+        if node.tag in INERT or "hidden" in node.attrs or "inert" in node.attrs or node.attrs.get("aria-hidden", "").lower() == "true" or re.search(
                 r"display\s*:\s*none|visibility\s*:\s*hidden", node.attrs.get("style", ""), re.I):
             return False
         node = node.parent

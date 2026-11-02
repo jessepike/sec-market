@@ -1,0 +1,51 @@
+{
+  "kind": "actual_K_cached_correction_build_verification",
+  "mechanicsOnlyNonAdmitting": true,
+  "contractSha256": "6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68",
+  "policySha256": "21e8b3e7496582a1b92d44966fa49be20a23ec7b31605911c3a8042b37e2af5d",
+  "existingBuildVerifier": {
+    "enabled": true,
+    "policySha256": "21e8b3e7496582a1b92d44966fa49be20a23ec7b31605911c3a8042b37e2af5d",
+    "fileSha256": "791e2f6faf85ab8241dbd64f992219e131559fae9d01aa67f4cb6db3863a6227",
+    "groupIds": [
+      "FC-20261023-checkpoint-sase",
+      "FC-20261023-optiv",
+      "FC-20261023-splunk",
+      "FC-20261023-zscaler",
+      "FC-20261023-expel",
+      "XAGE-SOURCE-CLASS-20261023",
+      "FC-PROPOSED-20261025-varonis-event-qualifiers",
+      "FC-PROPOSED-20261025-s1-event-qualifiers"
+    ],
+    "targetIds": [
+      "event:EV-checkpoint-2",
+      "evidence:TR-checkpoint-4",
+      "event:EV-optiv-2",
+      "evidence:TR-optiv-3",
+      "event:EV-splunk-1",
+      "evidence:TR-splunk-2",
+      "event:EV-zscaler-2",
+      "evidence:TR-zscaler-4",
+      "supplier:expel:lastRound",
+      "supplier:expel:ownership",
+      "evidence:TR-expel-2",
+      "evidence:TR-xage-1",
+      "event:EV-varonis-2",
+      "event:EV-varonis-3",
+      "evidence:TR-varonis-2",
+      "event:EV-s1-1",
+      "evidence:TR-s1-3"
+    ],
+    "newGroupIds": [],
+    "publicationDate": "2026-10-27"
+  },
+  "unchangedGroups": 8,
+  "unchangedPublishedGroupsSha256": "1638891993e51d036e7c4d2d5296d59d9588b1eb57d70725bc89b1e4c9836652",
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "reservations": 0,
+  "gateRuns": 0,
+  "publicationAttempts": 0,
+  "fixture": "/var/tmp/smp-three-source-build-20261027/actual-K-correction-build-fixture",
+  "limitation": "This is an isolated build-verifier fixture and does not create an admission or publication."
+}

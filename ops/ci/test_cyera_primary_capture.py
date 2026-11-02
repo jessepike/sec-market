@@ -11,6 +11,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 from test_cyera_press_list import ROOT, PLAN, AS_OF, FixtureStore
+from q4_intake_fixtures import frozen_j_asset
 from contracts import canonical, digest
 from storage import LocalStore
 from onboarding import PersistentProbeBudget
@@ -66,7 +67,7 @@ class CaptureTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(); self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name); self.clock = Clock(); self.base = FixtureStore()
         self.local = LocalStore(self.root / 'state'); self.store = Overlay(self.local, self.base)
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        self.contract = frozen_j_asset(ROOT)
         self.raw = PLAN.read_bytes(); self.plan = json.loads(self.raw)
         self.path = self.root / 'plan.json'; self.path.write_bytes(self.raw)
         self.net = patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK'))
@@ -293,7 +294,7 @@ class FullActualArchiveTests(unittest.TestCase):
             def get(self,ref):
                 raw=self.raw(ref['key']);assert digest(raw)==ref['sha256'] and len(raw)==ref['bytes'];return raw
             def read(self,key):return json.loads(self.raw(key))
-        base=ReadOnly();contract=json.loads((ROOT/'contracts/market.json').read_bytes());rawplan=PLAN.read_bytes()
+        base=ReadOnly();contract=frozen_j_asset(ROOT);rawplan=PLAN.read_bytes()
         with patch.object(socket.socket,'connect',side_effect=AssertionError('NO_NETWORK')),patch.object(LocalStore,'__init__',side_effect=AssertionError('NO_FROZEN_STORE')):
             normalized=operation.validate_plan(contract,base,rawplan)
             original=operation.origin.inverse_policy(contract,base)

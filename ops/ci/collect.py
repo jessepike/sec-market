@@ -356,8 +356,11 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
     keeper = AuthStore(root / "auth", writer)
     try:
         contract = validate_contract(json.loads((REPO / "contracts/market.json").read_text()))
+        import three_source_qualification_origin as three_origin
         import q4_qualification_origin as q4_origin
-        if q4_origin.is_successor(contract):
+        if three_origin.is_successor(contract):
+            from three_source_qualification_seed import seed_before_collection
+        elif q4_origin.is_successor(contract):
             from q4_qualification_seed import seed_before_collection
         else:
             from html_qualification_seed import seed_before_collection

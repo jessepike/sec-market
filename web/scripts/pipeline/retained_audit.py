@@ -51,7 +51,6 @@ def original_discovery(binding, contract, source, store, require_complete=True):
     manifest = _object(store, origin['itemManifest'])
     observations = {oid: store.read('observations/' + oid + '.json') for oid in manifest['observations']}
     by_url = {ob['requestedUrl']: ob for ob in observations.values() if ob}
-    from discovery import discover
     def request(url):
         require(url in by_url, 'Original discovery observation missing')
         ob = by_url[url]
@@ -61,12 +60,45 @@ def original_discovery(binding, contract, source, store, require_complete=True):
                 all(urlsplit(ob.get(k, url)).hostname in old_source['allowedHosts'] for k in ('requestedUrl', 'finalUrl')),
                 'Original discovery transport context differs')
         return ob, store.get(ob['body']) if ob.get('body') else b''
-    found = discover(old_source, request)
+    found = replay_discovery(old_source, request, manifest, origin)
+    from three_source_discovery import matches, verify_window
+    if matches(old_source):
+        verify_window(found, manifest)
     require((not require_complete or found['complete']) and found['complete'] == origin.get('discoveryComplete') and
             found['items'] == manifest['items'], 'Original discovery proof differs')
     if separated(old_contract):
         require(found.get('itemModified', {}) == manifest.get('itemModified', {}) and
                 found.get('itemDates', {}) == manifest.get('itemDates', {}), 'Original discovery signature differs')
+    return found
+
+
+def discovery_replay_profile(source, manifest):
+    """An immutable manifest selects historical semantics, never current success."""
+    from discovery import Q4_CURRENT_PROFILE, Q4_LEGACY_PROFILE
+    if source['kind'] != 'q4_press_list':
+        require('discoveryProfile' not in manifest, 'Discovery profile is not valid for this source')
+        return None
+    if 'discoveryProfile' not in manifest:
+        return Q4_LEGACY_PROFILE
+    value = manifest['discoveryProfile']
+    # Only new ordinary attempts persist a marker. Explicit legacy/downgraded
+    # markers are not an alternate writable way to acquire historical authority.
+    require(type(value) is str and value == Q4_CURRENT_PROFILE, 'Q4_RETAINED_DISCOVERY_PROFILE_INVALID')
+    return value
+
+
+def replay_discovery(source, request, manifest, receipt):
+    from discovery import discover
+    profile = discovery_replay_profile(source, manifest)
+    found = discover(source, request, q4_profile=profile) if profile is not None else discover(source, request)
+    if source['kind'] == 'q4_press_list':
+        require(found.get('discoveryProfile') == manifest.get('discoveryProfile'),
+                'Q4 retained discovery implementation profile differs')
+        # A response can reproduce a parser/transport cause. An exception before
+        # any archived response cannot; retain its historical false/empty shape
+        # without inventing that exception or any source-check authority.
+        if not found['complete'] and manifest['observations']:
+            require(found.get('reason') == receipt.get('errorCode'), 'Q4 retained discovery failure cause differs')
     return found
 
 
@@ -241,7 +273,9 @@ def separated_details(receipt, contract, source, at, store):
         except (ValueError, KeyError, OSError, TypeError):
             pass  # An unavailable prior proof supplies no classification authority.
     from selection import date_partitions
-    current, historical_dates, unknown = date_partitions(full, manifest.get('itemModified', {}), contract['collection'], at)
+    from three_source_qualification_origin import scheduling_view
+    scheduling = scheduling_view(manifest, contract, source, store, receipt['startedAt'])
+    current, historical_dates, unknown = date_partitions(full, scheduling.get('itemModified', {}), contract['collection'], at)
     unknown -= changed
     current -= changed
     historical_dates -= changed
@@ -846,7 +880,7 @@ def verify_receipt(receipt, plan, contract, source, at, store):
     require(type(manifest['observations']) is list and set(manifest['observations']).issubset(observed),
             'Retained discovery observation inventory differs')
     current = {observed[oid]['requestedUrl']: observed[oid] for oid in manifest['observations']}
-    from discovery import discover
+    discovery_replay_profile(source, manifest)
     def request(url):
         require(url in current, 'Retained discovery observation missing')
         ob = current[url]
@@ -867,7 +901,10 @@ def verify_receipt(receipt, plan, contract, source, at, store):
                 'Unattempted intake cannot contain discovery authority')
         found = {'complete': False, 'items': [], 'itemModified': {}, 'itemDates': {}}
     else:
-        found = discover(source, request)
+        found = replay_discovery(source, request, manifest, receipt)
+    from three_source_discovery import matches, verify_window
+    if matches(source) and receipt.get('discoveryRecorded') is not False:
+        verify_window(found, manifest)
     require(found['complete'] == receipt.get('discoveryComplete') and
             (separated(contract) or found['complete'] is True) and found['items'] == manifest['items'],
             'Retained current discovery replay differs')

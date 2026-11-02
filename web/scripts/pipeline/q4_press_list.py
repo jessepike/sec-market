@@ -6,6 +6,8 @@ from datetime import datetime, timedelta, timezone
 from contracts import digest, instant, require
 
 VERSION = 'q4-press-list-single-response-v1'
+NULL_OVERRIDE_VERSION = 'q4-press-list-single-response-null-override-v2'
+NULL_OVERRIDE_FIELD = 'UrlOverrideContentFileWorkflowId'
 HOSTS = {'jfrog:official:1': 'investors.jfrog.com', 'rapid7:official:1': 'investors.rapid7.com'}
 ROW_FIELDS = set('Attachments Body Category DocumentFileSize DocumentFileType DocumentPath ExcludeFromLatest '
                  'Headline LanguageId LinkToDetailPage LinkToPage LinkToUrl MediaCollection MediaFiles MetaData '
@@ -25,12 +27,14 @@ def _constant(_):
     raise ValueError('Q4_LIST_NON_JSON_CONSTANT')
 
 
-def parse_press_list(raw, source_id, as_of, window_days=30):
+def parse_press_list(raw, source_id, as_of, window_days=30, *, implementation_profile=NULL_OVERRIDE_VERSION):
     """Validate every row before producing a complete finite returned inventory.
 
     The caller separately proves the first-party single-response client graph.
     No server-wide recall, source qualification or semantic credit is asserted here.
     """
+    require(type(implementation_profile) is str and implementation_profile in (VERSION, NULL_OVERRIDE_VERSION),
+            'Q4_DISCOVERY_PROFILE_INVALID')
     require(source_id in HOSTS and type(raw) is bytes and 0 < len(raw) <= 2_000_000,
             'Q4_LIST_SOURCE_OR_BYTES_INVALID')
     require(type(window_days) is int and 0 < window_days <= 365, 'Q4_LIST_WINDOW_INVALID')
@@ -43,8 +47,16 @@ def parse_press_list(raw, source_id, as_of, window_days=30):
             'Q4_LIST_NONEMPTY_EXACT_ENVELOPE_REQUIRED')
     records, ids, workflows, urls = [], set(), set(), set()
     previous = None
+    schema = None
     for index, row in enumerate(envelope['GetPressReleaseListResult']):
-        require(type(row) is dict and set(row) == ROW_FIELDS, 'Q4_LIST_ROW_SCHEMA_INVALID')
+        allowed = (ROW_FIELDS,) if implementation_profile == VERSION else (ROW_FIELDS, ROW_FIELDS | {NULL_OVERRIDE_FIELD})
+        require(type(row) is dict and set(row) in allowed,
+                'Q4_LIST_ROW_SCHEMA_INVALID')
+        fields = set(row)
+        require(schema is None or fields == schema, 'Q4_LIST_MIXED_ROW_SCHEMA')
+        schema = fields
+        require(NULL_OVERRIDE_FIELD not in row or row[NULL_OVERRIDE_FIELD] is None,
+                'Q4_LIST_NON_NULL_URL_OVERRIDE')
         title, literal, href = row['Headline'], row['PressReleaseDate'], row['LinkToDetailPage']
         require(type(row['LanguageId']) is int and row['LanguageId'] == 1 and
                 type(row['PressReleaseId']) is int and row['PressReleaseId'] > 0 and
@@ -73,7 +85,8 @@ def parse_press_list(raw, source_id, as_of, window_days=30):
     current = [row['url'] for row in records if cutoff.isoformat() <= row['calendarDay'] <= day.isoformat()]
     older = [row['url'] for row in records if row['calendarDay'] < cutoff.isoformat()]
     undetermined = [row['url'] for row in records if row['calendarDay'] > day.isoformat()]
-    return {'parserVersion': VERSION, 'sourceId': source_id, 'asOf': as_of, 'datePrecision': 'calendar_day',
+    version = NULL_OVERRIDE_VERSION if NULL_OVERRIDE_FIELD in schema else VERSION
+    return {'parserVersion': version, 'sourceId': source_id, 'asOf': as_of, 'datePrecision': 'calendar_day',
             'timezone': None, 'windowStart': cutoff.isoformat(), 'windowEnd': day.isoformat(),
             'records': records, 'items': sorted(urls), 'itemDates': dates, 'itemModified': dict(dates),
             'originalDateStrings': {row['url']: row['dateLiteral'] for row in records},

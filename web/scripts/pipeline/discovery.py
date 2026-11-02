@@ -11,6 +11,7 @@ from urllib.parse import urljoin, urlsplit
 
 from contracts import digest, require, instant, utcnow
 from regulatory import SEC_FILING_FORMS
+from q4_press_list import VERSION as Q4_LEGACY_PROFILE, NULL_OVERRIDE_VERSION as Q4_CURRENT_PROFILE
 
 
 MAX_DISCOVERY_BYTES = 32_000_000
@@ -975,11 +976,14 @@ def xml_links(body, base):
     return {"kind": kind, "links": sorted(set(links)), "indexes": sorted(set(indexes)), "modified": modified}
 
 
-def discover_q4_press_list(source, request):
+def discover_q4_press_list(source, request, *, profile=Q4_CURRENT_PROFILE):
     """One source-bound finite JSON response, with ordinary transport provenance."""
     from q4_qualification_origin import validate_source
     from q4_press_list import parse_press_list
+    require(type(profile) is str and profile in (Q4_LEGACY_PROFILE, Q4_CURRENT_PROFILE),
+            'Q4_DISCOVERY_PROFILE_INVALID')
     validate_source(source)
+    profile_fields = {'discoveryProfile': profile} if profile == Q4_CURRENT_PROFILE else {}
     observations = []
     try:
         observed, body = request(source['url'])
@@ -1000,8 +1004,8 @@ def discover_q4_press_list(source, request):
                 ref['key'] == 'objects/' + ref['sha256'] and type(body) is bytes and
                 len(body) == ref['bytes'] and digest(body) == ref['sha256'], 'Q4_INDEX_BODY_INTEGRITY_DIFFERS')
         instant(observed.get('fetchedAt'))
-        parsed = parse_press_list(body, source['id'], observed['fetchedAt'])
-        return {'complete': True, 'items': parsed['items'], 'itemDates': parsed['itemDates'],
+        parsed = parse_press_list(body, source['id'], observed['fetchedAt'], implementation_profile=profile)
+        return {**profile_fields, 'complete': True, 'items': parsed['items'], 'itemDates': parsed['itemDates'],
                 'itemModified': parsed['itemModified'], 'observations': observations, 'reason': None,
                 'originalDateStrings': parsed['originalDateStrings'], 'timezone': parsed['timezone'],
                 'sourceDateAnomalies': parsed['sourceDateAnomalies'],
@@ -1009,16 +1013,19 @@ def discover_q4_press_list(source, request):
                 'boundaryAmbiguousItems': parsed['boundaryAmbiguousItems'],
                 'currentWindowQuiet': parsed['currentWindowQuiet']}
     except (ValueError, KeyError, TypeError, OSError, UnicodeError) as error:
-        return {'complete': False, 'items': [], 'itemDates': {}, 'itemModified': {},
+        return {**profile_fields, 'complete': False, 'items': [], 'itemDates': {}, 'itemModified': {},
                 'observations': observations, 'reason': 'Q4_INDEX_INCOMPLETE:' + str(error)[:160]}
 
 
-def discover(source, request):
+def discover(source, request, *, q4_profile=Q4_CURRENT_PROFILE):
     """request(url) archives every response and returns an observation plus bytes."""
     if source["registration"] != "verified":
         return {"complete": False, "items": [], "observations": [], "reason": "SOURCE_BINDING_UNVERIFIED"}
+    if source.get('htmlCompleteness') in ('cyera-press-list-finite-html-v1', 'prnewswire-issuer-calendar-window-v1'):
+        from three_source_discovery import discover as discover_three_source
+        return discover_three_source(source, request)
     if source['kind'] == 'q4_press_list':
-        return discover_q4_press_list(source, request)
+        return discover_q4_press_list(source, request, profile=q4_profile)
     if source["kind"] == "sec_index" or source["kind"] == "sec_documents" and 'regulatoryIssuer' in source:
         return discover_regulatory_index(source, request)
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}

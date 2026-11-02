@@ -70,6 +70,9 @@ def validate_contract(contract):
         require(source["supplierId"] in supplier_ids, "Orphan source binding")
         require(source["registration"] in ("verified", "candidate"), "Unknown source registration")
         require(source["kind"] in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "official_discovery", "rss", "sitemap", "html_index", "q4_press_list", "citation"), "Unknown collector kind")
+        if source.get('htmlCompleteness') in ('cyera-press-list-finite-html-v1', 'prnewswire-issuer-calendar-window-v1'):
+            from three_source_qualification_origin import validate_source as validate_three_source
+            validate_three_source(source)
         if source['kind'] == 'q4_press_list':
             from q4_qualification_origin import validate_source
             validate_source(source)

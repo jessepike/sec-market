@@ -98,3 +98,12 @@ class CommittedSeed:
             path = Path(name)
             raw = path.read_bytes()
             assert (digest(raw), len(raw), path.stat().st_mtime_ns) == before
+
+
+def frozen_j_asset(repo, name="market.json"):
+    """The historical J test subject, never the mutable active policy."""
+    pins = {'market.json': ('47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a', 206939), 'dailyMarket.json': ('7120790449e8a4427446e2a62d69889cf651692153e6624359c50daa0379197f', 7696749), 'dailyMarket.seal.json': ('6e0cec0115cd21a6165b901b91f563da5588e8e335147e05715d95ce1ba065d7', 276)}
+    assert name in pins
+    raw = (Path(repo) / "web/scripts/migration-proofs/three-source-j-original" / name).read_bytes()
+    assert (digest(raw), len(raw)) == pins[name]
+    return json.loads(raw)

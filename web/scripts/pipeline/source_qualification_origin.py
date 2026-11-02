@@ -386,13 +386,19 @@ def _transition(store, ref, contract):
 
 def is_qualification_predecessor(origin):
     from q4_qualification_origin import PREDECESSOR_KIND as Q4_PREDECESSOR_KIND
-    return isinstance(origin, dict) and origin.get('kind') in (PREDECESSOR_KIND, Q4_PREDECESSOR_KIND)
+    from three_source_qualification_origin import PREDECESSOR_KIND as THREE_PREDECESSOR_KIND
+    return isinstance(origin, dict) and origin.get('kind') in (PREDECESSOR_KIND, Q4_PREDECESSOR_KIND, THREE_PREDECESSOR_KIND)
 
 
 def qualification_predecessors(contract, source_id, store, before_time=None):
     source = next((s for s in contract['sources'] if s['id'] == source_id), None)
     if not source or 'qualificationOrigin' not in source:
         return []
+    import three_source_qualification_origin as three
+    if three.is_successor(contract):
+        if source_id in three.SOURCE_IDS:
+            return three.predecessors(contract, source_id, store, before_time)
+        return qualification_predecessors(three.inverse_policy(contract, store), source_id, store, before_time)
     import q4_qualification_origin as q4
     if q4.is_successor(contract):
         if source_id in q4.SOURCE_IDS:
@@ -551,6 +557,11 @@ def _required_inventory_hints(store, baseline, source_id, completed, authority, 
 
 
 def resolve_inventory_origin(origin, contract, source_id, store, before_time=None):
+    import three_source_qualification_origin as three
+    if three.is_successor(contract):
+        if isinstance(origin, dict) and origin.get('kind') == three.PREDECESSOR_KIND:
+            return three.resolve(origin, contract, source_id, store, before_time)
+        return resolve_inventory_origin(origin, three.inverse_policy(contract, store), source_id, store, before_time)
     import q4_qualification_origin as q4
     if q4.is_successor(contract):
         if isinstance(origin, dict) and origin.get('kind') == q4.PREDECESSOR_KIND:
