@@ -2,7 +2,8 @@ name: daily exact-artifact publisher
 
 on:
   schedule:
-    - cron: '23 0,6,16 * * *'
+    # Completion callbacks remain primary. Keep one daily recovery timer.
+    - cron: '23 16 * * *'
   workflow_dispatch:
   workflow_run:
     workflows: ['bounded subscription collector']
@@ -70,7 +71,9 @@ jobs:
           npm install --prefix "$RUNNER_TEMP/smp-vercel-cli" --no-save --package-lock=false vercel@64.7.0
           echo "$RUNNER_TEMP/smp-vercel-cli/node_modules/.bin" >> "$GITHUB_PATH"
       - name: Verify operational guards
-        run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ops/ci/verified_ci_guards.py
       - name: Restore acknowledged evidence and publish through independent gate
         env:
           GH_TOKEN: ${{ github.token }}

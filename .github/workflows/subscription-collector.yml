@@ -78,7 +78,9 @@ jobs:
           echo "$RUNNER_TEMP/smp-cli/node_modules/.bin" >> "$GITHUB_PATH"
           command -v pdftotext
       - name: Verify worker and persistence guards
-        run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ops/ci/verified_ci_guards.py
       - name: Restore acknowledged evidence, collect bounded deltas and reconcile
         if: github.event_name != 'workflow_dispatch' || !inputs.source_probe
         env:
