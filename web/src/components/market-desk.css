@@ -22,6 +22,18 @@
 .desk-kicker { color: #62676a; font-size: 12px; margin: 0 0 10px; font-variant-numeric: tabular-nums; }
 .desk-snapshot { font-size: 12px; margin: 8px 0 0; color: #62676a; }
 .desk-snapshot a { margin-left: 6px; }
+.desk-company-search { margin-top: 8px; max-width: 640px; }
+.desk-company-search>summary { cursor: pointer; font-size: 13px; font-weight: 600; min-height: 24px; }
+.desk-company-search>search { display: grid; gap: 6px; padding-top: 6px; }
+.desk-company-search label { font-size: 13px; font-weight: 600; }
+.desk-company-search__field { display: flex; gap: 8px; }
+.desk-company-search input { flex: 1; min-width: 0; min-height: 44px; padding: 8px 10px; border: 1px solid #dfe1de; border-radius: 6px; background: white; color: #252629; }
+.desk-company-search__field button { flex-shrink: 0; }
+.desk-company-search ul { list-style: none; margin: 4px 0 0; padding: 4px 12px; border: 1px solid #dfe1de; border-radius: 6px; background: white; max-height: 250px; overflow-y: auto; }
+.desk-company-search li+li { border-top: 1px solid #ededeb; }
+.market-desk .desk-company-search .desk-supplier-link { width: 100%; min-height: 44px; }
+.desk-company-search__ticker { margin-left: 8px; font-size: 12px; color: #62676a; font-weight: 400; }
+.desk-company-search .desk-note { overflow-wrap: anywhere; }
 .desk-note { color: #62676a; font-size: 12px; line-height: 1.5; margin: 0; }
 .desk-counts { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); background: white; border: 1px solid #dfe1de; border-radius: 10px; overflow: hidden; }
 .market-desk .desk-counts button { border: 0; border-right: 1px solid #e6e7e3; border-radius: 0; text-align: left; padding: 14px; display: grid; gap: 3px; }

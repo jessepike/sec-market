@@ -24,7 +24,7 @@ test('visible collection status agrees with the public source receipt', async ({
     if (!coverage.processing.complete && coverage.processing.evaluated !== false) await expect(page.locator('.desk-hero')).toContainText('Document processing (incomplete)')
     if (!coverage.historicalReview.complete && coverage.historicalReview.evaluated !== false) await expect(page.locator('.desk-hero')).toContainText('Historical review (incomplete)')
     await page.getByText('Dates, review limits and source receipts', { exact: true }).click()
-    await expect(page.locator('.desk-hero details')).toContainText('Source intake does not mean every current event or historical claim has been reviewed.')
+    await expect(page.locator('.desk-hero details').filter({ has: page.getByText('Dates, review limits and source receipts', { exact: true }) })).toContainText('Source intake does not mean every current event or historical claim has been reviewed.')
   } else if (!coverage.complete) await expect(page.locator('.desk-hero')).toContainText('Coverage is incomplete.')
   await expect(page.getByRole('link', { name: 'Sources, frequency and check receipts' })).toHaveAttribute('href', '/daily-coverage.json')
 })

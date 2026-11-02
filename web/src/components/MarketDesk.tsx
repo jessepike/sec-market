@@ -10,6 +10,7 @@ import { eventGroups, filingSeries, monthEvents, recentChanges, revenueGrowthRow
 import type { ChangeItem } from '../data/tracker/presentation'
 import { SiteMasthead } from './SiteMasthead'
 import { DailyCollectionStatus } from './RunStatus'
+import { CompanySearch } from './CompanySearch'
 import './market-desk.css'
 
 const changes = recentChanges()
@@ -185,6 +186,7 @@ export function MarketDesk() {
     <div className="desk-hero"><p className="desk-kicker">{trackerSuppliers.length} suppliers · {trackerDomains.length} domains · {certifiedCount} SEC filers certified</p><SiteMasthead />
       <p className="desk-snapshot">SEC figures for the {certifiedCount} certified filers are re-derived from each company&rsquo;s filings, with a check scheduled {checkInterval}. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
       <DailyCollectionStatus className="desk-snapshot" />
+      <CompanySearch openSupplier={setSupplierId} />
     </div>
     <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
       const annual = yearEvents.filter(e => g.types.includes(e.type)); const recent = monthEvents.filter(e => g.types.includes(e.type))
