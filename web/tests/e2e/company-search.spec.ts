@@ -1,19 +1,16 @@
 import { expect, test } from '@playwright/test'
 
 for (const width of [1440, 390]) {
-  test(`company search opens sourced company records and resets at ${width}px`, async ({ page }) => {
+  test(`company search stays visible, opens sourced records and resets at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: width === 390 ? 844 : 900 })
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
     await page.goto('/')
-    const toggle = page.locator('.desk-company-search>summary')
-    await expect(toggle).toBeVisible()
-    expect((await toggle.boundingBox())!.y).toBeLessThan(width === 390 ? 844 : 900)
-    await toggle.focus()
-    await page.keyboard.press('Enter')
     const search = page.getByRole('search', { name: 'Company search' })
     const field = search.getByRole('searchbox', { name: 'Search for a company' })
+    await expect(search).toBeVisible()
     await expect(field).toBeVisible()
+    expect((await field.boundingBox())!.y).toBeLessThan(width === 390 ? 844 : 900)
     await field.fill('  vArOnIs  ')
     await expect(search.getByRole('status')).toHaveText('1 matching record.')
     const result = search.getByRole('button', { name: 'Varonis Systems VRNS' })
