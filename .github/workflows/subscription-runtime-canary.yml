@@ -4,7 +4,32 @@ name: subscription runtime canary
 on:
   push:
     branches: [preview]
-    paths: ['ops/ci/**', '.github/workflows/subscription-runtime-canary.yml']
+    # The runtime and fictional-test dependency closure is checked in test_runtime_canary.py.
+    paths:
+      - 'ops/ci/runtime_canary.py'
+      - 'ops/ci/auth_store.py'
+      - 'ops/ci/coverage_summary.py'
+      - 'ops/ci/test_auth_store.py'
+      - 'ops/ci/test_runtime_canary.py'
+      - 'web/scripts/pipeline/archive.py'
+      - 'web/scripts/pipeline/contracts.py'
+      - 'web/scripts/pipeline/fetcher.py'
+      - 'web/scripts/pipeline/storage.py'
+      # validate_contract conditionally imports Q4 and regulatory validators.
+      - 'web/scripts/pipeline/q4_primary_qualification.py'
+      - 'web/scripts/pipeline/q4_qualification_origin.py'
+      - 'web/scripts/pipeline/separation.py'
+      - 'web/scripts/pipeline/source_qualification_origin.py'
+      - 'web/scripts/pipeline/regulatory.py'
+      - 'web/scripts/pipeline/q4_press_list.py'
+      - 'web/scripts/pipeline/q4_initial_data_capture.py'
+      - 'web/scripts/pipeline/q4_retained_primary_template.py'
+      - 'web/scripts/pipeline/documents.py'
+      - 'web/scripts/pipeline/q4_controller_capture.py'
+      - 'web/scripts/pipeline/discovery.py'
+      - 'web/scripts/pipeline/onboarding.py'
+      - 'contracts/market.json'
+      - '.github/workflows/subscription-runtime-canary.yml'
   workflow_dispatch:
 
 permissions: {}
@@ -27,7 +52,9 @@ jobs:
         with:
           node-version: '22'
       - name: Verify credential persistence helper using fictional data
-        run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
+        run: |
+          python3 -m unittest discover -s ops/ci -p 'test_auth_store.py' -v
+          python3 -m unittest discover -s ops/ci -p 'test_runtime_canary.py' -v
       - name: Verify archived evidence integrity from the private GitHub runner without source requests
         env:
           GH_TOKEN: ${{ github.token }}

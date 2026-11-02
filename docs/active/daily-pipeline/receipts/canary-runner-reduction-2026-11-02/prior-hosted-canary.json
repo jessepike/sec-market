@@ -1,0 +1,96 @@
+{
+  "id": 41485463964,
+  "path": ".github/workflows/subscription-runtime-canary.yml",
+  "event": "push",
+  "headSha": "0fa0ed39a899539dee680ae572a56eb21d2f47e0",
+  "branch": "preview",
+  "status": "completed",
+  "conclusion": "success",
+  "createdAt": "2026-11-02T16:50:59Z",
+  "updatedAt": "2026-11-02T16:57:54Z",
+  "url": "https://github.com/jessepike/sec-market/actions/runs/41485463964",
+  "jobs": [
+    {
+      "id": 125414510509,
+      "name": "private-runner-proof",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-02T16:51:05Z",
+      "completed_at": "2026-11-02T16:57:54Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-02T16:51:06Z",
+          "completed_at": "2026-11-02T16:51:07Z"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-02T16:51:07Z",
+          "completed_at": "2026-11-02T16:51:14Z"
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-02T16:51:14Z",
+          "completed_at": "2026-11-02T16:51:14Z"
+        },
+        {
+          "name": "Verify credential persistence helper using fictional data",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-02T16:51:14Z",
+          "completed_at": "2026-11-02T16:56:25Z"
+        },
+        {
+          "name": "Verify archived evidence integrity from the private GitHub runner without source requests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-02T16:56:25Z",
+          "completed_at": "2026-11-02T16:57:27Z"
+        },
+        {
+          "name": "Retain bounded nonsecret runtime receipt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-02T16:57:27Z",
+          "completed_at": "2026-11-02T16:57:36Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-02T16:57:36Z",
+          "completed_at": "2026-11-02T16:57:36Z"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-02T16:57:36Z",
+          "completed_at": "2026-11-02T16:57:36Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-02T16:57:36Z",
+          "completed_at": "2026-11-02T16:57:36Z"
+        }
+      ]
+    }
+  ]
+}

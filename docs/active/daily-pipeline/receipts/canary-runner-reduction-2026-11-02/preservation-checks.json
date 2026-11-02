@@ -1,0 +1,6 @@
+[
+  "fixture_contract: copied function AST unchanged",
+  "separated_coverage: copied function AST unchanged",
+  "All 16 original test methods and all original helper methods retain identical ASTs, except removing the now-local fixture import",
+  "web.yml byte-identical to base, including full exact-code guard step"
+]
