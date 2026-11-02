@@ -86,7 +86,12 @@ def publish(store, contract, manifest, adapter, checkpoint=None):
         require(len(attempts) < contract["publication"].get("maxBatchesPerDay", 2), "DAILY_PUBLICATION_BUDGET_EXHAUSTED")
         store.compare_and_swap(f"publication-budget-{day}", budget, {"attempts": [*attempts, manifest["releaseId"]]})
         store.write_once(f"release-attempts/{manifest['releaseId']}.json", manifest)
-        deployment = adapter.stage(manifest)
+        if checkpoint:
+            checkpoint()  # Creation can spend before a deployment URL returns.
+        if getattr(adapter, "requires_remote_checkpoint", False):
+            deployment = adapter.stage(manifest, checkpoint=checkpoint)
+        else:
+            deployment = adapter.stage(manifest)
         verify_acknowledgement(manifest, adapter.probe(deployment))
         store.write_once(f"deployment-attempts/{manifest['releaseId']}.json", {"deploymentId": deployment})
         if checkpoint:

@@ -6,6 +6,15 @@ import publish
 
 
 class PublisherBoundaryTests(unittest.TestCase):
+    def test_fixed_stage_failures_preserve_unknown_outcome_without_remote_text(self):
+        for reason in ['VERCEL_STATIC_STAGE_BYTE_LIMIT', 'VERCEL_STAGE_FIXED_BASIC_SETTINGS_REQUIRED',
+                       'VERCEL_STAGE_CREATION_OUTCOME_UNKNOWN', 'VERCEL_STAGE_CREATED_IDENTITY_UNVERIFIED',
+                       'VERCEL_STAGE_NATIVE_IDENTITY_DIFFERS', 'VERCEL_STAGE_STATE_UNKNOWN',
+                       'VERCEL_STAGE_TERMINAL_FAILURE', 'VERCEL_STAGE_DEADLINE_EXCEEDED',
+                       'VERCEL_STAGE_STOP_OUTCOME_UNKNOWN']:
+            self.assertEqual(publish.safe_failure_reason(ValueError(reason)), reason)
+            self.assertEqual(publish.safe_failure_reason(ValueError(reason+' secret remote detail')), 'PUBLISHER_FAILED')
+
     def test_callback_rejects_dispatch_and_busy_collectors_before_writer_queue(self):
         run = {'id': 123, 'repository': {'full_name': 'jessepike/sec-market', 'private': True},
                'path': '.github/workflows/subscription-collector.yml', 'head_branch': 'main',

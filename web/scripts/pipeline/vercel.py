@@ -18,6 +18,9 @@ from artifacts import stage_files
 from contracts import canonical, require
 
 IGNORE_GIT_PRODUCTION = 'test "$VERCEL_GIT_COMMIT_REF" = main || test "$VERCEL_GIT_COMMIT_REF" = data/archive'
+MAX_STAGE_BYTES = 20_000_000
+STAGE_DEADLINE_SECONDS = 90
+STAGE_RPC_TIMEOUT_SECONDS = 10
 
 
 class VercelAdapter:
@@ -31,7 +34,7 @@ class VercelAdapter:
         self.pending = None
         self.pending_files = None
 
-    def _cli(self, args, cwd=None):
+    def _cli(self, args, cwd=None, timeout=300):
         args = list(args)
         if args[0] == 'api':
             # The known team ID avoids account/user discovery in high-level
@@ -45,7 +48,7 @@ class VercelAdapter:
         env = dict(os.environ, VERCEL_TELEMETRY_DISABLED="1")
         # API keys are neither required nor a billing fallback.
         env.pop("OPENAI_API_KEY", None)
-        result = self.runner(command, cwd=cwd, capture_output=True, text=True, timeout=300, env=env)
+        result = self.runner(command, cwd=cwd, capture_output=True, text=True, timeout=timeout, env=env)
         require(result.returncode == 0, "VERCEL_OPERATION_FAILED")
         return result.stdout.strip()
 
@@ -55,13 +58,20 @@ class VercelAdapter:
                 and project.get("autoAssignCustomDomains") is False
                 and project.get("commandForIgnoringBuildStep") == IGNORE_GIT_PRODUCTION)
 
-    def stage(self, manifest):
+    def stage(self, manifest, checkpoint=None):
         receipt = {"ready": True, "appRevision": manifest["appRevision"], "dataReleaseId": manifest["releaseId"],
                    "snapshotSha256": manifest["snapshot"]["sha256"], "artifactSha256": manifest["artifact"]["sha256"],
                    "contractSha256": manifest["contractSha256"]}
         if manifest.get("factualCorrections"):
             receipt["factualCorrections"] = manifest["factualCorrections"]
         files = stage_files(self.store, manifest["artifact"], receipt)
+        # Include config and the detached receipt. The artifact parser separately
+        # rejects functions, external rewrites and executable output.
+        require(sum(map(len, files.values())) <= MAX_STAGE_BYTES, "VERCEL_STATIC_STAGE_BYTE_LIMIT")
+        metadata = {"smpReleaseId": manifest["releaseId"], "smpAppRevision": manifest["appRevision"],
+                    "smpArtifactSha256": manifest["artifact"]["sha256"]}
+        self._stage_build_settings()
+        started = time.monotonic()
         with tempfile.TemporaryDirectory(prefix="smp-prebuilt-") as directory:
             root = Path(directory)
             # The existing project has rootDirectory=web. The official CLI
@@ -72,17 +82,106 @@ class VercelAdapter:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(body)
             (root / ".vercel/project.json").write_bytes(canonical({"projectId": self.project_id, "orgId": self.team_id}))
-            args = ["deploy", "--prebuilt", "--yes"]
+            args = ["deploy", "--prebuilt", "--yes", "--no-wait"]
+            for key, value in metadata.items():
+                args.extend(["--meta", key + "=" + value])
             if manifest.get("mode") != "stage_only_smoke_test":
                 # A production-target deployment with no assigned domain can
                 # later be promoted without Vercel rebuilding tested bytes.
                 args.extend(["--target=production", "--skip-domain"])
-            output = self._cli(args, cwd=root)
+            # A timeout can leave an unknown paid creation. The already saved
+            # publication attempt remains consumed; never repeat the create.
+            try:
+                output = self._cli(args, cwd=root, timeout=30)
+            except Exception:
+                raise ValueError("VERCEL_STAGE_CREATION_OUTCOME_UNKNOWN") from None
         urls = re.findall(r"https://[a-z0-9-]+\.vercel\.app\b", output)
-        require(len(set(urls)) == 1, "Unrecognized immutable deployment URL")
-        self.pending = receipt
-        self.pending_files = files
-        return urls[0]
+        require(len(set(urls)) == 1, "VERCEL_STAGE_CREATION_OUTCOME_UNKNOWN")
+        deployment = urls[0]
+        target = None if manifest.get("mode") == "stage_only_smoke_test" else "production"
+        try:
+            # This URL is a reconciliation hint, not native identity or tested
+            # deployment authority. Normal failure finalization archives it.
+            self.store.write_once(f"deployment-create-responses/{manifest['releaseId']}.json", {
+                "deploymentUrlHint": deployment, "identityVerified": False,
+            })
+            identity = self._stage_read(deployment, metadata, target)
+        except Exception:
+            raise ValueError("VERCEL_STAGE_CREATED_IDENTITY_UNVERIFIED") from None
+        identifier = identity["id"]
+        try:
+            # Keep creation separate from deployment-attempts: the latter is
+            # recovery authority only after the exact public bytes pass probing.
+            self.store.write_once(f"deployment-creations/{manifest['releaseId']}.json", {
+                "deploymentId": deployment, "nativeId": identifier, "projectId": self.project_id,
+                "appRevision": manifest["appRevision"], "artifactSha256": manifest["artifact"]["sha256"],
+                "staticBytes": sum(map(len, files.values())),
+            })
+            if checkpoint:
+                checkpoint()  # Keep the scoped identity through worker/disk loss.
+            while time.monotonic() - started < STAGE_DEADLINE_SECONDS:
+                state = identity["readyState"]
+                require(state not in ("CANCELED", "ERROR"), "VERCEL_STAGE_TERMINAL_FAILURE")
+                if state == "READY":
+                    self.pending = receipt
+                    self.pending_files = files
+                    return deployment
+                time.sleep(min(2, max(0, STAGE_DEADLINE_SECONDS - (time.monotonic() - started))))
+                identity = self._stage_read(deployment, metadata, target, identifier)
+        except Exception:
+            # Cancellation is only permitted after the native project, URL and
+            # exact release metadata establish ownership. Never cancel another
+            # deployment on an identity mismatch or guessed ID.
+            self._cancel_stage(deployment, metadata, target, identifier)
+            raise
+        self._cancel_stage(deployment, metadata, target, identifier)
+        raise ValueError("VERCEL_STAGE_DEADLINE_EXCEEDED")
+
+    def _stage_build_settings(self):
+        project = json.loads(self._cli(["api", f"/v9/projects/{self.project_id}", "--raw"],
+                                       timeout=STAGE_RPC_TIMEOUT_SECONDS))
+        require(isinstance(project, dict), "VERCEL_STAGE_FIXED_BASIC_SETTINGS_REQUIRED")
+        resource = project.get("resourceConfig", {})
+        require(isinstance(resource, dict)
+                and project.get("id") == self.project_id and project.get("accountId") == self.team_id
+                and resource.get("buildMachineType") == "basic"
+                and resource.get("buildMachineSelection") == "fixed"
+                and resource.get("elasticConcurrencyEnabled") is False,
+                "VERCEL_STAGE_FIXED_BASIC_SETTINGS_REQUIRED")
+
+    def _stage_read(self, deployment, metadata, target, identifier=None):
+        host = deployment.removeprefix("https://")
+        identity = json.loads(self._cli(["api", "/v13/deployments/" + (identifier or host), "--raw"],
+                                        timeout=STAGE_RPC_TIMEOUT_SECONDS))
+        require(isinstance(identity, dict), "VERCEL_STAGE_NATIVE_IDENTITY_DIFFERS")
+        require(isinstance(identity.get("id"), str) and re.fullmatch(r"dpl_[A-Za-z0-9]+", identity["id"])
+                and (identifier is None or identity["id"] == identifier)
+                and identity.get("projectId") == self.project_id and identity.get("url") == host
+                and identity.get("target") == target
+                and isinstance(identity.get("meta"), dict)
+                and all(identity.get("meta", {}).get(key) == value for key, value in metadata.items()),
+                "VERCEL_STAGE_NATIVE_IDENTITY_DIFFERS")
+        require(identity.get("readyState") in ("INITIALIZING", "QUEUED", "BUILDING", "READY", "ERROR", "CANCELED"),
+                "VERCEL_STAGE_STATE_UNKNOWN")
+        return identity
+
+    def _cancel_stage(self, deployment, metadata, target, identifier):
+        # Cancellation acknowledgement is a separate fact from a request. A
+        # late READY or unavailable response cannot establish a billing ceiling.
+        try:
+            current = self._stage_read(deployment, metadata, target, identifier)
+            if current["readyState"] in ("INITIALIZING", "QUEUED", "BUILDING"):
+                try:
+                    self._cli(["api", f"/v12/deployments/{identifier}/cancel", "--method", "PATCH", "--raw"],
+                              timeout=STAGE_RPC_TIMEOUT_SECONDS)
+                except Exception:
+                    # A lost response or terminal-state race still needs a
+                    # native read-back. Never resend the cancellation request.
+                    pass
+                current = self._stage_read(deployment, metadata, target, identifier)
+            require(current["readyState"] in ("CANCELED", "ERROR"), "VERCEL_STAGE_STOP_NOT_ACKNOWLEDGED")
+        except Exception:
+            raise ValueError("VERCEL_STAGE_STOP_OUTCOME_UNKNOWN") from None
 
     def verify_static_files(self, deployment):
         require(deployment == self.site or re.fullmatch(r"https://[a-z0-9-]+\.vercel\.app", deployment), "Unapproved deployment probe")

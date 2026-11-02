@@ -799,6 +799,13 @@ class PipelineTests(unittest.TestCase):
         artifact=self.static_artifact();seen=[]
         def runner(args,**kwargs):
             seen.append(args)
+            if args[1] == 'api':
+                if '/v9/projects/' in args[2]:
+                    return SimpleNamespace(returncode=0,stdout=json.dumps({'id':'prj_123','accountId':'team_123',
+                        'resourceConfig':{'buildMachineType':'basic','buildMachineSelection':'fixed','elasticConcurrencyEnabled':False}}),stderr='')
+                return SimpleNamespace(returncode=0,stdout=json.dumps({'id':'dpl_123','projectId':'prj_123',
+                    'url':'exact-tested-build.vercel.app','readyState':'READY','target':'production',
+                    'meta':{'smpReleaseId':'e'*64,'smpAppRevision':'a'*40,'smpArtifactSha256':artifact['sha256']}}),stderr='')
             root=Path(kwargs['cwd'])
             self.assertEqual({p.name for p in root.iterdir()},{'.vercel', 'web'})
             self.assertEqual(list((root/'web').iterdir()), [])
@@ -808,7 +815,7 @@ class PipelineTests(unittest.TestCase):
         adapter=VercelAdapter(self.store,'prj_123','team_123','pikeholdings',runner=runner)
         manifest={'releaseId':'e'*64,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':artifact,'contractSha256':'d'*64}
         self.assertEqual(adapter.stage(manifest),'https://exact-tested-build.vercel.app')
-        self.assertEqual(len(seen),1)
+        self.assertEqual(len(seen),3)
 
     def test_crash_after_promotion_recovers_acknowledgement_without_redeploying(self):
         previous={'releaseId':'old','sequence':1,'deploymentId':'old-deploy'}

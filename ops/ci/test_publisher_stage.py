@@ -1,4 +1,5 @@
 import io
+import json
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -18,8 +19,18 @@ class PublisherBytesTests(unittest.TestCase):
     def adapter(self, commands):
         def runner(args, **_kwargs):
             commands.append(args)
+            if args[1] == 'api':
+                if '/v9/projects/' in args[2]:
+                    return SimpleNamespace(returncode=0, stdout=json.dumps({'id': 'prj_123', 'accountId': 'team_123',
+                        'resourceConfig': {'buildMachineType': 'basic', 'buildMachineSelection': 'fixed',
+                                           'elasticConcurrencyEnabled': False}}), stderr='')
+                return SimpleNamespace(returncode=0, stdout=json.dumps({
+                    'id': 'dpl_123', 'projectId': 'prj_123', 'url': 'exact.vercel.app',
+                    'readyState': 'READY', 'target': None if getattr(self, 'smoke', False) else 'production',
+                    'meta': {'smpReleaseId': 'r', 'smpAppRevision': 'a'*40, 'smpArtifactSha256': 'a'},
+                }), stderr='')
             return SimpleNamespace(returncode=0, stdout='https://exact.vercel.app', stderr='')
-        return VercelAdapter(SimpleNamespace(read=lambda _key: {'releaseId': 'old'}),
+        return VercelAdapter(SimpleNamespace(read=lambda _key: {'releaseId': 'old'}, write_once=lambda *_args: None),
                              'prj_123', 'team_123', 'pikeholdings', runner=runner)
 
     def manifest(self):
@@ -31,18 +42,21 @@ class PublisherBytesTests(unittest.TestCase):
         adapter = self.adapter(commands)
         with patch('vercel.stage_files', return_value={'static/index.html': b'exact'}):
             adapter.stage(self.manifest())
-        self.assertIn('--prebuilt', commands[0])
-        self.assertIn('--target=production', commands[0])
-        self.assertIn('--skip-domain', commands[0])
-        self.assertNotIn('--prod', commands[0])
+        command = next(args for args in commands if args[1] == 'deploy')
+        self.assertIn('--prebuilt', command)
+        self.assertIn('--target=production', command)
+        self.assertIn('--skip-domain', command)
+        self.assertNotIn('--prod', command)
 
     def test_smoke_payload_stays_preview(self):
         commands = []
+        self.smoke = True
         manifest = {**self.manifest(), 'mode': 'stage_only_smoke_test'}
         with patch('vercel.stage_files', return_value={'static/index.html': b'exact'}):
             self.adapter(commands).stage(manifest)
-        self.assertNotIn('--target=production', commands[0])
-        self.assertNotIn('--skip-domain', commands[0])
+        command = next(args for args in commands if args[1] == 'deploy')
+        self.assertNotIn('--target=production', command)
+        self.assertNotIn('--skip-domain', command)
 
     def test_previous_served_deployment_uses_instant_rollback(self):
         commands = []
