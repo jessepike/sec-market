@@ -1,0 +1,57 @@
+{
+  "runtime": "OrbStack dev, existing Python and PyYAML 6.0.1",
+  "checks": [
+    {
+      "suite": "test_auth_store.py",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_auth_store.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.03427
+    },
+    {
+      "suite": "test_runtime_canary.py",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_runtime_canary.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.104934
+    },
+    {
+      "suite": "test_verified_ci_guards.py",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_verified_ci_guards.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "elapsedSeconds": 0.034728
+    }
+  ],
+  "yamlAndTriggerBoundaries": "passed",
+  "nativeCanaryAndReceiptSteps": "identical to base",
+  "runtimeCanaryTestsAndWebWorkflow": "byte-identical to base",
+  "actionlint": "not installed; no installation attempted"
+}

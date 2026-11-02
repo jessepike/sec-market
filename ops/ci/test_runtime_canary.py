@@ -1,11 +1,8 @@
 """Offline hosting/archive checks; real archive verification, no source transport."""
-import ast
 import contextlib
 import copy
-import fnmatch
 import json
 import os
-import re
 from pathlib import Path
 import shutil
 import tempfile
@@ -18,45 +15,12 @@ from archive import GitArchive
 from contracts import canonical, digest, plan_run
 from fetcher import Fetcher
 from storage import LocalStore
-from coverage_summary import MEASURE
-
-
-NOW = '2026-10-23T12:00:00Z'
-
-# Fictional fixtures copied unchanged from the collection/coverage tests.
-# Keep this canary suite independent of unrelated collection/parser imports.
-def fixture_contract():
-    source = {'id': 'generic', 'supplierId': 'fixture', 'family': 'official_announcements',
-              'kind': 'rss', 'url': 'https://example.invalid/feed.xml', 'allowedHosts': ['example.invalid'],
-              'registration': 'verified', 'required': True, 'maxPages': 2, 'scopePrefixes': ['/release/']}
-    sources = [source, {**source, 'id': 'citation', 'kind': 'citation', 'family': 'citation_integrity',
-                        'url': 'https://example.invalid/release/one'},
-               {**source, 'id': 'sec', 'kind': 'sec_facts', 'family': 'regulatory_filings',
-                'url': 'https://example.invalid/facts.json'}]
-    return {'schemaVersion': 1, 'version': 'synthetic-collection-mechanics',
-            'schedule': {'intervalHours': 24, 'overdueHours': 30, 'reconcileEveryRun': True,
-                         'maxWorkers': 3, 'maxFetchesPerRun': 10},
-            'model': {'provider': 'codex_subscription', 'allowApiBilling': False, 'maxDocumentsPerRun': 2,
-                      'maxCallsPerRun': 3, 'maxDocumentChars': 30000, 'timeoutSeconds': 2},
-            'publication': {'enabled': False, 'allowDegradedCoverage': True},
-            'suppliers': [{'id': 'fixture', 'name': 'Fixture Vendor', 'kind': 'private', 'aliases': [],
-                           'sourceIds': [s['id'] for s in sources], 'requiredCategories': ['funding_valuation'],
-                           'requiredFamilies': [s['family'] for s in sources]}], 'sources': sources}
-
-
-def separated_coverage():
-    return {'schemaVersion': 2, 'measure': MEASURE, 'successfulTasks': 1, 'requiredTasks': 1,
-            'complete': True, 'gapTaskIds': [],
-            'intake': {'measure': MEASURE, 'evaluated': True, 'status': 'collected',
-                       'successfulTasks': 1, 'requiredTasks': 1, 'complete': True, 'gapTaskIds': []},
-            'processing': {'complete': False, 'inventoryDocuments': 3, 'reviewedDocuments': 1,
-                           'pendingDocuments': 2, 'heldDocuments': 1, 'changedDocuments': 2, 'unknownDateDocuments': 1},
-            'historicalReview': {'complete': False, 'inventoryDocuments': 20, 'reviewedDocuments': 2,
-                                 'pendingDocuments': 18, 'heldDocuments': 1}}
+from test_correction_collection import fixture_contract, NOW
 
 
 class RuntimeCanaryTests(unittest.TestCase):
     def test_v2_archive_reports_intake_and_pending_reviews_without_live_credit(self):
+        from test_coverage_summary import separated_coverage
         coverage = {**self.coverage, **separated_coverage()}
         # Keep the real fixture's required source inventory and blocked intake.
         coverage.update(successfulTasks=0, requiredTasks=self.coverage['requiredTasks'], complete=False,
@@ -285,45 +249,6 @@ class RuntimeCanaryTests(unittest.TestCase):
         self.assertNotIn('contents: write', workflow)
         self.assertNotIn('secrets.', workflow)
         self.assertNotIn('probe a source', workflow)
-
-    def test_workflow_trigger_covers_actual_local_import_closure_and_contract(self):
-        root = Path(__file__).resolve().parents[2]
-        workflow_path = '.github/workflows/subscription-runtime-canary.yml'
-        workflow = (root / workflow_path).read_text()
-        push = workflow.split('  workflow_dispatch:', 1)[0]
-        patterns = re.findall(r"^      - '([^']+)'$", push, re.MULTILINE)
-        self.assertTrue(patterns)
-        pending = [root / 'ops/ci' / name for name in
-                   ('runtime_canary.py', 'auth_store.py', 'test_runtime_canary.py', 'test_auth_store.py')]
-        closure = set()
-        while pending:
-            path = pending.pop()
-            if path in closure:
-                continue
-            closure.add(path)
-            for node in ast.walk(ast.parse(path.read_text())):
-                names = ([node.module] if isinstance(node, ast.ImportFrom) else
-                         [alias.name for alias in node.names] if isinstance(node, ast.Import) else [])
-                for name in names:
-                    for directory in ('ops/ci', 'web/scripts/pipeline'):
-                        dependency = root / directory / (name.split('.')[0] + '.py')
-                        if dependency.exists():
-                            pending.append(dependency)
-        required = {path.relative_to(root).as_posix() for path in closure}
-        required.update(('contracts/market.json', workflow_path))
-        self.assertEqual(set(patterns), required)
-        for unrelated in ('ops/ci/collect.py', 'ops/ci/test_correction_collection.py',
-                          'web/scripts/pipeline/engine.py', 'web/src/pages/index.astro'):
-            self.assertFalse(any(fnmatch.fnmatchcase(unrelated, pattern) for pattern in patterns), unrelated)
-
-    def test_workflow_runs_only_the_two_focused_fictional_suites_before_native_restore(self):
-        root = Path(__file__).resolve().parents[2]
-        workflow = (root / '.github/workflows/subscription-runtime-canary.yml').read_text()
-        commands = re.findall(r'^          (python3 -m unittest .+)$', workflow, re.MULTILINE)
-        self.assertEqual(commands, [
-            "python3 -m unittest discover -s ops/ci -p 'test_auth_store.py' -v",
-            "python3 -m unittest discover -s ops/ci -p 'test_runtime_canary.py' -v"])
-        self.assertLess(workflow.index(commands[-1]), workflow.index('python3 ops/ci/runtime_canary.py'))
 
 
 if __name__ == '__main__':

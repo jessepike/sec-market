@@ -1,0 +1,12 @@
+test_api_and_host_integrated_auth_are_not_accepted_as_managed_account_auth (test_auth_store.AuthStoreTests.test_api_and_host_integrated_auth_are_not_accepted_as_managed_account_auth) ... ok
+test_failed_persistence_does_not_acknowledge_or_revert_refreshed_auth (test_auth_store.AuthStoreTests.test_failed_persistence_does_not_acknowledge_or_revert_refreshed_auth) ... ok
+test_repository_cannot_be_used_as_a_credential_directory (test_auth_store.AuthStoreTests.test_repository_cannot_be_used_as_a_credential_directory) ... ok
+test_restore_is_private_and_unchanged_auth_makes_no_write (test_auth_store.AuthStoreTests.test_restore_is_private_and_unchanged_auth_makes_no_write) ... ok
+test_rotated_auth_writes_latest_bytes_over_stdin_without_token_on_argv (test_auth_store.AuthStoreTests.test_rotated_auth_writes_latest_bytes_over_stdin_without_token_on_argv) ... ok
+test_symlink_cannot_redirect_credential_storage (test_auth_store.AuthStoreTests.test_symlink_cannot_redirect_credential_storage) ... ok
+test_timeout_is_bounded_and_missing_writer_cannot_claim_persistence (test_auth_store.AuthStoreTests.test_timeout_is_bounded_and_missing_writer_cannot_claim_persistence) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+OK

@@ -1,5 +1,10 @@
 # Private hosting canary runner reduction, November 2, 2026
 
+The final proposal runs seven fictional auth tests before the unchanged native archive canary
+and uses the conservative pipeline-wide path filter. The final source diff restores the original
+runtime test module completely. The superseding specification and results are at the end;
+the initial specification and evidence below remain as implementation history.
+
 ## Specification before implementation
 
 Base: origin/preview `0fa0ed39a899539dee680ae572a56eb21d2f47e0`.
@@ -84,3 +89,35 @@ The actual dependency-filter check initially failed on the missing conditional i
 blocked handoff until all 12 paths were included. Final results and preservation checks are in
 `receipts/canary-runner-reduction-2026-11-02/`. This change is local and unpushed. The sensitive
 workflow change carries `Owner-Review: required`; parent delivery owns final review and release.
+
+## Superseding scope after parent review
+
+The initial implementation and results above are retained as history of commit `fe691523`.
+The following final specification supersedes the two-suite canary step, copied fixtures, and
+23-path import-closure test. This amendment was specified before its validation and commit.
+
+The final workflow runs only the seven fictional `test_auth_store.py` cases before the unchanged
+actual native private archive canary. Full web CI still executes all operational tests once,
+including the original 16 runtime-canary cases. Restore `test_runtime_canary.py` byte-for-byte
+from base `0fa0ed39`; no copied fixture or AST traversal remains in the final source diff.
+
+Use eight conservative push patterns: the canary runtime, auth helper, coverage summary, the two
+focused test files, `web/scripts/pipeline/**`, `contracts/market.json`, and the workflow itself.
+The whole pipeline pattern covers current and future conditional validator imports without a
+maintained import list. This intentionally permits native archive checks on any pipeline edit.
+Unrelated operational, collection and correction-test edits, plus website UI edits, skip this
+native canary while retaining full web CI. Auth and archive changes remain covered.
+
+Revalidate seven auth tests, the original 16 canary tests, 13 exact-code CI guard tests, actual YAML
+and trigger boundaries. Preserve all initial evidence files. Save amendment results separately.
+The expected saving is removal of the old 311-second duplicate hosted full suite plus avoided
+native canary runs on unrelated ops edits. Actual new hosted timings remain unproved, and the
+existing daily forecast does not change. No service, spend, schedule or alert changes are included.
+
+Final amendment checks passed in OrbStack: seven auth cases in 0.034270 seconds, the original 16
+runtime cases in 0.104934 seconds and 13 exact-code guard cases in 0.034728 seconds. Existing
+PyYAML parsed the real workflow. Positive and negative path checks passed, including future
+pipeline validators, current archive/auth files and excluded unrelated ops/UI edits. The native
+canary and receipt steps are identical to base. Both the runtime test module and web workflow are
+byte-identical to base. Final results are saved under the original evidence folder's
+`final-amendment/` directory; the earlier 18-case results remain historical evidence only.
