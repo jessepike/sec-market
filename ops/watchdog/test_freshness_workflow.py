@@ -207,5 +207,58 @@ class WorkflowBindingTests(unittest.TestCase):
         self.assertEqual(source.count('timeout-minutes: 5'),3)
         program('WATCHDOG_PROBE_RECEIPT');program('WATCHDOG_OBSERVER_REPORTER')
 
+    def test_legacy_job_skips_only_explicit_true_even_after_unhealthy_observer(self):
+        source=WORKFLOW.read_text()
+        daily=source.split('  daily-pipeline:',1)[1].split('\n  observer-alert:',1)[0]
+        legacy=source.split('\n  probe:',1)[1]
+        self.assertIn('legacy_retired: ${{ steps.publication_route.outputs.legacy_retired }}',daily)
+        self.assertLess(daily.index('id: publication_route'),daily.index('id: watchdog_tests'))
+        self.assertIn('needs: daily-pipeline',legacy)
+        self.assertIn("if: always() && needs.daily-pipeline.outputs.legacy_retired != 'true'",legacy)
+        # A legitimate coverage failure must not implicitly skip this dependency's fallback.
+        self.assertNotIn('needs.daily-pipeline.result',legacy.split('runs-on:',1)[0])
+        self.assertIn("if jq -e '.publication.enabled == true' contracts/market.json",legacy)
+
+
+class PublicationRouteTests(unittest.TestCase):
+    def setUp(self): self.code=program('WATCHDOG_PUBLICATION_ROUTE')
+
+    def test_only_strict_boolean_activation_retires_legacy_checks(self):
+        valid={'publication':{'enabled':True}}
+        self.assertTrue(self.code['legacy_retired'](json.dumps(valid).encode()))
+        for value in (False,1,0,'true','false',None,[],{}):
+            self.assertFalse(self.code['legacy_retired'](json.dumps({'publication':{'enabled':value}}).encode()))
+        for value in ({},{'publication':True},{'publication':[]},{'publication':{}},[]):
+            self.assertFalse(self.code['legacy_retired'](json.dumps(value).encode()))
+
+    def test_missing_malformed_duplicate_nonfinite_or_oversized_contract_preserves_fallback(self):
+        for raw in (b'',b'{}',b'\xff',b'x'*1_000_001,
+                    b'{"publication":{"enabled":false,"enabled":true}}',
+                    b'{"publication":{"enabled":true},"publication":{"enabled":false}}',
+                    b'{"publication":{"enabled":true},"other":NaN}',
+                    b'{"publication":{"enabled":true},"other":Infinity}'):
+            self.assertFalse(self.code['legacy_retired'](raw))
+
+    def test_actual_route_output_is_bounded_and_unreadable_contract_is_explicit_false(self):
+        for raw,expected in ((b'{"publication":{"enabled":true}}','true'),(b'bad','false'),(None,'false')):
+            with tempfile.TemporaryDirectory(prefix='synthetic-publication-route-') as temporary:
+                output=Path(temporary)/'github-output';log=io.StringIO();reads=[]
+                original=Path.open
+                def open_path(path,mode='r',*args,**kwargs):
+                    if str(path)=='contracts/market.json':
+                        if raw is None:raise OSError('synthetic missing contract')
+                        stream=io.BytesIO(raw)
+                        class BoundedSource:
+                            def __enter__(self):return self
+                            def __exit__(self,*args):stream.close()
+                            def read(self,count):reads.append(count);return stream.read(count)
+                        return BoundedSource()
+                    return original(path,mode,*args,**kwargs)
+                with patch.dict(os.environ,{'GITHUB_OUTPUT':str(output)}),patch.object(Path,'open',open_path),redirect_stdout(log):
+                    self.code['main']()
+                self.assertEqual(output.read_text(),'legacy_retired='+expected+'\n')
+                self.assertEqual(reads,[] if raw is None else [1_000_001])
+                self.assertNotIn('synthetic missing contract',log.getvalue())
+
 
 if __name__=='__main__':unittest.main()

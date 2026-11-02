@@ -38,10 +38,19 @@ overdue check continues to alert. This trades repeated no-op attempts for one da
 attempt, without declaring a missed publication successful or weakening its two-attempt allowance.
 
 Expected saving from today's observed repeated suites is 10m12s per collector/publication pair.
-Each unchanged scheduled publisher timer also avoids its repeated full suite; November 2's
-publisher timing suggests about 6m24s per timer, before rounding and variable test duration.
+The actual November 2 no-op timer `41400096065` occupied 9m42s and spent 4m36s in its repeated
+full suite (06:28:59–06:33:35 UTC). Subtract that timer's own observed suite time, rather than
+borrowing the longer callback publisher's duration.
 The full suite still runs once for each tested code revision, or on any uncertain CI readback.
 No reduction is claimed as hosted until the reviewed code reaches main and actual runs exercise it.
+
+The old freshness job currently starts another runner only to read `publication.enabled: true`
+and return "Legacy publication checks are retired." Read that setting with strict bounded JSON
+after the existing daily observer checkout, before its tests. Skip the legacy job only when the
+result is explicitly true. Missing, invalid, unreadable or failed-step output retains the legacy
+job with `always()` even when its dependency fails. The active observer's tests, actual probe,
+coverage alert and checkout-independent execution-failure reporter remain unchanged. This avoids
+four obsolete job allocations per day without turning an unhealthy active observer green.
 
 ## Conservative forecast from the observed November 2 timings
 
@@ -51,9 +60,11 @@ guard 1 + collector 22 + callback preflight 1 + publisher 21 + gate 8 + expired 
 The unchanged monitor's three jobs four times daily add 12. Total: about 99 minutes/day.
 
 With exact-code CI reuse, the same observed collector becomes 18 minutes and publisher 15;
-the chain is 44 minutes. One fallback becomes 4 + 1 = 5 minutes; monitoring remains 12.
-Total: about 61 minutes/day, 1,830 minutes per 30 days, about $10.98 gross Linux compute at
-the existing $0.006/minute rate. Against $12 included compute, this leaves about $1.02/170 minutes
+the chain is 44 minutes. One fallback becomes 6 + 1 = 7 minutes; monitoring initially remains 12.
+That subtotal is 63 minutes/day. Avoiding the explicitly retired legacy monitor job reduces its
+four occurrences by four rounded minutes, leaving eight active monitor/reporter minutes daily.
+Total: about 59 minutes/day, 1,770 minutes per 30 days, about $10.62 gross Linux compute at
+the existing $0.006/minute rate. Against $12 included compute, this leaves about $1.38/230 minutes
 for retries, code-change CI and other repositories. This is a forecast with limited headroom,
 not a billing receipt or proof of a sustainable month. A failed CI proof deliberately spends
 the old full-suite time, and collection/source variation can increase daily usage. Recheck actual
@@ -73,3 +84,9 @@ passed. All three edited workflows parsed with the VM's existing PyYAML, and the
 passed whitespace checks. Actual old CI run `40532987330` has no new suite step, so it cannot
 grant reuse. The new step must genuinely execute in hosted CI before any scheduled job can reuse
 it. No workflow was dispatched and no preview/main branch was pushed by this implementation unit.
+
+The isolated delivery tree based on origin/preview `2aa87f5d`, through `54892881`, then passed
+all 1,031 operational tests in 180.638s and all 13 helper tests in OrbStack. Its diff contains only
+the new search and these runner changes, with no dormant managed-runtime activation. After the
+separate legacy-job reduction, all 59 active watchdog tests passed, including real inline-program
+tests of duplicate keys, nonfinite values, string/numeric booleans, oversized input and read failure.

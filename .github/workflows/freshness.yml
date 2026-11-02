@@ -33,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
+      legacy_retired: ${{ steps.publication_route.outputs.legacy_retired }}
       tests_outcome: ${{ steps.watchdog_tests.outcome }}
       probe_outcome: ${{ steps.watchdog_probe.outcome }}
       probe_acknowledged: ${{ steps.watchdog_probe.outputs.acknowledged }}
@@ -44,6 +45,58 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - name: Read the active publication route before observer tests
+        id: publication_route
+        run: |
+          # BEGIN WATCHDOG_PUBLICATION_ROUTE
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          MAX_BYTES = 1_000_000
+
+
+          def unique_object(pairs):
+              value = {}
+              for key, item in pairs:
+                  if key in value:
+                      raise ValueError('DUPLICATE_CONTRACT_KEY')
+                  value[key] = item
+              return value
+
+
+          def reject_constant(_):
+              raise ValueError('NONFINITE_CONTRACT_VALUE')
+
+
+          def legacy_retired(raw):
+              if type(raw) is not bytes or not 0 < len(raw) <= MAX_BYTES:
+                  return False
+              try:
+                  value = json.loads(raw.decode('utf-8'), object_pairs_hook=unique_object,
+                                     parse_constant=reject_constant)
+              except (ValueError, UnicodeError):
+                  return False
+              return (type(value) is dict and type(value.get('publication')) is dict
+                      and value['publication'].get('enabled') is True)
+
+
+          def main():
+              try:
+                  with Path('contracts/market.json').open('rb') as source:
+                      retired = legacy_retired(source.read(MAX_BYTES + 1))
+              except OSError:
+                  retired = False
+              with Path(os.environ['GITHUB_OUTPUT']).open('a') as output:
+                  output.write('legacy_retired=' + str(retired).lower() + '\n')
+              print('Legacy publication checks retired: ' + str(retired).lower())
+
+
+          if __name__ == '__main__':
+              main()
+          PY
+          # END WATCHDOG_PUBLICATION_ROUTE
       - name: Test the independent coverage and publication observer
         id: watchdog_tests
         run: python3 -m unittest discover -s ops/watchdog -p 'test_*.py' -v
@@ -239,6 +292,10 @@ jobs:
           # END WATCHDOG_OBSERVER_REPORTER
 
   probe:
+    needs: daily-pipeline
+    # Only explicit, strictly parsed daily-publication activation retires this old route.
+    # Missing outputs and observer failures retain the legacy fallback job.
+    if: always() && needs.daily-pipeline.outputs.legacy_retired != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
