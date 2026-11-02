@@ -1,0 +1,29 @@
+{
+  "base": "0bb66c388e8d08b295f9451ef3f863cf8ea8d6ad",
+  "onlyExistingCodePathsChanged": [
+    "ops/ci/publisher_probe.py",
+    "ops/ci/test_publisher_probe.py"
+  ],
+  "unchangedTrackedPaths": 3581,
+  "allWorkflowUIKSourceStagingBytesUnchanged": true,
+  "workflowSha256": "66fdaad150fae1c08a469e22d174d5aa1c33ec177dbc0124d10c587e4b3ea7f5",
+  "vercelConfigSha256": "01ff80cb198265941be90ae8d3d5ec7756a1b9dcfa8f4d5e67eb6210ec553f8b",
+  "fixedProjectGetOnly": true,
+  "privateRepositoryGuardUnchanged": true,
+  "stageRequiresHeadCommitMarkerUnchanged": true,
+  "workflowDispatchHasNoHeadCommit": "Static event-shape assessment; no dispatch performed.",
+  "deploymentEnabled": {
+    "**": false,
+    "preview": true
+  },
+  "nativeGitSuppressionProven": false,
+  "nativeResourceValuesObserved": false,
+  "push": false,
+  "dispatch": false,
+  "providerMutation": false,
+  "focusedTests": {
+    "passed": 9,
+    "skipped": 0,
+    "environment": "OrbStack dev"
+  }
+}

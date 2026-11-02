@@ -1,0 +1,38 @@
+{
+  "sourceCommit": "a0b50d4c8af4128028952a8d5bc63d920e9cd08f",
+  "files": [
+    {
+      "path": "before-git-tree.txt",
+      "sha256": "e5db09073a37344c2128a87bf7adf778c69a721e394105077c7676a570c82dfb",
+      "bytes": 522931
+    },
+    {
+      "path": "boundary-and-route.json",
+      "sha256": "68d3a18972620f3774e469f5c61eeede20f15bd522796e3955b73d5a7dc90125",
+      "bytes": 960
+    },
+    {
+      "path": "focused-tests.log",
+      "sha256": "f887d8d7dcd8bbe55cce32c2a50ade25e4056bb3affc6eac9406b34c8c563268",
+      "bytes": 1781
+    },
+    {
+      "path": "native-branch-rules-error.txt",
+      "sha256": "dbf87ea4a345f4e73a9582fd3cefce7cc3f1871e16dba5e56523eff7fdf6cca4",
+      "bytes": 92
+    },
+    {
+      "path": "native-branch-rules.json",
+      "sha256": "4ea208627437c546e422f0a0ad0fc946f4348dba57343cc47dcb9a8a048dda2a",
+      "bytes": 191
+    }
+  ],
+  "nativeGitHubBranchRulesQuery": {
+    "status": 403,
+    "featureUnavailable": true,
+    "neitherPushProhibitionNorAuthorizationInferred": true
+  },
+  "realVercelRead": false,
+  "push": false,
+  "dispatch": false
+}
