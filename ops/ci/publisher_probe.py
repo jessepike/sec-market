@@ -94,7 +94,14 @@ def execute(root):
         project = json.loads(client.cli(['api', '/v9/projects/' + PROJECT_ID + '?teamId=' + TEAM_ID, '--raw']))
         if project.get('id') != PROJECT_ID or project.get('accountId') != TEAM_ID:
             raise RuntimeError('EXISTING_VERCEL_PROJECT_AND_TEAM_DIFFER')
+        resource = project.get('resourceConfig')
+        if not isinstance(resource, dict):
+            resource = {}
+        resource_fields = {key: resource.get(key) if type(resource.get(key)) is expected else None
+                           for key, expected in [('buildMachineType', str), ('buildMachineSelection', str),
+                                                 ('elasticConcurrencyEnabled', bool)]}
         return {'publisherAccessPassed': True, 'githubRunId': os.environ['GITHUB_RUN_ID'],
+                **resource_fields,
                 'projectId': PROJECT_ID, 'teamId': TEAM_ID, 'scope': SCOPE,
                 'rootDirectory': project.get('rootDirectory'), 'framework': project.get('framework'),
                 'productionPathsControlled': project.get('autoAssignCustomDomains') is False and

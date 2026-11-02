@@ -22,6 +22,52 @@ class PublisherCredentialTests(unittest.TestCase):
         self.assertFalse(receipt['publishPermissionAccepted'])
         self.assertFalse(receipt['deploymentAttempted'])
 
+    def resource_probe(self, resource_config, *, include=True):
+        project = {'id': PROJECT_ID, 'accountId': TEAM_ID, 'rootDirectory': 'web', 'framework': 'vite'}
+        if include:
+            project['resourceConfig'] = resource_config
+        with tempfile.TemporaryDirectory() as folder, patch.dict(os.environ, {
+            'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': 'jessepike/sec-market',
+            'GITHUB_RUN_ID': 'fictional-run', 'VERCEL_TOKEN': 'fictional-token',
+        }), patch('publisher_probe.PublisherAuth.cli', return_value=json.dumps(project)) as cli:
+            receipt = execute(Path(folder) / 'auth')
+        cli.assert_called_once_with(['api', '/v9/projects/' + PROJECT_ID + '?teamId=' + TEAM_ID, '--raw'])
+        self.assertTrue(receipt['publisherAccessPassed'])
+        self.assertTrue(receipt['readOnly'])
+        self.assertFalse(receipt['deploymentAttempted'])
+        self.assertFalse(receipt['publishPermissionAccepted'])
+        self.assertNotIn('resourceConfig', receipt)
+        return receipt
+
+    def test_native_resource_readback_exposes_only_three_typed_fields(self):
+        expected = {'buildMachineType': 'basic', 'buildMachineSelection': 'fixed',
+                    'elasticConcurrencyEnabled': False}
+        receipt = self.resource_probe({**expected, 'unrelatedNativeField': 'fictional-resource-secret'})
+        self.assertEqual({key: receipt[key] for key in expected}, expected)
+        self.assertNotIn('fictional-resource-secret', json.dumps(receipt))
+
+    def test_absent_or_non_object_native_resource_fields_remain_unknown(self):
+        for include, resource in [(False, None), (True, None), (True, []), (True, 'basic'),
+                                  (True, False), (True, 1), (True, {})]:
+            with self.subTest(include=include, resource=resource):
+                receipt = self.resource_probe(resource, include=include)
+                for key in ('buildMachineType', 'buildMachineSelection', 'elasticConcurrencyEnabled'):
+                    self.assertIsNone(receipt[key])
+
+    def test_malformed_native_resource_fields_are_null_without_hiding_valid_siblings(self):
+        values = [({'nested': 'fictional-resource-secret'}, 'fixed', False),
+                  ('basic', ['fictional-resource-secret'], True),
+                  ('basic', 'fixed', 'false'), ('basic', 'fixed', 0)]
+        for machine, selection, concurrency in values:
+            with self.subTest(machine=machine, selection=selection, concurrency=concurrency):
+                receipt = self.resource_probe({'buildMachineType': machine,
+                                              'buildMachineSelection': selection,
+                                              'elasticConcurrencyEnabled': concurrency})
+                self.assertEqual(receipt['buildMachineType'], machine if type(machine) is str else None)
+                self.assertEqual(receipt['buildMachineSelection'], selection if type(selection) is str else None)
+                self.assertEqual(receipt['elasticConcurrencyEnabled'], concurrency if type(concurrency) is bool else None)
+                self.assertNotIn('fictional-resource-secret', json.dumps(receipt))
+
     def test_failure_classification_never_returns_raw_transport_or_credentials(self):
         for message, category in [
             ('Error: unknown option --raw', 'CLI_USAGE'),
