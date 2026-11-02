@@ -38,7 +38,10 @@ remains frozen in source commit `ad15a4c0`; new helper failures and success are 
 Full npm test passed in OrbStack: lint, 386 data cases, 115 pipeline cases, certified build and
 44 browser cases. One existing prospective-deadline browser case remains skipped. All 1,090 operational cases passed with zero skips;
 full logs are recorded in the companion handback. Current UI and workflow bytes remain
-unchanged; 3,375 untouched base tracked paths remain exact. No render/hosted result is inferred.
+unchanged; 3,375 untouched base tracked paths remain exact. Fresh production/local full-page
+and first-screen 1440/390 captures are complete; all four local images exactly match the actual
+reviewed Preview, and 141 UI/public/browser-test paths remain byte-identical. See
+`docs/active/daily-pipeline/coverage-release-visual-review-2026-11-02.md`. No hosted result is inferred.
 
 # Release and cost holds
 
@@ -49,8 +52,7 @@ in the correct Pacific day. Cancellation is not a provider billing cap. No extra
 push, dispatch, provider mutation or main promotion is authorized by this preparation.
 
 Next: independently review this exact combination, reconcile fresh all-writer cost bounds,
-and perform the normal reviewed Preview/main release only when those gates fit. Before a push,
-render production and the candidate at 1440/390. Native Basic read-back, Git main/archive build
+and perform the normal reviewed Preview/main release only when those gates fit. Repeat the 1440/390 production comparison before a push if public data or candidate bytes change. Native Basic read-back, Git main/archive build
 suppression, genuine scheduled K collection, independent exact-artifact publication and completed
 day costs remain hosted acceptance gates. Local tests earn no source-coverage or deployment credit.
 

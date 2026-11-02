@@ -1,0 +1,2302 @@
+{
+  "generatedAt": "2026-10-21",
+  "runStatus": {
+    "lastChecked": "2026-10-21",
+    "state": "incomplete",
+    "detail": "SEC filings complete for all 16 public suppliers that file quarterly with the SEC; Check Point and Trend Micro figures come from their own releases; company news pages could not be read for 9 of 74 suppliers.; 74 of 74 supplier coverage receipts recorded; 248 fields failed verification and 0 fields remain unchecked."
+  },
+  "domains": [
+    {
+      "id": "endpoint-xdr",
+      "name": "Endpoint and XDR",
+      "scope": "Endpoint detection and response and extended detection and response platforms."
+    },
+    {
+      "id": "secops",
+      "name": "Security operations (SIEM/SOAR)",
+      "scope": "Security information and event management, and security orchestration, automation and response."
+    },
+    {
+      "id": "managed-security",
+      "name": "Managed security and MDR",
+      "scope": "Managed detection and response and outsourced security operations."
+    },
+    {
+      "id": "network-sase",
+      "name": "Network and SASE",
+      "scope": "Network security, secure access service edge, and secure service edge."
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud security",
+      "scope": "Cloud-native application protection platforms and cloud security posture management."
+    },
+    {
+      "id": "identity",
+      "name": "Identity",
+      "scope": "Identity and access management, privileged access management, and identity governance."
+    },
+    {
+      "id": "data",
+      "name": "Data security",
+      "scope": "Data security posture management, data loss prevention, and backup and resilience treated as security."
+    },
+    {
+      "id": "exposure",
+      "name": "Vulnerability and exposure management",
+      "scope": "Vulnerability scanning, exposure management, and attack-surface management."
+    },
+    {
+      "id": "appsec",
+      "name": "Application security",
+      "scope": "Application security testing and software-supply-chain security."
+    },
+    {
+      "id": "email",
+      "name": "Email security",
+      "scope": "Email security and business email compromise protection."
+    },
+    {
+      "id": "ot-iot",
+      "name": "OT and IoT security",
+      "scope": "Operational-technology and industrial IoT security."
+    },
+    {
+      "id": "ai-security",
+      "name": "AI security",
+      "scope": "Security products for AI systems, covered as a market — who is buying whom and what is reported as revenue, not as news."
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "abnormal-security",
+      "name": "Abnormal Security",
+      "domainIds": [
+        "email"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "aqua",
+      "name": "Aqua Security",
+      "domainIds": [
+        "cloud"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "arctic-wolf",
+      "name": "Arctic Wolf Networks, Inc.",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "armis",
+      "name": "Armis Security Ltd.",
+      "domainIds": [
+        "ot-iot"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "axonius",
+      "name": "Axonius, Inc.",
+      "domainIds": [
+        "exposure"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "barracuda",
+      "name": "Barracuda Networks",
+      "domainIds": [
+        "email"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "beyondtrust",
+      "name": "BeyondTrust",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "bigid",
+      "name": "BigID",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "cato",
+      "name": "Cato Networks",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "chainguard",
+      "name": "Chainguard",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "checkpoint-email",
+      "name": "Check Point Email Security",
+      "domainIds": [
+        "email"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "checkpoint-sase",
+      "name": "Check Point",
+      "domainIds": [
+        "network-sase",
+        "email"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "claroty",
+      "name": "Claroty Ltd.",
+      "domainIds": [
+        "ot-iot"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "cloudflare",
+      "name": "Cloudflare",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "cohesity",
+      "name": "Cohesity",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "commvault",
+      "name": "Commvault Systems, Inc.",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "crwd",
+      "name": "CrowdStrike Holdings, Inc.",
+      "domainIds": [
+        "cloud",
+        "endpoint-xdr",
+        "exposure"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "crwd-exposure",
+      "name": "CrowdStrike Falcon Exposure Management",
+      "domainIds": [
+        "exposure"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "cyberark",
+      "name": "CyberArk",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "cyera",
+      "name": "Cyera",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "delinea",
+      "name": "Delinea",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "dragos",
+      "name": "Dragos, Inc.",
+      "domainIds": [
+        "ot-iot"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "esentire",
+      "name": "eSentire, Inc.",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "exabeam",
+      "name": "Exabeam, Inc.",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "expel",
+      "name": "Expel, Inc.",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "forescout",
+      "name": "Forescout Technologies, Inc.",
+      "domainIds": [
+        "ot-iot"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "fortinet",
+      "name": "Fortinet",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "github-advanced-security",
+      "name": "GitHub Advanced Security",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "google-secops",
+      "name": "Google SecOps",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "hiddenlayer",
+      "name": "HiddenLayer, Inc.",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "ivanti",
+      "name": "Ivanti, Inc.",
+      "domainIds": [
+        "exposure"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "jfrog",
+      "name": "JFrog Ltd.",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "lakera",
+      "name": "Lakera AI (Lakera)",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "mimecast",
+      "name": "Mimecast",
+      "domainIds": [
+        "email"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "msft-defender",
+      "name": "Microsoft Defender for Endpoint",
+      "domainIds": [
+        "endpoint-xdr"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "msft-defender-o365",
+      "name": "Microsoft Defender for Office 365",
+      "domainIds": [
+        "email"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "msft-entra",
+      "name": "Microsoft Entra ID",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "netskope",
+      "name": "Netskope",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "nozomi",
+      "name": "Nozomi Networks, Inc.",
+      "domainIds": [
+        "ot-iot"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "okta",
+      "name": "Okta",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "optiv",
+      "name": "Optiv Security Inc.",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "orca",
+      "name": "Orca Security",
+      "domainIds": [
+        "cloud"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "panw",
+      "name": "Palo Alto Networks, Inc.",
+      "domainIds": [
+        "ai-security",
+        "cloud",
+        "endpoint-xdr",
+        "network-sase",
+        "secops"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "panw-xsiam",
+      "name": "Palo Alto Networks Cortex XSIAM",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "ping-identity",
+      "name": "Ping Identity",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "proofpoint",
+      "name": "Proofpoint",
+      "domainIds": [
+        "email"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "protect-ai",
+      "name": "Protect AI, Inc.",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "qualys",
+      "name": "Qualys, Inc.",
+      "domainIds": [
+        "exposure"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "rapid7",
+      "name": "Rapid7, Inc.",
+      "domainIds": [
+        "exposure"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "red-canary",
+      "name": "Red Canary, Inc.",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "reliaquest",
+      "name": "ReliaQuest, LLC",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "rubrik",
+      "name": "Rubrik, Inc.",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "s1",
+      "name": "SentinelOne, Inc.",
+      "domainIds": [
+        "endpoint-xdr"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "sailpoint",
+      "name": "SailPoint",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "snyk",
+      "name": "Snyk, Inc.",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "sonatype",
+      "name": "Sonatype Inc.",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "sophos",
+      "name": "Sophos Group (Sophos Ltd)",
+      "domainIds": [
+        "endpoint-xdr"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "splunk",
+      "name": "Splunk",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "segment"
+    },
+    {
+      "id": "surepath",
+      "name": "SurePath AI, Inc.",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "sysdig",
+      "name": "Sysdig",
+      "domainIds": [
+        "cloud"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "tenable",
+      "name": "Tenable Holdings, Inc.",
+      "domainIds": [
+        "exposure"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "tines",
+      "name": "Tines",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "torq",
+      "name": "Torq",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "trend-micro",
+      "name": "Trend Micro Incorporated",
+      "domainIds": [
+        "endpoint-xdr"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "trustwave",
+      "name": "Trustwave Holdings, Inc.",
+      "domainIds": [
+        "managed-security"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "upwind",
+      "name": "Upwind",
+      "domainIds": [
+        "cloud"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "varonis",
+      "name": "Varonis Systems, Inc.",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "public"
+    },
+    {
+      "id": "veeam",
+      "name": "Veeam Software",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "veracode",
+      "name": "Veracode, Inc.",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "pe-owned"
+    },
+    {
+      "id": "witnessai",
+      "name": "WitnessAI",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "wiz",
+      "name": "Wiz",
+      "domainIds": [
+        "cloud"
+      ],
+      "kind": "acquired"
+    },
+    {
+      "id": "xage",
+      "name": "Xage Security, Inc.",
+      "domainIds": [
+        "ot-iot"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "zenity",
+      "name": "Zenity",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "private"
+    },
+    {
+      "id": "zscaler",
+      "name": "Zscaler",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "public"
+    }
+  ],
+  "figures": [
+    {
+      "id": "abnormal-security-headline",
+      "supplierId": "abnormal-security",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "over $200 million",
+      "period": "August 6, 2024",
+      "sourceUrls": [
+        "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      ]
+    },
+    {
+      "id": "abnormal-security-last-round",
+      "supplierId": "abnormal-security",
+      "type": "last-round",
+      "label": "Last funding round (Series D)",
+      "value": "$250 million",
+      "period": "2024-08-06",
+      "sourceUrls": [
+        "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      ]
+    },
+    {
+      "id": "abnormal-security-ownership",
+      "supplierId": "abnormal-security",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series D raised $250M at $5.1B valuation on August 6, 2024.",
+      "period": "",
+      "sourceUrls": [
+        "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      ]
+    },
+    {
+      "id": "aqua-last-round",
+      "supplierId": "aqua",
+      "type": "last-round",
+      "label": "Last funding round (Series E)",
+      "value": "$135 million",
+      "period": "2021-03-10",
+      "sourceUrls": [
+        "https://www.prnewswire.com/news-releases/aqua-security-announces-135-million-in-series-e-funding-at-a-1-billion-valuation-301243855.html"
+      ]
+    },
+    {
+      "id": "aqua-ownership",
+      "supplierId": "aqua",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series E raised $135M on March 10, 2021, valuation in excess of $1 billion. Investors named on its own site include Shlomo Kramer, TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.aquasec.com/about-us/",
+        "https://www.prnewswire.com/news-releases/aqua-security-announces-135-million-in-series-e-funding-at-a-1-billion-valuation-301243855.html"
+      ]
+    },
+    {
+      "id": "arctic-wolf-last-round",
+      "supplierId": "arctic-wolf",
+      "type": "last-round",
+      "label": "Last funding round (Series F)",
+      "value": "$150 million",
+      "period": "2021-07-13",
+      "sourceUrls": [
+        "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/"
+      ]
+    },
+    {
+      "id": "arctic-wolf-ownership",
+      "supplierId": "arctic-wolf",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series F closed July 13, 2021, bringing the company to a $4.3 billion valuation.",
+      "period": "",
+      "sourceUrls": [
+        "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/"
+      ]
+    },
+    {
+      "id": "armis-ownership",
+      "supplierId": "armis",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired; ServiceNow closed its acquisition of Armis on April 20, 2026, per ServiceNow's own SEC filing.",
+      "period": "2026-04-20",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/erq1fy26.htm"
+      ]
+    },
+    {
+      "id": "axonius-headline",
+      "supplierId": "axonius",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": ">$200 million",
+      "period": "Q1 fiscal 2027 (as of 2026-05-19)",
+      "sourceUrls": [
+        "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo"
+      ]
+    },
+    {
+      "id": "axonius-last-round",
+      "supplierId": "axonius",
+      "type": "last-round",
+      "label": "Last funding round (Series E)",
+      "value": "$200 million",
+      "period": "2022-03-08",
+      "sourceUrls": [
+        "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round"
+      ]
+    },
+    {
+      "id": "axonius-ownership",
+      "supplierId": "axonius",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series E raised $200M on March 8, 2022, valuation $2.6 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round"
+      ]
+    },
+    {
+      "id": "barracuda-ownership",
+      "supplierId": "barracuda",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned by KKR. Acquired from Thoma Bravo, announced April 2022, closed August 2022 at approximately $4 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.barracuda.com/company/news"
+      ]
+    },
+    {
+      "id": "beyondtrust-ownership",
+      "supplierId": "beyondtrust",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned. Clearlake Capital Group completed its investment on August 17, 2021, joining existing investor Francisco Partners, which acquired BeyondTrust in 2018.",
+      "period": "2021-08-17",
+      "sourceUrls": [
+        "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html"
+      ]
+    },
+    {
+      "id": "bigid-last-round",
+      "supplierId": "bigid",
+      "type": "last-round",
+      "label": "Last funding round (Growth round)",
+      "value": "$60 million",
+      "period": "2024-03",
+      "sourceUrls": [
+        "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors"
+      ]
+    },
+    {
+      "id": "cato-headline",
+      "supplierId": "cato",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$415 million, +42% YoY",
+      "period": "As of Jul 2026 (company-stated milestone)",
+      "sourceUrls": [
+        "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html"
+      ]
+    },
+    {
+      "id": "cato-last-round",
+      "supplierId": "cato",
+      "type": "last-round",
+      "label": "Last funding round (Series G)",
+      "value": "$409 million (initial close $359M plus extension $50M)",
+      "period": "2025-06-30",
+      "sourceUrls": [
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html"
+      ]
+    },
+    {
+      "id": "cato-ownership",
+      "supplierId": "cato",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series G announced June 30, 2025 at valuation over $4.8B.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html"
+      ]
+    },
+    {
+      "id": "chainguard-last-round",
+      "supplierId": "chainguard",
+      "type": "last-round",
+      "label": "Last funding round (Growth financing (no series letter disclosed))",
+      "value": "$280 million",
+      "period": "2025-10-23",
+      "sourceUrls": [
+        "https://siliconangle.com/2025/10/23/chainguard-secures-280m-expand-trusted-open-source-software-platform/",
+        "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html"
+      ]
+    },
+    {
+      "id": "chainguard-ownership",
+      "supplierId": "chainguard",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Growth financing of $280M from General Catalyst's Customer Value Fund, announced October 23, 2025.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html"
+      ]
+    },
+    {
+      "id": "checkpoint-email-ownership",
+      "supplierId": "checkpoint-email",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Check Point Software Technologies, renamed from Harmony Email & Collaboration in March 2026. Originated from the Avanan acquisition (~August 30, 2021 at $250-300M). No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+        "https://blog.checkpoint.com/product-updates/introducing-check-point-email-security-a-new-name-aligned-with-our-ai-driven-strategy/"
+      ]
+    },
+    {
+      "id": "checkpoint-sase-headline",
+      "supplierId": "checkpoint-sase",
+      "type": "headline-metric",
+      "label": "Total Revenue",
+      "value": "$674 million",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    },
+    {
+      "id": "checkpoint-sase-revenue-latest",
+      "supplierId": "checkpoint-sase",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$674 million",
+      "period": "Q2 2026",
+      "sourceUrls": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    },
+    {
+      "id": "checkpoint-sase-revenue-prior",
+      "supplierId": "checkpoint-sase",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$668 million",
+      "period": "Q1 2026",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm"
+      ]
+    },
+    {
+      "id": "checkpoint-sase-ownership",
+      "supplierId": "checkpoint-sase",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded as foreign private issuer on Nasdaq.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    },
+    {
+      "id": "claroty-headline",
+      "supplierId": "claroty",
+      "type": "headline-metric",
+      "label": "Annual revenue (company-stated, exact figure undisclosed)",
+      "value": "hundreds of millions of dollars",
+      "period": "as of 2026-01-22",
+      "sourceUrls": [
+        "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/"
+      ]
+    },
+    {
+      "id": "claroty-last-round",
+      "supplierId": "claroty",
+      "type": "last-round",
+      "label": "Last funding round (Growth equity)",
+      "value": "$150 million",
+      "period": "2026-01-22",
+      "sourceUrls": [
+        "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/"
+      ]
+    },
+    {
+      "id": "cloudflare-headline",
+      "supplierId": "cloudflare",
+      "type": "headline-metric",
+      "label": "Revenue",
+      "value": "$696.1 million",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm"
+      ]
+    },
+    {
+      "id": "cloudflare-revenue-latest",
+      "supplierId": "cloudflare",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$696,061,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000054/0001477333-26-000054-index.htm"
+      ]
+    },
+    {
+      "id": "cloudflare-revenue-prior",
+      "supplierId": "cloudflare",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$639,755,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000038/0001477333-26-000038-index.htm"
+      ]
+    },
+    {
+      "id": "cloudflare-ownership",
+      "supplierId": "cloudflare",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded since September 2019 IPO.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm"
+      ]
+    },
+    {
+      "id": "cohesity-last-round",
+      "supplierId": "cohesity",
+      "type": "last-round",
+      "label": "Last funding round (Series H)",
+      "value": "majority of equity in the Veritas combination transaction",
+      "period": "2024-12-10",
+      "sourceUrls": [
+        "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/"
+      ]
+    },
+    {
+      "id": "cohesity-ownership",
+      "supplierId": "cohesity",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Completed its combination with Veritas's Enterprise Data Protection Business on December 10, 2024, valuing the combined company at over $7 billion. The transaction was funded by a Series H round led by Haveli Investments; The Carlyle Group became one of the largest shareholders in the combined company.",
+      "period": "2024-12-10",
+      "sourceUrls": [
+        "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/"
+      ]
+    },
+    {
+      "id": "commvault-headline",
+      "supplierId": "commvault",
+      "type": "headline-metric",
+      "label": "Subscription ARR",
+      "value": "$1,054 million",
+      "period": "Q1 FY2027 (ended 2026-06-30)",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    },
+    {
+      "id": "commvault-revenue-latest",
+      "supplierId": "commvault",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$314,131,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm"
+      ]
+    },
+    {
+      "id": "commvault-revenue-prior",
+      "supplierId": "commvault",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$311,692,000",
+      "period": "Quarter ended 2026-03-31 (derived from annual less preceding quarters)",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000017/0001169561-26-000017-index.htm"
+      ]
+    },
+    {
+      "id": "commvault-ownership",
+      "supplierId": "commvault",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: CVLT).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    },
+    {
+      "id": "crwd-headline",
+      "supplierId": "crwd",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$5.84 billion",
+      "period": "Q2 FY2027, ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    },
+    {
+      "id": "crwd-revenue-latest",
+      "supplierId": "crwd",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$1,470,897,000",
+      "period": "Quarter ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/0001535527-26-000031-index.htm"
+      ]
+    },
+    {
+      "id": "crwd-revenue-prior",
+      "supplierId": "crwd",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$1,385,629,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/0001535527-26-000025-index.htm"
+      ]
+    },
+    {
+      "id": "crwd-ownership",
+      "supplierId": "crwd",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: CRWD).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    },
+    {
+      "id": "crwd-exposure-ownership",
+      "supplierId": "crwd-exposure",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of CrowdStrike Holdings, Inc. (publicly traded, Nasdaq: CRWD). No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    },
+    {
+      "id": "cyberark-ownership",
+      "supplierId": "cyberark",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by Palo Alto Networks on February 11, 2026 at approximately $25 billion.",
+      "period": "2026-02-11",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000119312525169870/d804159d8k.htm"
+      ]
+    },
+    {
+      "id": "cyera-last-round",
+      "supplierId": "cyera",
+      "type": "last-round",
+      "label": "Last funding round (Growth-equity investment (reported as a Series G extension))",
+      "value": "$400 million",
+      "period": "2026-09-22",
+      "sourceUrls": [
+        "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise"
+      ]
+    },
+    {
+      "id": "delinea-ownership",
+      "supplierId": "delinea",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned. Formed by TPG Capital's 2021 combination of Thycotic and Centrify, which closed April 13, 2021 with Insight Partners, Thoma Bravo, and Public Sector Pension Investment Board as minority investors; the combined company rebranded as Delinea in February 2022.",
+      "period": "2021-04-13",
+      "sourceUrls": [
+        "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor"
+      ]
+    },
+    {
+      "id": "dragos-ownership",
+      "supplierId": "dragos",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Majority investment by Accenture plc",
+      "period": "2026-09-16",
+      "sourceUrls": [
+        "https://www.helpnetsecurity.com/2026/06/19/accenture-dragos-runzero-netrise-acquisition/",
+        "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk"
+      ]
+    },
+    {
+      "id": "esentire-ownership",
+      "supplierId": "esentire",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Owned by Warburg Pincus (majority since 2017).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.esentire.com/news-releases/global-cybersecurity-leader-esentire-raises-us-325m-and-achieves-unicorn-status"
+      ]
+    },
+    {
+      "id": "exabeam-ownership",
+      "supplierId": "exabeam",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17.",
+      "period": "2024-07-17",
+      "sourceUrls": [
+        "https://www.thomabravo.com/press-releases/exabeam-and-logrhythm-complete-merger-and-announce-new-company-details"
+      ]
+    },
+    {
+      "id": "expel-last-round",
+      "supplierId": "expel",
+      "type": "last-round",
+      "label": "Last funding round (Series E (extension))",
+      "value": "$171.3 million (extension; initial Series E $140.3M on 2021-11-18, total funding $288.8 million)",
+      "period": "2022-10-03",
+      "sourceUrls": [
+        "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+        "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/"
+      ]
+    },
+    {
+      "id": "expel-ownership",
+      "supplierId": "expel",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series E extension raised an additional $171.3M on October 3, 2022, bringing total funding to $288.8M. Initial Series E of $140.3M closed November 18, 2021 at a valuation over $1 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+        "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/"
+      ]
+    },
+    {
+      "id": "forescout-ownership",
+      "supplierId": "forescout",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned; co-owned by Advent International and Crosspoint Capital Partners, per Forescout's own leadership page. Advent International's original take-private acquisition closed via tender offer in 2020.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.forescout.com/company/leadership/"
+      ]
+    },
+    {
+      "id": "fortinet-headline",
+      "supplierId": "fortinet",
+      "type": "headline-metric",
+      "label": "Billings",
+      "value": "$2.37 billion",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    },
+    {
+      "id": "fortinet-revenue-latest",
+      "supplierId": "fortinet",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$2,047,900,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000021/0001262039-26-000021-index.htm"
+      ]
+    },
+    {
+      "id": "fortinet-revenue-prior",
+      "supplierId": "fortinet",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$1,849,600,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000013/0001262039-26-000013-index.htm"
+      ]
+    },
+    {
+      "id": "fortinet-ownership",
+      "supplierId": "fortinet",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    },
+    {
+      "id": "github-advanced-security-ownership",
+      "supplierId": "github-advanced-security",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). GitHub, Inc. is a wholly owned Microsoft subsidiary. No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://github.blog/news-insights/company-news/goodbye-github/"
+      ]
+    },
+    {
+      "id": "google-secops-ownership",
+      "supplierId": "google-secops",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Alphabet Inc. (publicly traded, Nasdaq: GOOGL). Product of Chronicle (acquired 2019) and Mandiant (closed September 2022).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm"
+      ]
+    },
+    {
+      "id": "hiddenlayer-headline",
+      "supplierId": "hiddenlayer",
+      "type": "headline-metric",
+      "label": "ARR growth (company-stated)",
+      "value": "more than 10x year-over-year",
+      "period": "as of 2026-09-02",
+      "sourceUrls": [
+        "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security"
+      ]
+    },
+    {
+      "id": "hiddenlayer-last-round",
+      "supplierId": "hiddenlayer",
+      "type": "last-round",
+      "label": "Last funding round (Series B)",
+      "value": "$100 million",
+      "period": "2026-09-02",
+      "sourceUrls": [
+        "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security"
+      ]
+    },
+    {
+      "id": "ivanti-ownership",
+      "supplierId": "ivanti",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned by Clearlake Capital Group and TA Associates since 2020, joined by Charlesbank Capital Partners as a third institutional shareholder on May 11, 2021. Ivanti's own release on its May 2, 2025 debt refinancing confirms the same three sponsors still back the company.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti",
+        "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives"
+      ]
+    },
+    {
+      "id": "jfrog-headline",
+      "supplierId": "jfrog",
+      "type": "headline-metric",
+      "label": "Cloud revenue",
+      "value": "$87.5 million",
+      "period": "Q2 2026 (ended 2026-06-30)",
+      "sourceUrls": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    },
+    {
+      "id": "jfrog-revenue-latest",
+      "supplierId": "jfrog",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$163,772,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm"
+      ]
+    },
+    {
+      "id": "jfrog-revenue-prior",
+      "supplierId": "jfrog",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$153,977,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1800667/000119312526214647/0001193125-26-214647-index.htm"
+      ]
+    },
+    {
+      "id": "jfrog-ownership",
+      "supplierId": "jfrog",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: FROG), IPO 2020.",
+      "period": "",
+      "sourceUrls": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    },
+    {
+      "id": "lakera-ownership",
+      "supplierId": "lakera",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by Check Point Software Technologies; announced September 16, 2025 and completed during the fourth quarter of 2025, per Check Point's own earnings filing, for approximately $190 million in net cash consideration.",
+      "period": "2025-09-16",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm"
+      ]
+    },
+    {
+      "id": "mimecast-ownership",
+      "supplierId": "mimecast",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned by Permira via Magnesium Bidco Limited. Take-private announced December 7, 2021, closed May 2022 at $5.8 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.mimecast.com/resources/press-releases/"
+      ]
+    },
+    {
+      "id": "msft-defender-ownership",
+      "supplierId": "msft-defender",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    },
+    {
+      "id": "msft-defender-o365-ownership",
+      "supplierId": "msft-defender-o365",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    },
+    {
+      "id": "msft-entra-ownership",
+      "supplierId": "msft-entra",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    },
+    {
+      "id": "netskope-headline",
+      "supplierId": "netskope",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$899 million",
+      "period": "Q2 FY2027, ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    },
+    {
+      "id": "netskope-revenue-latest",
+      "supplierId": "netskope",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$220,541,000",
+      "period": "Quarter ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380428/0001193125-26-380428-index.htm"
+      ]
+    },
+    {
+      "id": "netskope-revenue-prior",
+      "supplierId": "netskope",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$201,592,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255732/0001193125-26-255732-index.htm"
+      ]
+    },
+    {
+      "id": "netskope-ownership",
+      "supplierId": "netskope",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded since Nasdaq IPO on September 18, 2025. Raised approximately $992 million at $7.3 billion valuation.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312525204285/ck0002063196-20250916.htm"
+      ]
+    },
+    {
+      "id": "nozomi-ownership",
+      "supplierId": "nozomi",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Wholly owned subsidiary of Mitsubishi Electric Corporation (TOKYO: 6503), following an acquisition announced September 9, 2025 and completed January 29, 2026. Operates independently, vendor-neutral.",
+      "period": "2026-01-29",
+      "sourceUrls": [
+        "https://www.prnewswire.com/news-releases/mitsubishi-electric-to-acquire-nozomi-networks-to-improve-industrial-cyber-defenses-and-power-operational-transformation-302550314.html",
+        "https://www.prnewswire.com/news-releases/nozomi-networks-enters-next-phase-of-growth-as-mitsubishi-electric-completes-acquisition-302673652.html"
+      ]
+    },
+    {
+      "id": "okta-headline",
+      "supplierId": "okta",
+      "type": "headline-metric",
+      "label": "cRPO",
+      "value": "$2.585 billion",
+      "period": "Q2 FY2027, ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm"
+      ]
+    },
+    {
+      "id": "okta-revenue-latest",
+      "supplierId": "okta",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$805,000,000",
+      "period": "Quarter ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/0001660134-26-000069-index.htm"
+      ]
+    },
+    {
+      "id": "okta-revenue-prior",
+      "supplierId": "okta",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$765,000,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000051/0001660134-26-000051-index.htm"
+      ]
+    },
+    {
+      "id": "okta-ownership",
+      "supplierId": "okta",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded on Nasdaq.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm"
+      ]
+    },
+    {
+      "id": "optiv-ownership",
+      "supplierId": "optiv",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Owned by KKR (majority) with Blackstone and management retaining minority stakes. Announced 2016-12-06.",
+      "period": "2016-12-06",
+      "sourceUrls": [
+        "https://www.optiv.com/company/press-releases/optiv-security-be-acquired-kkr"
+      ]
+    },
+    {
+      "id": "orca-last-round",
+      "supplierId": "orca",
+      "type": "last-round",
+      "label": "Last funding round (Series C (extended))",
+      "value": "$550 million",
+      "period": "2021-10-05",
+      "sourceUrls": [
+        "https://orca.security/resources/press-releases/orca-security-series-c-550-million-announcement/"
+      ]
+    },
+    {
+      "id": "orca-ownership",
+      "supplierId": "orca",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Extended Series C raised $550M on October 5, 2021, valuation $1.8 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://orca.security/resources/press-releases/",
+        "https://orca.security/resources/press-releases/orca-security-series-c-550-million-announcement/"
+      ]
+    },
+    {
+      "id": "panw-headline",
+      "supplierId": "panw",
+      "type": "headline-metric",
+      "label": "NGS ARR",
+      "value": "$9.10 billion",
+      "period": "Q4 FY2026, ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    },
+    {
+      "id": "panw-revenue-latest",
+      "supplierId": "panw",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$3,410,000,000",
+      "period": "Quarter ended 2026-07-31 (derived from annual less preceding quarters)",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/0001327567-26-000023-index.htm"
+      ]
+    },
+    {
+      "id": "panw-revenue-prior",
+      "supplierId": "panw",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$3,002,000,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000015/0001327567-26-000015-index.htm"
+      ]
+    },
+    {
+      "id": "panw-ownership",
+      "supplierId": "panw",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: PANW).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    },
+    {
+      "id": "panw-xsiam-ownership",
+      "supplierId": "panw-xsiam",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Segment of Palo Alto Networks, Inc. (publicly traded, Nasdaq: PANW). No separate revenue disclosed.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm"
+      ]
+    },
+    {
+      "id": "ping-identity-headline",
+      "supplierId": "ping-identity",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$800 million (approaching)",
+      "period": "November 2024",
+      "sourceUrls": [
+        "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader"
+      ]
+    },
+    {
+      "id": "ping-identity-ownership",
+      "supplierId": "ping-identity",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned by Thoma Bravo. Acquisition closed October 18, 2022 at $2.8 billion. ForgeRock merged in, completed August 23, 2023.",
+      "period": "",
+      "sourceUrls": [
+        "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity"
+      ]
+    },
+    {
+      "id": "proofpoint-ownership",
+      "supplierId": "proofpoint",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned by Thoma Bravo. Take-private announced April 26, 2021, closed August 31, 2021 at $12.3 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.proofpoint.com/us/newsroom"
+      ]
+    },
+    {
+      "id": "protect-ai-ownership",
+      "supplierId": "protect-ai",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by Palo Alto Networks; the deal was announced April 27, 2025 and closed in July 2025 (specifically on or about July 22, 2025 per PANW's XBRL tagging), for $700.0 million in cash and replacement awards, subject to adjustment.",
+      "period": "2025-07-22",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000027/panw-20250731.htm"
+      ]
+    },
+    {
+      "id": "qualys-headline",
+      "supplierId": "qualys",
+      "type": "headline-metric",
+      "label": "Revenue",
+      "value": "$182.2 million",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    },
+    {
+      "id": "qualys-revenue-latest",
+      "supplierId": "qualys",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$182,175,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000035/0001107843-26-000035-index.htm"
+      ]
+    },
+    {
+      "id": "qualys-revenue-prior",
+      "supplierId": "qualys",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$175,638,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000015/0001107843-26-000015-index.htm"
+      ]
+    },
+    {
+      "id": "qualys-ownership",
+      "supplierId": "qualys",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: QLYS).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    },
+    {
+      "id": "rapid7-headline",
+      "supplierId": "rapid7",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$824.0 million",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    },
+    {
+      "id": "rapid7-revenue-latest",
+      "supplierId": "rapid7",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$210,883,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000044/0001560327-26-000044-index.htm"
+      ]
+    },
+    {
+      "id": "rapid7-revenue-prior",
+      "supplierId": "rapid7",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$209,691,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000033/0001560327-26-000033-index.htm"
+      ]
+    },
+    {
+      "id": "rapid7-ownership",
+      "supplierId": "rapid7",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: RPD).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    },
+    {
+      "id": "red-canary-ownership",
+      "supplierId": "red-canary",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by Zscaler, Inc. Closed 2025-08-01.",
+      "period": "2025-08-01",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368325000205/zs-20251031.htm"
+      ]
+    },
+    {
+      "id": "reliaquest-last-round",
+      "supplierId": "reliaquest",
+      "type": "last-round",
+      "label": "Last funding round (Growth equity)",
+      "value": "$500 million+",
+      "period": "2025-03-31",
+      "sourceUrls": [
+        "https://reliaquest.com/news-and-press/reliaquest-raises-more-than-500-million-in-funding-at-a-valuation-of-3-4-billion/"
+      ]
+    },
+    {
+      "id": "rubrik-headline",
+      "supplierId": "rubrik",
+      "type": "headline-metric",
+      "label": "Subscription ARR",
+      "value": "$1.66 billion",
+      "period": "Q2 FY2027 (ended 2026-07-31)",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    },
+    {
+      "id": "rubrik-revenue-latest",
+      "supplierId": "rubrik",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$427,260,000",
+      "period": "Quarter ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1943896/000194389626000060/0001943896-26-000060-index.htm"
+      ]
+    },
+    {
+      "id": "rubrik-revenue-prior",
+      "supplierId": "rubrik",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$387,068,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1943896/000194389626000047/0001943896-26-000047-index.htm"
+      ]
+    },
+    {
+      "id": "rubrik-ownership",
+      "supplierId": "rubrik",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (NYSE: RBRK).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    },
+    {
+      "id": "s1-headline",
+      "supplierId": "s1",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$1.218 billion",
+      "period": "Q2 FY2027, ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    },
+    {
+      "id": "s1-revenue-latest",
+      "supplierId": "s1",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$291,981,000",
+      "period": "Quarter ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000055/0001583708-26-000055-index.htm"
+      ]
+    },
+    {
+      "id": "s1-revenue-prior",
+      "supplierId": "s1",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$276,657,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000041/0001583708-26-000041-index.htm"
+      ]
+    },
+    {
+      "id": "s1-ownership",
+      "supplierId": "s1",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (NYSE: S).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    },
+    {
+      "id": "sailpoint-headline",
+      "supplierId": "sailpoint",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$1,230.7 million",
+      "period": "Quarter ended July 31, 2026",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    },
+    {
+      "id": "sailpoint-revenue-latest",
+      "supplierId": "sailpoint",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$308,813,000",
+      "period": "Quarter ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/0002030781-26-000021-index.htm"
+      ]
+    },
+    {
+      "id": "sailpoint-revenue-prior",
+      "supplierId": "sailpoint",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$280,142,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000011/0002030781-26-000011-index.htm"
+      ]
+    },
+    {
+      "id": "sailpoint-ownership",
+      "supplierId": "sailpoint",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Publicly traded after re-IPO. Taken private by Thoma Bravo, then returned to public markets.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    },
+    {
+      "id": "snyk-last-round",
+      "supplierId": "snyk",
+      "type": "last-round",
+      "label": "Last funding round (Series G)",
+      "value": "$196.5 million",
+      "period": "2022-12-13",
+      "sourceUrls": [
+        "https://snyk.io/news/snyk-closes-196-5-million-series-g-funding-at-7-4-billion-valuation/"
+      ]
+    },
+    {
+      "id": "snyk-ownership",
+      "supplierId": "snyk",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series G closed December 13, 2022 at $7.4B valuation. ServiceNow made a strategic investment announced January 24, 2023; no funding round after that date was found in Snyk's newsroom.",
+      "period": "",
+      "sourceUrls": [
+        "https://snyk.io/news/snyk-closes-196-5-million-series-g-funding-at-7-4-billion-valuation/",
+        "https://snyk.io/news/snyk-secures-strategic-investment-from-servicenow-to-accelerate-enterprise-devsecops-transformation/"
+      ]
+    },
+    {
+      "id": "sonatype-ownership",
+      "supplierId": "sonatype",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned; Vista Equity Partners acquired a majority stake, announced November 18, 2019 (price undisclosed).",
+      "period": "2019-11-18",
+      "sourceUrls": [
+        "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype"
+      ]
+    },
+    {
+      "id": "sophos-ownership",
+      "supplierId": "sophos",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Owned by Thoma Bravo since March 2020.",
+      "period": "2020-03-01",
+      "sourceUrls": [
+        "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo"
+      ]
+    },
+    {
+      "id": "splunk-ownership",
+      "supplierId": "splunk",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by Cisco Systems, Inc. Closed 2024-03-18.",
+      "period": "2024-03-18",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/858877/000119312524070175/d783088dex991.htm"
+      ]
+    },
+    {
+      "id": "surepath-ownership",
+      "supplierId": "surepath",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by F5; the deal closed June 15, 2026 for $50.1 million, with $39.1 million of goodwill recorded. F5 states the acquisition's impact on its operating results was immaterial.",
+      "period": "2026-06-15",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000067/ffiv-20260630.htm"
+      ]
+    },
+    {
+      "id": "sysdig-ownership",
+      "supplierId": "sysdig",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed private company. Confirmed not public.",
+      "period": "",
+      "sourceUrls": [
+        "https://sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security"
+      ]
+    },
+    {
+      "id": "tenable-headline",
+      "supplierId": "tenable",
+      "type": "headline-metric",
+      "label": "Revenue",
+      "value": "$268.5 million",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm"
+      ]
+    },
+    {
+      "id": "tenable-revenue-latest",
+      "supplierId": "tenable",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$268,508,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000035/0001660280-26-000035-index.htm"
+      ]
+    },
+    {
+      "id": "tenable-revenue-prior",
+      "supplierId": "tenable",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$262,058,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000023/0001660280-26-000023-index.htm"
+      ]
+    },
+    {
+      "id": "tenable-ownership",
+      "supplierId": "tenable",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded (Nasdaq: TENB).",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm"
+      ]
+    },
+    {
+      "id": "tines-last-round",
+      "supplierId": "tines",
+      "type": "last-round",
+      "label": "Last funding round (Series C)",
+      "value": "$125 million",
+      "period": "2025-02-11",
+      "sourceUrls": [
+        "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion"
+      ]
+    },
+    {
+      "id": "torq-last-round",
+      "supplierId": "torq",
+      "type": "last-round",
+      "label": "Last funding round (Series D)",
+      "value": "$140 million",
+      "period": "2026-01-09",
+      "sourceUrls": [
+        "https://torq.io/news/torq-seriesd/"
+      ]
+    },
+    {
+      "id": "trend-micro-headline",
+      "supplierId": "trend-micro",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": ">$1.7 billion",
+      "period": "Q2 2026, ended 2026-06-30",
+      "sourceUrls": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    },
+    {
+      "id": "trend-micro-revenue-latest",
+      "supplierId": "trend-micro",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$468 million",
+      "period": "Q2 2026",
+      "sourceUrls": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    },
+    {
+      "id": "trend-micro-ownership",
+      "supplierId": "trend-micro",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded on Tokyo Stock Exchange. Not an active SEC filer.",
+      "period": "",
+      "sourceUrls": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    },
+    {
+      "id": "trustwave-ownership",
+      "supplierId": "trustwave",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by LevelBlue. Closed 2025-08-19.",
+      "period": "2025-08-19",
+      "sourceUrls": [
+        "https://www.levelblue.com/newsroom/press-releases/levelblue-completes-acquisition-of-trustwave-to-form-the-worlds-largest-managed-security-services-provider"
+      ]
+    },
+    {
+      "id": "upwind-last-round",
+      "supplierId": "upwind",
+      "type": "last-round",
+      "label": "Last funding round (Series B)",
+      "value": "$250 million",
+      "period": "2026-01-26",
+      "sourceUrls": [
+        "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind"
+      ]
+    },
+    {
+      "id": "upwind-ownership",
+      "supplierId": "upwind",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series B raised $250M on January 26, 2026, achieving unicorn status.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind"
+      ]
+    },
+    {
+      "id": "varonis-headline",
+      "supplierId": "varonis",
+      "type": "headline-metric",
+      "label": "Total SaaS ARR",
+      "value": "$726.0 million",
+      "period": "Q2 2026 (ended 2026-06-30)",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    },
+    {
+      "id": "varonis-revenue-latest",
+      "supplierId": "varonis",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$180,023,000",
+      "period": "Quarter ended 2026-06-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1361113/000162828026050630/0001628280-26-050630-index.htm"
+      ]
+    },
+    {
+      "id": "varonis-revenue-prior",
+      "supplierId": "varonis",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$173,126,000",
+      "period": "Quarter ended 2026-03-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1361113/000162828026028411/0001628280-26-028411-index.htm"
+      ]
+    },
+    {
+      "id": "varonis-ownership",
+      "supplierId": "varonis",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Publicly traded (Nasdaq: VRNS); agreed on October 15, 2026 to be acquired by Proofpoint. Expected closing in the first half of 2027, subject to shareholder and regulatory approvals.",
+      "period": "2026-10-15",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm",
+        "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security"
+      ]
+    },
+    {
+      "id": "veeam-ownership",
+      "supplierId": "veeam",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned; Insight Partners remains the largest shareholder after a $2 billion secondary equity offering led by TPG, with Temasek and Neuberger Berman Capital Solutions participating, valuing Veeam at $15 billion, announced December 4, 2024.",
+      "period": "2024-12-04",
+      "sourceUrls": [
+        "https://www.veeam.com/company/press-release/veeam-the-worlds-1-leader-in-data-resilience-welcomes-new-investors-with-a-dollar15-billion-valuation.html"
+      ]
+    },
+    {
+      "id": "veracode-ownership",
+      "supplierId": "veracode",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "PE-owned (majority stake held by TA Associates), which took a majority growth-investment stake at a $2.5 billion valuation, announced March 15, 2022.",
+      "period": "2022-03-15",
+      "sourceUrls": [
+        "https://www.veracode.com/press-release/veracode-receives-major-growth-investment-from-ta-associates/"
+      ]
+    },
+    {
+      "id": "witnessai-headline",
+      "supplierId": "witnessai",
+      "type": "headline-metric",
+      "label": "ARR growth (company-stated)",
+      "value": "500% year-over-year",
+      "period": "as of 2026-01-13",
+      "sourceUrls": [
+        "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+      ]
+    },
+    {
+      "id": "witnessai-last-round",
+      "supplierId": "witnessai",
+      "type": "last-round",
+      "label": "Last funding round (Strategic funding round)",
+      "value": "$58 million",
+      "period": "2026-01-13",
+      "sourceUrls": [
+        "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+      ]
+    },
+    {
+      "id": "wiz-ownership",
+      "supplierId": "wiz",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Acquired by Google/Alphabet. Deal announced March 18, 2025 at $32 billion; closed March 11, 2026 at $29.5 billion.",
+      "period": "2026-03-11",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm"
+      ]
+    },
+    {
+      "id": "xage-headline",
+      "supplierId": "xage",
+      "type": "headline-metric",
+      "label": "Year-over-year revenue growth (company-stated)",
+      "value": "81%",
+      "period": "as of 2026-03-18",
+      "sourceUrls": [
+        "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html"
+      ]
+    },
+    {
+      "id": "xage-last-round",
+      "supplierId": "xage",
+      "type": "last-round",
+      "label": "Last funding round (Equity financing)",
+      "value": "$15 million",
+      "period": "2025-12",
+      "sourceUrls": [
+        "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html"
+      ]
+    },
+    {
+      "id": "zenity-headline",
+      "supplierId": "zenity",
+      "type": "headline-metric",
+      "label": "Revenue growth (company-stated)",
+      "value": "tripled year-over-year in each of the past two years; on track to triple again in 2026",
+      "period": "as of 2026-08-03",
+      "sourceUrls": [
+        "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents"
+      ]
+    },
+    {
+      "id": "zenity-last-round",
+      "supplierId": "zenity",
+      "type": "last-round",
+      "label": "Last funding round (Series C)",
+      "value": "$125 million",
+      "period": "2026-08-03",
+      "sourceUrls": [
+        "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents"
+      ]
+    },
+    {
+      "id": "zscaler-headline",
+      "supplierId": "zscaler",
+      "type": "headline-metric",
+      "label": "ARR",
+      "value": "$3,771 million",
+      "period": "Q4 FY2026, ended 2026-07-31",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    },
+    {
+      "id": "zscaler-revenue-latest",
+      "supplierId": "zscaler",
+      "type": "revenue-latest",
+      "label": "Revenue",
+      "value": "$898,185,000",
+      "period": "Quarter ended 2026-07-31 (derived from annual less preceding quarters)",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000157/0001713683-26-000157-index.htm"
+      ]
+    },
+    {
+      "id": "zscaler-revenue-prior",
+      "supplierId": "zscaler",
+      "type": "revenue-prior",
+      "label": "Revenue (prior quarter)",
+      "value": "$850,475,000",
+      "period": "Quarter ended 2026-04-30",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000096/0001713683-26-000096-index.htm"
+      ]
+    },
+    {
+      "id": "zscaler-ownership",
+      "supplierId": "zscaler",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, publicly traded on Nasdaq since 2018 IPO.",
+      "period": "",
+      "sourceUrls": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    }
+  ]
+}

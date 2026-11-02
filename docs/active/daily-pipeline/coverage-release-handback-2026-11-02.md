@@ -74,11 +74,15 @@ the original generated JSON bytes.
 
 This is local compatibility evidence. Production remains the actual November 2 J publication
 and coverage 262/557. K adoption and coverage require owner-reviewed release and genuine scheduled
-collection. Combined independent review, fresh all-writer cost planning, before-push full-page
-1440/390 render comparison, normal Preview/main movement, native Basic-field read-back,
+collection. Combined independent review, fresh all-writer cost planning, normal Preview/main movement, native Basic-field read-back,
 main/archive Git-build suppression, a genuine scheduled new-code collection/publication,
 independent exact-artifact/public byte acknowledgement and a complete Pacific-day cost export
 remain separate gates. No actual hosted result is inferred from a local pass.
+
+Fresh full-page and first-screen 1440/390 production/local review is now complete. All four
+local captures exactly match the actual reviewed Preview; UI bytes remain exact. See
+`coverage-release-visual-review-2026-11-02.md`. Repeat the comparison if public data or candidate
+bytes change before a future push.
 
 The paid trial stays stopped and existing reservations/failures remain. No paid build, GitHub
 dispatch, provider setting change, source request, model call, persistent archive write, branch

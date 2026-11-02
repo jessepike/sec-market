@@ -1,0 +1,9 @@
+{
+  "pid": 1502323,
+  "cwd": "/mnt/mac/Users/jessepike/.codex/worktrees/market-coverage-release-20261102/sec-market",
+  "command": "python3 -m http.server 4371 --bind 127.0.0.1 --directory web/dist ",
+  "signal": "SIGTERM",
+  "checkedIdentityBeforeSignal": true,
+  "stoppedAt": "2026-11-02T19:59:47.924720+00:00",
+  "processAbsentAfterStop": true
+}

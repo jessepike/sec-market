@@ -1,0 +1,92 @@
+[
+  {
+    "target": "production",
+    "url": "https://securitymarketpulse.com/app-release.json",
+    "observedAt": "2026-11-02T19:59:01.177Z",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "sha256": "d5b87f13a7361593dfe737736298f178796492882127a8ae523167e456be4e1a",
+    "bytes": 1877
+  },
+  {
+    "target": "production",
+    "url": "https://securitymarketpulse.com/deployment-receipt.json",
+    "observedAt": "2026-11-02T19:59:01.328Z",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "sha256": "d0ed51506ea73787b40fefbd84dad9a3b749bc7c7ca3a94b7561472480ffd991",
+    "bytes": 1295
+  },
+  {
+    "target": "production",
+    "url": "https://securitymarketpulse.com/daily-coverage.json",
+    "observedAt": "2026-11-02T19:59:01.368Z",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "sha256": "c5a33103f5711585ac6396553ada7a3fd20e7c65c0286565dd565939b3bb66d8",
+    "bytes": 1338299
+  },
+  {
+    "target": "production",
+    "url": "https://securitymarketpulse.com/factual-corrections.json",
+    "observedAt": "2026-11-02T19:59:01.456Z",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "sha256": "de1cf83f4e2ea9d3cdaee45935b4e3c50400bc09487c41cb465609156b1dcae6",
+    "bytes": 37212
+  },
+  {
+    "target": "production",
+    "url": "https://securitymarketpulse.com/tracker.json",
+    "observedAt": "2026-11-02T19:59:01.507Z",
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "sha256": "7a8e2aa229dbee45c7a295f16c6f5c2b9741a9a6299bdb2ea1ddd6ac6c72be1d",
+    "bytes": 72488
+  },
+  {
+    "target": "local",
+    "url": "http://127.0.0.1:4371/app-release.json",
+    "observedAt": "2026-11-02T19:59:01.555Z",
+    "status": 200,
+    "contentType": "application/json",
+    "sha256": "e3ad880bff114015c912f0972015dd46beb2f59f51391b145d2799d9efaeba76",
+    "bytes": 719
+  },
+  {
+    "target": "local",
+    "url": "http://127.0.0.1:4371/deployment-receipt.json",
+    "observedAt": "2026-11-02T19:59:01.561Z",
+    "status": 404,
+    "contentType": "text/html;charset=utf-8",
+    "sha256": "860b53ed6ea6a0cf602fae632cfcd28dbcf637f85a8bee28d2ee9c6cc9081669",
+    "bytes": 335
+  },
+  {
+    "target": "local",
+    "url": "http://127.0.0.1:4371/daily-coverage.json",
+    "observedAt": "2026-11-02T19:59:01.565Z",
+    "status": 200,
+    "contentType": "application/json",
+    "sha256": "25966543b4a54b5b5a5027a7e85b4c590667a0fccaaa98b15c13f5260ec9191b",
+    "bytes": 1546540
+  },
+  {
+    "target": "local",
+    "url": "http://127.0.0.1:4371/factual-corrections.json",
+    "observedAt": "2026-11-02T19:59:01.574Z",
+    "status": 200,
+    "contentType": "application/json",
+    "sha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+    "bytes": 106
+  },
+  {
+    "target": "local",
+    "url": "http://127.0.0.1:4371/tracker.json",
+    "observedAt": "2026-11-02T19:59:01.579Z",
+    "status": 200,
+    "contentType": "application/json",
+    "sha256": "204149aa34662a6a15231d8b69e6a78a06e9a9bf37d1cd80d99a3e0d64cc2ea8",
+    "bytes": 72488
+  }
+]

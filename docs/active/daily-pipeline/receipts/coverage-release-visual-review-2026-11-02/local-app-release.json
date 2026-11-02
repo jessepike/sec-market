@@ -1,0 +1,18 @@
+{
+  "allowed": true,
+  "releaseKind": "certified",
+  "dataUpdated": true,
+  "certifiedAt": "2026-10-21T04:45:33.748Z",
+  "contractVersion": "smp-certified-v2",
+  "rootView": "tracker",
+  "appRevision": null,
+  "appBuiltAt": "2026-11-02T19:47:49.797Z",
+  "dailyRunId": "334f0f2ef3ed1d957189585ee36fcf6d9934bae9b626febf1cde661657c7b058",
+  "dailySnapshotSha256": "d222be9b407e2f2e75b637629c5dd581f37216d0a05ca11e9e92245fe75d5493",
+  "dailyContractSha256": "6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68",
+  "dailyCoverageComplete": false,
+  "dailyCoverageMeasure": "daily_source_intake_v2",
+  "dailyIntakeComplete": false,
+  "dailyProcessingComplete": false,
+  "dailyHistoricalReviewComplete": false
+}
