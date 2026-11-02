@@ -1,0 +1,49 @@
+{
+  "sourceCsvPath": "/Users/jessepike/code/projects/sec-market-finish-20261022/.ctx/vercel-managed-runtime/evidence-20261101-1822/billing.csv",
+  "sourceMetadataPath": "/Users/jessepike/code/projects/sec-market-finish-20261022/.ctx/vercel-managed-runtime/evidence-20261101-1822/download-metadata.json",
+  "actualCsvSha256": "7dfb007a52acb9a41c34916781fcccbf9b1ac5b23af24c1d0a051ea20824022a",
+  "downloadMetadata": {
+    "schemaVersion": 1,
+    "source": "actual_browser_csv_download",
+    "sourceFileName": "vercel-costs (25).csv",
+    "originalMtimeMs": 1793557130103,
+    "periodStartMs": 1793343600000,
+    "periodEndMs": 1793606400000,
+    "csvSha256": "7dfb007a52acb9a41c34916781fcccbf9b1ac5b23af24c1d0a051ea20824022a",
+    "csvRows": 379,
+    "selectedRows": 31,
+    "projectTotalsUsd": {
+      "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd": "0.1403494072361169979014",
+      "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV": "0.1180338402691456359496"
+    },
+    "selectedUsd": "0.2583832475052626338510",
+    "selectedCeilPicodollars": "258383247506",
+    "byPeriodStartUsd": {
+      "2026-10-30T07:00:00.000Z": "0.1449451104028299979044",
+      "2026-10-31T07:00:00.000Z": "0.0046556286466056666466",
+      "2026-11-01T07:00:00.000Z": "0.1087825084558269693"
+    },
+    "partialUnsettled": true
+  },
+  "sourceRows": 379,
+  "selectedTwoProjectRows": 31,
+  "selectedTwoProjectUsd": "0.2583832475052626338510",
+  "nov1TwoProjectRows": 5,
+  "nov1TwoProjectUsd": "0.1087825084558269693",
+  "nov1ReaderBuildRows": [
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "Build CPU Minutes",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.105",
+      "Usage": "30",
+      "Formatted Usage": "30 minutes"
+    }
+  ],
+  "dailyLimitUsd": "0.05",
+  "nov1PartialReportedAlreadyExceedsDailyLimit": true,
+  "deploymentAttribution": "The complete November 1 inventories expose exactly one reader deployment and zero controller deployments. That reader deployment is the public release and authentic build events name a Turbo build machine; the billing CSV itself groups by project/day and does not contain a deployment ID.",
+  "settledFinalDay": false
+}

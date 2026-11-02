@@ -1,0 +1,141 @@
+{
+  "observedAt": "2026-11-01T18:19:33.288066+00:00",
+  "archiveCommit": "9d7723b14792399d974e9ecec26845b47e687abc",
+  "publicationArchiveCommit": "536313307b5a9d5d6ae8e2c9f60cc46e3371c39c",
+  "publicationArchiveManifest": {
+    "expectedSha256": "e157a71102ac9abb9febc5716edca6ea3fdcbc84631454dc01bdf7a8956934af",
+    "actualSha256": "e157a71102ac9abb9febc5716edca6ea3fdcbc84631454dc01bdf7a8956934af",
+    "files": 66365
+  },
+  "archiveEntryChecks": [
+    {
+      "bytes": 22640,
+      "key": "state/ci/collection-runs/41303798977-1.json",
+      "sha256": "abac0929a94e14c529fc8494ac849dcd581e728ed0637d14d665de532105e702",
+      "actualBytes": 22640,
+      "actualSha256": "abac0929a94e14c529fc8494ac849dcd581e728ed0637d14d665de532105e702",
+      "matches": true
+    },
+    {
+      "bytes": 2154,
+      "key": "state/gate-receipts/41306711599.json",
+      "sha256": "dd577e3d14f1dbb0d2aa4d0ec98fde77f5b1415d88cf74b01af362f336a5a27c",
+      "actualBytes": 2154,
+      "actualSha256": "dd577e3d14f1dbb0d2aa4d0ec98fde77f5b1415d88cf74b01af362f336a5a27c",
+      "matches": true
+    },
+    {
+      "bytes": 174,
+      "key": "state/heads/production.json",
+      "sha256": "6ab8e7f714f6187605a461a0a47c1f4839b6ca36d9eb4fa48608ec79064c3eb7",
+      "actualBytes": 174,
+      "actualSha256": "6ab8e7f714f6187605a461a0a47c1f4839b6ca36d9eb4fa48608ec79064c3eb7",
+      "matches": true
+    },
+    {
+      "bytes": 1323519,
+      "key": "state/objects/0f4205930c424a373563bbf5706a7ad9341335d1094d7aba4e51ad05cc5367df",
+      "sha256": "0f4205930c424a373563bbf5706a7ad9341335d1094d7aba4e51ad05cc5367df",
+      "actualBytes": 1323519,
+      "actualSha256": "0f4205930c424a373563bbf5706a7ad9341335d1094d7aba4e51ad05cc5367df",
+      "matches": true
+    },
+    {
+      "bytes": 1203025,
+      "key": "state/objects/8b215926a19a7f3ecde9e23eeaf2404523792ea483a40b7cf8e6299c4f36f62a",
+      "sha256": "8b215926a19a7f3ecde9e23eeaf2404523792ea483a40b7cf8e6299c4f36f62a",
+      "actualBytes": 1203025,
+      "actualSha256": "8b215926a19a7f3ecde9e23eeaf2404523792ea483a40b7cf8e6299c4f36f62a",
+      "matches": true
+    },
+    {
+      "bytes": 9441,
+      "key": "state/objects/dcfe1b3befdc0713d704de8e0c1a12d770e2966bc24c00b8307976945ccf2b6d",
+      "sha256": "dcfe1b3befdc0713d704de8e0c1a12d770e2966bc24c00b8307976945ccf2b6d",
+      "actualBytes": 9441,
+      "actualSha256": "dcfe1b3befdc0713d704de8e0c1a12d770e2966bc24c00b8307976945ccf2b6d",
+      "matches": true
+    },
+    {
+      "bytes": 1566571,
+      "key": "state/objects/e6e142836cd1a035163fed7882eb06d36fa0145b7e70297158425bd5adb2ac46",
+      "sha256": "e6e142836cd1a035163fed7882eb06d36fa0145b7e70297158425bd5adb2ac46",
+      "actualBytes": 1566571,
+      "actualSha256": "e6e142836cd1a035163fed7882eb06d36fa0145b7e70297158425bd5adb2ac46",
+      "matches": true
+    },
+    {
+      "bytes": 6526,
+      "key": "state/releases/55024dd8cac9b122949694b3e146ad5ba45652ae247412a90e634603e60684c5.json",
+      "sha256": "2044c775959432c5dcadb169d5395cffda88a7319fbb6e7572cd42d7f7f2e617",
+      "actualBytes": 6526,
+      "actualSha256": "2044c775959432c5dcadb169d5395cffda88a7319fbb6e7572cd42d7f7f2e617",
+      "matches": true
+    },
+    {
+      "bytes": 1746,
+      "key": "state/ci/rollback-acceptance-runs/39947974279-1.json",
+      "sha256": "9ba6e3c26cad1bd6c3770cefc439dc09b2fb020dff61b90055e380568a315d39",
+      "actualBytes": 1746,
+      "actualSha256": "9ba6e3c26cad1bd6c3770cefc439dc09b2fb020dff61b90055e380568a315d39",
+      "matches": true
+    }
+  ],
+  "githubArtifactZipChecks": [
+    {
+      "id": 13082684362,
+      "name": "subscription-collection-receipt",
+      "providerDigest": "sha256:f2e36a6bb32a956087a32f49170a0af4414151ab777e7cca43e1d8513250c603",
+      "actualSha256": "f2e36a6bb32a956087a32f49170a0af4414151ab777e7cca43e1d8513250c603",
+      "matches": true
+    },
+    {
+      "id": 13083862490,
+      "name": "daily-publication-receipt",
+      "providerDigest": "sha256:cfb4f4f1714f14788d97855edc3d152cdd8b38f5415fd7c00eb5f9ece100ecc6",
+      "actualSha256": "cfb4f4f1714f14788d97855edc3d152cdd8b38f5415fd7c00eb5f9ece100ecc6",
+      "matches": true
+    },
+    {
+      "id": 13083906898,
+      "name": "daily-market-gate",
+      "providerDigest": "sha256:73a437489be1d8d79b39d8a8561d9771e6be5b3c0dee9bfa957cc1978eb03624",
+      "actualSha256": "73a437489be1d8d79b39d8a8561d9771e6be5b3c0dee9bfa957cc1978eb03624",
+      "matches": true
+    }
+  ],
+  "releaseManifestId": {
+    "declared": "55024dd8cac9b122949694b3e146ad5ba45652ae247412a90e634603e60684c5",
+    "recomputed": "55024dd8cac9b122949694b3e146ad5ba45652ae247412a90e634603e60684c5",
+    "matches": true
+  },
+  "publicDetachedReceiptMatchesAcknowledgement": true,
+  "gateAppReceiptMatchesPublicBytes": true,
+  "snapshotObjectSha256": "e6e142836cd1a035163fed7882eb06d36fa0145b7e70297158425bd5adb2ac46",
+  "snapshotInternalField": "22ede41d0b799a9971f7f90696f103b28b179d841ccbfb2ba7817f3435657a8a",
+  "sealedCollectionReceiptSha256": "0f4205930c424a373563bbf5706a7ad9341335d1094d7aba4e51ad05cc5367df",
+  "runIdJoins": true,
+  "appRevisionJoins": true,
+  "gateLogChecks": [
+    {
+      "name": "certify:sec",
+      "expectedSha256": "735081962da1a8c94d541a027379b13169d20136f0baf2691280e18da04aa14b",
+      "actualSha256": "735081962da1a8c94d541a027379b13169d20136f0baf2691280e18da04aa14b"
+    },
+    {
+      "name": "refresh:edgar",
+      "expectedSha256": "9f1d696001a027ad2f72527ee4393127b3847c4a7499f5a5b5757592f708b1a7",
+      "actualSha256": "9f1d696001a027ad2f72527ee4393127b3847c4a7499f5a5b5757592f708b1a7"
+    },
+    {
+      "name": "refresh:filing-events",
+      "expectedSha256": "b4f3bd56c11411b65fbbfccdc1ba4e72009ef086373b4154d6395ece0b754468",
+      "actualSha256": "b4f3bd56c11411b65fbbfccdc1ba4e72009ef086373b4154d6395ece0b754468"
+    },
+    {
+      "name": "test",
+      "expectedSha256": "815cfdd301cf600ea45618bb0717adde216e2d3cd49e47a2a8f9b0ac3f61b7a4",
+      "actualSha256": "815cfdd301cf600ea45618bb0717adde216e2d3cd49e47a2a8f9b0ac3f61b7a4"
+    }
+  ]
+}

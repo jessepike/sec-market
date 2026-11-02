@@ -1,0 +1,44 @@
+{
+  "observedAt": "2026-11-01T18:21:41.967Z",
+  "interface": "Vercel authenticated MCP list_deployments, one independent query per project",
+  "projects": [
+    {
+      "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "since": 1793491200000,
+      "sinceUtc": "2026-11-01T00:00:00Z",
+      "limit": 100,
+      "queryStateFilter": null,
+      "queryTargetFilter": null,
+      "pagination": {
+        "count": 1,
+        "prev": 1793536752955
+      },
+      "deployments": [
+        {
+          "id": "dpl_4TYQBozYnNJYvWNyb24mxPqzCQ8n",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-kgzpftsl3-pikeholdings.vercel.app",
+          "created": 1793536752955,
+          "state": "READY",
+          "target": "production",
+          "meta": {},
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/4TYQBozYnNJYvWNyb24mxPqzCQ8n",
+          "isRollbackCandidate": true
+        }
+      ]
+    },
+    {
+      "projectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "since": 1793491200000,
+      "sinceUtc": "2026-11-01T00:00:00Z",
+      "limit": 100,
+      "queryStateFilter": null,
+      "queryTargetFilter": null,
+      "pagination": {
+        "count": 0,
+        "prev": 1793491200000
+      },
+      "deployments": []
+    }
+  ]
+}

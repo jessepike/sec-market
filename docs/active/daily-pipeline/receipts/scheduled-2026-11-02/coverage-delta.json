@@ -1,0 +1,57 @@
+{
+  "oldSuccessfulTasks": 265,
+  "newSuccessfulTasks": 262,
+  "oldGaps": 292,
+  "newGaps": 295,
+  "sameNamedSourceIntakeChanges": [
+    {
+      "sourceId": "cohesity:citation:TR-cohesity-1",
+      "supplierId": "cohesity",
+      "priorOutcome": "blocked",
+      "priorError": "HTTP_429",
+      "currentOutcome": "blocked",
+      "currentError": "HTTP_403"
+    },
+    {
+      "sourceId": "cohesity:official:1",
+      "supplierId": "cohesity",
+      "priorOutcome": "checked",
+      "priorError": null,
+      "currentOutcome": "blocked",
+      "currentError": "HTTP_403"
+    },
+    {
+      "sourceId": "witnessai:citation:TR-witnessai-1",
+      "supplierId": "witnessai",
+      "priorOutcome": "checked",
+      "priorError": null,
+      "currentOutcome": "not_checked",
+      "currentError": "HTTP_504"
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "supplierId": "witnessai",
+      "priorOutcome": "checked",
+      "priorError": null,
+      "currentOutcome": "not_checked",
+      "currentError": "HTTP_504"
+    }
+  ],
+  "currentIntakeOutcomeCounts": {
+    "checked": 262,
+    "blocked": 13,
+    "failed": 1,
+    "not_checked": 281
+  },
+  "currentIntakeErrorCounts": {
+    "NONE": 262,
+    "HTTP_403": 9,
+    "HTTP_429": 4,
+    "Unapproved source/redirect host": 1,
+    "HTTP_504": 2,
+    "NO_REGISTERED_DISCOVERY_SOURCE": 254,
+    "SOURCE_BINDING_UNVERIFIED": 23,
+    "Q4_INDEX_INCOMPLETE:Q4_LIST_ROW_SCHEMA_INVALID": 2
+  },
+  "limits": "Task IDs are not compared across different daily inventory hashes. Changes match only unique stable named source IDs. This is not a complete per-obligation reconciliation or a new qualification."
+}

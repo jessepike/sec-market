@@ -1,0 +1,92 @@
+{
+  "events": [
+    {
+      "created": 1793628798226,
+      "date": 1793628798226,
+      "type": "stdout",
+      "text": "Running build in Washington, D.C., USA (East) – iad1",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628798226,
+      "date": 1793628798226,
+      "type": "stdout",
+      "text": "Build machine configuration: 2 cores, 8 GB",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628798238,
+      "date": 1793628798238,
+      "type": "stdout",
+      "text": "Retrieving list of deployment files...",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628798607,
+      "date": 1793628798607,
+      "type": "stdout",
+      "text": "Downloading 54 deployment files...",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628799458,
+      "date": 1793628799458,
+      "type": "stdout",
+      "text": "Using prebuilt build artifacts from .vercel/output",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628799458,
+      "date": 1793628799458,
+      "type": "stdout",
+      "text": "Learn more: https://vercel.link/build-output-api",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628799464,
+      "date": 1793628799464,
+      "type": "stdout",
+      "text": "Deploying outputs...",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    },
+    {
+      "created": 1793628800474,
+      "date": 1793628800474,
+      "type": "stdout",
+      "text": "Deployment completed",
+      "info": {
+        "type": "build",
+        "name": "bld_kkbtdzki9",
+        "entrypoint": "."
+      }
+    }
+  ]
+}

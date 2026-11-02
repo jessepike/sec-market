@@ -1,0 +1,33 @@
+{
+  "runId": "51a9fbabd0cbd69cdbb807ac97f0baa5519cd8b53962bdff9f6c6096b8cf0b97",
+  "checkedAt": "2026-11-02T13:47:47.878832Z",
+  "successfulTasks": 262,
+  "requiredTasks": 557,
+  "gaps": 295,
+  "complete": false,
+  "intake": {
+    "complete": false,
+    "evaluated": true,
+    "measure": "daily_source_intake_v2",
+    "requiredTasks": 557,
+    "status": "collected",
+    "successfulTasks": 262
+  },
+  "processing": {
+    "changedDocuments": 2,
+    "complete": false,
+    "heldDocuments": 20,
+    "inventoryDocuments": 11671,
+    "pendingDocuments": 11588,
+    "reviewedDocuments": 83,
+    "unknownDateDocuments": 1479
+  },
+  "historicalReview": {
+    "complete": false,
+    "heldDocuments": 20,
+    "inventoryDocuments": 11671,
+    "pendingDocuments": 11587,
+    "reviewedDocuments": 84
+  },
+  "reviewQueue": 51
+}

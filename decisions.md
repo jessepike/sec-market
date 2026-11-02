@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-10-24)
+## Decisions in force (as of 2026-11-02)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -19,10 +19,11 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
-| Daily coverage | D-104 through D-110 | Bounded daily collection for all 74 current suppliers authorized. Every published changed fact needs evidence and checks; complete SEC certification remains mandatory. Actual scheduled coverage is 121/557 with explicit gaps and holds. First live release and controlled rollback are verified; full coverage and sustained operation remain open. No paid fallback |
-| Current priority | D-111 | Make the current site consistent, durable, accurate and fresh before expanding coverage or building search. Reader value is unmeasured; no observed useful decision or conversation yet. Track separate evidence-backed measures and preserve every declared coverage obligation |
+| Daily coverage | D-104 through D-112 | November 2 scheduled intake is 262/557 with 295 gaps. All 80 SEC claims passed and all 52 public files match. Original evidence dates and complete denominators remain. Broad accuracy and sustained operation remain open. No paid fallback |
+| Current priority | D-111, November 2 owner direction below | Continue reliable operation and cost verification while implementing company search and reducing runner usage. Reader value remains unmeasured. Search does not mask coverage gaps |
 | Freshness and history | D-112 | Separate fresh daily source intake, fact-processing progress and historical review. Preserve all 557 source obligations, every historical URL and original evidence dates. A fresh intake check cannot stand for reviewed history or complete current-event coverage |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
+| Spending and current work | November 1 and November 2 owner directions below | The cumulative trial stop is $0.30 and the paid trial remains stopped. Normal metered usage remains limited to $0.05/day. November 2 Basic publication is proved; its full-day cost and actual runner savings remain open. Company search needs owner review of Preview before production |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
 
@@ -1383,3 +1384,15 @@ complete SEC certification, publication checks, charged limits and existing infr
 No new spending, service, API billing fallback, refund, supplier removal or unknown-as-pass follows.
 The existing activation approval remains in force; new policy operation still needs actual
 scheduled-run and production evidence. Reader value remains unmeasured.
+
+**D-123 · 2026-11-01 — Bounded trial stop approval retained.**
+
+Owner: “Approve the $0.30 trial limit. Keep the five-cent daily cap and keep going until an actual scheduled run updates production. Don’t stop at local tests.” The existing single $1 planning allowance is unchanged. Retain failed/unknown work, original charges and reservations. The saved [approval record](docs/active/daily-pipeline/vercel-built-in-auth-2026-10-30/trial-stop-approval-2026-11-01.json) preserves the exact bounded correction scope; it is not general retry authority or a provider hard cap. Fresh November 2 accounting forecasts $0.363698081765 including retained reservations, above $0.30, so no further paid trial action is admissible. Earlier runtime-research decisions and inert source remain preserved in the separate managed-runtime worktree; this delivery does not adopt or activate that code.
+
+**D-124 · 2026-11-02 — Company search and runner reductions authorized; paid trial remains stopped.**
+
+Owner: “Keep going. Reduce GitHub runner usage, verify the next scheduled Basic build updates production, and check the actual full-day cost stays under five cents. Keep the paid trial stopped. we also need to get a search capability into the app so that users can search for a company.”
+
+Implement client-side company search against existing names, tickers and registered aliases, opening the existing sourced records. Broader event/evidence search and ownership navigation remain backlog work. Reduce repeated operational tests only after verified CI for the exact clean code; preserve runtime validation and a full-suite fallback on uncertainty. Keep daily collection, publication completion callbacks, one daily recovery timer and independent active alerts. Skip the obsolete legacy monitor job only after an explicit strict retirement read; unknown output keeps its fallback.
+
+November 2's actual scheduled collector, independent gate and Basic production release passed, with all 52 public files matched and the actual Basic build charged $0.007. Today's partial $0.01134 subtotal is not a complete-day pass. November 1 exceeded five cents. Preserve the $0.05 normal daily limit, the stopped paid trial, existing secrets and the standard preview-to-main exact-artifact route. This implementation request does not substitute for owner review of the visible Preview under AGENTS.md. No intent, new roster, database, service, API billing fallback, paid overage or Codex Cloud dependency is added. Canonical personal-platform standards read at ff32b0055293e4fb3bce550bade4652cc2ee1aa3, T2 Important, Public reader data/Internal evidence/Confidential credentials.

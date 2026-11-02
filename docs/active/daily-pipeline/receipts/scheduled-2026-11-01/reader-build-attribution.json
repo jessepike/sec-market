@@ -1,0 +1,36 @@
+{
+  "sourceInterface": "Authenticated Vercel MCP list_deployment_events(idOrUrl=dpl_4TYQBozYnNJYvWNyb24mxPqzCQ8n, direction=forward, limit=-1)",
+  "savedEventPayloadSha256": "ba533603bb8def41fa917ce5cf1a7875124e2509d3cb5c992111346f2ef83939",
+  "eventCount": 8,
+  "deploymentId": "dpl_4TYQBozYnNJYvWNyb24mxPqzCQ8n",
+  "deploymentCreatedAtUtc": "2026-11-01T12:39:12.955000+00:00",
+  "buildingAtUtc": "2026-11-01T12:39:13.755000+00:00",
+  "readyAtUtc": "2026-11-01T12:39:15.113000+00:00",
+  "readyMinusBuildingSeconds": 1.358,
+  "buildId": "bld_qjmqgrq90",
+  "machineConfiguration": "Build machine configuration: 30 cores, 60 GB (Turbo Build Machine)",
+  "prebuiltEvidence": {
+    "created": 1793536754332,
+    "date": 1793536754332,
+    "type": "stdout",
+    "text": "Using prebuilt build artifacts from .vercel/output",
+    "info": {
+      "type": "build",
+      "name": "bld_qjmqgrq90",
+      "entrypoint": "."
+    }
+  },
+  "completedEvidence": {
+    "created": 1793536755280,
+    "date": 1793536755280,
+    "type": "stdout",
+    "text": "Deployment completed",
+    "info": {
+      "type": "build",
+      "name": "bld_qjmqgrq90",
+      "entrypoint": "."
+    }
+  },
+  "installOrCompileEventsPresent": false,
+  "qualification": "All eight returned events are preserved. Prebuilt use is explicit; the build still ran on a Turbo machine. Event timing alone does not determine billed CPU minutes or minimums."
+}

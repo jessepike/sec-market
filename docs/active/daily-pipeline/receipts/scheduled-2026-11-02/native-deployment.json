@@ -1,0 +1,32 @@
+{
+  "deployment": {
+    "id": "dpl_HeZV2C32dtyzoiTfEPktBFqAubZ2",
+    "name": "security-market-pulse",
+    "url": "security-market-pulse-1s539qt26-pikeholdings.vercel.app",
+    "type": "LAMBDAS",
+    "state": "READY",
+    "createdAt": 1793628797633,
+    "creator": {
+      "uid": "um6xyC6srGbNQRAR3KB77kfs",
+      "username": "jessepike"
+    },
+    "project": {
+      "id": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "name": "security-market-pulse",
+      "framework": "vite"
+    },
+    "meta": {},
+    "alias": [
+      "security-market-pulse-pikeholdings.vercel.app"
+    ],
+    "target": "production",
+    "regions": [
+      "iad1"
+    ],
+    "buildingAt": 1793628798575,
+    "ready": 1793628800291,
+    "readyState": "READY",
+    "source": "cli",
+    "aliasError": null
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "observedAt": "2026-11-02 16:46:12 UTC",
+  "query": {
+    "since": "2026-11-02T08:00:00Z",
+    "limit": 100,
+    "statusFilter": null,
+    "targetFilter": null
+  },
+  "reader": {
+    "pagination": {
+      "count": 1,
+      "prev": 1793628797633
+    },
+    "deployments": [
+      {
+        "id": "dpl_HeZV2C32dtyzoiTfEPktBFqAubZ2",
+        "name": "security-market-pulse",
+        "url": "security-market-pulse-1s539qt26-pikeholdings.vercel.app",
+        "created": 1793628797633,
+        "state": "READY",
+        "target": "production",
+        "creator": {
+          "uid": "um6xyC6srGbNQRAR3KB77kfs",
+          "username": "jessepike"
+        },
+        "meta": {},
+        "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/HeZV2C32dtyzoiTfEPktBFqAubZ2",
+        "isRollbackCandidate": true
+      }
+    ]
+  },
+  "proof": {
+    "pagination": {
+      "count": 0,
+      "prev": 1793606400000
+    },
+    "deployments": []
+  },
+  "complete": true
+}

@@ -1,0 +1,955 @@
+{
+  "queriedAt": "2026-11-02T16:40:05.730247+00:00",
+  "buildZipSha256": "cc6e8df8d0e295474328d08bea1f3c1702b566346cb018a943c894bdbc753297",
+  "inventorySha256": "16dbf024c1ba9088e42128f80a291070cb2a2b1c14cb7b31de2f6de627c6921b",
+  "archiveChecks": [
+    {
+      "bytes": 930,
+      "path": "config.json",
+      "sha256": "3c0bde7c71b90a1067b9cbfa7e9d5a990197909875c8b27d8e9d37ce2c7434fc",
+      "actualBytes": 930,
+      "actualSha256": "3c0bde7c71b90a1067b9cbfa7e9d5a990197909875c8b27d8e9d37ce2c7434fc",
+      "matches": true
+    },
+    {
+      "bytes": 164,
+      "path": "static/.well-known/security.txt",
+      "sha256": "ebee4bacc9801522b3c2d2f860a43680aeb6afa3cfab90608eb2e3d2583617ea",
+      "actualBytes": 164,
+      "actualSha256": "ebee4bacc9801522b3c2d2f860a43680aeb6afa3cfab90608eb2e3d2583617ea",
+      "matches": true
+    },
+    {
+      "bytes": 1877,
+      "path": "static/app-release.json",
+      "sha256": "d5b87f13a7361593dfe737736298f178796492882127a8ae523167e456be4e1a",
+      "actualBytes": 1877,
+      "actualSha256": "d5b87f13a7361593dfe737736298f178796492882127a8ae523167e456be4e1a",
+      "matches": true
+    },
+    {
+      "bytes": 14888,
+      "path": "static/assets/fonts/01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22--F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "actualBytes": 14888,
+      "actualSha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "matches": true
+    },
+    {
+      "bytes": 14708,
+      "path": "static/assets/fonts/08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7--F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "actualBytes": 14708,
+      "actualSha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches": true
+    },
+    {
+      "bytes": 15620,
+      "path": "static/assets/fonts/0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83--F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgg.woff2",
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "actualBytes": 15620,
+      "actualSha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "matches": true
+    },
+    {
+      "bytes": 8460,
+      "path": "static/assets/fonts/1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc--F6qfjptAgt5VM-kVkqdyU8n3twJwlRFgtIU.woff2",
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "actualBytes": 8460,
+      "actualSha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "matches": true
+    },
+    {
+      "bytes": 9352,
+      "path": "static/assets/fonts/2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa--F6qfjptAgt5VM-kVkqdyU8n3vAOwlRFgtIU.woff2",
+      "sha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "actualBytes": 9352,
+      "actualSha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "matches": true
+    },
+    {
+      "bytes": 14328,
+      "path": "static/assets/fonts/32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b--F6qfjptAgt5VM-kVkqdyU8n3vAOwl5FgtIU.woff2",
+      "sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "actualBytes": 14328,
+      "actualSha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "matches": true
+    },
+    {
+      "bytes": 6972,
+      "path": "static/assets/fonts/3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a--F6qfjptAgt5VM-kVkqdyU8n3twJwl1FgtIU.woff2",
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "actualBytes": 6972,
+      "actualSha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "matches": true
+    },
+    {
+      "bytes": 6932,
+      "path": "static/assets/fonts/51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6--F6qfjptAgt5VM-kVkqdyU8n3vAOwl9FgtIU.woff2",
+      "sha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "actualBytes": 6932,
+      "actualSha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "matches": true
+    },
+    {
+      "bytes": 13240,
+      "path": "static/assets/fonts/5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLySOxK-vA.woff2",
+      "sha256": "5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab",
+      "actualBytes": 13240,
+      "actualSha256": "5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab",
+      "matches": true
+    },
+    {
+      "bytes": 5868,
+      "path": "static/assets/fonts/62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9--F63fjptAgt5VM-kVkqdyU8n1iAq129k.woff2",
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "actualBytes": 5868,
+      "actualSha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "matches": true
+    },
+    {
+      "bytes": 13432,
+      "path": "static/assets/fonts/6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea--F6qfjptAgt5VM-kVkqdyU8n3twJwl5FgtIU.woff2",
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "actualBytes": 13432,
+      "actualSha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "matches": true
+    },
+    {
+      "bytes": 13348,
+      "path": "static/assets/fonts/6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb--F63fjptAgt5VM-kVkqdyU8n1iEq129k.woff2",
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "actualBytes": 13348,
+      "actualSha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "matches": true
+    },
+    {
+      "bytes": 13160,
+      "path": "static/assets/fonts/73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA.woff2",
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "actualBytes": 13160,
+      "actualSha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "matches": true
+    },
+    {
+      "bytes": 8356,
+      "path": "static/assets/fonts/7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce--F63fjptAgt5VM-kVkqdyU8n1isq129k.woff2",
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "actualBytes": 8356,
+      "actualSha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "matches": true
+    },
+    {
+      "bytes": 6040,
+      "path": "static/assets/fonts/781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910--F6qfjptAgt5VM-kVkqdyU8n3twJwl9FgtIU.woff2",
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "actualBytes": 6040,
+      "actualSha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "matches": true
+    },
+    {
+      "bytes": 23568,
+      "path": "static/assets/fonts/7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA.woff2",
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "actualBytes": 23568,
+      "actualSha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "matches": true
+    },
+    {
+      "bytes": 7692,
+      "path": "static/assets/fonts/83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015--F6qfjptAgt5VM-kVkqdyU8n3vAOwl1FgtIU.woff2",
+      "sha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "actualBytes": 7692,
+      "actualSha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "matches": true
+    },
+    {
+      "bytes": 34928,
+      "path": "static/assets/fonts/8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxI.woff2",
+      "sha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967",
+      "actualBytes": 34928,
+      "actualSha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967",
+      "matches": true
+    },
+    {
+      "bytes": 29512,
+      "path": "static/assets/fonts/9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA.woff2",
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "actualBytes": 29512,
+      "actualSha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "matches": true
+    },
+    {
+      "bytes": 4388,
+      "path": "static/assets/fonts/archivo-OFL-108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b.txt",
+      "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b",
+      "actualBytes": 4388,
+      "actualSha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b",
+      "matches": true
+    },
+    {
+      "bytes": 30964,
+      "path": "static/assets/fonts/d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA.woff2",
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "actualBytes": 30964,
+      "actualSha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "matches": true
+    },
+    {
+      "bytes": 45712,
+      "path": "static/assets/fonts/e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2",
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "actualBytes": 45712,
+      "actualSha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "matches": true
+    },
+    {
+      "bytes": 19500,
+      "path": "static/assets/fonts/f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA.woff2",
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "actualBytes": 19500,
+      "actualSha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "matches": true
+    },
+    {
+      "bytes": 6912,
+      "path": "static/assets/fonts/f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe--F63fjptAgt5VM-kVkqdyU8n1iIq129k.woff2",
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "actualBytes": 6912,
+      "actualSha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "matches": true
+    },
+    {
+      "bytes": 32608,
+      "path": "static/assets/fonts/ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLyTOxK-vA.woff2",
+      "sha256": "ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05",
+      "actualBytes": 32608,
+      "actualSha256": "ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05",
+      "matches": true
+    },
+    {
+      "bytes": 4456,
+      "path": "static/assets/fonts/ibmplexmono-OFL-7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "actualBytes": 4456,
+      "actualSha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "matches": true
+    },
+    {
+      "bytes": 4456,
+      "path": "static/assets/fonts/ibmplexsans-OFL-7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "actualBytes": 4456,
+      "actualSha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "matches": true
+    },
+    {
+      "bytes": 81993,
+      "path": "static/assets/index-CnZRNgWn.css",
+      "sha256": "778019d306a126b825544fe9d22a2d34218c441b5af073982cdec2f9755bdc00",
+      "actualBytes": 81993,
+      "actualSha256": "778019d306a126b825544fe9d22a2d34218c441b5af073982cdec2f9755bdc00",
+      "matches": true
+    },
+    {
+      "bytes": 2652556,
+      "path": "static/assets/index-Cs3_nNSi.js",
+      "sha256": "01eb6b2e8e9303e4f95ba9c220dbc9e5166ec550eba8dec10d443fd0e7cfaad7",
+      "actualBytes": 2652556,
+      "actualSha256": "01eb6b2e8e9303e4f95ba9c220dbc9e5166ec550eba8dec10d443fd0e7cfaad7",
+      "matches": true
+    },
+    {
+      "bytes": 164890,
+      "path": "static/certified-coverage.json",
+      "sha256": "d0c77ceeb39988a36f1f541dcbe5de1183d37694060cf070f9d6ad59fb4e06c9",
+      "actualBytes": 164890,
+      "actualSha256": "d0c77ceeb39988a36f1f541dcbe5de1183d37694060cf070f9d6ad59fb4e06c9",
+      "matches": true
+    },
+    {
+      "bytes": 56061,
+      "path": "static/corrections.json",
+      "sha256": "f5080a6df1d2a6796092d2267cf620669ca315775c17461f7f766aade6cd5e6c",
+      "actualBytes": 56061,
+      "actualSha256": "f5080a6df1d2a6796092d2267cf620669ca315775c17461f7f766aade6cd5e6c",
+      "matches": true
+    },
+    {
+      "bytes": 32585,
+      "path": "static/corrections/index.html",
+      "sha256": "33c3fb02227b65e49f8894b75d9b46c6de3cb17b35893ebb75472185774873cf",
+      "actualBytes": 32585,
+      "actualSha256": "33c3fb02227b65e49f8894b75d9b46c6de3cb17b35893ebb75472185774873cf",
+      "matches": true
+    },
+    {
+      "bytes": 1338299,
+      "path": "static/daily-coverage.json",
+      "sha256": "c5a33103f5711585ac6396553ada7a3fd20e7c65c0286565dd565939b3bb66d8",
+      "actualBytes": 1338299,
+      "actualSha256": "c5a33103f5711585ac6396553ada7a3fd20e7c65c0286565dd565939b3bb66d8",
+      "matches": true
+    },
+    {
+      "bytes": 37212,
+      "path": "static/factual-corrections.json",
+      "sha256": "de1cf83f4e2ea9d3cdaee45935b4e3c50400bc09487c41cb465609156b1dcae6",
+      "actualBytes": 37212,
+      "actualSha256": "de1cf83f4e2ea9d3cdaee45935b4e3c50400bc09487c41cb465609156b1dcae6",
+      "matches": true
+    },
+    {
+      "bytes": 9522,
+      "path": "static/favicon.svg",
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+      "actualBytes": 9522,
+      "actualSha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+      "matches": true
+    },
+    {
+      "bytes": 24913,
+      "path": "static/feed.xml",
+      "sha256": "89674be65625bf20b7261c3e61f330453f5c6ebb9f5cdab06d83cfb7797d3bed",
+      "actualBytes": 24913,
+      "actualSha256": "89674be65625bf20b7261c3e61f330453f5c6ebb9f5cdab06d83cfb7797d3bed",
+      "matches": true
+    },
+    {
+      "bytes": 299450,
+      "path": "static/index.html",
+      "sha256": "a20eee6f81ce4410ffb0a2eadd7cdfe50093c0e04062ac02a42b556b49296edc",
+      "actualBytes": 299450,
+      "actualSha256": "a20eee6f81ce4410ffb0a2eadd7cdfe50093c0e04062ac02a42b556b49296edc",
+      "matches": true
+    },
+    {
+      "bytes": 45382,
+      "path": "static/issues/2026-w36.json",
+      "sha256": "0e65ca46ba192ff9b863f4208b0db5836183f1852125b6f9511ff53d565e1743",
+      "actualBytes": 45382,
+      "actualSha256": "0e65ca46ba192ff9b863f4208b0db5836183f1852125b6f9511ff53d565e1743",
+      "matches": true
+    },
+    {
+      "bytes": 34336,
+      "path": "static/issues/2026-w36/index.html",
+      "sha256": "f1b1239399512e96576b1ace43e5db6946dd775c80dd9d3f6740fb365e0f7558",
+      "actualBytes": 34336,
+      "actualSha256": "f1b1239399512e96576b1ace43e5db6946dd775c80dd9d3f6740fb365e0f7558",
+      "matches": true
+    },
+    {
+      "bytes": 6930,
+      "path": "static/issues/index.html",
+      "sha256": "97ac7ad3eac46466a66c58ba774f38e4f84477d59e5684eca77437c2b66b81f6",
+      "actualBytes": 6930,
+      "actualSha256": "97ac7ad3eac46466a66c58ba774f38e4f84477d59e5684eca77437c2b66b81f6",
+      "matches": true
+    },
+    {
+      "bytes": 341,
+      "path": "static/issues/index.json",
+      "sha256": "905978012e82819228823891d36c46f4c8cf050a21dbf9ed05dc88203d2031ef",
+      "actualBytes": 341,
+      "actualSha256": "905978012e82819228823891d36c46f4c8cf050a21dbf9ed05dc88203d2031ef",
+      "matches": true
+    },
+    {
+      "bytes": 85,
+      "path": "static/issues/lock.json",
+      "sha256": "9578d1a6f9a05739ecab5061d972e141503b7df6f8a0f3bee93bac9321f0b78a",
+      "actualBytes": 85,
+      "actualSha256": "9578d1a6f9a05739ecab5061d972e141503b7df6f8a0f3bee93bac9321f0b78a",
+      "matches": true
+    },
+    {
+      "bytes": 54382,
+      "path": "static/og.png",
+      "sha256": "127023c2aaa5d8d7089a1c84d7fba5313fe373a2874071005b6e8addb46335c9",
+      "actualBytes": 54382,
+      "actualSha256": "127023c2aaa5d8d7089a1c84d7fba5313fe373a2874071005b6e8addb46335c9",
+      "matches": true
+    },
+    {
+      "bytes": 33245,
+      "path": "static/refresh-certification.json",
+      "sha256": "c6e1864a08b9a01e4410bc6c193933ae008987b05617164a2c58c1d6bb45134e",
+      "actualBytes": 33245,
+      "actualSha256": "c6e1864a08b9a01e4410bc6c193933ae008987b05617164a2c58c1d6bb45134e",
+      "matches": true
+    },
+    {
+      "bytes": 857445,
+      "path": "static/refresh-coverage.json",
+      "sha256": "d9849a53bd9de2787d1a40ae5f4bc6e3b0028b708d6b5c20b565882943fc7a22",
+      "actualBytes": 857445,
+      "actualSha256": "d9849a53bd9de2787d1a40ae5f4bc6e3b0028b708d6b5c20b565882943fc7a22",
+      "matches": true
+    },
+    {
+      "bytes": 597,
+      "path": "static/refresh-publication.json",
+      "sha256": "733afdaf9f5fcc5c41005532efa663147eb80947d55305de1d44633251f02d1e",
+      "actualBytes": 597,
+      "actualSha256": "733afdaf9f5fcc5c41005532efa663147eb80947d55305de1d44633251f02d1e",
+      "matches": true
+    },
+    {
+      "bytes": 77,
+      "path": "static/robots.txt",
+      "sha256": "fdac3a3cb126649d693b906d486352a0e430a90287b3b08d83a5ae85c04cab61",
+      "actualBytes": 77,
+      "actualSha256": "fdac3a3cb126649d693b906d486352a0e430a90287b3b08d83a5ae85c04cab61",
+      "matches": true
+    },
+    {
+      "bytes": 1873,
+      "path": "static/sitemap.xml",
+      "sha256": "2578ec5274df7bfafdffea06620e9d3c81c1f8a7cecdadbf67cb141c979fe4d5",
+      "actualBytes": 1873,
+      "actualSha256": "2578ec5274df7bfafdffea06620e9d3c81c1f8a7cecdadbf67cb141c979fe4d5",
+      "matches": true
+    },
+    {
+      "bytes": 13031,
+      "path": "static/thesis/index.html",
+      "sha256": "123426258eb68deb224c04ce089edc6a96b62df389e971f73cfa786be2b6c48c",
+      "actualBytes": 13031,
+      "actualSha256": "123426258eb68deb224c04ce089edc6a96b62df389e971f73cfa786be2b6c48c",
+      "matches": true
+    },
+    {
+      "bytes": 72488,
+      "path": "static/tracker.json",
+      "sha256": "7a8e2aa229dbee45c7a295f16c6f5c2b9741a9a6299bdb2ea1ddd6ac6c72be1d",
+      "actualBytes": 72488,
+      "actualSha256": "7a8e2aa229dbee45c7a295f16c6f5c2b9741a9a6299bdb2ea1ddd6ac6c72be1d",
+      "matches": true
+    }
+  ],
+  "publicChecks": [
+    {
+      "bytes": 164,
+      "path": "static/.well-known/security.txt",
+      "sha256": "ebee4bacc9801522b3c2d2f860a43680aeb6afa3cfab90608eb2e3d2583617ea",
+      "url": "https://securitymarketpulse.com/.well-known/security.txt",
+      "status": 200,
+      "actualBytes": 164,
+      "actualSha256": "ebee4bacc9801522b3c2d2f860a43680aeb6afa3cfab90608eb2e3d2583617ea",
+      "matches": true
+    },
+    {
+      "bytes": 1877,
+      "path": "static/app-release.json",
+      "sha256": "d5b87f13a7361593dfe737736298f178796492882127a8ae523167e456be4e1a",
+      "url": "https://securitymarketpulse.com/app-release.json",
+      "status": 200,
+      "actualBytes": 1877,
+      "actualSha256": "d5b87f13a7361593dfe737736298f178796492882127a8ae523167e456be4e1a",
+      "matches": true
+    },
+    {
+      "bytes": 14888,
+      "path": "static/assets/fonts/01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22--F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2",
+      "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "url": "https://securitymarketpulse.com/assets/fonts/01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22--F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgg.woff2",
+      "status": 200,
+      "actualBytes": 14888,
+      "actualSha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
+      "matches": true
+    },
+    {
+      "bytes": 14708,
+      "path": "static/assets/fonts/08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7--F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2",
+      "sha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "url": "https://securitymarketpulse.com/assets/fonts/08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7--F63fjptAgt5VM-kVkqdyU8n1i8q1w.woff2",
+      "status": 200,
+      "actualBytes": 14708,
+      "actualSha256": "08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7",
+      "matches": true
+    },
+    {
+      "bytes": 15620,
+      "path": "static/assets/fonts/0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83--F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgg.woff2",
+      "sha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "url": "https://securitymarketpulse.com/assets/fonts/0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83--F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgg.woff2",
+      "status": 200,
+      "actualBytes": 15620,
+      "actualSha256": "0d1f0b8d0722224e32e9f28261bdc86c79115be73444ae5eceb73976a1bcdf83",
+      "matches": true
+    },
+    {
+      "bytes": 8460,
+      "path": "static/assets/fonts/1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc--F6qfjptAgt5VM-kVkqdyU8n3twJwlRFgtIU.woff2",
+      "sha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "url": "https://securitymarketpulse.com/assets/fonts/1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc--F6qfjptAgt5VM-kVkqdyU8n3twJwlRFgtIU.woff2",
+      "status": 200,
+      "actualBytes": 8460,
+      "actualSha256": "1d89462e86cb8e87e7e9d6f6635605bd7c3081baca6caaecee84916bf7b60edc",
+      "matches": true
+    },
+    {
+      "bytes": 9352,
+      "path": "static/assets/fonts/2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa--F6qfjptAgt5VM-kVkqdyU8n3vAOwlRFgtIU.woff2",
+      "sha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "url": "https://securitymarketpulse.com/assets/fonts/2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa--F6qfjptAgt5VM-kVkqdyU8n3vAOwlRFgtIU.woff2",
+      "status": 200,
+      "actualBytes": 9352,
+      "actualSha256": "2b05a8695c7f9f4abd7178b279646a3b005a8ce57546bef6fd145f25d131e0aa",
+      "matches": true
+    },
+    {
+      "bytes": 14328,
+      "path": "static/assets/fonts/32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b--F6qfjptAgt5VM-kVkqdyU8n3vAOwl5FgtIU.woff2",
+      "sha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "url": "https://securitymarketpulse.com/assets/fonts/32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b--F6qfjptAgt5VM-kVkqdyU8n3vAOwl5FgtIU.woff2",
+      "status": 200,
+      "actualBytes": 14328,
+      "actualSha256": "32057cf50dd14bdb21a2c93766c4a2c43e4abe688ea3922df3203cac7751a98b",
+      "matches": true
+    },
+    {
+      "bytes": 6972,
+      "path": "static/assets/fonts/3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a--F6qfjptAgt5VM-kVkqdyU8n3twJwl1FgtIU.woff2",
+      "sha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "url": "https://securitymarketpulse.com/assets/fonts/3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a--F6qfjptAgt5VM-kVkqdyU8n3twJwl1FgtIU.woff2",
+      "status": 200,
+      "actualBytes": 6972,
+      "actualSha256": "3febe5c7f22e4b07b4552738673c3dbe8bced2dc5f48b866edf7ccd9552d109a",
+      "matches": true
+    },
+    {
+      "bytes": 6932,
+      "path": "static/assets/fonts/51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6--F6qfjptAgt5VM-kVkqdyU8n3vAOwl9FgtIU.woff2",
+      "sha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "url": "https://securitymarketpulse.com/assets/fonts/51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6--F6qfjptAgt5VM-kVkqdyU8n3vAOwl9FgtIU.woff2",
+      "status": 200,
+      "actualBytes": 6932,
+      "actualSha256": "51b74d53e106ba8a26dd33464b231a562069be2a234b923c115beb622e6f6bc6",
+      "matches": true
+    },
+    {
+      "bytes": 13240,
+      "path": "static/assets/fonts/5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLySOxK-vA.woff2",
+      "sha256": "5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab",
+      "url": "https://securitymarketpulse.com/assets/fonts/5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLySOxK-vA.woff2",
+      "status": 200,
+      "actualBytes": 13240,
+      "actualSha256": "5a621c5598a31392555104ccdc41a46c3104f1cc22666024a8afb881ca9adaab",
+      "matches": true
+    },
+    {
+      "bytes": 5868,
+      "path": "static/assets/fonts/62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9--F63fjptAgt5VM-kVkqdyU8n1iAq129k.woff2",
+      "sha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "url": "https://securitymarketpulse.com/assets/fonts/62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9--F63fjptAgt5VM-kVkqdyU8n1iAq129k.woff2",
+      "status": 200,
+      "actualBytes": 5868,
+      "actualSha256": "62632b6375305e70ddcafdd895218e6ae41a184fcd280a69c739460604ca00a9",
+      "matches": true
+    },
+    {
+      "bytes": 13432,
+      "path": "static/assets/fonts/6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea--F6qfjptAgt5VM-kVkqdyU8n3twJwl5FgtIU.woff2",
+      "sha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "url": "https://securitymarketpulse.com/assets/fonts/6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea--F6qfjptAgt5VM-kVkqdyU8n3twJwl5FgtIU.woff2",
+      "status": 200,
+      "actualBytes": 13432,
+      "actualSha256": "6bb06407c97584b0867a959e05e8874693bfeb8c317de190811c51598f2d99ea",
+      "matches": true
+    },
+    {
+      "bytes": 13348,
+      "path": "static/assets/fonts/6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb--F63fjptAgt5VM-kVkqdyU8n1iEq129k.woff2",
+      "sha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "url": "https://securitymarketpulse.com/assets/fonts/6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb--F63fjptAgt5VM-kVkqdyU8n1iEq129k.woff2",
+      "status": 200,
+      "actualBytes": 13348,
+      "actualSha256": "6bc0f226a5b7884a8170e3f62c63d7675609d4631bdc5931b5cdab81821f00eb",
+      "matches": true
+    },
+    {
+      "bytes": 13160,
+      "path": "static/assets/fonts/73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA.woff2",
+      "sha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "url": "https://securitymarketpulse.com/assets/fonts/73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA.woff2",
+      "status": 200,
+      "actualBytes": 13160,
+      "actualSha256": "73e7f7b1c980416ae0c2461268b14c7cfcce0668e683dc43fbb11a82a227b9f2",
+      "matches": true
+    },
+    {
+      "bytes": 8356,
+      "path": "static/assets/fonts/7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce--F63fjptAgt5VM-kVkqdyU8n1isq129k.woff2",
+      "sha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "url": "https://securitymarketpulse.com/assets/fonts/7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce--F63fjptAgt5VM-kVkqdyU8n1isq129k.woff2",
+      "status": 200,
+      "actualBytes": 8356,
+      "actualSha256": "7635422bd10ddbbcb0e0caa1154b928298f5c8319b8c00b30978d4395f4783ce",
+      "matches": true
+    },
+    {
+      "bytes": 6040,
+      "path": "static/assets/fonts/781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910--F6qfjptAgt5VM-kVkqdyU8n3twJwl9FgtIU.woff2",
+      "sha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "url": "https://securitymarketpulse.com/assets/fonts/781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910--F6qfjptAgt5VM-kVkqdyU8n3twJwl9FgtIU.woff2",
+      "status": 200,
+      "actualBytes": 6040,
+      "actualSha256": "781633d95de88040fb77141d1e65d928c87c0144691fbc74da5a64d137a7e910",
+      "matches": true
+    },
+    {
+      "bytes": 23568,
+      "path": "static/assets/fonts/7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA.woff2",
+      "sha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "url": "https://securitymarketpulse.com/assets/fonts/7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA.woff2",
+      "status": 200,
+      "actualBytes": 23568,
+      "actualSha256": "7d0037a170882a49e65a45c38ef195237bb07b1cc791d078379f0ac0d7ae1935",
+      "matches": true
+    },
+    {
+      "bytes": 7692,
+      "path": "static/assets/fonts/83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015--F6qfjptAgt5VM-kVkqdyU8n3vAOwl1FgtIU.woff2",
+      "sha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "url": "https://securitymarketpulse.com/assets/fonts/83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015--F6qfjptAgt5VM-kVkqdyU8n3vAOwl1FgtIU.woff2",
+      "status": 200,
+      "actualBytes": 7692,
+      "actualSha256": "83109cdd4f8665b475dfc11d61bd44da328bf7e6eab3d3953d39c49b1b9f6015",
+      "matches": true
+    },
+    {
+      "bytes": 34928,
+      "path": "static/assets/fonts/8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxI.woff2",
+      "sha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967",
+      "url": "https://securitymarketpulse.com/assets/fonts/8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxI.woff2",
+      "status": 200,
+      "actualBytes": 34928,
+      "actualSha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967",
+      "matches": true
+    },
+    {
+      "bytes": 29512,
+      "path": "static/assets/fonts/9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA.woff2",
+      "sha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "url": "https://securitymarketpulse.com/assets/fonts/9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA.woff2",
+      "status": 200,
+      "actualBytes": 29512,
+      "actualSha256": "9409ee21811f0f5272b7e1d828fe8838005b0573481ef906e7e55b63f6610ab0",
+      "matches": true
+    },
+    {
+      "bytes": 4388,
+      "path": "static/assets/fonts/archivo-OFL-108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b.txt",
+      "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b",
+      "url": "https://securitymarketpulse.com/assets/fonts/archivo-OFL-108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b.txt",
+      "status": 200,
+      "actualBytes": 4388,
+      "actualSha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b",
+      "matches": true
+    },
+    {
+      "bytes": 30964,
+      "path": "static/assets/fonts/d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA.woff2",
+      "sha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "url": "https://securitymarketpulse.com/assets/fonts/d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA.woff2",
+      "status": 200,
+      "actualBytes": 30964,
+      "actualSha256": "d160e20920ae4d6556518d352d3af27a74e9b0de3d8fe17b1c1044fc75aa2f81",
+      "matches": true
+    },
+    {
+      "bytes": 45712,
+      "path": "static/assets/fonts/e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2",
+      "sha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "url": "https://securitymarketpulse.com/assets/fonts/e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.woff2",
+      "status": 200,
+      "actualBytes": 45712,
+      "actualSha256": "e2291e842cf5af167122a22881a740c7f2dda7716f1e8cd76680264f4a859470",
+      "matches": true
+    },
+    {
+      "bytes": 19500,
+      "path": "static/assets/fonts/f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA.woff2",
+      "sha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "url": "https://securitymarketpulse.com/assets/fonts/f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA.woff2",
+      "status": 200,
+      "actualBytes": 19500,
+      "actualSha256": "f598dd0700f155e2facfaa8ecfacace397d4c2c153e9ce37ab7ad310e8505bc2",
+      "matches": true
+    },
+    {
+      "bytes": 6912,
+      "path": "static/assets/fonts/f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe--F63fjptAgt5VM-kVkqdyU8n1iIq129k.woff2",
+      "sha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "url": "https://securitymarketpulse.com/assets/fonts/f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe--F63fjptAgt5VM-kVkqdyU8n1iIq129k.woff2",
+      "status": 200,
+      "actualBytes": 6912,
+      "actualSha256": "f8c22ec1804bd6966b70f43ac7c327025645b4c09597117fca2a5a6c750106fe",
+      "matches": true
+    },
+    {
+      "bytes": 32608,
+      "path": "static/assets/fonts/ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLyTOxK-vA.woff2",
+      "sha256": "ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05",
+      "url": "https://securitymarketpulse.com/assets/fonts/ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05-k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLyTOxK-vA.woff2",
+      "status": 200,
+      "actualBytes": 32608,
+      "actualSha256": "ff4f17d21930e36d6d93baba663e624cb767afc3feebf7adaebd82242638de05",
+      "matches": true
+    },
+    {
+      "bytes": 4456,
+      "path": "static/assets/fonts/ibmplexmono-OFL-7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "url": "https://securitymarketpulse.com/assets/fonts/ibmplexmono-OFL-7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da.txt",
+      "status": 200,
+      "actualBytes": 4456,
+      "actualSha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "matches": true
+    },
+    {
+      "bytes": 4456,
+      "path": "static/assets/fonts/ibmplexsans-OFL-7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da.txt",
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "url": "https://securitymarketpulse.com/assets/fonts/ibmplexsans-OFL-7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da.txt",
+      "status": 200,
+      "actualBytes": 4456,
+      "actualSha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da",
+      "matches": true
+    },
+    {
+      "bytes": 81993,
+      "path": "static/assets/index-CnZRNgWn.css",
+      "sha256": "778019d306a126b825544fe9d22a2d34218c441b5af073982cdec2f9755bdc00",
+      "url": "https://securitymarketpulse.com/assets/index-CnZRNgWn.css",
+      "status": 200,
+      "actualBytes": 81993,
+      "actualSha256": "778019d306a126b825544fe9d22a2d34218c441b5af073982cdec2f9755bdc00",
+      "matches": true
+    },
+    {
+      "bytes": 2652556,
+      "path": "static/assets/index-Cs3_nNSi.js",
+      "sha256": "01eb6b2e8e9303e4f95ba9c220dbc9e5166ec550eba8dec10d443fd0e7cfaad7",
+      "url": "https://securitymarketpulse.com/assets/index-Cs3_nNSi.js",
+      "status": 200,
+      "actualBytes": 2652556,
+      "actualSha256": "01eb6b2e8e9303e4f95ba9c220dbc9e5166ec550eba8dec10d443fd0e7cfaad7",
+      "matches": true
+    },
+    {
+      "bytes": 164890,
+      "path": "static/certified-coverage.json",
+      "sha256": "d0c77ceeb39988a36f1f541dcbe5de1183d37694060cf070f9d6ad59fb4e06c9",
+      "url": "https://securitymarketpulse.com/certified-coverage.json",
+      "status": 200,
+      "actualBytes": 164890,
+      "actualSha256": "d0c77ceeb39988a36f1f541dcbe5de1183d37694060cf070f9d6ad59fb4e06c9",
+      "matches": true
+    },
+    {
+      "bytes": 56061,
+      "path": "static/corrections.json",
+      "sha256": "f5080a6df1d2a6796092d2267cf620669ca315775c17461f7f766aade6cd5e6c",
+      "url": "https://securitymarketpulse.com/corrections.json",
+      "status": 200,
+      "actualBytes": 56061,
+      "actualSha256": "f5080a6df1d2a6796092d2267cf620669ca315775c17461f7f766aade6cd5e6c",
+      "matches": true
+    },
+    {
+      "bytes": 32585,
+      "path": "static/corrections/index.html",
+      "sha256": "33c3fb02227b65e49f8894b75d9b46c6de3cb17b35893ebb75472185774873cf",
+      "url": "https://securitymarketpulse.com/corrections/index.html",
+      "status": 200,
+      "actualBytes": 32585,
+      "actualSha256": "33c3fb02227b65e49f8894b75d9b46c6de3cb17b35893ebb75472185774873cf",
+      "matches": true
+    },
+    {
+      "bytes": 1338299,
+      "path": "static/daily-coverage.json",
+      "sha256": "c5a33103f5711585ac6396553ada7a3fd20e7c65c0286565dd565939b3bb66d8",
+      "url": "https://securitymarketpulse.com/daily-coverage.json",
+      "status": 200,
+      "actualBytes": 1338299,
+      "actualSha256": "c5a33103f5711585ac6396553ada7a3fd20e7c65c0286565dd565939b3bb66d8",
+      "matches": true
+    },
+    {
+      "bytes": 37212,
+      "path": "static/factual-corrections.json",
+      "sha256": "de1cf83f4e2ea9d3cdaee45935b4e3c50400bc09487c41cb465609156b1dcae6",
+      "url": "https://securitymarketpulse.com/factual-corrections.json",
+      "status": 200,
+      "actualBytes": 37212,
+      "actualSha256": "de1cf83f4e2ea9d3cdaee45935b4e3c50400bc09487c41cb465609156b1dcae6",
+      "matches": true
+    },
+    {
+      "bytes": 9522,
+      "path": "static/favicon.svg",
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+      "url": "https://securitymarketpulse.com/favicon.svg",
+      "status": 200,
+      "actualBytes": 9522,
+      "actualSha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+      "matches": true
+    },
+    {
+      "bytes": 24913,
+      "path": "static/feed.xml",
+      "sha256": "89674be65625bf20b7261c3e61f330453f5c6ebb9f5cdab06d83cfb7797d3bed",
+      "url": "https://securitymarketpulse.com/feed.xml",
+      "status": 200,
+      "actualBytes": 24913,
+      "actualSha256": "89674be65625bf20b7261c3e61f330453f5c6ebb9f5cdab06d83cfb7797d3bed",
+      "matches": true
+    },
+    {
+      "bytes": 299450,
+      "path": "static/index.html",
+      "sha256": "a20eee6f81ce4410ffb0a2eadd7cdfe50093c0e04062ac02a42b556b49296edc",
+      "url": "https://securitymarketpulse.com/index.html",
+      "status": 200,
+      "actualBytes": 299450,
+      "actualSha256": "a20eee6f81ce4410ffb0a2eadd7cdfe50093c0e04062ac02a42b556b49296edc",
+      "matches": true
+    },
+    {
+      "bytes": 45382,
+      "path": "static/issues/2026-w36.json",
+      "sha256": "0e65ca46ba192ff9b863f4208b0db5836183f1852125b6f9511ff53d565e1743",
+      "url": "https://securitymarketpulse.com/issues/2026-w36.json",
+      "status": 200,
+      "actualBytes": 45382,
+      "actualSha256": "0e65ca46ba192ff9b863f4208b0db5836183f1852125b6f9511ff53d565e1743",
+      "matches": true
+    },
+    {
+      "bytes": 34336,
+      "path": "static/issues/2026-w36/index.html",
+      "sha256": "f1b1239399512e96576b1ace43e5db6946dd775c80dd9d3f6740fb365e0f7558",
+      "url": "https://securitymarketpulse.com/issues/2026-w36/index.html",
+      "status": 200,
+      "actualBytes": 34336,
+      "actualSha256": "f1b1239399512e96576b1ace43e5db6946dd775c80dd9d3f6740fb365e0f7558",
+      "matches": true
+    },
+    {
+      "bytes": 6930,
+      "path": "static/issues/index.html",
+      "sha256": "97ac7ad3eac46466a66c58ba774f38e4f84477d59e5684eca77437c2b66b81f6",
+      "url": "https://securitymarketpulse.com/issues/index.html",
+      "status": 200,
+      "actualBytes": 6930,
+      "actualSha256": "97ac7ad3eac46466a66c58ba774f38e4f84477d59e5684eca77437c2b66b81f6",
+      "matches": true
+    },
+    {
+      "bytes": 341,
+      "path": "static/issues/index.json",
+      "sha256": "905978012e82819228823891d36c46f4c8cf050a21dbf9ed05dc88203d2031ef",
+      "url": "https://securitymarketpulse.com/issues/index.json",
+      "status": 200,
+      "actualBytes": 341,
+      "actualSha256": "905978012e82819228823891d36c46f4c8cf050a21dbf9ed05dc88203d2031ef",
+      "matches": true
+    },
+    {
+      "bytes": 85,
+      "path": "static/issues/lock.json",
+      "sha256": "9578d1a6f9a05739ecab5061d972e141503b7df6f8a0f3bee93bac9321f0b78a",
+      "url": "https://securitymarketpulse.com/issues/lock.json",
+      "status": 200,
+      "actualBytes": 85,
+      "actualSha256": "9578d1a6f9a05739ecab5061d972e141503b7df6f8a0f3bee93bac9321f0b78a",
+      "matches": true
+    },
+    {
+      "bytes": 54382,
+      "path": "static/og.png",
+      "sha256": "127023c2aaa5d8d7089a1c84d7fba5313fe373a2874071005b6e8addb46335c9",
+      "url": "https://securitymarketpulse.com/og.png",
+      "status": 200,
+      "actualBytes": 54382,
+      "actualSha256": "127023c2aaa5d8d7089a1c84d7fba5313fe373a2874071005b6e8addb46335c9",
+      "matches": true
+    },
+    {
+      "bytes": 33245,
+      "path": "static/refresh-certification.json",
+      "sha256": "c6e1864a08b9a01e4410bc6c193933ae008987b05617164a2c58c1d6bb45134e",
+      "url": "https://securitymarketpulse.com/refresh-certification.json",
+      "status": 200,
+      "actualBytes": 33245,
+      "actualSha256": "c6e1864a08b9a01e4410bc6c193933ae008987b05617164a2c58c1d6bb45134e",
+      "matches": true
+    },
+    {
+      "bytes": 857445,
+      "path": "static/refresh-coverage.json",
+      "sha256": "d9849a53bd9de2787d1a40ae5f4bc6e3b0028b708d6b5c20b565882943fc7a22",
+      "url": "https://securitymarketpulse.com/refresh-coverage.json",
+      "status": 200,
+      "actualBytes": 857445,
+      "actualSha256": "d9849a53bd9de2787d1a40ae5f4bc6e3b0028b708d6b5c20b565882943fc7a22",
+      "matches": true
+    },
+    {
+      "bytes": 597,
+      "path": "static/refresh-publication.json",
+      "sha256": "733afdaf9f5fcc5c41005532efa663147eb80947d55305de1d44633251f02d1e",
+      "url": "https://securitymarketpulse.com/refresh-publication.json",
+      "status": 200,
+      "actualBytes": 597,
+      "actualSha256": "733afdaf9f5fcc5c41005532efa663147eb80947d55305de1d44633251f02d1e",
+      "matches": true
+    },
+    {
+      "bytes": 77,
+      "path": "static/robots.txt",
+      "sha256": "fdac3a3cb126649d693b906d486352a0e430a90287b3b08d83a5ae85c04cab61",
+      "url": "https://securitymarketpulse.com/robots.txt",
+      "status": 200,
+      "actualBytes": 77,
+      "actualSha256": "fdac3a3cb126649d693b906d486352a0e430a90287b3b08d83a5ae85c04cab61",
+      "matches": true
+    },
+    {
+      "bytes": 1873,
+      "path": "static/sitemap.xml",
+      "sha256": "2578ec5274df7bfafdffea06620e9d3c81c1f8a7cecdadbf67cb141c979fe4d5",
+      "url": "https://securitymarketpulse.com/sitemap.xml",
+      "status": 200,
+      "actualBytes": 1873,
+      "actualSha256": "2578ec5274df7bfafdffea06620e9d3c81c1f8a7cecdadbf67cb141c979fe4d5",
+      "matches": true
+    },
+    {
+      "bytes": 13031,
+      "path": "static/thesis/index.html",
+      "sha256": "123426258eb68deb224c04ce089edc6a96b62df389e971f73cfa786be2b6c48c",
+      "url": "https://securitymarketpulse.com/thesis/index.html",
+      "status": 200,
+      "actualBytes": 13031,
+      "actualSha256": "123426258eb68deb224c04ce089edc6a96b62df389e971f73cfa786be2b6c48c",
+      "matches": true
+    },
+    {
+      "bytes": 72488,
+      "path": "static/tracker.json",
+      "sha256": "7a8e2aa229dbee45c7a295f16c6f5c2b9741a9a6299bdb2ea1ddd6ac6c72be1d",
+      "url": "https://securitymarketpulse.com/tracker.json",
+      "status": 200,
+      "actualBytes": 72488,
+      "actualSha256": "7a8e2aa229dbee45c7a295f16c6f5c2b9741a9a6299bdb2ea1ddd6ac6c72be1d",
+      "matches": true
+    }
+  ],
+  "allArchiveMatch": true,
+  "allPublicMatch": true
+}

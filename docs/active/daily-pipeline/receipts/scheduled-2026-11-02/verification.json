@@ -1,0 +1,130 @@
+{
+  "observedAt": "2026-11-02T16:40:05.730247+00:00",
+  "publicationArchiveCommit": "52632a360f4099f142ed0e10e46338e1d91f1bc9",
+  "publicationArchiveManifest": {
+    "expectedSha256": "3cb739133b60e03d418480e53ee8c454dca616efa8d3585fde87c5eb9ac61438",
+    "actualSha256": "3cb739133b60e03d418480e53ee8c454dca616efa8d3585fde87c5eb9ac61438",
+    "files": 69873
+  },
+  "archiveEntryChecks": [
+    {
+      "bytes": 22842,
+      "key": "state/ci/collection-runs/41453903198-1.json",
+      "sha256": "db4d8b6bb45dd489fa9f89d9c333fc8996dd696f2163846a0cb8b0a1e785882b",
+      "actualBytes": 22842,
+      "actualSha256": "db4d8b6bb45dd489fa9f89d9c333fc8996dd696f2163846a0cb8b0a1e785882b",
+      "matches": true
+    },
+    {
+      "bytes": 2154,
+      "key": "state/gate-receipts/41458664767.json",
+      "sha256": "0a82fcafc9759d5b5f295efeb54f2df04846a979e13f4c9baffdafd15753b8f3",
+      "actualBytes": 2154,
+      "actualSha256": "0a82fcafc9759d5b5f295efeb54f2df04846a979e13f4c9baffdafd15753b8f3",
+      "matches": true
+    },
+    {
+      "bytes": 174,
+      "key": "state/heads/production.json",
+      "sha256": "c45aeb70e539337819534dc43e9ec6b371b519435d525da27917d4f267b58926",
+      "actualBytes": 174,
+      "actualSha256": "c45aeb70e539337819534dc43e9ec6b371b519435d525da27917d4f267b58926",
+      "matches": true
+    },
+    {
+      "bytes": 1203646,
+      "key": "state/objects/cc6e8df8d0e295474328d08bea1f3c1702b566346cb018a943c894bdbc753297",
+      "sha256": "cc6e8df8d0e295474328d08bea1f3c1702b566346cb018a943c894bdbc753297",
+      "actualBytes": 1203646,
+      "actualSha256": "cc6e8df8d0e295474328d08bea1f3c1702b566346cb018a943c894bdbc753297",
+      "matches": true
+    },
+    {
+      "bytes": 9441,
+      "key": "state/objects/16dbf024c1ba9088e42128f80a291070cb2a2b1c14cb7b31de2f6de627c6921b",
+      "sha256": "16dbf024c1ba9088e42128f80a291070cb2a2b1c14cb7b31de2f6de627c6921b",
+      "actualBytes": 9441,
+      "actualSha256": "16dbf024c1ba9088e42128f80a291070cb2a2b1c14cb7b31de2f6de627c6921b",
+      "matches": true
+    },
+    {
+      "bytes": 1567042,
+      "key": "state/objects/e44a985ce8e8960fc585a79c4ad64dd2cfda0ae67a0d2afa3e192c7846676b86",
+      "sha256": "e44a985ce8e8960fc585a79c4ad64dd2cfda0ae67a0d2afa3e192c7846676b86",
+      "actualBytes": 1567042,
+      "actualSha256": "e44a985ce8e8960fc585a79c4ad64dd2cfda0ae67a0d2afa3e192c7846676b86",
+      "matches": true
+    },
+    {
+      "bytes": 1373348,
+      "key": "state/objects/9e66f87384806876cdbee573e856a2e4098d7e914dd949be3b5b7b83831a3def",
+      "sha256": "9e66f87384806876cdbee573e856a2e4098d7e914dd949be3b5b7b83831a3def",
+      "actualBytes": 1373348,
+      "actualSha256": "9e66f87384806876cdbee573e856a2e4098d7e914dd949be3b5b7b83831a3def",
+      "matches": true
+    },
+    {
+      "bytes": 6526,
+      "key": "state/releases/ed8ffe5d14d6e5df4e3555ab55df315d8d0f2870228d1865e3c4b2b0ba38250a.json",
+      "sha256": "ec953aa9cc938a1ab25075cd758c4210a675cad8920bd840b6541948a756f0b7",
+      "actualBytes": 6526,
+      "actualSha256": "ec953aa9cc938a1ab25075cd758c4210a675cad8920bd840b6541948a756f0b7",
+      "matches": true
+    }
+  ],
+  "githubArtifactZipChecks": [
+    {
+      "id": 13145884743,
+      "name": "subscription-collection-receipt",
+      "providerDigest": "sha256:583a0a761a5f42a4f508fa985fe7471e8391df3d31f9e1187f03997fde94a851",
+      "actualSha256": "583a0a761a5f42a4f508fa985fe7471e8391df3d31f9e1187f03997fde94a851",
+      "matches": true
+    },
+    {
+      "id": 13148807047,
+      "name": "daily-publication-receipt",
+      "providerDigest": "sha256:db50cc73a7e35c7d5969cf23a002498ea1a2c7b53d5ade053be3e54abe7a14ea",
+      "actualSha256": "db50cc73a7e35c7d5969cf23a002498ea1a2c7b53d5ade053be3e54abe7a14ea",
+      "matches": true
+    },
+    {
+      "id": 13148825605,
+      "name": "daily-market-gate",
+      "providerDigest": "sha256:cacbf757a65c3fcf3a40e635429edbea1a2161a05bc758fa257e28032fba3f5c",
+      "actualSha256": "cacbf757a65c3fcf3a40e635429edbea1a2161a05bc758fa257e28032fba3f5c",
+      "matches": true
+    }
+  ],
+  "releaseManifestId": {
+    "declared": "ed8ffe5d14d6e5df4e3555ab55df315d8d0f2870228d1865e3c4b2b0ba38250a",
+    "recomputed": "ed8ffe5d14d6e5df4e3555ab55df315d8d0f2870228d1865e3c4b2b0ba38250a",
+    "matches": true
+  },
+  "publicDetachedReceiptMatchesAcknowledgement": true,
+  "gateAppReceiptMatchesPublicBytes": true,
+  "runIdJoins": true,
+  "appRevisionJoins": true,
+  "gateLogChecks": [
+    {
+      "name": "certify:sec",
+      "expectedSha256": "394334469cd9f5f2dfc22158b5621d6faa2c13a81ccf11771f2881a474d30431",
+      "actualSha256": "394334469cd9f5f2dfc22158b5621d6faa2c13a81ccf11771f2881a474d30431"
+    },
+    {
+      "name": "refresh:edgar",
+      "expectedSha256": "9f1d696001a027ad2f72527ee4393127b3847c4a7499f5a5b5757592f708b1a7",
+      "actualSha256": "9f1d696001a027ad2f72527ee4393127b3847c4a7499f5a5b5757592f708b1a7"
+    },
+    {
+      "name": "refresh:filing-events",
+      "expectedSha256": "b4f3bd56c11411b65fbbfccdc1ba4e72009ef086373b4154d6395ece0b754468",
+      "actualSha256": "b4f3bd56c11411b65fbbfccdc1ba4e72009ef086373b4154d6395ece0b754468"
+    },
+    {
+      "name": "test",
+      "expectedSha256": "5332b5276bbd7f56069f14381fd26d0a2e1584f80cde3186a7fdc28b4e578de3",
+      "actualSha256": "5332b5276bbd7f56069f14381fd26d0a2e1584f80cde3186a7fdc28b4e578de3"
+    }
+  ],
+  "gateReceiptCanonicalDigestMatchesRelease": true
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "kind": "direct_owner_trial_stop_approval",
+  "acceptedOn": "2026-11-01",
+  "recordedAt": "2026-11-01T18:16:03Z",
+  "ownerWords": "Approve the $0.30 trial limit. Keep the five-cent daily cap and keep going until an actual scheduled run updates production. Don’t stop at local tests.",
+  "project": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+  "team": "team_gRV7FrVjjr1PPI1IvgoCEJrH",
+  "proposalSha256": "c3f77fa18f6e542030e4eade4cb08dc90e6845978ffee6cb8cc820381e970f7f",
+  "previousTrialStopPicodollars": "250000000000",
+  "approvedTrialStopPicodollars": "300000000000",
+  "existingPlanningAllowancePicodollars": "1000000000000",
+  "normalDailyLimitPicodollars": "50000000000",
+  "scope": "The proposal's one bounded retention correction and corrected capability attempt, with every previous charge, reservation, unknown outcome, source and cleanup limit preserved.",
+  "newPurchase": false,
+  "paidModelFallback": false,
+  "codexCloudDependency": false,
+  "providerHardCapClaim": false
+}

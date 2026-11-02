@@ -294,7 +294,7 @@ jobs:
   probe:
     needs: daily-pipeline
     # Only explicit, strictly parsed daily-publication activation retires this old route.
-    # Missing outputs and observer failures retain the legacy fallback job.
+    # Missing route output retains the legacy fallback even after observer failure.
     if: always() && needs.daily-pipeline.outputs.legacy_retired != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5

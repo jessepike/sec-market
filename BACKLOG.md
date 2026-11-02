@@ -9,6 +9,28 @@ stands. New items continue from SEC-075.
 
 ### SEC-072 · Make the current site consistently accurate, fresh and durable
 
+November 2 supersedes the dated checkpoint below. Actual scheduled collector41453903198,
+publisher41457061782 and gate41458664767 produced sequence8 using Basic2cores/8GB. All52 public
+files matched and all80 SEC claims passed. See [actual receipts](docs/active/daily-pipeline/receipts/scheduled-2026-11-02/audit.md).
+
+Current intake262/557 leaves295 gaps. Processing83/11,671 reviewed,11,588 pending,20 held,
+1479 unknown dates; historical84 reviewed/11,587 pending; queue51. The three net losses are
+Cohesity official403 and WitnessAI official/citation504. The saved [gap breakdown](docs/active/daily-pipeline/receipts/scheduled-2026-11-02/coverage-delta.json)
+preserves all557 obligations; no transient source failure becomes a pass.
+
+Actual November2 Basic build charge is$0.007; reported site subtotal$0.01133548 remains partial.
+The closed November1 two-project day reports$0.10936186 and failed the five-cent condition.
+Read the full November2 day after November3 00:00Pacific/08:00UTC plus provider lag. Retained
+trial forecast$0.363698081765 exceeds the approved$0.30, so paid trial stays stopped.
+
+Runner reductions are implemented and independently reviewed: verified exact-code guard reuse,
+one daily recovery timer plus completion callback, and strict retired-legacy-job skip. Forecast
+99→59Linuxminutes/day (~$10.62/30days) has limited shared headroom. Verify actual hosted CI reuse,
+scheduled runner savings and independent active alerts after reviewed promotion. No paid overage.
+Deployment/artifact/archive growth, timed ChatGPT monitor receipts and device delivery remain open.
+
+#### Superseded October 27 checkpoint
+
 This is the current priority under D-110, D-111 and D-112. Activation and verification are
 already approved. Preserve all 74 suppliers, 557 obligations, historical URLs, original dates,
 charged allowances, eight admissions and every held identity or exact verified resolution. Search SEC-073 and ownership/funding/stage
@@ -310,7 +332,13 @@ maintenance; any change to what a record says goes through a correction.
 
 ### SEC-073 · Search the sourced market records
 
-Develop search after reliable current operation and broader source coverage. Find companies by
+The owner explicitly authorized implementation on November 2. Company-name, ticker and registered
+alias search is implemented, tested and independently reviewed for Preview. It opens existing
+sourced company records and includes useful empty results, clear/reset and keyboard/mobile
+support without a new service or dependency. Owner review of the visible Preview and the normal
+production gate remain pending. [Spec and exercised checks](docs/active/company-search-2026-11-02.md).
+
+Broader event/evidence search remains open. Find companies by
 name, ticker or alias, and search their market events and supporting sourced records. Let readers combine
 search with company-type navigation (SEC-074), open the matching company/event and its evidence,
 and see the source date and freshness status. Define representative search cases, useful empty
@@ -318,8 +346,9 @@ results and clear/reset behavior when this work is picked up. Do not use search 
 or stale underlying facts.
 The current front-page name/ticker filter is a limited starting point; this item adds search across
 the underlying market records and their evidence.
-**Authorization:** owner explicitly requested adding development of search to the backlog on
-October 23. Queued for later work; implementation has not started.
+**Authorization:** owner requested the backlog item October23 and explicitly requested company
+search implementation November2. Ownership/funding navigation stays separate SEC-074; broader
+record search is unfinished. No supplier expansion or completeness claim follows from search.
 
 ### SEC-074 · Navigate companies by ownership, funding and stage
 

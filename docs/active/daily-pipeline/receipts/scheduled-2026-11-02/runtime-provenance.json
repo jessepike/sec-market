@@ -1,0 +1,13 @@
+{
+  "appRevision": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+  "collectorEvent": "schedule",
+  "collectorRef": "refs/heads/main",
+  "publisherEvent": "workflow_run",
+  "runtime": "GitHub-hosted ubuntu-latest runner with subscription Codex CLI 0.163.0",
+  "executionMode": "github_subscription",
+  "subscriptionModelCalls": 54,
+  "apiFallback": false,
+  "codexCloudExecutionObserved": false,
+  "managedTrialRuntimeObserved": false,
+  "callbackJoinLimit": "Raw workflow_run payload is not retained and publication receipt omits upstream callback ID. Actual schedule event, main run, pinned callback guard and common collection runId join collector data to accepted production."
+}

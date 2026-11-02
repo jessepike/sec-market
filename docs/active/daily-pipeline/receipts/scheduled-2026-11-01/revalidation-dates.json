@@ -1,0 +1,56 @@
+[
+  {
+    "resolvedAt": "2026-10-26T03:40:38.985027Z",
+    "kind": "source_document_revalidation_resolution",
+    "url": "https://www.upwind.io/feed/threat-post",
+    "sourceId": "upwind:official:1",
+    "resolutionSha256": "8100f0cba7b17181efb8a59b5cd01916329df958416984014c12fd498eec8c89",
+    "currentOrigin": {
+      "attemptId": "7befeba39154d913bb4225c4aae4527adcaf988f642292aa4f376a5ee6858d87",
+      "receipt": {
+        "bytes": 12426,
+        "key": "objects/ba3032bd3dbb3572ed9ec6d13a3e2125c672b1ba20ec339e0579c804efd785d9",
+        "sha256": "ba3032bd3dbb3572ed9ec6d13a3e2125c672b1ba20ec339e0579c804efd785d9"
+      },
+      "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+      "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+    },
+    "originalOrigin": {
+      "attemptId": "4495525a9865491f0ee7b977841d94f7d542d598f22a0e422e726b61ca215c59",
+      "receipt": {
+        "bytes": 9901,
+        "key": "objects/26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8",
+        "sha256": "26d3009ccd7564bc9ec484a86bcc23824a6fbe2dfb15cba217a5429bb0d9e0a8"
+      },
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "taskId": "90bf4f7a42f5d7a635301a84af316712e039b8c2e80cf4f68c88fddc553666ba"
+    }
+  },
+  {
+    "resolvedAt": "2026-10-27T11:00:34.041297Z",
+    "kind": "source_document_revalidation_resolution",
+    "url": "https://www.upwind.io/feed/threat-post",
+    "sourceId": "upwind:official:1",
+    "resolutionSha256": "ef8179168ea9fb77b1f81e7ca538dddcd4cfd4d5455d2e5cf85647b7ccb1f058",
+    "currentOrigin": {
+      "attemptId": "ca5675ed1a85e632d2e55c1a69ec79b1e71d6a9fca8c9b36faf10e79b9600875",
+      "receipt": {
+        "bytes": 15070,
+        "key": "objects/69a331cf1e0500ae0bfc9b8399ad45101672d44c6f5eca41406b7d8629211924",
+        "sha256": "69a331cf1e0500ae0bfc9b8399ad45101672d44c6f5eca41406b7d8629211924"
+      },
+      "runId": "b169d3659e42279a59990ac33ed59b79bb92a0983c5a29fa2d91302152375392",
+      "taskId": "cee88f8aff2cae062f3a30df340856792dd52e3d63c27afe0aef55a3161f13b1"
+    },
+    "originalOrigin": {
+      "attemptId": "9be3d1817e891b42f94e84c6e8afd5d500a1534e23654d3ddfb2bae49a8432b6",
+      "receipt": {
+        "bytes": 15628,
+        "key": "objects/5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74",
+        "sha256": "5761e473ccb058548703da59f7427d856e79cc1affc3e53255c150a9efa85d74"
+      },
+      "runId": "f26bcd979d9647b7e7a7b1ca87394def206986cab3a54bfc4e49f9f78887782e",
+      "taskId": "b1f86b0dc7f5eb8c74f641e22aff2ad4c0daea0a91928b2ef89663e605452e21"
+    }
+  }
+]

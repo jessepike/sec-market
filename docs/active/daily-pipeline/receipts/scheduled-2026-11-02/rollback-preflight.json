@@ -1,0 +1,10 @@
+{
+  "githubRunId": 41460245364,
+  "upstreamPublisherRunId": 41457061782,
+  "allowed": false,
+  "reason": "DRILL_AUTOMATIC_ACCEPTANCE_DATE_EXPIRED",
+  "skipped": true,
+  "passed": false,
+  "actualRollbackJobConclusion": "skipped",
+  "source": "Actual preflight log 2026-11-02T14:16:06.0845533Z; jobs API confirms rollback-and-restore skipped."
+}

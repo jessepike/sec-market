@@ -1,0 +1,31 @@
+# Independent company search and runner review
+
+Reviewed November 2, 2026 against origin/preview `2aa87f5dd3182bc214f6efee10e709e5114a06ad` through delivery commit `5489288`, plus the separate pending legacy freshness-job reduction in `freshness.yml`, `test_freshness_workflow.py` and its updated implementation spec. The review inspected the complete 14-file initial source diff and this additional unit, deployment instructions, constraints, the existing supplier dialog and runtime workflow permissions. The original managed-runtime candidate branch was not used as the delivery baseline.
+
+## Verdict
+
+No blocking correctness, security or source-integrity defect was found. I recommend advancing this exact source to owner preview review after the separately assigned complete-suite verification finishes. This review supplies no production approval, hosted runner-saving receipt or full-day financial qualification. The paid trial and five-cent condition remain unchanged.
+
+## Company search
+
+Search reads only the existing tracker supplier list and registered aliases. It returns one result per existing supplier ID, retains separately tracked business segments, performs deterministic case/punctuation/word matching and does not mutate the source array. It introduces no company, claim, source date, funding classification, service or dependency. React renders the query as text, including empty-result feedback.
+
+The native disclosure, explicit field label, search landmark, live result count and ordinary result buttons provide keyboard and assistive-technology semantics. Results open the existing sourced supplier dialog; its native modal handles focus return and Escape through the existing close path. Clear resets and refocuses the field. The two new browser cases exercise these interactions at both required widths, including the retained Varonis announcement date and primary-source URL. The changed daily-status selector preserves its existing substantive assertion and selects the intended disclosure unambiguously. Full-page visual comparison and the complete browser suite are assigned to the delivery owner and implementation operator; they are not claimed as independently rerun by this review.
+
+## Exact-code CI reuse
+
+The helper accepts only a successful completed push run in this private repository, on main or preview, with the expected workflow path and exact current Git SHA. It checks the current run attempt, complete bounded job response, one successful test job and one successful named suite step. The local checkout must be clean and match that SHA. Its full Git tree hash is read and logged. Failed, skipped, ambiguous, foreign, malformed, modified-checkout and inaccessible evidence all fall back to the original full suite, whose failure remains a failing step.
+
+The existing collector already grants Actions read permission; the existing publisher already grants Actions write. The added helper uses their existing GitHub token, with no new permission, credential or provider. The web CI step explicitly overrides its web-directory default to the repository root and executes the full operational suite. Runtime lease, authentication, archive, budget, source and exact-artifact checks remain in their original execution paths. The independent release gate is unchanged. No managed-runtime condition, self-hosted runner or paid trial activation appears in this delivery diff.
+
+Read-only API inspection of actual successful run `40532987330` and its attempt-one jobs confirmed that GitHub returns all identity fields used by the helper, including repository privacy, workflow path, head SHA, run attempt, job run ID and job head SHA. That old run lacks the newly named suite step and therefore grants no reuse. The API response shapes are also documented by GitHub's [workflow-runs API](https://docs.github.com/en/rest/actions/workflow-runs) and [workflow-jobs API](https://docs.github.com/en/rest/actions/workflow-jobs).
+
+I independently ran all 13 helper/workflow tests in the OrbStack dev VM against this delivery tree. They passed. After the separate legacy-job unit was added, I independently ran all 59 watchdog tests against its actual inline workflow programs; they passed. The source diff passed whitespace checks. No hosted workflow was dispatched by this review.
+
+## Explicit operating limits
+
+One daily 16:23 UTC publisher fallback replaces three daily fallback timers. The daily collector, successful-collector callback, manual recovery, execution alerts, six-hour watchdog, shared concurrency group and publication attempt limit remain. A callback failure occurring after the fallback may wait until the next day; the existing overdue alert remains necessary. This recovery tradeoff is stated in the implementation spec rather than hidden as an equivalent schedule.
+
+The separate freshness change reads the existing contract's publication flag with bounded strict JSON before observer tests and exposes its explicit boolean result. Only `legacy_retired == 'true'` skips the old job, whose current activated-path behavior already returns immediately without checking the live system. `always()` preserves execution when the output is missing or unknown after dependency failure. A valid explicit retirement result still skips that obsolete route even when the active observer reports real unhealthy coverage. The active observer, its tests, notification acknowledgement, execution-failure reporter and coverage alert remain. The actual cloud job-output and skipped-job behavior still needs hosted evidence.
+
+The corrected estimate is roughly 99 to 63 Linux minutes per day before the legacy-job reduction, or 59 after its four daily obsolete job allocations are avoided. It uses the no-op timer's own 4m36s suite rather than the callback publisher's longer suite. These savings need actual hosted timing evidence. The resulting shared-allowance margin is limited and excludes variable collection time, retries, code-change CI and other repositories. A missing CI proof deliberately restores the old suite cost. The first actual successful new CI run and later actual scheduled reuse must be retained before claiming the savings are operational. Neither a passing local suite nor this review establishes an under-five-cent full day.

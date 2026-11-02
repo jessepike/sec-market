@@ -1,0 +1,94 @@
+{
+  "result": {
+    "events": [
+      {
+        "created": 1793536753494,
+        "date": 1793536753494,
+        "type": "stdout",
+        "text": "Running build in Washington, D.C., USA (East) – iad1",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536753495,
+        "date": 1793536753495,
+        "type": "stdout",
+        "text": "Build machine configuration: 30 cores, 60 GB (Turbo Build Machine)",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536753504,
+        "date": 1793536753504,
+        "type": "stdout",
+        "text": "Retrieving list of deployment files...",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536753820,
+        "date": 1793536753820,
+        "type": "stdout",
+        "text": "Downloading 54 deployment files...",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536754332,
+        "date": 1793536754332,
+        "type": "stdout",
+        "text": "Using prebuilt build artifacts from .vercel/output",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536754332,
+        "date": 1793536754332,
+        "type": "stdout",
+        "text": "Learn more: https://vercel.link/build-output-api",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536754336,
+        "date": 1793536754336,
+        "type": "stdout",
+        "text": "Deploying outputs...",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      },
+      {
+        "created": 1793536755280,
+        "date": 1793536755280,
+        "type": "stdout",
+        "text": "Deployment completed",
+        "info": {
+          "type": "build",
+          "name": "bld_qjmqgrq90",
+          "entrypoint": "."
+        }
+      }
+    ]
+  }
+}

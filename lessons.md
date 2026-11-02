@@ -213,3 +213,15 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   takes 654.190 seconds with archives absent, so a ten-minute canary cannot reach its archive
   check. Keep every guard and allow bounded time for the suite, setup and receipt delivery;
   inspect native collector and publisher timing separately.
+
+## 2026-11-02 · Account for each actual runner and the completed billing day
+
+Subtract the full-suite duration from the same actual job, then round that job independently.
+The no-op publisher's suite took4m36s, less than the callback's6m24s; borrowing the latter
+understated the remaining timer runtime. Explicitly skip a retired monitor job before allocating
+its runner, while keeping active observers and missing-output fallback. Exact-code CI reuse needs
+an actual successful named suite step; an older green workflow without that step is insufficient.
+
+A two-core Basic log and actual$0.007 build charge prove the chosen machine and its reported
+build cost. A$0.01134 subtotal during the open day does not prove a complete five-cent day.
+Preserve the closed prior day's Turbo overspend and every ongoing retained-resource liability.

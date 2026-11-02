@@ -1,0 +1,21 @@
+{
+  "runId": 41307712849,
+  "upstreamPublisherRunId": 41305812133,
+  "workflowConclusion": "success",
+  "actualPreflight": {
+    "allowed": false,
+    "reason": "DRILL_AUTOMATIC_ACCEPTANCE_DATE_EXPIRED",
+    "skipped": true,
+    "passed": false
+  },
+  "rollbackAndRestoreJobConclusion": "skipped",
+  "artifacts": [],
+  "actualLogExcerpt": [
+    "preflight\tUNKNOWN STEP\t2026-11-01T12:41:59.8841446Z   UPSTREAM_RUN: 41305812133",
+    "preflight\tUNKNOWN STEP\t2026-11-01T12:42:00.1067754Z   \"allowed\": false,",
+    "preflight\tUNKNOWN STEP\t2026-11-01T12:42:00.1068679Z   \"reason\": \"DRILL_AUTOMATIC_ACCEPTANCE_DATE_EXPIRED\",",
+    "preflight\tUNKNOWN STEP\t2026-11-01T12:42:00.1069532Z   \"skipped\": true,",
+    "preflight\tUNKNOWN STEP\t2026-11-01T12:42:00.1070050Z   \"passed\": false"
+  ],
+  "sourceLogSha256": "8f92635baa99f5937e4c66fe0999a4cfc6aa31ee445b9b71655c18b36210ce9e"
+}

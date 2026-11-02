@@ -1,0 +1,228 @@
+[
+  {
+    "id": 41303798977,
+    "name": "bounded subscription collector",
+    "path": ".github/workflows/subscription-collector.yml",
+    "event": "schedule",
+    "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+    "head_branch": "main",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-01T11:52:17Z",
+    "run_started_at": "2026-11-01T11:52:17Z",
+    "updated_at": "2026-11-01T12:17:57Z",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/41303798977",
+    "jobs": [
+      {
+        "id": 124839979379,
+        "name": "schedule-guard",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-01T11:52:20Z",
+        "completed_at": "2026-11-01T11:52:31Z",
+        "runner_name": "GitHub Actions 1000001540",
+        "runner_group_name": "GitHub Actions",
+        "labels": [
+          "ubuntu-latest"
+        ]
+      },
+      {
+        "id": 124840025434,
+        "name": "collect-and-reconcile",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-01T11:52:33Z",
+        "completed_at": "2026-11-01T12:17:56Z",
+        "runner_name": "GitHub Actions 1000001541",
+        "runner_group_name": "GitHub Actions",
+        "labels": [
+          "ubuntu-latest"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 13082684362,
+        "name": "subscription-collection-receipt",
+        "size_in_bytes": 12481,
+        "digest": "sha256:f2e36a6bb32a956087a32f49170a0af4414151ab777e7cca43e1d8513250c603",
+        "expired": false,
+        "created_at": "2026-11-01T12:17:16Z",
+        "expires_at": "2026-11-15T12:17:15Z",
+        "workflow_run": {
+          "id": 41303798977,
+          "repository_id": 1335546492,
+          "head_repository_id": 1335546492,
+          "head_branch": "main",
+          "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad"
+        }
+      }
+    ]
+  },
+  {
+    "id": 41305812133,
+    "name": "daily exact-artifact publisher",
+    "path": ".github/workflows/subscription-publisher.yml",
+    "event": "workflow_run",
+    "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+    "head_branch": "main",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-01T12:17:59Z",
+    "run_started_at": "2026-11-01T12:17:59Z",
+    "updated_at": "2026-11-01T12:41:46Z",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/41305812133",
+    "jobs": [
+      {
+        "id": 124845840237,
+        "name": "callback-preflight",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-01T12:18:01Z",
+        "completed_at": "2026-11-01T12:18:16Z",
+        "runner_name": "GitHub Actions 1000001542",
+        "runner_group_name": "GitHub Actions",
+        "labels": [
+          "ubuntu-latest"
+        ]
+      },
+      {
+        "id": 124845909429,
+        "name": "publish",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-01T12:18:19Z",
+        "completed_at": "2026-11-01T12:41:45Z",
+        "runner_name": "GitHub Actions 1000001543",
+        "runner_group_name": "GitHub Actions",
+        "labels": [
+          "ubuntu-latest"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 13083862490,
+        "name": "daily-publication-receipt",
+        "size_in_bytes": 598,
+        "digest": "sha256:cfb4f4f1714f14788d97855edc3d152cdd8b38f5415fd7c00eb5f9ece100ecc6",
+        "expired": false,
+        "created_at": "2026-11-01T12:41:17Z",
+        "expires_at": "2026-11-15T12:41:16Z",
+        "workflow_run": {
+          "id": 41305812133,
+          "repository_id": 1335546492,
+          "head_repository_id": 1335546492,
+          "head_branch": "main",
+          "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad"
+        }
+      }
+    ]
+  },
+  {
+    "id": 41306711599,
+    "name": "independent daily release gate",
+    "path": ".github/workflows/market-release-gate.yml",
+    "event": "workflow_dispatch",
+    "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+    "head_branch": "main",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-01T12:29:04Z",
+    "run_started_at": "2026-11-01T12:29:04Z",
+    "updated_at": "2026-11-01T12:39:00Z",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/41306711599",
+    "jobs": [
+      {
+        "id": 124848489631,
+        "name": "gate",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-01T12:29:07Z",
+        "completed_at": "2026-11-01T12:39:00Z",
+        "runner_name": "GitHub Actions 1000001544",
+        "runner_group_name": "GitHub Actions",
+        "labels": [
+          "ubuntu-latest"
+        ]
+      }
+    ],
+    "artifacts": [
+      {
+        "id": 13084111054,
+        "name": "daily-market-gate-screenshots",
+        "size_in_bytes": 3599885,
+        "digest": "sha256:240417ca98006a2875b1a217df0c93811660754a4f1992764f2f2b773516bf31",
+        "expired": false,
+        "created_at": "2026-11-01T12:38:57Z",
+        "expires_at": "2026-11-08T12:38:56Z",
+        "workflow_run": {
+          "id": 41306711599,
+          "repository_id": 1335546492,
+          "head_repository_id": 1335546492,
+          "head_branch": "main",
+          "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad"
+        }
+      },
+      {
+        "id": 13083906898,
+        "name": "daily-market-gate",
+        "size_in_bytes": 1617018,
+        "digest": "sha256:73a437489be1d8d79b39d8a8561d9771e6be5b3c0dee9bfa957cc1978eb03624",
+        "expired": false,
+        "created_at": "2026-11-01T12:38:27Z",
+        "expires_at": "2026-11-08T12:38:26Z",
+        "workflow_run": {
+          "id": 41306711599,
+          "repository_id": 1335546492,
+          "head_repository_id": 1335546492,
+          "head_branch": "main",
+          "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad"
+        }
+      }
+    ]
+  },
+  {
+    "id": 41307712849,
+    "name": "controlled production rollback acceptance",
+    "path": ".github/workflows/production-rollback-drill.yml",
+    "event": "workflow_run",
+    "head_sha": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+    "head_branch": "main",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-01T12:41:48Z",
+    "run_started_at": "2026-11-01T12:41:48Z",
+    "updated_at": "2026-11-01T12:42:03Z",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/41307712849",
+    "jobs": [
+      {
+        "id": 124851426104,
+        "name": "preflight",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-11-01T12:41:51Z",
+        "completed_at": "2026-11-01T12:42:03Z",
+        "runner_name": "GitHub Actions 1000001545",
+        "runner_group_name": "GitHub Actions",
+        "labels": [
+          "ubuntu-latest"
+        ]
+      },
+      {
+        "id": 124851480877,
+        "name": "rollback-and-restore",
+        "status": "completed",
+        "conclusion": "skipped",
+        "started_at": "2026-11-01T12:42:03Z",
+        "completed_at": "2026-11-01T12:42:03Z",
+        "runner_name": null,
+        "runner_group_name": null,
+        "labels": [
+          "ubuntu-latest"
+        ]
+      }
+    ],
+    "artifacts": []
+  }
+]

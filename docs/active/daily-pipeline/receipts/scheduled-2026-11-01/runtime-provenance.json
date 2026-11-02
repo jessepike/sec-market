@@ -1,0 +1,21 @@
+{
+  "appRevision": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+  "collectorEvent": "schedule",
+  "collectorRef": "refs/heads/main",
+  "publisherEvent": "workflow_run",
+  "publisherConfiguredUpstream": [
+    "bounded subscription collector"
+  ],
+  "publisherGuard": "Pinned callback_ready reads the upstream GitHub API run and requires subscription-collector.yml, main, event schedule, completed success. Raw workflow_run event payload was not retained by these artifacts; direct upstream ID is not repeated in the publication receipt. Shared actual runId and archived sealed collection receipt join the collector data to the accepted release.",
+  "runtime": "GitHub-hosted ubuntu-latest runner with subscription Codex CLI 0.163.0",
+  "executionMode": "github_subscription",
+  "codexCloudExecutionObserved": false,
+  "managedTrialRuntimeObserved": false,
+  "sourceByteHashes": {
+    "runtime-subscription-collector.yml": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+    "runtime-subscription-publisher.yml": "c2872c54242468ae8e52f963818e3a01d1950a5b28318e51b0e9e5175e3ebec1",
+    "runtime-production-rollback-drill.yml": "6288d2bcb631edc3eb05f611124d9e7b4a1166c9ef51a15cdb1fd229822d0bd4",
+    "runtime-publish.py": "f4d2fc376cba55092e85ea2b8f95d69d5b943bb6c5ee9d5f4f09c272ef7f1455"
+  },
+  "sourceLocation": "Git commit 2aa87f5dd3182bc214f6efee10e709e5114a06ad"
+}

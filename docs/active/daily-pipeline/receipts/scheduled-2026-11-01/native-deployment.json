@@ -1,0 +1,44 @@
+{
+  "queriedAt": "2026-11-01T18:17:33.381Z",
+  "deployment": {
+    "id": "dpl_4TYQBozYnNJYvWNyb24mxPqzCQ8n",
+    "name": "security-market-pulse",
+    "url": "security-market-pulse-kgzpftsl3-pikeholdings.vercel.app",
+    "type": "LAMBDAS",
+    "state": "READY",
+    "createdAt": 1793536752955,
+    "creator": {
+      "uid": "um6xyC6srGbNQRAR3KB77kfs",
+      "username": "jessepike"
+    },
+    "project": {
+      "id": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "name": "security-market-pulse",
+      "framework": "vite"
+    },
+    "meta": {},
+    "alias": [
+      "security-market-pulse-pikeholdings.vercel.app"
+    ],
+    "target": "production",
+    "regions": [
+      "iad1"
+    ],
+    "buildingAt": 1793536753755,
+    "ready": 1793536755113,
+    "readyState": "READY",
+    "source": "cli",
+    "aliasError": null
+  },
+  "alias": {
+    "alias": "securitymarketpulse.com",
+    "deployment": {
+      "id": "dpl_4TYQBozYnNJYvWNyb24mxPqzCQ8n",
+      "url": "security-market-pulse-kgzpftsl3-pikeholdings.vercel.app"
+    },
+    "deploymentId": "dpl_4TYQBozYnNJYvWNyb24mxPqzCQ8n",
+    "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+    "updatedAt": 1793536801979
+  },
+  "omitted": "Unrelated account, creator and bypass metadata omitted."
+}

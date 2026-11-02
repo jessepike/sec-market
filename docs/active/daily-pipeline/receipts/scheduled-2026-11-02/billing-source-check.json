@@ -1,0 +1,448 @@
+{
+  "sourceSha256": "133fa851e59dede7904dd01113e31e76ca3524ba7161d286262d9396fdca47a9",
+  "downloadFilename": "vercel-costs (26).csv",
+  "downloadMtimeSeconds": 1793637394,
+  "observedAt": "2026-11-02T16:36:34Z",
+  "range": {
+    "from": "2026-10-30T07:00:00Z",
+    "to": "2026-11-03T08:00:00Z"
+  },
+  "sourceRows": 499,
+  "selectedRows": 39,
+  "totals": [
+    {
+      "start": "2026-10-30T07:00:00.000Z",
+      "project": "security-market-pulse",
+      "reportedUsd": "0.004691707573326000003"
+    },
+    {
+      "start": "2026-10-30T07:00:00.000Z",
+      "project": "security-market-pulse-runtime-proof",
+      "reportedUsd": "0.1402534028295039979014"
+    },
+    {
+      "start": "2026-10-31T07:00:00.000Z",
+      "project": "security-market-pulse",
+      "reportedUsd": "0.0045596242399926666466"
+    },
+    {
+      "start": "2026-10-31T07:00:00.000Z",
+      "project": "security-market-pulse-runtime-proof",
+      "reportedUsd": "0.000096004406613"
+    },
+    {
+      "start": "2026-11-01T07:00:00.000Z",
+      "project": "security-market-pulse",
+      "reportedUsd": "0.109265860575972966667"
+    },
+    {
+      "start": "2026-11-01T07:00:00.000Z",
+      "project": "security-market-pulse-runtime-proof",
+      "reportedUsd": "0.000096004406613"
+    },
+    {
+      "start": "2026-11-02T08:00:00.000Z",
+      "project": "security-market-pulse",
+      "reportedUsd": "0.01133547773230509901"
+    }
+  ],
+  "cumulativeReportedUsd": "0.2702980817643267302280",
+  "rows": [
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Function Storage",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.00009600440661300001",
+      "Usage": "0.02880161",
+      "Formatted Usage": "28.8 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Fluid Provisioned Memory",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.00002100264868845591",
+      "Usage": "0.001981381951741124",
+      "Formatted Usage": "0 GB Hrs"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "CDN Requests",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "299.92771084337346",
+      "Formatted Usage": "299.93 Requests"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "CDN Requests",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0",
+      "Usage": "20",
+      "Formatted Usage": "20 Requests"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Function Invocations",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.0000059951278928136424",
+      "Usage": "9.99187982135607",
+      "Formatted Usage": "9.99 Invocations"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "CDN Requests - Additional CPU Duration",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.000015750000000000003",
+      "Usage": "0.00004444445453333334",
+      "Formatted Usage": "160 ms"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Workflow Events",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.00006",
+      "Usage": "3",
+      "Formatted Usage": "3 Events"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Web Analytics Events",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.00036",
+      "Usage": "12",
+      "Formatted Usage": "12 Events"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Queue Message Sends",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "6e-7",
+      "Usage": "1",
+      "Formatted Usage": "1 Unit"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Workflow Storage Writes",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "2.96e-7",
+      "Usage": "5.92e-7",
+      "Formatted Usage": "592 B"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Fluid Active CPU",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.0000664754919739405",
+      "Usage": "0.0005193397812976023",
+      "Formatted Usage": "1.87 seconds"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Build CPU Minutes",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.13999999999999999",
+      "Usage": "40",
+      "Formatted Usage": "40 minutes"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Queue Message Deletes",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "6e-7",
+      "Usage": "1",
+      "Formatted Usage": "1 Unit"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Fast Origin Transfer",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.00000100182",
+      "Usage": "0.000016697",
+      "Formatted Usage": "16.7 kB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Queue Message Receives",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "6e-7",
+      "Usage": "1",
+      "Formatted Usage": "1 Unit"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Fast Data Transfer",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "0.012626903999999998",
+      "Formatted Usage": "12.63 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Fast Data Transfer",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0",
+      "Usage": "0.000075471",
+      "Formatted Usage": "75.47 kB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Workflow Storage Retention",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "2.27334335797839e-7",
+      "Usage": "4.547e-7",
+      "Formatted Usage": "0 GB Mos"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Deployment Storage",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.004315957573326",
+      "Usage": "1.29480022",
+      "Formatted Usage": "1.29 GB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-30T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-30",
+      "Metric": "Queue Notifications",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "6e-7",
+      "Usage": "1",
+      "Formatted Usage": "1 Unit"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-31T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-31",
+      "Metric": "Function Storage",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.000096004406613",
+      "Usage": "0.028801610000000002",
+      "Formatted Usage": "28.8 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-31T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-31",
+      "Metric": "CDN Requests",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "203",
+      "Formatted Usage": "203 Requests"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-31T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-31",
+      "Metric": "CDN Requests - Additional CPU Duration",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.0000036666666666666666",
+      "Usage": "0.000011111106349206349",
+      "Formatted Usage": "40 ms"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-31T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-31",
+      "Metric": "Web Analytics Events",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.00023999999999999998",
+      "Usage": "8",
+      "Formatted Usage": "8 Events"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-31T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-31",
+      "Metric": "Fast Data Transfer",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "0.009884579999999999",
+      "Formatted Usage": "9.88 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-10-31T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-10-31",
+      "Metric": "Deployment Storage",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.004315957573326",
+      "Usage": "1.29480022",
+      "Formatted Usage": "1.29 GB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "Function Storage",
+      "ProjectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "ProjectName": "security-market-pulse-runtime-proof",
+      "Charges (USD)": "0.000096004406613",
+      "Usage": "0.028801610000000002",
+      "Formatted Usage": "28.8 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "CDN Requests",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "441",
+      "Formatted Usage": "441 Requests"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "CDN Requests - Additional CPU Duration",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.00002316666666666667",
+      "Usage": "0.00007222220630704285",
+      "Formatted Usage": "260 ms"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "Web Analytics Events",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.000029999999999999997",
+      "Usage": "1",
+      "Formatted Usage": "1 Event"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "Build CPU Minutes",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.105",
+      "Usage": "30",
+      "Formatted Usage": "30 minutes"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "Fast Data Transfer",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "0.030938183",
+      "Formatted Usage": "30.94 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-01T07:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-01",
+      "Metric": "Deployment Storage",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.0042126939093063",
+      "Usage": "1.2638208110000002",
+      "Formatted Usage": "1.26 GB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-02T08:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-02",
+      "Metric": "CDN Requests",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "256.5880953526202",
+      "Formatted Usage": "256.59 Requests"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-02T08:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-02",
+      "Metric": "CDN Requests - Additional CPU Duration",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.00000975",
+      "Usage": "0.000030555540168067226",
+      "Formatted Usage": "110 ms"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-02T08:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-02",
+      "Metric": "Web Analytics Events",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.00015000000000000001",
+      "Usage": "5",
+      "Formatted Usage": "5 Events"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-02T08:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-02",
+      "Metric": "Build CPU Minutes",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.007",
+      "Usage": "2",
+      "Formatted Usage": "2 minutes"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-02T08:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-02",
+      "Metric": "Fast Data Transfer",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0",
+      "Usage": "0.01956572106775053",
+      "Formatted Usage": "19.57 MB"
+    },
+    {
+      "ChargePeriodStartTimestamp": "2026-11-02T08:00:00.000Z",
+      "ChargePeriodStartDate": "2026-11-02",
+      "Metric": "Deployment Storage",
+      "ProjectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "ProjectName": "security-market-pulse",
+      "Charges (USD)": "0.004175727732305099",
+      "Usage": "1.252730847",
+      "Formatted Usage": "1.25 GB"
+    }
+  ],
+  "limits": {
+    "nov1ClosedDayButProviderLagPossible": true,
+    "nov2IncompleteDay": true,
+    "csvEndTimestampAbsent": true,
+    "taxAndFixedSharedPlanNotAttributed": true
+  }
+}
