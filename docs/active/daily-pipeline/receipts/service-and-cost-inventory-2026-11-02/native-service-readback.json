@@ -65,6 +65,25 @@
       "webhook": false,
       "settingsChanged": false
     },
+    "readerBuildControls": {
+        "sourceUrl": "https://vercel.com/pikeholdings/security-market-pulse/settings/build-and-deployment",
+        "readBackCompletedAtUtc": "2026-11-02T18:56:01Z",
+        "buildMachine": "Basic",
+        "cores": 2,
+        "memoryGb": 8,
+        "nextDeploymentMachineText": "Basic",
+        "onDemandConcurrentBuilds": "Disabled; queued maximum one at a time",
+        "nodeVersion": "24.x",
+        "rootDirectory": "web",
+        "ignoredGitBuildCommand": "test \"$VERCEL_GIT_COMMIT_REF\" = main || test \"$VERCEL_GIT_COMMIT_REF\" = data/archive",
+        "retentionDays": {
+            "canceled": 30,
+            "errored": 30,
+            "preProduction": 30,
+            "production": 30
+        },
+        "settingsChanged": false
+    },
     "normalDailyProjectAllowanceUsd": "0.05",
     "providerDailyHardCapProved": false
   },
