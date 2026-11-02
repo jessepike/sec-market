@@ -6,6 +6,14 @@ updated: 2026-11-02
 
 # Current state
 
+Local stage-control repair `06894f56c`, independently reviewed at `51b9b4f07`, is ready for
+normal delivery review. Its 1,047 operational checks and complete npm test pass. Fresh
+1440/390 production/local renders preserve the approved always-visible search exactly; the
+adapter adds no visible change. This branch has not been pushed or adopted. Actual production
+remains the November 2 release on `2aa87f5d`. The repair's 90-second cancellation guard is not
+a provider billing cap, and hosted suppression, raw Basic fields and full-day cost remain open.
+[Source, complete tests and visual handback](docs/active/daily-pipeline/normal-stage-cost-guard-handback-2026-11-02.md).
+
 This is the always-visible search and runner-reduction release package. It contains no managed
 runtime or source-policy activation. The owner reviewed the existing Preview and requested the
 visible field plus continuing runner reductions under D-125. Do not ask for activation again.
