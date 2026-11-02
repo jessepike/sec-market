@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/mnt/mac/Users/jessepike/.codex/worktrees/market-coverage-release-20261102/sec-market/docs/active/daily-pipeline/receipts/coverage-release-integration-2026-11-02/historical-q4-replay.py", line 26, in <module>
+    assert len(results) == 12, len(results)
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: 0

@@ -1,0 +1,26 @@
+{
+  "sourceCommit": "370b802fa17c61a3ed530c4b977e7a0cfa88d6da",
+  "environment": "OrbStack dev",
+  "ops": {
+    "executed": 1090,
+    "passed": 1090,
+    "skipped": 0,
+    "exitCode": 0,
+    "seconds": 218.183
+  },
+  "npm": {
+    "exitCode": 0,
+    "dataPassed": 386,
+    "pipelinePassed": 115,
+    "browserPassed": 44,
+    "browserSkipped": 1,
+    "lint": true,
+    "certifiedBuild": true
+  },
+  "currentRetainedReceipts": 47,
+  "historicalQ4Attempts": 12,
+  "sourceRequests": 0,
+  "providerChanges": 0,
+  "pushes": 0,
+  "productionCoverageCredit": false
+}

@@ -1,0 +1,63 @@
+{
+  "compressed": [
+    {
+      "path": "current-replay/archive-after.json.gz",
+      "sha256": "f885a5bdb8134242ddeffb0b33079d7457f8c73426233c47f026f85b5ac913e0",
+      "bytes": 5085206,
+      "originalSha256": "c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4",
+      "originalBytes": 17287669
+    },
+    {
+      "path": "current-replay/archive-before.json.gz",
+      "sha256": "f885a5bdb8134242ddeffb0b33079d7457f8c73426233c47f026f85b5ac913e0",
+      "bytes": 5085206,
+      "originalSha256": "c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4",
+      "originalBytes": 17287669
+    },
+    {
+      "path": "current-replay/current-inventories.json.gz",
+      "sha256": "479592f48a13e068a0f0f8d889c3bedfd5e0824dbf923bc3fcf41bdaf29a507b",
+      "bytes": 2706502,
+      "originalSha256": "56277dfe9b8583f2058231eb827f18bf7e212231f1aad0ae2cdf3a415ff06783",
+      "originalBytes": 15009429
+    },
+    {
+      "path": "current-replay/current-receipt-identities.json.gz",
+      "sha256": "32de188e3149de85d983a5afee9c9f1e5194b46373485cc5b5cb5982be2a1bf1",
+      "bytes": 88698,
+      "originalSha256": "6ff997d5e828e6e3a5fcc3eaaa0d7b1117856c32b4c17e973eab94fe341e36b6",
+      "originalBytes": 366352
+    },
+    {
+      "path": "current-replay/original-source-clocks.json.gz",
+      "sha256": "4ad205a5cd8c358e05cd5e12f68be625fe84a8f0b9a3fccc936fe4b80a5b438f",
+      "bytes": 1327704,
+      "originalSha256": "ff93ac2188d95044349288970cab546398437d38ab12d161840f62fcbf016433",
+      "originalBytes": 10153993
+    },
+    {
+      "path": "current-replay/readset.json.gz",
+      "sha256": "0b2f1e96448885dd6ce31fdb895fec0cd6b06487138bbb54c098af7f06a5661a",
+      "bytes": 3019636,
+      "originalSha256": "8931b1a83fd1cb437ccf92295676286336d53bc3912c0b12f47673489b9173d8",
+      "originalBytes": 10659179
+    }
+  ],
+  "byteIdenticalPriorClosedReplayFiles": [
+    "archive-after.json",
+    "archive-before.json",
+    "correction-admissions.json",
+    "current-inventories.json",
+    "current-receipt-identities.json",
+    "derived-hold-markers.json",
+    "document-review-resolutions.json",
+    "original-source-clocks.json",
+    "readset.json",
+    "replay-failures.json",
+    "retained-receipts.json",
+    "review-queue.json"
+  ],
+  "sourceCommit": "370b802fa17c61a3ed530c4b977e7a0cfa88d6da",
+  "historicalSourceReview": "4a4c9c1b376a2b130dfa4139ae23a0de35f9a370",
+  "priorFailedReplayPreservedAt": "ad15a4c08204255bb65107def1d4acb68c1ad4d1:docs/active/daily-pipeline/accuracy/receipts/three-source-current-2026-11-02/failed-current-replay/"
+}

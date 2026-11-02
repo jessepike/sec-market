@@ -6,81 +6,53 @@ updated: 2026-11-02
 
 # Current state
 
-Local stage-control repair `06894f56c`, independently reviewed at `51b9b4f07`, is ready for
-normal delivery review. Its 1,047 operational checks and complete npm test pass. Fresh
-1440/390 production/local renders preserve the approved always-visible search exactly; the
-adapter adds no visible change. This branch has not been pushed or adopted. Actual production
-remains the November 2 release on `2aa87f5d`. The repair's 90-second cancellation guard is not
-a provider billing cap, and hosted suppression, raw Basic fields and full-day cost remain open.
-[Source, complete tests and visual handback](docs/active/daily-pipeline/normal-stage-cost-guard-handback-2026-11-02.md).
+This worktree holds a local future release candidate on `codex/coverage-release-20261102`,
+starting from exact Preview `2e44342520b1d102b8afa23aafc1618dac29dec3`. It combines the reviewed
+always-visible search and runner reductions, exact normal staging guard `06894f56` with its
+review/evidence, and the closed three-source K qualification plus final Q4 discovery-profile
+fence from `ad15a4c0`. Combined source commit is `370b802fa17c61a3ed530c4b977e7a0cfa88d6da`.
+The governing integration specification was committed before implementation as `ec85a76e`.
+This candidate is unpushed and requires owner review. No live settings or production state changed.
 
-This is the always-visible search and runner-reduction release package. It contains no managed
-runtime or source-policy activation. The owner reviewed the existing Preview and requested the
-visible field plus continuing runner reductions under D-125. Do not ask for activation again.
+Production remains November 2 scheduled sequence 8 on main `2aa87f5d`; current coverage remains
+262/557. Collector 41453903198, publisher 41457061782 and independent gate 41458664767 supplied
+that publication. All 80 SEC claims and eight correction groups remain. Actual public release
+receipts remain under `docs/active/daily-pipeline/receipts/scheduled-2026-11-02/`.
 
-Before this revision, the actual November 2 scheduled collector 41453903198, publisher 41457061782
-and gate 41458664767 published sequence 8 from 2aa87f5d through Basic. All 53 build/52 public files,
-80 SEC claims and eight corrections, including Varonis, passed. Production was READY at 14:13:20 UTC.
-[Native receipts](docs/active/daily-pipeline/receipts/scheduled-2026-11-02/audit.md).
-Read the acknowledged evidence-archive production head and live receipts for current deployment;
-a main push or this dated package record alone cannot establish shipment.
+# Local candidate evidence
 
-## Search and runner changes
+The current J prospective baseline is exactly the reviewed J predecessor. The reviewed migration
+recomputed K baseline `d222be9b407e2f2e75b637629c5dd581f37216d0a05ca11e9e92245fe75d5493` with zero
+intake credit and no renewed deadline. K canonical policy remains `6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68`.
+Its 173-byte probe plan remains disabled. The completed October 27 captures were not repeated.
+All 74 suppliers, 557 obligations, original URLs/dates, source families and correction groups remain.
 
-The requested field now renders in the opening header without an expand/collapse action,
-at 1440/390px, with existing names/tickers/aliases, record/source links, keyboard/Escape, clear and
-empty states intact. No search vendor, service, dependency or roster change. Local full npm test
-passed; the browser suite has 44 passes/one existing deadline skip. Both widths were rendered.
-[Implementation and captures](docs/active/daily-pipeline/company-search-always-visible-2026-11-02.md).
-Committed Preview fixture dates differ from current production; they supply layout evidence only.
+Full read-only replay passed all 47 actual current retained proofs and all 12 available historical
+Q4 attempts, including four original schema failures. It preserves 135 seed files, 300 unaffected
+contexts, eight admissions, 51 queued identities, 20 held documents, two resolutions and 5,206
+original source/URL clock subjects. All 69,873 archive entries and four support files retain the
+same before/after metadata seal `c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4`.
+Twelve audit files are byte-identical to the previously closed replay. Earlier failed replay
+remains frozen in source commit `ad15a4c0`; new helper failures and success are retained separately.
 
-The full operational suite remains in web CI once per tested code revision. Daily collection and
-publication reuse only its verified exact-code result, falling back to full tests on uncertainty.
-Completion callbacks remain primary; recovery timers reduce 3→1 at 16:23 UTC. Active monitoring and
-alerts remain; the retired legacy job skips only after a strict explicit retirement read.
-The routine forecast is 99→59 Linux minutes/day, about 1,770 minutes/$10.62 gross per 30 days against
-$12 shared included compute. Actual scheduled reuse/savings and month-long fit remain unproved.
+Full npm test passed in OrbStack: lint, 386 data cases, 115 pipeline cases, certified build and
+44 browser cases. One existing prospective-deadline browser case remains skipped. All 1,090 operational cases passed with zero skips;
+full logs are recorded in the companion handback. Current UI and workflow bytes remain
+unchanged; 3,375 untouched base tracked paths remain exact. No render/hosted result is inferred.
 
-The occasional private-host canary now runs seven fictional credential tests followed by the
-unchanged native archive proof. Full web CI is unchanged. Conservative pipeline/runtime trigger
-filters avoid unrelated ops-only runs. Original runtime tests remain byte-identical.
-All 36 relevant local checks passed; old hosted duplicate suite took 311 seconds, while new hosted
-timing remains to be measured. [Canary evidence](docs/active/daily-pipeline/canary-runner-reduction-2026-11-02.md).
+# Release and cost holds
 
-## Services and actual cost
+The paid managed-runtime trial stays stopped; its retained forecast already exceeds $0.30.
+November 1 failed five cents. November 2 is incomplete, with $0.018417517358 posted plus the
+latest Preview's native $0.007 not yet in that export. Include the next UTC scheduled writer
+in the correct Pacific day. Cancellation is not a provider billing cap. No extra paid build,
+push, dispatch, provider mutation or main promotion is authorized by this preparation.
 
-[Operating inventory and full cost explanation](docs/active/daily-pipeline/operations-and-costs-2026-11-02.md)
-separates production, monitors, manual probes and stopped trials. GitHub's repository API shows
-zero self-hosted runners. Existing subscription models have no paid API fallback or Codex Cloud.
-Cloudflare Workers is still Free; the $5 paid trial upgrade was not purchased. The six-hour cloud
-monitor has readable current intake results, but its live tool still cannot retrieve JSON receipts.
+Next: independently review this exact combination, reconcile fresh all-writer cost bounds,
+and perform the normal reviewed Preview/main release only when those gates fit. Before a push,
+render production and the candidate at 1440/390. Native Basic read-back, Git main/archive build
+suppression, genuine scheduled K collection, independent exact-artifact publication and completed
+day costs remain hosted acceptance gates. Local tests earn no source-coverage or deployment credit.
 
-The full-cycle export at November 2 18:41:05 UTC reports $17.3196227705662081732580 for reader+proof:
-reader $17.1790821405953948844366 and proof $0.1405406299708132888214. Most is earlier build usage;
-$17.042242649175606066123 predates the October30trial window. The shared account also has an
-existing $20/month Pro fee; its $75.65 upcoming invoice covers all apps and is not a Pulse allocation.
-
-Today reports $0.01841751735858047592, including two $0.007 Basic builds and continuing proof storage.
-The day remains incomplete. November 1 closed at$0.109361864982585966667 and failed five cents.
-The October30-onward trial-accounting forecast is$0.370780121391 including$0.0934retained reserves,
-above the unchanged$0.30 stop. Paid trial stays stopped. No prior charge, reserve or failure erased.
-A bounded normal Preview intent is retained separately; a later publication needs fresh cost
-read-back. The $0.05 normal daily allowance is an operating limit, not a provider daily hard cap.
-Vercel's shared $200 budget has automatic pause/webhook off; no other app's setting was changed.
-
-Read the completed November 2 provider day after November 3 00:00 Pacific/08:00 UTC plus reporting lag.
-Include every meter, new normal builds, ongoing storage and applicable tax limitations. A local
-three-occurrence 08:30 verification follow-up is saved; production has no dependency on that chat.
-
-## Remaining work
-
-Actual intake remains 262/557, with 295 gaps: 254 missing, 23 candidate, 16 transport and 2 Q4 schema failures.
-Processing: 83/11,671 reviewed/11,588 pending/20 held; historical: 84 reviewed/11,587 pending; queue 51.
-[Exact scorecard and gap queue](docs/active/daily-pipeline/evaluations/2026-11-02/observation.md).
-Broader accuracy, sustained operation and reader value remain unmeasured. Current rollback drill
-skipped under its expired acceptance date. Held source-policy/Abnormal candidates remain isolated.
-
-Complete the existing Preview/main/exact-artifact route and verify public bytes. Measure actual
-scheduled savings and full-day cost. Preserve all 557 obligations, source dates, holds and queues.
-Original dirty /Users/jessepike/code/projects/sec-market and preparation work remain untouched.
-Canonical platform standards read at ff32b0055293e4fb3bce550bade4652cc2ee1aa3.
+Personal platform standard `ff32b0055293e4fb3bce550bade4652cc2ee1aa3` was read. Classification is
+T2 Important, Public facts and Internal evidence. Existing GitHub/private archive exceptions remain.

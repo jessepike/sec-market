@@ -1,0 +1,46 @@
+{
+  "archive": {
+    "commit": "52632a360f4099f142ed0e10e46338e1d91f1bc9",
+    "manifestSha256": "3cb739133b60e03d418480e53ee8c454dca616efa8d3585fde87c5eb9ac61438",
+    "entries": 69873,
+    "beforeSha256": "c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4",
+    "afterSha256": "c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4",
+    "allBytesAndMtimesUnchanged": true,
+    "consumedEntries": 44167,
+    "readsetSha256": "8931b1a83fd1cb437ccf92295676286336d53bc3912c0b12f47673489b9173d8"
+  },
+  "currentState": {
+    "runId": "51a9fbabd0cbd69cdbb807ac97f0baa5519cd8b53962bdff9f6c6096b8cf0b97",
+    "snapshotSha256": "d3bb045ebc19771151d5fa9c604f8f34d4a98b7c808d3060e0fb0f62df37b163",
+    "reviewQueue": {
+      "entries": 51,
+      "sha256": "cd6944cf4fdc4855cbe57a227cc34b124fbe4c96636232ebceec283a65e830e0"
+    },
+    "processing": {
+      "changedDocuments": 2,
+      "complete": false,
+      "heldDocuments": 20,
+      "inventoryDocuments": 11671,
+      "pendingDocuments": 11588,
+      "reviewedDocuments": 83,
+      "unknownDateDocuments": 1479
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 20,
+      "inventoryDocuments": 11671,
+      "pendingDocuments": 11587,
+      "reviewedDocuments": 84
+    },
+    "currentReceiptsRead": 557,
+    "retainedReceiptsAttempted": 47,
+    "retainedReceiptsReplayed": 47,
+    "retainedReplayFailures": [],
+    "documentResolutionCount": 2,
+    "derivedHoldMarkerChanges": 0,
+    "allQueueIdentitiesAndResolutionsPreserved": true,
+    "originalSourceClockSubjects": 5206,
+    "originalSourceClocksSha256": "ff93ac2188d95044349288970cab546398437d38ab12d161840f62fcbf016433"
+  },
+  "durationSeconds": 123.849
+}

@@ -1,0 +1,3059 @@
+
+> security-market-pulse@0.0.0 test
+> npm run lint && npm run test:data && npm run test:pipeline && npm run build && npm run test:e2e
+
+
+> security-market-pulse@0.0.0 lint
+> oxlint
+
+
+  ! eslint(no-ex-assign): Do not assign to the exception parameter.
+    ,-[scripts/ensure-test-browser.mjs:9:61]
+  8 |       install(['install', 'chromium'])
+  9 |       try { await probe(); return } catch (afterDownload) { error = afterDownload }
+    :                                                             ^^|^^
+    :                                                               `-- this assignment destroys access to the caught exception
+ 10 |     }
+    `----
+  help: Remove the assignment to the exception parameter, or refactor the code to use a different variable.
+  note: If code in a catch block assigns a value to the exception parameter, it becomes impossible to refer to the error. Since there is no alternative way to access to this data, assignment of the parameter is absolutely destructive.
+
+Found 1 warning and 0 errors.
+Finished in 43ms on 168 files with 104 rules using 17 threads.
+
+> security-market-pulse@0.0.0 test:data
+> tsx --tsconfig tsconfig.app.json --test 'tests/*.test.ts' 'tests/*.test.mjs'
+
+TAP version 13
+# Subtest: certified supplier set is derived from the SEC registry, never hand-set
+ok 1 - certified supplier set is derived from the SEC registry, never hand-set
+  ---
+  duration_ms: 1.248378
+  type: 'test'
+  ...
+# Subtest: a displayed quarter that matches SEC passes, including a derived Q4
+ok 2 - a displayed quarter that matches SEC passes, including a derived Q4
+  ---
+  duration_ms: 0.634377
+  type: 'test'
+  ...
+# Subtest: a changed value, wrong growth, wrong period text or wrong release date fails
+ok 3 - a changed value, wrong growth, wrong period text or wrong release date fails
+  ---
+  duration_ms: 0.291376
+  type: 'test'
+  ...
+# Subtest: a newer quarter under another concept or a newer 10-Q filing makes the latest quarter stale
+ok 4 - a newer quarter under another concept or a newer 10-Q filing makes the latest quarter stale
+  ---
+  duration_ms: 0.452042
+  type: 'test'
+  ...
+# Subtest: the producer now picks the concept with the newest period, not the first listed
+ok 5 - the producer now picks the concept with the newest period, not the first listed
+  ---
+  duration_ms: 0.63821
+  type: 'test'
+  ...
+# Subtest: identity passes on name and ticker match and fails on mismatch or a delisting form
+ok 6 - identity passes on name and ticker match and fails on mismatch or a delisting form
+  ---
+  duration_ms: 0.861794
+  type: 'test'
+  ...
+# Subtest: the prior quarter must be the one immediately before latest, and every table row must match SEC
+ok 7 - the prior quarter must be the one immediately before latest, and every table row must match SEC
+  ---
+  duration_ms: 0.656877
+  type: 'test'
+  ...
+# Subtest: SEC events are anchored to filings and every tracked item is represented by type
+ok 8 - SEC events are anchored to filings and every tracked item is represented by type
+  ---
+  duration_ms: 0.983753
+  type: 'test'
+  ...
+# Subtest: a late-filing notice in the window needs a late-filing event
+ok 9 - a late-filing notice in the window needs a late-filing event
+  ---
+  duration_ms: 20.795475
+  type: 'test'
+  ...
+# Subtest: debt events quote the opening of the filing’s own description, following incorporation by reference
+ok 10 - debt events quote the opening of the filing’s own description, following incorporation by reference
+  ---
+  duration_ms: 15.994545
+  type: 'test'
+  ...
+# Subtest: debt quotes skip wrapped item titles and do not follow references to other items
+ok 11 - debt quotes skip wrapped item titles and do not follow references to other items
+  ---
+  duration_ms: 2.910592
+  type: 'test'
+  ...
+# Subtest: debt quotes join hard-wrapped lines and follow a wrapped Item 1.01 reference
+ok 12 - debt quotes join hard-wrapped lines and follow a wrapped Item 1.01 reference
+  ---
+  duration_ms: 3.200509
+  type: 'test'
+  ...
+# Subtest: every published filed-event text passes the accuracy gate
+ok 13 - every published filed-event text passes the accuracy gate
+  ---
+  duration_ms: 3.154008
+  type: 'test'
+  ...
+# Subtest: the accuracy gate rejects the boilerplate quote that once went live
+ok 14 - the accuracy gate rejects the boilerplate quote that once went live
+  ---
+  duration_ms: 10.357904
+  type: 'test'
+  ...
+# Subtest: the accuracy gate accepts ordinary prose about obligations and quotes that open with an amount
+ok 15 - the accuracy gate accepts ordinary prose about obligations and quotes that open with an amount
+  ---
+  duration_ms: 4.567512
+  type: 'test'
+  ...
+# Subtest: verified no-change counts; fixed inventory is independent of candidate leaf count
+ok 16 - verified no-change counts; fixed inventory is independent of candidate leaf count
+  ---
+  duration_ms: 2.390882
+  type: 'test'
+  ...
+# Subtest: HTTP retrieval, missing proof and a completion label cannot certify refreshed claims
+ok 17 - HTTP retrieval, missing proof and a completion label cannot certify refreshed claims
+  ---
+  duration_ms: 0.176084
+  type: 'test'
+  ...
+# Subtest: deleting a required qualifier fails even with a new value hash and verification label
+ok 18 - deleting a required qualifier fails even with a new value hash and verification label
+  ---
+  duration_ms: 0.220417
+  type: 'test'
+  ...
+# Subtest: failed, unchecked and undisclosed required claims block without changing denominator
+ok 19 - failed, unchecked and undisclosed required claims block without changing denominator
+  ---
+  duration_ms: 0.433584
+  type: 'test'
+  ...
+# Subtest: an explicit reviewed undisclosed-answer policy still requires substantive disclosure proof
+ok 20 - an explicit reviewed undisclosed-answer policy still requires substantive disclosure proof
+  ---
+  duration_ms: 0.141501
+  type: 'test'
+  ...
+# Subtest: retries do not renew stale verification, discovery or exact-value proof
+ok 21 - retries do not renew stale verification, discovery or exact-value proof
+  ---
+  duration_ms: 0.1585
+  type: 'test'
+  ...
+# Subtest: company search
+    # Subtest: finds company names and tickers regardless of case and surrounding spaces
+    ok 1 - finds company names and tickers regardless of case and surrounding spaces
+      ---
+      duration_ms: 3.395302
+      type: 'test'
+      ...
+    # Subtest: matches multiple words with punctuation without duplicating companies across domains
+    ok 2 - matches multiple words with punctuation without duplicating companies across domains
+      ---
+      duration_ms: 0.983212
+      type: 'test'
+      ...
+    # Subtest: uses aliases already registered against the same company id
+    ok 3 - uses aliases already registered against the same company id
+      ---
+      duration_ms: 0.262376
+      type: 'test'
+      ...
+    # Subtest: keeps empty and unknown queries empty and does not mutate source order
+    ok 4 - keeps empty and unknown queries empty and does not mutate source order
+      ---
+      duration_ms: 0.938878
+      type: 'test'
+      ...
+    1..4
+ok 22 - company search
+  ---
+  duration_ms: 7.04427
+  type: 'suite'
+  ...
+# Subtest: corrections data
+    # Subtest: every correction id is unique
+    ok 1 - every correction id is unique
+      ---
+      duration_ms: 0.760544
+      type: 'test'
+      ...
+    # Subtest: every correction naming an issue names one that exists (a standing-reference correction names none)
+    ok 2 - every correction naming an issue names one that exists (a standing-reference correction names none)
+      ---
+      duration_ms: 0.138626
+      type: 'test'
+      ...
+    # Subtest: every corrected item id exists in that correction's issue, for a correction that names one
+    ok 3 - every corrected item id exists in that correction's issue, for a correction that names one
+      ---
+      duration_ms: 0.534418
+      type: 'test'
+      ...
+    # Subtest: every correction has a valid ISO date, not after LAST_UPDATED_ISO
+    ok 4 - every correction has a valid ISO date, not after LAST_UPDATED_ISO
+      ---
+      duration_ms: 0.195376
+      type: 'test'
+      ...
+    # Subtest: every correction has a non-empty approvedBy and text
+    ok 5 - every correction has a non-empty approvedBy and text
+      ---
+      duration_ms: 0.094292
+      type: 'test'
+      ...
+    # Subtest: every corrected reading has a non-empty headline and at least one evidence id
+    ok 6 - every corrected reading has a non-empty headline and at least one evidence id
+      ---
+      duration_ms: 0.15225
+      type: 'test'
+      ...
+    # Subtest: the real 2026-w36 correction covers the two known FY/quarter-mismatch items with the right evidence
+    ok 7 - the real 2026-w36 correction covers the two known FY/quarter-mismatch items with the right evidence
+      ---
+      duration_ms: 0.283125
+      type: 'test'
+      ...
+    # Subtest: the 2026-09-21 Platform pressure correction names the right acquirers and targets, and no issue
+    ok 8 - the 2026-09-21 Platform pressure correction names the right acquirers and targets, and no issue
+      ---
+      duration_ms: 0.304043
+      type: 'test'
+      ...
+    1..8
+ok 23 - corrections data
+  ---
+  duration_ms: 3.561385
+  type: 'suite'
+  ...
+# Subtest: findFiscalPeriodMismatches — the gate (SEC-MARKET-FABLE-001 T6-13)
+    # Subtest: finds no uncorrected mismatch against the real, current issue and correction data
+    ok 1 - finds no uncorrected mismatch against the real, current issue and correction data
+      ---
+      duration_ms: 0.62221
+      type: 'test'
+      ...
+    # Subtest: flags an "FY" headline citing quarterly evidence, when uncorrected
+    ok 2 - flags an "FY" headline citing quarterly evidence, when uncorrected
+      ---
+      duration_ms: 0.385668
+      type: 'test'
+      ...
+    # Subtest: flags "fiscal year" / "full-year" / "full year" phrasing too
+    ok 3 - flags "fiscal year" / "full-year" / "full year" phrasing too
+      ---
+      duration_ms: 0.140792
+      type: 'test'
+      ...
+    # Subtest: does not flag an "FY" headline whose cited evidence is not quarterly
+    ok 4 - does not flag an "FY" headline whose cited evidence is not quarterly
+      ---
+      duration_ms: 0.070334
+      type: 'test'
+      ...
+    # Subtest: does not flag a headline with no fiscal-year/full-year language
+    ok 5 - does not flag a headline with no fiscal-year/full-year language
+      ---
+      duration_ms: 0.06975
+      type: 'test'
+      ...
+    # Subtest: is silenced by a correction covering the exact item, and re-flags if the correction is removed
+    ok 6 - is silenced by a correction covering the exact item, and re-flags if the correction is removed
+      ---
+      duration_ms: 0.153876
+      type: 'test'
+      ...
+    1..6
+ok 24 - findFiscalPeriodMismatches — the gate (SEC-MARKET-FABLE-001 T6-13)
+  ---
+  duration_ms: 1.654004
+  type: 'suite'
+  ...
+# Subtest: runtime exported current fact assertions
+    # Subtest: binds the real application exports to fresh disk inventories and generated overlays
+    ok 1 - binds the real application exports to fresh disk inventories and generated overlays
+      ---
+      duration_ms: 199.651728
+      type: 'test'
+      ...
+    # Subtest: rejects ownership overrides while original JSON, policy and correction inputs remain unchanged
+    ok 2 - rejects ownership overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 66.707522
+      type: 'test'
+      ...
+    # Subtest: rejects event-text overrides while original JSON, policy and correction inputs remain unchanged
+    ok 3 - rejects event-text overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 59.925127
+      type: 'test'
+      ...
+    # Subtest: rejects source-excerpt overrides while original JSON, policy and correction inputs remain unchanged
+    ok 4 - rejects source-excerpt overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 109.153474
+      type: 'test'
+      ...
+    # Subtest: rejects omit-event overrides while original JSON, policy and correction inputs remain unchanged
+    ok 5 - rejects omit-event overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 57.686412
+      type: 'test'
+      ...
+    # Subtest: rejects raw-history overrides while original JSON, policy and correction inputs remain unchanged
+    ok 6 - rejects raw-history overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 35.651767
+      type: 'test'
+      ...
+    # Subtest: rejects evidence-map overrides while original JSON, policy and correction inputs remain unchanged
+    ok 7 - rejects evidence-map overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 74.33171
+      type: 'test'
+      ...
+    # Subtest: rejects supplier-order overrides while original JSON, policy and correction inputs remain unchanged
+    ok 8 - rejects supplier-order overrides while original JSON, policy and correction inputs remain unchanged
+      ---
+      duration_ms: 121.753593
+      type: 'test'
+      ...
+    # Subtest: rejects a mutation shared by raw history and the current view
+    ok 9 - rejects a mutation shared by raw history and the current view
+      ---
+      duration_ms: 1.073003
+      type: 'test'
+      ...
+    # Subtest: reconstructs an enabled atomic correction before overlays and the event window (synthetic, non-admitting)
+    ok 10 - reconstructs an enabled atomic correction before overlays and the event window (synthetic, non-admitting)
+      ---
+      duration_ms: 11.183698
+      type: 'test'
+      ...
+    # Subtest: checks original supplier and evidence arrays as well as displayed views
+    ok 11 - checks original supplier and evidence arrays as well as displayed views
+      ---
+      duration_ms: 1.263378
+      type: 'test'
+      ...
+    # Subtest: applies daily headline updates only to non-SEC suppliers and replaces rounds only with newer dates
+    ok 12 - applies daily headline updates only to non-SEC suppliers and replaces rounds only with newer dates
+      ---
+      duration_ms: 0.349459
+      type: 'test'
+      ...
+    # Subtest: retains event/evidence merge order and uses the same trailing-year boundaries
+    ok 13 - retains event/evidence merge order and uses the same trailing-year boundaries
+      ---
+      duration_ms: 0.370542
+      type: 'test'
+      ...
+    # Subtest: ignores all disabled daily values and rejects unsupported enabled daily fields
+    ok 14 - ignores all disabled daily values and rejects unsupported enabled daily fields
+      ---
+      duration_ms: 0.379751
+      type: 'test'
+      ...
+    1..14
+ok 25 - runtime exported current fact assertions
+  ---
+  duration_ms: 740.754919
+  type: 'suite'
+  ...
+# Subtest: legacy daily release metadata remains identical
+ok 26 - legacy daily release metadata remains identical
+  ---
+  duration_ms: 1.178962
+  type: 'test'
+  ...
+# Subtest: v2 release metadata keeps intake completion separate from pending review
+ok 27 - v2 release metadata keeps intake completion separate from pending review
+  ---
+  duration_ms: 0.172376
+  type: 'test'
+  ...
+# Subtest: a later governance check does not extend the oldest source deadline
+ok 28 - a later governance check does not extend the oldest source deadline
+  ---
+  duration_ms: 0.775878
+  type: 'test'
+  ...
+# Subtest: missing or future coverage cannot look current
+ok 29 - missing or future coverage cannot look current
+  ---
+  duration_ms: 0.144751
+  type: 'test'
+  ...
+# Subtest: complete intake cannot hide pending processing, held claims or historical work
+ok 30 - complete intake cannot hide pending processing, held claims or historical work
+  ---
+  duration_ms: 12.053034
+  type: 'test'
+  ...
+# Subtest: intake freshness still uses the original source deadline independently of review counts
+ok 31 - intake freshness still uses the original source deadline independently of review counts
+  ---
+  duration_ms: 0.190334
+  type: 'test'
+  ...
+# Subtest: legacy coverage keeps its combined meaning and existing reader wording
+ok 32 - legacy coverage keeps its combined meaning and existing reader wording
+  ---
+  duration_ms: 0.62521
+  type: 'test'
+  ...
+# Subtest: v2 rejects missing measures, inconsistent aliases, impossible progress and downgrade fallback
+ok 33 - v2 rejects missing measures, inconsistent aliases, impossible progress and downgrade fallback
+  ---
+  duration_ms: 0.744085
+  type: 'test'
+  ...
+# Subtest: reviewed historical holds stay visible even when its inventory review is complete
+ok 34 - reviewed historical holds stay visible even when its inventory review is complete
+  ---
+  duration_ms: 1.28517
+  type: 'test'
+  ...
+# Subtest: schema 2 without a measure cannot fall back to legacy labels
+ok 35 - schema 2 without a measure cannot fall back to legacy labels
+  ---
+  duration_ms: 0.17975
+  type: 'test'
+  ...
+# Subtest: duplicate top-level gaps cannot silently replace an unmatched intake gap
+ok 36 - duplicate top-level gaps cannot silently replace an unmatched intake gap
+  ---
+  duration_ms: 0.120792
+  type: 'test'
+  ...
+# Subtest: uncollected new-policy data never presents zero of zero as reviewed or renews an old collection time
+ok 37 - uncollected new-policy data never presents zero of zero as reviewed or renews an old collection time
+  ---
+  duration_ms: 2.230506
+  type: 'test'
+  ...
+# Subtest: collected empty inventory does not imply zero of zero documents reviewed
+ok 38 - collected empty inventory does not imply zero of zero documents reviewed
+  ---
+  duration_ms: 1.510295
+  type: 'test'
+  ...
+# Subtest: original v2 proof stays byte-pinned and only the reviewed actual migration is authorized
+ok 39 - original v2 proof stays byte-pinned and only the reviewed actual migration is authorized
+  ---
+  duration_ms: 6.43331
+  type: 'test'
+  ...
+# Subtest: synthetic positive authority accepts only a zero-credit v2-to-v2 preservation wrapper
+ok 40 - synthetic positive authority accepts only a zero-credit v2-to-v2 preservation wrapper
+  ---
+  duration_ms: 397.156993
+  type: 'test'
+  ...
+# Subtest: build verifier rejects a valid-looking baseline outside the reviewed static authority
+ok 41 - build verifier rejects a valid-looking baseline outside the reviewed static authority
+  ---
+  duration_ms: 168.72435
+  type: 'test'
+  ...
+# Subtest: migration rejects altered original bytes, seals, nested chain and transition binding
+ok 42 - migration rejects altered original bytes, seals, nested chain and transition binding
+  ---
+  duration_ms: 2632.087286
+  type: 'test'
+  ...
+# Subtest: migration rejects changed original dates, public facts, nonzero current totals and source edits
+ok 43 - migration rejects changed original dates, public facts, nonzero current totals and source edits
+  ---
+  duration_ms: 1110.900878
+  type: 'test'
+  ...
+# Subtest: a quiet source check can pass the envelope without inventing market events
+ok 44 - a quiet source check can pass the envelope without inventing market events
+  ---
+  duration_ms: 5.554141
+  type: 'test'
+  ...
+# Subtest: a completion flag cannot replace a missing source check
+ok 45 - a completion flag cannot replace a missing source check
+  ---
+  duration_ms: 3.784303
+  type: 'test'
+  ...
+# Subtest: a snapshot cannot silently shrink its supplier denominator
+ok 46 - a snapshot cannot silently shrink its supplier denominator
+  ---
+  duration_ms: 1.056087
+  type: 'test'
+  ...
+# Subtest: editing data after validation invalidates its exact seal
+ok 47 - editing data after validation invalidates its exact seal
+  ---
+  duration_ms: 0.634793
+  type: 'test'
+  ...
+# Subtest: a published statement must remain verbatim in its supporting excerpt
+ok 48 - a published statement must remain verbatim in its supporting excerpt
+  ---
+  duration_ms: 0.845877
+  type: 'test'
+  ...
+# Subtest: v2 checked intake passes separately while processing and history remain unfinished
+ok 49 - v2 checked intake passes separately while processing and history remain unfinished
+  ---
+  duration_ms: 1.042378
+  type: 'test'
+  ...
+# Subtest: v2 rejects old outcome aliases, missing measures and contradictory review counts
+ok 50 - v2 rejects old outcome aliases, missing measures and contradictory review counts
+  ---
+  duration_ms: 21.28131
+  type: 'test'
+  ...
+# Subtest: explicit uncollected v2 fixture preserves historical pins and times without intake credit
+ok 51 - explicit uncollected v2 fixture preserves historical pins and times without intake credit
+  ---
+  duration_ms: 8.43394
+  type: 'test'
+  ...
+# Subtest: uncollected v2 cannot claim reviewed history, move old dates or change inherited facts
+ok 52 - uncollected v2 cannot claim reviewed history, move old dates or change inherited facts
+  ---
+  duration_ms: 6.774186
+  type: 'test'
+  ...
+# Subtest: archiveEntriesNewestFirst
+    # Subtest: reverses the array order (newest first) and carries only the archive fields
+    ok 1 - reverses the array order (newest first) and carries only the archive fields
+      ---
+      duration_ms: 1.017461
+      type: 'test'
+      ...
+    # Subtest: preserves the exact length — one entry per issue, draft included
+    ok 2 - preserves the exact length — one entry per issue, draft included
+      ---
+      duration_ms: 0.392668
+      type: 'test'
+      ...
+    1..2
+ok 53 - archiveEntriesNewestFirst
+  ---
+  duration_ms: 3.494719
+  type: 'suite'
+  ...
+# Subtest: feedIssuesNewestFirst
+    # Subtest: excludes the draft and orders the two published issues newest-published-first
+    ok 1 - excludes the draft and orders the two published issues newest-published-first
+      ---
+      duration_ms: 0.304168
+      type: 'test'
+      ...
+    # Subtest: excludes a "published" issue whose published date is still null
+    ok 2 - excludes a "published" issue whose published date is still null
+      ---
+      duration_ms: 0.188793
+      type: 'test'
+      ...
+    1..2
+ok 54 - feedIssuesNewestFirst
+  ---
+  duration_ms: 0.631377
+  type: 'suite'
+  ...
+# Subtest: issueJsonCopy
+    # Subtest: resolves the { issue, evidence } shape via issueEvidenceIds
+    ok 1 - resolves the { issue, evidence } shape via issueEvidenceIds
+      ---
+      duration_ms: 0.336418
+      type: 'test'
+      ...
+    # Subtest: throws, naming the issue and the unresolved id, when a cited evidence id does not resolve
+    ok 2 - throws, naming the issue and the unresolved id, when a cited evidence id does not resolve
+      ---
+      duration_ms: 0.257251
+      type: 'test'
+      ...
+    1..2
+ok 55 - issueJsonCopy
+  ---
+  duration_ms: 0.891961
+  type: 'suite'
+  ...
+# Subtest: dist pipeline (real writers + real checks, fixture data)
+    # Subtest: writes feed.xml, issue JSON copies, index.json and lock.json, and every real check passes
+    ok 1 - writes feed.xml, issue JSON copies, index.json and lock.json, and every real check passes
+      ---
+      duration_ms: 4.995098
+      type: 'test'
+      ...
+    # Subtest: perturbation: an issue JSON copy that disagrees with the source issue fails 11b, and restoring it passes again
+    ok 2 - perturbation: an issue JSON copy that disagrees with the source issue fails 11b, and restoring it passes again
+      ---
+      duration_ms: 13.860789
+      type: 'test'
+      ...
+    # Subtest: perturbation: an evidence body that disagrees with the source evidence record fails 11b, and restoring it passes again
+    ok 3 - perturbation: an evidence body that disagrees with the source evidence record fails 11b, and restoring it passes again
+      ---
+      duration_ms: 1.592004
+      type: 'test'
+      ...
+    # Subtest: perturbation: an archive row missing a field fails 11c, and restoring it passes again
+    ok 4 - perturbation: an archive row missing a field fails 11c, and restoring it passes again
+      ---
+      duration_ms: 0.799961
+      type: 'test'
+      ...
+    # Subtest: perturbation: a feed item pubDate that disagrees with its issue fails 11d, and restoring it passes again
+    ok 5 - perturbation: a feed item pubDate that disagrees with its issue fails 11d, and restoring it passes again
+      ---
+      duration_ms: 0.688585
+      type: 'test'
+      ...
+    # Subtest: perturbation: a nested <item> in feed.xml is rejected rather than silently truncated, and restoring it passes again
+    ok 6 - perturbation: a nested <item> in feed.xml is rejected rather than silently truncated, and restoring it passes again
+      ---
+      duration_ms: 5.034889
+      type: 'test'
+      ...
+    # Subtest: perturbation: a well-formed but genuinely nested <item> (balanced open/close) is rejected as nested, and restoring it passes again
+    ok 7 - perturbation: a well-formed but genuinely nested <item> (balanced open/close) is rejected as nested, and restoring it passes again
+      ---
+      duration_ms: 2.249381
+      type: 'test'
+      ...
+    # Subtest: perturbation: an unbalanced (unclosed) tag in feed.xml is rejected, and restoring it passes again
+    ok 8 - perturbation: an unbalanced (unclosed) tag in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.513335
+      type: 'test'
+      ...
+    # Subtest: perturbation: a second root element in feed.xml is rejected, and restoring it passes again
+    ok 9 - perturbation: a second root element in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.970461
+      type: 'test'
+      ...
+    # Subtest: perturbation: non-whitespace text outside the root element in feed.xml is rejected, and restoring it passes again
+    ok 10 - perturbation: non-whitespace text outside the root element in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.931753
+      type: 'test'
+      ...
+    # Subtest: perturbation: a bare "&" (not a legal entity reference) in feed.xml is rejected, and restoring it passes again
+    ok 11 - perturbation: a bare "&" (not a legal entity reference) in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.899627
+      type: 'test'
+      ...
+    # Subtest: perturbation: an unquoted attribute value in feed.xml is rejected, and restoring it passes again
+    ok 12 - perturbation: an unquoted attribute value in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.306584
+      type: 'test'
+      ...
+    # Subtest: perturbation: dist/issues/lock.json disagreeing with the source manifest fails 11f, and restoring it passes again
+    ok 13 - perturbation: dist/issues/lock.json disagreeing with the source manifest fails 11f, and restoring it passes again
+      ---
+      duration_ms: 0.708336
+      type: 'test'
+      ...
+    1..13
+ok 56 - dist pipeline (real writers + real checks, fixture data)
+  ---
+  duration_ms: 36.493061
+  type: 'suite'
+  ...
+# Subtest: daysBetween / duration classification
+    # Subtest: counts calendar days between two ISO dates
+    ok 1 - counts calendar days between two ISO dates
+      ---
+      duration_ms: 5.332599
+      type: 'test'
+      ...
+    # Subtest: treats 80-100 days as quarterly and 340-386 as annual
+    ok 2 - treats 80-100 days as quarterly and 340-386 as annual
+      ---
+      duration_ms: 0.211751
+      type: 'test'
+      ...
+    1..2
+ok 57 - daysBetween / duration classification
+  ---
+  duration_ms: 10.200029
+  type: 'suite'
+  ...
+# Subtest: buildFilingIndexUrl
+    # Subtest: builds the sec.gov Archives index URL for an accession
+    ok 1 - builds the sec.gov Archives index URL for an accession
+      ---
+      duration_ms: 0.117334
+      type: 'test'
+      ...
+    1..1
+ok 58 - buildFilingIndexUrl
+  ---
+  duration_ms: 0.183917
+  type: 'suite'
+  ...
+# Subtest: selectRevenueFacts
+    # Subtest: picks the first concept in priority order that has 10-Q/10-K USD facts
+    ok 1 - picks the first concept in priority order that has 10-Q/10-K USD facts
+      ---
+      duration_ms: 0.184209
+      type: 'test'
+      ...
+    # Subtest: returns null when none of the candidate concepts exist
+    ok 2 - returns null when none of the candidate concepts exist
+      ---
+      duration_ms: 0.092458
+      type: 'test'
+      ...
+    1..2
+ok 59 - selectRevenueFacts
+  ---
+  duration_ms: 0.398585
+  type: 'suite'
+  ...
+# Subtest: buildQuarterSeries — Q4 derivation and restatement de-dup
+    # Subtest: extracts 8 quarters: 3 reported + 1 derived Q4, for each of two fiscal years
+    ok 1 - extracts 8 quarters: 3 reported + 1 derived Q4, for each of two fiscal years
+      ---
+      duration_ms: 0.378709
+      type: 'test'
+      ...
+    # Subtest: derives Q4 2024 as the annual total minus the three reported quarters
+    ok 2 - derives Q4 2024 as the annual total minus the three reported quarters
+      ---
+      duration_ms: 0.174376
+      type: 'test'
+      ...
+    # Subtest: derives Q4 2025 the same way
+    ok 3 - derives Q4 2025 the same way
+      ---
+      duration_ms: 0.089417
+      type: 'test'
+      ...
+    # Subtest: de-dupes the restated Q1 2025 figure by keeping the later-filed value
+    ok 4 - de-dupes the restated Q1 2025 figure by keeping the later-filed value
+      ---
+      duration_ms: 0.181126
+      type: 'test'
+      ...
+    # Subtest: leaves reported quarters undisturbed
+    ok 5 - leaves reported quarters undisturbed
+      ---
+      duration_ms: 0.48421
+      type: 'test'
+      ...
+    1..5
+ok 60 - buildQuarterSeries — Q4 derivation and restatement de-dup
+  ---
+  duration_ms: 4.937389
+  type: 'suite'
+  ...
+# Subtest: findPriorYearQuarter / computeYoy
+    # Subtest: matches a quarter to the same fiscal quarter one year earlier
+    ok 1 - matches a quarter to the same fiscal quarter one year earlier
+      ---
+      duration_ms: 0.270251
+      type: 'test'
+      ...
+    # Subtest: computes YoY growth for the latest quarter and flags nothing when the match is clean
+    ok 2 - computes YoY growth for the latest quarter and flags nothing when the match is clean
+      ---
+      duration_ms: 0.594877
+      type: 'test'
+      ...
+    # Subtest: computes YoY for the quarter before the latest one too
+    ok 3 - computes YoY for the quarter before the latest one too
+      ---
+      duration_ms: 0.163876
+      type: 'test'
+      ...
+    # Subtest: flags a quarter with no same-quarter-prior-year match instead of throwing
+    ok 4 - flags a quarter with no same-quarter-prior-year match instead of throwing
+      ---
+      duration_ms: 0.165042
+      type: 'test'
+      ...
+    # Subtest: flags growth beyond the +-80% sane band without dropping the figure
+    ok 5 - flags growth beyond the +-80% sane band without dropping the figure
+      ---
+      duration_ms: 0.16775
+      type: 'test'
+      ...
+    1..5
+ok 61 - findPriorYearQuarter / computeYoy
+  ---
+  duration_ms: 1.85213
+  type: 'suite'
+  ...
+# Subtest: buildSupplierRecord
+    # Subtest: builds the full record end to end from the fixture
+    ok 1 - builds the full record end to end from the fixture
+      ---
+      duration_ms: 0.920795
+      type: 'test'
+      ...
+    # Subtest: records a failure (via throw) rather than silently producing an empty record when no concept matches
+    ok 2 - records a failure (via throw) rather than silently producing an empty record when no concept matches
+      ---
+      duration_ms: 0.291043
+      type: 'test'
+      ...
+    1..2
+ok 62 - buildSupplierRecord
+  ---
+  duration_ms: 1.318838
+  type: 'suite'
+  ...
+# Subtest: expectedFiscalQuarter
+    # Subtest: places a 0131-FYE filer's 2026-07-31 period in Q2 FY2027, not Q4
+    ok 1 - places a 0131-FYE filer's 2026-07-31 period in Q2 FY2027, not Q4
+      ---
+      duration_ms: 0.387001
+      type: 'test'
+      ...
+    # Subtest: places a 0131-FYE filer's 2026-04-30 period in Q1 FY2027, not Q3
+    ok 2 - places a 0131-FYE filer's 2026-04-30 period in Q1 FY2027, not Q3
+      ---
+      duration_ms: 0.091208
+      type: 'test'
+      ...
+    # Subtest: places a 0731-FYE filer's 2026-07-31 period in Q4 FY2026 (fiscal year end itself)
+    ok 3 - places a 0731-FYE filer's 2026-07-31 period in Q4 FY2026 (fiscal year end itself)
+      ---
+      duration_ms: 0.070625
+      type: 'test'
+      ...
+    # Subtest: places a 1231-FYE (calendar-year) filer's 2026-06-30 period in Q2 FY2026
+    ok 4 - places a 1231-FYE (calendar-year) filer's 2026-06-30 period in Q2 FY2026
+      ---
+      duration_ms: 0.061625
+      type: 'test'
+      ...
+    # Subtest: places a 0131-FYE filer's own fiscal year end (2026-01-31) in Q4 FY2026
+    ok 5 - places a 0131-FYE filer's own fiscal year end (2026-01-31) in Q4 FY2026
+      ---
+      duration_ms: 0.102958
+      type: 'test'
+      ...
+    1..5
+ok 63 - expectedFiscalQuarter
+  ---
+  duration_ms: 0.836585
+  type: 'suite'
+  ...
+# Subtest: build binds every requested before/after and policy without certifying synthetic admission
+ok 64 - build binds every requested before/after and policy without certifying synthetic admission
+  ---
+  duration_ms: 58.719123
+  type: 'test'
+  ...
+# Subtest: disabled build preserves original inventory checks
+ok 65 - disabled build preserves original inventory checks
+  ---
+  duration_ms: 43.393914
+  type: 'test'
+  ...
+# Subtest: build rejects missing groups despite a new file seal
+ok 66 - build rejects missing groups despite a new file seal
+  ---
+  duration_ms: 25.142362
+  type: 'test'
+  ...
+# Subtest: build rejects a changed target even if its JSON seal is recalculated
+ok 67 - build rejects a changed target even if its JSON seal is recalculated
+  ---
+  duration_ms: 24.306485
+  type: 'test'
+  ...
+# Subtest: build rejects wrong review metadata and source-set binding
+ok 68 - build rejects wrong review metadata and source-set binding
+  ---
+  duration_ms: 175.437952
+  type: 'test'
+  ...
+# Subtest: build refuses note changes and fresh date relabeling
+ok 69 - build refuses note changes and fresh date relabeling
+  ---
+  duration_ms: 50.943477
+  type: 'test'
+  ...
+# Subtest: build refuses stale baseline pin or policy stamp
+ok 70 - build refuses stale baseline pin or policy stamp
+  ---
+  duration_ms: 21.345393
+  type: 'test'
+  ...
+# Subtest: unrelated source repair changes global inventory while retaining exact historical admissions
+ok 71 - unrelated source repair changes global inventory while retaining exact historical admissions
+  ---
+  duration_ms: 63.645012
+  type: 'test'
+  ...
+# Subtest: changed relevant registration requires a new group review policy despite a fresh global seal
+ok 72 - changed relevant registration requires a new group review policy despite a fresh global seal
+  ---
+  duration_ms: 101.074035
+  type: 'test'
+  ...
+# Subtest: build independently refuses missing, forged or extra group review policy stamps
+ok 73 - build independently refuses missing, forged or extra group review policy stamps
+  ---
+  duration_ms: 130.650743
+  type: 'test'
+  ...
+# Subtest: global inventory policy cannot substitute for an atomic review policy
+ok 74 - global inventory policy cannot substitute for an atomic review policy
+  ---
+  duration_ms: 20.809225
+  type: 'test'
+  ...
+# Subtest: scoped build proves historical baseline and exact three-field amendment with accepted hashes retained
+ok 75 - scoped build proves historical baseline and exact three-field amendment with accepted hashes retained
+  ---
+  duration_ms: 57.293578
+  type: 'test'
+  ...
+# Subtest: scoped disabled build still verifies exact requested scope and protected metadata
+ok 76 - scoped disabled build still verifies exact requested scope and protected metadata
+  ---
+  duration_ms: 77.605885
+  type: 'test'
+  ...
+# Subtest: scoped build rejects every protected proposed field even with recalculated policy and seal
+ok 77 - scoped build rejects every protected proposed field even with recalculated policy and seal
+  ---
+  duration_ms: 1601.841552
+  type: 'test'
+  ...
+# Subtest: scoped build refuses changed history and unsupported target/scope/transition combinations
+ok 78 - scoped build refuses changed history and unsupported target/scope/transition combinations
+  ---
+  duration_ms: 427.289369
+  type: 'test'
+  ...
+# Subtest: scoped build rejects altered source/quote descriptors despite fresh hashes and synthetic acceptance
+ok 79 - scoped build rejects altered source/quote descriptors despite fresh hashes and synthetic acceptance
+  ---
+  duration_ms: 394.197735
+  type: 'test'
+  ...
+# Subtest: scoped public row and admission must each echo only the required narrow scope
+ok 80 - scoped public row and admission must each echo only the required narrow scope
+  ---
+  duration_ms: 197.493306
+  type: 'test'
+  ...
+# Subtest: scoped group remains mandatory and cannot use an ordinary review policy or a stale map
+ok 81 - scoped group remains mandatory and cannot use an ordinary review policy or a stale map
+  ---
+  duration_ms: 139.610852
+  type: 'test'
+  ...
+# Subtest: scoped admission retains its actual initial source window and dated history
+ok 82 - scoped admission retains its actual initial source window and dated history
+  ---
+  duration_ms: 27.603036
+  type: 'test'
+  ...
+# Subtest: publisher class mutation cannot be disguised as an ordinary evidence replacement
+ok 83 - publisher class mutation cannot be disguised as an ordinary evidence replacement
+  ---
+  duration_ms: 17.939759
+  type: 'test'
+  ...
+# Subtest: factual correction history (synthetic, non-admitting)
+    # Subtest: requires all eleven dist checks and reports a factual correction check failure
+    ok 1 - requires all eleven dist checks and reports a factual correction check failure
+      ---
+      duration_ms: 1.196128
+      type: 'test'
+      ...
+    # Subtest: preserves legacy attribution, shape and default feed/JSON bytes when disabled
+    ok 2 - preserves legacy attribution, shape and default feed/JSON bytes when disabled
+      ---
+      duration_ms: 11.695116
+      type: 'test'
+      ...
+    # Subtest: publishes named source notes, before/after links and hashes without owner attribution
+    ok 3 - publishes named source notes, before/after links and hashes without owner attribution
+      ---
+      duration_ms: 14.406457
+      type: 'test'
+      ...
+    # Subtest: shows withdrawal while projection retains the original event identity only once
+    ok 4 - shows withdrawal while projection retains the original event identity only once
+      ---
+      duration_ms: 0.986836
+      type: 'test'
+      ...
+    # Subtest: links evidence metadata corrections directly and includes both event evidence sets
+    ok 5 - links evidence metadata corrections directly and includes both event evidence sets
+      ---
+      duration_ms: 2.332632
+      type: 'test'
+      ...
+    # Subtest: publishes every bound primary source even when targets do not cite it
+    ok 6 - publishes every bound primary source even when targets do not cite it
+      ---
+      duration_ms: 24.21561
+      type: 'test'
+      ...
+    # Subtest: writes consistent JSON and escaped feed, and rejects altered public bytes
+    ok 7 - writes consistent JSON and escaped feed, and rejects altered public bytes
+      ---
+      duration_ms: 2.601715
+      type: 'test'
+      ...
+    1..7
+ok 84 - factual correction history (synthetic, non-admitting)
+  ---
+  duration_ms: 58.353998
+  type: 'suite'
+  ...
+# Subtest: dated factual corrections (synthetic non-admitting replays)
+    # Subtest: accepts the empty disabled fixture and preserves all eleven real draft shapes
+    ok 1 - accepts the empty disabled fixture and preserves all eleven real draft shapes
+      ---
+      duration_ms: 7.655439
+      type: 'test'
+      ...
+    # Subtest: retains immutable original events, supplier fields and evidence independently of returned objects
+    ok 2 - retains immutable original events, supplier fields and evidence independently of returned objects
+      ---
+      duration_ms: 16.501172
+      type: 'test'
+      ...
+    # Subtest: applies both Expel fields and its source excerpt coherently, preserving source retrieval dates
+    ok 3 - applies both Expel fields and its source excerpt coherently, preserving source retrieval dates
+      ---
+      duration_ms: 3.909844
+      type: 'test'
+      ...
+    # Subtest: applies the Optiv date before filtering and keeps its quoted source and publication date consistent
+    ok 4 - applies the Optiv date before filtering and keeps its quoted source and publication date consistent
+      ---
+      duration_ms: 10.419904
+      type: 'test'
+      ...
+    # Subtest: withdraws complete Check Point and Splunk events exactly once without inventing counted events
+    ok 5 - withdraws complete Check Point and Splunk events exactly once without inventing counted events
+      ---
+      duration_ms: 1.943506
+      type: 'test'
+      ...
+    # Subtest: validates all targets before any projection, including an invalid final Expel evidence target
+    ok 6 - validates all targets before any projection, including an invalid final Expel evidence target
+      ---
+      duration_ms: 5.40389
+      type: 'test'
+      ...
+    # Subtest: rejects a missing raw target even when another inventory would project successfully
+    ok 7 - rejects a missing raw target even when another inventory would project successfully
+      ---
+      duration_ms: 1.810714
+      type: 'test'
+      ...
+    # Subtest: uses canonical object equality while retaining array order and exact before-values
+    ok 8 - uses canonical object equality while retaining array order and exact before-values
+      ---
+      duration_ms: 3.809053
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.policySha256="e".repeat(64)}
+    ok 9 - rejects invalid policy/admission/target metadata: bundle=>{bundle.policySha256="e".repeat(64)}
+      ---
+      duration_ms: 0.418543
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.policySha256=null}
+    ok 10 - rejects invalid policy/admission/target metadata: bundle=>{bundle.policySha256=null}
+      ---
+      duration_ms: 0.451126
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.policySha256="e".repeat(64)}
+    ok 11 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.policySha256="e".repeat(64)}
+      ---
+      duration_ms: 0.378751
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.result="pending"}
+    ok 12 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.result="pending"}
+      ---
+      duration_ms: 0.306543
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{delete bundle.groups[0].admission.reviewSha256}
+    ok 13 - rejects invalid policy/admission/target metadata: bundle=>{delete bundle.groups[0].admission.reviewSha256}
+      ---
+      duration_ms: 0.285293
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.reviewSha256="stale-review"}
+    ok 14 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.reviewSha256="stale-review"}
+      ---
+      duration_ms: 0.284959
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.candidateSha256="not-a-hash"}
+    ok 15 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.candidateSha256="not-a-hash"}
+      ---
+      duration_ms: 0.272667
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.evidenceSetSha256="A".repeat(64)}
+    ok 16 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].admission.evidenceSetSha256="A".repeat(64)}
+      ---
+      duration_ms: 0.238376
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].targets[0].originalSha256="wrong-before-hash"}
+    ok 17 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].targets[0].originalSha256="wrong-before-hash"}
+      ---
+      duration_ms: 0.318167
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].targets=[]}
+    ok 18 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups[0].targets=[]}
+      ---
+      duration_ms: 0.307043
+      type: 'test'
+      ...
+    # Subtest: rejects invalid policy/admission/target metadata: bundle=>{bundle.groups=[]}
+    ok 19 - rejects invalid policy/admission/target metadata: bundle=>{bundle.groups=[]}
+      ---
+      duration_ms: 0.178917
+      type: 'test'
+      ...
+    # Subtest: requires an explicit expected policy for enabled data
+    ok 20 - requires an explicit expected policy for enabled data
+      ---
+      duration_ms: 0.165833
+      type: 'test'
+      ...
+    # Subtest: requires the exact current expected review policy for every group without a global fallback
+    ok 21 - requires the exact current expected review policy for every group without a global fallback
+      ---
+      duration_ms: 0.826335
+      type: 'test'
+      ...
+    # Subtest: retains unchanged group admissions and rows when the global policy changes
+    ok 22 - retains unchanged group admissions and rows when the global policy changes
+      ---
+      duration_ms: 11.27824
+      type: 'test'
+      ...
+    # Subtest: rejects populated or relabelled disabled bundles
+    ok 23 - rejects populated or relabelled disabled bundles
+      ---
+      duration_ms: 0.868377
+      type: 'test'
+      ...
+    # Subtest: rejects invalid calendar dates, invalid UTC times and undated notes
+    ok 24 - rejects invalid calendar dates, invalid UTC times and undated notes
+      ---
+      duration_ms: 9.879653
+      type: 'test'
+      ...
+    # Subtest: rejects duplicate groups, targets across groups and duplicate raw identities
+    ok 25 - rejects duplicate groups, targets across groups and duplicate raw identities
+      ---
+      duration_ms: 16.590421
+      type: 'test'
+      ...
+    # Subtest: rejects supplier identity, revenue and nested-patch targets and wrong target types
+    ok 26 - rejects supplier identity, revenue and nested-patch targets and wrong target types
+      ---
+      duration_ms: 16.381546
+      type: 'test'
+      ...
+    # Subtest: rejects event replacement identity, supplier, type, rung and partial-record changes
+    ok 27 - rejects event replacement identity, supplier, type, rung and partial-record changes
+      ---
+      duration_ms: 3.296843
+      type: 'test'
+      ...
+    # Subtest: rejects supplier/evidence withdrawals and event withdrawals with a non-null after-value
+    ok 28 - rejects supplier/evidence withdrawals and event withdrawals with a non-null after-value
+      ---
+      duration_ms: 6.896686
+      type: 'test'
+      ...
+    # Subtest: protects every evidence identity, source, URL, attribution and retrieval field
+    ok 29 - protects every evidence identity, source, URL, attribution and retrieval field
+      ---
+      duration_ms: 38.319524
+      type: 'test'
+      ...
+    # Subtest: rejects altered existing retrieval receipts and malformed receipt dates/hashes
+    ok 30 - rejects altered existing retrieval receipts and malformed receipt dates/hashes
+      ---
+      duration_ms: 13.362496
+      type: 'test'
+      ...
+    # Subtest: rejects unknown group/admission metadata without granting owner attribution
+    ok 31 - rejects unknown group/admission metadata without granting owner attribution
+      ---
+      duration_ms: 0.655586
+      type: 'test'
+      ...
+    # Subtest: does not expire an acknowledged historical correction on subsequent check dates
+    ok 32 - does not expire an acknowledged historical correction on subsequent check dates
+      ---
+      duration_ms: 1.464379
+      type: 'test'
+      ...
+    # Subtest: keeps the legacy owner-approved issue/thesis correction records independent
+    ok 33 - keeps the legacy owner-approved issue/thesis correction records independent
+      ---
+      duration_ms: 3.492635
+      type: 'test'
+      ...
+    1..33
+ok 85 - dated factual corrections (synthetic non-admitting replays)
+  ---
+  duration_ms: 181.118094
+  type: 'suite'
+  ...
+# Subtest: all original faces, exact binaries and complete licenses remain available locally
+ok 86 - all original faces, exact binaries and complete licenses remain available locally
+  ---
+  duration_ms: 23.751484
+  type: 'test'
+  ...
+# Subtest: changed binary bytes fail even with a valid WOFF2 signature
+ok 87 - changed binary bytes fail even with a valid WOFF2 signature
+  ---
+  duration_ms: 3.595052
+  type: 'test'
+  ...
+# Subtest: a font weight or Unicode coverage change cannot hide behind local delivery
+ok 88 - a font weight or Unicode coverage change cannot hide behind local delivery
+  ---
+  duration_ms: 16.559004
+  type: 'test'
+  ...
+# Subtest: license truncation and restored external runtime links fail
+ok 89 - license truncation and restored external runtime links fail
+  ---
+  duration_ms: 5.050472
+  type: 'test'
+  ...
+# Subtest: escapeHtmlAttr
+    # Subtest: escapes & < > " ' in that order, without double-escaping its own output
+    ok 1 - escapes & < > " ' in that order, without double-escaping its own output
+      ---
+      duration_ms: 0.513043
+      type: 'test'
+      ...
+    # Subtest: escapes a value that would otherwise close an attribute early
+    ok 2 - escapes a value that would otherwise close an attribute early
+      ---
+      duration_ms: 0.15975
+      type: 'test'
+      ...
+    # Subtest: leaves plain text untouched
+    ok 3 - leaves plain text untouched
+      ---
+      duration_ms: 0.065459
+      type: 'test'
+      ...
+    # Subtest: round-trips a realistic issue read containing an ampersand and quotes
+    ok 4 - round-trips a realistic issue read containing an ampersand and quotes
+      ---
+      duration_ms: 0.112584
+      type: 'test'
+      ...
+    1..4
+ok 90 - escapeHtmlAttr
+  ---
+  duration_ms: 1.519796
+  type: 'suite'
+  ...
+# Subtest: isoWeekId / isoWeekSunday
+    # Subtest: round-trips a known ISO week
+    ok 1 - round-trips a known ISO week
+      ---
+      duration_ms: 0.780669
+      type: 'test'
+      ...
+    # Subtest: agrees with every issue in the data set
+    ok 2 - agrees with every issue in the data set
+      ---
+      duration_ms: 0.190917
+      type: 'test'
+      ...
+    # Subtest: rejects a malformed week id
+    ok 3 - rejects a malformed week id
+      ---
+      duration_ms: 0.132167
+      type: 'test'
+      ...
+    1..3
+ok 91 - isoWeekId / isoWeekSunday
+  ---
+  duration_ms: 1.615421
+  type: 'suite'
+  ...
+# Subtest: windowOf
+    # Subtest: returns the issue window bounds
+    ok 1 - returns the issue window bounds
+      ---
+      duration_ms: 0.451168
+      type: 'test'
+      ...
+    1..1
+ok 92 - windowOf
+  ---
+  duration_ms: 0.520335
+  type: 'suite'
+  ...
+# Subtest: thesisRunningScore
+    # Subtest: is empty when there are no published issues
+    ok 1 - is empty when there are no published issues
+      ---
+      duration_ms: 0.167875
+      type: 'test'
+      ...
+    # Subtest: counts holds and strengthens but not no-call, and ignores drafts
+    ok 2 - counts holds and strengthens but not no-call, and ignores drafts
+      ---
+      duration_ms: 0.695794
+      type: 'test'
+      ...
+    # Subtest: counts a weakens verdict toward the total but not toward holds
+    ok 3 - counts a weakens verdict toward the total but not toward holds
+      ---
+      duration_ms: 0.297126
+      type: 'test'
+      ...
+    1..3
+ok 93 - thesisRunningScore
+  ---
+  duration_ms: 1.342754
+  type: 'suite'
+  ...
+# Subtest: newestThesisJudgment
+    # Subtest: returns null when no published issue has signed a thesis verdict
+    ok 1 - returns null when no published issue has signed a thesis verdict
+      ---
+      duration_ms: 0.130083
+      type: 'test'
+      ...
+    # Subtest: keeps the date of the last verdict actually signed when the newest published issue has none (SEC-MARKET-PUBLISH-001 §3: the thesis verdict left the weekly issue)
+    ok 2 - keeps the date of the last verdict actually signed when the newest published issue has none (SEC-MARKET-PUBLISH-001 §3: the thesis verdict left the weekly issue)
+      ---
+      duration_ms: 0.150917
+      type: 'test'
+      ...
+    1..2
+ok 94 - newestThesisJudgment
+  ---
+  duration_ms: 0.479918
+  type: 'suite'
+  ...
+# Subtest: WeThink rendering a newest issue with no thesis verdict
+    # Subtest: renders neither "null" nor an empty thesis block, on the published path
+    ok 1 - renders neither "null" nor an empty thesis block, on the published path
+      ---
+      duration_ms: 5.01918
+      type: 'test'
+      ...
+    # Subtest: renders neither "null" nor an empty thesis block, on the unsigned-draft path
+    ok 2 - renders neither "null" nor an empty thesis block, on the unsigned-draft path
+      ---
+      duration_ms: 2.7918
+      type: 'test'
+      ...
+    1..2
+ok 95 - WeThink rendering a newest issue with no thesis verdict
+  ---
+  duration_ms: 7.982397
+  type: 'suite'
+  ...
+# Subtest: issueEvidenceIds with no proposed thesis
+    # Subtest: does not throw and cites no thesis evidence when proposed.thesis is absent
+    ok 1 - does not throw and cites no thesis evidence when proposed.thesis is absent
+      ---
+      duration_ms: 0.171375
+      type: 'test'
+      ...
+    1..1
+ok 96 - issueEvidenceIds with no proposed thesis
+  ---
+  duration_ms: 0.253876
+  type: 'suite'
+  ...
+# Subtest: vendorSlug
+    # Subtest: lower-cases and hyphenates
+    ok 1 - lower-cases and hyphenates
+      ---
+      duration_ms: 0.087209
+      type: 'test'
+      ...
+    # Subtest: strips diacritics and non-ASCII punctuation
+    ok 2 - strips diacritics and non-ASCII punctuation
+      ---
+      duration_ms: 0.077625
+      type: 'test'
+      ...
+    # Subtest: trims leading and trailing hyphens
+    ok 3 - trims leading and trailing hyphens
+      ---
+      duration_ms: 0.04825
+      type: 'test'
+      ...
+    1..3
+ok 97 - vendorSlug
+  ---
+  duration_ms: 0.282209
+  type: 'suite'
+  ...
+# Subtest: parseVendorsParam / serializeVendorsParam
+    # Subtest: returns null when the vendors parameter is absent
+    ok 1 - returns null when the vendors parameter is absent
+      ---
+      duration_ms: 0.132542
+      type: 'test'
+      ...
+    # Subtest: splits, trims, and drops empty entries
+    ok 2 - splits, trims, and drops empty entries
+      ---
+      duration_ms: 0.188917
+      type: 'test'
+      ...
+    # Subtest: returns null (same as absent) for a present but empty parameter — a cleared lens and a bare "?vendors=" render identically
+    ok 3 - returns null (same as absent) for a present but empty parameter — a cleared lens and a bare "?vendors=" render identically
+      ---
+      duration_ms: 0.061083
+      type: 'test'
+      ...
+    # Subtest: returns null for a parameter holding only commas/whitespace, since it names no real slug
+    ok 4 - returns null for a parameter holding only commas/whitespace, since it names no real slug
+      ---
+      duration_ms: 0.047792
+      type: 'test'
+      ...
+    # Subtest: preserves an unrecognised slug rather than erroring
+    ok 5 - preserves an unrecognised slug rather than erroring
+      ---
+      duration_ms: 0.054
+      type: 'test'
+      ...
+    # Subtest: serializes a slug list back into a comma-joined value
+    ok 6 - serializes a slug list back into a comma-joined value
+      ---
+      duration_ms: 0.066833
+      type: 'test'
+      ...
+    # Subtest: serializes null or an empty list to null, signalling "drop the parameter"
+    ok 7 - serializes null or an empty list to null, signalling "drop the parameter"
+      ---
+      duration_ms: 0.045
+      type: 'test'
+      ...
+    # Subtest: round-trips a slug list through parse and serialize
+    ok 8 - round-trips a slug list through parse and serialize
+      ---
+      duration_ms: 0.057209
+      type: 'test'
+      ...
+    1..8
+ok 98 - parseVendorsParam / serializeVendorsParam
+  ---
+  duration_ms: 0.773502
+  type: 'suite'
+  ...
+# Subtest: extractNumericTokens
+    # Subtest: excludes a digit run immediately preceded by a letter — a name/label, not a figure
+    ok 1 - excludes a digit run immediately preceded by a letter — a name/label, not a figure
+      ---
+      duration_ms: 0.295251
+      type: 'test'
+      ...
+    # Subtest: keeps a currency amount with an M/B suffix
+    ok 2 - keeps a currency amount with an M/B suffix
+      ---
+      duration_ms: 0.401292
+      type: 'test'
+      ...
+    # Subtest: keeps a plain percentage, including a leading sign
+    ok 3 - keeps a plain percentage, including a leading sign
+      ---
+      duration_ms: 0.249459
+      type: 'test'
+      ...
+    # Subtest: keeps a plain number with no letter attached
+    ok 4 - keeps a plain number with no letter attached
+      ---
+      duration_ms: 0.076042
+      type: 'test'
+      ...
+    # Subtest: does not truncate a name+digits token into a spurious remainder
+    ok 5 - does not truncate a name+digits token into a spurious remainder
+      ---
+      duration_ms: 0.242042
+      type: 'test'
+      ...
+    # Subtest: still matches a genuine figure that happens to follow a name+digits token
+    ok 6 - still matches a genuine figure that happens to follow a name+digits token
+      ---
+      duration_ms: 0.0765
+      type: 'test'
+      ...
+    # Subtest: excludes a digit run immediately followed by a non-magnitude letter — a name, not a figure
+    ok 7 - excludes a digit run immediately followed by a non-magnitude letter — a name, not a figure
+      ---
+      duration_ms: 0.060875
+      type: 'test'
+      ...
+    # Subtest: keeps a bare figure with a legitimate M/B/K magnitude suffix
+    ok 8 - keeps a bare figure with a legitimate M/B/K magnitude suffix
+      ---
+      duration_ms: 0.061333
+      type: 'test'
+      ...
+    # Subtest: keeps a bare percentage and a bare integer with no surrounding context
+    ok 9 - keeps a bare percentage and a bare integer with no surrounding context
+      ---
+      duration_ms: 0.069375
+      type: 'test'
+      ...
+    1..9
+ok 99 - extractNumericTokens
+  ---
+  duration_ms: 1.712754
+  type: 'suite'
+  ...
+# Subtest: issueEvidenceIds
+    # Subtest: collects ids from items, posture deltas, and the thesis, deduplicated
+    ok 1 - collects ids from items, posture deltas, and the thesis, deduplicated
+      ---
+      duration_ms: 0.337417
+      type: 'test'
+      ...
+    # Subtest: includes the machine proposal thesis evidence on a draft
+    ok 2 - includes the machine proposal thesis evidence on a draft
+      ---
+      duration_ms: 0.087334
+      type: 'test'
+      ...
+    # Subtest: returns an empty array for the empty-lane skeleton
+    ok 3 - returns an empty array for the empty-lane skeleton
+      ---
+      duration_ms: 0.060584
+      type: 'test'
+      ...
+    1..3
+ok 100 - issueEvidenceIds
+  ---
+  duration_ms: 0.620377
+  type: 'suite'
+  ...
+# Subtest: landscape data provenance
+    # Subtest: resolves every evidence id used by the new datasets
+    ok 1 - resolves every evidence id used by the new datasets
+      ---
+      duration_ms: 1.450629
+      type: 'test'
+      ...
+    # Subtest: gives every tracked print claim a non-empty evidence tuple
+    ok 2 - gives every tracked print claim a non-empty evidence tuple
+      ---
+      duration_ms: 0.233209
+      type: 'test'
+      ...
+    # Subtest: keeps figures out of platformPressure.ts
+    ok 3 - keeps figures out of platformPressure.ts
+      ---
+      duration_ms: 3.107425
+      type: 'test'
+      ...
+    # Subtest: labels landscape TRACKED chips from the prints on the card
+    ok 4 - labels landscape TRACKED chips from the prints on the card
+      ---
+      duration_ms: 0.814752
+      type: 'test'
+      ...
+    # Subtest: derives one row per pressure group from sourced records
+    ok 5 - derives one row per pressure group from sourced records
+      ---
+      duration_ms: 0.088417
+      type: 'test'
+      ...
+    1..5
+ok 101 - landscape data provenance
+  ---
+  duration_ms: 6.567435
+  type: 'suite'
+  ...
+# Subtest: archive denies missing configuration, unauthenticated requests and all deletion
+ok 102 - archive denies missing configuration, unauthenticated requests and all deletion
+  ---
+  duration_ms: 51.548562
+  type: 'test'
+  ...
+# Subtest: archive enforces role permissions and content addresses
+ok 103 - archive enforces role permissions and content addresses
+  ---
+  duration_ms: 17.923342
+  type: 'test'
+  ...
+# Subtest: archive retries are idempotent and cannot overwrite an immutable receipt
+ok 104 - archive retries are idempotent and cannot overwrite an immutable receipt
+  ---
+  duration_ms: 6.100434
+  type: 'test'
+  ...
+# Subtest: production head requires publisher and CAS; record route cannot bypass it
+ok 105 - production head requires publisher and CAS; record route cannot bypass it
+  ---
+  duration_ms: 10.525072
+  type: 'test'
+  ...
+# Subtest: competing CAS attempts cannot both advance the same head
+ok 106 - competing CAS attempts cannot both advance the same head
+  ---
+  duration_ms: 7.173729
+  type: 'test'
+  ...
+# Subtest: archive listing requires read role and exposes integrity hashes
+ok 107 - archive listing requires read role and exposes integrity hashes
+  ---
+  duration_ms: 11.470699
+  type: 'test'
+  ...
+# Subtest: watchdog refuses missing, stale, future or reduced coverage
+ok 108 - watchdog refuses missing, stale, future or reduced coverage
+  ---
+  duration_ms: 0.308084
+  type: 'test'
+  ...
+# Subtest: HTTP 200 with incomplete coverage still alerts; repeated checks are deduplicated
+ok 109 - HTTP 200 with incomplete coverage still alerts; repeated checks are deduplicated
+  ---
+  duration_ms: 4.589597
+  type: 'test'
+  ...
+# Subtest: failed alert delivery is retried and is never recorded as delivered
+ok 110 - failed alert delivery is retried and is never recorded as delivered
+  ---
+  duration_ms: 14.963042
+  type: 'test'
+  ...
+# Subtest: watchdog reports recovery and requires explicit configuration
+ok 111 - watchdog reports recovery and requires explicit configuration
+  ---
+  duration_ms: 2.394174
+  type: 'test'
+  ...
+# Subtest: fresh collection cannot hide stale deployed data or application code
+ok 112 - fresh collection cannot hide stale deployed data or application code
+  ---
+  duration_ms: 0.704877
+  type: 'test'
+  ...
+# Subtest: SEC bridge re-derives fixture revenue and returns stable identities
+ok 113 - SEC bridge re-derives fixture revenue and returns stable identities
+  ---
+  duration_ms: 2563.62051
+  type: 'test'
+  ...
+# Subtest: SEC bridge rejects a payload for a different CIK
+ok 114 - SEC bridge rejects a payload for a different CIK
+  ---
+  duration_ms: 330.316388
+  type: 'test'
+  ...
+# Subtest: SEC submissions bridge preserves every tracked item and archived late notice
+ok 115 - SEC submissions bridge preserves every tracked item and archived late notice
+  ---
+  duration_ms: 300.573055
+  type: 'test'
+  ...
+# Subtest: a late notice is anchored to its filing date and cannot borrow a report date
+ok 116 - a late notice is anchored to its filing date and cannot borrow a report date
+  ---
+  duration_ms: 0.288209
+  type: 'test'
+  ...
+# Subtest: buyingInWording (D-75 / SEC-054)
+    # Subtest: a hyperscaler acquiring a cloud security company keeps the original sentence, unchanged
+    ok 1 - a hyperscaler acquiring a cloud security company keeps the original sentence, unchanged
+      ---
+      duration_ms: 0.822002
+      type: 'test'
+      ...
+    # Subtest: a platform vendor acquiring an AI security company gets the AI-security sentence, reworded
+    ok 2 - a platform vendor acquiring an AI security company gets the AI-security sentence, reworded
+      ---
+      duration_ms: 0.112084
+      type: 'test'
+      ...
+    # Subtest: a platform vendor acquiring a cloud security company gets the same sentence, said of cloud security, reworded
+    ok 3 - a platform vendor acquiring a cloud security company gets the same sentence, said of cloud security, reworded
+      ---
+      duration_ms: 0.060709
+      type: 'test'
+      ...
+    # Subtest: leaves a hyperscaler acquiring something other than cloud security alone, unapproved, rather than inventing wording
+    ok 4 - leaves a hyperscaler acquiring something other than cloud security alone, unapproved, rather than inventing wording
+      ---
+      duration_ms: 0.062417
+      type: 'test'
+      ...
+    # Subtest: leaves a platform vendor acquiring something that is neither AI security nor cloud security alone, unapproved
+    ok 5 - leaves a platform vendor acquiring something that is neither AI security nor cloud security alone, unapproved
+      ---
+      duration_ms: 0.063709
+      type: 'test'
+      ...
+    # Subtest: treats every name on the documented hyperscaler list as a hyperscaler
+    ok 6 - treats every name on the documented hyperscaler list as a hyperscaler
+      ---
+      duration_ms: 0.094833
+      type: 'test'
+      ...
+    1..6
+ok 117 - buyingInWording (D-75 / SEC-054)
+  ---
+  duration_ms: 1.873881
+  type: 'suite'
+  ...
+# Subtest: buyingInWordingDecisions against the real data (SEC-054)
+    # Subtest: every non-Identity buying-in row today falls inside one of the three approved cases
+    ok 1 - every non-Identity buying-in row today falls inside one of the three approved cases
+      ---
+      duration_ms: 0.288167
+      type: 'test'
+      ...
+    # Subtest: names Wiz/Google as unchanged and the three Palo Alto/F5 AI-runtime rows as reworded
+    ok 2 - names Wiz/Google as unchanged and the three Palo Alto/F5 AI-runtime rows as reworded
+      ---
+      duration_ms: 0.356085
+      type: 'test'
+      ...
+    1..2
+ok 118 - buyingInWordingDecisions against the real data (SEC-054)
+  ---
+  duration_ms: 0.871127
+  type: 'suite'
+  ...
+# Subtest: platformPressure buying-in rows carry the right per-row judged date
+    # Subtest: a reworded row is dated to the 2026-09-21 approval; an unchanged row keeps its original date
+    ok 1 - a reworded row is dated to the 2026-09-21 approval; an unchanged row keeps its original date
+      ---
+      duration_ms: 0.275876
+      type: 'test'
+      ...
+    1..1
+ok 119 - platformPressure buying-in rows carry the right per-row judged date
+  ---
+  duration_ms: 0.444376
+  type: 'suite'
+  ...
+# Subtest: classifyCardPeriod
+    # Subtest: parses a month-year tag with a curly apostrophe
+    ok 1 - parses a month-year tag with a curly apostrophe
+      ---
+      duration_ms: 6.001267
+      type: 'test'
+      ...
+    # Subtest: parses a month-year tag with a straight apostrophe
+    ok 2 - parses a month-year tag with a straight apostrophe
+      ---
+      duration_ms: 0.641377
+      type: 'test'
+      ...
+    # Subtest: parses a bare fiscal year
+    ok 3 - parses a bare fiscal year
+      ---
+      duration_ms: 0.48821
+      type: 'test'
+      ...
+    # Subtest: parses a bare calendar year
+    ok 4 - parses a bare calendar year
+      ---
+      duration_ms: 5.142515
+      type: 'test'
+      ...
+    # Subtest: parses an explicit fiscal quarter
+    ok 5 - parses an explicit fiscal quarter
+      ---
+      duration_ms: 0.21775
+      type: 'test'
+      ...
+    # Subtest: treats "Closed" and "No series" as non-comparable
+    ok 6 - treats "Closed" and "No series" as non-comparable
+      ---
+      duration_ms: 10.645738
+      type: 'test'
+      ...
+    # Subtest: falls back to unknown for text it does not recognise
+    ok 7 - falls back to unknown for text it does not recognise
+      ---
+      duration_ms: 2.624257
+      type: 'test'
+      ...
+    1..7
+ok 120 - classifyCardPeriod
+  ---
+  duration_ms: 33.765679
+  type: 'suite'
+  ...
+# Subtest: classifyEvidencePeriod
+    # Subtest: reads a bare quarter
+    ok 1 - reads a bare quarter
+      ---
+      duration_ms: 1.009336
+      type: 'test'
+      ...
+    # Subtest: reads a combined fiscal-year-and-quarter record
+    ok 2 - reads a combined fiscal-year-and-quarter record
+      ---
+      duration_ms: 7.228354
+      type: 'test'
+      ...
+    # Subtest: reads a fiscal year
+    ok 3 - reads a fiscal year
+      ---
+      duration_ms: 0.482876
+      type: 'test'
+      ...
+    # Subtest: reads a point-in-time funding event
+    ok 4 - reads a point-in-time funding event
+      ---
+      duration_ms: 0.55671
+      type: 'test'
+      ...
+    1..4
+ok 121 - classifyEvidencePeriod
+  ---
+  duration_ms: 10.223903
+  type: 'suite'
+  ...
+# Subtest: checkPrintPeriod — the deliberately wrong case
+    # Subtest: fails a card labelling a full fiscal year when the only evidence is a single quarter
+    ok 1 - fails a card labelling a full fiscal year when the only evidence is a single quarter
+      ---
+      duration_ms: 1.664463
+      type: 'test'
+      ...
+    # Subtest: mirrors the real print-crwd-cloud defect exactly
+    ok 2 - mirrors the real print-crwd-cloud defect exactly
+      ---
+      duration_ms: 1.194711
+      type: 'test'
+      ...
+    # Subtest: passes a month-year card against a matching quarter
+    ok 3 - passes a month-year card against a matching quarter
+      ---
+      duration_ms: 0.320959
+      type: 'test'
+      ...
+    # Subtest: passes a fiscal-year card against a matching fiscal-year record
+    ok 4 - passes a fiscal-year card against a matching fiscal-year record
+      ---
+      duration_ms: 0.320126
+      type: 'test'
+      ...
+    # Subtest: passes a bare year against a point-in-time record dated that year
+    ok 5 - passes a bare year against a point-in-time record dated that year
+      ---
+      duration_ms: 0.337917
+      type: 'test'
+      ...
+    # Subtest: passes a month-year card via a later date named only in the excerpt text
+    ok 6 - passes a month-year card via a later date named only in the excerpt text
+      ---
+      duration_ms: 1.554838
+      type: 'test'
+      ...
+    # Subtest: is not-checkable for a non-comparable card period
+    ok 7 - is not-checkable for a non-comparable card period
+      ---
+      duration_ms: 1.580338
+      type: 'test'
+      ...
+    # Subtest: fails a bare year that matches nothing in the cited evidence
+    ok 8 - fails a bare year that matches nothing in the cited evidence
+      ---
+      duration_ms: 7.996231
+      type: 'test'
+      ...
+    1..8
+ok 122 - checkPrintPeriod — the deliberately wrong case
+  ---
+  duration_ms: 21.065143
+  type: 'suite'
+  ...
+# Subtest: derivePeriodEndDate
+    # Subtest: derives the last day of a month-year tag with no evidence needed
+    ok 1 - derives the last day of a month-year tag with no evidence needed
+      ---
+      duration_ms: 3.484176
+      type: 'test'
+      ...
+    # Subtest: derives December 31 for a bare year
+    ok 2 - derives December 31 for a bare year
+      ---
+      duration_ms: 0.742085
+      type: 'test'
+      ...
+    # Subtest: falls back to the newest cited evidence publicationDate for FY / quarter / non-comparable tags
+    ok 3 - falls back to the newest cited evidence publicationDate for FY / quarter / non-comparable tags
+      ---
+      duration_ms: 1.968672
+      type: 'test'
+      ...
+    # Subtest: is unparseable when no evidence resolves and the card names no dated period
+    ok 4 - is unparseable when no evidence resolves and the card names no dated period
+      ---
+      duration_ms: 0.346751
+      type: 'test'
+      ...
+    1..4
+ok 123 - derivePeriodEndDate
+  ---
+  duration_ms: 19.42293
+  type: 'suite'
+  ...
+# Subtest: checkPrintCompany
+    # Subtest: matches directly on organization
+    ok 1 - matches directly on organization
+      ---
+      duration_ms: 0.56571
+      type: 'test'
+      ...
+    # Subtest: falls back to title/excerpt when a small company is bylined under its acquirer
+    ok 2 - falls back to title/excerpt when a small company is bylined under its acquirer
+      ---
+      duration_ms: 0.159167
+      type: 'test'
+      ...
+    # Subtest: fails when no cited evidence names the company at all
+    ok 3 - fails when no cited evidence names the company at all
+      ---
+      duration_ms: 0.115334
+      type: 'test'
+      ...
+    # Subtest: passes a multi-part name if any part is corroborated
+    ok 4 - passes a multi-part name if any part is corroborated
+      ---
+      duration_ms: 0.120708
+      type: 'test'
+      ...
+    1..4
+ok 124 - checkPrintCompany
+  ---
+  duration_ms: 1.162837
+  type: 'suite'
+  ...
+# Subtest: checkPrintMetric
+    # Subtest: is always not-checkable
+    ok 1 - is always not-checkable
+      ---
+      duration_ms: 0.608377
+      type: 'test'
+      ...
+    1..1
+ok 125 - checkPrintMetric
+  ---
+  duration_ms: 0.939169
+  type: 'suite'
+  ...
+# Subtest: checkPrintValueAndUnits — the deliberately absent case
+    # Subtest: fails a value that does not appear in any cited evidence
+    ok 1 - fails a value that does not appear in any cited evidence
+      ---
+      duration_ms: 3.458593
+      type: 'test'
+      ...
+    # Subtest: passes an exact percentage match
+    ok 2 - passes an exact percentage match
+      ---
+      duration_ms: 0.175126
+      type: 'test'
+      ...
+    # Subtest: passes a spelled-out billion figure against a compact card value
+    ok 3 - passes a spelled-out billion figure against a compact card value
+      ---
+      duration_ms: 0.308126
+      type: 'test'
+      ...
+    # Subtest: passes a rounded percentage within tolerance (the Arista case)
+    ok 4 - passes a rounded percentage within tolerance (the Arista case)
+      ---
+      duration_ms: 0.163292
+      type: 'test'
+      ...
+    # Subtest: fails units when the same number appears under a different unit
+    ok 5 - fails units when the same number appears under a different unit
+      ---
+      duration_ms: 0.319001
+      type: 'test'
+      ...
+    # Subtest: is not-checkable for a categorical, non-numeric value
+    ok 6 - is not-checkable for a categorical, non-numeric value
+      ---
+      duration_ms: 0.087584
+      type: 'test'
+      ...
+    1..6
+ok 126 - checkPrintValueAndUnits — the deliberately absent case
+  ---
+  duration_ms: 4.719888
+  type: 'suite'
+  ...
+# Subtest: verifyPrint — overall pass/fail
+    # Subtest: passes a print that is correct on every checkable dimension
+    ok 1 - passes a print that is correct on every checkable dimension
+      ---
+      duration_ms: 0.358293
+      type: 'test'
+      ...
+    # Subtest: fails overall when only the period is wrong, mirroring print-crwd-cloud
+    ok 2 - fails overall when only the period is wrong, mirroring print-crwd-cloud
+      ---
+      duration_ms: 3.781511
+      type: 'test'
+      ...
+    # Subtest: fails overall when the value is absent from evidence
+    ok 3 - fails overall when the value is absent from evidence
+      ---
+      duration_ms: 2.834341
+      type: 'test'
+      ...
+    1..3
+ok 127 - verifyPrint — overall pass/fail
+  ---
+  duration_ms: 7.238979
+  type: 'suite'
+  ...
+# Subtest: nothing to promote when main equals preview
+ok 128 - nothing to promote when main equals preview
+  ---
+  duration_ms: 647.951033
+  type: 'test'
+  ...
+# Subtest: a data-only change promotes after the data soak, not before
+ok 129 - a data-only change promotes after the data soak, not before
+  ---
+  duration_ms: 260.026399
+  type: 'test'
+  ...
+# Subtest: a code or docs change needs the longer soak
+ok 130 - a code or docs change needs the longer soak
+  ---
+  duration_ms: 132.823666
+  type: 'test'
+  ...
+# Subtest: an Owner-Review trailer holds that commit and everything after it
+ok 131 - an Owner-Review trailer holds that commit and everything after it
+  ---
+  duration_ms: 87.57583
+  type: 'test'
+  ...
+# Subtest: ripe work before a held commit still promotes, up to the held commit
+ok 132 - ripe work before a held commit still promotes, up to the held commit
+  ---
+  duration_ms: 125.094519
+  type: 'test'
+  ...
+# Subtest: a new data commit does not restart the soak of older commits
+ok 133 - a new data commit does not restart the soak of older commits
+  ---
+  duration_ms: 132.972582
+  type: 'test'
+  ...
+# Subtest: a hand edit to a data file is not treated as a bot data commit
+ok 134 - a hand edit to a data file is not treated as a bot data commit
+  ---
+  duration_ms: 87.773248
+  type: 'test'
+  ...
+# Subtest: a merge commit holds
+ok 135 - a merge commit holds
+  ---
+  duration_ms: 104.08246
+  type: 'test'
+  ...
+# Subtest: protected paths hold: intent, rules, hooks, headers and the promotion rules
+ok 136 - protected paths hold: intent, rules, hooks, headers and the promotion rules
+  ---
+  duration_ms: 824.315988
+  type: 'test'
+  ...
+# Subtest: a workflow that starts using a secret holds
+ok 137 - a workflow that starts using a secret holds
+  ---
+  duration_ms: 62.342009
+  type: 'test'
+  ...
+# Subtest: a diverged main fails rather than promoting
+ok 138 - a diverged main fails rather than promoting
+  ---
+  duration_ms: 42.404245
+  type: 'test'
+  ...
+# Subtest: page-structure guard ignores data and flags new sections, headings and pages
+ok 139 - page-structure guard ignores data and flags new sections, headings and pages
+  ---
+  duration_ms: 11.134198
+  type: 'test'
+  ...
+# Subtest: scoped publisher disclosure projection (synthetic, non-admitting)
+    # Subtest: changes exactly Xage class/limitations and preserves every legacy row and original
+    ok 1 - changes exactly Xage class/limitations and preserves every legacy row and original
+      ---
+      duration_ms: 41.817368
+      type: 'test'
+      ...
+    # Subtest: does not reinterpret the immutable original class as financial proof
+    ok 2 - does not reinterpret the immutable original class as financial proof
+      ---
+      duration_ms: 11.754199
+      type: 'test'
+      ...
+    # Subtest: protects the scoped id value
+    ok 3 - protects the scoped id value
+      ---
+      duration_ms: 5.770016
+      type: 'test'
+      ...
+    # Subtest: protects the scoped title value
+    ok 4 - protects the scoped title value
+      ---
+      duration_ms: 10.026195
+      type: 'test'
+      ...
+    # Subtest: protects the scoped organization value
+    ok 5 - protects the scoped organization value
+      ---
+      duration_ms: 3.795094
+      type: 'test'
+      ...
+    # Subtest: protects the scoped publicationDate value
+    ok 6 - protects the scoped publicationDate value
+      ---
+      duration_ms: 3.0493
+      type: 'test'
+      ...
+    # Subtest: protects the scoped economicPeriod value
+    ok 7 - protects the scoped economicPeriod value
+      ---
+      duration_ms: 2.923925
+      type: 'test'
+      ...
+    # Subtest: protects the scoped canonicalUrl value
+    ok 8 - protects the scoped canonicalUrl value
+      ---
+      duration_ms: 3.098759
+      type: 'test'
+      ...
+    # Subtest: protects the scoped excerpt value
+    ok 9 - protects the scoped excerpt value
+      ---
+      duration_ms: 3.574802
+      type: 'test'
+      ...
+    # Subtest: protects the scoped interpretation value
+    ok 10 - protects the scoped interpretation value
+      ---
+      duration_ms: 3.725552
+      type: 'test'
+      ...
+    # Subtest: protects the scoped conflictingEvidenceIds value
+    ok 11 - protects the scoped conflictingEvidenceIds value
+      ---
+      duration_ms: 4.289845
+      type: 'test'
+      ...
+    # Subtest: protects the scoped artifactLabel value
+    ok 12 - protects the scoped artifactLabel value
+      ---
+      duration_ms: 8.933317
+      type: 'test'
+      ...
+    # Subtest: protects the scoped tags value
+    ok 13 - protects the scoped tags value
+      ---
+      duration_ms: 3.088633
+      type: 'test'
+      ...
+    # Subtest: protects the scoped retrievedAt value
+    ok 14 - protects the scoped retrievedAt value
+      ---
+      duration_ms: 3.372968
+      type: 'test'
+      ...
+    # Subtest: rejects added/deleted metadata, modified before-values, class transitions and arbitrary limitations
+    ok 15 - rejects added/deleted metadata, modified before-values, class transitions and arbitrary limitations
+      ---
+      duration_ms: 28.807164
+      type: 'test'
+      ...
+    # Subtest: rejects missing/unknown/mixed scopes and admission scope substitution
+    ok 16 - rejects missing/unknown/mixed scopes and admission scope substitution
+      ---
+      duration_ms: 32.751634
+      type: 'test'
+      ...
+    # Subtest: keeps ordinary replacement metadata protections and rejects duplicate role targets
+    ok 17 - keeps ordinary replacement metadata protections and rejects duplicate role targets
+      ---
+      duration_ms: 7.890398
+      type: 'test'
+      ...
+    # Subtest: binds runtime exported evidence views and rejects a post-projection class, excerpt or map edit
+    ok 18 - binds runtime exported evidence views and rejects a post-projection class, excerpt or map edit
+      ---
+      duration_ms: 111.667398
+      type: 'test'
+      ...
+    # Subtest: uses the current history/JSON/feed route with narrow scope and exact publisher/class readings
+    ok 19 - uses the current history/JSON/feed route with narrow scope and exact publisher/class readings
+      ---
+      duration_ms: 11.658949
+      type: 'test'
+      ...
+    1..19
+ok 140 - scoped publisher disclosure projection (synthetic, non-admitting)
+  ---
+  duration_ms: 303.712272
+  type: 'suite'
+  ...
+# Subtest: historical Q4 assertions ignore a fresh generated snapshot overlay
+ok 141 - historical Q4 assertions ignore a fresh generated snapshot overlay
+  ---
+  duration_ms: 2012.752333
+  type: 'test'
+  ...
+# Subtest: exact H/J policies invert independently and preserve all other sources and types
+ok 142 - exact H/J policies invert independently and preserve all other sources and types
+  ---
+  duration_ms: 124.234141
+  type: 'test'
+  ...
+# Subtest: J baseline preserves full H history and all dates while granting zero credit
+ok 143 - J baseline preserves full H history and all dates while granting zero credit
+  ---
+  duration_ms: 1738.558853
+  type: 'test'
+  ...
+# Subtest: claimId / collectJudgedClaimRefs
+    # Subtest: prefixes the claim id with its kind
+    ok 1 - prefixes the claim id with its kind
+      ---
+      duration_ms: 0.360043
+      type: 'test'
+      ...
+    # Subtest: collects domains, hypotheses, and only judged pressure rows
+    ok 2 - collects domains, hypotheses, and only judged pressure rows
+      ---
+      duration_ms: 0.841086
+      type: 'test'
+      ...
+    1..2
+ok 144 - claimId / collectJudgedClaimRefs
+  ---
+  duration_ms: 2.55434
+  type: 'suite'
+  ...
+# Subtest: effectiveJudgment / effectiveDate
+    # Subtest: returns the original judgment when there is no reconfirmation
+    ok 1 - returns the original judgment when there is no reconfirmation
+      ---
+      duration_ms: 0.163626
+      type: 'test'
+      ...
+    # Subtest: returns the newest reconfirmation for that claim, ignoring others
+    ok 2 - returns the newest reconfirmation for that claim, ignoring others
+      ---
+      duration_ms: 0.177292
+      type: 'test'
+      ...
+    1..2
+ok 145 - effectiveJudgment / effectiveDate
+  ---
+  duration_ms: 0.519501
+  type: 'suite'
+  ...
+# Subtest: isStaleAsOf
+    # Subtest: is false at exactly the threshold (boundary is exclusive)
+    ok 1 - is false at exactly the threshold (boundary is exclusive)
+      ---
+      duration_ms: 0.159501
+      type: 'test'
+      ...
+    # Subtest: is true one day past the threshold
+    ok 2 - is true one day past the threshold
+      ---
+      duration_ms: 0.094625
+      type: 'test'
+      ...
+    # Subtest: uses the reconfirmed date, not the original, once reconfirmed
+    ok 3 - uses the reconfirmed date, not the original, once reconfirmed
+      ---
+      duration_ms: 0.396001
+      type: 'test'
+      ...
+    1..3
+ok 146 - isStaleAsOf
+  ---
+  duration_ms: 0.833711
+  type: 'suite'
+  ...
+# Subtest: unknownClaimIds
+    # Subtest: is empty when every id names a real claim
+    ok 1 - is empty when every id names a real claim
+      ---
+      duration_ms: 0.137625
+      type: 'test'
+      ...
+    # Subtest: names every id that does not
+    ok 2 - names every id that does not
+      ---
+      duration_ms: 0.10125
+      type: 'test'
+      ...
+    1..2
+ok 147 - unknownClaimIds
+  ---
+  duration_ms: 0.409918
+  type: 'suite'
+  ...
+# Subtest: validateReconfirmations
+    # Subtest: passes a well-formed entry
+    ok 1 - passes a well-formed entry
+      ---
+      duration_ms: 0.314834
+      type: 'test'
+      ...
+    # Subtest: flags an unknown claimId
+    ok 2 - flags an unknown claimId
+      ---
+      duration_ms: 0.130334
+      type: 'test'
+      ...
+    # Subtest: flags "by" not equal to AUTHOR_NAME
+    ok 3 - flags "by" not equal to AUTHOR_NAME
+      ---
+      duration_ms: 0.173917
+      type: 'test'
+      ...
+    # Subtest: flags a reconfirmedOn earlier than the claim's own judgedOn
+    ok 4 - flags a reconfirmedOn earlier than the claim's own judgedOn
+      ---
+      duration_ms: 0.069959
+      type: 'test'
+      ...
+    # Subtest: flags a reconfirmedOn more than one day after the newest published signedOn
+    ok 5 - flags a reconfirmedOn more than one day after the newest published signedOn
+      ---
+      duration_ms: 0.073959
+      type: 'test'
+      ...
+    # Subtest: allows exactly one day after the newest published signedOn
+    ok 6 - allows exactly one day after the newest published signedOn
+      ---
+      duration_ms: 0.055792
+      type: 'test'
+      ...
+    # Subtest: flags a via that does not name a published issue
+    ok 7 - flags a via that does not name a published issue
+      ---
+      duration_ms: 0.057208
+      type: 'test'
+      ...
+    # Subtest: flags every entry when no published issue exists yet
+    ok 8 - flags every entry when no published issue exists yet
+      ---
+      duration_ms: 0.06475
+      type: 'test'
+      ...
+    1..8
+ok 148 - validateReconfirmations
+  ---
+  duration_ms: 1.079669
+  type: 'suite'
+  ...
+# Subtest: newestPublishedSignedOn
+    # Subtest: is null with no published issues
+    ok 1 - is null with no published issues
+      ---
+      duration_ms: 7.330146
+      type: 'test'
+      ...
+    # Subtest: picks the latest signedOn among published issues
+    ok 2 - picks the latest signedOn among published issues
+      ---
+      duration_ms: 0.181375
+      type: 'test'
+      ...
+    1..2
+ok 149 - newestPublishedSignedOn
+  ---
+  duration_ms: 7.615021
+  type: 'suite'
+  ...
+# Subtest: RunStatus
+    # Subtest: states the certified tier, its claim count, the last certified change and the cadence
+    ok 1 - states the certified tier, its claim count, the last certified change and the cadence
+      ---
+      duration_ms: 5.228973
+      type: 'test'
+      ...
+    # Subtest: never calls the tier independently verified (D-100)
+    ok 2 - never calls the tier independently verified (D-100)
+      ---
+      duration_ms: 1.728921
+      type: 'test'
+      ...
+    # Subtest: the shipped status is well formed: a real date, a known state, and a reason whenever incomplete
+    ok 3 - the shipped status is well formed: a real date, a known state, and a reason whenever incomplete
+      ---
+      duration_ms: 0.149459
+      type: 'test'
+      ...
+    # Subtest: the shipped failedNewsSuppliers, if any, are plain text only
+    ok 4 - the shipped failedNewsSuppliers, if any, are plain text only
+      ---
+      duration_ms: 0.640418
+      type: 'test'
+      ...
+    1..4
+ok 150 - RunStatus
+  ---
+  duration_ms: 8.28719
+  type: 'suite'
+  ...
+# Subtest: filingsClause supplier-count reconciliation (runStatus.ts)
+    # Subtest: XBRL-covered public suppliers plus named non-XBRL public suppliers equal the tracker's public-supplier count
+    ok 1 - XBRL-covered public suppliers plus named non-XBRL public suppliers equal the tracker's public-supplier count
+      ---
+      duration_ms: 0.192959
+      type: 'test'
+      ...
+    # Subtest: every XBRL-covered public supplier's edgarId resolves in generated/edgarFacts.json
+    ok 2 - every XBRL-covered public supplier's edgarId resolves in generated/edgarFacts.json
+      ---
+      duration_ms: 0.241001
+      type: 'test'
+      ...
+    # Subtest: the shipped filings clause names exactly the non-XBRL public suppliers, by short name
+    ok 3 - the shipped filings clause names exactly the non-XBRL public suppliers, by short name
+      ---
+      duration_ms: 0.266251
+      type: 'test'
+      ...
+    1..3
+ok 151 - filingsClause supplier-count reconciliation (runStatus.ts)
+  ---
+  duration_ms: 1.022044
+  type: 'suite'
+  ...
+# Subtest: meta.ts date derivation (single source)
+    # Subtest: LAST_UPDATED_ISO is exactly runStatus.lastChecked
+    ok 1 - LAST_UPDATED_ISO is exactly runStatus.lastChecked
+      ---
+      duration_ms: 0.146375
+      type: 'test'
+      ...
+    # Subtest: LAST_UPDATED_DISPLAY is the long-form rendering of runStatus.lastChecked
+    ok 2 - LAST_UPDATED_DISPLAY is the long-form rendering of runStatus.lastChecked
+      ---
+      duration_ms: 0.143626
+      type: 'test'
+      ...
+    1..2
+ok 152 - meta.ts date derivation (single source)
+  ---
+  duration_ms: 0.611626
+  type: 'suite'
+  ...
+# Subtest: optional transport builds only with its exact pinned source and keeps six old policies
+ok 153 - optional transport builds only with its exact pinned source and keeps six old policies
+  ---
+  duration_ms: 130.165866
+  type: 'test'
+  ...
+# Subtest: Python and JavaScript independently agree on valid and rejected exact transport policies
+ok 154 - Python and JavaScript independently agree on valid and rejected exact transport policies
+  ---
+  duration_ms: 456.574119
+  type: 'test'
+  ...
+# Subtest: build rejects changed immutable evidence despite a recomputed ordinary baseline
+ok 155 - build rejects changed immutable evidence despite a recomputed ordinary baseline
+  ---
+  duration_ms: 28.866081
+  type: 'test'
+  ...
+# Subtest: build rejects an extra attested group field before accepting a fresh stamp
+ok 156 - build rejects an extra attested group field before accepting a fresh stamp
+  ---
+  duration_ms: 18.363926
+  type: 'test'
+  ...
+# Subtest: usable Chromium launches without an installation or OS upgrade
+ok 157 - usable Chromium launches without an installation or OS upgrade
+  ---
+  duration_ms: 1.066378
+  type: 'test'
+  ...
+# Subtest: missing executable downloads browser and installs OS packages only after a missing-library launch
+ok 158 - missing executable downloads browser and installs OS packages only after a missing-library launch
+  ---
+  duration_ms: 1.004461
+  type: 'test'
+  ...
+# Subtest: unrelated launch failures stay failed without an apt retry
+ok 159 - unrelated launch failures stay failed without an apt retry
+  ---
+  duration_ms: 0.736293
+  type: 'test'
+  ...
+# Subtest: failed dependency installation prevents successful setup
+ok 160 - failed dependency installation prevents successful setup
+  ---
+  duration_ms: 0.127958
+  type: 'test'
+  ...
+# Subtest: exact J/K three rows invert and preserve every other field
+ok 161 - exact J/K three rows invert and preserve every other field
+  ---
+  duration_ms: 83.629111
+  type: 'test'
+  ...
+# Subtest: Python-generated K baseline preserves all J history and has zero intake credit
+ok 162 - Python-generated K baseline preserves all J history and has zero intake credit
+  ---
+  duration_ms: 2494.637857
+  type: 'test'
+  ...
+# Subtest: tracker domains and suppliers
+    # Subtest: declares exactly twelve domains with unique ids
+    ok 1 - declares exactly twelve domains with unique ids
+      ---
+      duration_ms: 1.159878
+      type: 'test'
+      ...
+    # Subtest: gives every domain at least three suppliers
+    ok 2 - gives every domain at least three suppliers
+      ---
+      duration_ms: 0.56521
+      type: 'test'
+      ...
+    # Subtest: gives every supplier at least one known domain
+    ok 3 - gives every supplier at least one known domain
+      ---
+      duration_ms: 0.393543
+      type: 'test'
+      ...
+    # Subtest: keeps supplier and event ids unique
+    ok 4 - keeps supplier and event ids unique
+      ---
+      duration_ms: 0.173417
+      type: 'test'
+      ...
+    # Subtest: resolves every evidence id a supplier or event cites, each with a source URL and a retrieval date
+    ok 5 - resolves every evidence id a supplier or event cites, each with a source URL and a retrieval date
+      ---
+      duration_ms: 0.653627
+      type: 'test'
+      ...
+    # Subtest: never publishes a rung-5-only event
+    ok 6 - never publishes a rung-5-only event
+      ---
+      duration_ms: 0.138209
+      type: 'test'
+      ...
+    # Subtest: keeps every event within the trailing 12-month window
+    ok 7 - keeps every event within the trailing 12-month window
+      ---
+      duration_ms: 0.478252
+      type: 'test'
+      ...
+    # Subtest: carries no banned judgment word in the tracker’s own authored strings
+    ok 8 - carries no banned judgment word in the tracker’s own authored strings
+      ---
+      duration_ms: 3.520135
+      type: 'test'
+      ...
+    1..8
+ok 163 - tracker domains and suppliers
+  ---
+  duration_ms: 7.957897
+  type: 'suite'
+  ...
+# Subtest: tracker derive helpers (fixtures)
+    # Subtest: parses a signed percent string
+    ok 1 - parses a signed percent string
+      ---
+      duration_ms: 0.373626
+      type: 'test'
+      ...
+    # Subtest: computes a median only with two or more comparable public/segment suppliers
+    ok 2 - computes a median only with two or more comparable public/segment suppliers
+      ---
+      duration_ms: 0.516168
+      type: 'test'
+      ...
+    # Subtest: summarizes an unknown supplier as zero events
+    ok 3 - summarizes an unknown supplier as zero events
+      ---
+      duration_ms: 0.194501
+      type: 'test'
+      ...
+    # Subtest: filters events to a 30-day trailing window, inclusive, newest first
+    ok 4 - filters events to a 30-day trailing window, inclusive, newest first
+      ---
+      duration_ms: 0.258834
+      type: 'test'
+      ...
+    # Subtest: filters EDGAR filings to a 30-day trailing window from a fixture facts file
+    ok 5 - filters EDGAR filings to a 30-day trailing window from a fixture facts file
+      ---
+      duration_ms: 0.161793
+      type: 'test'
+      ...
+    # Subtest: never reports a restated prior-year comparative as a new filing (AUTO-001 fix pass, item 1)
+    ok 6 - never reports a restated prior-year comparative as a new filing (AUTO-001 fix pass, item 1)
+      ---
+      duration_ms: 0.045917
+      type: 'test'
+      ...
+    1..6
+ok 164 - tracker derive helpers (fixtures)
+  ---
+  duration_ms: 1.746046
+  type: 'suite'
+  ...
+# Subtest: density-pass display helpers (fixtures)
+    # Subtest: strips a legal-entity suffix but leaves a genuine brand word alone
+    ok 1 - strips a legal-entity suffix but leaves a genuine brand word alone
+      ---
+      duration_ms: 0.077417
+      type: 'test'
+      ...
+    # Subtest: formats compact quarter, event, month-year, and year labels
+    ok 2 - formats compact quarter, event, month-year, and year labels
+      ---
+      duration_ms: 0.084083
+      type: 'test'
+      ...
+    # Subtest: abbreviates a dollar figure to one letter, keeping any leading qualifier
+    ok 3 - abbreviates a dollar figure to one letter, keeping any leading qualifier
+      ---
+      duration_ms: 0.235667
+      type: 'test'
+      ...
+    # Subtest: formats the own-metric cell as "label value · Q mon yy"
+    ok 4 - formats the own-metric cell as "label value · Q mon yy"
+      ---
+      duration_ms: 0.162167
+      type: 'test'
+      ...
+    # Subtest: formats the ownership-or-last-round cell for every supplier kind
+    ok 5 - formats the ownership-or-last-round cell for every supplier kind
+      ---
+      duration_ms: 0.146
+      type: 'test'
+      ...
+    1..5
+ok 165 - density-pass display helpers (fixtures)
+  ---
+  duration_ms: 0.779794
+  type: 'suite'
+  ...
+# Subtest: SEC coverage includes every corrected filer and counts failures independently
+ok 166 - SEC coverage includes every corrected filer and counts failures independently
+  ---
+  duration_ms: 0.606418
+  type: 'test'
+  ...
+# Subtest: change log retains every recent event and latest filing once after grouping
+ok 167 - change log retains every recent event and latest filing once after grouping
+  ---
+  duration_ms: 0.513043
+  type: 'test'
+  ...
+# Subtest: growth comparison excludes company metrics and segments, retaining exact signed reported percentages
+ok 168 - growth comparison excludes company metrics and segments, retaining exact signed reported percentages
+  ---
+  duration_ms: 0.620752
+  type: 'test'
+  ...
+# Subtest: all generated and collected events belong to exactly one timeline lane
+ok 169 - all generated and collected events belong to exactly one timeline lane
+  ---
+  duration_ms: 0.317876
+  type: 'test'
+  ...
+# Subtest: Varonis acquisition agreement remains an announced transaction with its primary dated source
+ok 170 - Varonis acquisition agreement remains an announced transaction with its primary dated source
+  ---
+  duration_ms: 0.631752
+  type: 'test'
+  ...
+1..170
+# tests 386
+# suites 53
+# pass 386
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6798.812933
+
+> security-market-pulse@0.0.0 test:pipeline
+> python3 -m unittest discover -s tests -p 'test_pipeline.py' -v
+
+test_api_authenticated_cli_is_not_used_as_subscription (test_pipeline.PipelineTests.test_api_authenticated_cli_is_not_used_as_subscription) ... ok
+test_archive_compare_and_swap_rejects_a_stale_cloud_session_before_overwriting_budget (test_pipeline.PipelineTests.test_archive_compare_and_swap_rejects_a_stale_cloud_session_before_overwriting_budget) ... ok
+test_arr_cannot_become_revenue (test_pipeline.PipelineTests.test_arr_cannot_become_revenue) ... ok
+test_article_extraction_excludes_unrelated_navigation_and_preserves_nested_main_content (test_pipeline.PipelineTests.test_article_extraction_excludes_unrelated_navigation_and_preserves_nested_main_content) ... ok
+test_at_least_qualifier_cannot_be_dropped (test_pipeline.PipelineTests.test_at_least_qualifier_cannot_be_dropped) ... ok
+test_automatic_cutover_is_disabled_by_default (test_pipeline.PipelineTests.test_automatic_cutover_is_disabled_by_default) ... ok
+test_backup_root_must_match_independent_receipt (test_pipeline.PipelineTests.test_backup_root_must_match_independent_receipt) ... ok
+test_blocked_endpoint_has_durable_failure_receipt (test_pipeline.PipelineTests.test_blocked_endpoint_has_durable_failure_receipt) ... ok
+test_blocked_or_malformed_prior_checks_never_earn_retry_success (test_pipeline.PipelineTests.test_blocked_or_malformed_prior_checks_never_earn_retry_success) ... ok
+test_bounded_collection_keeps_full_inventory_and_partial_facts (test_pipeline.PipelineTests.test_bounded_collection_keeps_full_inventory_and_partial_facts) ... ok
+test_budget_reservations_survive_restarts (test_pipeline.PipelineTests.test_budget_reservations_survive_restarts) ... ok
+test_canonical_hash_has_no_key_order_dependency (test_pipeline.PipelineTests.test_canonical_hash_has_no_key_order_dependency) ... ok
+test_changed_attempt_json_cannot_override_content_addressed_success (test_pipeline.PipelineTests.test_changed_attempt_json_cannot_override_content_addressed_success) ... ok
+test_changed_policy_and_new_day_never_borrow_prior_task_success (test_pipeline.PipelineTests.test_changed_policy_and_new_day_never_borrow_prior_task_success) ... ok
+test_cli_status_is_nonzero_for_missing_or_degraded_coverage (test_pipeline.PipelineTests.test_cli_status_is_nonzero_for_missing_or_degraded_coverage) ... ok
+test_completed_document_can_publish_with_degraded_coverage_for_another_document (test_pipeline.PipelineTests.test_completed_document_can_publish_with_degraded_coverage_for_another_document) ... ok
+test_concurrent_sources_share_document_validation_without_collisions (test_pipeline.PipelineTests.test_concurrent_sources_share_document_validation_without_collisions) ... ok
+test_conditional_responses_keep_each_sources_own_retained_body_chain (test_pipeline.PipelineTests.test_conditional_responses_keep_each_sources_own_retained_body_chain) ... ok
+test_contract_denominator_cannot_change_after_plan (test_pipeline.PipelineTests.test_contract_denominator_cannot_change_after_plan) ... ok
+test_crash_after_promotion_recovers_acknowledgement_without_redeploying (test_pipeline.PipelineTests.test_crash_after_promotion_recovers_acknowledgement_without_redeploying) ... ok
+test_currency_and_qualifier_survive_display_formatting (test_pipeline.PipelineTests.test_currency_and_qualifier_survive_display_formatting) ... ok
+test_currency_mismatch_is_rejected (test_pipeline.PipelineTests.test_currency_mismatch_is_rejected) ... ok
+test_daily_identity_uses_utc_even_when_input_has_an_offset (test_pipeline.PipelineTests.test_daily_identity_uses_utc_even_when_input_has_an_offset) ... ok
+test_delta_selection_bounds_history_and_prioritizes_changed_current_documents (test_pipeline.PipelineTests.test_delta_selection_bounds_history_and_prioritizes_changed_current_documents) ... ok
+test_detached_receipt_avoids_circular_hash_and_binds_tested_static_bytes (test_pipeline.PipelineTests.test_detached_receipt_avoids_circular_hash_and_binds_tested_static_bytes) ... ok
+test_distribution_and_investor_sites_are_not_company_discovery (test_pipeline.PipelineTests.test_distribution_and_investor_sites_are_not_company_discovery) ... ok
+test_dropped_qualifier_is_rejected (test_pipeline.PipelineTests.test_dropped_qualifier_is_rejected) ... ok
+test_duplicate_receipt_is_rejected (test_pipeline.PipelineTests.test_duplicate_receipt_is_rejected) ... ok
+test_duplicate_supplier_is_rejected (test_pipeline.PipelineTests.test_duplicate_supplier_is_rejected) ... ok
+test_duplicate_wire_fact_has_one_identity (test_pipeline.PipelineTests.test_duplicate_wire_fact_has_one_identity) ... ok
+test_empty_extraction_cannot_hide_clear_business_signal (test_pipeline.PipelineTests.test_empty_extraction_cannot_hide_clear_business_signal) ... ok
+test_entity_history_does_not_displace_current_work_or_expand_audit_allowance (test_pipeline.PipelineTests.test_entity_history_does_not_displace_current_work_or_expand_audit_allowance) ... ok
+test_entity_url_priority_uses_whole_unambiguous_registered_slugs (test_pipeline.PipelineTests.test_entity_url_priority_uses_whole_unambiguous_registered_slugs) ... ok
+test_exhausted_model_budget_stops_backlog_downloads_but_keeps_missing_inventory (test_pipeline.PipelineTests.test_exhausted_model_budget_stops_backlog_downloads_but_keeps_missing_inventory) ... ok
+test_exhausted_retry_reuses_hash_checked_success_without_refreshing_dates (test_pipeline.PipelineTests.test_exhausted_retry_reuses_hash_checked_success_without_refreshing_dates) ... ok
+test_existing_publication_metadata_keeps_its_cache_and_ambiguous_metadata_stays_held (test_pipeline.PipelineTests.test_existing_publication_metadata_keeps_its_cache_and_ambiguous_metadata_stays_held) ... ok
+test_expansion_has_no_hardcoded_supplier_limit (test_pipeline.PipelineTests.test_expansion_has_no_hardcoded_supplier_limit) ... ok
+test_expired_cloud_lease_can_be_recovered_but_expired_owner_cannot_continue (test_pipeline.PipelineTests.test_expired_cloud_lease_can_be_recovered_but_expired_owner_cannot_continue) ... ok
+test_explicit_quiet_document_has_no_change_receipt (test_pipeline.PipelineTests.test_explicit_quiet_document_has_no_change_receipt) ... ok
+test_fabricated_quote_is_rejected (test_pipeline.PipelineTests.test_fabricated_quote_is_rejected) ... ok
+test_fresh_cli_verifier_reconstructs_a_run_from_durable_receipts (test_pipeline.PipelineTests.test_fresh_cli_verifier_reconstructs_a_run_from_durable_receipts) ... ok
+test_fresh_cloud_bootstrap_restores_remote_state_and_excludes_overlapping_sessions (test_pipeline.PipelineTests.test_fresh_cloud_bootstrap_restores_remote_state_and_excludes_overlapping_sessions) ... ok
+test_fresh_governance_run_does_not_extend_actual_source_freshness (test_pipeline.PipelineTests.test_fresh_governance_run_does_not_extend_actual_source_freshness) ... ok
+test_fresh_receipt_cannot_reuse_stale_future_or_tampered_source (test_pipeline.PipelineTests.test_fresh_receipt_cannot_reuse_stale_future_or_tampered_source) ... ok
+test_fresh_receipt_cannot_reuse_stale_source_check (test_pipeline.PipelineTests.test_fresh_receipt_cannot_reuse_stale_source_check) ... ok
+test_full_cycle_is_idempotent_and_cache_saves_model_calls (test_pipeline.PipelineTests.test_full_cycle_is_idempotent_and_cache_saves_model_calls) ... ok
+test_future_acquisition_cannot_be_closed (test_pipeline.PipelineTests.test_future_acquisition_cannot_be_closed) ... ok
+test_gate_attempt_is_checkpointed_before_external_dispatch (test_pipeline.PipelineTests.test_gate_attempt_is_checkpointed_before_external_dispatch) ... ok
+test_github_provenance_requires_actual_run_and_exact_artifact (test_pipeline.PipelineTests.test_github_provenance_requires_actual_run_and_exact_artifact) ... ok
+test_governance_rejects_a_downloaded_document_without_semantic_accounting (test_pipeline.PipelineTests.test_governance_rejects_a_downloaded_document_without_semantic_accounting) ... ok
+test_health_cannot_borrow_another_policys_success_or_ignore_gaps (test_pipeline.PipelineTests.test_health_cannot_borrow_another_policys_success_or_ignore_gaps) ... ok
+test_immutable_object_overwrite_is_rejected (test_pipeline.PipelineTests.test_immutable_object_overwrite_is_rejected) ... ok
+test_incompatible_transport_host_policies_do_not_share (test_pipeline.PipelineTests.test_incompatible_transport_host_policies_do_not_share) ... ok
+test_independent_press_alone_is_held_from_the_site (test_pipeline.PipelineTests.test_independent_press_alone_is_held_from_the_site) ... ok
+test_independent_reviewer_disagreement_is_held (test_pipeline.PipelineTests.test_independent_reviewer_disagreement_is_held) ... ok
+test_kernel_lock_prevents_concurrent_publishers (test_pipeline.PipelineTests.test_kernel_lock_prevents_concurrent_publishers) ... ok
+test_labeled_publication_time_is_read_without_borrowing_an_event_or_listing_date (test_pipeline.PipelineTests.test_labeled_publication_time_is_read_without_borrowing_an_event_or_listing_date) ... ok
+test_live_failure_rolls_back_and_retains_last_good_head (test_pipeline.PipelineTests.test_live_failure_rolls_back_and_retains_last_good_head) ... ok
+test_lock_releases_after_worker_process_crash (test_pipeline.PipelineTests.test_lock_releases_after_worker_process_crash) ... ok
+test_managed_proxy_owns_dns_but_cannot_bypass_host_or_literal_ip_guards (test_pipeline.PipelineTests.test_managed_proxy_owns_dns_but_cannot_bypass_host_or_literal_ip_guards) ... ok
+test_matrix_cannot_borrow_success_from_changed_contract (test_pipeline.PipelineTests.test_matrix_cannot_borrow_success_from_changed_contract) ... ok
+test_missing_date_is_held (test_pipeline.PipelineTests.test_missing_date_is_held) ... ok
+test_missing_family_stays_in_denominator (test_pipeline.PipelineTests.test_missing_family_stays_in_denominator) ... ok
+test_missing_or_stale_health_is_not_green (test_pipeline.PipelineTests.test_missing_or_stale_health_is_not_green) ... ok
+test_missing_receipt_is_rejected (test_pipeline.PipelineTests.test_missing_receipt_is_rejected) ... ok
+test_mixed_invalid_audit_cursor_types_remain_due_and_sort_safely (test_pipeline.PipelineTests.test_mixed_invalid_audit_cursor_types_remain_due_and_sort_safely) ... ok
+test_native_cloud_roundtrip_separates_review_and_replays_without_refetch_or_rebudget (test_pipeline.PipelineTests.test_native_cloud_roundtrip_separates_review_and_replays_without_refetch_or_rebudget) ... ok
+test_native_queue_rejects_wrong_role_policy_schema_staleness_and_answer_overwrite (test_pipeline.PipelineTests.test_native_queue_rejects_wrong_role_policy_schema_staleness_and_answer_overwrite) ... ok
+test_new_publication_time_reextracts_old_held_cache_then_reuses_reviewed_result (test_pipeline.PipelineTests.test_new_publication_time_reextracts_old_held_cache_then_reuses_reviewed_result) ... ok
+test_no_change_with_new_facts_is_rejected (test_pipeline.PipelineTests.test_no_change_with_new_facts_is_rejected) ... ok
+test_object_tamper_is_detected_on_read (test_pipeline.PipelineTests.test_object_tamper_is_detected_on_read) ... ok
+test_official_vercel_adapter_uploads_only_prebuilt_output (test_pipeline.PipelineTests.test_official_vercel_adapter_uploads_only_prebuilt_output) ... ok
+test_pagination_budget_is_not_completeness (test_pipeline.PipelineTests.test_pagination_budget_is_not_completeness) ... ok
+test_paid_api_fallback_is_rejected (test_pipeline.PipelineTests.test_paid_api_fallback_is_rejected) ... ok
+test_parallel_compatible_bindings_share_one_fetch_with_distinct_provenance (test_pipeline.PipelineTests.test_parallel_compatible_bindings_share_one_fetch_with_distinct_provenance) ... ok
+test_partial_download_task_facts_are_not_eligible_and_cursor_does_not_advance (test_pipeline.PipelineTests.test_partial_download_task_facts_are_not_eligible_and_cursor_does_not_advance) ... ok
+test_pending_contains_only_unselected_due_work_including_failed_stale_changed_and_invalid (test_pipeline.PipelineTests.test_pending_contains_only_unselected_due_work_including_failed_stale_changed_and_invalid) ... ok
+test_policy_change_cannot_reset_subscription_daily_budget (test_pipeline.PipelineTests.test_policy_change_cannot_reset_subscription_daily_budget) ... ok
+test_prebuilt_archive_rejects_traversal_and_executable_functions (test_pipeline.PipelineTests.test_prebuilt_archive_rejects_traversal_and_executable_functions) ... ok
+test_private_and_unapproved_targets_are_rejected (test_pipeline.PipelineTests.test_private_and_unapproved_targets_are_rejected) ... ok
+test_promote_timeout_also_rolls_back (test_pipeline.PipelineTests.test_promote_timeout_also_rolls_back) ... ok
+test_qualifier_changes_produce_distinct_assertions (test_pipeline.PipelineTests.test_qualifier_changes_produce_distinct_assertions) ... ok
+test_real_roster_has_all_74_and_honest_gaps (test_pipeline.PipelineTests.test_real_roster_has_all_74_and_honest_gaps) ... ok
+test_rejected_claim_is_quarantined_without_blocking_a_supported_fact (test_pipeline.PipelineTests.test_rejected_claim_is_quarantined_without_blocking_a_supported_fact) ... ok
+test_release_requires_current_coverage_and_exact_sec_claim_inventory (test_pipeline.PipelineTests.test_release_requires_current_coverage_and_exact_sec_claim_inventory) ... ok
+test_remote_archive_restores_without_original_worker_and_rejects_tampering (test_pipeline.PipelineTests.test_remote_archive_restores_without_original_worker_and_rejects_tampering) ... ok
+test_restore_is_independent_of_original_workspace (test_pipeline.PipelineTests.test_restore_is_independent_of_original_workspace) ... ok
+test_rss_channel_pagination_is_retained (test_pipeline.PipelineTests.test_rss_channel_pagination_is_retained) ... ok
+test_scarce_fetch_budget_checks_sec_primary_document_before_citations (test_pipeline.PipelineTests.test_scarce_fetch_budget_checks_sec_primary_document_before_citations) ... ok
+test_sec_document_delta_archives_readable_text_then_reuses_immutable_bytes (test_pipeline.PipelineTests.test_sec_document_delta_archives_readable_text_then_reuses_immutable_bytes) ... ok
+test_sec_document_disappearance_inside_retention_is_held (test_pipeline.PipelineTests.test_sec_document_disappearance_inside_retention_is_held) ... ok
+test_sec_index_pair_uses_shared_narrower_policy_and_archives_primary_text (test_pipeline.PipelineTests.test_sec_index_pair_uses_shared_narrower_policy_and_archives_primary_text) ... ok
+test_shared_publisher_entity_exclusions_are_rechecked_without_model_calls (test_pipeline.PipelineTests.test_shared_publisher_entity_exclusions_are_rechecked_without_model_calls) ... ok
+test_shared_publisher_prioritizes_registered_entity_without_dropping_other_urls (test_pipeline.PipelineTests.test_shared_publisher_prioritizes_registered_entity_without_dropping_other_urls) ... ok
+test_snapshot_cannot_renew_stale_coverage_or_accept_failed_task_facts (test_pipeline.PipelineTests.test_snapshot_cannot_renew_stale_coverage_or_accept_failed_task_facts) ... ok
+test_snapshot_connects_verified_statements_to_actual_site_events_and_evidence (test_pipeline.PipelineTests.test_snapshot_connects_verified_statements_to_actual_site_events_and_evidence) ... ok
+test_snapshot_retains_historical_events_without_relabelling_them_new (test_pipeline.PipelineTests.test_snapshot_retains_historical_events_without_relabelling_them_new) ... ok
+test_stale_release_cas_rejected (test_pipeline.PipelineTests.test_stale_release_cas_rejected) ... ok
+test_stale_review_of_changed_value_is_rejected (test_pipeline.PipelineTests.test_stale_review_of_changed_value_is_rejected) ... ok
+test_state_path_cannot_escape_store (test_pipeline.PipelineTests.test_state_path_cannot_escape_store) ... ok
+test_stored_review_is_rechecked_during_reconciliation (test_pipeline.PipelineTests.test_stored_review_is_rechecked_during_reconciliation) ... ok
+test_subscription_runner_strips_infrastructure_and_api_credentials (test_pipeline.PipelineTests.test_subscription_runner_strips_infrastructure_and_api_credentials) ... ok
+test_success_can_recover_after_forced_cap_failure_overwrites_task_head (test_pipeline.PipelineTests.test_success_can_recover_after_forced_cap_failure_overwrites_task_head) ... ok
+test_successful_unchanged_inventory_has_no_false_pending_and_is_not_mutated (test_pipeline.PipelineTests.test_successful_unchanged_inventory_has_no_false_pending_and_is_not_mutated) ... ok
+test_unauthenticated_collection_archives_all_pending_documents_without_advancing (test_pipeline.PipelineTests.test_unauthenticated_collection_archives_all_pending_documents_without_advancing) ... ok
+test_undated_and_historical_audit_is_finite_and_rotates_after_success (test_pipeline.PipelineTests.test_undated_and_historical_audit_is_finite_and_rotates_after_success) ... ok
+test_unique_article_publication_metadata_is_read_but_ambiguous_dates_are_held (test_pipeline.PipelineTests.test_unique_article_publication_metadata_is_read_but_ambiguous_dates_are_held) ... ok
+test_unmatched_entity_is_rejected (test_pipeline.PipelineTests.test_unmatched_entity_is_rejected) ... ok
+test_unsupported_opinion_is_rejected (test_pipeline.PipelineTests.test_unsupported_opinion_is_rejected) ... ok
+test_unverified_endpoint_never_earns_coverage (test_pipeline.PipelineTests.test_unverified_endpoint_never_earns_coverage) ... ok
+test_valid_source_fact_is_accepted (test_pipeline.PipelineTests.test_valid_source_fact_is_accepted) ... ok
+test_value_not_in_source_is_rejected (test_pipeline.PipelineTests.test_value_not_in_source_is_rejected) ... ok
+test_weekly_reconciliation_cannot_replace_daily (test_pipeline.PipelineTests.test_weekly_reconciliation_cannot_replace_daily) ... ok
+test_wrong_deployed_data_receipt_fails (test_pipeline.PipelineTests.test_wrong_deployed_data_receipt_fails) ... ok
+test_xml_external_entities_are_rejected (test_pipeline.PipelineTests.test_xml_external_entities_are_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 115 tests in 1.472s
+
+OK
+
+> security-market-pulse@0.0.0 build
+> node scripts/app-release.mjs
+
+Current facts verified: original histories and all exported event, supplier and evidence views match.
+{"complete":true,"required":80,"verified":80,"blockers":0,"drift":0}
+
+> security-market-pulse@0.0.0 build:certified
+> npm run verify:edition && npm run verify:panel && npm run verify:integrity && npm run verify:issue && npm run verify:prints && npm run verify:tracker && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo && npm run build:feed && npm run verify:dist
+
+
+> security-market-pulse@0.0.0 verify:edition
+> tsx scripts/verify-edition.ts
+
+Edition integrity check passed (SHA-256: c3f8646e46d34588be5eb27d090873e81cfca29172b5cdf95d1f0dd7db1d3d1e )
+
+> security-market-pulse@0.0.0 verify:panel
+> tsx scripts/verify-panel.ts
+
+Panel integrity check passed (SHA-256: cd7070458d4511b95f6ca433ad34cdb8488d44c67b6c8eb61a982fb760e0d1f2 )
+
+> security-market-pulse@0.0.0 verify:integrity
+> tsx --tsconfig tsconfig.app.json scripts/verify-integrity.ts
+
+Unreferenced evidence records (5):
+  A4 - Dell Q1 FY27 Financial Results
+  A5 - Vertiv Q4 2025 and Q2 2026 Results
+  A6 - Broadcom Q1–Q2 FY26 Financial Results
+  B4 - Meta Q2 2026 Results
+  B5 - Oracle FY2026 Results
+Integrity check passed
+
+> security-market-pulse@0.0.0 verify:issue
+> tsx --tsconfig tsconfig.app.json scripts/verify-issue.ts
+
+verify:issue check 8: git-parent anchor: 1 parent manifest(s) read (829a093b).
+verify:issue check 8: network anchor: HTTP 200, 1 entries from https://securitymarketpulse.com/issues/lock.json.
+PASS  1 ordering-id-format-sunday-unique
+PASS  2 windows-no-overlap
+PASS  3 four-sections-lane-order
+PASS  4 item-evidence-and-window
+PASS  5 publish-signature-consistency
+PASS  6 at-most-one-draft-newest
+PASS  7 production-guard-main-published
+PASS  8 issues-lock-manifest — anchors: git: 1 parents read; network: 200 + 1 entries
+PASS  9 posture-deltas-agree
+PASS  12 numeric-tokens-cited
+PASS  13 strict-dates
+PASS  14 bounds
+PASS  15 evidence-receipts
+PASS  16 fiscal-period-mismatch
+PASS  17 reconfirmations-valid
+PASS  10 render-check
+verify:issue passed
+
+> security-market-pulse@0.0.0 verify:prints
+> tsx --tsconfig tsconfig.app.json scripts/verify-prints.ts
+
+WARN  print-crwd-cloud — on the unverified list; fails period (card period "FY26" labels a full year, but its only period evidence ("C13": economicPeriod "Quarter ended 2026-01-31") is a single quarter)
+
+verify:prints — 44 pass, 1 on the unverified list, 0 fail (45 prints total)
+not-checkable by dimension: metric=45, period=6, value=6, units=6
+verify:prints passed
+
+> security-market-pulse@0.0.0 verify:tracker
+> tsx --tsconfig tsconfig.app.json scripts/verify-tracker.ts
+
+verify:tracker — 12 domains, 74 suppliers, 124 events
+  endpoint-xdr: 6 supplier(s)
+  secops: 7 supplier(s)
+  managed-security: 7 supplier(s)
+  network-sase: 7 supplier(s)
+  cloud: 7 supplier(s)
+  identity: 7 supplier(s)
+  data: 7 supplier(s)
+  exposure: 7 supplier(s)
+  appsec: 6 supplier(s)
+  email: 7 supplier(s)
+  ot-iot: 6 supplier(s)
+  ai-security: 7 supplier(s)
+verify:tracker passed
+
+> security-market-pulse@0.0.0 build:client
+> vite build
+
+vite v8.2.1 building client environment for production...
+[2Ktransforming...✓ 1871 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     3.57 kB │ gzip:   1.21 kB
+dist/assets/index-DnG1v0PK.css     83.15 kB │ gzip:  14.39 kB
+dist/assets/index-DDQS69gm.js   7,774.50 kB │ gzip: 945.56 kB
+
+✓ built in 417ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+> security-market-pulse@0.0.0 build:server
+> vite build --ssr src/entry-server.tsx --outDir dist-ssr
+
+vite v8.2.1 building ssr environment for production...
+[2Ktransforming...✓ 79 modules transformed.
+rendering chunks...
+computing gzip size...
+dist-ssr/entry-server.js  8,520.85 kB │ gzip: 920.43 kB
+
+✓ built in 155ms
+
+> security-market-pulse@0.0.0 prerender
+> tsx scripts/prerender.ts
+
+Prerender OK: route "/" — 5 sections verified un-nested; wrote dist/index.html (301337 bytes).
+Prerender OK: route "/issues/" — 1 sections verified un-nested; wrote dist/issues/index.html (5288 bytes).
+Prerender OK: route "/corrections/" — 1 sections verified un-nested; wrote dist/corrections/index.html (7330 bytes).
+Prerender OK: route "/thesis/" — 2 sections verified un-nested; wrote dist/thesis/index.html (10785 bytes).
+Prerender OK: route "/issues/2026-w36/" — 6 sections verified un-nested; wrote dist/issues/2026-w36/index.html (32111 bytes).
+Prerender OK: 5 route(s) written.
+
+> security-market-pulse@0.0.0 seo
+> tsx scripts/generate-seo.ts
+
+SEO OK: injected 1276 chars of JSON-LD into route "/".
+SEO OK: injected 604 chars of JSON-LD into route "/issues/".
+SEO OK: injected 582 chars of JSON-LD into route "/corrections/".
+SEO OK: injected 1206 chars of JSON-LD into route "/thesis/".
+SEO OK: injected 1183 chars of JSON-LD into route "/issues/2026-w36/".
+SEO OK: wrote dist/sitemap.xml with 5 route(s) and 5 JSON machine-surface entries.
+
+> security-market-pulse@0.0.0 build:feed
+> tsx --tsconfig tsconfig.app.json scripts/generate-feed.ts
+
+generate-feed OK: dist/feed.xml written with 3 item(s).
+generate-feed OK: wrote 1 dist/issues/<id>.json file(s).
+generate-feed OK: wrote dist/corrections.json with 2 entries.
+generate-feed OK: wrote dist/issues/index.json with 1 entry.
+generate-feed OK: wrote dist/issues/lock.json with 1 entry.
+generate-feed OK: wrote dist/tracker.json with 147 figure(s).
+generate-feed OK: added feed + 5 JSON alternate link(s) to 5 route(s).
+
+> security-market-pulse@0.0.0 verify:dist
+> tsx --tsconfig tsconfig.app.json scripts/verify-dist.ts
+
+PASS  11a every-route-html-exists — 5 route HTML file(s) present
+PASS  11b every-issue-json-exists — 1 issue JSON file(s) present, well-formed, and identity-checked (issue + full evidence bodies)
+PASS  11c issues-index-json-exists — 1 entries in the expected newest-first order, full row identity checked
+PASS  11d feed-xml-exists-and-parses — 1 issue <item>(s) + 2 correction <item>(s), guid sets and per-item pubDate verified
+PASS  11e sitemap-xml-lists-every-route — 5 route(s) present in sitemap.xml
+PASS  11f issues-lock-json-matches-source — dist/issues/lock.json matches the source manifest exactly, 1 entry
+PASS  11g route-description-meta-identity — front page description confirmed distinct; 2 non-front route(s) verified (description, og:description, twitter:description)
+PASS  11h alternate-link-targets-exist — 30 alternate link target(s) verified across 5 route(s), corrections.json and tracker.json links confirmed on every route
+PASS  11i corrections-json-exists — 2 correction(s) present, well-formed, and identity-checked
+PASS  11k factual-corrections-json-exists — 0 group(s) match the gate projection
+PASS  11j tracker-json-exists — 147 figure(s) across 74 supplier(s), well-formed, and identity-checked
+verify:dist passed
+{"allowed":true,"releaseKind":"certified","dataUpdated":true,"certifiedAt":"2026-10-21T04:45:33.748Z","contractVersion":"smp-certified-v2","rootView":"tracker","appRevision":null,"appBuiltAt":"2026-11-02T19:47:49.797Z","dailyRunId":"334f0f2ef3ed1d957189585ee36fcf6d9934bae9b626febf1cde661657c7b058","dailySnapshotSha256":"d222be9b407e2f2e75b637629c5dd581f37216d0a05ca11e9e92245fe75d5493","dailyContractSha256":"6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68","dailyCoverageComplete":false,"dailyCoverageMeasure":"daily_source_intake_v2","dailyIntakeComplete":false,"dailyProcessingComplete":false,"dailyHistoricalReviewComplete":false}
+
+> security-market-pulse@0.0.0 test:e2e
+> node scripts/ensure-test-browser.mjs && node scripts/run-browser-tests.mjs
+
+
+Running 45 tests using 9 workers
+
+[1/45] [chromium] › tests/e2e/company-search.spec.ts:4:3 › company search stays visible, opens sourced records and resets at 1440px
+[2/45] [chromium] › tests/e2e/fonts.spec.ts:6:3 › all pinned fonts load without outside network at 1440px
+[3/45] [chromium] › tests/e2e/daily.spec.ts:4:1 › visible collection status agrees with the public source receipt
+[4/45] [chromium] › tests/e2e/varonis.spec.ts:6:3 › Varonis agreement is readable from acquisitions and supplier record at 1440px
+[5/45] [chromium] › tests/e2e/thesis.spec.ts:15:3 › /thesis/ — the standing thesis › renders the headline, running score, change triggers, no-call boundaries and Do/Avoid
+[6/45] [chromium] › tests/e2e/smoke.spec.ts:35:1 › renders the market briefing without runtime errors
+[7/45] [desktop] › tests/e2e/issue.spec.ts:31:3 › weekly issue — front page › h1 is the site headline, run status is visible; the tracker and standing reference are visible
+[8/45] [desktop] › tests/e2e/corrections.spec.ts:21:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › the corrected issue's own page shows the corrected note beside both items, originals still present
+[9/45] [chromium] › tests/e2e/hybrid.spec.ts:6:3 › approved hybrid works at 1440px with keyboard, sourced figures and compact phone views
+[10/45] [desktop] › tests/e2e/corrections.spec.ts:45:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › issue permalink shows the corrected note beside both items
+[11/45] [chromium] › tests/e2e/thesis.spec.ts:66:3 › /thesis/ — the standing thesis › an evidence chip opens the drawer
+[12/45] [desktop] › tests/e2e/issue.spec.ts:83:3 › weekly issue — front page › /issues/ lists every issue and carries the discontinuation notice
+[13/45] [chromium] › tests/e2e/fonts.spec.ts:6:3 › all pinned fonts load without outside network at 390px
+[14/45] [chromium] › tests/e2e/daily.spec.ts:32:1 › a missed future run becomes visibly overdue without another deployment
+[15/45] [desktop] › tests/e2e/corrections.spec.ts:56:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections/ renders the entry and the anchor resolves
+[16/45] [desktop] › tests/e2e/issue.spec.ts:94:3 › weekly issue — front page › /issues/<newest>/ renders with the same h1 and the discontinuation notice, content unaltered
+[17/45] [chromium] › tests/e2e/varonis.spec.ts:6:3 › Varonis agreement is readable from acquisitions and supplier record at 390px
+[18/45] [chromium] › tests/e2e/thesis.spec.ts:90:3 › /thesis/ — the standing thesis › front page: no #read pointer, no #we-think, and the full argument is gone
+[19/45] [phone] › tests/e2e/corrections.spec.ts:21:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › the corrected issue's own page shows the corrected note beside both items, originals still present
+[20/45] [chromium] › tests/e2e/fonts.spec.ts:14:1 › a missing font fails even when fallback text remains readable
+[21/45] [chromium] › tests/e2e/company-search.spec.ts:4:3 › company search stays visible, opens sourced records and resets at 390px
+[22/45] [desktop] › tests/e2e/corrections.spec.ts:70:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections.json is served and matches the source data
+[23/45] [desktop] › tests/e2e/corrections.spec.ts:92:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections/ retains owner notes alongside every source-verified factual correction
+[24/45] [chromium] › tests/e2e/smoke.spec.ts:122:1 › no judged stamps on the front page
+[25/45] [desktop] › tests/e2e/issue.spec.ts:107:3 › weekly issue — front page › /feed.xml returns 200 with an XML content type
+[26/45] [desktop] › tests/e2e/issue.spec.ts:114:3 › weekly issue — front page › /issues/<newest>.json parses with a non-empty evidence array
+[27/45] [desktop] › tests/e2e/issue.spec.ts:134:3 › weekly issue — front page › permalink page: clicking "Market" navigates to the front page at #market
+[28/45] [chromium] › tests/e2e/fonts.spec.ts:18:1 › a corrupt font fails even with a successful HTTP response
+[29/45] [phone] › tests/e2e/corrections.spec.ts:45:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › issue permalink shows the corrected note beside both items
+[30/45] [desktop] › tests/e2e/corrections.spec.ts:119:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /factual-corrections.json matches the complete gate projection
+[31/45] [chromium] › tests/e2e/smoke.spec.ts:133:1 › supplier records link attributed public sources and close with Escape
+[32/45] [phone] › tests/e2e/corrections.spec.ts:56:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections/ renders the entry and the anchor resolves
+[33/45] [phone] › tests/e2e/issue.spec.ts:31:3 › weekly issue — front page › h1 is the site headline, run status is visible; the tracker and standing reference are visible
+[34/45] [chromium] › tests/e2e/fonts.spec.ts:22:1 › a reintroduced Google stylesheet fails with outside network denied
+[35/45] [chromium] › tests/e2e/hybrid.spec.ts:6:3 › approved hybrid works at 390px with keyboard, sourced figures and compact phone views
+[36/45] [chromium] › tests/e2e/smoke.spec.ts:152:1 › the front page never opens a judged evidence record
+[37/45] [phone] › tests/e2e/corrections.spec.ts:70:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections.json is served and matches the source data
+[38/45] [phone] › tests/e2e/corrections.spec.ts:92:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections/ retains owner notes alongside every source-verified factual correction
+[39/45] [phone] › tests/e2e/issue.spec.ts:83:3 › weekly issue — front page › /issues/ lists every issue and carries the discontinuation notice
+[40/45] [chromium] › tests/e2e/smoke.spec.ts:172:1 › every rendered certification date reads the same receipt
+[41/45] [phone] › tests/e2e/corrections.spec.ts:119:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /factual-corrections.json matches the complete gate projection
+[42/45] [phone] › tests/e2e/issue.spec.ts:94:3 › weekly issue — front page › /issues/<newest>/ renders with the same h1 and the discontinuation notice, content unaltered
+[43/45] [phone] › tests/e2e/issue.spec.ts:107:3 › weekly issue — front page › /feed.xml returns 200 with an XML content type
+[44/45] [phone] › tests/e2e/issue.spec.ts:114:3 › weekly issue — front page › /issues/<newest>.json parses with a non-empty evidence array
+[45/45] [phone] › tests/e2e/issue.spec.ts:134:3 › weekly issue — front page › permalink page: clicking "Market" navigates to the front page at #market
+  1 skipped
+  44 passed (7.2s)

@@ -1,0 +1,225 @@
+{
+  "kind": "three_source_current_j_readonly_replay",
+  "archive": {
+    "commit": "52632a360f4099f142ed0e10e46338e1d91f1bc9",
+    "manifestSha256": "3cb739133b60e03d418480e53ee8c454dca616efa8d3585fde87c5eb9ac61438",
+    "entries": 69873,
+    "beforeSha256": "c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4",
+    "afterSha256": "c271100dd2207d5bae2e900e36b61b3a9a48bb82be47f51231097095a41f9de4",
+    "allBytesAndMtimesUnchanged": true,
+    "consumedEntries": 44167,
+    "readsetSha256": "8931b1a83fd1cb437ccf92295676286336d53bc3912c0b12f47673489b9173d8"
+  },
+  "contractSha256": "6cb053a5954a52f2dddf7773caeca1db436dbe5966e085ea421d911691774a68",
+  "previousContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "seedManifestSha256": "01d8478e12f6ee53b977f144ac18305cac302e05f564710b7a9009fface67dcd",
+  "immutableUnionFiles": 135,
+  "qualificationInventories": {
+    "ping-identity:official:1": {
+      "documents": 242,
+      "itemsSha256": "226af03e5ebf611596fa18746e7b90b8562f5f741e33c96bdd8459d6e090589a",
+      "completedAt": "2026-10-24T17:38:02.691908Z"
+    },
+    "delinea:official:1": {
+      "documents": 290,
+      "itemsSha256": "92117424b5448fb56ad9c00ff27a56cb58649ef19a8684cf6b7bdf2066b13f93",
+      "completedAt": "2026-10-24T17:38:02.691908Z"
+    },
+    "sonatype:official:1": {
+      "documents": 205,
+      "itemsSha256": "01c30b57b2240972d239e58b4af4dc893532ff23f33edc69867cc8f32ce4b8ad",
+      "completedAt": "2026-10-24T17:38:02.691908Z"
+    },
+    "jfrog:official:1": {
+      "documents": 206,
+      "itemsSha256": "75edc6095fb895b5ac2903749f97433c58da18440343cf30914d2f817f629e78",
+      "completedAt": "2026-10-25T11:20:11.500772Z"
+    },
+    "rapid7:official:1": {
+      "documents": 323,
+      "itemsSha256": "c0691a7c6042ff434c93c99c9acb75bfc075a52c2b950051d24ad80e8eb1ea5e",
+      "completedAt": "2026-10-25T11:20:11.500772Z"
+    },
+    "cato:official:1": {
+      "documents": 127,
+      "itemsSha256": "8114e030a2f7d66ca0e8880a230c6ef885c03bde11e3697519ed67993c59e0b3",
+      "completedAt": "2026-10-27T15:49:15.139840Z"
+    },
+    "chainguard:official:1": {
+      "documents": 47,
+      "itemsSha256": "7b5422085cedecd0eaaa40daf0296a7a786dfb3c8b1c21455bddaeccaab13aa4",
+      "completedAt": "2026-10-27T15:49:15.139840Z"
+    },
+    "cyera:official:1": {
+      "documents": 56,
+      "itemsSha256": "875e8624704a37889e37c25f0d8062f458376331e4c32e74a9cec0d64065d7fd",
+      "completedAt": "2026-10-27T15:49:15.139840Z"
+    }
+  },
+  "historicalPreservation": {
+    "inventoryPairs": 27710,
+    "inventoryPairsSha256": "50d4c8d2655ae4cc81a74dc8178ff49fd5199956e725f2051aa2c7a549236b59",
+    "retainedInventoryPairs": 10655,
+    "retainedInventoryPairsSha256": "83debad51f9e8a3a14ea78afd1e7b5cf86c820ccb0df4325b6a889182fdd4e80",
+    "retainedBindings": 39,
+    "retainedBindingsSha256": "b55dcf4603a632890a36d24692aedacc20e440630a5dfb72d8e7fe965e79a670",
+    "factReferences": 52,
+    "factReferencesSha256": "bf02a2d835309ad81289a78789d45e5de30d63348a9e8d95fdaf5780f3a1df64",
+    "reviewQueueEntries": 38,
+    "reviewQueueSha256": "28228e972db489d6058d674ab481e64ee2aeb4215fce569862835c073f704a36",
+    "snapshotSha256": "35f75a9235129b577a134b4150884e8438d80898335873c1b402c35ea34eafed",
+    "protectedReferencesSha256": "d16c7f5b7a5f4600a7072ad22130ed525ff92144ea74a9a69be7af04cd3f27e2"
+  },
+  "unchangedSemanticContexts": 300,
+  "semanticContextMapSha256": "45ccd34d56640cfec190ddf2e38c7bf04e46b3a4976b6399f2bd38084c7ffbcd",
+  "prospectiveBaselineOnly": true,
+  "prospectiveBaselineSuccessfulTasks": 0,
+  "currentState": {
+    "runId": "51a9fbabd0cbd69cdbb807ac97f0baa5519cd8b53962bdff9f6c6096b8cf0b97",
+    "snapshotSha256": "d3bb045ebc19771151d5fa9c604f8f34d4a98b7c808d3060e0fb0f62df37b163",
+    "reviewQueue": {
+      "entries": 51,
+      "sha256": "cd6944cf4fdc4855cbe57a227cc34b124fbe4c96636232ebceec283a65e830e0"
+    },
+    "processing": {
+      "changedDocuments": 2,
+      "complete": false,
+      "heldDocuments": 20,
+      "inventoryDocuments": 11671,
+      "pendingDocuments": 11588,
+      "reviewedDocuments": 83,
+      "unknownDateDocuments": 1479
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 20,
+      "inventoryDocuments": 11671,
+      "pendingDocuments": 11587,
+      "reviewedDocuments": 84
+    },
+    "currentReceiptsRead": 557,
+    "retainedReceiptsAttempted": 47,
+    "retainedReceiptsReplayed": 47,
+    "retainedReplayFailures": [],
+    "documentResolutionCount": 2,
+    "derivedHoldMarkerChanges": 0,
+    "allQueueIdentitiesAndResolutionsPreserved": true,
+    "originalSourceClockSubjects": 5206,
+    "originalSourceClocksSha256": "ff93ac2188d95044349288970cab546398437d38ab12d161840f62fcbf016433"
+  },
+  "corrections": {
+    "cachedAdmissions": 8,
+    "priorIndexRows": [
+      {
+        "admission": {
+          "bytes": 1522,
+          "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+        },
+        "groupId": "FC-20261023-checkpoint-sase"
+      },
+      {
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+          "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+        },
+        "groupId": "FC-20261023-optiv"
+      },
+      {
+        "admission": {
+          "bytes": 988,
+          "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+          "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+        },
+        "groupId": "FC-20261023-splunk"
+      },
+      {
+        "admission": {
+          "bytes": 1460,
+          "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+        },
+        "groupId": "FC-20261023-zscaler"
+      },
+      {
+        "admission": {
+          "bytes": 1493,
+          "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+          "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+        },
+        "groupId": "FC-20261023-expel"
+      },
+      {
+        "admission": {
+          "bytes": 1340,
+          "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+          "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+        },
+        "groupId": "XAGE-SOURCE-CLASS-20261023"
+      },
+      {
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/fa334190f65307bc4152eb736f717bd3f046a5f55d0bc32298c3938fda86ea48",
+          "sha256": "fa334190f65307bc4152eb736f717bd3f046a5f55d0bc32298c3938fda86ea48"
+        },
+        "groupId": "FC-PROPOSED-20261025-varonis-event-qualifiers"
+      },
+      {
+        "admission": {
+          "bytes": 1816,
+          "key": "objects/201fb809359981aacbc8a820e1dc776a4637a57009e627503af7fe7ce289f7fc",
+          "sha256": "201fb809359981aacbc8a820e1dc776a4637a57009e627503af7fe7ce289f7fc"
+        },
+        "groupId": "FC-PROPOSED-20261025-s1-event-qualifiers"
+      }
+    ],
+    "originalAdmittedAt": {
+      "FC-20261023-checkpoint-sase": "2026-10-24T00:36:49.557183Z",
+      "FC-20261023-optiv": "2026-10-24T00:06:23.550203Z",
+      "FC-20261023-splunk": "2026-10-24T00:06:29.666148Z",
+      "FC-20261023-zscaler": "2026-10-24T00:36:59.336802Z",
+      "FC-20261023-expel": "2026-10-24T00:06:43.307502Z",
+      "XAGE-SOURCE-CLASS-20261023": "2026-10-24T00:06:50.078120Z",
+      "FC-PROPOSED-20261025-varonis-event-qualifiers": "2026-10-26T03:28:07.160054Z",
+      "FC-PROPOSED-20261025-s1-event-qualifiers": "2026-10-26T03:28:26.072754Z"
+    },
+    "perGroupReviewPolicy": {
+      "FC-20261023-checkpoint-sase": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "FC-20261023-optiv": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "FC-20261023-splunk": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "FC-20261023-zscaler": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "FC-20261023-expel": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "XAGE-SOURCE-CLASS-20261023": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "FC-PROPOSED-20261025-varonis-event-qualifiers": "dd065bf64256744de931c141f5163ed84259ab443714ccb71155fff9955a42ab",
+      "FC-PROPOSED-20261025-s1-event-qualifiers": "bec04068932539b5e2e29458898ef59cc4ee839832c807874da6ed82933e74a5"
+    },
+    "publishedGroupsSha256": "1638891993e51d036e7c4d2d5296d59d9588b1eb57d70725bc89b1e4c9836652",
+    "publishedGroupDates": {
+      "FC-20261023-checkpoint-sase": "2026-10-24",
+      "FC-20261023-optiv": "2026-10-24",
+      "FC-20261023-splunk": "2026-10-24",
+      "FC-20261023-zscaler": "2026-10-24",
+      "FC-20261023-expel": "2026-10-24",
+      "XAGE-SOURCE-CLASS-20261023": "2026-10-24",
+      "FC-PROPOSED-20261025-varonis-event-qualifiers": "2026-10-26",
+      "FC-PROPOSED-20261025-s1-event-qualifiers": "2026-10-26"
+    },
+    "allPublicGroupsExactlyPreserved": true
+  },
+  "productionHeadReadOnly": {
+    "deploymentId": "https://security-market-pulse-1s539qt26-pikeholdings.vercel.app",
+    "releaseId": "ed8ffe5d14d6e5df4e3555ab55df315d8d0f2870228d1865e3c4b2b0ba38250a",
+    "sequence": 8
+  },
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "reservations": 0,
+  "stateWrites": 0,
+  "publicationAttempts": 0,
+  "coverageCredit": false,
+  "semanticAdmission": false,
+  "currentReplayPassed": true,
+  "durationSeconds": 123.849
+}
