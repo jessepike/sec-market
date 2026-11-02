@@ -1,0 +1,8 @@
+{
+  "command": "python3 ops/evaluation/scorecard.py --manifest docs/active/daily-pipeline/evaluations/2026-11-02/rollback-refusal-inputs.json --output /tmp/refused-rollback-scorecard",
+  "returnCode": 2,
+  "stdout": "",
+  "stderr": "Evaluation refused: 'drill'\n",
+  "outputsWritten": false,
+  "reason": "The actual skipped preflight has no drill object. Keep the unchanged evaluator contract and current rollback unmeasured rather than fabricating a drill receipt."
+}

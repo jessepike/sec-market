@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "normal_reader_preview_intent",
+  "createdAt": "2026-11-02T18:52:39Z",
+  "authority": "D-125 owner-requested always-visible search and continuing runner reductions; normal D-115 daily allowance",
+  "scope": "ONE automatic Git Preview build on existing reader project; not a managed-runtime trial",
+  "sourceHashes": {
+    "current": "c40d16b3725c2d8e4b66c6dbb9ecf1af2ed6a2d4bce07de23cf60212f2bddf44",
+    "previous": "625f504b3ab77092fcb0651c2b02e6fd2b8ee4f41e79be2e66161f39805a5d67"
+  },
+  "day": "2026-11-02",
+  "timezone": "America/Los_Angeles",
+  "reportedCombinedDayUsd": "0.01841751735858047592",
+  "conservativeObservedFloorPicodollars": "18557696061",
+  "pendingBasicBuildPicodollars": "14000000000",
+  "existingStorageGrowthPicodollars": "4500000000",
+  "additionalRetainedDeploymentPicodollars": "4200000000",
+  "analyticsAndUncertaintyPicodollars": "1000000000",
+  "projectedTotalPicodollars": "42257696061",
+  "dailyLimitPicodollars": "50000000000",
+  "allowed": true,
+  "previewBuildMaximumMs": 120000,
+  "basicCoresRequired": 2,
+  "followOnProductionBuildAuthorizedByThisIntent": false,
+  "paidManagedTrialAllowed": false,
+  "limits": [
+    "Actual billed CPU may lag; retain this reservation until reconciled, not an estimated refund.",
+    "Cancel this exact Preview if it exceeds the reviewed two-minute build boundary or does not use Basic.",
+    "Preserves the earlier higher reader storage observation; no prior liability released.",
+    "This is a conservative planning bound, not a Vercel-enforced daily hard cap.",
+    "Any subsequent publication needs its own fresh cost/retention read-back and existing independent main gate.",
+    "The full provider day and any applicable tax limitations remain open."
+  ]
+}

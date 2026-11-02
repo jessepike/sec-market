@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "evaluatorInputsChanged": false,
+  "byteAudits": [
+    {
+      "day": "2026-11-01",
+      "path": "../../receipts/scheduled-2026-11-01/static-byte-verification.json",
+      "sha256": "0bf63101de4e1320bf3fc66e7b817dee527b02cc952887f4f95a6e5571a86fd8",
+      "sourceAllMatchFields": [
+        "archiveAllMatch",
+        "publicAllMatch"
+      ],
+      "acceptedBuildFiles": 53,
+      "publicStaticFiles": 52,
+      "allMatch": true,
+      "queriedAt": "2026-11-01T18:17:49.599669+00:00"
+    },
+    {
+      "day": "2026-11-02",
+      "path": "../../receipts/scheduled-2026-11-02/static-byte-verification.json",
+      "sha256": "6f97bb0e5d83b09f90b61a06126d08696ec04f0513ca508bcfafaf9e334ae1b6",
+      "sourceAllMatchFields": [
+        "allArchiveMatch",
+        "allPublicMatch"
+      ],
+      "acceptedBuildFiles": 53,
+      "publicStaticFiles": 52,
+      "allMatch": true,
+      "queriedAt": "2026-11-02T16:40:05.730247+00:00"
+    }
+  ],
+  "limits": "These retained parent audits are separately pinned evidence; the offline scorecard does not re-fetch public files or authenticate source bodies. Two dated occurrences do not define a complete sustained-operation observation window."
+}

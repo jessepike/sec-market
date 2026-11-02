@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-11-02T17:05:36Z",
+  "evaluatorPath": "ops/evaluation/scorecard.py",
+  "evaluatorRawSha256": "94ce41a5ca2b814eeb016a7602c052e5e7ccc4d583e31d9c79e0c328d98e8baa",
+  "evaluatorChanged": false,
+  "reportReplayEqual": true,
+  "markdownReplayEqual": true,
+  "allManifestRawPinsVerifiedByEvaluator": true,
+  "requiredInventoryCount": 557,
+  "rawTaskReceipts": 557,
+  "intakeViews": 557,
+  "successfulTasks": 262,
+  "exactGapTaskCount": 295,
+  "gapRowsMatchFullOriginalGapSet": true,
+  "gapSourceSupplierOutcomeErrorUrlIdentityChecks": true,
+  "tsvRowsMatchExactGapTaskSet": true,
+  "actionCounts": {
+    "parser_repair": 2,
+    "transport_repair": 16,
+    "operator_qualification": 277
+  },
+  "unchangedSkippedRollbackRejected": true,
+  "networkCalls": 0,
+  "providerCalls": 0,
+  "modelCalls": 0,
+  "productionWrites": 0,
+  "limitations": [
+    "Offline consistency and identity replay only. Existing parent archive/artifact/public-byte audit remains separate authenticity evidence.",
+    "No new qualification, coverage, broad-accuracy, sustained-operation, full-day cost or reader-value credit."
+  ],
+  "missingBindingFamilyCounts": {
+    "filing_documents": 11,
+    "independent_reporting": 74,
+    "investor_acquirer": 52,
+    "official_announcements": 39,
+    "regulatory_filings": 11,
+    "release_distribution": 67
+  },
+  "missingBindingFamilyCountsVerified": true
+}

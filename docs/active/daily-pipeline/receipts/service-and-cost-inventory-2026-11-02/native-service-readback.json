@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "kind": "native_operating_service_readback",
+  "readbackWindowUtc": {
+    "start": "2026-11-02T18:24:50Z",
+    "completed": "2026-11-02T18:52:39Z"
+  },
+  "mutationsPerformed": [],
+  "github": {
+    "repository": "jessepike/sec-market",
+    "registeredSelfHostedRunners": 0,
+    "productionUses": "GitHub-hosted Ubuntu ephemeral jobs",
+    "main": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+    "preview": "0fa0ed39a899539dee680ae572a56eb21d2f47e0",
+    "evidenceRef": "52632a360f4099f142ed0e10e46338e1d91f1bc9",
+    "legacyWorkflowStates": {
+      "certified_refresh": "disabled_manually",
+      "promote": "disabled_manually"
+    },
+    "paidOverageBudgetLastVerifiedUsd": "0",
+    "accountIncludedComputeLastVerified": {
+      "usedUsd": "1.00",
+      "includedUsd": "12.00",
+      "billableActionsUsd": "0",
+      "limitation": "Earlier November 2 account read; current code-change CI usage may increase included consumption."
+    }
+  },
+  "cloudflare": {
+    "sourceUrl": "https://dash.cloudflare.com/870b8b1fdf9751c0bad885031db2ffd0/workers/plans",
+    "currentWorkersPlan": "Free",
+    "currentWorkersSubscriptionUsd": "0",
+    "paidUpgradePurchasedByThisTask": false,
+    "paidUpgradeOfferUsdPerMonth": "5"
+  },
+  "vercel": {
+    "reader": {
+      "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "framework": "vite",
+      "projectNodeVersion": "24.x",
+      "latestPreviewDeployment": "dpl_AvbkaNZSqUJkhiV12JGzJbodSx59",
+      "readyState": "READY"
+    },
+    "proof": {
+      "projectId": "prj_d2GuxLptHspqQjh2CeT7fW8H8pvd",
+      "latestDeployment": "dpl_9XQUjzL3c99sRx4F5wV5MTEdHTkf",
+      "readyState": "READY",
+      "paidTrialStopped": true,
+      "continuingStorageNotZero": true
+    },
+    "teamBilling": {
+      "sourceUrl": "https://vercel.com/pikeholdings/~/settings/invoices/upcoming",
+      "periodStart": "2026-10-18",
+      "periodEnd": "2026-11-18",
+      "plan": "Pro",
+      "seats": 1,
+      "platformFeeUsd": "20.00",
+      "includedCreditAppliedUsd": "20.00",
+      "accountOnDemandUsd": "55.65",
+      "upcomingAccountInvoiceUsd": "75.65",
+      "scope": "all team projects; not a Pulse allocation; not final invoice"
+    },
+    "teamSpendManagement": {
+      "budgetUsd": "200",
+      "automaticPause": false,
+      "webhook": false,
+      "settingsChanged": false
+    },
+    "normalDailyProjectAllowanceUsd": "0.05",
+    "providerDailyHardCapProved": false
+  },
+  "credentialPolicy": {
+    "newTokensCreated": 0,
+    "newSecretsReadOrCopied": 0,
+    "newPermissionsGranted": 0,
+    "existingManagedConnection": "Configured under D-122 on October 30; not used by the production collector. Its installation was not freshly re-queried in this read-back."
+  },
+  "limits": [
+    "No other applications' invoice costs are attributed to Pulse.",
+    "The normalized project connector's live flag is not interpreted as website availability; accepted public receipts independently prove production.",
+    "These selected facts omit billing address, payment identifiers, credential values and unrelated project records."
+  ]
+}

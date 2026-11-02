@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-11-02T17:05:36Z",
+  "appRevision": "2aa87f5dd3182bc214f6efee10e709e5114a06ad",
+  "inputs": {
+    "contract": {
+      "path": "inputs/contract.json",
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6"
+    },
+    "coverage": {
+      "path": "inputs/coverage.json",
+      "sha256": "9e66f87384806876cdbee573e856a2e4098d7e914dd949be3b5b7b83831a3def"
+    },
+    "gate": {
+      "path": "inputs/gate.json",
+      "sha256": "0a82fcafc9759d5b5f295efeb54f2df04846a979e13f4c9baffdafd15753b8f3"
+    },
+    "collection": {
+      "path": "inputs/collection.json",
+      "sha256": "db4d8b6bb45dd489fa9f89d9c333fc8996dd696f2163846a0cb8b0a1e785882b"
+    },
+    "publication": {
+      "path": "inputs/publication.json",
+      "sha256": "3a1c94547f0560134d113cffa1e450e648c7f07b96000cffc8820d494b8f0e26"
+    },
+    "rollback": {
+      "path": "inputs/rollback-preflight.json",
+      "sha256": "004bfad119ad0e0cd21764d544ff6c9b357e0ed2238b04d90d4ef42d23723602"
+    }
+  }
+}

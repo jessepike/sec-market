@@ -23,7 +23,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Current priority | D-111, November 2 owner direction below | Continue reliable operation and cost verification while implementing company search and reducing runner usage. Reader value remains unmeasured. Search does not mask coverage gaps |
 | Freshness and history | D-112 | Separate fresh daily source intake, fact-processing progress and historical review. Preserve all 557 source obligations, every historical URL and original evidence dates. A fresh intake check cannot stand for reviewed history or complete current-event coverage |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
-| Spending and current work | November 1 and November 2 owner directions below | The cumulative trial stop is $0.30 and the paid trial remains stopped. Normal metered usage remains limited to $0.05/day. November 2 Basic publication is proved; its full-day cost and actual runner savings remain open. Company search needs owner review of Preview before production |
+| Spending and current work | D-123, D-124, D-125 | The owner reviewed company search, requested a permanently visible field and directed continued runner reductions. Complete normal release checks. Paid trial stays stopped, normal metered usage stays limited to $0.05/day, and full-day cost/actual savings remain open |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
 
@@ -1396,3 +1396,13 @@ Owner: “Keep going. Reduce GitHub runner usage, verify the next scheduled Basi
 Implement client-side company search against existing names, tickers and registered aliases, opening the existing sourced records. Broader event/evidence search and ownership navigation remain backlog work. Reduce repeated operational tests only after verified CI for the exact clean code; preserve runtime validation and a full-suite fallback on uncertainty. Keep daily collection, publication completion callbacks, one daily recovery timer and independent active alerts. Skip the obsolete legacy monitor job only after an explicit strict retirement read; unknown output keeps its fallback.
 
 November 2's actual scheduled collector, independent gate and Basic production release passed, with all 52 public files matched and the actual Basic build charged $0.007. Today's partial $0.01134 subtotal is not a complete-day pass. November 1 exceeded five cents. Preserve the $0.05 normal daily limit, the stopped paid trial, existing secrets and the standard preview-to-main exact-artifact route. This implementation request does not substitute for owner review of the visible Preview under AGENTS.md. No intent, new roster, database, service, API billing fallback, paid overage or Codex Cloud dependency is added. Canonical personal-platform standards read at ff32b0055293e4fb3bce550bade4652cc2ee1aa3, T2 Important, Public reader data/Internal evidence/Confidential credentials.
+**D-125 · 2026-11-02 — Keep company search visible and continue runner reductions.**
+
+In response to the tested company-search Preview and production runner-reduction review, the owner said:
+
+> let's make the search bar available/visible constantly. go ahead and continue runner reductions. I am unclear on the status of automations, runners, services, and costs associated. need details here
+
+Apply that specific refinement to the existing company-search field: render it in the opening header without an expand/collapse action, preserving matching, sourced records, keyboard behavior and phone use. Continue the reviewed runner reductions and the existing Preview/main/exact-artifact release checks. This is the owner's review response and requested UI revision within D-124, not a request to restart activation approval. The shared operating inventory must separate running production, proposed reductions, manual probes, monitors and stopped trials, and disclose existing subscription fees alongside project usage.
+
+No new service, purchase, paid model API, Codex Cloud dependency, source-policy adoption or trial restart follows. The $0.05 normal daily operating limit and stopped $0.30 trial remain. A partial subtotal does not prove a complete-day limit or a provider hard cap. The later full-cycle export discloses earlier reader build costs separately from the October 30 bounded-trial window; no prior charges or reservations are erased.
+
