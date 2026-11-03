@@ -150,3 +150,32 @@ admission. Changing a file and generating replacement pins does not authorize ne
 The migration contract and first actual replay are in
 `docs/active/daily-pipeline/accuracy/source-migration-spec-2026-10-23.md` and
 `docs/active/daily-pipeline/accuracy/source-migration-bindings-2026-10-23.json`.
+
+## Extraction eval
+
+`extraction_eval.py` measures how well the pipeline's own fact extractor reads real source pages. It
+uses `readable_document` and `SubscriptionAgent.extract` unchanged, with the `model` settings from
+`contracts/market.json`. Each golden case is a saved page plus the facts a person read on it. The
+set is in `ops/evaluation/golden/extraction/<case-id>/` (`case.json` and `page.html`);
+`skipped.json` lists pages that were tried and left out, with the reason.
+
+The scorer matches a predicted fact to an expected one by supplier and predicate, with the date
+within 3 days and the amount within 1% when both are present. It reports precision, recall, date
+accuracy (exact date among matched facts), type accuracy (event status among matched facts),
+the false-positive rate on pages with no fact, and every miss and false positive. Extra statements
+of an already matched fact are listed as duplicates, not errors. Cases marked `optional` count
+only when predicted.
+
+```sh
+# Manual only. Needs a logged-in Codex CLI (subscription, no API key). One model call per case.
+python3 ops/evaluation/extraction_eval.py run --golden ops/evaluation/golden/extraction --output /path/to/new-predictions.json
+
+# Offline, deterministic, no network. Writes the JSON report and a Markdown summary beside it.
+python3 ops/evaluation/extraction_eval.py score --golden ops/evaluation/golden/extraction \
+  --predictions /path/to/new-predictions.json --output /path/to/new-report.json
+python3 -m unittest ops/evaluation/test_extraction_eval.py -v
+```
+
+Both modes refuse to overwrite an existing output file. Do not run `run` in CI. The golden set has
+about 30 cases and should grow to about 150, with more private, PE-owned and public suppliers and
+more fact types (layoffs, shutdowns, late filings), before the numbers are treated as a benchmark.

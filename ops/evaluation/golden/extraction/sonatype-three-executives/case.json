@@ -1,0 +1,18 @@
+{
+  "id": "sonatype-three-executives",
+  "url": "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+  "capturedAt": "2026-11-03",
+  "supplierId": "sonatype",
+  "supplierName": "Sonatype Inc.",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "leadership_change",
+      "effectiveDate": "2026-06-09",
+      "amount": null,
+      "currency": null,
+      "eventStatus": null
+    }
+  ],
+  "notes": "Three appointments (CRO, CMO, CHRO) in one release, labeled as one fact."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "ping-keyless-complete",
+  "url": "https://www.prnewswire.com/news-releases/ping-identity-marks-digital-trust-milestone-with-zero-knowledge-biometrics-in-the-age-of-ai-302654492.html",
+  "capturedAt": "2026-11-03",
+  "supplierId": "ping-identity",
+  "supplierName": "Ping Identity",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "acquisition",
+      "effectiveDate": "2026-01-07",
+      "amount": null,
+      "currency": null,
+      "eventStatus": "closed"
+    }
+  ],
+  "notes": "Completion of the Keyless acquisition."
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "url": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+    "reason": "HTTP 429"
+  },
+  {
+    "url": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+    "reason": "HTTP 403"
+  },
+  {
+    "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Appoints-Wael-Mohamed-Chief-Executive-Officer-Corey-Thomas-to-Become-Executive-Chairman/default.aspx",
+    "reason": "HTTP 403"
+  },
+  {
+    "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx",
+    "reason": "HTTP 403"
+  },
+  {
+    "url": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+    "reason": "HTTP 403"
+  },
+  {
+    "url": "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/",
+    "reason": "Fetched, but the pipeline readable text is only a 387-character press listing; the release is not in it"
+  },
+  {
+    "url": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000035/q126exhibit991.htm",
+    "reason": "Readable text is 31,752 characters, over the 30,000 model input limit"
+  },
+  {
+    "url": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm",
+    "reason": "Readable text is 34,199 characters, over the 30,000 model input limit"
+  },
+  {
+    "url": "https://www.cyera.com/blog/a-guide-to-data-leak-prevention",
+    "reason": "Blog mentions a past Cyera acquisition in passing with no date, so neither positive nor negative is clean"
+  },
+  {
+    "url": "https://www.thomabravo.com/behind-the-deal/the-dayforce-deal-ai-scale-and-the-future-of-workforce-software",
+    "reason": "Readable text is 37,614 characters, over the 30,000 model input limit; replaced by another Thoma Bravo page"
+  },
+  {
+    "url": "https://newsroom.accenture.com/news",
+    "reason": "Listing is script-rendered; individual releases located by web search instead"
+  }
+]

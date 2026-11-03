@@ -1,0 +1,21 @@
+{
+  "id": "reliaquest-cfo",
+  "url": "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "reliaquest",
+  "supplierName": "ReliaQuest, LLC",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "leadership_change",
+      "effectiveDate": "2026-10-01",
+      "amount": null,
+      "currency": null,
+      "eventStatus": null,
+      "acceptableDates": [
+        "2026-10-05"
+      ]
+    }
+  ],
+  "notes": "Announced Oct 1, starts Oct 5."
+}

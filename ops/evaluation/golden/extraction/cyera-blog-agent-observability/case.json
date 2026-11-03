@@ -1,0 +1,10 @@
+{
+  "id": "cyera-blog-agent-observability",
+  "url": "https://www.cyera.com/blog/ai-agent-observability",
+  "capturedAt": "2026-11-03",
+  "supplierId": "cyera",
+  "supplierName": "Cyera",
+  "kind": "negative",
+  "expectedFacts": [],
+  "notes": "Technical explainer; no business fact."
+}

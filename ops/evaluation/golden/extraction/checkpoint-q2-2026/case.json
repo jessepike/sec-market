@@ -1,0 +1,29 @@
+{
+  "id": "checkpoint-q2-2026",
+  "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "checkpoint-sase",
+  "supplierName": "Check Point",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "revenue",
+      "effectiveDate": "2026-07-30",
+      "amount": "674000000",
+      "currency": "USD",
+      "eventStatus": null,
+      "acceptableDates": [
+        "2026-06-30"
+      ]
+    },
+    {
+      "predicate": "debt",
+      "effectiveDate": null,
+      "amount": "2000000000",
+      "currency": "USD",
+      "eventStatus": null,
+      "optional": true
+    }
+  ],
+  "notes": "Total revenue $674M for quarter ended June 30. Mentions a $2B convertible notes offering without a date; optional."
+}

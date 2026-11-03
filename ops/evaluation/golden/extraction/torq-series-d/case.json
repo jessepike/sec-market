@@ -1,0 +1,31 @@
+{
+  "id": "torq-series-d",
+  "url": "https://torq.io/news/torq-seriesd/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "torq",
+  "supplierName": "Torq",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "funding",
+      "effectiveDate": "2026-01-12",
+      "amount": "140000000",
+      "currency": "USD",
+      "eventStatus": "closed",
+      "acceptableDates": [
+        "2026-01-09"
+      ]
+    },
+    {
+      "predicate": "valuation",
+      "effectiveDate": "2026-01-12",
+      "amount": "1200000000",
+      "currency": "USD",
+      "eventStatus": null,
+      "acceptableDates": [
+        "2026-01-09"
+      ]
+    }
+  ],
+  "notes": "Headline date Jan 9, dateline Jan 12."
+}

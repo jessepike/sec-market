@@ -1,0 +1,25 @@
+{
+  "id": "cyera-funding-600m",
+  "url": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+  "capturedAt": "2026-11-03",
+  "supplierId": "cyera",
+  "supplierName": "Cyera",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "funding",
+      "effectiveDate": "2026-06-10",
+      "amount": "600000000",
+      "currency": "USD",
+      "eventStatus": "announced"
+    },
+    {
+      "predicate": "valuation",
+      "effectiveDate": "2026-06-10",
+      "amount": "12000000000",
+      "currency": "USD",
+      "eventStatus": null
+    }
+  ],
+  "notes": "Private; page text has heavy site navigation before the release."
+}

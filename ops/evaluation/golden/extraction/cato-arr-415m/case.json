@@ -1,0 +1,18 @@
+{
+  "id": "cato-arr-415m",
+  "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+  "capturedAt": "2026-11-03",
+  "supplierId": "cato",
+  "supplierName": "Cato Networks",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "arr",
+      "effectiveDate": "2026-07-27",
+      "amount": "415000000",
+      "currency": "USD",
+      "eventStatus": null
+    }
+  ],
+  "notes": "Surpassed $415M ARR, 42% YoY growth."
+}

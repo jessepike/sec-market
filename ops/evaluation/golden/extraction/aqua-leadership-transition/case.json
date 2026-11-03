@@ -1,0 +1,18 @@
+{
+  "id": "aqua-leadership-transition",
+  "url": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "aqua",
+  "supplierName": "Aqua Security",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "leadership_change",
+      "effectiveDate": "2025-11-06",
+      "amount": null,
+      "currency": null,
+      "eventStatus": null
+    }
+  ],
+  "notes": "Page dateline is Nov 6, 2025; events.ts records 2025-11-05. CEO and CTO roles change in one release, labeled as one fact."
+}

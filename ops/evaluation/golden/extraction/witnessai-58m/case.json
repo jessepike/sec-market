@@ -1,0 +1,18 @@
+{
+  "id": "witnessai-58m",
+  "url": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "witnessai",
+  "supplierName": "WitnessAI",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "funding",
+      "effectiveDate": null,
+      "amount": "58000000",
+      "currency": "USD",
+      "eventStatus": null
+    }
+  ],
+  "notes": "Readable text states no date; the date is only in page metadata (2026-01-13), so the expected date is null."
+}

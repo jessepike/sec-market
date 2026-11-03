@@ -1,0 +1,18 @@
+{
+  "id": "cato-arr-350m",
+  "url": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+  "capturedAt": "2026-11-03",
+  "supplierId": "cato",
+  "supplierName": "Cato Networks",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "arr",
+      "effectiveDate": "2026-02-24",
+      "amount": "350000000",
+      "currency": "USD",
+      "eventStatus": null
+    }
+  ],
+  "notes": "2025 ARR surpassed $350M. Also lists past leadership appointments without dates; not labeled."
+}

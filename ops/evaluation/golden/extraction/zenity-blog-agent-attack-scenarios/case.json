@@ -1,0 +1,10 @@
+{
+  "id": "zenity-blog-agent-attack-scenarios",
+  "url": "https://zenity.io/blog/ai-agent-attack-scenarios",
+  "capturedAt": "2026-11-03",
+  "supplierId": "zenity",
+  "supplierName": "Zenity",
+  "kind": "negative",
+  "expectedFacts": [],
+  "notes": "Security research blog; no business fact about Zenity."
+}

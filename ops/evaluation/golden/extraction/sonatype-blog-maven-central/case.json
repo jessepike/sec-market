@@ -1,0 +1,10 @@
+{
+  "id": "sonatype-blog-maven-central",
+  "url": "https://www.sonatype.com/blog/how-maven-central-builds-trust-into-dependency-delivery",
+  "capturedAt": "2026-11-03",
+  "supplierId": "sonatype",
+  "supplierName": "Sonatype Inc.",
+  "kind": "negative",
+  "expectedFacts": [],
+  "notes": "Technical blog; no business fact."
+}

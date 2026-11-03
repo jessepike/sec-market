@@ -1,0 +1,26 @@
+{
+  "id": "nozomi-acquired-by-mitsubishi",
+  "url": "https://www.prnewswire.com/news-releases/nozomi-networks-enters-next-phase-of-growth-as-mitsubishi-electric-completes-acquisition-302673652.html",
+  "capturedAt": "2026-11-03",
+  "supplierId": "nozomi",
+  "supplierName": "Nozomi Networks, Inc.",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "acquisition",
+      "effectiveDate": "2026-01-29",
+      "amount": null,
+      "currency": null,
+      "eventStatus": "closed"
+    },
+    {
+      "predicate": "acquisition",
+      "effectiveDate": null,
+      "amount": null,
+      "currency": null,
+      "eventStatus": "announced",
+      "optional": true
+    }
+  ],
+  "notes": "Page also says the deal was originally announced Sept 9 (year not stated); optional."
+}

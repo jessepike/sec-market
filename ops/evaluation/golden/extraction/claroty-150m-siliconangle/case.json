@@ -1,0 +1,26 @@
+{
+  "id": "claroty-150m-siliconangle",
+  "url": "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "claroty",
+  "supplierName": "Claroty Ltd.",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "funding",
+      "effectiveDate": "2026-01-22",
+      "amount": "150000000",
+      "currency": "USD",
+      "eventStatus": null
+    },
+    {
+      "predicate": "valuation",
+      "effectiveDate": "2026-01-22",
+      "amount": "3000000000",
+      "currency": "USD",
+      "eventStatus": null,
+      "optional": true
+    }
+  ],
+  "notes": "Trade press; valuation is attributed to a Calcalist report, so it is optional."
+}

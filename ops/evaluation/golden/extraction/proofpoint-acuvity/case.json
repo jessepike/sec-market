@@ -1,0 +1,18 @@
+{
+  "id": "proofpoint-acuvity",
+  "url": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+  "capturedAt": "2026-11-03",
+  "supplierId": "proofpoint",
+  "supplierName": "Proofpoint",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "acquisition",
+      "effectiveDate": "2026-02-12",
+      "amount": null,
+      "currency": null,
+      "eventStatus": null
+    }
+  ],
+  "notes": "States it has acquired Acuvity; no price. Status left unscored because \"announced\" versus \"closed\" is not explicit."
+}

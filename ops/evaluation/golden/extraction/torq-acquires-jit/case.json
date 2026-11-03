@@ -1,0 +1,21 @@
+{
+  "id": "torq-acquires-jit",
+  "url": "https://torq.io/news/torq-acquires-jit/",
+  "capturedAt": "2026-11-03",
+  "supplierId": "torq",
+  "supplierName": "Torq",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "acquisition",
+      "effectiveDate": "2026-05-19",
+      "amount": null,
+      "currency": null,
+      "eventStatus": "announced",
+      "acceptableDates": [
+        "2026-05-18"
+      ]
+    }
+  ],
+  "notes": "Headline date May 18, dateline May 19."
+}

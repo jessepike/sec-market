@@ -1,0 +1,10 @@
+{
+  "id": "accenture-edge-launch",
+  "url": "https://newsroom.accenture.com/news/2026/accenture-launches-accenture-edge-to-help-mid-market-companies-harness-ai-and-reinvent-how-they-operate",
+  "capturedAt": "2026-11-03",
+  "supplierId": "dragos",
+  "supplierName": "Dragos, Inc.",
+  "kind": "negative",
+  "expectedFacts": [],
+  "notes": "Accenture product launch; not about the named supplier. Supplier is passed only because the extractor needs one."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "hiddenlayer-series-b",
+  "url": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+  "capturedAt": "2026-11-03",
+  "supplierId": "hiddenlayer",
+  "supplierName": "HiddenLayer, Inc.",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "funding",
+      "effectiveDate": "2026-09-02",
+      "amount": "100000000",
+      "currency": "USD",
+      "eventStatus": "announced"
+    }
+  ],
+  "notes": "No valuation stated."
+}

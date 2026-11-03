@@ -1,0 +1,18 @@
+{
+  "id": "upwind-series-b",
+  "url": "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind",
+  "capturedAt": "2026-11-03",
+  "supplierId": "upwind",
+  "supplierName": "Upwind",
+  "kind": "positive",
+  "expectedFacts": [
+    {
+      "predicate": "funding",
+      "effectiveDate": "2026-01-26",
+      "amount": "250000000",
+      "currency": "USD",
+      "eventStatus": null
+    }
+  ],
+  "notes": "Founder blog post: \"we are raising $250M in our Series B\"."
+}

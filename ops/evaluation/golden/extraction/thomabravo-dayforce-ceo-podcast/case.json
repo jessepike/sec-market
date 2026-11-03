@@ -1,0 +1,10 @@
+{
+  "id": "thomabravo-dayforce-ceo-podcast",
+  "url": "https://www.thomabravo.com/behind-the-deal/from-1m-to-2b-in-revenue-david-ossip-on-leadership-and-scaling-dayforce",
+  "capturedAt": "2026-11-03",
+  "supplierId": "sailpoint",
+  "supplierName": "SailPoint",
+  "kind": "negative",
+  "expectedFacts": [],
+  "notes": "Thoma Bravo podcast with the CEO of Dayforce, not a tracked supplier; mentions Dayforce revenue. Supplier is passed only because the extractor needs one."
+}
