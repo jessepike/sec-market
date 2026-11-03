@@ -43,7 +43,12 @@ card says "0 events in 12 months".
 
 **Suggested fix.** Make one source of truth: generate a `results` `TrackerEvent` for each certified
 SEC filer's 10-Q/10-K quarter in the trailing 12 months, from `edgarFacts.json` (form, filedDate,
-periodEnd, value, sourceUrl). Date it on `filedDate`, rung 1, evidence pointing at the filing index.
+periodEnd, value, sourceUrl).
+Create one event per filing, not per stored quarter. `edgarFacts.json` stamps comparative quarters
+with the newest filing that contains them. For example, CrowdStrike's 2025-07-31 and 2026-07-31
+quarters both carry `filedDate` 2026-08-27. So group quarters by filing (accession or `sourceUrl`) and
+keep only the newest `periodEnd` in each group, the same choice `edgarFilingsInLast30Days()` makes in
+`derive.ts:268-288`. Date it on `filedDate`, rung 1, evidence pointing at the filing index.
 Skip it when a hand-collected or daily `results` event already exists for the same supplier and the
 same quarter (reuse the matching rule in `recentChanges()`: within 30 days before `filedDate` and the
 same `periodEnd`). Text states only the filing facts, for example
@@ -65,6 +70,8 @@ number, but it is a visible change: call it out in the commit.
 3. The October 2026 Results cell in the 12-month grid is at least 2.
 4. Fortinet's directory card shows at least 1 event in 12 months.
 5. No supplier has two `results` events for the same quarter (test).
+6. No two generated `results` events share a filing. Add a regression fixture using CrowdStrike's
+   2025-07-31 and 2026-07-31 quarters (same 2026-08-27 filing): only the 2026-07-31 event is created.
 
 ---
 
