@@ -8,6 +8,7 @@ from urllib.parse import urlsplit
 
 from contracts import canonical, digest, instant, plan_run, require, unique
 from documents import article_input, verify_article_input
+from selection import (NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, mentions_supplier, outside_history_window, windowed)
 from separation import (enabled as separated, audit_version, original_contract, bridge, compatible, summary,
                         document_context, document_cache_key)
 from source_qualification_origin import (is_qualification_predecessor, qualification_predecessors,
@@ -247,15 +248,32 @@ def separated_details(receipt, contract, source, at, store):
     historical_dates -= changed
     selected = set(receipt.get('selectedDocumentUrls', []))
     require(len(selected) == len(receipt.get('selectedDocumentUrls', [])) and selected.issubset(full) and
-            len(selected) <= contract['collection']['maxDocumentsPerSource'], 'Selected document bound/inventory differs')
+            len(selected) <= contract['collection']['maxDocumentsPerSource'] +
+            contract['collection'].get('maxFetchAuditDocumentsPerSource', 0), 'Selected document bound/inventory differs')
     if receipt.get('collectionScope'):
         require(receipt['collectionScope']['mode'] == contract['collection']['mode'] and
                 receipt['collectionScope']['selectedDocuments'] == len(selected), 'Selected work accounting differs')
     fresh = set(documents) - {b['url'] for b in receipt.get('retainedAuditBindings', [])}
     require(fresh.issubset(selected), 'Current document review is outside selected work')
     processing_reviewed = reviewed - pending
-    processing = summary(full, processing_reviewed, held & processing_reviewed, full - processing_reviewed,
-                         changedDocuments=len(changed), unknownDateDocuments=len(unknown))
+    policy = contract['collection']
+    archived, not_about = set(), set()
+    if windowed(policy):
+        # Archived = never reviewed, known date outside the history window, unchanged,
+        # not selected, not an unresolved retained proof. Derived here, never trusted
+        # from the engine, and always a subset of what the receipt still holds pending.
+        unbound = {item['url'] for item in receipt.get('retainedAuditUnbound', [])}
+        archived = {url for url in full - processing_reviewed
+                    if url in manifest['items'] and url not in unbound and url not in changed and url not in selected
+                    and outside_history_window(manifest.get('itemModified', {}).get(url, ''), policy, at)}
+        not_about = {url for url in processing_reviewed if documents[url].get('exclusionRule') == NOT_ABOUT_RULE}
+    # Archived documents stay in the retained queue and in historicalReview, but are
+    # outside this processing denominator, so reviewed + pending == inventory still holds.
+    processing = summary(full - archived, processing_reviewed, held & processing_reviewed,
+                         (full - processing_reviewed) - archived,
+                         changedDocuments=len(changed), unknownDateDocuments=len(unknown),
+                         **({'archivedDocuments': len(archived), 'notAboutSupplierDocuments': len(not_about)}
+                            if windowed(policy) else {}))
     processing['complete'] = not processing['pendingDocuments'] and not processing['heldDocuments']
     historical = summary(full, reviewed, held, full - reviewed)
     attempt_age = (instant(at) - instant(receipt['completedAt'])).total_seconds()/3600
@@ -278,7 +296,8 @@ def separated_details(receipt, contract, source, at, store):
                            'held': sorted(held), 'changed': sorted(changed), 'revalidationRequired': sorted(revalidation),
                            'unknownDate': sorted(unknown),
                            'current': sorted(current), 'historical': sorted(historical_dates),
-                           'selected': sorted(selected), 'deferred': sorted((full - processing_reviewed) - selected)}}
+                           'selected': sorted(selected), 'deferred': sorted((full - processing_reviewed) - selected),
+                           **({'archived': sorted(archived), 'notAboutSupplier': sorted(not_about)} if windowed(policy) else {})}}
 
 
 def bounded(source, contract):
@@ -726,7 +745,11 @@ def replay_document(receipt, document, observed, contract, source, at, store, re
             hashes.append(digest(candidate))
     require(Counter(hashes) == Counter(validation['candidateHashes']), 'Retained candidate/disposition inventory differs')
     unique(validation['candidateHashes'], 'retained candidate disposition')
-    if validation.get('exclusionRule'):
+    if validation.get('exclusionRule') == NOT_ABOUT_RULE:
+        require(windowed(contract['collection']) and validation.get('outcome') == NOT_ABOUT_OUTCOME and
+                len(view['page'].readable) >= 100 and not mentions_supplier(view['page'].readable, supplier)
+                and not hashes and validation.get('emptyReview') is None, 'Retained not-about-supplier exclusion differs')
+    elif validation.get('exclusionRule'):
         require(validation['exclusionRule'] == 'no-registered-entity-mention-v1' and
                 source['family'] in ('investor_acquirer', 'release_distribution') and len(view['page'].readable) >= 100
                 and not mentions_entity(view['page'].readable, supplier) and not hashes and validation.get('emptyReview') is None,

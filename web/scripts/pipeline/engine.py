@@ -11,7 +11,8 @@ from agents import ModelUnavailable
 from contracts import canonical, digest, instant, plan_run, require, utcnow
 from discovery import Page, decoded_discovery_body, discover
 from documents import article_input, readable_document, verify_article_input
-from selection import select_documents
+from selection import (NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, mentions_supplier, select_documents,
+                       windowed)
 from validation import reconcile, verify_statement, mentions_entity
 from retained_audit import (VERSION as AUDIT_VERSION, activate_compatibility, bounded as audit_bounded,
                             index_for, predecessor_inventory, replay_binding, replay_document, verify_receipt,
@@ -31,6 +32,11 @@ class Pipeline:
         self.model_unavailable = None
         self.deadline = float("inf")
         self.native_budget_exhausted = False
+        # Under a history window the model budget is a cap on model work only: once
+        # it is spent, documents that need the model stay pending, and documents
+        # that a fetch alone can settle keep draining. Older policies are unchanged.
+        self.windowed = windowed(contract.get('collection', {}))
+        self.model_budget_spent = False
         self.transport_cache = {}
         self.defer_citation_models = False
 
@@ -67,6 +73,11 @@ class Pipeline:
             self.native_budget_exhausted = bool(getattr(self.agent, "queued_work", False) and
                 (counts.get("calls", 0) >= self.contract["model"]["maxCallsPerRun"] or
                  counts.get("documents", 0) >= self.contract["model"]["maxDocumentsPerRun"]))
+            self.model_budget_spent = bool(self.windowed and (
+                counts.get("calls", 0) >= self.contract["model"]["maxCallsPerRun"] or
+                counts.get("documents", 0) >= self.contract["model"]["maxDocumentsPerRun"]))
+            if self.windowed:
+                self.native_budget_exhausted = False
             if self.agent:
                 self.agent.reserve = self._reserve
             with ThreadPoolExecutor(max_workers=self.contract["schedule"]["maxWorkers"]) as pool:
@@ -304,7 +315,16 @@ class Pipeline:
                             receipt.setdefault("heldClaims", []).extend(cached.get("heldClaims", []))
                             receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(cached)})
                             return
-                        if source["family"] in ("investor_acquirer", "release_distribution") and not mentions_entity(page.readable, self.suppliers[source["supplierId"]]):
+                        if self.windowed and not mentions_supplier(page.readable, self.suppliers[source["supplierId"]]):
+                            # Settled by the fetch alone: no model call, no model budget, no fact.
+                            require(len(page.readable) >= 100, "Document is unreadable")
+                            validation = {"supplierId": source["supplierId"], "body": observation["body"], "contractSha256": plan["contractSha256"],
+                                          "candidateHashes": [], "factRefs": [], "heldClaims": [], "exclusionRule": NOT_ABOUT_RULE,
+                                          "outcome": NOT_ABOUT_OUTCOME, "emptyReview": None, **input_fields}
+                            self.store.write_once(f"document-validation/{cache_key}.json", validation)
+                            receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(validation)})
+                            return
+                        if not self.windowed and source["family"] in ("investor_acquirer", "release_distribution") and not mentions_entity(page.readable, self.suppliers[source["supplierId"]]):
                             require(len(page.readable) >= 100, "Shared publisher page is unreadable")
                             validation = {"supplierId": source["supplierId"], "body": observation["body"], "contractSha256": plan["contractSha256"],
                                           "candidateHashes": [], "factRefs": [], "heldClaims": [], "exclusionRule": "no-registered-entity-mention-v1", "emptyReview": None, **input_fields}
@@ -323,6 +343,12 @@ class Pipeline:
                         model_text = input_view['modelText']
                         try:
                             extracted = self.store.read(f"document-extractions/{cache_key}.json")
+                            if (extracted is None and self.model_budget_spent and not self.store.read(
+                                    f"document-reservations/{plan['scheduledAt'][:10]}/{cache_key}.json")):
+                                # Budget spent: leave the document pending for a later run, not failed.
+                                pending.append(url)
+                                pending_errors.append("MODEL_BUDGET_EXHAUSTED")
+                                return
                             if extracted is None:
                                 reservation_key = f"document-reservations/{plan['scheduledAt'][:10]}/{cache_key}.json"
                                 if not self.store.read(reservation_key):
@@ -338,7 +364,9 @@ class Pipeline:
                             if hasattr(self.agent, "extraction_session"):
                                 self.agent.extraction_session = extracted.get("nativeCollectorSession")
                         except (ModelUnavailable, ValueError) as exc:
-                            if isinstance(exc, ModelUnavailable) or "BUDGET_EXHAUSTED" in str(exc):
+                            if self.windowed and not isinstance(exc, ModelUnavailable) and "BUDGET_EXHAUSTED" in str(exc):
+                                self.model_budget_spent = True
+                            elif isinstance(exc, ModelUnavailable) or "BUDGET_EXHAUSTED" in str(exc):
                                 if getattr(self.agent, "queued_work", False):
                                     self.native_budget_exhausted = True
                                 else:
@@ -438,6 +466,7 @@ class Pipeline:
                         supplier=self.suppliers[source['supplierId']] if source['family'] in ('investor_acquirer', 'release_distribution') else None)
                     pending.extend(deferred)
                     if deferred:
+                        # Archived URLs stay in the pending manifest as retained queue entries.
                         pending_errors.append("HISTORICAL_OR_UNCHANGED_AUDIT_PENDING")
                     receipt["collectionScope"] = {"mode": self.contract['collection']['mode'], "selectedDocuments": len(ordered), "deferredDocuments": len(deferred), "currentWindowDays": self.contract["collection"]["currentWindowDays"]}
                     if separated(self.contract):
@@ -460,11 +489,12 @@ class Pipeline:
                             receipt['retainedAuditUnbound'].append({'url': url, 'reason': str(exc)[:160]})
                 for index, url in enumerate(ordered):
                     cached_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
-                    if self.native_budget_exhausted and source["kind"] != "sec_documents" and not self.store.read(cached_download):
+                    if (self.native_budget_exhausted and not self.windowed and source["kind"] != "sec_documents"
+                            and not self.store.read(cached_download)):
                         pending.append(url)
                         pending_errors.append("NATIVE_NEW_WORK_BUDGET_EXHAUSTED")
                         continue
-                    if self.model_unavailable and source["kind"] != "sec_documents":
+                    if self.model_unavailable and not self.windowed and source["kind"] != "sec_documents":
                         pending.extend(ordered[index:])
                         pending_errors.append(self.model_unavailable)
                         break

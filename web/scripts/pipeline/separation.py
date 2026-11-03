@@ -30,6 +30,10 @@ def semantic_context(contract, source_id):
     supplier = next(s for s in contract['suppliers'] if s['id'] == source['supplierId'])
     policy = copy.deepcopy({k: v for k, v in contract.items() if k not in ('version', 'sources', 'suppliers')})
     policy.get('collection', {}).pop('mode', None)
+    # Archive/fetch-check settings decide what is looked at, not how a document is
+    # judged, so they cannot invalidate earlier reviews. Absent in older policies.
+    for key in ('historyWindowDays', 'maxFetchAuditDocumentsPerSource'):
+        policy.get('collection', {}).pop(key, None)
     return {'policy': policy, 'supplier': supplier, 'source': source,
             'semanticReviewRules': 'source-statement-and-review-checks-v1'}
 
@@ -75,6 +79,9 @@ def totals(items, kind):
     fields = ('inventoryDocuments', 'reviewedDocuments', 'pendingDocuments', 'heldDocuments')
     if kind == 'processing':
         fields += ('changedDocuments', 'unknownDateDocuments')
+        # Present only under policies with a history window.
+        fields += tuple(f for f in ('archivedDocuments', 'notAboutSupplierDocuments')
+                        if any(f in item[kind] for item in items))
     return {'complete': all(item[kind]['complete'] for item in items),
             **{field: sum(item[kind].get(field, 0) for item in items) for field in fields}}
 
@@ -87,7 +94,8 @@ def source_measure(receipt, source, contract, at, store, bounded_details=None, l
         details = bounded_details
     else:
         intake_ok = legacy_ok
-        details = {'processing': {**empty, 'changedDocuments': 0, 'unknownDateDocuments': 0},
+        zero = {'archivedDocuments': 0, 'notAboutSupplierDocuments': 0} if 'historyWindowDays' in contract.get('collection', {}) else {}
+        details = {'processing': {**empty, 'changedDocuments': 0, 'unknownDateDocuments': 0, **zero},
                    'historicalReview': empty}
     outcome = 'checked' if intake_ok else (receipt['outcome'] if receipt['outcome'] in ('blocked', 'failed') else 'not_checked')
     return {'taskId': receipt['taskId'], 'sourceId': receipt['sourceId'], 'supplierId': receipt['supplierId'],

@@ -50,6 +50,14 @@ def validate_contract(contract):
         for key in ("currentWindowDays", "maxDocumentsPerSource", "maxAuditDocumentsPerSource"):
             require(type(policy.get(key)) is int and policy[key] > 0, "Invalid collection bound: " + key)
         require(policy["maxAuditDocumentsPerSource"] <= policy["maxDocumentsPerSource"], "Audit exceeds source budget")
+        if "historyWindowDays" in policy:
+            require(policy["mode"] == "daily_intake_with_separate_history", "History window needs separated intake")
+            require(type(policy["historyWindowDays"]) is int and policy["historyWindowDays"] > policy["currentWindowDays"],
+                    "History window must be a whole number of days longer than the current window")
+        if "maxFetchAuditDocumentsPerSource" in policy:
+            require("historyWindowDays" in policy and type(policy["maxFetchAuditDocumentsPerSource"]) is int
+                    and policy["maxFetchAuditDocumentsPerSource"] >= 0,
+                    "Fetch audit allowance needs a history window and a whole number")
     schedule = contract["schedule"]
     require(schedule["intervalHours"] == 24 and schedule["reconcileEveryRun"] is True,
             "Every required daily run must reconcile coverage")

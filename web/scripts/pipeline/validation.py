@@ -7,6 +7,7 @@ from urllib.parse import urlsplit
 from contracts import canonical, digest, instant, require, unique
 from discovery import Page, decoded_discovery_body
 from documents import article_input, verify_article_input
+from selection import NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, mentions_supplier, windowed
 
 
 PREDICATES = {"funding", "valuation", "revenue", "arr", "acquisition", "leadership_change", "restructuring", "layoff", "debt", "shutdown", "late_filing"}
@@ -373,6 +374,10 @@ def reconcile(plan, receipts, contract, now, store):
                         if validation.get("exclusionRule") == "no-registered-entity-mention-v1":
                             supplier = next(s for s in contract["suppliers"] if s["id"] == task["supplierId"])
                             require(source["family"] in ("investor_acquirer", "release_distribution") and len(text) >= 100 and not mentions_entity(text, supplier), "Invalid shared-publisher entity exclusion")
+                        elif validation.get("exclusionRule") == NOT_ABOUT_RULE:
+                            supplier = next(s for s in contract["suppliers"] if s["id"] == task["supplierId"])
+                            require(windowed(contract["collection"]) and validation.get("outcome") == NOT_ABOUT_OUTCOME and validation.get("emptyReview") is None
+                                    and len(text) >= 100 and not mentions_supplier(text, supplier), "Invalid not-about-supplier exclusion")
                         else:
                             review = __import__('json').loads(store.get(validation["emptyReview"]))
                             require(review.get("noRelevantFacts") is True and review.get("evidenceSha256") == observation["body"]["sha256"] and review.get("policySha256") == digest(contract), "Empty document review missing or mismatched")

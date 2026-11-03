@@ -1119,4 +1119,32 @@ class PipelineTests(unittest.TestCase):
             if host in {'www.thomabravo.com','newsroom.accenture.com','www.levelblue.com'}:self.assertEqual(s['family'],'investor_acquirer')
 
 
+class HistoryWindowSelectionTests(unittest.TestCase):
+    """Policy-versioned backlog cut: the window only exists when the contract declares it."""
+    policy = {"currentWindowDays": 30, "historyWindowDays": 365, "maxDocumentsPerSource": 2,
+              "maxAuditDocumentsPerSource": 1, "maxFetchAuditDocumentsPerSource": 3}
+
+    def test_old_unreviewed_documents_are_archived_but_stay_in_the_queue(self):
+        found = {"items": ["old", "recent"], "itemModified": {"old": "2020-01-01", "recent": "2026-10-19"}}
+        selected, deferred = select_documents(found, {}, self.policy, T)
+        self.assertEqual((selected, deferred), (["recent"], ["old"]))
+
+    def test_policies_without_a_window_keep_the_old_behaviour(self):
+        legacy = {"currentWindowDays": 30, "maxDocumentsPerSource": 2, "maxAuditDocumentsPerSource": 1}
+        found = {"items": ["old", "recent"], "itemModified": {"old": "2020-01-01", "recent": "2026-10-19"}}
+        self.assertEqual(select_documents(found, {}, legacy, T), (["recent", "old"], []))
+
+    def test_undated_documents_remain_eligible_and_sort_after_dated_ones(self):
+        found = {"items": ["a-undated", "b-dated"], "itemModified": {"b-dated": "2026-06-01"}}
+        selected, deferred = select_documents(found, {}, {**self.policy, "maxFetchAuditDocumentsPerSource": 0}, T)
+        self.assertEqual((selected, deferred), (["b-dated"], ["a-undated"]))
+
+    def test_supplier_mention_check_name_alias_and_absence(self):
+        from selection import mentions_supplier
+        supplier = {"name": "Fixture Vendor, Inc.", "kind": "private", "aliases": ["FV Labs"]}
+        self.assertTrue(mentions_supplier("fixture vendor raised money", supplier))
+        self.assertTrue(mentions_supplier("Notes from FV Labs", supplier))
+        self.assertFalse(mentions_supplier("Fixture Vendors Anonymous met; another company raised money", supplier))
+
+
 if __name__=='__main__':unittest.main()
