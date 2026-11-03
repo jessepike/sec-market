@@ -14,5 +14,5 @@
       "eventStatus": "announced"
     }
   ],
-  "notes": "Page dates the agreement March 16, 2026 and says amendments take effect on closing. events.ts records 2026-05-08, which this page does not state."
+  "notes": "This is the March 16, 2026 announcement of the lender agreement. Closing was announced separately on May 8, 2026 (https://www.optiv.com/company/press-releases/optiv-completes-comprehensive-amendment-and-extension-its-credit-facilities). The site event EV-optiv-2 dates the closing correctly (2026-05-08) but cites this announcement page as its source."
 }

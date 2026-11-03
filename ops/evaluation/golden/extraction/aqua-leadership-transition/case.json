@@ -11,8 +11,11 @@
       "effectiveDate": "2025-11-06",
       "amount": null,
       "currency": null,
-      "eventStatus": null
+      "eventStatus": null,
+      "acceptableDates": [
+        "2025-11-05"
+      ]
     }
   ],
-  "notes": "Page dateline is Nov 6, 2025; events.ts records 2025-11-05. CEO and CTO roles change in one release, labeled as one fact."
+  "notes": "Dateline reads Nov 6, 2025 (Tel Aviv); the page metadata publishes it 2025-11-05 15:00 UTC. Both dates are acceptable. The site records 2025-11-05, which matches the publication time."
 }
