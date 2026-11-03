@@ -14,7 +14,9 @@ sys.path.insert(0, str(ROOT / 'web/tests'))
 sys.path.insert(0, str(ROOT / 'web/scripts/pipeline'))
 import test_retained_audit_rebinding as fixtures
 from contracts import ContractError, validate_contract
-from selection import mentions_supplier, outside_history_window, select_documents
+from engine import Pipeline
+from selection import (collection_policy, history_binding, load_history_policy, mentions_supplier,
+                       outside_history_window, select_documents)
 from separation import MODE
 
 NOW = '2026-10-19T16:00:00Z'
@@ -224,6 +226,76 @@ class HistoryWindowPipelineTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             replay_document(receipt, document, {**observed, 'body': about}, self.f.contract,
                             self.f.contract['sources'][0], NOW, self.f.store)
+
+
+class HistoryPolicyFileTests(HistoryWindowPipelineTests):
+    """The same behaviour, switched on by contracts/history-window.json instead of the contract.
+
+    The contract is left without the keys (so its digest is untouched); the engine records the
+    policy's digest and values in every receipt and the replay verifier reads them from there.
+    """
+    def setUp(self):
+        super().setUp()
+        collection = self.f.contract['collection']
+        values = {'schemaVersion': 1, 'historyWindowDays': collection.pop('historyWindowDays'),
+                  'maxFetchAuditDocumentsPerSource': collection.pop('maxFetchAuditDocumentsPerSource')}
+        self.binding = history_binding(values, collection)
+
+        def run_pipeline(agent=None):
+            self.f.fetcher.now = self.f.time
+            return Pipeline(self.f.contract, self.f.store, self.f.fetcher, agent=agent, clock=lambda: self.f.time,
+                            history=values).run(self.f.time, force_refresh=True)
+        self.f.run_pipeline = run_pipeline
+
+    def test_every_receipt_binds_the_exact_digest_and_values(self):
+        self.site({'old': ('2020-01-01', page(OTHER)), 'fresh': ('2026-10-18', page(ABOUT))})
+        result, receipt = self.run_once()
+        self.assertEqual(receipt['historyWindow'], self.binding)
+        self.assertEqual(len(self.binding['sha256']), 64)
+        self.assertNotIn('historyWindowDays', self.f.contract['collection'])
+        self.assertEqual(result['processing']['archivedDocuments'], 1)
+
+    def test_replay_uses_the_bound_values_not_the_working_policy(self):
+        self.site({'old': ('2020-01-01', page(OTHER)), 'fresh': ('2026-10-18', page(ABOUT))})
+        result, receipt = self.run_once()
+        self.assertEqual(collection_policy(self.f.contract, receipt)['historyWindowDays'], 365)
+        # A receipt with edited values no longer matches its recorded digest.
+        forged = {**receipt, 'historyWindow': {**receipt['historyWindow'], 'historyWindowDays': 3650}}
+        with self.assertRaises(ValueError):
+            collection_policy(self.f.contract, forged)
+
+
+class HistoryPolicyAbsentTests(unittest.TestCase):
+    def test_no_file_means_no_cut_and_no_binding(self):
+        f = fixtures.RetainedAuditTests()
+        f.setUp(); self.addCleanup(f.doCleanups)
+        f.contract['sources'][0].update(kind='sitemap', url='https://example.invalid/sitemap.xml')
+        f.time = NOW
+        f.fetcher.pages['https://example.invalid/sitemap.xml'] = (
+            '<urlset><url><loc>' + BASE + 'old</loc><lastmod>2020-01-01</lastmod></url></urlset>').encode()
+        f.fetcher.pages[BASE + 'old'] = page(ABOUT)
+        receipt = f.run_pipeline(fixtures.FakeAgent())['receipts'][0]
+        self.assertNotIn('historyWindow', receipt)
+        self.assertIs(collection_policy(f.contract, receipt), f.contract['collection'])
+
+    def test_missing_file_is_off_and_invalid_values_are_refused(self):
+        self.assertIsNone(load_history_policy(ROOT / 'contracts/no-such-file.json'))
+        collection = {'mode': MODE, 'currentWindowDays': 30}
+        good = {'schemaVersion': 1, 'historyWindowDays': 365, 'maxFetchAuditDocumentsPerSource': 80}
+        history_binding(good, collection)
+        for bad in ({'historyWindowDays': 30}, {'historyWindowDays': '365'}, {'maxFetchAuditDocumentsPerSource': -1},
+                    {'extra': 1}, {'schemaVersion': 2}):
+            with self.assertRaises(ValueError):
+                history_binding({**good, **bad}, collection)
+        with self.assertRaises(ValueError):
+            history_binding(good, {**collection, 'mode': 'delta_with_retained_audit'})
+
+    def test_committed_policy_is_valid_for_the_committed_contract(self):
+        contract = validate_contract(json.loads((ROOT / 'contracts/market.json').read_text()))
+        binding = load_history_policy(ROOT / 'contracts/history-window.json')
+        self.assertEqual((binding['historyWindowDays'], binding['maxFetchAuditDocumentsPerSource']), (365, 80))
+        self.assertTrue(collection_policy(contract, {'historyWindow': binding})['historyWindowDays'] == 365)
+        self.assertNotIn('historyWindowDays', contract['collection'])  # the contract digest is untouched
 
 
 class ConsumerCounterTests(unittest.TestCase):

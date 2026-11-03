@@ -8,7 +8,8 @@ from urllib.parse import urlsplit
 
 from contracts import canonical, digest, instant, plan_run, require, unique
 from documents import article_input, verify_article_input
-from selection import (NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, mentions_supplier, outside_history_window, windowed)
+from selection import (NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, collection_policy, mentions_supplier,
+                       outside_history_window, windowed)
 from separation import (enabled as separated, audit_version, original_contract, bridge, compatible, summary,
                         document_context, document_cache_key)
 from source_qualification_origin import (is_qualification_predecessor, qualification_predecessors,
@@ -247,16 +248,16 @@ def separated_details(receipt, contract, source, at, store):
     current -= changed
     historical_dates -= changed
     selected = set(receipt.get('selectedDocumentUrls', []))
+    policy = collection_policy(contract, receipt)
     require(len(selected) == len(receipt.get('selectedDocumentUrls', [])) and selected.issubset(full) and
-            len(selected) <= contract['collection']['maxDocumentsPerSource'] +
-            contract['collection'].get('maxFetchAuditDocumentsPerSource', 0), 'Selected document bound/inventory differs')
+            len(selected) <= policy['maxDocumentsPerSource'] +
+            policy.get('maxFetchAuditDocumentsPerSource', 0), 'Selected document bound/inventory differs')
     if receipt.get('collectionScope'):
         require(receipt['collectionScope']['mode'] == contract['collection']['mode'] and
                 receipt['collectionScope']['selectedDocuments'] == len(selected), 'Selected work accounting differs')
     fresh = set(documents) - {b['url'] for b in receipt.get('retainedAuditBindings', [])}
     require(fresh.issubset(selected), 'Current document review is outside selected work')
     processing_reviewed = reviewed - pending
-    policy = contract['collection']
     archived, not_about = set(), set()
     if windowed(policy):
         # Archived = never reviewed, known date outside the history window, unchanged,
@@ -746,7 +747,7 @@ def replay_document(receipt, document, observed, contract, source, at, store, re
     require(Counter(hashes) == Counter(validation['candidateHashes']), 'Retained candidate/disposition inventory differs')
     unique(validation['candidateHashes'], 'retained candidate disposition')
     if validation.get('exclusionRule') == NOT_ABOUT_RULE:
-        require(windowed(contract['collection']) and validation.get('outcome') == NOT_ABOUT_OUTCOME and
+        require(windowed(collection_policy(contract, receipt)) and validation.get('outcome') == NOT_ABOUT_OUTCOME and
                 len(view['page'].readable) >= 100 and not mentions_supplier(view['page'].readable, supplier)
                 and not hashes and validation.get('emptyReview') is None, 'Retained not-about-supplier exclusion differs')
     elif validation.get('exclusionRule'):

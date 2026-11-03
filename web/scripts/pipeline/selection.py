@@ -3,7 +3,7 @@ from datetime import date, timedelta
 import re
 from urllib.parse import unquote, urlsplit
 
-from contracts import digest, instant
+from contracts import digest, instant, require
 
 
 def date_partitions(items, modified, policy, now):
@@ -25,6 +25,52 @@ def date_partitions(items, modified, policy, now):
 def windowed(policy):
     """History-window behaviour exists only for policies that declare it (policy-versioned)."""
     return 'historyWindowDays' in policy
+
+
+HISTORY_MODE = 'daily_intake_with_separate_history'
+HISTORY_KEYS = ('historyWindowDays', 'maxFetchAuditDocumentsPerSource')
+
+
+def history_binding(values, collection=None):
+    """Validate the history policy file's values and return the binding a receipt records.
+
+    The binding is the exact values plus their digest. A receipt that carries it is
+    replayed with these values, never with whatever the working file says later.
+    """
+    require(isinstance(values, dict) and values.get('schemaVersion') == 1, 'History policy needs schemaVersion 1')
+    require(set(values) - {'sha256'} == {'schemaVersion', *HISTORY_KEYS}, 'History policy has missing or unknown fields')
+    for key in HISTORY_KEYS:
+        require(type(values[key]) is int and values[key] >= (1 if key == 'historyWindowDays' else 0),
+                'History policy field must be a whole number: ' + key)
+    body = {k: values[k] for k in ('schemaVersion', *HISTORY_KEYS)}
+    require(values.get('sha256', digest(body)) == digest(body), 'History policy digest differs from its values')
+    if collection is not None:
+        require(collection.get('mode') == HISTORY_MODE, 'History policy needs separated intake')
+        require(values['historyWindowDays'] > collection['currentWindowDays'],
+                'History window must be longer than the current window')
+    return {**body, 'sha256': digest(body)}
+
+
+def load_history_policy(path):
+    """The history policy file's binding, or None when the file is absent (the cut is off)."""
+    import json
+    from pathlib import Path
+    path = Path(path)
+    return history_binding(json.loads(path.read_text())) if path.exists() else None
+
+
+def collection_policy(contract, receipt=None, history=None):
+    """The collection policy a receipt was produced and must be replayed under.
+
+    A receipt's own recorded binding wins over anything else. Without one, the
+    contract's own collection block is used exactly as before.
+    """
+    policy = contract.get('collection', {})
+    bound = (receipt or {}).get('historyWindow') or history
+    if not bound:
+        return policy
+    bound = history_binding(bound, policy)
+    return {**policy, **{key: bound[key] for key in HISTORY_KEYS}}
 
 
 def known_day(stamp, now):

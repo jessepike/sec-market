@@ -3,6 +3,7 @@ import copy
 import json
 
 from contracts import digest, instant, require
+from selection import collection_policy
 
 MODE = 'daily_intake_with_separate_history'
 MEASURE = 'daily_source_intake_v2'
@@ -94,7 +95,7 @@ def source_measure(receipt, source, contract, at, store, bounded_details=None, l
         details = bounded_details
     else:
         intake_ok = legacy_ok
-        zero = {'archivedDocuments': 0, 'notAboutSupplierDocuments': 0} if 'historyWindowDays' in contract.get('collection', {}) else {}
+        zero = {'archivedDocuments': 0, 'notAboutSupplierDocuments': 0} if 'historyWindowDays' in collection_policy(contract, receipt) else {}
         details = {'processing': {**empty, 'changedDocuments': 0, 'unknownDateDocuments': 0, **zero},
                    'historicalReview': empty}
     outcome = 'checked' if intake_ok else (receipt['outcome'] if receipt['outcome'] in ('blocked', 'failed') else 'not_checked')

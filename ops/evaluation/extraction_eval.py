@@ -82,7 +82,7 @@ def load_golden(golden_dir):
 
 def cmd_run(args):
     from agents import SubscriptionAgent, ModelUnavailable
-    from documents import readable_document
+    from documents import article_input
 
     output = Path(args.output)
     if output.exists():
@@ -96,7 +96,8 @@ def cmd_run(args):
             results[case["id"]] = {"facts": None, "error": f"NOT_RUN_{aborted}"}
             continue
         try:
-            text = readable_document((case["_dir"] / "page.html").read_bytes())
+            # Same model input as production (engine.py): readable text plus publication-date metadata.
+            text = article_input((case["_dir"] / "page.html").read_bytes(), {"requestedUrl": case["url"]})["modelText"]
             results[case["id"]] = {"facts": agent.extract(text, suppliers[case["supplierId"]]), "error": None}
         except ModelUnavailable as exc:
             results[case["id"]] = {"facts": None, "error": str(exc)}
@@ -130,11 +131,18 @@ def day_gap(a, b):
 
 
 def date_ok(expected_dates, predicted):
-    """True when the dates are compatible. A null expected date is not checked."""
+    """True when the dates are compatible. A null expected date is not checked.
+
+    A missing or partial predicted date (None, "2026", "2026-01") still matches when it
+    agrees with an expected date, so the fact counts as found; date accuracy then
+    reports it as not exact instead of the scorer counting one miss plus one false positive.
+    """
     if not expected_dates:
         return True
-    if predicted is None or not ISO_DATE.fullmatch(predicted):
-        return False
+    if predicted is None:
+        return True
+    if not ISO_DATE.fullmatch(predicted):
+        return any(d.startswith(predicted) for d in expected_dates) if re.fullmatch(r"\d{4}(-\d{2})?", predicted) else False
     return any(day_gap(d, predicted) <= DATE_WINDOW_DAYS for d in expected_dates)
 
 

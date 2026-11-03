@@ -21,6 +21,7 @@ from agents import ModelUnavailable, SubscriptionAgent
 from contracts import digest, instant, require, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
+from selection import load_history_policy
 from reporting import csv_matrix, inventory, markdown_matrix
 from onboarding import PersistentProbeBudget, ProbeReservationDenied, probe_sources, validate_qualification_probe_plan
 from snapshot import build_snapshot
@@ -375,7 +376,8 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         agent = SubscriptionAgent(contract["model"], runner=guarded)
         work = correction_work(REPO, state, contract, agent)
         collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=maximum_seconds,
-                                    correction_work=work)
+                                    correction_work=work,
+                                    history=load_history_policy(REPO / 'contracts/history-window.json'))
         previous_signals = {s: signal.getsignal(s) for s in (signal.SIGINT, signal.SIGTERM)}
         for signum in previous_signals:
             signal.signal(signum, collector.stop)

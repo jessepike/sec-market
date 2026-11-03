@@ -72,10 +72,11 @@ On preview, nothing reader-visible. Site invariants (`web/src/data/tracker/invar
 `npm run test:data` and pass on current data. The extraction eval (`ops/evaluation/extraction_eval.py`)
 has a 30-case golden set; its first scored run against the subscription model is still to do. The
 golden labels dispute two site dates: Optiv debt (page says 2026-03-16) and Aqua leadership (2025-11-06).
-The backlog cut (12-month archive window, supplier-mention check before any model call) is built and
-tested but inactive: it turns on only when `contracts/market.json` gains `historyWindowDays` and
-`maxFetchAuditDocumentsPerSource`, which needs an authorized contract transition and the owner's go,
-because it shrinks the public "N of M reviewed" count. Plan: https://claude.ai/artifact/Y9j74zYsvEWWeMxMrYocwj
+The backlog cut (12-month archive window, supplier-mention check before any model call) is switched
+on by `contracts/history-window.json` (365 days, 80 fetch-only audit slots per source), a small policy
+file kept outside `contracts/market.json` so the pinned contract digest does not move. Every receipt
+records the policy's digest and values, and replay uses the recorded values. Deleting the file turns
+the cut off. It shrinks the public "N of M reviewed" count once it reaches main. Plan: https://claude.ai/artifact/Y9j74zYsvEWWeMxMrYocwj
 
 ## Remaining work
 

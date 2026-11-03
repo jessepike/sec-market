@@ -11,8 +11,8 @@ from agents import ModelUnavailable
 from contracts import canonical, digest, instant, plan_run, require, utcnow
 from discovery import Page, decoded_discovery_body, discover
 from documents import article_input, readable_document, verify_article_input
-from selection import (NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, mentions_supplier, select_documents,
-                       windowed)
+from selection import (NOT_ABOUT_OUTCOME, NOT_ABOUT_RULE, collection_policy, history_binding,
+                       mentions_supplier, select_documents, windowed)
 from validation import reconcile, verify_statement, mentions_entity
 from retained_audit import (VERSION as AUDIT_VERSION, activate_compatibility, bounded as audit_bounded,
                             index_for, predecessor_inventory, replay_binding, replay_document, verify_receipt,
@@ -21,8 +21,12 @@ from separation import enabled as separated, audit_version, compatible, document
 
 
 class Pipeline:
-    def __init__(self, contract, store, fetcher, agent=None, clock=utcnow, structured=None, correction_work=None):
+    def __init__(self, contract, store, fetcher, agent=None, clock=utcnow, structured=None, correction_work=None, history=None):
         self.contract, self.store, self.fetcher, self.agent, self.clock = contract, store, fetcher, agent, clock
+        # Optional history policy (contracts/history-window.json), kept outside the contract
+        # digest. Every receipt records its exact values; absent means the cut is off.
+        self.history = history_binding(history, contract.get('collection', {})) if history else None
+        self.collection = collection_policy(contract, history=self.history)
         self.structured = structured or self._structured
         self.correction_work = correction_work
         self.sources = {s["id"]: s for s in contract["sources"]}
@@ -35,7 +39,7 @@ class Pipeline:
         # Under a history window the model budget is a cap on model work only: once
         # it is spent, documents that need the model stay pending, and documents
         # that a fetch alone can settle keep draining. Older policies are unchanged.
-        self.windowed = windowed(contract.get('collection', {}))
+        self.windowed = windowed(self.collection)
         self.model_budget_spent = False
         self.transport_cache = {}
         self.defer_citation_models = False
@@ -137,6 +141,8 @@ class Pipeline:
         receipt = {"taskId": task["taskId"], "sourceId": task["sourceId"], "supplierId": task["supplierId"],
                    "runId": plan["runId"], "attemptId": attempt_id, "startedAt": self.clock(), "completedAt": None,
                    "outcome": "failed", "discoveryComplete": False, "observationIds": [], "newFactIds": [], "validatedFacts": [], "errorCode": None}
+        if self.history:
+            receipt["historyWindow"] = dict(self.history)
         try:
             if task["kind"] == "missing_discovery":
                 receipt.update(outcome="not_checked", errorCode="NO_REGISTERED_DISCOVERY_SOURCE")
@@ -462,7 +468,7 @@ class Pipeline:
                     selected_inventory = {**found, "items": sorted(retained_items)}
                     if separated(self.contract):
                         selected_inventory['requiredRevalidation'] = sorted(required_revalidation)
-                    ordered, deferred = select_documents(selected_inventory, selection_history, self.contract["collection"], self.clock(),
+                    ordered, deferred = select_documents(selected_inventory, selection_history, self.collection, self.clock(),
                         supplier=self.suppliers[source['supplierId']] if source['family'] in ('investor_acquirer', 'release_distribution') else None)
                     pending.extend(deferred)
                     if deferred:

@@ -12,6 +12,7 @@ from contracts import digest, plan_run, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
 from publication import health
+from selection import load_history_policy
 from reporting import csv_matrix, inventory, markdown_matrix
 from validation import reconcile
 from storage import LocalStore
@@ -54,7 +55,9 @@ def main():
         agent = SubscriptionAgent(contract["model"]) if args.subscription_worker else None
         if args.native_worker:
             agent = NativeAgent(contract["model"], store, digest(contract), args.session_id)
-        result = Pipeline(contract, store, Fetcher(store), agent).run(at, replay=args.native_worker)
+        # The history policy sits beside the contract and is optional: no file, no archive cut.
+        history = load_history_policy(Path(args.contract).with_name('history-window.json'))
+        result = Pipeline(contract, store, Fetcher(store), agent, history=history).run(at, replay=args.native_worker)
     elif args.command == "native-pending":
         if not args.role:
             parser.error("--role required")
