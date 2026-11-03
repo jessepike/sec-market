@@ -132,3 +132,4 @@
 .refresh-coverage h2 { margin-top: 0; font-size: 1.15rem; }
 .refresh-coverage summary { cursor: pointer; }
 .refresh-coverage li { margin-block: .45rem; overflow-wrap: anywhere; }
+.desk-growth__currency { margin-left: 4px; font-size: 10px; color: #62676a; text-decoration: none; letter-spacing: .02em; }

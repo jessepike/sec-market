@@ -1,6 +1,7 @@
 import edgarFacts from '../generated/edgarFacts.json' with { type: 'json' }
 import { runStatus } from '../runStatus'
-import { edgarFilingsInLast30Days, eventsInLast30Days, parseGrowthPercent } from './derive'
+import { edgarFilingsInLast30Days, eventsInLast30Days, parseGrowthPercent, shortSupplierName } from './derive'
+import { dealIds } from './deals'
 import type { EdgarFiling } from './derive'
 import { trackerEvents } from './events'
 import type { TrackerEventType } from './events'
@@ -47,10 +48,108 @@ export function recentChanges(): ChangeItem[] {
   return changes.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id))
 }
 
+/**
+ * SEC quarterly filings in the trailing 12 months, one per filing. A filing also restates the
+ * same quarter a year earlier, and edgarFacts stamps that comparative with the newer filing's
+ * date, so each filing keeps only the latest quarter it reports.
+ */
+export function secFilingsInLastYear(asOf = runStatus.lastChecked): EdgarFiling[] {
+  const out: EdgarFiling[] = []
+  for (const supplier of edgarFacts.suppliers) {
+    const byFiling = new Map<string, EdgarFiling>()
+    for (const q of supplier.quarters) {
+      const current = byFiling.get(q.sourceUrl)
+      if (!current || q.periodEnd > current.periodEnd) {
+        byFiling.set(q.sourceUrl, { supplierId: supplier.id, periodEnd: q.periodEnd, filedDate: q.filedDate, form: q.form, value: q.value, sourceUrl: q.sourceUrl })
+      }
+    }
+    for (const filing of byFiling.values()) {
+      const age = ageInDays(filing.filedDate, asOf)
+      if (age >= 0 && age <= 365) out.push(filing)
+    }
+  }
+  return out
+}
+
+/**
+ * Year view: every tracked event plus each SEC filing that has no matching results announcement.
+ * Filings from the last 30 days attach exactly as in `recentChanges`, so both views agree.
+ */
+export function yearChanges(): ChangeItem[] {
+  const items: ChangeItem[] = yearEvents.map(event => ({ ...event, filings: [] }))
+  const recentByFiling = new Map(recentChanges().flatMap(item => item.filings.map(f => [f.sourceUrl, item] as const)))
+  for (const filing of secFilingsInLastYear()) {
+    const recent = recentByFiling.get(filing.sourceUrl)
+    const matchingResult = recent
+      ? (recent.type === 'filing' ? undefined : items.find(item => item.id === recent.id))
+      : items.find(item => item.supplierId === filing.supplierId && item.type === 'results' && item.filings.length === 0
+        && ageInDays(item.date, filing.filedDate) >= 0 && ageInDays(item.date, filing.filedDate) <= 30)
+    if (matchingResult) matchingResult.filings.push(filing)
+    else items.push({ id: `filing-${filing.supplierId}-${filing.periodEnd}`, supplierId: filing.supplierId,
+      date: filing.filedDate, type: 'filing', text: `Filed ${filing.form} for the quarter ended ${filing.periodEnd}.`, evidenceIds: [], filings: [filing] })
+  }
+  return items.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id))
+}
+
+export function groupIdFor(type: ChangeItem['type']): string {
+  return type === 'filing' ? 'results' : eventGroups.find(g => g.types.includes(type))!.id
+}
+
+/** A counted event: one row, or several rows that report the same transaction. */
+export interface CountedUnit {
+  key: string
+  groupId: string
+  date: string
+  items: ChangeItem[]
+}
+
+const dealTypes: ReadonlySet<string> = new Set(['acquisition', 'divestiture', 'funding'])
+const supplierNamePatterns = trackerSuppliers.map(s => ({ id: s.id,
+  pattern: new RegExp(`\\b(${[...new Set([s.name, shortSupplierName(s.name)])].map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'i') }))
+const mentions = (item: ChangeItem, supplierId: string) => supplierNamePatterns.find(p => p.id === supplierId)?.pattern.test(item.text) ?? false
+
+/**
+ * Groups rows that report one transaction so the counts show deals, not rows. Rows join when
+ * `dealIds` links them, or when they share a date and a deal type and are about the same supplier
+ * or name each other's supplier, with at least one ownership row among them. Every row stays in
+ * the change log and the supplier's own history.
+ */
+export function countedUnits(items: ChangeItem[]): CountedUnit[] {
+  const parent = new Map(items.map(item => [item.id, item.id]))
+  const find = (id: string): string => { const p = parent.get(id)!; return p === id ? id : find(p) }
+  const join = (a: string, b: string) => { parent.set(find(a), find(b)) }
+  const deals = items.filter(item => dealTypes.has(item.type))
+  for (const a of deals) for (const b of deals) {
+    if (a.id >= b.id) continue
+    const linked = dealIds[a.id] !== undefined && dealIds[a.id] === dealIds[b.id]
+    const sameDay = a.date === b.date && (a.type !== 'funding' || b.type !== 'funding')
+      && (a.supplierId === b.supplierId || mentions(a, b.supplierId) || mentions(b, a.supplierId))
+    if (linked || sameDay) join(a.id, b.id)
+  }
+  const clusters = new Map<string, ChangeItem[]>()
+  for (const item of items) clusters.set(find(item.id), [...(clusters.get(find(item.id)) ?? []), item])
+  return [...clusters.values()].map(members => {
+    const sorted = members.slice().sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id))
+    const ownership = sorted.find(item => item.type === 'acquisition' || item.type === 'divestiture')
+    return { key: sorted[0].id, groupId: groupIdFor((ownership ?? sorted[0]).type), date: sorted[0].date, items: sorted }
+  })
+}
+
 export interface GrowthRow {
   supplier: TrackerSupplier
   latest: number
   prior: number | null
+  /** ISO code when growth is measured in a currency other than US dollars, e.g. 'JPY'. */
+  currency: string | null
+}
+
+const currencyNames: Record<string, string> = { JPY: 'Japanese yen', EUR: 'euros', GBP: 'British pounds', ILS: 'Israeli shekels', CAD: 'Canadian dollars' }
+export const currencyName = (code: string) => currencyNames[code] ?? code
+
+/** Reads the reporting currency from a growth basis such as "JPY net sales; ...". */
+export function growthCurrency(basis: string | undefined): string | null {
+  const code = basis?.match(/^([A-Z]{3})\b/)?.[1]
+  return code && code !== 'USD' ? code : null
 }
 
 /** Public companies only. Segments, ARR and other own metrics are never mixed into this comparison. */
@@ -61,7 +160,7 @@ export function revenueGrowthRows(): GrowthRow[] {
     if (supplier.kind !== 'public' || latest === null || !/^[+-]?\d+(?:\.\d+)?%$/.test(supplier.revenue!.latest.yoyGrowth)) return []
     const priorText = supplier.revenue?.prior?.yoyGrowth
     const prior = priorText && /^[+-]?\d+(?:\.\d+)?%$/.test(priorText) ? parseGrowthPercent(priorText) : null
-    return [{ supplier, latest, prior }]
+    return [{ supplier, latest, prior, currency: growthCurrency(supplier.revenue!.latest.growthBasis) }]
   }).sort((a, b) => a.supplier.name.localeCompare(b.supplier.name))
 }
 
