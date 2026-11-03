@@ -112,11 +112,18 @@ test('collected empty inventory does not imply zero of zero documents reviewed',
   assert.doesNotMatch(html, /0 of 0 reviewed/)
 })
 
-test('archive counters are accepted, validated and add no wording to the processing line', () => {
+test('archive counters are validated, and the wording changes only when documents were archived', () => {
   const plain = render(readDailyCoverage(structuredClone(intakeReviewFixture))!)
+  const none = structuredClone(intakeReviewFixture)
+  none.processing = { ...none.processing, archivedDocuments: 0, notAboutSupplierDocuments: 2 }
+  assert.equal(render(readDailyCoverage(none)!), plain) // zero archived: byte-identical to the old text
+  assert.doesNotMatch(plain, /archived/)
   const value = structuredClone(intakeReviewFixture)
   value.processing = { ...value.processing, archivedDocuments: 11000, notAboutSupplierDocuments: 2 }
-  assert.equal(render(readDailyCoverage(value)!), plain)
+  const html = render(readDailyCoverage(value)!)
+  assert.match(html, /6 changed, 4 dates unknown; 11000 archived as older than 12 months\./)
+  assert.match(html, /9700 pending, 12 held; 11000 archived as older than 12 months\./)
+  assert.doesNotMatch(html, /—/)
   for (const mutate of [
     (v: Record<string, any>) => { v.processing.archivedDocuments = -1 },
     (v: Record<string, any>) => { v.processing.notAboutSupplierDocuments = 21 },

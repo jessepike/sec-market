@@ -27,6 +27,8 @@ export function DailyCollectionStatus({ className = 'run-status__line', coverage
   if (!coverage) return null
   if (coverage.schemaVersion === 2) {
     const { intake, processing, historicalReview: history } = coverage
+    // Archived documents exist only under a history window. With none, the wording below is unchanged.
+    const archivedNote = (processing.archivedDocuments ?? 0) > 0 ? `; ${processing.archivedDocuments} archived as older than 12 months` : ''
     const complete = intake.complete && processing.complete && history.complete && history.heldDocuments === 0
     return <div className={`${className} run-status__line--${complete && !overdue ? 'updated' : 'incomplete'}`} aria-live="polite">
       {intake.evaluated && overdue && 'The next source check is overdue. '}
@@ -34,10 +36,10 @@ export function DailyCollectionStatus({ className = 'run-status__line', coverage
       {processing.evaluated === false ? <>Document processing: not evaluated; pending, held and unknown-date counts unmeasured.</> : <>
       Document processing ({processing.complete ? 'complete' : 'incomplete'}): {processing.inventoryDocuments === 0 ? 'no documents observed' : <>{processing.reviewedDocuments} of {processing.inventoryDocuments} reviewed</>};{' '}
       {processing.pendingDocuments} pending, {processing.heldDocuments} held,{' '}
-      {processing.changedDocuments} changed, {processing.unknownDateDocuments} dates unknown.</>}<br />
+      {processing.changedDocuments} changed, {processing.unknownDateDocuments}{` dates unknown${archivedNote}.`}</>}<br />
       {history.evaluated === false ? <>Historical review: not evaluated; pending and held counts unmeasured.</> : <>
       Historical review ({history.complete ? 'complete' : 'incomplete'}): {history.inventoryDocuments === 0 ? 'no documents observed' : <>{history.reviewedDocuments} of {history.inventoryDocuments} reviewed</>};{' '}
-      {history.pendingDocuments} pending, {history.heldDocuments} held.</>}{' '}
+      {history.pendingDocuments} pending, {history.heldDocuments}{` held${archivedNote}.`}</>}{' '}
       <details>
         <summary>Dates, review limits and source receipts</summary>
         {intake.evaluated ? 'Latest recorded source intake: ' : 'Source intake has not yet been collected under this policy. Earlier recorded collection: '}
