@@ -1,0 +1,835 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-03T22:44:41+00:00",
+  "model": {
+    "provider": "codex_subscription",
+    "maxDocumentChars": 30000,
+    "timeoutSeconds": 180
+  },
+  "cases": {
+    "accenture-edge-launch": {
+      "facts": [],
+      "error": null
+    },
+    "accenture-ookla-acquisition": {
+      "facts": [],
+      "error": null
+    },
+    "aqua-leadership-transition": {
+      "facts": [
+        {
+          "supplierId": "aqua",
+          "predicate": "leadership_change",
+          "valueText": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company.",
+          "quote": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "aqua",
+          "predicate": "leadership_change",
+          "valueText": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO",
+          "quote": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO, and former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "aqua",
+          "predicate": "leadership_change",
+          "valueText": "former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer",
+          "quote": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO, and former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "cato-arr-350m": {
+      "facts": [
+        {
+          "supplierId": "cato",
+          "predicate": "arr",
+          "valueText": "2025 annual recurring revenue (ARR) surpassed $350 million",
+          "quote": "Cato Networks , the SASE leader, today announced that its 2025 annual recurring revenue (ARR) surpassed $350 million, an increase of 43% year-over-year (YoY) compared to 2024.",
+          "effectiveDate": "2025",
+          "amount": "350000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "arr",
+          "valueText": "an increase of 43% year-over-year (YoY) compared to 2024",
+          "quote": "Cato Networks , the SASE leader, today announced that its 2025 annual recurring revenue (ARR) surpassed $350 million, an increase of 43% year-over-year (YoY) compared to 2024.",
+          "effectiveDate": "2025",
+          "amount": "43",
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "leadership_change",
+          "valueText": "Karl Soderlund (global channel chief) was appointed to lead the global channel team and further scale the global partner program",
+          "quote": "In 2025, Karl Soderlund (global channel chief) was appointed to lead the global channel team and further scale the global partner program, while Nicolas Warnier (vice president of sales, EMEA) and Marcus Guerriero (vice president of sales, Americas) were appointed to lead sales in their respective regions.",
+          "effectiveDate": "2025",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "leadership_change",
+          "valueText": "Nicolas Warnier (vice president of sales, EMEA) and Marcus Guerriero (vice president of sales, Americas) were appointed to lead sales in their respective regions",
+          "quote": "In 2025, Karl Soderlund (global channel chief) was appointed to lead the global channel team and further scale the global partner program, while Nicolas Warnier (vice president of sales, EMEA) and Marcus Guerriero (vice president of sales, Americas) were appointed to lead sales in their respective regions.",
+          "effectiveDate": "2025",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "leadership_change",
+          "valueText": "In January 2026, Jaime Romero was appointed chief marketing officer.",
+          "quote": "In January 2026, Jaime Romero was appointed chief marketing officer.",
+          "effectiveDate": "2026-01",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "acquisition",
+          "valueText": "Cato announced its acquisition of Aim Security",
+          "quote": "Cato announced its acquisition of Aim Security, a visionary leader of AI security with customers in the Fortune 500 and Forbes Global 2000.",
+          "effectiveDate": "2025",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "funding",
+          "valueText": "Cato announced it raised $409 million in Series G funding ( initial round and extension )",
+          "quote": "Cato announced it raised $409 million in Series G funding ( initial round and extension ) at a valuation of more than $4.8 billion.",
+          "effectiveDate": "2025",
+          "amount": "409000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "valuation",
+          "valueText": "a valuation of more than $4.8 billion",
+          "quote": "Cato announced it raised $409 million in Series G funding ( initial round and extension ) at a valuation of more than $4.8 billion.",
+          "effectiveDate": "2025",
+          "amount": "4800000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "funding",
+          "valueText": "Total funding is more than $1 billion.",
+          "quote": "Total funding is more than $1 billion.",
+          "effectiveDate": null,
+          "amount": "1000000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "cato-arr-415m": {
+      "facts": [
+        {
+          "supplierId": "cato",
+          "predicate": "arr",
+          "valueText": "surpassed $415 million in ARR",
+          "quote": "Cato Networks , the converged network and security cloud for the AI era, today announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth.",
+          "effectiveDate": "2026-07-27",
+          "amount": "415000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "arr",
+          "valueText": "42% year-over-year (YoY) growth",
+          "quote": "Cato Networks , the converged network and security cloud for the AI era, today announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth.",
+          "effectiveDate": "2026-07-27",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cato",
+          "predicate": "acquisition",
+          "valueText": "Cato's Aim Security acquisition",
+          "quote": "Cato continues to see strong demand for Cato AI Security, which converges advanced AI governance and protection capabilities from Cato's Aim Security acquisition into a fully integrated solution introduced to market in March 2026.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "checkpoint-q2-2026": {
+      "facts": [
+        {
+          "supplierId": "checkpoint-sase",
+          "predicate": "revenue",
+          "valueText": "Total Revenues: $674 million, a 1 percent increase year over year",
+          "quote": "Second Quarter 2026 Financial Highlights: Total Revenues: $674 million, a 1 percent increase year over year",
+          "effectiveDate": "2026-06-30",
+          "amount": "674000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "checkpoint-sase",
+          "predicate": "revenue",
+          "valueText": "Security Subscriptions Revenues: $333 million, a 12 percent increase year over year",
+          "quote": "Second Quarter 2026 Financial Highlights: Total Revenues: $674 million, a 1 percent increase year over year Security Subscriptions Revenues: $333 million, a 12 percent increase year over year",
+          "effectiveDate": "2026-06-30",
+          "amount": "333000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "segment"
+        },
+        {
+          "supplierId": "checkpoint-sase",
+          "predicate": "debt",
+          "valueText": "$1.8 billion proceeds from our $2 billion convertible senior notes offering net of issuance costs and net of purchased capped calls",
+          "quote": "The increase in cash is primarily a result of the $1.8 billion proceeds from our $2 billion convertible senior notes offering net of issuance costs and net of purchased capped calls.",
+          "effectiveDate": null,
+          "amount": "2000000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "claroty-150m-siliconangle": {
+      "facts": [
+        {
+          "supplierId": "claroty",
+          "predicate": "funding",
+          "valueText": "has secured $150 million in new funding",
+          "quote": "Claroty Ltd., a startup that helps companies protect their industrial equipment from hackers, has secured $150 million in new funding.",
+          "effectiveDate": null,
+          "amount": "150000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "claroty",
+          "predicate": "valuation",
+          "valueText": "the raise boosted Claroty\u2019s valuation by 80%, to $3 billion",
+          "quote": "Calcalist reported today that the raise boosted Claroty\u2019s valuation by 80%, to $3 billion.",
+          "effectiveDate": null,
+          "amount": "3000000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "claroty",
+          "predicate": "revenue",
+          "valueText": "the company\u2019s annual revenue is in the hundreds of millions of dollars",
+          "quote": "According to the publication, the company\u2019s annual revenue is in the hundreds of millions of dollars.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": "USD",
+          "qualifier": "approximately",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "cyera-blog-agent-observability": {
+      "facts": [],
+      "error": null
+    },
+    "cyera-funding-600m": {
+      "facts": [
+        {
+          "supplierId": "cyera",
+          "predicate": "funding",
+          "valueText": "latest funding round of $600 million",
+          "quote": "Cyera continues to build the trust layer powering enterprise AI transformation, and today announced its latest funding round of $600 million, quadrupling the company\u2019s valuation over the last 18 months to $12 billion.",
+          "effectiveDate": "2026-06-10",
+          "amount": "600000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cyera",
+          "predicate": "valuation",
+          "valueText": "quadrupling the company\u2019s valuation over the last 18 months to $12 billion",
+          "quote": "Cyera continues to build the trust layer powering enterprise AI transformation, and today announced its latest funding round of $600 million, quadrupling the company\u2019s valuation over the last 18 months to $12 billion.",
+          "effectiveDate": "2026-06-10",
+          "amount": "12000000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cyera",
+          "predicate": "funding",
+          "valueText": "total funding over $2 billion",
+          "quote": "Cyera is now positioned as one of the most valuable privately held security companies in the world with total funding over $2 billion.",
+          "effectiveDate": null,
+          "amount": "2000000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cyera",
+          "predicate": "arr",
+          "valueText": "tripling ARR three years in a row",
+          "quote": "Cyera's growth reflects the urgency of the market it's leading, tripling ARR three years in a row.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cyera",
+          "predicate": "acquisition",
+          "valueText": "completed five acquisitions, most recently Ryft and Genie",
+          "quote": "In the last 18 months, Cyera has grown to more than 1,500 employees across 18 countries and completed five acquisitions, most recently Ryft and Genie, adding specialized technology that deepens the platform's ability to govern AI at enterprise scale.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "cyera-oasis-completed": {
+      "facts": [
+        {
+          "supplierId": "cyera",
+          "predicate": "acquisition",
+          "valueText": "completion of its acquisition of Oasis Security",
+          "quote": "Cyera today announced the completion of its acquisition of Oasis Security, the leading access management platform for the agentic enterprise. The acquisition, valued at $1 billion, unites Cyera's AI and Data Security Platform with Oasis's non-human identity (NHI) management capabilities, creating a single platform that determines what every human, machine, and AI agent can see and do.",
+          "effectiveDate": "2026-09-03",
+          "amount": "1000000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cyera",
+          "predicate": "valuation",
+          "valueText": "Valued at $12 billion",
+          "quote": "Valued at $12 billion and backed by over $2.3 billion from Accel, Blackstone, Cyberstarts, Georgian, Lightspeed, and Sequoia.",
+          "effectiveDate": null,
+          "amount": "12000000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "cyera",
+          "predicate": "funding",
+          "valueText": "backed by over $2.3 billion from Accel, Blackstone, Cyberstarts, Georgian, Lightspeed, and Sequoia",
+          "quote": "Valued at $12 billion and backed by over $2.3 billion from Accel, Blackstone, Cyberstarts, Georgian, Lightspeed, and Sequoia.",
+          "effectiveDate": null,
+          "amount": "2300000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "hiddenlayer-series-b": {
+      "facts": [
+        {
+          "supplierId": "hiddenlayer",
+          "predicate": "funding",
+          "valueText": "a $100 million Series B funding round led by Delta-v Capital , with participation from Ten Eleven Ventures , Morgan Stanley , M12, Microsoft's Venture Fund , and Booz Allen Ventures",
+          "quote": "September 2, 2026 \u2013 Austin, TX \u2013 HiddenLayer , the leading AI security company that secures agentic, generative, and predictive AI applications, today announced a $100 million Series B funding round led by Delta-v Capital , with participation from Ten Eleven Ventures , Morgan Stanley , M12, Microsoft's Venture Fund , and Booz Allen Ventures .",
+          "effectiveDate": "2026-09-02",
+          "amount": "100000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "hiddenlayer",
+          "predicate": "arr",
+          "valueText": "HiddenLayer's annual recurring revenue grew more than 10x",
+          "quote": "The raise follows a standout year: HiddenLayer's annual recurring revenue grew more than 10x, and the company signed more than 50 new platform customers, including some of the largest names in securities brokerage, banking, insurance, accounting, government, technology, IT services, pharmaceuticals, airlines, and the US defense and intelligence communities.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "more_than",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "hiddenlayer",
+          "predicate": "leadership_change",
+          "valueText": "recently naming Mike Gesnaldo as Chief Revenue Officer",
+          "quote": "HiddenLayer is also strengthening its leadership team, recently naming Mike Gesnaldo as Chief Revenue Officer.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "nozomi-acquired-by-mitsubishi": {
+      "facts": [
+        {
+          "supplierId": "nozomi",
+          "predicate": "acquisition",
+          "valueText": "Mitsubishi Electric Corporation (TOKYO: 6503) has completed its acquisition of the company",
+          "quote": "SAN FRANCISCO , Jan. 29, 2026 /PRNewswire/ -- Nozomi Networks , the leader in OT, IoT and cyber\u2011physical system security, today announced that Mitsubishi Electric Corporation (TOKYO: 6503) has completed its acquisition of the company.",
+          "effectiveDate": "2026-01-29",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        },
+        {
+          "supplierId": "nozomi",
+          "predicate": "revenue",
+          "valueText": "recently surpassed $100M in annual revenue",
+          "quote": "This milestone follows a year of exceptional momentum for Nozomi Networks. The company recently surpassed $100M in annual revenue and now serves many of the world's largest enterprises, including 5 of the top 10 oil and gas companies, 7 of the top 10 pharmaceutical manufacturers, 7 of the top 10 utilities and 4 of the top 10 mining operations.",
+          "effectiveDate": null,
+          "amount": "100000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "optiv-credit-extension": {
+      "facts": [
+        {
+          "supplierId": "optiv",
+          "predicate": "debt",
+          "valueText": "entered into an agreement with creditors holding more than 99% of its First Lien Term Loan and 100% of its Second Lien Term Loan (together the \u201cCredit Facilities\u201d) to amend and extend the maturities of its existing Credit Facilities",
+          "quote": "DENVER \u2013 March 16, 2026 \u2013 Optiv Security Inc. (\u201cOptiv\u201d, or the \u201cCompany\u201d), a leading cybersecurity solutions and services provider, today announced it has entered into an agreement with creditors holding more than 99% of its First Lien Term Loan and 100% of its Second Lien Term Loan (together the \u201cCredit Facilities\u201d) to amend and extend the maturities of its existing Credit Facilities.",
+          "effectiveDate": "2026-03-16",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "optiv",
+          "predicate": "debt",
+          "valueText": "Upon closing, the amendments will extend the maturity of Optiv's First Lien Credit Agreement to August 2028 and its Second Lien Credit Agreement to August 2029",
+          "quote": "Upon closing, the amendments will extend the maturity of Optiv's First Lien Credit Agreement to August 2028 and its Second Lien Credit Agreement to August 2029, providing the business with an extended runway to continue investing in value-maximizing opportunities.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "ping-keyless-complete": {
+      "facts": [
+        {
+          "supplierId": "ping-identity",
+          "predicate": "acquisition",
+          "valueText": "acquisition of Keyless now complete",
+          "quote": "With the acquisition of Keyless now complete, Ping adds Zero-Knowledge Biometrics to its portfolio, expanding access to device-independent, cryptographically protected biometric authentication and re-verification, elevating the standard for verified trust across the digital ecosystem.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "proofpoint-acuvity": {
+      "facts": [
+        {
+          "supplierId": "proofpoint",
+          "predicate": "acquisition",
+          "valueText": "today announced it has acquired Acuvity",
+          "quote": "SUNNYVALE, Calif., February 12, 2026 \u2013 Proofpoint, Inc . , a leading cybersecurity and compliance company, today announced it has acquired Acuvity , a pioneer in AI enterprise security and governance.",
+          "effectiveDate": "2026-02-12",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "reliaquest-cfo": {
+      "facts": [
+        {
+          "supplierId": "reliaquest",
+          "predicate": "leadership_change",
+          "valueText": "Krish Venkataraman will join the company as Chief Financial Officer on October 5",
+          "quote": "TAMPA, Fla. \u2014 Oct 1, 2026 \u2014 ReliaQuest, the global leader in Agentic AI cybersecurity, today announced that Krish Venkataraman will join the company as Chief Financial Officer on October 5.",
+          "effectiveDate": "2026-10-05",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "sonatype-blog-ai-noise": {
+      "facts": [],
+      "error": null
+    },
+    "sonatype-blog-maven-central": {
+      "facts": [],
+      "error": null
+    },
+    "sonatype-three-executives": {
+      "facts": [
+        {
+          "supplierId": "sonatype",
+          "predicate": "leadership_change",
+          "valueText": "Casey Watson as Chief Revenue Officer (CRO)",
+          "quote": "Fulton, Md. \u2013 June 9, 2026 \u2013 Sonatype \u00ae, the company that accelerates agentic software development with confidence, today announced the appointments of Casey Watson as Chief Revenue Officer (CRO), Jason McClelland as Chief Marketing Officer (CMO), and Sherri Manning as Chief Human Resources Officer (CHRO).",
+          "effectiveDate": "2026-06-09",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "sonatype",
+          "predicate": "leadership_change",
+          "valueText": "Jason McClelland as Chief Marketing Officer (CMO)",
+          "quote": "Fulton, Md. \u2013 June 9, 2026 \u2013 Sonatype \u00ae, the company that accelerates agentic software development with confidence, today announced the appointments of Casey Watson as Chief Revenue Officer (CRO), Jason McClelland as Chief Marketing Officer (CMO), and Sherri Manning as Chief Human Resources Officer (CHRO).",
+          "effectiveDate": "2026-06-09",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "sonatype",
+          "predicate": "leadership_change",
+          "valueText": "Sherri Manning as Chief Human Resources Officer (CHRO)",
+          "quote": "Fulton, Md. \u2013 June 9, 2026 \u2013 Sonatype \u00ae, the company that accelerates agentic software development with confidence, today announced the appointments of Casey Watson as Chief Revenue Officer (CRO), Jason McClelland as Chief Marketing Officer (CMO), and Sherri Manning as Chief Human Resources Officer (CHRO).",
+          "effectiveDate": "2026-06-09",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "thomabravo-dayforce-ceo-podcast": {
+      "facts": [],
+      "error": null
+    },
+    "torq-acquires-jit": {
+      "facts": [
+        {
+          "supplierId": "torq",
+          "predicate": "acquisition",
+          "valueText": "announced the acquisition of Jit",
+          "quote": "Torq, the established agentic security operations leader, today announced the acquisition of Jit, the Boston-based AI Context Graph cybersecurity pioneer.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "torq",
+          "predicate": "funding",
+          "valueText": "$140M Series D",
+          "quote": "Fresh off securing a $140M Series D at a $1.2B valuation, the company is redefining what\u2019s possible in the AI SOC and Agentic AI era.",
+          "effectiveDate": null,
+          "amount": "140000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        },
+        {
+          "supplierId": "torq",
+          "predicate": "valuation",
+          "valueText": "$1.2B valuation",
+          "quote": "Fresh off securing a $140M Series D at a $1.2B valuation, the company is redefining what\u2019s possible in the AI SOC and Agentic AI era.",
+          "effectiveDate": null,
+          "amount": "1200000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "torq-blog-ai-soc-adoption": {
+      "facts": [],
+      "error": null
+    },
+    "torq-blog-ai-soc-roi": {
+      "facts": [],
+      "error": null
+    },
+    "torq-series-d": {
+      "facts": [
+        {
+          "supplierId": "torq",
+          "predicate": "funding",
+          "valueText": "closed a massive $140 million Series D funding round",
+          "quote": "Torq, the established Agentic AI security operations pioneer, today announced it has closed a massive $140 million Series D funding round, propelling its valuation to $1.2 billion and total funding to $332M.",
+          "effectiveDate": null,
+          "amount": "140000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        },
+        {
+          "supplierId": "torq",
+          "predicate": "valuation",
+          "valueText": "valuation to $1.2 billion",
+          "quote": "Torq, the established Agentic AI security operations pioneer, today announced it has closed a massive $140 million Series D funding round, propelling its valuation to $1.2 billion and total funding to $332M.",
+          "effectiveDate": null,
+          "amount": "1200000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "torq",
+          "predicate": "funding",
+          "valueText": "total funding to $332M",
+          "quote": "Torq, the established Agentic AI security operations pioneer, today announced it has closed a massive $140 million Series D funding round, propelling its valuation to $1.2 billion and total funding to $332M.",
+          "effectiveDate": null,
+          "amount": "332000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "torq",
+          "predicate": "acquisition",
+          "valueText": "acquisition of RevRod",
+          "quote": "In 2025, Torq solidified its market lead by delivering the most advanced multi-agent security capabilities, backed by the strategic acquisition of RevRod.",
+          "effectiveDate": "2025",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "upwind-series-b": {
+      "facts": [
+        {
+          "supplierId": "upwind",
+          "predicate": "funding",
+          "valueText": "raising $250M in our Series B funding round",
+          "quote": "Today, we are raising $250M in our Series B funding round, bringing total investment in Upwind to over $430M.",
+          "effectiveDate": "2026-01-26",
+          "amount": "250000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "upwind",
+          "predicate": "funding",
+          "valueText": "total investment in Upwind to over $430M",
+          "quote": "Today, we are raising $250M in our Series B funding round, bringing total investment in Upwind to over $430M.",
+          "effectiveDate": "2026-01-26",
+          "amount": "430000000",
+          "currency": "USD",
+          "qualifier": "more_than",
+          "eventStatus": "announced",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "veeam-securiti-completed": {
+      "facts": [
+        {
+          "supplierId": "veeam",
+          "predicate": "acquisition",
+          "valueText": "the completion of its $1.725 billion acquisition of Securiti AI",
+          "quote": "Seattle, WA \u2013 December 11, 2025 \u2013 Veeam \u00ae Software , the #1 global leader by market share in Data Resilience, today announced the completion of its $1.725 billion acquisition of Securiti AI, the recognized leader in Data Security Posture Management (DSPM), privacy, governance and AI trust.",
+          "effectiveDate": "2025-12-11",
+          "amount": "1725000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        },
+        {
+          "supplierId": "veeam",
+          "predicate": "leadership_change",
+          "valueText": "Rehan Jalil, Securiti AI founder and CEO, joins Veeam as President of Security and AI.",
+          "quote": "Rehan Jalil, Securiti AI founder and CEO, joins Veeam as President of Security and AI.",
+          "effectiveDate": "2025-12-11",
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "witnessai-58m": {
+      "facts": [
+        {
+          "supplierId": "witnessai",
+          "predicate": "arr",
+          "valueText": "more than 500% ARR growth \u2014 just in the past 12 months",
+          "quote": "We\u2019ve seen more than 500% ARR growth \u2014 just in the past 12 months, and expanded our headcount by 5x to support customer demand.",
+          "effectiveDate": null,
+          "amount": "500",
+          "currency": null,
+          "qualifier": "more_than",
+          "eventStatus": "reported",
+          "scope": "company"
+        },
+        {
+          "supplierId": "witnessai",
+          "predicate": "funding",
+          "valueText": "WitnessAI has raised $58 million in strategic funding",
+          "quote": "WitnessAI has raised $58 million in strategic funding, backed by one of the most diverse and thoughtfully assembled investor groups we could have imagined.",
+          "effectiveDate": null,
+          "amount": "58000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "closed",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    },
+    "zenity-blog-agent-attack-scenarios": {
+      "facts": [],
+      "error": null
+    },
+    "zenity-blog-august-product-updates": {
+      "facts": [],
+      "error": null
+    },
+    "zenity-series-c": {
+      "facts": [
+        {
+          "supplierId": "zenity",
+          "predicate": "funding",
+          "valueText": "today announced a $125 million Series C led by Norwest",
+          "quote": "NEW YORK, Aug, 3, 2026 \u2013 Zenity , the AI security and governance platform purpose-built for AI agents, today announced a $125 million Series C led by Norwest.",
+          "effectiveDate": "2026-08-03",
+          "amount": "125000000",
+          "currency": "USD",
+          "qualifier": "exact",
+          "eventStatus": "announced",
+          "scope": "company"
+        },
+        {
+          "supplierId": "zenity",
+          "predicate": "revenue",
+          "valueText": "Zenity has tripled revenue in each of the past two years and is on track to triple revenue again this year.",
+          "quote": "Zenity has tripled revenue in each of the past two years and is on track to triple revenue again this year.",
+          "effectiveDate": null,
+          "amount": null,
+          "currency": null,
+          "qualifier": "exact",
+          "eventStatus": "reported",
+          "scope": "company"
+        }
+      ],
+      "error": null
+    }
+  }
+}

@@ -70,8 +70,14 @@ three-occurrence 08:30 verification follow-up is saved; production has no depend
 
 On preview, nothing reader-visible. Site invariants (`web/src/data/tracker/invariants.ts`) run in
 `npm run test:data` and pass on current data. The extraction eval (`ops/evaluation/extraction_eval.py`)
-has a 30-case golden set; its first scored run against the subscription model is still to do. The
-golden labels dispute two site dates: Optiv debt (page says 2026-03-16) and Aqua leadership (2025-11-06).
+has a 30-case golden set. First scored run (extraction step only, production model input):
+recall 95.8%, precision 45.1%, date accuracy 66.7%, no facts on the 10 non-event pages
+([report](docs/active/daily-pipeline/evaluations/2026-11-03/extraction-eval.md)). Most false positives are
+background facts (prior rounds, total funding, extra hires) that the production review step may reject;
+the eval does not yet include that step. Both disputed site dates checked out: Optiv's 2026-05-08 closing
+is right but cites the March 16 announcement instead of the May 8 closing release. The owner approved
+that correction; it needs the closing URL registered as a citation source in the locked contract and a
+real run to admit it, so it waits for the next accepted contract change.
 The backlog cut (12-month archive window, supplier-mention check before any model call) is switched
 on by `contracts/history-window.json` (365 days, 80 fetch-only audit slots per source), a small policy
 file kept outside `contracts/market.json` so the pinned contract digest does not move. Every receipt
