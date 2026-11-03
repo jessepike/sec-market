@@ -197,6 +197,20 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     }
   }
 
+  if (routeEntry.kind === 'coverage') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${url}#collection`,
+      url,
+      name: readTitle(html),
+      description: readDescription(html),
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      inLanguage: 'en',
+      dateModified: LAST_UPDATED_ISO,
+    }
+  }
+
   if (routeEntry.kind === 'thesis') {
     // SEC-MARKET-FABLE-001 T6-16: the standing thesis, moved off the front
     // page to its own address. Modeled as an Article, like an issue

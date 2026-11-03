@@ -19,6 +19,7 @@ import { NextEdition } from './components/NextEdition'
 import { ProvenanceRail } from './components/ProvenanceRail'
 import { RunStatus } from './components/RunStatus'
 import { SkipLink } from './components/SkipLink'
+import { SupplierCoverage } from './components/SupplierCoverage'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { WeThink } from './components/WeThink'
 import { EvidenceProvider } from './context/EvidenceProvider'
@@ -135,6 +136,7 @@ function RouteContent({ path }: { path: string }) {
   if (route.kind === 'archive') return <IssueArchive />
   if (route.kind === 'corrections') return <Corrections />
   if (route.kind === 'thesis') return <ThesisPage />
+  if (route.kind === 'coverage') return <SupplierCoverage />
   if (route.kind === 'issue' && route.issueId && issueById[route.issueId]) {
     return <IssuePage issue={issueById[route.issueId]} />
   }

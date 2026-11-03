@@ -14,7 +14,7 @@ export function CoverageStatement() {
         <p>
           {trackerDomains.length} domains, {trackerSuppliers.length} tracked suppliers. Adding or
           dropping a domain or a supplier is a data change, not a promise about who belongs in the
-          market.
+          market. <a href="/coverage/">See every supplier and how much is covered for each</a>.
         </p>
       </div>
       <ul className="tracker-coverage__domains">

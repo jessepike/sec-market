@@ -4020,3 +4020,198 @@ summary:focus-visible,
     padding: 0.25rem 0.4rem;
   }
 }
+
+/* /coverage/: every supplier, its company type and coverage tier. */
+.coverage-page {
+  padding: 1rem 0 2rem;
+}
+
+.coverage-page h2 {
+  margin: 2rem 0 0.75rem;
+}
+
+.coverage-page__lede,
+.coverage-page__note {
+  max-width: var(--prose-max);
+  color: var(--color-text);
+}
+
+.coverage-page__note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.coverage-page__tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.85rem;
+  margin: 0 0 1.25rem;
+}
+
+.coverage-tier {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-heading);
+  padding: 0.85rem 1rem;
+}
+
+.coverage-tier--sec { border-top-color: var(--color-accent); }
+.coverage-tier--reported { border-top-color: #3d6f9e; }
+.coverage-tier--funding { border-top-color: var(--color-warning); }
+.coverage-tier--ownership { border-top-color: var(--color-text-muted); }
+
+.coverage-tier__label {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.coverage-tier h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.coverage-tier__who {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.coverage-tier ul {
+  margin: 0 0 0.6rem;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+}
+
+.coverage-tier li + li {
+  margin-top: 0.25rem;
+}
+
+.coverage-tier__fresh {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.coverage-grid,
+.coverage-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  font-size: 0.9rem;
+}
+
+.coverage-grid caption {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.coverage-grid th,
+.coverage-grid td,
+.coverage-table th,
+.coverage-table td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.coverage-grid td {
+  font-variant-numeric: tabular-nums;
+}
+
+.coverage-grid thead th,
+.coverage-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-heading);
+}
+
+.coverage-list {
+  margin-top: 1.25rem;
+}
+
+.coverage-list h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.coverage-table {
+  border: 1px solid var(--color-border);
+}
+
+.coverage-table tbody th {
+  font-weight: 400;
+  min-width: 12rem;
+}
+
+.coverage-table__name {
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.coverage-table__ticker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.coverage-table__domains {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.coverage-page__back {
+  margin-top: 1rem;
+}
+
+@media (max-width: 720px) {
+  .coverage-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .coverage-table,
+  .coverage-table tbody,
+  .coverage-table tr,
+  .coverage-table th,
+  .coverage-table td {
+    display: block;
+  }
+
+  .coverage-table tr {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0;
+  }
+
+  .coverage-table th,
+  .coverage-table td {
+    border: 0;
+    padding: 0.15rem 0.75rem;
+  }
+
+  .coverage-table td::before {
+    content: attr(data-label) ': ';
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+}

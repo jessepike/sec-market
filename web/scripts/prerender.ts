@@ -93,6 +93,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   // section id the front page's own #read pointer reuses (ThesisPointer) —
   // never nested on either page, both routes covered by this one entry.
   thesis: ['thesis', 'read'],
+  coverage: ['coverage'],
 }
 
 function runMustSeeGate(routeEntry: RouteEntry, appHtml: string): void {
@@ -148,6 +149,15 @@ function headFor(routeEntry: RouteEntry): RouteHead {
       title: 'Corrections · Security Market Pulse',
       description:
         'Every correction published to Security Market Pulse, newest first, with the issue and item it applies to.',
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'coverage') {
+    return {
+      title: 'Supplier coverage · Security Market Pulse',
+      description:
+        'Every security supplier Security Market Pulse tracks, its company type, and how much is covered for it: ' +
+        'SEC-checked revenue, company-reported results, funding and company statements, or ownership and events only.',
       ogUrl: url,
     }
   }
