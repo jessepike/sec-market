@@ -1,9 +1,15 @@
 name: bounded subscription collector
+# A dispatch from the outside daily clock (Vercel Cron, ops/timer) carries
+# timer=true and is titled so the publisher and watchdog can recognise it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.timer && 'daily timer collection' || 'bounded subscription collector' }}
 
 # Collection runs daily; public publication retains its separate cutover gate.
+# The outside clock starts it at 05:17 UTC. GitHub's own schedule stays as a
+# backup (it is often hours late); any start skips once today has collected.
 on:
   schedule:
     - cron: '17 5 * * *'
+    - cron: '47 9 * * *'
     # Temporary actual scheduler acceptance. The UTC guard prevents yearly reuse.
     - cron: '7 6 23 10 *'
     - cron: '7 7 23 10 *'
@@ -14,6 +20,11 @@ on:
     inputs:
       source_probe:
         description: 'Run bounded source diagnostics only (main branch, no collection or publication)'
+        type: boolean
+        required: false
+        default: false
+      timer:
+        description: 'Daily timer collection (set by the outside clock; counts as the scheduled run)'
         type: boolean
         required: false
         default: false
@@ -30,6 +41,7 @@ jobs:
     timeout-minutes: 2
     permissions:
       contents: read
+      actions: read # See whether today's timer collection already succeeded.
     outputs:
       allowed: ${{ steps.guard.outputs.allowed }}
     steps:
@@ -37,10 +49,13 @@ jobs:
         with:
           persist-credentials: false
       - id: guard
-        name: Restrict the temporary scheduler acceptance to its UTC date
+        name: Skip expired acceptance crons and timer starts after today's collection
         env:
+          GH_TOKEN: ${{ github.token }}
           SMP_EVENT_NAME: ${{ github.event_name }}
           SMP_EVENT_SCHEDULE: ${{ github.event.schedule }}
+          SMP_TIMER: ${{ github.event_name == 'workflow_dispatch' && inputs.timer && 'true' || 'false' }}
+          SMP_SOURCE_PROBE: ${{ github.event_name == 'workflow_dispatch' && inputs.source_probe && 'true' || 'false' }}
         run: python3 ops/ci/schedule_guard.py
   collect-and-reconcile:
     needs: schedule-guard
@@ -88,9 +103,21 @@ jobs:
           SMP_CODEX_AUTH_JSON: ${{ secrets.SMP_CODEX_AUTH_JSON }}
           SMP_AUTH_STORE_TOKEN: ${{ secrets.SMP_AUTH_STORE_TOKEN }}
           SMP_EVENT_SCHEDULE: ${{ github.event.schedule }}
+          SMP_TIMER: ${{ github.event_name == 'workflow_dispatch' && inputs.timer && 'true' || 'false' }}
         run: |
           gh auth setup-git --hostname github.com
           python3 ops/ci/collect.py --root "$RUNNER_TEMP/smp-collection" --maximum-seconds 1200 --output "$RUNNER_TEMP/smp-collection-receipt.json"
+      - name: Flag an expired ChatGPT login for the outside watchdog
+        if: always() && (github.event_name != 'workflow_dispatch' || !inputs.source_probe)
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          receipt = Path(os.environ['RUNNER_TEMP']) / 'smp-collection-receipt.json'
+          reason = str((json.loads(receipt.read_text()) if receipt.exists() else {}).get('modelUnavailable') or '')
+          if reason in ('CHATGPT_SUBSCRIPTION_LOGIN_REQUIRED', 'CHATGPT_SIGN_IN_AGAIN'):
+              print('::error title=chatgpt-login::' + reason)
+          PY
       - name: Probe candidate sources under the acknowledged lease and budget
         if: github.event_name == 'workflow_dispatch' && inputs.source_probe
         env:

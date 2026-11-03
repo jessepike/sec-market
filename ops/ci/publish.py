@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 
+import timer
 from collect import REPO, session_runtime, recover, verified_scheduled_source
 from bootstrap import PROJECT
 from contracts import require, validate_contract, utcnow
@@ -24,8 +25,13 @@ def callback_ready(event, api=None):
     if not (run.get('id') == upstream['id'] and run.get('repository', {}).get('full_name') == PROJECT
             and run.get('repository', {}).get('private') is True
             and run.get('path') == '.github/workflows/subscription-collector.yml'
-            and run.get('head_branch') == 'main' and run.get('event') == 'schedule'
+            and run.get('head_branch') == 'main' and timer.trusted_run(run)
             and run.get('status') == 'completed' and run.get('conclusion') == 'success'):
+        return False
+    # A backup timer that skipped because the day already ran also ends in
+    # success. Only a run whose collection job actually succeeded may publish.
+    jobs = api('actions/runs/' + str(upstream['id']) + '/jobs?per_page=20').get('jobs', [])
+    if not any(j.get('name') == 'collect-and-reconcile' and j.get('conclusion') == 'success' for j in jobs):
         return False
     runs = api('actions/workflows/subscription-collector.yml/runs?per_page=100')['workflow_runs']
     return not any(r.get('status') in ('queued', 'in_progress', 'waiting', 'pending', 'requested') for r in runs)

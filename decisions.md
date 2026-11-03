@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-11-02)
+## Decisions in force (as of 2026-11-03)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -18,6 +18,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
+| Daily clock | D-127, D-128 | Vercel Cron in a separate project starts the daily collector; GitHub's schedule is a backup, and timer starts skip once the day has collected. An outside watchdog (GitHub App alerts) reports stale data, failed runs and an expired ChatGPT login. API-key model fallback is deferred (SEC-075) |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
 | Daily coverage | D-104 through D-112 | November 2 scheduled intake is 262/557 with 295 gaps. All 80 SEC claims passed and all 52 public files match. Original evidence dates and complete denominators remain. Broad accuracy and sustained operation remain open. No paid fallback |
 | Current priority | D-111, November 2 owner direction below | Continue reliable operation and cost verification while implementing company search and reducing runner usage. Reader value remains unmeasured. Search does not mask coverage gaps |
@@ -1413,3 +1414,17 @@ When the personal platform standard (Preferred Stack v0.6) was checked against t
 > yes go ahead
 
 The standard is now v0.7 draft. Its AI-03 row allows subscription tools to run T2 scheduled agent jobs when all three hold: a failed model run cannot publish anything wrong, an alert outside the job's platform fires on failure or an expired login, and the login secret is stored for that one job only. Market meets the first through its publication gate and the third through its single CI secret. The second, an outside failure and re-login alert, is still to build. The rule that machine credentials stay separate from human sign-in is unchanged. The API-key fallback stays deferred (`apiFallback: false`) and needs its own decision record, because it adds a vendor and a key. Recorded in personal-platform-standards RECONCILIATION.md (November 3 section).
+
+**D-127 · 2026-11-03 — Vercel Cron becomes the daily clock; GitHub's schedule stays as a backup.**
+
+Owner: “let's use vercel for cron jobs.” Earlier in the same review: “I just want to be cautious of just adding another new provider into the mix.”
+
+Measured reason: the collector is scheduled for 05:17 UTC, but its scheduled runs started between 10:37 and 13:32 UTC (October 26 to November 3). GitHub documents that scheduled runs can be delayed or dropped under load. A Vercel Cron in a separate small Vercel project (`ops/timer`, on the existing Pro plan, no new provider) starts the collector through `workflow_dispatch` with `timer=true`. The collector, publisher callback, watchdog and rollback-drill clocks now accept that titled timer dispatch as well as the GitHub schedule (`ops/ci/timer.py`). Plain manual dispatches still never count as the daily timer. GitHub keeps `17 5` plus a `47 9` backup. Every timer start skips once a timer collection already succeeded that UTC day. The same Vercel project runs an independent watchdog every six hours. It alerts the owner through one assigned GitHub issue when the published `daily-coverage.json` is older than 30 hours or unreadable, when the latest daily collector run failed or never started, or when the ChatGPT login has expired. The collector marks an expired login with a `chatgpt-login` job annotation. The issue closes itself on recovery. This satisfies the outside-alert condition for subscription-funded jobs (D-126), and it works even when GitHub Actions is blocked.
+
+Credential: this approval covers one new credential stored only in that Vercel project. It is a private GitHub App installed on `jessepike/sec-market` alone, with Actions read/write, Checks read, Issues read/write and Metadata read. Its tokens last one hour. Under D-83 the owner creates it. A GitHub App is used instead of a personal token because GitHub does not notify you of issues your own token opens. Threat Pulse may reuse the same code in its own Vercel project with its own app installation. Credentials and data are never shared between sites. Analysis: [pipeline host review](https://claude.ai/artifact/SoRkXaoaJ3yZ7XSAwwhoZt).
+
+**D-128 · 2026-11-03 — API-key fallback for model calls deferred to the backlog.**
+
+Owner: “let's capture the details on the API fallback and add to backlog. don't want to do now. capture decision.” Also: “in order to keep costs low, we're going to probably have to continue running it, you know, using my subscription.”
+
+The ChatGPT-subscription login stays the only model route. `apiFallback: false` and `maxAdditionalMonthlyUsd: 0` in `contracts/market.json` stay unchanged. The design is recorded as SEC-075. Building it later needs its own owner decision. That decision must name OpenAI API billing as a new paid vendor relationship and the API key as a new credential under D-83.

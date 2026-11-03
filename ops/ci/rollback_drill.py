@@ -9,6 +9,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import timer
 from collect import REPO, session_runtime, recover
 from bootstrap import PROJECT
 from artifacts import stage_files
@@ -193,7 +194,7 @@ def scheduled_source_clocks(store, manifest):
     for path in sorted((store.root/'ci/collection-runs').glob('*.json')):
         clock=json.loads(path.read_text())
         if clock.get('runId') == manifest['runId'] and clock.get('contractSha256') == manifest['contractSha256'] \
-                and clock.get('executionCompleted') is True and clock.get('githubEventName') == 'schedule' \
+                and clock.get('executionCompleted') is True and timer.trusted_clock(clock) \
                 and clock.get('githubRef') == 'refs/heads/main':
             clocks.append(clock)
     return clocks

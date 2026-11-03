@@ -1,0 +1,7 @@
+{
+  "name": "pipeline-timer",
+  "private": true,
+  "type": "module",
+  "description": "Outside daily clock and stale-data watchdog for a static-site pipeline. No dependencies.",
+  "scripts": { "test": "node --test lib/core.test.js" }
+}

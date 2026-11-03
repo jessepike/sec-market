@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-02
+updated: 2026-11-03
 ---
 
 # Current state
+
+**Daily clock (D-127, 2026-11-03, on preview, not yet live).** Code is ready for Vercel Cron to start the collector at 05:17 UTC, because GitHub's schedule ran 5 to 8 hours late. A Vercel watchdog checks every 6 hours for stale data, failed runs and an expired ChatGPT login, and alerts through a GitHub App issue. GitHub's `17 5` and backup `47 9` schedules skip once the day has collected. The code is in `ops/ci/timer.py`, `ops/ci/schedule_guard.py` and `ops/timer/`. Waiting on the owner to create the GitHub App and the Vercel project (`ops/timer/README.md`), then the normal promotion to main. The API-key model fallback is deferred as SEC-075 (D-128).
 
 This is the always-visible search and runner-reduction release package. It contains no managed
 runtime or source-policy activation. The owner reviewed the existing Preview and requested the

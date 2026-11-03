@@ -9,15 +9,40 @@ class PublisherBoundaryTests(unittest.TestCase):
     def test_callback_rejects_dispatch_and_busy_collectors_before_writer_queue(self):
         run = {'id': 123, 'repository': {'full_name': 'jessepike/sec-market', 'private': True},
                'path': '.github/workflows/subscription-collector.yml', 'head_branch': 'main',
-               'event': 'schedule', 'status': 'completed', 'conclusion': 'success'}
+               'event': 'schedule', 'display_title': 'bounded subscription collector',
+               'status': 'completed', 'conclusion': 'success'}
+        jobs = {'jobs': [{'name': 'schedule-guard', 'conclusion': 'success'},
+                         {'name': 'collect-and-reconcile', 'conclusion': 'success'}]}
         event = {'workflow_run': {'id': 123}}
-        api = lambda path: {'workflow_runs': []} if 'workflows/' in path else run
+        api = lambda path: {'workflow_runs': []} if 'workflows/' in path else jobs if path.endswith('/jobs?per_page=20') else run
         self.assertTrue(publish.callback_ready(event, api))
         run['event'] = 'workflow_dispatch'
         self.assertFalse(publish.callback_ready(event, api))
         run['event'] = 'schedule'
-        busy_api = lambda path: {'workflow_runs': [{'status': 'queued'}]} if 'workflows/' in path else run
+        busy_api = lambda path: {'workflow_runs': [{'status': 'queued'}]} if 'workflows/' in path else jobs if path.endswith('/jobs?per_page=20') else run
         self.assertFalse(publish.callback_ready(event, busy_api))
+
+    def test_callback_accepts_outside_timer_dispatch_but_not_plain_dispatch(self):
+        run = {'id': 124, 'repository': {'full_name': 'jessepike/sec-market', 'private': True},
+               'path': '.github/workflows/subscription-collector.yml', 'head_branch': 'main',
+               'event': 'workflow_dispatch', 'display_title': 'daily timer collection',
+               'status': 'completed', 'conclusion': 'success'}
+        jobs = {'jobs': [{'name': 'collect-and-reconcile', 'conclusion': 'success'}]}
+        event = {'workflow_run': {'id': 124}}
+        api = lambda path: {'workflow_runs': []} if 'workflows/' in path else jobs if path.endswith('/jobs?per_page=20') else run
+        self.assertTrue(publish.callback_ready(event, api))
+        run['display_title'] = 'bounded subscription collector'
+        self.assertFalse(publish.callback_ready(event, api))
+
+    def test_callback_rejects_backup_timer_that_skipped_collection(self):
+        run = {'id': 125, 'repository': {'full_name': 'jessepike/sec-market', 'private': True},
+               'path': '.github/workflows/subscription-collector.yml', 'head_branch': 'main',
+               'event': 'schedule', 'status': 'completed', 'conclusion': 'success'}
+        skipped = {'jobs': [{'name': 'schedule-guard', 'conclusion': 'success'},
+                            {'name': 'collect-and-reconcile', 'conclusion': 'skipped'}]}
+        event = {'workflow_run': {'id': 125}}
+        api = lambda path: {'workflow_runs': []} if 'workflows/' in path else skipped if path.endswith('/jobs?per_page=20') else run
+        self.assertFalse(publish.callback_ready(event, api))
 
     def test_initial_hold_finishes_lease_without_auth_or_gate_and_valid_source_continues(self):
         os.environ.update(GITHUB_RUN_ID='123', VERCEL_TOKEN='test-token', GITHUB_EVENT_NAME='schedule')

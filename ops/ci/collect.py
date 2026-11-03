@@ -9,6 +9,7 @@ import sys
 import time
 from pathlib import Path
 
+import timer
 from auth_store import AuthStore
 from bootstrap import GuardedRunner, PROJECT
 from recover_lease import recover, github_run
@@ -86,9 +87,7 @@ def scheduled_source_refresh():
     """Only the normal trusted daily main timer starts a forced transport cycle."""
     return (os.environ.get('GITHUB_ACTIONS') == 'true'
             and os.environ.get('GITHUB_REPOSITORY') == PROJECT
-            and os.environ.get('GITHUB_EVENT_NAME') == 'schedule'
-            and os.environ.get('GITHUB_REF') == 'refs/heads/main'
-            and os.environ.get('SMP_EVENT_SCHEDULE') == '17 5 * * *')
+            and timer.trusted_environment())
 
 
 def escrow_budgets(root, state, session, contract, at):
@@ -142,7 +141,7 @@ def archive_collection_result(state, result, contract, attempt):
     fields = ('githubRunId', 'githubEventName', 'githubRef', 'appRevision', 'runId',
               'successfulTasks', 'requiredTasks', 'complete', 'executionCompleted', 'outcome')
     retained = {key: result[key] for key in fields}
-    for key in ('reusesScheduledCollectionRunId','sourceReceiptSha256','sourceCheckedAt','corrections',
+    for key in ('githubTimer','reusesScheduledCollectionRunId','sourceReceiptSha256','sourceCheckedAt','corrections',
                 'coverageMeasure','intake','processing','historicalReview'):
         if key in result:
             retained[key]=result[key]
@@ -170,7 +169,7 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
     selected=None
     for path in sorted((state.root/'ci/collection-runs').glob('*.json'),reverse=True):
         clock=json.loads(path.read_text())
-        if clock.get('executionCompleted') is not True or clock.get('githubEventName') != 'schedule' \
+        if clock.get('executionCompleted') is not True or not timer.trusted_clock(clock) \
                 or clock.get('githubRef') != 'refs/heads/main' or clock.get('runId') != coverage['runId'] \
                 or clock.get('contractSha256') != digest(contract):
             continue
@@ -179,7 +178,8 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
                 or run.get('repository',{}).get('private') is not True \
                 or run.get('path') != '.github/workflows/subscription-collector.yml' \
                 or run.get('status') != 'completed' or run.get('conclusion') != 'success' \
-                or run.get('event') != 'schedule' or run.get('head_branch') != 'main' \
+                or not timer.trusted_run(run) or run.get('event') != clock.get('githubEventName') \
+                or run.get('head_branch') != 'main' \
                 or run.get('head_sha') != clock.get('appRevision') \
                 or run.get('run_attempt') != clock.get('githubRunAttempt') \
                 or run.get('created_at','')[:10] != now[:10]:
@@ -403,11 +403,14 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         result = {"githubRunId": os.environ["GITHUB_RUN_ID"],
                   "githubEventName": os.environ.get("GITHUB_EVENT_NAME"),
                   "githubRef": os.environ.get("GITHUB_REF"), "appRevision": revision,
+                  **({"githubTimer": True} if timer.timer_dispatch() else {}),
                   "runId": checked["runId"],
                   "successfulTasks": checked["successfulTasks"], "requiredTasks": checked["requiredTasks"],
                   "complete": checked["complete"], "modelCalls": agent.calls, "apiFallback": False,
                   "snapshotSha256": snapshot["snapshotSha256"], "reviewQueue": len(snapshot["reviewQueue"]),
-                  "executionMode": "github_subscription", "publication": {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}}
+                  "executionMode": "github_subscription", "publication": {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"},
+                  # Read by the workflow so the outside watchdog can flag an expired login.
+                  "modelUnavailable": getattr(collector, "model_unavailable", None)}
         result.update(execution_outcome(checked['complete'], collector.cancelled, checked))
         if 'corrections' in collected:
             result['corrections'] = collected['corrections']

@@ -15,6 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "web/scripts/pipeline"))
 from contracts import canonical, digest, instant, plan_run, require, utcnow, valid_hash
+sys.path.insert(0, str(ROOT / "ops/ci"))
+import timer
 from publication import health, verify_acknowledgement
 from provenance import GitHubAuthority
 
@@ -234,8 +236,8 @@ def inspect_collection(contract, read_archive, now, authority):
             problems.append("COLLECTOR_GITHUB_IDENTITY_DIFFERS")
         if collector.get("phase") != "finish" or run.get("status") != "completed":
             problems.append("COLLECTOR_DID_NOT_FINISH")
-    runs = authority._api("actions/workflows/subscription-collector.yml/runs?event=schedule&per_page=10")["workflow_runs"]
-    scheduled = next((r for r in runs if r.get("event") == "schedule" and r.get("head_branch") == "main"), None)
+    runs = authority._api("actions/workflows/subscription-collector.yml/runs?branch=main&per_page=20")["workflow_runs"]
+    scheduled = latest_timer_collection(authority, runs)
     if not scheduled:
         problems.append("NO_ACTUAL_SCHEDULED_COLLECTION")
     else:
@@ -248,7 +250,8 @@ def inspect_collection(contract, read_archive, now, authority):
             acknowledgement = read_archive(f"ci/collection-runs/{scheduled['id']}-{scheduled.get('run_attempt', 1)}.json")
             if (not acknowledgement or acknowledgement.get("executionCompleted") is not True
                     or str(acknowledgement.get("githubRunId")) != str(scheduled["id"])
-                    or acknowledgement.get("githubEventName") != "schedule"
+                    or acknowledgement.get("githubEventName") != scheduled.get("event")
+                    or not timer.trusted_clock(acknowledgement)
                     or acknowledgement.get("githubRef") != "refs/heads/main"
                     or acknowledgement.get("appRevision") != scheduled.get("head_sha")
                     or acknowledgement.get("contractSha256") != digest(contract)):
@@ -266,6 +269,20 @@ def inspect_collection(contract, read_archive, now, authority):
             "reasons": problems, "publicationEnabled": contract["publication"]["enabled"],
             "scheduledRunUrl": scheduled.get("html_url") if scheduled else None,
             "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"], **details}
+
+
+def latest_timer_collection(authority, runs):
+    """Newest trusted daily-timer run on main, ignoring backups that skipped
+    because the day had already run (they succeed without collecting)."""
+    for run in runs:
+        if run.get("head_branch") != "main" or not timer.trusted_run(run):
+            continue
+        if run.get("status") == "completed" and run.get("conclusion") == "success":
+            jobs = authority._api(f"actions/runs/{run['id']}/jobs?per_page=20").get("jobs", [])
+            if any(j.get("name") == "collect-and-reconcile" and j.get("conclusion") == "skipped" for j in jobs):
+                continue
+        return run
+    return None
 
 
 def inspect_corrections(context, read_archive, run_id):

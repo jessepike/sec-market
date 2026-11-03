@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-075.
+stands. New items continue from SEC-076.
 
 ## Next
 
@@ -329,6 +329,34 @@ working copy or an archived snapshot; leave the cited text unchanged. **Authoriz
 maintenance; any change to what a record says goes through a correction.
 
 ## Later (implementation authority noted per item)
+
+### SEC-075 · Capped API-key fallback when the ChatGPT login fails
+
+Deferred by the owner on 2026-11-03 (D-128). The subscription login stays primary because it is the low-cost route.
+
+**Problem.** The AI step runs the Codex CLI on a GitHub runner, using the owner's ChatGPT login file stored as the secret `SMP_CODEX_AUTH_JSON`. Refreshed logins are written back by `ops/ci/auth_store.py`. If the login expires or is revoked, model work stops until the owner signs in again. That could take days. OpenAI's docs recommend API keys for CI ([Codex authentication](https://learn.chatgpt.com/docs/auth)).
+
+**Design.**
+1. Detection. `web/scripts/pipeline/agents.py` already recognises a dead login ("Please sign in again", refresh-token errors, 401). On that error, and only that error, switch the rest of the run to the fallback. Rate limits keep today's rule: hold and notify.
+2. Key. A separate OpenAI API project and key, stored as a new GitHub secret. Codex uses it through API-key authentication.
+3. Pinned model. Pass an explicit `--model` for fallback calls only. The subscription path keeps its default.
+4. Caps. $5 a day and $30 a month, enforced in the collector's existing budget escrow (`maxAdditionalMonthlyUsd`). The OpenAI project budget is a second limit. When a cap is reached, model work stops and the run reports the gap.
+5. Eval gate. Before activation, the fallback model must pass the extraction accuracy eval (golden set) at the subscription model's level. Facts extracted by the fallback carry `apiFallback: true` in their receipts.
+6. Alert. The first fallback call opens a GitHub issue, "Model login expired: API fallback in use". It names the day's spend and how to refresh the login (`ops/ci/bootstrap.py`). The issue closes when a run succeeds on the subscription again.
+7. Contract change. In `contracts/market.json`, set `apiFallback: true`, set `maxAdditionalMonthlyUsd: 30`, and add a model field for the fallback. This changes the contract hash, so it goes through the normal reviewed release.
+
+**Cost estimate.** Estimated at about 80 calls a day, each with up to 30,000 characters of input (about 0.8M input tokens), and an assumed 0.3M output tokens. Prices are [OpenAI list prices](https://developers.openai.com/api/docs/pricing) read on 2026-11-03.
+
+| Model | Estimated cost per fallback day |
+| --- | --- |
+| gpt-6.1-terra | about $2 |
+| gpt-5.3-codex | about $6 |
+| gpt-6-astra | about $24 |
+
+One measured test day replaces the output-token assumption.
+
+**Authorization.** Not authorized. Building it needs a new owner decision that names OpenAI API billing as a new paid vendor and the API key as a new credential (D-83).
+
 
 ### SEC-073 · Search the sourced market records
 

@@ -40,6 +40,17 @@ class ScheduledSelectionTests(unittest.TestCase):
                 with self.subTest(key=key, value=value), patch.dict(os.environ, event, clear=True):
                     self.assertFalse(collect.scheduled_source_refresh())
 
+    def test_outside_timer_dispatch_and_backup_cron_also_select_forced_refresh(self):
+        timer_event = {**NORMAL_EVENT, "GITHUB_EVENT_NAME": "workflow_dispatch", "SMP_TIMER": "true"}
+        del timer_event["SMP_EVENT_SCHEDULE"]
+        for event in (timer_event, {**NORMAL_EVENT, "SMP_EVENT_SCHEDULE": "47 9 * * *"}):
+            with self.subTest(event=event), patch.dict(os.environ, event, clear=True):
+                self.assertTrue(collect.scheduled_source_refresh())
+        for event in ({**timer_event, "SMP_TIMER": "false"}, {**timer_event, "GITHUB_REF": "refs/heads/preview"},
+                      {**timer_event, "GITHUB_EVENT_NAME": "push"}):
+            with self.subTest(event=event), patch.dict(os.environ, event, clear=True):
+                self.assertFalse(collect.scheduled_source_refresh())
+
     def test_execute_passes_selection_to_pipeline_and_keeps_correction_replay(self):
         class BoundaryReached(RuntimeError):
             pass

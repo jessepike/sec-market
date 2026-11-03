@@ -26,6 +26,8 @@ class ScheduledCollectionTests(unittest.TestCase):
         self.run = {"path": ".github/workflows/subscription-collector.yml", "head_sha": "a"*40,
                     "event": "workflow_dispatch", "status": "completed", "conclusion": "success"}
         self.scheduled = {"id": 122, "run_attempt": 1, "head_sha": "a"*40,
+                          "path": ".github/workflows/subscription-collector.yml",
+                          "display_title": "bounded subscription collector",
                           "event": "schedule", "head_branch": "main", "status": "completed",
                           "conclusion": "success", "created_at": "2026-10-23T03:30:00Z",
                           "html_url": "https://github.com/jessepike/sec-market/actions/runs/122"}
@@ -39,9 +41,34 @@ class ScheduledCollectionTests(unittest.TestCase):
         owner = self
         class Authority:
             def _api(self, path):
-                return {"workflow_runs": owner.runs} if "workflows/" in path else owner.run
+                if "workflows/" in path:
+                    return {"workflow_runs": owner.runs}
+                if path.endswith("/jobs?per_page=20"):
+                    return owner.jobs.get(path.split("/")[2], {"jobs": []})
+                return owner.run
         return probe.inspect_collection(self.contract, lambda key, **kw: self.entries[key],
                                         "2026-10-23T04:10:00Z", Authority())
+
+    jobs = {}
+
+    def test_outside_timer_dispatch_counts_and_plain_dispatch_does_not(self):
+        timer_run = dict(self.scheduled, event="workflow_dispatch", display_title="daily timer collection")
+        self.runs = [timer_run]
+        self.entries["ci/collection-runs/122-1.json"].update(githubEventName="workflow_dispatch", githubTimer=True)
+        self.assertTrue(self.inspect()["healthy"])
+        self.entries["ci/collection-runs/122-1.json"].pop("githubTimer")
+        self.assertIn("SCHEDULED_COLLECTION_RECEIPT_DIFFERS", self.inspect()["reasons"])
+        self.runs = [dict(timer_run, display_title="bounded subscription collector")]
+        self.assertIn("NO_ACTUAL_SCHEDULED_COLLECTION", self.inspect()["reasons"])
+
+    def test_backup_timer_that_skipped_is_passed_over_for_the_real_collection(self):
+        backup = dict(self.scheduled, id=130, created_at="2026-10-23T04:05:00Z")
+        self.jobs = {"130": {"jobs": [{"name": "schedule-guard", "conclusion": "success"},
+                                      {"name": "collect-and-reconcile", "conclusion": "skipped"}]}}
+        self.runs = [backup, self.scheduled]
+        result = self.inspect()
+        self.assertTrue(result["healthy"])
+        self.assertEqual(result["scheduledRunUrl"], self.scheduled["html_url"])
 
     def test_dispatch_success_cannot_substitute_for_a_timer(self):
         self.runs = []
