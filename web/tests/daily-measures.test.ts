@@ -111,3 +111,20 @@ test('collected empty inventory does not imply zero of zero documents reviewed',
   assert.match(html, /Historical review \(complete\): no documents observed/)
   assert.doesNotMatch(html, /0 of 0 reviewed/)
 })
+
+test('archive counters are accepted, validated and add no wording to the processing line', () => {
+  const plain = render(readDailyCoverage(structuredClone(intakeReviewFixture))!)
+  const value = structuredClone(intakeReviewFixture)
+  value.processing = { ...value.processing, archivedDocuments: 11000, notAboutSupplierDocuments: 2 }
+  assert.equal(render(readDailyCoverage(value)!), plain)
+  for (const mutate of [
+    (v: Record<string, any>) => { v.processing.archivedDocuments = -1 },
+    (v: Record<string, any>) => { v.processing.notAboutSupplierDocuments = 21 },
+    (v: Record<string, any>) => { v.processing.archivedDocuments = '5' },
+  ]) {
+    const bad = structuredClone(intakeReviewFixture) as Record<string, any>
+    bad.processing = { ...bad.processing, archivedDocuments: 1, notAboutSupplierDocuments: 1 }
+    mutate(bad)
+    assert.throws(() => readDailyCoverage(bad), /Daily coverage schema or measure/)
+  }
+})

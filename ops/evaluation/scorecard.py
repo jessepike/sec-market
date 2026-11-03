@@ -28,6 +28,12 @@ def separate_progress(value, kind):
     if kind == 'processing':
         require(value['changedDocuments'] + value['unknownDateDocuments'] <= value['inventoryDocuments'],
                 'Separate document classifications overlap or exceed inventory')
+        # Present only under a history window; archived documents sit outside this inventory.
+        extras = tuple(f for f in ('archivedDocuments', 'notAboutSupplierDocuments') if f in value)
+        require(all(type(value[f]) is int and value[f] >= 0 for f in extras) and
+                value.get('notAboutSupplierDocuments', 0) <= value['reviewedDocuments'],
+                'Invalid archive or exclusion counters')
+        fields += extras
     complete = value['pendingDocuments'] == 0 and (kind != 'processing' or value['heldDocuments'] == 0)
     require(type(value.get('complete')) is bool and value['complete'] == complete,
             'False separate progress completeness')
@@ -62,7 +68,7 @@ def separate_views(coverage, plan, receipts):
     for kind in ('processing', 'historicalReview'):
         summary = separate_progress(coverage.get(kind), kind)
         for field, count in summary.items():
-            require(count == sum(row[kind][field] for row in rows), 'Separate aggregate differs from task views')
+            require(count == sum(row[kind].get(field, 0) for row in rows), 'Separate aggregate differs from task views')
         require(coverage[kind]['complete'] == all(row[kind]['complete'] for row in rows),
                 'Separate aggregate completeness differs')
         summaries[kind] = summary

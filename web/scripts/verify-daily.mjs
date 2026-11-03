@@ -22,6 +22,9 @@ function verifySummary(summary, processing, uncollected) {
     summary.heldDocuments <= summary.reviewedDocuments &&
     (!summary.complete || (summary.pendingDocuments === 0 && (!processing || summary.heldDocuments === 0))), 'review partitions differ')
   if (processing) requireV2(summary.changedDocuments + summary.unknownDateDocuments <= summary.inventoryDocuments, 'review classifications differ')
+  // Present only under a history window; archived documents sit outside this inventory.
+  if (processing) requireV2(['archivedDocuments', 'notAboutSupplierDocuments'].every(k => summary[k] === undefined || count(summary[k])) &&
+    (summary.notAboutSupplierDocuments ?? 0) <= summary.reviewedDocuments, 'archive or exclusion counters are invalid')
   if (uncollected) requireV2(summary.evaluated === false && summary.status === 'uncollected' &&
     summary.complete === false && fields.every(k => summary[k] === 0), 'uncollected review claims measured work')
   else requireV2(summary.evaluated !== false && summary.status !== 'uncollected', 'collected review is marked uncollected')

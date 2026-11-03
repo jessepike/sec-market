@@ -114,6 +114,9 @@ def separate_health(contract, coverage, public=False, *, read_archive=None, plan
                 require(value['inventoryDocuments'] == value['reviewedDocuments'] + value['pendingDocuments'] and value['heldDocuments'] <= value['reviewedDocuments'], 'Invalid review partition')
                 if kind == 'processing':
                     require(value['changedDocuments'] + value['unknownDateDocuments'] <= value['inventoryDocuments'], 'Invalid document classification')
+                    require(all(extra not in value or (type(value[extra]) is int and value[extra] >= 0)
+                                for extra in ('archivedDocuments', 'notAboutSupplierDocuments')) and
+                            value.get('notAboutSupplierDocuments', 0) <= value['reviewedDocuments'], 'Invalid archive or exclusion counters')
                 complete = value['pendingDocuments'] == 0 and (kind != 'processing' or value['heldDocuments'] == 0)
                 require(type(value['complete']) is bool and value['complete'] == complete, 'False progress completeness')
             require(all(coverage[kind][field] == sum(row[kind][field] for row in rows) for field in fields), 'Progress aggregate differs')

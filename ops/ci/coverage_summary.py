@@ -41,6 +41,11 @@ def coverage_details(coverage):
                 and (not summary['complete'] or (summary['pendingDocuments'] == 0 and (name != 'processing' or summary['heldDocuments'] == 0))), 'COVERAGE_REVIEW_PARTITION_DIFFERS')
         if name == 'processing':
             require(summary['changedDocuments'] + summary['unknownDateDocuments'] <= summary['inventoryDocuments'], 'COVERAGE_REVIEW_PARTITION_DIFFERS')
+            # Present only under a history window. Archived documents are outside this
+            # inventory (so reviewed + pending == inventory still holds); both stay visible here.
+            for extra in ('archivedDocuments', 'notAboutSupplierDocuments'):
+                require(extra not in summary or (type(summary[extra]) is int and summary[extra] >= 0), 'COVERAGE_REVIEW_SUMMARY_INVALID')
+            require(summary.get('notAboutSupplierDocuments', 0) <= summary['reviewedDocuments'], 'COVERAGE_REVIEW_PARTITION_DIFFERS')
         if summary.get('evaluated') is False:
             require(summary.get('status') == 'uncollected' and not summary['complete'] and all(summary[k] == 0 for k in fields), 'COVERAGE_UNCOLLECTED_CREDIT')
         else:

@@ -56,7 +56,7 @@ export interface IntakeDailyCoverage extends DailyCoverageBase {
     gapTaskIds: string[]
     complete: boolean
   }
-  processing: ReviewProgress & { changedDocuments: number; unknownDateDocuments: number }
+  processing: ReviewProgress & { changedDocuments: number; unknownDateDocuments: number; archivedDocuments?: number; notAboutSupplierDocuments?: number }
   historicalReview: ReviewProgress
 }
 export type DailyCoverage = LegacyDailyCoverage | IntakeDailyCoverage
@@ -84,6 +84,9 @@ function reviewProgress(value: unknown, processing: boolean): void {
   if (processing) {
     requireCoverage(count(value.changedDocuments) && count(value.unknownDateDocuments) &&
       value.changedDocuments + value.unknownDateDocuments <= progress.inventoryDocuments)
+    // Present only under a history window; archived documents sit outside this inventory.
+    for (const key of ['archivedDocuments', 'notAboutSupplierDocuments']) requireCoverage(value[key] === undefined || count(value[key]))
+    requireCoverage((value.notAboutSupplierDocuments === undefined ? 0 : (value.notAboutSupplierDocuments as number)) <= progress.reviewedDocuments)
   }
 }
 
