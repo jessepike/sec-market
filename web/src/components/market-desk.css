@@ -106,8 +106,8 @@
   .app-shell--desk .site-header__brand strong { font-size: 14px; }
   .app-shell--desk .site-header__nav.is-open ul { position: absolute; right: 16px; top: 56px; background: white; padding: 16px; border: 1px solid #dfe1de; box-shadow: 0 8px 20px #0001; }
   .app-shell--desk .main-content { padding: 18px 16px 30px; gap: 20px; }.app-shell--desk h1 { font-size: 27px; }.app-shell--desk .site-masthead__description { font-size: 13px; line-height: 1.5; margin: 8px 0 4px; }
-  .market-desk { gap: 18px; }.desk-kicker { font-size: 10px; }.desk-snapshot { font-size: 11px; }
-  .desk-counts { grid-template-columns: repeat(3,minmax(0,1fr)); }.market-desk .desk-counts button { padding: 8px; border-bottom: 1px solid #e6e7e3; }.desk-counts span { font-size: 10px; }.desk-counts strong { font-size: 23px; }.desk-counts small { font-size: 10px; }.desk-counts-note { font-size: 10px; margin-top: -10px; }
+  .market-desk { gap: 12px; }.desk-kicker { font-size: 10px; }.desk-snapshot { font-size: 11px; }
+  .desk-counts { grid-template-columns: repeat(3,minmax(0,1fr)); }.market-desk .desk-counts button { padding: 8px; gap: 1px; border-bottom: 1px solid #e6e7e3; }.desk-counts span { font-size: 10px; }.desk-counts strong { font-size: 23px; }.desk-counts small { font-size: 10px; }.desk-counts-note { font-size: 10px; margin-top: -10px; }
   .desk-opening { grid-template-columns: minmax(0,1fr); gap: 18px; }.desk-panel__head { padding: 12px; }.app-shell--desk .desk-panel__head h2 { font-size: 15px; }.desk-panel>.desk-note { padding: 8px 12px; font-size: 11px; }
   .desk-change { grid-template-columns: minmax(0,1fr); gap: 2px; padding: 12px; }.desk-change p { font-size: 13px; }.desk-change>time { font-size: 11px; }
   .desk-changelog:not(.is-expanded) .desk-change:nth-child(n+5) { display: none; }.desk-show-all { margin: 12px; }
