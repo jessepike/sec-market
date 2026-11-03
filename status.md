@@ -64,6 +64,17 @@ Read the completed November 2 provider day after November 3 00:00 Pacific/08:00 
 Include every meter, new normal builds, ongoing storage and applicable tax limitations. A local
 three-occurrence 08:30 verification follow-up is saved; production has no dependency on that chat.
 
+## Fact-accuracy eval and backlog cut (2026-11-03)
+
+On preview, nothing reader-visible. Site invariants (`web/src/data/tracker/invariants.ts`) run in
+`npm run test:data` and pass on current data. The extraction eval (`ops/evaluation/extraction_eval.py`)
+has a 30-case golden set; its first scored run against the subscription model is still to do. The
+golden labels dispute two site dates: Optiv debt (page says 2026-03-16) and Aqua leadership (2025-11-06).
+The backlog cut (12-month archive window, supplier-mention check before any model call) is built and
+tested but inactive: it turns on only when `contracts/market.json` gains `historyWindowDays` and
+`maxFetchAuditDocumentsPerSource`, which needs an authorized contract transition and the owner's go,
+because it shrinks the public "N of M reviewed" count. Plan: https://claude.ai/artifact/Y9j74zYsvEWWeMxMrYocwj
+
 ## Remaining work
 
 Actual intake remains 262/557, with 295 gaps: 254 missing, 23 candidate, 16 transport and 2 Q4 schema failures.
