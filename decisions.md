@@ -1481,3 +1481,11 @@ store and watchdog), their test `web/tests/pipeline-ops.test.mjs`, and the disab
 `ops/ci/collect.py`. It moved unchanged apart from its docstring to `ops/ci/session_runtime.py`.
 Dated documents and receipts that mention the removed paths are left as written.
 
+**D-134 · 2026-11-04 — intent.md and the hard rules updated to the daily route.**
+
+Asked whether to update intent.md and `.claude/rules/constraints.md`, which still described the
+retired four-hour refresh and `promote.yml`, the owner said: "yes". intent.md's "Current product
+direction" line and the D-88 authorization line in the rules now describe the daily collector, the
+independent release gate and the approved fast-forward of `main`. Purpose, readers and boundaries
+are unchanged. intent.md stays at v1.5, `proposed`; its acceptance is a separate owner step.
+
