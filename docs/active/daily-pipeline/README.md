@@ -5,9 +5,10 @@ October 22 completion work and current schedule/recovery rules. The notes below 
 earlier held implementation and hosting investigation; they are not instructions to create a
 Codex Cloud scheduler or install a personal-computer worker.
 
-**Daily publication is disabled. Coverage is incomplete.** The candidate is connected to real
-collection receipts; production still uses the four-hour SEC and branch-promotion workflows.
-No roster expansion or paid API/infrastructure purchase has been made.
+**Status (2026-11-04): daily publication is live; coverage is incomplete.** Vercel Cron starts the
+collector (D-127) and the gated publisher delivers exact artifacts (D-110). The legacy four-hour SEC
+and branch-promotion workflows are disabled. The sections below are the dated October record of how
+the pipeline was built; current figures are in [status.md](../../../status.md).
 
 ## Inventory and receipts
 

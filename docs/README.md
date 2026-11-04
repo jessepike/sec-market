@@ -24,4 +24,8 @@ and recorded in [decisions.md](../decisions.md) (D-88, D-96, D-98).
 
 ## active/
 
-The email workstream (D-92) is the only item in flight: [email-workstream.md](active/email-workstream.md).
+| Path | What it is |
+|---|---|
+| [daily-pipeline/](active/daily-pipeline/) | The daily collector and publisher: [runbook](active/daily-pipeline/github-operations.md), specs, evaluations and dated receipts. Tests and pipeline code read some receipts, so do not move or delete files here without checking `git grep` |
+| [email-workstream.md](active/email-workstream.md) | SEC-060, waiting on two owner inputs |
+| [company-search-2026-11-02.md](active/company-search-2026-11-02.md) | Company search as shipped November 2026 (SEC-073) |

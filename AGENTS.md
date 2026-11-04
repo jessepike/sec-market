@@ -69,7 +69,8 @@ delete it:
    The owner approved the daily pipeline activation and verification under D-110. Continue that
    approved scope without asking for activation again. Observe the current daily gate allowance;
    changing main creates a new code-bound gate requirement.
-6. The actual scheduled collector feeds `subscription-publisher.yml`, which invokes the independent
+6. Vercel Cron (`ops/timer`, project `market-pipeline-timer`, D-127) starts the daily collector at
+   05:17 UTC; GitHub's schedule is the backup. The collector feeds `subscription-publisher.yml`, which invokes the independent
    main gate, verifies its exact static artifact, stages production without assigning domains,
    promotes and verifies the public bytes. Vercel Git builds from main/archive and automatic domain
    assignment remain closed. A main push alone does not publish. Confirm the acknowledged release

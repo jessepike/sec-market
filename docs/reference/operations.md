@@ -6,22 +6,23 @@ How to run, check and repair Security Market Pulse. For how the system is built,
 
 ## Normal state
 
-Nothing needs a person. Every 4 hours the certified refresh runs; most runs find no new filing and
-publish nothing. When a tracked company files something, the data lands on `preview` and reaches
-production 6 to 10 hours later through `promote.yml`. Routine code and docs changes reach production
-about a day after they land on `preview`. Major changes wait for the owner (AGENTS.md). Scheduled
-GitHub runs often start late and sometimes skip a slot; the freshness probe alarms only on real gaps.
+Nothing needs a person. Vercel Cron starts the daily collector at 05:17 UTC; GitHub's own schedule
+(05:17 and a 09:47 backup) skips once the day has collected. When collection succeeds, the
+publisher runs the independent release gate on `main` and publishes the exact artifact if every
+check passes. Most days add few or no facts. Coverage gaps stay visible on the page and in
+`/daily-coverage.json`. Code changes land on `preview` and reach production only after an approved
+fast-forward of `main` and the next gated publisher run.
 
 ## Signals that need attention
 
 | Signal | Meaning | What to do |
 |---|---|---|
-| GitHub issue "Certified refresh held" | A run failed or fell below 100% | Open the run linked in the issue. Download the `certified-data` artifact and read `.collect/certified-attempt.json` for the blockers. Fix the cause on a branch, merge to `preview`, promote. The issue closes itself on the next good run |
-| GitHub issue "Site freshness" | The probe found a gap: no refresh in 10 hours, no successful promotion in 30, certified data waiting over 48, production not serving `main` for 2, or the site down | The issue names which. Check the Actions tab and the Vercel dashboard |
-| GitHub issue "Owner review needed" | A major change is held on `preview` (marked, protected path, new secret, or page structure changed) | The owner reviews the preview and promotes (below). Data behind it waits too |
-| GitHub issue "Automatic promotion failed" | A promotion run failed: tests, build, or `main` not an ancestor of `preview` | Read the run log, fix on `preview`. The issue closes on the next good run |
-| `promote` run green with a notice | Normal: nothing to promote, still soaking, or SEC has newer data than the candidate | Nothing |
-| Vercel build failed with "Certified tier failed its gate" | The build gate refused the data | Production keeps serving the last good build. Run the gate locally (below) to see why |
+| GitHub issue "Daily pipeline needs attention (outside watchdog)" | Published data older than 30 hours, the latest collector failed or never started, or the ChatGPT login expired | The issue names which. For an expired login, sign in again and refresh the secret with `ops/ci/bootstrap.py`. It closes itself on recovery |
+| Collector or publisher job-alert issue | A run failed | Open the linked run. Fix on `preview`, promote, and let the next run recover. Never reset a daily allowance |
+| Freshness probe issue | Coverage, heartbeat or public-release gap | Read the issue; ongoing source gaps are expected and are not failures |
+| GitHub Actions spend near $5 for the month | Shared Actions budget (D-129) | Check minutes per workflow in GitHub billing before adding scheduled work |
+
+Runbook detail, receipts and recovery rules: [github-operations.md](../active/daily-pipeline/github-operations.md).
 
 ## Local commands
 
@@ -54,23 +55,22 @@ node scripts/shot.mjs <url> <prefix>   # full-page screenshots at 1440 and 390 (
 4. Before pushing, screenshot production and your build at 1440 and 390 (`shot.mjs`) and compare.
    If anything a reader would notice changed beyond data, or the change is otherwise major
    (AGENTS.md), end the commit message with `Owner-Review: required`.
-5. Routine changes reach production through `promote.yml` once checks pass. For a held change, send
-   the owner the preview URL and screenshots; after the owner says yes:
+5. Promote reviewed code with the approved fast-forward (D-110):
    `git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main`.
-6. Confirm the Vercel production deployment is Ready and `curl https://securitymarketpulse.com/app-release.json`.
+   A held major change waits for the owner's yes first.
+6. The next gated publisher run delivers it. Confirm the acknowledged release and
+   `https://securitymarketpulse.com/app-release.json` before reporting it live.
 
 Install the push hook once per clone: `./.githooks/install`.
 
 ## Rolling back
 
-- **Production shows something wrong:** in Vercel, open the previous production deployment and use
-  Instant Rollback. This changes what is served immediately and touches no Git history. Then fix
-  forward on `preview`.
+- **Production shows something wrong:** use Vercel Instant Rollback to the previous production
+  deployment (the publisher's own rollback route is in the runbook), then fix forward on `preview`.
 - **A bad commit on `preview`:** `git revert <sha>` on a branch, merge to `preview`. Never
   force-push `preview` or `main`.
-- **Bad certified data reached `preview`:** revert the `data(auto)` commit. The next refresh
-  re-derives the data from SEC; if the cause is in the code, fix it before the next run or it will
-  recur.
+- **A wrong published fact:** publish a dated correction; records change only through corrections
+  (D-68). The publisher can also roll back to the retained previous release (see the runbook).
 
 ## Adding a certified company
 

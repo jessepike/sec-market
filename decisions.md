@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-11-03)
+## Decisions in force (as of 2026-11-04)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -19,6 +19,10 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Daily clock | D-127, D-128 | Vercel Cron in a separate project starts the daily collector; GitHub's schedule is a backup, and timer starts skip once the day has collected. An outside watchdog (GitHub App alerts) reports stale data, failed runs and an expired ChatGPT login. API-key model fallback is deferred (SEC-075) |
+| Model route | D-109, D-126 | The AI step runs on the owner's ChatGPT subscription in GitHub Actions. Standard v0.7 allows this at T2 because a failed run cannot publish anything wrong, the outside watchdog alerts, and the login secret serves one job |
+| Spend on automation | D-129 | GitHub Actions budget $5/month, shared with the owner's other sites, and watched |
+| Backlog and coverage | D-130, D-131 | Documents older than 12 months are archived, not reviewed; a supplier-mention check runs before any model call. `/coverage/` lists all 74 suppliers with a tier derived from their data |
+| Pending correction | D-132 | Optiv's May 8 closing date stays; its source link moves to the May 8 closing release at the next accepted contract change |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
 | Daily coverage | D-104 through D-112 | November 2 scheduled intake is 262/557 with 295 gaps. All 80 SEC claims passed and all 52 public files match. Original evidence dates and complete denominators remain. Broad accuracy and sustained operation remain open. No paid fallback |
 | Current priority | D-111, November 2 owner direction below | Continue reliable operation and cost verification while implementing company search and reducing runner usage. Reader value remains unmeasured. Search does not mask coverage gaps |
@@ -1428,3 +1432,39 @@ Credential: this approval covers one new credential stored only in that Vercel p
 Owner: “let's capture the details on the API fallback and add to backlog. don't want to do now. capture decision.” Also: “in order to keep costs low, we're going to probably have to continue running it, you know, using my subscription.”
 
 The ChatGPT-subscription login stays the only model route. `apiFallback: false` and `maxAdditionalMonthlyUsd: 0` in `contracts/market.json` stay unchanged. The design is recorded as SEC-075. Building it later needs its own owner decision. That decision must name OpenAI API billing as a new paid vendor relationship and the API key as a new credential under D-83.
+
+**D-129 · 2026-11-03 — GitHub Actions budget set at $5 a month.**
+
+The owner set the GitHub Actions spending budget at $5 a month and asked that it be monitored. The
+account had no payment method before, which likely explains why every workflow stopped from October
+28 to 31 (not confirmed). Actions minutes are shared with the owner's other sites, including
+securitythreatpulse.com. New scheduled work must fit inside this budget; the forecast of about 59
+Linux minutes a day for this site is not yet measured over a month. Recorded from the owner's
+direction in the project conversation; exact wording was not captured in the repo.
+
+**D-130 · 2026-11-03 — Backlog cut: a 12-month history window.**
+
+Approved by the owner in the November 3 project review: cut the historical review backlog rather
+than work through about 11,600 old documents. Documents older than 12 months are archived and counted outside the
+processing denominator; a supplier-mention check runs before any model call. The policy lives in
+`contracts/history-window.json` (365 days, 80 fetch-only audit slots per source) so the pinned
+contract digest does not move. Every receipt records the policy's digest and values; deleting the
+file turns the cut off. The public "N of M reviewed" lines add "N archived as older than 12 months".
+Commits 1356dd9 and 9f914bd; plan: https://claude.ai/artifact/Y9j74zYsvEWWeMxMrYocwj.
+
+**D-131 · 2026-11-03 — Supplier coverage page.**
+
+Owner direction (November 3): the site shows the data and makes no subjective labels, and a supplier
+coverage page lists the 74 covered suppliers and their tier. `/coverage/` shipped (commit 64f75a8)
+with four tiers derived from each supplier's data, never hand-set: revenue checked against SEC
+filings (16), company-reported results (2), funding and company statements (22), ownership and
+events only (34). It added a "Coverage" header link.
+
+**D-132 · 2026-11-03 — Optiv source-link correction approved and queued.**
+
+The first scored extraction eval (recall 95.8%, precision 45.1%, extraction step only) checked two
+disputed site dates. Optiv's 2026-05-08 closing date is right, but the record cites the March 16
+announcement instead of the May 8 closing release. The owner approved the correction. It needs the
+closing release registered as a citation source in the locked contract and a real run to admit it,
+so it waits for the next accepted contract change (BACKLOG SEC-076). Report:
+[extraction-eval.md](docs/active/daily-pipeline/evaluations/2026-11-03/extraction-eval.md).

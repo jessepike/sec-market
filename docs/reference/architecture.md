@@ -1,7 +1,9 @@
 # Architecture
 
-How Security Market Pulse works as of 16 October 2026. This is the current design; the reasoning
-behind it is in [auto-002-proposal.md](auto-002-proposal.md) and the two phase specs beside it.
+How Security Market Pulse works as of 4 November 2026. This is the current design. The
+day-to-day runbook is [github-operations.md](../active/daily-pipeline/github-operations.md); the
+reasoning behind the certified tier is in [auto-002-proposal.md](auto-002-proposal.md) and the two
+phase specs beside it, which are dated plans.
 
 ## What the site publishes
 
@@ -23,9 +25,9 @@ producer. Both apply the same XBRL rules, so this is a reproducibility check, no
 The page says "re-derived from SEC filings", never "independently verified".
 
 **Not certified.** Everything else: private companies, segments of larger companies, non-US filers,
-headline metrics such as ARR, ownership text, event summaries and quoted filing text. These were
-collected earlier from company releases and pages, keep their own source and date, and are not
-re-checked automatically. The full list is `notCertified` in
+headline metrics such as ARR, ownership text, event summaries and quoted filing text. They come from
+company releases, filings and pages, each with its own source and date. The daily collector checks
+registered sources and adds new facts only after automated review; they are labeled not certified. The full list is `notCertified` in
 [certifiedContract.json](../../web/src/data/tracker/certifiedContract.json).
 
 No machine publishes a judgment: no stance, ranking, forecast or interpretation (D-76). Judgments
@@ -34,82 +36,86 @@ appear only when the owner writes them.
 ## Data flow
 
 ```
-SEC EDGAR APIs
-   |  every 4 hours (certified-refresh.yml, certify job, read-only token)
+Vercel Cron (project market-pipeline-timer, ops/timer)      GitHub schedule 05:17 + 09:47 backup
+   |  05:17 UTC: workflow_dispatch timer=true                  |  skips once the day has collected
+   v                                                           v
+subscription-collector.yml  (GitHub Actions, private repo)
+   |  restore evidence archive (refs/archive/market-evidence), take the shared lease,
+   |  fetch registered sources within the daily budget, Codex CLI on the owner's ChatGPT login
+   |  extracts and reviews candidate facts, 12-month history window (contracts/history-window.json)
    v
-edgar-refresh.ts + filing-events.ts   -> web/src/data/generated/*.json
+evidence archive commit + coverage receipt (daily_source_intake_v2)
+   |  workflow_run callback (16:23 UTC daily recovery timer)
    v
-certify-sec.ts (sec-verify/independent.mjs re-derives every claim)
+subscription-publisher.yml  -> market-release-gate.yml on main (independent gate)
+   |  verify every archived hash, rebuild the snapshot, replay all 80 SEC claims from archived
+   |  bytes, run the full app test suite, export the exact static artifact
    v
-certify-gate.ts                        -> must report 80/80 and zero drift
+Vercel staging without a domain -> byte-for-byte check -> promote -> verify public host
    v
-data tests (incl. the accuracy gate on event text), allowlist check,
-certify-changed.mjs (did any certified value change?)
-   |  only if complete AND changed (publish job, write token, runs no repo code)
-   v
-commit of six allowlisted data files to `preview`  -> Vercel preview build
-   |  every 4 hours (promote.yml, D-103): each commit soaked on its own clock
-   |  (6 h bot data, 24 h otherwise), no major change, full tests green, fresh
-   |  certification reproduces the data, page structure unchanged against production
-   v
-fast-forward `main`  -> Vercel production build (gated again by certify-gate)
-   v
-https://securitymarketpulse.com
+https://securitymarketpulse.com   (production-rollback-drill.yml checks rollback after publishing)
 ```
 
-The six allowlisted data files are `edgarFacts.json`, `filingEvents.json`, `filingEvidence.json`,
-`filingRun.json`, `certifiedCoverage.json` and `certifiedVerification.json` under
-`web/src/data/generated/`.
+Code changes take a separate path: work lands on `preview` (Vercel preview URL), then an approved
+fast-forward moves `main`. A push to `main` alone does not publish; the next gated publisher run
+does. Vercel Git builds of `main` and automatic domain assignment are off (D-110). The older
+four-hour `certified-refresh.yml` and `promote.yml` workflows are disabled in GitHub and must stay
+disabled.
+
+## Monitoring
+
+| Monitor | Where | What it catches |
+|---|---|---|
+| Outside watchdog | `ops/timer/api/watchdog`, Vercel Cron every 6 hours | Published `daily-coverage.json` older than 30 hours or unreadable, the latest collector run failed or missing, an expired ChatGPT login. Alerts through one GitHub App issue assigned to the owner; works even when Actions is blocked |
+| Freshness probe | `freshness.yml`, every 6 hours at :41 | Coverage, heartbeat and public-release gaps; keeps an owner-assigned issue |
+| Job alerts | `ops/ci/job_alert.py` in collector and publisher | A failed run; one assigned issue that closes on recovery |
+| Rollback drill | `production-rollback-drill.yml` | A release that cannot be rolled back |
 
 ## Safeguards
 
 | Safeguard | Where | What it stops |
 |---|---|---|
-| 100% gate | `web/scripts/certify-gate.ts`, `claim-gate.mjs` | Publishing when any certified claim fails, is missing, or drifts from the build inputs |
-| Build gate | `web/scripts/app-release.mjs` | A Vercel build of the site when the gate fails; the last good deployment keeps serving |
-| Allowlist | `certified-refresh.yml` | The refresh bot changing anything except the six data files |
-| Two trust levels | `certified-refresh.yml` | The job holding a write token never runs `npm` or repo code |
-| Accuracy gate | `web/scripts/sec-verify/event-text.mjs`, data tests | Machine-written event text that is malformed or quotes boilerplate; a bad quote falls back to the plain filing label, and any bad text fails the run |
-| Promotion rules | `promote.yml`, `web/scripts/promotion/decide.mjs` (unit-tested; run from main's copy) | Production moving before a commit has soaked, from a diverged or non-linear branch, or with a change marked major, touching a protected path or using a secret |
-| Full re-check | `promote.yml` verify job | Production moving on a commit that fails any test, or on data a fresh certification cannot reproduce |
-| Structure guard | `web/scripts/promotion/structure.mjs` (run from production's copy) | Unreviewed changes to routes, h1/h2 headings, section and navigation ids, navigation links, the stylesheet, or the text of the dated records. Wording elsewhere on the tracker page and h3 headings are not covered; agents mark those major |
-| Owner review issue | `promote.yml` report job | A held major change going unnoticed; the issue lists what waits and closes on promotion |
-| Promotion failure issue | `promote.yml` report job | A failed promotion going unnoticed |
-| Held-run issue | `certified-refresh.yml` report job | A failed or incomplete run going unnoticed; one GitHub issue opens and closes on recovery |
-| Freshness probe | `freshness.yml`, every 6 hours | The refresh or promotion silently stopping, certified data waiting over 48 hours, production not serving `main`, or the site going down |
-| Raw-response archive | `sec-archive` workflow artifact, 90 days | Losing the evidence a certified value was derived from |
-| Pinned actions | all workflows | A third-party action changing under us; each is pinned to a commit SHA |
+| 100% SEC gate | `web/scripts/certify-gate.ts`, `claim-gate.mjs` | Publishing when any of the 80 certified claims fails, is missing, or drifts |
+| Independent release gate | `market-release-gate.yml`, `ops/ci/stage_gate.py` | Publishing anything not rebuilt from the hashed evidence archive on reviewed `main` code |
+| Exact artifact | `ops/ci/publish.py`, `publisher_stage.py` | Production serving bytes other than the gate's artifact |
+| Daily budgets | `contracts/market.json`, collector ledger | More than the daily fetch, model-call and document allowance; no paid API fallback (D-128) |
+| Two gate runs a day | publisher | Runaway publication |
+| Accuracy gate | `web/scripts/sec-verify/event-text.mjs`, data tests, `web/src/data/tracker/invariants.ts` | Malformed machine-written text and broken data invariants |
+| Structure guard | `web/scripts/promotion/structure.mjs` | Unreviewed changes to routes, headings, ids, navigation or dated records |
+| Push guard | `.githooks/pre-push` | A manual push to `main` without `PROMOTE=1` |
+| Pinned actions | all workflows | A third-party action changing under us |
 
 ## Repository layout
 
 | Path | What it holds |
 |---|---|
-| `web/` | The site (Vite, React, prerendered to static HTML). Vercel root directory. See [web/README.md](../../web/README.md) |
-| `web/src/data/tracker/` | Supplier list, domains, events, the certified contract and the certification helpers |
-| `web/src/data/generated/` | Machine-written data. Six files are refreshed by the bot; the rest are frozen records from earlier phases |
-| `web/scripts/` | Data refresh, certification, build, prerender and verification scripts |
-| `web/scripts/sec-verify/` | The independent verifier and the 8-K Item 2.03 excerpt extractor |
-| `web/tests/` | Data tests (`tsx --test`) and browser tests (`tests/e2e`, Playwright) |
-| `.github/workflows/` | `certified-refresh`, `promote`, `freshness`, `web` (CI) |
-| `.githooks/` | `pre-push` hook that refuses a push to `main` without `PROMOTE=1` |
-| `docs/` | Current design in `reference/`, work in flight in `active/`, history in `archive/` |
+| `web/` | The site (Vite, React, prerendered to static HTML) and its data, scripts and tests. See [web/README.md](../../web/README.md) |
+| `web/scripts/pipeline/` | The daily collector engine (Python): fetch, extract, review, archive, release |
+| `contracts/` | `market.json` (roster, sources, budgets; digest pinned), `history-window.json` (backlog cut), qualification seeds |
+| `ops/ci/` | Collector, gate, publisher, alert and rollback steps run by the workflows, with tests |
+| `ops/timer/` | Vercel Cron project: daily dispatch and outside watchdog (D-127) |
+| `ops/watchdog/` | Coverage probe used by `freshness.yml` |
+| `ops/evaluation/` | Extraction eval (golden set), scorecard and audit scripts |
+| `ops/cloud/`, `ops/worker/`, `ops/archive/` | Held alternatives (Codex Cloud runner, local worker, Cloudflare store). Not used in production |
+| `.github/workflows/` | Collector, publisher, release gate, rollback drill, freshness, account probes, web CI; two disabled legacy workflows |
+| `.githooks/` | `pre-push` guard for `main` |
+| `docs/` | Current design in `reference/`, work in flight and receipts in `active/`, history in `archive/` |
 
 ## Public routes
 
-`/` (tracker), `/issues/` and `/issues/2026-w36/` (the one signed weekly issue, kept as a dated
-record), `/thesis/` (the founding thesis, a dated record), `/corrections/`. Machine-readable:
-`/tracker.json`, `/feed.xml`, `/sitemap.xml`, `/corrections.json`, `/certified-coverage.json` (the
-certification receipt), `/app-release.json` (what this build is and when it was certified). The
-`/refresh-*.json` files are frozen receipts from the AUTO-001 phase and do not change.
+`/` (tracker), `/coverage/` (all 74 suppliers and their coverage tier), `/issues/` and
+`/issues/2026-w36/` (the one signed weekly issue, kept as a dated record), `/thesis/` (the founding
+thesis, a dated record), `/corrections/`. Machine-readable: `/tracker.json`, `/feed.xml`,
+`/sitemap.xml`, `/corrections.json`, `/certified-coverage.json`, `/daily-coverage.json`,
+`/app-release.json`. The `/refresh-*.json` files are frozen receipts from the AUTO-001 phase.
 
 ## Hosting and accounts
 
 | Service | Use | Notes |
 |---|---|---|
-| GitHub `jessepike/sec-market` | Code, Actions | Free plan; no branch protection (D-98), so `main` is protected by the hook and the workflows' design |
-| Vercel `pikeholdings/security-market-pulse` | Hosting, Web Analytics | Builds `preview` and `main` from Git; commits must be authored by `jesse@keatingpike.com` |
-| Cloudflare | DNS for `securitymarketpulse.com` | No email is sent from this domain; SPF `-all`, DMARC `reject`, null MX. See [dns-and-accounts.md](dns-and-accounts.md) |
-| SEC EDGAR | Data source | Public API, no key. User-Agent names the site and a contact address; requests stay under 5 per second |
-
-There are no secrets in the repository or in GitHub Actions. The workflows use only the built-in
-`GITHUB_TOKEN`.
+| GitHub `jessepike/sec-market` | Code, Actions, evidence archive | Private. Actions budget $5/month, shared with the owner's other sites (D-129) |
+| Vercel `pikeholdings/security-market-pulse` | Site hosting | Production is staged and promoted by the publisher only |
+| Vercel `market-pipeline-timer` | Daily timer and watchdog crons | Holds the GitHub App key; nothing else |
+| ChatGPT subscription | Model step (Codex CLI) | Owner's login stored as one CI secret (D-109, D-126) |
+| Cloudflare | DNS only | See [dns-and-accounts.md](dns-and-accounts.md) |
+| SEC EDGAR | Data source | Public API, no key; User-Agent names the site and a contact address |
