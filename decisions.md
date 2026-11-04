@@ -10,7 +10,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 
 | Area | Decisions | In short |
 |---|---|---|
-| Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (v1.4 accepted; v1.5 awaiting the owner's confirmation). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
+| Purpose | D-1, D-76, D-77, D-102, D-135 | Intent is the authority (v1.5 accepted 2026-11-04, D-135). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
 | What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
 | Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
 | Automation | D-104 through D-110 | Owner-approved daily collection, independently gated fact publication and controlled rollback through private GitHub Actions and the existing Vercel project. The first actual scheduled collection, publication and rollback/restoration passed October 23; sustained operation remains open. Legacy publication paths stay disabled |
@@ -1488,4 +1488,9 @@ retired four-hour refresh and `promote.yml`, the owner said: "yes". intent.md's 
 direction" line and the D-88 authorization line in the rules now describe the daily collector, the
 independent release gate and the approved fast-forward of `main`. Purpose, readers and boundaries
 are unchanged. intent.md stays at v1.5, `proposed`; its acceptance is a separate owner step.
+
+**D-135 · 2026-11-04 — Intent v1.5 accepted.**
+
+Asked "should I also mark intent v1.5 as accepted?" (its text was brought current under D-134), the
+owner said: "yes". `SEC-MARKET-001` v1.5 is now the accepted governing intent; v1.4 is superseded.
 

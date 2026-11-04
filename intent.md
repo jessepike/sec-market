@@ -4,11 +4,11 @@
 
 - **Intent ID:** `SEC-MARKET-001`
 - **Version:** `1.5`
-- **Lifecycle state:** `proposed` (v1.5, revision authorized by the owner 2026-10-16, text awaiting confirmation; v1.4 remains the last accepted text)
+- **Lifecycle state:** `accepted` (v1.5, accepted by the owner 2026-11-04)
 - **Gate 1:** `passed`
 - **Supersedes:** `SEC-MARKET-001` v1.4
 - **Created:** 2026-08-15
-- **Last reconciled:** 2026-10-16. v1.5 records what AUTO-002 settled and points to current documents.
+- **Last reconciled:** 2026-11-04. v1.5 records what AUTO-002 settled, as carried into the daily pipeline, and points to current documents.
   Purpose, readers, boundaries and the v1.3 autonomy rule are unchanged
 
 ## Compressed governing intent
@@ -139,7 +139,7 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 - **v1.2 Human Acceptance:** accepted: "approve the intent v1.2 text as written", project owner, 2026-09-03
 - **v1.3 Human Acceptance:** accepted: "Source check facts can publish. I don't want to be the bottleneck for this. So it needs to be automated. There doesn't need to be any gates." Asked what the machine may say beyond facts, the owner chose "facts only, no judgments", and approved rewriting this file and the project rules to match; project owner, 2026-09-25
 - **v1.4 Human Acceptance:** accepted: "go, and apply the four intent amendments" (purpose, readers, scope, success, as proposed in `docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md` section 2), project owner, 2026-09-25
-- **v1.5 Human Acceptance:** the owner authorized this revision on 2026-10-16 ("yes you can change") to bring the intent in line with D-88 to D-101; the text is presented for the owner's confirmation at review
+- **v1.5 Human Acceptance:** the owner authorized this revision on 2026-10-16 ("yes you can change") to bring the intent in line with D-88 to D-101; the text is presented for the owner's confirmation at review. Accepted 2026-11-04: asked "should I also mark intent v1.5 as accepted?", the owner said "yes", project owner, 2026-11-04
 
 ### AI Readiness
 
@@ -176,7 +176,7 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 | 1.2 | accepted | Weekly issue as the unit of product; agent-drafted gather with a named person signing; newsletter to a named pilot list; ePlus overlay bounded downstream | accepted, 2026-09-03 | ready, 2026-09-03 | Episode 002 call becomes a standing thesis; purpose, beneficiaries and evidence boundaries unchanged |
 | 1.3 | accepted | Remove the human approval step: sourced, machine-validated facts publish automatically; the machine publishes no judgments; judgments appear only when the owner writes them (D-76) | accepted, 2026-09-25 | ready, 2026-09-25 | The publish-on-approval path, signing and dated machine-proposed stances are superseded; purpose, beneficiaries and the public-evidence boundary unchanged |
 | 1.4 | accepted | Purpose becomes a credibility asset and working instrument for supplier and domain decisions; security leaders first, investors out; scope adds distress and consolidation and excludes news; success led by freshness; standing tracker replaces the signed weekly issue (D-77) | accepted, 2026-09-25 | ready, 2026-09-25 | Account-team GTM timing is no longer the organizing purpose; the thesis becomes a dated record; the public-evidence boundary and v1.3 autonomy rule unchanged |
-| 1.5 | proposed | Record AUTO-002: certified SEC tier gated at 100%, automatic promotion of certified data, named byline, email digest authorized, weekly issue retired; traceability points to current documents (D-88 to D-101) | authorized, 2026-10-16 | ready, 2026-10-16 | No change to purpose, readers or boundaries |
+| 1.5 | accepted | Record AUTO-002: certified SEC tier gated at 100%, automatic promotion of certified data, named byline, email digest authorized, weekly issue retired; traceability points to current documents (D-88 to D-101) | accepted, 2026-11-04 | ready, 2026-10-16 | No change to purpose, readers or boundaries |
 
 ## Gate result
 

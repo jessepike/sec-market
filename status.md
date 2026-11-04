@@ -56,8 +56,8 @@ public files matched. [Scorecard](docs/active/daily-pipeline/evaluations/2026-11
 1. Watch the first real timer runs from November 4 and start counting clean days (SEC-062).
 2. Close source gaps (SEC-071) and score the review step (SEC-077).
 3. Measure Actions minutes against the $5 budget (SEC-078).
-4. Owner decisions waiting: accept intent v1.5 (text brought current November 4, D-134); email
-   workstream inputs (SEC-060).
+4. Owner decision waiting: email workstream inputs (SEC-060). Intent v1.5 was accepted November 4
+   (D-135).
 
 Unused runtimes (Codex Cloud, local worker, Cloudflare) and the two legacy workflows were removed
 on November 4 (D-133). The collector's session runtime moved to `ops/ci/session_runtime.py`.
