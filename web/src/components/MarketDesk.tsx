@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { evidenceById } from '../data/evidence'
 import { runStatus } from '../data/runStatus'
-import { checkInterval, certifiedCount, isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
+import { certifiedCount, isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
 import { eventsForSupplier, formatOwnershipCompact, shortSupplierName, suppliersForDomain } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
@@ -9,7 +9,6 @@ import type { TrackerSupplier } from '../data/tracker/suppliers'
 import { countedUnits, currencyName, eventGroups, filingSeries, recentChanges, revenueGrowthRows, yearChanges } from '../data/tracker/presentation'
 import type { ChangeItem } from '../data/tracker/presentation'
 import { SiteMasthead } from './SiteMasthead'
-import { DailyCollectionStatus } from './RunStatus'
 import { CompanySearch } from './CompanySearch'
 import './market-desk.css'
 
@@ -133,13 +132,13 @@ function Timeline({ openSupplier }: { openSupplier: (id: string) => void }) {
   const chosen = selected ? yearUnits.filter(u => `${u.groupId}:${u.date.slice(0, 7)}` === selected).flatMap(u => u.items) : []
   return <section id="event-timeline" className="desk-panel desk-timeline" aria-labelledby="desk-timeline-heading">
     <div className="desk-panel__head"><h2 id="desk-timeline-heading">Twelve months of tracked events</h2><span>{plural(yearUnits.length, 'event')}</span></div>
-    <p className="desk-note">{start.toISOString().slice(0, 10)} to {runStatus.lastChecked}. Monthly groups; endpoint months are partial. Select a count to read every event and its source.</p>
+    <p className="desk-note">{start.toISOString().slice(0, 10)} to {runStatus.lastChecked}. Monthly groups; endpoint months are partial. Darker cells hold more events. Select a count to read every event and its source.</p>
     <div className="desk-timeline__scroll" tabIndex={0} role="region" aria-label="Monthly event timeline, scroll horizontally on a phone">
       <div className="desk-timeline__grid"><span />{months.map(month => <span className="desk-timeline__month" key={month}>{new Date(`${month}-01T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', year: '2-digit', timeZone: 'UTC' })}</span>)}
         {eventGroups.map(group => <div className="desk-timeline__lane" key={group.id}><span>{group.label}</span>{months.map(month => {
           const count = unitsInGroup(yearUnits, group.id).filter(u => u.date.startsWith(month)).length
           const key = `${group.id}:${month}`
-          return <div className="desk-timeline__cell" key={month}>{count > 0 ? <button type="button" aria-label={`${group.label}, ${month}, ${plural(count, 'event')}`} aria-pressed={selected === key} aria-controls="desk-timeline-events" onClick={() => { setSelected(key); setShowAll(false) }}>{count}</button> : <span aria-label="No events">·</span>}</div>
+          return <div className="desk-timeline__cell" key={month}>{count > 0 ? <button type="button" data-level={count >= 6 ? 4 : count >= 4 ? 3 : count >= 2 ? 2 : 1} aria-label={`${group.label}, ${month}, ${plural(count, 'event')}`} aria-pressed={selected === key} aria-controls="desk-timeline-events" onClick={() => { setSelected(key); setShowAll(false) }}>{count}</button> : <span aria-label="No events">·</span>}</div>
         })}</div>)}
       </div>
     </div>
@@ -154,7 +153,7 @@ function PublicSuppliers({ openSupplier }: { openSupplier: (id: string) => void 
   return <section className="desk-public" aria-labelledby="desk-public-heading"><h2 id="desk-public-heading">Public suppliers, latest reported quarter</h2>
     <p className="desk-note">Alphabetical. Select any supplier for the SEC quarterly series, exact dollar values and all dated events.</p>
     <div className="desk-public__rows">{trackerSuppliers.filter(s => s.kind === 'public').slice().sort((a, b) => a.name.localeCompare(b.name)).map(supplier => <details key={supplier.id} id={`s-${supplier.id}`}>
-      <summary><span>{shortSupplierName(supplier.name)}</span><span>{supplier.revenue?.latest.yoyGrowth ?? 'No quarterly revenue figure'}</span><time>{supplier.revenue?.latest.periodEnd}</time></summary>
+      <summary><span>{shortSupplierName(supplier.name)}</span><span>{supplier.revenue?.latest.yoyGrowth ?? 'No quarterly revenue figure'}</span>{supplier.revenue ? <span className="desk-public__period">Quarter ended <time dateTime={supplier.revenue.latest.periodEnd}>{supplier.revenue.latest.periodEnd}</time></span> : <span />}</summary>
       <SupplierFacts supplier={supplier} /><button type="button" onClick={() => openSupplier(supplier.id)}>Full supplier record</button>
     </details>)}</div></section>
 }
@@ -193,14 +192,12 @@ export function MarketDesk() {
   const filtered = group ? unitsInGroup(monthUnits, group.id).flatMap(u => u.items).sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id)) : changes
   return <div className="market-desk">
     <div className="desk-hero"><p className="desk-kicker">{trackerSuppliers.length} suppliers · {trackerDomains.length} domains · {certifiedCount} SEC filers certified</p><SiteMasthead />
-      <p className="desk-snapshot">SEC figures for the {certifiedCount} certified filers are re-derived from each company&rsquo;s filings, with a check scheduled {checkInterval}. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
-      <DailyCollectionStatus className="desk-snapshot" />
       <CompanySearch openSupplier={setSupplierId} />
     </div>
-    <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
+    <div className="desk-counts" aria-label="Event counts in the last 30 days, with trailing twelve-month totals">{eventGroups.map(g => {
       const annual = unitsInGroup(yearUnits, g.id); const recent = unitsInGroup(monthUnits, g.id)
-      return <button type="button" key={g.id} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}><span>{g.label}</span><strong>{annual.length}</strong><small>{recent.length} in last 30 days</small></button>
-    })}</div><p className="desk-note desk-counts-note">Trailing 12 months to {runStatus.lastChecked}. Counts of sourced events, one per deal, not a market ranking. Select a type to filter the change log.</p>
+      return <button type="button" key={g.id} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}><span>{g.label}</span><strong>{recent.length}</strong><small>{annual.length} in 12 months</small></button>
+    })}</div><p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}, with the trailing 12-month total below each count. Counts of sourced events, one per deal, not a market ranking. Select a type to filter the change log.</p>
     <div className="desk-opening"><section id="tracker-changed" className={`desk-panel desk-changelog${allChanges ? ' is-expanded' : ''}`} aria-labelledby="tracker-changed-heading">
       <div className="desk-panel__head"><h2 id="tracker-changed-heading">What changed in the last 30 days</h2><span>{filtered.length} entries</span></div>
       <p className="desk-note">Window ends {runStatus.lastChecked}. Results and their matching SEC filing share an entry.</p>

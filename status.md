@@ -6,6 +6,8 @@ updated: 2026-11-04
 
 # Current state
 
+**Front page hierarchy (2026-11-04, on preview, owner review).** Pipeline status lines moved from the masthead into the Data status section (`#overview`), leaving a one-line disclaimer and link up top. Count tiles lead with the last 30 days and show the 12-month total small. The 12-month grid shades cells by count. Panel and domain card headers have a tinted band. Public supplier rows say "Quarter ended". Check Point and Trend Micro have no automated path to a new quarter (SEC-080).
+
 The site is live and updates itself. Production (`main`) and `preview` were level at ed9cce8 on
 November 3; preview is now ahead by the contact-email change and this docs cleanup.
 

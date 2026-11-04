@@ -8,7 +8,11 @@ for (const width of [1440, 390]) {
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
     await page.goto('/')
-    await expect(page.locator('.desk-snapshot').filter({ hasText: 'SEC figures' })).toContainText('re-derived from each company')
+    await expect(page.locator('.site-masthead__stamps')).toContainText('Not a news site and not investment advice.')
+    await expect(page.locator('.site-masthead__stamps a')).toHaveAttribute('href', '#overview')
+    await expect(page.locator('.desk-hero')).not.toContainText(/Daily source intake|Document processing|Historical review/)
+    await expect(page.locator('#overview')).toContainText('re-derived from their own SEC filings')
+    await expect(page.locator('.desk-counts small').first()).toContainText('in 12 months')
     await expect(page.locator('.desk-kicker').first()).toContainText(`${certifiedCount} SEC filers certified`)
     await expect(page.locator('.market-desk')).not.toContainText(/Diagnostic candidate|Latest attempt/)
     await expect(page.locator('.market-desk')).not.toContainText(/owner.s read|median/i)

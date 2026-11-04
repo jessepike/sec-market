@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-080.
+stands. New items continue from SEC-081.
 
 ## Next
 
@@ -63,6 +63,20 @@ leave unsupported facts held. No supplier expansion is authorized by this work.
 **Authorization:** D-104 through D-110. A successful run is not full coverage.
 
 ## Soon
+
+### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers
+
+Check Point (a foreign private issuer filing 6-K/20-F) and Trend Micro (not an SEC filer) have no
+automated path to a new quarter. Certified suppliers roll when their 10-Q's XBRL facts appear; the
+document pipeline deliberately writes only private suppliers' headline metric
+(`web/scripts/pipeline/snapshot.py`, the `kind not in ("public", "segment")` guard), so these two
+stay on the quarter in `originals.json`. Example: Check Point reported Q3 2026 (quarter ended
+2026-09-30, $670 million, down 1 percent) on 2026-11-02; the site still shows the quarter ended
+2026-06-30. Build a reviewed path that admits period, period end, revenue and reported growth from
+the company's own release or 6-K, keeps the "not re-checked automatically" label, and never
+overwrites certified SEC fields. Test with Check Point Q3 2026 and Trend Micro Q3.
+**Authorization:** found 2026-11-04 answering the owner's question about the 2026-06-30 date.
+Changes what the pipeline may publish, so it needs the owner's go-ahead before build.
 
 ### SEC-076 · Optiv source-link correction
 

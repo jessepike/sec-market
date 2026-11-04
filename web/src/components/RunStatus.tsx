@@ -62,9 +62,7 @@ export function DailyCollectionStatus({ className = 'run-status__line', coverage
 export function RunStatus() {
   return (
     <section id="overview" className="run-status" aria-labelledby="run-status-heading">
-      <h2 id="run-status-heading" className="visually-hidden">
-        What is certified
-      </h2>
+      <h2 id="run-status-heading">Data status</h2>
       <p className={`run-status__line run-status__line--${receiptComplete ? 'updated' : 'incomplete'}`}>
         SEC figures for {certifiedCount} public companies are re-derived from their own SEC filings and must
         pass all {certifiedClaimCount} checks before they publish. Last certified change: {certifiedDateDisplay}.
@@ -74,6 +72,7 @@ export function RunStatus() {
         Other figures keep their own source and date{dailyCoverage ? '. Source checks do not certify every historical claim.' : ' and are not re-checked automatically.'}{' '}
         <a href="#method">How this works</a> · <a href="/certified-coverage.json">Certification receipt</a>
       </p>
+      <DailyCollectionStatus className="run-status__daily" />
     </section>
   )
 }
