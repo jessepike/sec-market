@@ -38,7 +38,7 @@ export const WEEK_MOVES_ENDING_ISO = '2026-08-17'
 export const PRODUCT_TITLE = 'Security Market Pulse'
 export const SITE_URL = 'https://securitymarketpulse.com'
 export const AUTHOR_NAME = 'Jesse Pike'
-export const CONTACT_EMAIL = 'jesse@keatingpike.com'
+export const CONTACT_EMAIL = 'jp@jessepike.dev'
 
 /**
  * One-sentence description of what the site is (design-spec v0.3 §3.2). Shown
