@@ -59,8 +59,7 @@ https://securitymarketpulse.com   (production-rollback-drill.yml checks rollback
 Code changes take a separate path: work lands on `preview` (Vercel preview URL), then an approved
 fast-forward moves `main`. A push to `main` alone does not publish; the next gated publisher run
 does. Vercel Git builds of `main` and automatic domain assignment are off (D-110). The older
-four-hour `certified-refresh.yml` and `promote.yml` workflows are disabled in GitHub and must stay
-disabled.
+four-hour `certified-refresh.yml` and `promote.yml` workflows were removed on 2026-11-04 (D-133).
 
 ## Monitoring
 
@@ -92,12 +91,11 @@ disabled.
 | `web/` | The site (Vite, React, prerendered to static HTML) and its data, scripts and tests. See [web/README.md](../../web/README.md) |
 | `web/scripts/pipeline/` | The daily collector engine (Python): fetch, extract, review, archive, release |
 | `contracts/` | `market.json` (roster, sources, budgets; digest pinned), `history-window.json` (backlog cut), qualification seeds |
-| `ops/ci/` | Collector, gate, publisher, alert and rollback steps run by the workflows, with tests |
+| `ops/ci/` | Collector (with its session runtime), gate, publisher, alert and rollback steps run by the workflows, with tests |
 | `ops/timer/` | Vercel Cron project: daily dispatch and outside watchdog (D-127) |
 | `ops/watchdog/` | Coverage probe used by `freshness.yml` |
 | `ops/evaluation/` | Extraction eval (golden set), scorecard and audit scripts |
-| `ops/cloud/`, `ops/worker/`, `ops/archive/` | Held alternatives (Codex Cloud runner, local worker, Cloudflare store). Not used in production |
-| `.github/workflows/` | Collector, publisher, release gate, rollback drill, freshness, account probes, web CI; two disabled legacy workflows |
+| `.github/workflows/` | Collector, publisher, release gate, rollback drill, freshness, account probes, web CI |
 | `.githooks/` | `pre-push` guard for `main` |
 | `docs/` | Current design in `reference/`, work in flight and receipts in `active/`, history in `archive/` |
 

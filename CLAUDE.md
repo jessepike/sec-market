@@ -8,7 +8,7 @@ AGENTS.md is canonical for every runtime. This file adds only what is specific t
 
 `main` is the production code line. It moves only by an approved fast-forward from `preview`
 (AGENTS.md, D-110); the next gated publisher run then delivers it. The old `promote.yml` route is
-disabled, so a push to `preview` does not reach the public site by itself.
+retired, so a push to `preview` does not reach the public site by itself.
 
 - Never commit or push to `main` yourself, except the owner-approved promotion command.
 - Render the page and look at it before pushing (`node scripts/shot.mjs <url> <prefix>` from `web/`,

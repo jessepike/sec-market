@@ -29,7 +29,7 @@ from storage import LocalStore
 from validation import reconcile
 from coverage_summary import coverage_details
 
-spec = importlib.util.spec_from_file_location("session_runtime", REPO / "ops/cloud/run.py")
+spec = importlib.util.spec_from_file_location("session_runtime", REPO / "ops/ci/session_runtime.py")
 session_runtime = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(session_runtime)
 

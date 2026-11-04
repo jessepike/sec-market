@@ -1,7 +1,0 @@
-{
-  "name": "security-market-watchdog",
-  "main": "worker.mjs",
-  "compatibility_date": "2026-10-01",
-  "triggers": { "crons": ["13 * * * *"] },
-  "r2_buckets": [{ "binding": "ALERT_STATE", "bucket_name": "security-market-watchdog-state" }]
-}

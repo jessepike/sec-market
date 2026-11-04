@@ -8,7 +8,9 @@ Codex Cloud scheduler or install a personal-computer worker.
 **Status (2026-11-04): daily publication is live; coverage is incomplete.** Vercel Cron starts the
 collector (D-127) and the gated publisher delivers exact artifacts (D-110). The legacy four-hour SEC
 and branch-promotion workflows are disabled. The sections below are the dated October record of how
-the pipeline was built; current figures are in [status.md](../../../status.md).
+the pipeline was built; current figures are in [status.md](../../../status.md). The Codex Cloud,
+local-worker and Cloudflare code it mentions under `ops/cloud`, `ops/worker` and `ops/archive` was
+removed on 2026-11-04 (D-133) and survives in Git history.
 
 ## Inventory and receipts
 

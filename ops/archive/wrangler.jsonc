@@ -1,7 +1,0 @@
-{
-  "name": "security-market-archive",
-  "main": "worker.mjs",
-  "compatibility_date": "2026-10-01",
-  "workers_dev": true,
-  "r2_buckets": [{ "binding": "ARCHIVE", "bucket_name": "security-market-evidence" }]
-}

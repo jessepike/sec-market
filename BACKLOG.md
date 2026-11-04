@@ -99,14 +99,6 @@ Measure actual monthly minutes per workflow (forecast about 59 Linux minutes a d
 against the $5/month budget shared with the owner's other sites (D-129). Alert before the budget
 stops workflows, as happened October 28 to 31. **Authorization:** D-129.
 
-### SEC-079 · Retire held alternative runtimes
-
-`ops/cloud/` (Codex Cloud runner), `ops/worker/` (local Mac worker), `ops/archive/` and
-`ops/watchdog/worker.mjs` with its `wrangler.jsonc` (Cloudflare) are not used in production, and the
-disabled `certified-refresh.yml` and `promote.yml` workflows still sit in `.github/workflows/`. Tests
-and `ops/ci/collect.py` still reference some of them. Removing them needs those references cut and
-the owner's yes, since workflows are a protected path. **Authorization:** waiting on the owner.
-
 ### SEC-063 · Retire the frozen AUTO-001 data from the build
 
 The page still reads `refreshCoverage.json` and `collectState.json` (through `runStatus.ts`), the

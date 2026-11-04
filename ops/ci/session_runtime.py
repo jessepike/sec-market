@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Fresh Codex Cloud session: restore, lease, bounded native work and checkpoint.
+"""Session runtime for the daily collector: restore, lease, bounded work and checkpoint.
 
-No Codex OAuth file, model API key or new service is used. Native model work is
-performed by the calling scheduled agent. Publication retains the existing gate.
+Used by ops/ci/collect.py. Originally written for a Codex Cloud session (ops/cloud/run.py);
+moved here when that route was retired. Publication retains the existing gate.
 """
 import argparse
 import json

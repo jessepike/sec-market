@@ -77,7 +77,7 @@ delete it:
    and live host before reporting shipment. See `docs/active/daily-pipeline/github-operations.md`.
 
 D-110 supersedes the former four-hour branch promotion route. The legacy `promote.yml` and
-`certified-refresh.yml` workflows are disabled. Do not re-enable them or reopen Vercel's competing
+`certified-refresh.yml` workflows were removed (D-133). Do not restore them or reopen Vercel's competing
 production paths. Production is delivered through existing GitHub Actions and Vercel; Codex Cloud
 and an always-on personal computer are not dependencies.
 

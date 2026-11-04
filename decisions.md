@@ -22,6 +22,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Model route | D-109, D-126 | The AI step runs on the owner's ChatGPT subscription in GitHub Actions. Standard v0.7 allows this at T2 because a failed run cannot publish anything wrong, the outside watchdog alerts, and the login secret serves one job |
 | Spend on automation | D-129 | GitHub Actions budget $5/month, shared with the owner's other sites, and watched |
 | Backlog and coverage | D-130, D-131 | Documents older than 12 months are archived, not reviewed; a supplier-mention check runs before any model call. `/coverage/` lists all 74 suppliers with a tier derived from their data |
+| Retired code | D-133 | Codex Cloud, local-worker and Cloudflare runtimes and the legacy `promote.yml`/`certified-refresh.yml` workflows are removed; Git history keeps them |
 | Pending correction | D-132 | Optiv's May 8 closing date stays; its source link moves to the May 8 closing release at the next accepted contract change |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
 | Daily coverage | D-104 through D-112 | November 2 scheduled intake is 262/557 with 295 gaps. All 80 SEC claims passed and all 52 public files match. Original evidence dates and complete denominators remain. Broad accuracy and sustained operation remain open. No paid fallback |
@@ -1468,3 +1469,15 @@ announcement instead of the May 8 closing release. The owner approved the correc
 closing release registered as a citation source in the locked contract and a real run to admit it,
 so it waits for the next accepted contract change (BACKLOG SEC-076). Report:
 [extraction-eval.md](docs/active/daily-pipeline/evaluations/2026-11-03/extraction-eval.md).
+
+**D-133 · 2026-11-04 — Remove the unused alternative runtimes and the legacy workflows.**
+
+Asked "Delete the unused alternative runtimes and the two disabled legacy workflows?", the owner
+chose "Delete them". Removed: `ops/cloud/` (Codex Cloud task runner and spec), `ops/worker/` (local
+Mac worker), `ops/archive/` and `ops/watchdog/worker.mjs` with their `wrangler.jsonc` (Cloudflare
+store and watchdog), their test `web/tests/pipeline-ops.test.mjs`, and the disabled
+`.github/workflows/promote.yml` and `certified-refresh.yml`. One file was still in production use:
+`ops/cloud/run.py` is the collector's session runtime (restore, lease, checkpoint), loaded by
+`ops/ci/collect.py`. It moved unchanged apart from its docstring to `ops/ci/session_runtime.py`.
+Dated documents and receipts that mention the removed paths are left as written.
+

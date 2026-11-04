@@ -38,7 +38,7 @@ from publication import recover_publication
 from vercel import VercelAdapter
 from native import NativeAgent, WorkPending, pending_work, submit_work
 
-cloud_spec = importlib.util.spec_from_file_location("cloud_worker", SCRIPTS.parents[2] / "ops/cloud/run.py")
+cloud_spec = importlib.util.spec_from_file_location("cloud_worker", SCRIPTS.parents[2] / "ops/ci/session_runtime.py")
 cloud_worker = importlib.util.module_from_spec(cloud_spec)
 cloud_spec.loader.exec_module(cloud_worker)
 
