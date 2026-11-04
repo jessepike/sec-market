@@ -1,7 +1,6 @@
 import type { MouseEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { PRODUCT_TITLE } from '../data/meta'
-import { certifiedDateDisplay } from '../data/tracker/certification'
 import { normalizePath } from '../data/routes'
 
 interface NavItem {
@@ -137,9 +136,6 @@ export function Header({ path = '/' }: { path?: string }) {
             )}
           </ul>
         </nav>
-        <p className="site-header__updated">
-          Certified SEC figures last changed {certifiedDateDisplay}
-        </p>
       </div>
     </header>
   )

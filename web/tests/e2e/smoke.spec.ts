@@ -172,7 +172,7 @@ test('the front page never opens a judged evidence record', async ({ page }) => 
 test('every rendered certification date reads the same receipt', async ({ page }) => {
   await page.goto('/')
   await expect(page.locator('.rail__asof')).toContainText(`Certified SEC figures last changed ${certifiedDateDisplay}`)
-  await expect(page.locator('.site-header__updated')).toContainText(`Certified SEC figures last changed ${certifiedDateDisplay}`)
+  await expect(page.locator('.site-header__updated')).toHaveCount(0)
   await expect(page.locator('.site-masthead__stamps')).toContainText(`Certified SEC figures last changed ${certifiedDateDisplay}`)
   await expect(page.locator('#overview .run-status__line')).toContainText(`Last certified change: ${certifiedDateDisplay}`)
   await expect(page.getByText('Last complete data refresh')).toHaveCount(0)
