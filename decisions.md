@@ -1505,3 +1505,8 @@ issue; nothing publishes from a request, and the owner decides what to add. The 
 isolated GitHub App, was offered to the owner as a choice on 2026-11-06; this entry records the
 recommended option, which is what was built (SEC-081).
 
+
+**D-137 · 2026-11-06 — Owner confirms the request box reuses the timer's GitHub App.**
+Asked "Which credential should the company request box use?", the owner chose "Reuse the timer's
+GitHub App". This confirms the design built under D-136: no new app or secret, and each request
+token is limited to issues.

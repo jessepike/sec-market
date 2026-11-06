@@ -35,7 +35,7 @@ and notifies; at most 10 new names a day. Honeypot, a minimum fill time, an orig
 name filter (no links) block spam. The token is issues-only. Nothing publishes from a request.
 Goes live when `main` advances (the timer project deploys from `main`; the site CSP allows the
 timer host). Open: confirm the first real request lands in the issue.
-**Authorization:** owner request 2026-11-06; credential choice per D-136.
+**Authorization:** owner request 2026-11-06; credential choice confirmed by the owner (D-137).
 
 ### SEC-060 · Email workstream
 
