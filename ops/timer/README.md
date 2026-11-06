@@ -6,6 +6,17 @@ A small Vercel project that does two jobs outside GitHub Actions (D-127):
 |---|---|---|
 | `/api/dispatch` | 05:17 daily | Starts the collector workflow with `timer=true` on `main` |
 | `/api/watchdog` | every 6 hours at :41 | Alerts the owner when any of these is true: the published data is stale or unreadable, the latest daily collector run failed or never started, or the ChatGPT login has expired |
+| `/api/request` | on demand (public) | The site's "Want a company tracked?" box (D-136). Adds the name to one private issue, "Company requests from the site", with an issues-only token |
+
+## Company request box
+
+`POST /api/request` with `{ name, website, elapsed }` from an allowed origin (the site and its
+preview; override with `REQUEST_ORIGINS`, comma-separated). The hidden `website` field and an
+`elapsed` under 1.5 seconds are treated as bots: the answer says ok and nothing is written. Names
+are 2 to 60 letters, digits, spaces and `. & ' + -`, with no links. A repeat raises the count
+silently; a new name edits the list and comments once, which notifies the assignee. At most 10 new
+names a day and 500 in total; past that, requests are dropped quietly. Close the issue to start a
+fresh list. Requests never change the site.
 
 The watchdog alerts through one GitHub issue, "Daily pipeline needs attention (outside watchdog)".
 The issue is assigned to the owner and opened by the GitHub App, so GitHub emails or pushes it to

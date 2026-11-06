@@ -49,19 +49,21 @@ function headers(token) {
 
 // A GitHub App's installation token (preferred: its issues notify the owner)
 // or a fine-grained token (GitHub never notifies you of your own token's issues).
-export async function githubToken(cfg, fetcher = fetch, now = Date.now()) {
+// Pass permissions to narrow the token below the app's grant (the public
+// request endpoint asks for issues only).
+export async function githubToken(cfg, fetcher = fetch, now = Date.now(), permissions) {
   if (!(cfg.GITHUB_APP_ID && cfg.GITHUB_APP_PRIVATE_KEY)) return cfg.GITHUB_TOKEN
   const jwt = headers(appJwt(cfg.GITHUB_APP_ID, cfg.GITHUB_APP_PRIVATE_KEY, now))
   const found = await fetcher(`${API}/repos/${cfg.GITHUB_REPO}/installation`, { headers: jwt, signal: AbortSignal.timeout(20000) })
   if (!found.ok) throw new Error('APP_NOT_INSTALLED_' + found.status)
   const { id } = await found.json()
   const issued = await fetcher(`${API}/app/installations/${id}/access_tokens`, { method: 'POST', headers: jwt, signal: AbortSignal.timeout(20000),
-    body: JSON.stringify({ repositories: [cfg.GITHUB_REPO.split('/')[1]] }) })
+    body: JSON.stringify({ repositories: [cfg.GITHUB_REPO.split('/')[1]], ...(permissions && { permissions }) }) })
   if (!issued.ok) throw new Error('APP_TOKEN_FAILED_' + issued.status)
   return (await issued.json()).token
 }
 
-function client(token, fetcher) {
+export function client(token, fetcher) {
   return async (path, init = {}) => {
     const r = await fetcher(path.startsWith('http') ? path : API + path,
       { ...init, headers: headers(token), signal: AbortSignal.timeout(20000) })

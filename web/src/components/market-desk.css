@@ -33,6 +33,15 @@
 .market-desk .desk-company-search .desk-supplier-link { width: 100%; min-height: 44px; }
 .desk-company-search__ticker { margin-left: 8px; font-size: 12px; color: #62676a; font-weight: 400; }
 .desk-company-search .desk-note { overflow-wrap: anywhere; }
+.desk-company-request { margin-top: 6px; font-size: 13px; }
+.desk-company-request summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; gap: 6px; list-style: none; color: #1f5fc8; text-decoration: underline; text-underline-offset: 2px; }
+.desk-company-request summary::-webkit-details-marker { display: none; }
+.desk-company-request summary::before { content: '+'; text-decoration: none; display: inline-block; width: 10px; }
+.desk-company-request[open] summary::before { content: '−'; }
+.desk-company-request form>label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.desk-company-request form { display: grid; gap: 6px; margin-top: 4px; }
+.desk-company-request .desk-note { margin: 0; }
+.desk-company-request__trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .desk-note { color: #62676a; font-size: 12px; line-height: 1.5; margin: 0; }
 .desk-counts { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); background: white; border: 1px solid #dfe1de; border-radius: 10px; overflow: hidden; }
 .market-desk .desk-counts button { border: 0; border-right: 1px solid #e6e7e3; border-radius: 0; text-align: left; padding: 14px; display: grid; gap: 3px; }
@@ -149,4 +158,7 @@
   .desk-hero>.desk-kicker { grid-column: 1; grid-row: 1; }
   .desk-hero>.site-masthead { grid-column: 1; grid-row: 2; }
   .desk-hero>.desk-company-search { grid-column: 2; grid-row: 1/span 2; align-self: center; margin-top: 0; max-width: none; }
+  .desk-hero:has(.desk-company-request[open]) { grid-template-rows: auto 1fr; }
+  .desk-hero:has(.desk-company-request[open])>.site-masthead { align-self: start; }
+  .desk-hero>.desk-company-search:has(.desk-company-request[open]) { align-self: start; }
 }

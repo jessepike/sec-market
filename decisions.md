@@ -1494,3 +1494,14 @@ are unchanged. intent.md stays at v1.5, `proposed`; its acceptance is a separate
 Asked "should I also mark intent v1.5 as accepted?" (its text was brought current under D-134), the
 owner said: "yes". `SEC-MARKET-001` v1.5 is now the accepted governing intent; v1.4 is superseded.
 
+**D-136 · 2026-11-06 — Public company request box feeds a private queue, not an email address.**
+The owner, 2026-11-06: "I don't want to get spammed crazy on that. ... what if we had something where
+somebody can just enter it in and they hit enter and ... it just goes to a queue." And: "what I
+don't want is half done companies there." The site stays a static artifact (no functions in the
+release gate), so the endpoint lives in the existing `ops/timer` Vercel project and reuses its GitHub
+App, asking GitHub for an issues-only token on each request. No new provider or secret. The site
+CSP `connect-src` adds `https://market-pipeline-timer.vercel.app`. Requests land in one private
+issue; nothing publishes from a request, and the owner decides what to add. The alternative, a new
+isolated GitHub App, was offered to the owner as a choice on 2026-11-06; this entry records the
+recommended option, which is what was built (SEC-081).
+

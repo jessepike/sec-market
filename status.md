@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-04
+updated: 2026-11-06
 ---
 
 # Current state
+
+**Company request box (2026-11-06, on preview, owner review).** "Want a company tracked?" under the company search sends a name to a private GitHub issue through `ops/timer/api/request.js` (D-136, SEC-081). It works once `main` advances, since the timer project deploys from `main`.
 
 **Front page hierarchy (2026-11-04, on preview, owner review).** Pipeline status lines moved from the masthead into the Data status section (`#overview`), leaving a one-line disclaimer and link up top. Count tiles lead with the last 30 days and show the 12-month total small. The 12-month grid shades cells by count. Panel and domain card headers have a tinted band. Public supplier rows say "Quarter ended". Check Point and Trend Micro have no automated path to a new quarter (SEC-080).
 

@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { searchCompanies } from '../data/tracker/search'
 import { shortSupplierName } from '../data/tracker/names'
 import { trackerSuppliers } from '../data/tracker/suppliers'
+import { CompanyRequest } from './CompanyRequest'
 
 export function CompanySearch({ openSupplier }: { openSupplier: (id: string) => void }) {
   const [query, setQuery] = useState('')
@@ -27,5 +28,6 @@ export function CompanySearch({ openSupplier }: { openSupplier: (id: string) => 
       </li>)}</ul> : <p className="desk-note">No tracked company matches “{query.trim()}”. Try another name or ticker, or clear the search. The roster does not cover every security company.</p>)}
     </div>
     </search>
+    <CompanyRequest />
   </div>
 }

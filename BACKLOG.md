@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-081.
+stands. New items continue from SEC-082.
 
 ## Next
 
@@ -25,6 +25,17 @@ Open:
 Dated checkpoints up to November 3 are in
 [docs/archive/2026-11-backlog-checkpoints.md](docs/archive/2026-11-backlog-checkpoints.md).
 **Authorization:** D-110 through D-112 and the owner's continuing reliability instruction.
+
+### SEC-081 · Public company request box
+
+Built 2026-11-06 (D-136). A "Want a company tracked?" link under the company search opens a one-field
+box. The name goes to `ops/timer/api/request.js`, which adds it to one private GitHub issue
+("Company requests from the site", label `company-request`) with a count. Only a new name comments
+and notifies; at most 10 new names a day. Honeypot, a minimum fill time, an origin check and a
+name filter (no links) block spam. The token is issues-only. Nothing publishes from a request.
+Goes live when `main` advances (the timer project deploys from `main`; the site CSP allows the
+timer host). Open: confirm the first real request lands in the issue.
+**Authorization:** owner request 2026-11-06; credential choice per D-136.
 
 ### SEC-060 · Email workstream
 
