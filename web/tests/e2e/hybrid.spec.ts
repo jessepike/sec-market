@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test'
 import { recentChanges } from '../../src/data/tracker/presentation'
-import { certifiedCount } from '../../src/data/tracker/certification'
 
 for (const width of [1440, 390]) {
   test(`approved hybrid works at ${width}px with keyboard, sourced figures and compact phone views`, async ({ page }) => {
@@ -13,7 +12,7 @@ for (const width of [1440, 390]) {
     await expect(page.locator('.desk-hero')).not.toContainText(/Daily source intake|Document processing|Historical review/)
     await expect(page.locator('#overview')).toContainText('re-derived from their own SEC filings')
     await expect(page.locator('.desk-counts small').first()).toContainText('in 12 months')
-    await expect(page.locator('.desk-kicker').first()).toContainText(`${certifiedCount} SEC filers certified`)
+    await expect(page.locator('.desk-hero')).not.toContainText(/\d+ suppliers|SEC filers certified/)
     await expect(page.locator('.market-desk')).not.toContainText(/Diagnostic candidate|Latest attempt/)
     await expect(page.locator('.market-desk')).not.toContainText(/owner.s read|median/i)
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)

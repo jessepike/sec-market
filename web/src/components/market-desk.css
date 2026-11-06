@@ -155,9 +155,8 @@
 .desk-domain li:first-child { border-top: 0; }
 @media(min-width:901px) {
   .desk-hero { display: grid; grid-template-columns: minmax(0,1fr) minmax(300px,380px); column-gap: 40px; }
-  .desk-hero>.desk-kicker { grid-column: 1; grid-row: 1; }
-  .desk-hero>.site-masthead { grid-column: 1; grid-row: 2; }
-  .desk-hero>.desk-company-search { grid-column: 2; grid-row: 1/span 2; align-self: center; margin-top: 0; max-width: none; }
+  .desk-hero>.site-masthead { grid-column: 1; grid-row: 1; }
+  .desk-hero>.desk-company-search { grid-column: 2; grid-row: 1; align-self: center; margin-top: 0; max-width: none; }
   .desk-hero:has(.desk-company-request[open]) { grid-template-rows: auto 1fr; }
   .desk-hero:has(.desk-company-request[open])>.site-masthead { align-self: start; }
   .desk-hero>.desk-company-search:has(.desk-company-request[open]) { align-self: start; }

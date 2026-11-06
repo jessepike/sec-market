@@ -1,8 +1,7 @@
 import { AUTHOR_NAME, INDEPENDENCE_STATEMENT } from '../data/meta'
 import { certifiedClaimCount, certifiedCount, certifiedDateDisplay, checkInterval, notCertified } from '../data/tracker/certification'
 import { sourcingLadder } from '../data/method'
-import { notCoveredByTracker, trackerDomains } from '../data/tracker/domains'
-import { trackerSuppliers } from '../data/tracker/suppliers'
+import { notCoveredByTracker } from '../data/tracker/domains'
 
 /**
  * AUTO-001 fix pass 2 (2026-09-26), item 5: both blind rescores caught
@@ -110,7 +109,7 @@ export function HowThisWorks() {
 
       <h3 className="method__subhead">What is not covered</h3>
       <p className="method-copy">
-        {trackerDomains.length} domains, {trackerSuppliers.length} tracked suppliers. The full list,
+        The full list of domains and suppliers,
         and what falls outside it, is in <a href="#tracker-coverage">What this site covers</a>.{' '}
         {notCoveredByTracker.length} categories of company and claim are outside this tracker.
       </p>

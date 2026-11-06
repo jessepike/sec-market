@@ -18,7 +18,7 @@ export function CompanySearch({ openSupplier }: { openSupplier: (id: string) => 
         onChange={event => setQuery(event.target.value)} />
       {query && <button type="button" onClick={() => { setQuery(''); input.current?.focus() }}>Clear search</button>}
     </div>
-    <p id="company-search-help" className="desk-note desk-company-search__help">Search the {trackerSuppliers.length} tracked companies and business segments. Select a result for facts, dated events and sources.</p>
+    <p id="company-search-help" className="desk-note desk-company-search__help">Search the tracked companies and business segments. Select a result for facts, dated events and sources.</p>
     <div id="company-search-results">
       <p className="desk-note" role="status">{searching ? `${results.length} matching ${results.length === 1 ? 'record' : 'records'}.` : ''}</p>
       {searching && (results.length ? <ul>{results.map(supplier => <li key={supplier.id}>

@@ -1571,3 +1571,12 @@ export until they graduate. The first collection under the new contract re-revie
 documents once, because document caches are keyed by the contract. The watchdog and publisher will
 report the contract change until that first collection completes.
 
+
+**D-142 · 2026-11-06 — The site shows no supplier, domain or certified-filer count in its page text.**
+
+Owner: "still showing # suppliers. i thought we decided to remove this because it would be a moving
+target." No earlier decision was recorded; this entry makes it one. The homepage line "N suppliers · N
+domains · N SEC filers certified" is removed, and so are the counts in the company search help, "What
+this site covers" and the method page's coverage note. The `/coverage/` list stays. Counts that agents
+read in `/data/` exports and in operational run status stay, because they are computed from the
+roster.

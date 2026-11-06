@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { evidenceById } from '../data/evidence'
 import { runStatus } from '../data/runStatus'
-import { certifiedCount, isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
+import { isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
 import { eventsForSupplier, formatOwnershipCompact, shortSupplierName, suppliersForDomain } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
@@ -192,7 +192,7 @@ export function MarketDesk() {
   const group = eventGroups.find(g => g.id === groupId)
   const filtered = group ? unitsInGroup(monthUnits, group.id).flatMap(u => u.items).sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id)) : changes
   return <div className="market-desk">
-    <div className="desk-hero"><p className="desk-kicker">{trackerSuppliers.length} suppliers · {trackerDomains.length} domains · {certifiedCount} SEC filers certified</p><SiteMasthead />
+    <div className="desk-hero"><SiteMasthead />
       <CompanySearch openSupplier={setSupplierId} />
     </div>
     <div className="desk-counts" aria-label="Event counts in the last 30 days, with trailing twelve-month totals">{eventGroups.map(g => {
