@@ -54,6 +54,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - name: Free runner disk for the evidence archive
+        # The restored archive and its mirror are about 6.5 GB and grow about
+        # 200 MB a day; the runner image leaves about 12 GB free. Deleting the
+        # unused Android SDK, .NET and Haskell toolchains frees about 20 GB.
+        # It runs in the background so it adds no time to the 35-minute limit.
+        continue-on-error: true
+        run: |
+          df -B1 --output=avail "$RUNNER_TEMP" | tail -1
+          nohup sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /usr/local/.ghcup >/dev/null 2>&1 &
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
