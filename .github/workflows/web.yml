@@ -2,7 +2,10 @@ name: web
 
 on:
   push:
-    branches: [main, preview]
+    # main is a fast-forward of preview, so its commit already has a passing preview
+    # run (ops/ci/verified_ci_guards.py accepts either); a second run on main only
+    # spent Actions minutes.
+    branches: [preview]
     paths: ['web/**', 'contracts/**', 'ops/**', '.github/workflows/web.yml']
   pull_request:
     paths: ['web/**', 'contracts/**', 'ops/**', '.github/workflows/web.yml']

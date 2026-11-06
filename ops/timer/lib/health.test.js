@@ -29,9 +29,8 @@ function world(over = {}) {
     '/repos/o/r/actions/runs/4/jobs': { jobs: [{ name: 'publish', status: 'completed', conclusion: w.publish, started_at: iso(6) }] },
     '/repos/o/r/actions/workflows/freshness.yml/runs': { workflow_runs: [{ created_at: iso(3) }] },
     '/repos/o/r/actions/workflows/funding-weekly.yml/runs': { workflow_runs: [] },
-    '/repos/o/r/actions/workflows/web.yml/runs': { workflow_runs: [{ head_sha: MAIN, created_at: iso(10) }] },
     '/repos/o/r/issues': w.issues,
-    '/repos/o/r/actions/runs': { workflow_runs: [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9) }] },
+    '/repos/o/r/actions/runs': { workflow_runs: [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9), head_sha: MAIN, created_at: iso(5) }] },
   }
   const writes = []
   const gh = async (path, init = {}) => {

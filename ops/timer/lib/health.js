@@ -18,7 +18,6 @@ export function healthConfig(cfg) {
     publisher: cfg.PUBLISHER_FILE ?? 'subscription-publisher.yml',
     funding: cfg.FUNDING_FILE ?? 'funding-weekly.yml',
     observer: cfg.OBSERVER_FILE ?? 'freshness.yml',
-    build: cfg.BUILD_FILE ?? 'web.yml',
     livePaths: (cfg.LIVE_PATHS ?? '/coverage/,/data/,/funding/,/llms.txt,/tracker.json,/events.json,/og.png,/favicon.svg')
       .split(',').map(s => s.trim()).filter(s => s.startsWith('/')),
     requestUrl: cfg.REQUEST_URL ?? 'https://market-pipeline-timer.vercel.app/api/request',
@@ -202,9 +201,9 @@ export async function assess(cfg, gh, fetcher = fetch, now = Date.now()) {
     const { workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/workflows/${h.observer}/runs?per_page=1`)
     const r = runs[0]
     const at = r && Date.parse(r.created_at)
-    add('observer', 'GitHub Actions is running', at && now - at <= 7 * HOUR ? 'ok' : 'fail',
+    add('observer', 'GitHub Actions is running', at && now - at <= 9 * HOUR ? 'ok' : at && now - at <= 14 * HOUR ? 'warn' : 'fail',
       r ? `GitHub-side watchdog ran ${ago(now, at)}` : 'GitHub-side watchdog never ran',
-      'The GitHub-side watchdog is scheduled every 6 h. If it has not run in 7 h, Actions is stopped or blocked (for example by billing).')
+      'The GitHub-side watchdog is scheduled every 6 h, and GitHub often starts schedules hours late. Warn past 9 h, fail past 14 h: Actions is then stopped or blocked (for example by billing).')
   })
 
   // 10. Weekly funding job.
@@ -242,16 +241,16 @@ export async function assess(cfg, gh, fetcher = fetch, now = Date.now()) {
 
   // 13. The code on main is what the live site runs.
   await guard('release', 'Live site runs current main', 'Compare live appRevision with main', async () => {
-    const how = 'Compares appRevision in the live /app-release.json with the commit of the newest push build on main. A main push publishes at the next daily release, so this warns first and fails once main has waited over 30 h.'
-    const { workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/workflows/${h.build}/runs?branch=${cfg.REF}&event=push&per_page=1`)
-    const main = runs[0]
+    const how = 'Compares appRevision in the live /app-release.json with the commit main ran at in its newest Actions run (the GitHub-side watchdog runs on main every 6 h). A main push publishes at the next daily release, so this warns first and fails once that commit has waited over 30 h.'
+    const { workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/runs?branch=${cfg.REF}&per_page=100`)
+    const head = runs[0]?.head_sha
+    const firstSeen = Math.min(...runs.filter(r => r.head_sha === head).map(r => Date.parse(r.created_at)))
     const release = await getJson(fetcher, h.site + '/app-release.json')
     const live = release?.appRevision
-    if (!main || !live) { add('release', 'Live site runs current main', 'warn', !live ? 'Live app-release.json has no revision' : 'No push build on main found', how); return }
-    const pushedAt = Date.parse(main.created_at)
-    if (live === main.head_sha) add('release', 'Live site runs current main', 'ok', `Live and main both at ${live.slice(0, 7)}`, how)
-    else add('release', 'Live site runs current main', now - pushedAt > 30 * HOUR ? 'fail' : 'warn',
-      `Live ${live.slice(0, 7)}, main ${main.head_sha.slice(0, 7)} pushed ${ago(now, pushedAt)}; goes live at the next release`, how)
+    if (!head || !live) { add('release', 'Live site runs current main', 'warn', !live ? 'Live app-release.json has no revision' : 'No Actions run on main found', how); return }
+    if (live === head) add('release', 'Live site runs current main', 'ok', `Live and main both at ${live.slice(0, 7)}`, how)
+    else add('release', 'Live site runs current main', now - firstSeen > 30 * HOUR ? 'fail' : 'warn',
+      `Live ${live.slice(0, 7)}, main ${head.slice(0, 7)} since ${ago(now, firstSeen)}; goes live at the next release`, how)
   })
 
   // 14. Shipped pages and files answer on the live site.
