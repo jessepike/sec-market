@@ -34,6 +34,28 @@ session_runtime = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(session_runtime)
 
 
+# The collect step runs inside a 35-minute job. About 2 minutes go to setup
+# before this script starts and about 2 to cleanup after it, so the script must
+# finish within 30 minutes. The work after collection (two evidence checks, the
+# snapshot and two archive pushes) is reserved before collection starts: on
+# November 5 a fixed 20-minute collection left too little time for it and the
+# job was cancelled with nothing recorded for the day.
+STEP_SECONDS = 1800
+POST_COLLECTION_RESERVE_SECONDS = 600
+MINIMUM_COLLECTION_SECONDS = 300
+
+
+def collection_seconds(maximum_seconds, started, now, step_seconds=STEP_SECONDS,
+                       reserve=POST_COLLECTION_RESERVE_SECONDS):
+    """Collection time left once restore is done and the closing work is reserved.
+
+    A short collection records fewer sources; a cancelled job records nothing.
+    """
+    left = int(step_seconds - (now - started) - reserve)
+    require(left >= MINIMUM_COLLECTION_SECONDS, "CI_STEP_TIME_EXHAUSTED_BEFORE_COLLECTION")
+    return min(maximum_seconds, left)
+
+
 class BoundedPipeline(Pipeline):
     def __init__(self, *args, maximum_seconds=1200, **kwargs):
         super().__init__(*args, **kwargs)
@@ -334,6 +356,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
     require(os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_REPOSITORY") == PROJECT, "PRIVATE_GITHUB_RUNNER_REQUIRED")
     require(60 <= maximum_seconds <= 1200, "CI collection budget may not exceed twenty minutes")
     require(type(source_probe) is bool, 'SOURCE_PROBE_MODE_MUST_BE_BOOLEAN')
+    started = time.monotonic()
     identifier = "github-" + os.environ["GITHUB_RUN_ID"] + "-" + os.environ.get("GITHUB_RUN_ATTEMPT", "1")
     if source_probe:
         session_runtime.require_source_probe_context(identifier)
@@ -375,7 +398,9 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         guarded = GuardedRunner(keeper)
         agent = SubscriptionAgent(contract["model"], runner=guarded)
         work = correction_work(REPO, state, contract, agent)
-        collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=maximum_seconds,
+        budget = collection_seconds(maximum_seconds, started, time.monotonic())
+        print(json.dumps({"collectionSeconds": budget, "restoreSeconds": round(time.monotonic() - started)}), flush=True)
+        collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=budget,
                                     correction_work=work,
                                     history=load_history_policy(REPO / 'contracts/history-window.json'))
         previous_signals = {s: signal.getsignal(s) for s in (signal.SIGINT, signal.SIGTERM)}

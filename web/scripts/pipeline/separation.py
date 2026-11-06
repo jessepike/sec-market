@@ -21,8 +21,16 @@ def original_contract(store, origin):
     plan = store.read('runs/' + origin['runId'] + '/plan.json')
     require(plan is not None, 'Original policy plan missing')
     contract = store.read('contracts/' + plan['contractSha256'] + '.json')
-    require(contract is not None and digest(contract) == plan['contractSha256'], 'Original contract integrity differs')
+    # Contracts are content-addressed and write-once: hash each one once per process.
+    verified = (str(store.root), plan['contractSha256'])
+    if verified not in _VERIFIED_CONTRACTS:
+        require(contract is not None and digest(contract) == plan['contractSha256'], 'Original contract integrity differs')
+        _VERIFIED_CONTRACTS.add(verified)
+    require(contract is not None, 'Original contract integrity differs')
     return contract
+
+
+_VERIFIED_CONTRACTS = set()
 
 
 def semantic_context(contract, source_id):

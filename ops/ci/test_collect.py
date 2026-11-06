@@ -87,3 +87,21 @@ class CollectionDurabilityTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class StepBudgetTests(unittest.TestCase):
+    """Collection gives way to the closing work so the job finishes inside its limit."""
+    def test_full_budget_when_restore_is_quick(self):
+        from collect import collection_seconds
+        self.assertEqual(collection_seconds(1200, 0, 240), 960)
+        self.assertEqual(collection_seconds(600, 0, 60), 600)
+
+    def test_slow_restore_shortens_collection(self):
+        from collect import collection_seconds, STEP_SECONDS, POST_COLLECTION_RESERVE_SECONDS
+        left = collection_seconds(1200, 0, 600)
+        self.assertEqual(left, STEP_SECONDS - 600 - POST_COLLECTION_RESERVE_SECONDS)
+
+    def test_no_collection_when_too_little_time_is_left(self):
+        from collect import collection_seconds
+        with self.assertRaisesRegex(ValueError, 'CI_STEP_TIME_EXHAUSTED_BEFORE_COLLECTION'):
+            collection_seconds(1200, 0, 1000)
