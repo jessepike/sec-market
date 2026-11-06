@@ -197,8 +197,7 @@ summary:focus-visible,
 .site-header__mark {
   width: 28px;
   height: 28px;
-  border-radius: 7px;
-  background: linear-gradient(135deg, #1d4ed8, #0f766e);
+  color: #7c3aed;
   flex-shrink: 0;
 }
 

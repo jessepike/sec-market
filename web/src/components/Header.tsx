@@ -117,7 +117,12 @@ export function Header({ path = '/' }: { path?: string }) {
     <header className="site-header">
       <div className="site-header__inner">
         <a href="/" className="site-header__brand" onClick={handleBrandClick}>
-          <span className="site-header__mark" aria-hidden="true" />
+          <svg className="site-header__mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              fill="currentColor"
+              d="M14.6 1.5 4.2 13.4c-.5.6-.1 1.5.7 1.5h5.6l-1.3 7.2c-.2.9 1 1.4 1.6.7l10.4-11.9c.5-.6.1-1.5-.7-1.5h-5.6l1.3-7.2c.2-.9-1-1.4-1.6-.7z"
+            />
+          </svg>
           <strong>{PRODUCT_TITLE}</strong>
         </a>
         <nav className={`site-header__nav${navOpen ? ' is-open' : ''}`} aria-label="Primary">
