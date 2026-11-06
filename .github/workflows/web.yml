@@ -12,6 +12,13 @@ on:
 
 permissions: {}
 
+# A newer push to the same branch replaces a run still in progress. Promotion
+# waits for a green run, and a finished run is never cancelled, so the commit
+# main fast-forwards to keeps its proof (ops/ci/verified_ci_guards.py).
+concurrency:
+  group: web-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
