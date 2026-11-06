@@ -1549,3 +1549,10 @@ first read is a baseline. SecurityWeek's feed was dropped after a measured read 
 items. `funding-weekly.yml` runs Mondays 07:41 UTC and commits `web/src/data/funding/feed.json` to
 `preview`; it reaches production with the next approved promotion. Shown at `/funding/`. Nothing here
 changes the roster; a company joins it only through the owner (D-136, D-138).
+Review (2026-11-06): the owner asked for an independent Fable review. Fixed from it: the amount must
+be stated in dollars and cannot match inside a larger number; a shortened company name counts only
+right before a verb and near the amount; Form D checks only the total amount sold; an unreadable
+source is retried for three weeks instead of being held at once; the file changes only when its
+content changes, so a quiet week makes no commit; a portfolio read with over a quarter new names is
+treated as a page redesign; the page shows the latest 12 weeks. The first feed was rebuilt with
+these rules.

@@ -1,7 +1,7 @@
 import { formatShortDate } from '../data/tracker/derive'
 import {
   formatUsd,
-  fundingCheckedAt,
+  fundingUpdatedAt,
   heldRoundCount,
   isTracked,
   portfolioAdditions,
@@ -28,12 +28,13 @@ export function FundingRounds() {
         Venture rounds and other financings announced by security companies, week by week, including companies
         the site does not track. Each round comes from the weekly Return on Security funding list. It is shown
         only when the source that list links to (the company, an investor, a news report or an SEC Form D)
-        names the company and states the same amount. Rounds without an amount are not shown.
+        names the company and states the same dollar amount. Rounds without an amount are not shown.
       </p>
-      {fundingCheckedAt ? (
+      {fundingUpdatedAt ? (
         <p className="coverage-page__note">
-          Checked {formatShortDate(fundingCheckedAt)}. {roundCount} rounds confirmed.
-          {heldRoundCount > 0 ? ` ${heldRoundCount} more are held because their source did not state the same amount or could not be read.` : ''}
+          Last new data {formatShortDate(fundingUpdatedAt)}. The list is read every Monday. {roundCount} rounds
+          shown from the latest {weeks.length} weeks.
+          {heldRoundCount > 0 ? ` ${heldRoundCount} more are not shown because their source did not confirm the company and amount.` : ''}
         </p>
       ) : null}
 

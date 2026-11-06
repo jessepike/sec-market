@@ -94,7 +94,9 @@ leave unsupported facts held. No supplier expansion is authorized by this work.
 Built 2026-11-06 (D-140). Open: measure the confirmation rate and minutes per run over four weeks
 (first run: 13 of 23 rounds confirmed, 32 fetches, about 1.5 runner minutes); Forgepoint's paginated
 list read 24 companies against 76+ in August, so check its page links; let the weekly data reach
-production without waiting for a code promotion; add the rounds to the agent files (D-139).
+production without waiting for a code promotion; add the rounds to the agent files (D-139); the
+"Lead investor" column also takes a grant body ("from X"); data commits by the weekly job skip web CI
+(GITHUB_TOKEN pushes do not trigger workflows).
 **Authorization:** owner-approved (D-140).
 
 ### SEC-083 · Additive roster transition for onboarding suppliers

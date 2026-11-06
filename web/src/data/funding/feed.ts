@@ -37,7 +37,7 @@ interface PortfolioState {
 }
 
 interface FundingFeed {
-  checkedAt?: string
+  updatedAt?: string
   rounds: FundingRound[]
   held: unknown[]
   portfolios: Record<string, PortfolioState>
@@ -45,7 +45,7 @@ interface FundingFeed {
 
 const feed = feedJson as unknown as FundingFeed
 
-export const fundingCheckedAt: string | null = feed.checkedAt ?? null
+export const fundingUpdatedAt: string | null = feed.updatedAt ?? null
 export const fundingRounds: FundingRound[] = feed.rounds
 export const heldRoundCount = feed.held.length
 
@@ -62,8 +62,11 @@ export function isTracked(company: string): boolean {
   return trackedNames.has(normName(company))
 }
 
+/** Weeks shown on the page; older weeks stay in the data file. */
+export const WEEKS_SHOWN = 12
+
 /** Rounds grouped by the newsletter week they were announced in, newest week first. */
-export function roundsByWeek(): { weekOf: string; rounds: FundingRound[] }[] {
+export function roundsByWeek(limit = WEEKS_SHOWN): { weekOf: string; rounds: FundingRound[] }[] {
   const weeks = new Map<string, FundingRound[]>()
   for (const round of fundingRounds) {
     const list = weeks.get(round.weekOf) ?? []
@@ -72,6 +75,7 @@ export function roundsByWeek(): { weekOf: string; rounds: FundingRound[] }[] {
   }
   return [...weeks.entries()]
     .sort(([a], [b]) => (a < b ? 1 : -1))
+    .slice(0, limit)
     .map(([weekOf, rounds]) => ({
       weekOf,
       rounds: [...rounds].sort((a, b) => (b.amountUsd ?? -1) - (a.amountUsd ?? -1) || a.company.localeCompare(b.company)),
