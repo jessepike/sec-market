@@ -16,6 +16,8 @@ updated: 2026-11-06
 
 **Front page hierarchy (2026-11-04, on preview, owner review).** Pipeline status lines moved from the masthead into the Data status section (`#overview`), leaving a one-line disclaimer and link up top. Count tiles lead with the last 30 days and show the 12-month total small. The 12-month grid shades cells by count. Panel and domain card headers have a tinted band. Public supplier rows say "Quarter ended". Check Point now reads its 6-K results releases and shows the quarter ended 2026-09-30; it rolls automatically once SEC-083 adds its SEC sources. Trend Micro still has no automated path (SEC-080).
 
+**No count line (2026-11-06, D-142, on preview).** The homepage line "N suppliers · N domains · N SEC filers certified" and the supplier counts in page text are gone. `/coverage/` and `/data/` keep their computed counts.
+
 **Coverage expansion (2026-11-06, D-138, on preview).** Eight suppliers (F5, Akamai, Aikido, 7AI, Straiker, Lumos, Skyflow, Secuvy) have sourced seed records in `web/src/data/tracker/onboarding.json` and show on preview only, in a "Being onboarded" section of `/coverage/`. Production is pixel-identical. The contract now lists them (82 suppliers, D-141) through a reusable additive transition that also adds Check Point's SEC sources and the Optiv closing release. Their daily data is held off every page until they graduate after three clean runs. Next: promote, run the first collection on the new contract, then build the graduation check.
 
 The site is live and updates itself. Production (`main`) and `preview` were level at ed9cce8 on
