@@ -7,6 +7,20 @@ stands. New items continue from SEC-082.
 
 ## Next
 
+### SEC-081 · P1: cost and resource review on November 9
+
+Look back on the first days of automatic operation and check costs before coverage grows.
+1. Automation health: run success rate, missed or late runs, watchdog alerts, repairs needed.
+2. Actual cost against expectations: GitHub Actions minutes and spend against the $5/month budget
+   shared with securitythreatpulse.com (SEC-078), Vercel usage including the Cron timer, and
+   ChatGPT subscription limits for the AI step.
+3. Extra resources for the 11 companies in the coverage expansion, per company and in total,
+   including collector timeout headroom.
+
+Measured data only; flag anything unverified with the check that would settle it. Baseline:
+[docs/active/cost-review/baseline-2026-11-05.md](docs/active/cost-review/baseline-2026-11-05.md).
+**Authorization:** requested by the owner 2026-11-06; read-only review.
+
 ### SEC-072 · Make the current site consistently accurate, fresh and durable
 
 The current priority (D-110 to D-112). The daily pipeline publishes on its own; this item is about
