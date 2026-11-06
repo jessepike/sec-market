@@ -6,6 +6,8 @@ updated: 2026-11-06
 
 # Current state
 
+**Site health check (2026-11-06).** One GitHub issue titled "Site health: OK" (or "N failing") is the status page. `ops/timer/api/health.js` rewrites it hourly from Vercel with 16 checks and comments only when a check newly goes bad or all recover. The collector records evidence size and free runner disk for it (`evidence-disk` annotation). Live once `main` advances, since the timer project deploys from `main`.
+
 **Funding rounds feed (2026-11-06, on preview, owner review).** `/funding/` lists security funding rounds by week, each confirmed against the source the Return on Security list links to, and companies newly listed on five cyber investor portfolio pages. `funding-weekly.yml` (Mondays 07:41 UTC, about 1.5 runner minutes) commits `web/src/data/funding/feed.json` to `preview`. Separate from the daily collector and the roster (D-140, SEC-084).
 
 **Agent access (2026-11-06, on preview, owner review, D-139).** New `/data/` page and "Data" nav link; `/llms.txt`, `/index.md`, `/tracker.csv`, `/events.json`, `/events.csv`, a certified flag and source dates on every figure in `/tracker.json`, CC BY 4.0, robots Content-Signal. Built in `web/src/data/agentExport.ts` and `web/scripts/generate-agent.ts`. Checked on the preview: files serve with the right types. Same-URL Markdown on `Accept: text/markdown` does not work on a static Vercel site (the HTML file wins over a rewrite), so pages link their `.md` copy instead. Per-company pages (option B) added: `/companies/<slug>/` for all 74 suppliers with figures, SEC quarterly revenue and 12-month events, plus `index.md` and `data.json` copies; linked from `/coverage/` and the supplier record; `pageUrl` in `/tracker.json`.

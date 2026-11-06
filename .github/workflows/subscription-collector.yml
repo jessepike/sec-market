@@ -118,6 +118,13 @@ jobs:
           if reason in ('CHATGPT_SUBSCRIPTION_LOGIN_REQUIRED', 'CHATGPT_SIGN_IN_AGAIN'):
               print('::error title=chatgpt-login::' + reason)
           PY
+      - name: Record evidence size and runner free disk for the health check
+        if: always() && (github.event_name != 'workflow_dispatch' || !inputs.source_probe)
+        continue-on-error: true
+        run: |
+          archive=$(du -sb "$RUNNER_TEMP/smp-collection" 2>/dev/null | cut -f1)
+          free=$(df -B1 --output=avail "$RUNNER_TEMP" | tail -1 | tr -d ' ')
+          echo "::notice title=evidence-disk::archive=${archive:-0} free=${free:-0}"
       - name: Probe candidate sources under the acknowledged lease and budget
         if: github.event_name == 'workflow_dispatch' && inputs.source_probe
         env:

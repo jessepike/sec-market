@@ -33,6 +33,9 @@ jobs:
       - name: Verify the weekly funding collector
         working-directory: .
         run: python3 -m unittest discover -s ops/funding -p 'test_*.py' -v
+      - name: Verify the outside timer, watchdog and health check
+        working-directory: ops/timer
+        run: npm test
       - run: npm test
       - name: Capture production and the tested build at both review widths
         run: |
