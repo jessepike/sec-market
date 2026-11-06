@@ -4,6 +4,7 @@ Normal fast-forward pushes arbitrate concurrent writers. Every version has an
 independently verifiable manifest; restoration needs no original worker disk.
 """
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -77,6 +78,8 @@ class GitArchive:
                 if existing is not None and not key.startswith("heads/"):
                     require(existing == body, "Immutable remote evidence differs")
                 if existing != body:
+                    if existing is not None:
+                        destination.unlink()  # never write through a link shared with restored state
                     destination.write_bytes(body)
                 files.append({"key": "state/" + key, "sha256": digest(body), "bytes": len(body)})
             old_files = json.loads(previous.read_text())["files"] if previous.exists() else []
@@ -129,5 +132,16 @@ class GitArchive:
         manifest = self.verify(self.root, expected_manifest)
         destination = Path(destination).resolve()
         require(not destination.exists() or not any(destination.iterdir()), "Restore destination must be empty")
-        shutil.copytree(self.root / "state", destination, dirs_exist_ok=True)
+        # Hard links, not copies: the archive is 2.6 GB and growing, and a second
+        # full copy filled the runner's disk on November 5. Every store write
+        # makes a new file (temporary file, then link or rename), and push()
+        # replaces a changed mirror file instead of writing into it, so the two
+        # trees never change each other's bytes.
+        def link_or_copy(source, target):
+            try:
+                os.link(source, target)
+            except OSError:
+                shutil.copy2(source, target)
+            return target
+        shutil.copytree(self.root / "state", destination, dirs_exist_ok=True, copy_function=link_or_copy)
         return {"commit": parent, "manifestSha256": digest(manifest), "files": len(manifest["files"])}

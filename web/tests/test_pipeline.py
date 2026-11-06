@@ -737,6 +737,27 @@ class PipelineTests(unittest.TestCase):
         (archive.root/'state'/ref['key']).write_bytes(b'corrupt')
         with self.assertRaises(ContractError):GitArchive.verify(archive.root,receipt['manifestSha256'])
 
+    def test_linked_restore_keeps_mirror_and_state_independent(self):
+        remote=Path(self.temp.name)/'remote.git'
+        subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
+        live=LocalStore(Path(self.temp.name)/'live')
+        ref=live.put(b'evidence body')
+        live.compare_and_swap('latest-run',None,{'receipt':ref})
+        GitArchive(Path(self.temp.name)/'seed',str(remote)).push(live)
+        mirror=GitArchive(Path(self.temp.name)/'mirror',str(remote))
+        destination=Path(self.temp.name)/'restored'
+        receipt=mirror.restore(destination)
+        state=LocalStore(destination)
+        # Restored files share storage with the mirror instead of a second copy.
+        self.assertEqual((destination/ref['key']).stat().st_ino,(mirror.root/'state'/ref['key']).stat().st_ino)
+        head=mirror.root/'state/heads/latest-run.json';before=head.read_bytes()
+        state.compare_and_swap('latest-run',{'receipt':ref},{'receipt':ref,'next':1})
+        self.assertEqual(head.read_bytes(),before)
+        pushed=mirror.push(state,expected_commit=receipt['commit'])
+        self.assertEqual(json.loads(head.read_text())['next'],1)
+        self.assertEqual(state.get(ref),b'evidence body')
+        GitArchive.verify(mirror.root,pushed['manifestSha256'])
+
     def test_archive_compare_and_swap_rejects_a_stale_cloud_session_before_overwriting_budget(self):
         remote=Path(self.temp.name)/'remote.git'
         subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
