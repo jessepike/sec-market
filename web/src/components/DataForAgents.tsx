@@ -49,8 +49,8 @@ export function DataForAgents() {
 
       <h2 id="data-markdown">Markdown for agents</h2>
       <p className="coverage-page__note">
-        An agent that sends the header <code>Accept: text/markdown</code> to the front page or this page gets
-        Markdown instead of HTML, at the same address.
+        The front page is also published as Markdown at <a href="/index.md">/index.md</a>, and this page at
+        <a href="/data/index.md">/data/index.md</a>. Each page points to its Markdown copy in its head and in an HTTP Link header.
       </p>
 
       <h2 id="data-license">License</h2>
