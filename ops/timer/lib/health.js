@@ -196,14 +196,18 @@ export async function assess(cfg, gh, fetcher = fetch, now = Date.now()) {
     }
   }
 
-  // 9. GitHub-side observer still runs (catches Actions being stopped, for example by billing).
-  await guard('observer', 'GitHub Actions is running', 'GitHub-side watchdog run age', async () => {
-    const { workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/workflows/${h.observer}/runs?per_page=1`)
+  // 9. GitHub Actions still starts runs (catches Actions being stopped, for example by billing).
+  // GitHub drops and delays schedules: the 6-hourly watchdog really runs about twice a day,
+  // so its age alone is not evidence. Any run of any workflow is.
+  await guard('observer', 'GitHub Actions is running', 'Newest Actions run of any workflow', async () => {
+    const { workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/runs?per_page=1`)
+    const { workflow_runs: watch = [] } = await gh(`/repos/${repo}/actions/workflows/${h.observer}/runs?per_page=1`)
     const r = runs[0]
     const at = r && Date.parse(r.created_at)
-    add('observer', 'GitHub Actions is running', at && now - at <= 9 * HOUR ? 'ok' : at && now - at <= 14 * HOUR ? 'warn' : 'fail',
-      r ? `GitHub-side watchdog ran ${ago(now, at)}` : 'GitHub-side watchdog never ran',
-      'The GitHub-side watchdog is scheduled every 6 h, and GitHub often starts schedules hours late. Warn past 9 h, fail past 14 h: Actions is then stopped or blocked (for example by billing).')
+    const w = watch[0] && Date.parse(watch[0].created_at)
+    add('observer', 'GitHub Actions is running', at && now - at <= 13 * HOUR ? 'ok' : at && now - at <= 26 * HOUR ? 'warn' : 'fail',
+      (r ? `Newest run started ${ago(now, at)} (${r.name})` : 'No Actions run found') + (w ? `; GitHub-side watchdog ran ${ago(now, w)}` : ''),
+      'Age of the newest Actions run of any workflow. The daily collector, publisher callbacks and the watchdog all start runs, so nothing for 26 h means Actions is stopped or blocked (for example by billing). GitHub drops many scheduled runs, so the watchdog alone runs about twice a day.')
   })
 
   // 10. Weekly funding job.

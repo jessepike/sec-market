@@ -30,7 +30,7 @@ function world(over = {}) {
     '/repos/o/r/actions/workflows/freshness.yml/runs': { workflow_runs: [{ created_at: iso(3) }] },
     '/repos/o/r/actions/workflows/funding-weekly.yml/runs': { workflow_runs: [] },
     '/repos/o/r/issues': w.issues,
-    '/repos/o/r/actions/runs': { workflow_runs: [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9), head_sha: MAIN, created_at: iso(5) }] },
+    '/repos/o/r/actions/runs': { workflow_runs: [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9), head_sha: MAIN, created_at: iso(5), name: 'web' }] },
   }
   const writes = []
   const gh = async (path, init = {}) => {
@@ -133,4 +133,16 @@ test('a measurement error fails that check instead of the whole report', async (
 test('disk annotation parsing', () => {
   assert.deepEqual(parseDisk('archive=1 free=2'), { archive: 1, free: 2 })
   assert.equal(parseDisk('nope'), null)
+})
+
+test('Actions counts as stopped only when no workflow at all has started a run for 26 h', async () => {
+  const { fetcher } = world()
+  const base = world().gh
+  const gh = (age) => async (path, init) => path.startsWith('/repos/o/r/actions/runs?')
+    ? { workflow_runs: [{ status: 'completed', run_started_at: iso(age), updated_at: iso(age), head_sha: MAIN, created_at: iso(age), name: 'x' }] }
+    : base(path, init)
+  const status = async age => byId((await assess(cfg, gh(age), fetcher, NOW)).checks).observer.status
+  assert.equal(await status(12), 'ok')
+  assert.equal(await status(20), 'warn')
+  assert.equal(await status(30), 'fail')
 })
