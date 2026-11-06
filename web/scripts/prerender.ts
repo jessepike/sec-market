@@ -95,6 +95,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   thesis: ['thesis', 'read'],
   coverage: ['coverage'],
   data: ['data'],
+  funding: ['funding'],
 }
 
 function runMustSeeGate(routeEntry: RouteEntry, appHtml: string): void {
@@ -168,6 +169,15 @@ function headFor(routeEntry: RouteEntry): RouteHead {
       description:
         'Every fact on Security Market Pulse as files that programs and AI agents can read: JSON, CSV and ' +
         'Markdown, each figure with its period, source and certified flag. Licensed CC BY 4.0.',
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'funding') {
+    return {
+      title: 'Funding rounds · Security Market Pulse',
+      description:
+        'Security funding rounds by week, each confirmed against the source it links to, ' +
+        'and companies newly listed on cyber-specialist investors\' portfolio pages.',
       ogUrl: url,
     }
   }

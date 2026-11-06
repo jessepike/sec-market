@@ -176,7 +176,7 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     }
   }
 
-  if (routeEntry.kind === 'coverage') {
+  if (routeEntry.kind === 'coverage' || routeEntry.kind === 'funding') {
     return {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',

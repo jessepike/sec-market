@@ -1,0 +1,1176 @@
+{
+  "checkedAt": "2026-11-06",
+  "held": [
+    {
+      "amountUsd": 25000,
+      "checkedAt": "2026-11-06",
+      "company": "ThreatBreaker",
+      "companyUrl": "https://www.threatbreaker.com",
+      "confirmation": "source unreadable: TimeoutError",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "threatbreaker:2026-10-26:angel",
+      "lead": null,
+      "sourceUrl": "https://www.kmu.gov.ua/news/innovatsii-iaki-kupuie-kremniieva-dolyna-iz-chym-10-ukrainskykh-startapiv-povertaiutsia-z-techcrunch",
+      "stage": "Angel",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 2200000,
+      "checkedAt": "2026-11-06",
+      "company": "SSenStone",
+      "companyUrl": "https://www.ssenstone.com/en/",
+      "confirmation": "source does not state the amount",
+      "country": "KR",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "ssenstone:2026-10-26:grant",
+      "lead": "Ministry of SMEs and Startups",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://blog.ssenstone.com/news1/ssenstone-2026-scale-up-tips-ot-security",
+      "stage": "Grant",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 15000000,
+      "checkedAt": "2026-11-06",
+      "company": "Overwatch Data",
+      "companyUrl": "https://www.overwatchdata.ai",
+      "confirmation": "Form D does not state the amount",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "overwatch-data:2026-10-26:series-a",
+      "lead": "Mouro Capital",
+      "sourceKind": "sec-form-d",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2054765/000205476526000003/xslFormDX01/primary_doc.xml",
+      "stage": "Series A",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": null,
+      "checkedAt": "2026-11-06",
+      "company": "CipherData",
+      "companyUrl": "https://cipherdata.ai",
+      "confirmation": "source does not name the company",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "cipherdata:2026-10-26:venture-round",
+      "lead": "JB Investment",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.jbfg.com/ko/prcenter/press/detail/47.do",
+      "stage": "Venture round",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": null,
+      "checkedAt": "2026-11-06",
+      "company": "AvalonX",
+      "companyUrl": "https://www.avalonx.ai",
+      "confirmation": "no amount in the funding list",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "avalonx:2026-10-26:venture-round",
+      "lead": "Ridown Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://presswire.com/release/ai-startup-avalonx-emerges-from-stealth-with-10-million-in-funding-from-ridown-capital/",
+      "stage": "Venture round",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 10000000,
+      "checkedAt": "2026-11-06",
+      "company": "Ultra Security",
+      "companyUrl": "https://ultra.security",
+      "confirmation": "source unreadable: HTTPError",
+      "country": "US",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "ultra-security:2026-10-19:seed",
+      "lead": "Ludlow Ventures, Hidden Capital, Entrée Capital, Detroit Venture Partners, firedrop, and Forward Deployed Venture Capital",
+      "sourceUrl": "https://www.businesswire.com/news/home/20261021802328/en/",
+      "stage": "Seed",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 316200,
+      "checkedAt": "2026-11-06",
+      "company": "Sunnies",
+      "companyUrl": "https://sunnies.co.jp",
+      "confirmation": "source does not state the amount",
+      "country": "JP",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "sunnies:2026-10-19:seed",
+      "lead": "HAKOBUNE and Hiroshima Venture Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://prtimes.jp/main/html/rd/p/000000013.000147785.html",
+      "stage": "Seed",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 7800000,
+      "checkedAt": "2026-11-06",
+      "company": "Indurex",
+      "companyUrl": "https://indurex.ai",
+      "confirmation": "source does not state the amount",
+      "country": "NL",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "indurex:2026-10-19:pre-seed",
+      "lead": "Contrarian Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://indurex.ai/resources/press-release/indurex-raises-7-million/",
+      "stage": "Pre-Seed",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": null,
+      "checkedAt": "2026-11-06",
+      "company": "Hydden",
+      "companyUrl": "http://www.hydden.com",
+      "confirmation": "source does not name the company",
+      "country": "US",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "hydden:2026-10-19:venture-round",
+      "lead": "DC Venture Capital Fund",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://beta.dc.gov/news/mayor-bowser-announces-5-million-funding-accelerate-startups-and-grow-districts-tech-economy",
+      "stage": "Venture round",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 3000000,
+      "checkedAt": "2026-11-06",
+      "company": "Cygrid",
+      "companyUrl": "https://cygrid.io",
+      "confirmation": "source does not state the amount",
+      "country": "DE",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "cygrid:2026-10-19:pre-seed",
+      "lead": "Atlantic Labs",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://atlantic.vc/stories/cygrid-emerges-out-of-stealth-with-a-euro266m-pre-seed",
+      "stage": "Pre-Seed",
+      "weekOf": "2026-10-19"
+    }
+  ],
+  "portfolios": {
+    "cyberstarts": {
+      "baselineAt": "2026-11-06",
+      "companies": {
+        "a-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "avalor": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "axis": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "bionic": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "blockaid": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cyera": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "dazz": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "fireblocks": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "gambit": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "glow": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "island": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "legit": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "linx": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "newcore": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "noname-ia38k": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "oasis": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "onyx-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "savvy": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "surf-ai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "trail": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "transmit": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "trustdome": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "trustmi": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "upwind": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "vega": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "wiz": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "zafran": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        }
+      },
+      "name": "Cyberstarts",
+      "url": "https://www.cyberstarts.com/portfolio"
+    },
+    "forgepoint": {
+      "baselineAt": "2026-11-06",
+      "companies": {
+        "1kosmos": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "adaptive6": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "aka-identity": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "alienvault-att": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "anitian": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "appmap": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "appthority-symantec": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "area-1-security-cloudflare": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "arkenstone-defense": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "attivo-networks-sentinelone": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "bayshore-opswat": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "behaviosec-lexisnexis-risk-solutions": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "bishop-fox": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "bluecat-madison-dearborn": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "bluevoyant": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "capsule-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cinchy": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cloudentity-secureauth": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "constella-intelligence": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "converge": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "currencycloud-nyse-v": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cybelangel": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cybercube": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cyberhaven": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        }
+      },
+      "name": "Forgepoint Capital",
+      "url": "https://forgepointcap.com/companies/"
+    },
+    "syn": {
+      "baselineAt": "2026-11-06",
+      "companies": {
+        "adlumin": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "aiceberg": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "arcade": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "auguria": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "balance-theory": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "bforeai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "boldend": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "breachrx": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "codeintegrity": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "conifers": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cranium": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "crash-override": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "halcyon": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "helmet-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "icite": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "klyro": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "metabase-q": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "miggo": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "mitiga": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "netfoundry": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "netography": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "nullify": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "oomnitza": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "p0-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "pangea": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "phosphorus": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "query-ai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "qwiet-ai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "refine-intelligence": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "regscale": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "revealsecurity": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "revelstoke": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "revic": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "synqly": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "synsaber": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "terra-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "transmit-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "tuskira": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "upfort": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "vectra": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        }
+      },
+      "name": "SYN Ventures",
+      "url": "https://www.synventures.com/portfolio-companies/"
+    },
+    "team8": {
+      "baselineAt": "2026-11-06",
+      "companies": {
+        "act": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "akeyless": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "astelia": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "charm-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "claroty": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "clover": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "dig-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "fig-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "frame-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "gem": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "hysolate": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "illusive": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "ionix": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "jazz": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "koi": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "lema": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "lumia": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "mate": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "mimic": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "nagomi": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "orchid": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "ox-security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "portshift": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "sygnia": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "talon": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "visiblerisk": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        }
+      },
+      "name": "Team8",
+      "url": "https://team8.vc/cybersecurity/"
+    },
+    "yl": {
+      "baselineAt": "2026-11-06",
+      "companies": {
+        "a16y.ai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "axonius.com": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "clicktale.com": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "cycode.com": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "enso.security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "eureka.security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "grip.security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "hunters.ai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "hush.security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "medigate.io": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "miggo.io": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "mind.io": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "native.security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "novee.io": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "opti.ai": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "orca.security": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "ride.vision": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "satoricyber.com": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "upstreamcommerce.com": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        },
+        "valencesecurity.com": {
+          "baseline": true,
+          "firstSeen": "2026-11-06",
+          "lastSeen": "2026-11-06"
+        }
+      },
+      "name": "YL Ventures",
+      "url": "https://www.ylventures.com/portfolio/"
+    }
+  },
+  "postsProcessed": [
+    267,
+    268
+  ],
+  "rounds": [
+    {
+      "amountUsd": 70000000,
+      "checkedAt": "2026-11-06",
+      "company": "&Truth",
+      "companyUrl": "https://andtruth.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "truth:2026-10-26:seed",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://andtruth.com/press/andtruth-emerges-from-stealth/",
+      "stage": "Seed",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 40000000,
+      "checkedAt": "2026-11-06",
+      "company": "Infisical",
+      "companyUrl": "http://www.infisical.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "infisical:2026-10-26:series-b",
+      "lead": "Elad Gil",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://infisical.com/blog/series-b",
+      "stage": "Series B",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 10000000,
+      "checkedAt": "2026-11-06",
+      "company": "ARMS Cyber",
+      "companyUrl": "https://www.armscyber.com",
+      "confirmation": "amount stated in the company's SEC Form D",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "arms-cyber:2026-10-26:venture-round",
+      "lead": null,
+      "sourceKind": "sec-form-d",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2161341/000216134126000001/xslFormDX01/primary_doc.xml",
+      "stage": "Venture round",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 7000000,
+      "checkedAt": "2026-11-06",
+      "company": "Northstar Security",
+      "companyUrl": "https://www.northstar.security/",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "northstar-security:2026-10-26:seed",
+      "lead": "Wing Venture Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/northstar-security-emerges-from-stealth-with-7m-to-uncover-hidden-cyber-risks-and-put-ai-agents-to-work-302921520.html",
+      "stage": "Seed",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 105000,
+      "checkedAt": "2026-11-06",
+      "company": "Soliton ID",
+      "companyUrl": "https://soliton.id",
+      "confirmation": "amount stated in the company's SEC Form D",
+      "country": "CA",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "soliton-id:2026-10-26:venture-round",
+      "lead": null,
+      "sourceKind": "sec-form-d",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2162910/000216291026000001/xslFormDX01/primary_doc.xml",
+      "stage": "Venture round",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 104111,
+      "checkedAt": "2026-11-06",
+      "company": "Device Authority",
+      "companyUrl": "http://www.deviceauthority.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "GB",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "device-authority:2026-10-26:convertible-notes",
+      "lead": "Tern",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.londonstockexchange.com/en/news/article/TERN/investment-in-device-authority-clns/1786-63-fa-27-67-408bb1",
+      "stage": "Convertible notes",
+      "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 100000000,
+      "checkedAt": "2026-11-06",
+      "company": "BlackWall (formerly BotGuard)",
+      "companyUrl": "https://www.blackwall.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "EE",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "blackwall-formerly-botguard:2026-10-19:series-c",
+      "lead": "AVP",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://avpcap.com/blackwall-raises-100-million-at-2-2-billion-valuation/",
+      "stage": "Series C",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 28000000,
+      "checkedAt": "2026-11-06",
+      "company": "Mave",
+      "companyUrl": "https://www.mave.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "mave:2026-10-19:series-a",
+      "lead": "Red Dot Capital Partners, Dell Technologies Capital, and Emerge Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.mave.com/resources/mave-launches-with-34-million",
+      "stage": "Series A",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 17000000,
+      "checkedAt": "2026-11-06",
+      "company": "iVerify",
+      "companyUrl": "https://www.iverify.com/",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "iverify:2026-10-19:venture-round",
+      "lead": "Sands Capital Ventures and Entropy Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.iverify.com/press-releases/iverify-raises-17m-led-by-sands-capital-entropy-ventures",
+      "stage": "Venture round",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 17000000,
+      "checkedAt": "2026-11-06",
+      "company": "Modelyo Technologies",
+      "companyUrl": "https://www.modelyo.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "modelyo-technologies:2026-10-19:venture-round",
+      "lead": "OlivTree",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.calcalistech.com/ctechnews/article/rju100ow2ml",
+      "stage": "Venture round",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 6000000,
+      "checkedAt": "2026-11-06",
+      "company": "Mave",
+      "companyUrl": "https://www.mave.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "mave:2026-10-19:seed",
+      "lead": "Red Dot Capital Partners, Dell Technologies Capital, and Emerge Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.mave.com/resources/mave-launches-with-34-million",
+      "stage": "Seed",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 5500000,
+      "checkedAt": "2026-11-06",
+      "company": "Asymptote Labs",
+      "companyUrl": "https://asymptotelabs.ai/",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "asymptote-labs:2026-10-19:seed",
+      "lead": "Tower Research Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://asymptotelabs.ai/blog/asymptote-labs-raises-5-5m-seed-round",
+      "stage": "Seed",
+      "weekOf": "2026-10-19"
+    },
+    {
+      "amountUsd": 3000000,
+      "checkedAt": "2026-11-06",
+      "company": "QuestorAI",
+      "companyUrl": "https://questorai.com",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "questorai:2026-10-19:seed",
+      "lead": "Paladin Capital Group",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.paladincapgroup.com/questorai-raises-3m-to-bring-autonomous-vulnerability-remediation-to-enterprises/",
+      "stage": "Seed",
+      "weekOf": "2026-10-19"
+    }
+  ],
+  "runs": [
+    {
+      "date": "2026-11-06",
+      "errors": [],
+      "fetches": 32
+    }
+  ],
+  "schemaVersion": 1
+}

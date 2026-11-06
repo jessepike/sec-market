@@ -30,6 +30,7 @@ const navItems: NavItem[] = [
   { href: '/issues/', label: 'Archive', crossPage: true },
   { href: '#market', label: 'Market' },
   { href: '/coverage/', label: 'Coverage', crossPage: true },
+  { href: '/funding/', label: 'Funding', crossPage: true },
   { href: '#research', label: 'Evidence' },
   { href: '#method', label: 'Method' },
   { href: '/feed.xml', label: 'Feed', crossPage: true },

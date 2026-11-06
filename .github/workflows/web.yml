@@ -30,6 +30,9 @@ jobs:
       - name: Verify all operational guards for exact code
         working-directory: .
         run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
+      - name: Verify the weekly funding collector
+        working-directory: .
+        run: python3 -m unittest discover -s ops/funding -p 'test_*.py' -v
       - run: npm test
       - name: Capture production and the tested build at both review widths
         run: |

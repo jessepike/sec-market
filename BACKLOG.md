@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-084.
+stands. New items continue from SEC-085.
 
 ## Next
 
@@ -88,6 +88,14 @@ leave unsupported facts held. No supplier expansion is authorized by this work.
 **Authorization:** D-104 through D-110. A successful run is not full coverage.
 
 ## Soon
+
+### SEC-084 · Weekly funding-rounds feed: follow-ups
+
+Built 2026-11-06 (D-140). Open: measure the confirmation rate and minutes per run over four weeks
+(first run: 13 of 23 rounds confirmed, 32 fetches, about 1.5 runner minutes); Forgepoint's paginated
+list read 24 companies against 76+ in August, so check its page links; let the weekly data reach
+production without waiting for a code promotion; add the rounds to the agent files (D-139).
+**Authorization:** owner-approved (D-140).
 
 ### SEC-083 · Additive roster transition for onboarding suppliers
 

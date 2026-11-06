@@ -6,6 +6,8 @@ updated: 2026-11-06
 
 # Current state
 
+**Funding rounds feed (2026-11-06, on preview, owner review).** `/funding/` lists security funding rounds by week, each confirmed against the source the Return on Security list links to, and companies newly listed on five cyber investor portfolio pages. `funding-weekly.yml` (Mondays 07:41 UTC, about 1.5 runner minutes) commits `web/src/data/funding/feed.json` to `preview`. Separate from the daily collector and the roster (D-140, SEC-084).
+
 **Agent access (2026-11-06, on preview, owner review, D-139).** New `/data/` page and "Data" nav link; `/llms.txt`, `/index.md`, `/tracker.csv`, `/events.json`, `/events.csv`, a certified flag and source dates on every figure in `/tracker.json`, CC BY 4.0, robots Content-Signal. Built in `web/src/data/agentExport.ts` and `web/scripts/generate-agent.ts`. Whether Vercel serves Markdown on `Accept: text/markdown` at `/` (rewrite vs. filesystem precedence) must be checked on the preview. Next: one page per company.
 
 **Company request box (2026-11-06, on preview, owner review).** "Want a company tracked?" under the company search sends a name to a private GitHub issue through `ops/timer/api/request.js` (D-136, SEC-081). It works once `main` advances, since the timer project deploys from `main`.

@@ -4217,3 +4217,16 @@ summary:focus-visible,
     color: var(--color-text-muted);
   }
 }
+
+/* /funding/: weekly funding rounds; same table look as /coverage/, with
+   matching column widths from week to week. */
+@media (min-width: 721px) {
+  .funding-table {
+    table-layout: fixed;
+  }
+
+  .funding-table th:nth-child(1) { width: 22%; }
+  .funding-table th:nth-child(2) { width: 14%; }
+  .funding-table th:nth-child(3) { width: 10%; }
+  .funding-table th:nth-child(5) { width: 22%; }
+}

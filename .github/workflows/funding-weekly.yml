@@ -1,0 +1,48 @@
+name: weekly funding rounds
+
+# Startup discovery lane (owner approved 2026-11-06). Once a week, read the
+# Return on Security funding list and five cyber investor portfolio pages,
+# confirm each round against its primary source, and commit
+# web/src/data/funding/feed.json to preview when it changed.
+# Kept separate from the daily collector: no secrets beyond the job's own
+# GITHUB_TOKEN, no model calls, at most 40 fetches, one small job.
+# The data reaches production with the next approved promotion of main.
+
+on:
+  schedule:
+    - cron: '41 7 * * 1'
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: funding-weekly
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: preview
+      - name: Collect and confirm
+        run: python3 ops/funding/collect.py
+      - name: Commit the feed to preview when it changed
+        run: |
+          if git diff --quiet -- web/src/data/funding/feed.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "Jesse Pike"
+          git config user.email "jesse@keatingpike.com"
+          git add web/src/data/funding/feed.json
+          git commit -m "data(funding): weekly funding rounds $(date -u +%Y-%m-%d)"
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin preview && git push origin HEAD:preview && exit 0
+            sleep $((attempt * 5))
+          done
+          exit 1

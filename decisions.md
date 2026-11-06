@@ -1535,3 +1535,17 @@ Built: `/data/` page, `/llms.txt`, `/index.md`, `/data/index.md`, `/tracker.csv`
 `/events.csv`, a `certified` flag and source dates on every tracker figure, license fields in the
 JSON, Dataset JSON-LD on `/data/`, and Link headers. All are generated at build from the same data
 the page renders; nothing adds a function, a scheduled job or a provider. Next: per-company pages.
+
+**D-140 · 2026-11-06 — Startup discovery returns as a weekly funding-rounds feed.**
+Asked whether startup tracking had been lost, the owner was shown that the August startup source
+catalog (D-28 to D-30) never became a collector and did not survive the October 14 restart. Offered
+a weekly funding-rounds feed kept separate from the 74-supplier roster, the owner chose "Yes, build it
+in preview" and added: "i think we need some VS site scraping as well." Built: `ops/funding/collect.py`
+(stdlib, no model calls, no secrets, at most 50 fetches) reads the Return on Security "Security,
+Funded" list and publishes a round only when the source it links to names the company and states the
+same amount; rounds without an amount are held. It also records companies newly listed on five
+cyber-specialist investor portfolio pages (SYN, Forgepoint, Team8, Cyberstarts, YL Ventures); the
+first read is a baseline. SecurityWeek's feed was dropped after a measured read showed no funding
+items. `funding-weekly.yml` runs Mondays 07:41 UTC and commits `web/src/data/funding/feed.json` to
+`preview`; it reaches production with the next approved promotion. Shown at `/funding/`. Nothing here
+changes the roster; a company joins it only through the owner (D-136, D-138).
