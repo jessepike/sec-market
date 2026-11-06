@@ -111,17 +111,18 @@ headroom. Plan: [coverage-expansion-2026-11-06.md](docs/active/coverage-expansio
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers
 
-Check Point (a foreign private issuer filing 6-K/20-F) and Trend Micro (not an SEC filer) have no
-automated path to a new quarter. Certified suppliers roll when their 10-Q's XBRL facts appear; the
-document pipeline deliberately writes only private suppliers' headline metric
-(`web/scripts/pipeline/snapshot.py`, the `kind not in ("public", "segment")` guard), so these two
-stay on the quarter in `originals.json`. Example: Check Point reported Q3 2026 (quarter ended
-2026-09-30, $670 million, down 1 percent) on 2026-11-02; the site still shows the quarter ended
-2026-06-30. Build a reviewed path that admits period, period end, revenue and reported growth from
-the company's own release or 6-K, keeps the "not re-checked automatically" label, and never
-overwrites certified SEC fields. Test with Check Point Q3 2026 and Trend Micro Q3.
-**Authorization:** found 2026-11-04 answering the owner's question about the 2026-06-30 date.
-Changes what the pipeline may publish, so it needs the owner's go-ahead before build.
+**Check Point: built 2026-11-06, on preview.** `web/scripts/release-refresh.ts` (run at the end of
+`refresh:edgar`) reads Check Point's 6-K results releases from its EDGAR submissions index and takes
+the income statement's "Total revenues" row with a fixed parser (`web/src/data/sixKLogic.ts`, no
+model). It refuses any other shape and keeps the last good record. Figures go to
+`generated/companyReleases.json`, stay outside the certified cohort and keep the "not re-checked
+automatically" label. The committed baseline, parsed from five saved 6-Ks
+(`web/tests/fixtures/sec-6k`), shows the quarter ended 2026-09-30 ($669.8 million, -1.1%). In the
+release gate it only sees SEC responses the collector archived, so new quarters roll automatically
+once SEC-083 adds `checkpoint-sase:sec_*` sources; until then the baseline holds.
+
+Trend Micro is not an SEC filer and still has no automated path; it needs a TSE/newsroom source.
+**Authorization:** owner said yes 2026-11-04.
 
 ### SEC-076 · Optiv source-link correction
 

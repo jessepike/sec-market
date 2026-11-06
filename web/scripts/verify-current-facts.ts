@@ -8,6 +8,7 @@ import { runStatus } from '../src/data/runStatus.ts'
 import { handCollectedEvents, retainedTrackerEvents, trackerEvents } from '../src/data/tracker/events.ts'
 import { manualTrackerSuppliers, trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import { edgarRevenueEvidence, withEdgarRevenue } from '../src/data/tracker/edgarRevenue.ts'
+import { releaseRevenueEvidence, withReleaseRevenue } from '../src/data/tracker/releaseRevenue.ts'
 import { projectEvents, projectSuppliers, projectEvidence } from '../src/data/tracker/factualCorrections.ts'
 import type { FactualCorrectionInventories, FactualCorrectionReviewPolicyMap } from '../src/data/tracker/factualCorrections.ts'
 import type { TrackerEvent } from '../src/data/tracker/events.ts'
@@ -106,7 +107,8 @@ export function loadCurrentFactInputs(web = resolve(dirname(fileURLToPath(import
     daily: read<DailyFactInput>('src/data/generated/dailyMarket.json'),
     filingEvents: read<TrackerEvent[]>('src/data/generated/filingEvents.json'),
     filingEvidence: read<EvidenceRecord[]>('src/data/generated/filingEvidence.json'),
-    edgarEvidence: copy(edgarRevenueEvidence), applySecRevenue: withEdgarRevenue,
+    // 6-K results-release revenue (SEC-080) is company-reported and follows the SEC overlay.
+    edgarEvidence: copy([...edgarRevenueEvidence, ...releaseRevenueEvidence]), applySecRevenue: (s) => withReleaseRevenue(withEdgarRevenue(s)),
     lastChecked: runStatus.lastChecked,
   }
 }

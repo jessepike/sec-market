@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { edgarRegistry, unsupported } from '../src/data/edgarRegistry.ts'
+import { refreshReleases } from './release-refresh.ts'
 import { buildSupplierRecord, type CompanyFacts, type SupplierFailure, type SupplierRecord } from '../src/data/edgarLogic.ts'
 
 // Fetches SEC EDGAR's structured XBRL "companyfacts" API for every supplier
@@ -99,6 +100,8 @@ async function main() {
   await writeFile(OUTPUT_PATH, `${JSON.stringify(result, null, 2)}\n`, 'utf8')
   console.log(`\nwrote ${fileURLToPath(OUTPUT_PATH)}`)
   console.log(`${result.suppliers.length} ok, ${result.failures.length} failed, ${result.unsupported.length} unsupported by design`)
+  // 6-K results releases (SEC-080). A failure here keeps the last good record and never fails the run.
+  try { await refreshReleases() } catch (error) { console.error('6-K release refresh kept the last good record:', error) }
 
   const totalAttempted = edgarRegistry.length
   const failureRatio = result.failures.length / totalAttempted

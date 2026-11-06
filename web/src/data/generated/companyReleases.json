@@ -1,0 +1,183 @@
+{
+  "generatedAt": "2026-11-06T03:01:11.000Z",
+  "suppliers": [
+    {
+      "id": "checkpoint",
+      "name": "Check Point Software Technologies",
+      "cik": "0001015922",
+      "quarters": [
+        {
+          "periodEnd": "2026-09-30",
+          "value": 669800000,
+          "priorYearValue": 677500000,
+          "scale": "USD millions",
+          "form": "6-K",
+          "accessionNumber": "0001178913-26-004953",
+          "filedDate": "2026-11-02",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004953/zk2636310.htm",
+          "sha256": "845eb37022eb27393dbc7567de56daac0a1a3bca895f7b76fe7ea1f0229d02a9",
+          "checkedAt": "2026-11-06T03:01:11Z"
+        },
+        {
+          "periodEnd": "2026-06-30",
+          "value": 673600000,
+          "priorYearValue": 665200000,
+          "scale": "USD millions",
+          "form": "6-K",
+          "accessionNumber": "0001178913-26-003696",
+          "filedDate": "2026-07-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003696/zk2635799.htm",
+          "sha256": "f05aeeb9fe7d1eeb95148e77a2cebe69bd13fb7676ad632e0a3adc9e8547e4e8",
+          "checkedAt": "2026-11-06T03:01:11Z"
+        },
+        {
+          "periodEnd": "2026-03-31",
+          "value": 668400000,
+          "priorYearValue": 637800000,
+          "scale": "USD millions",
+          "form": "6-K",
+          "accessionNumber": "0001178913-26-002310",
+          "filedDate": "2026-04-30",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326002310/a2635159.htm",
+          "sha256": "a7d347d2747e9a474491987468e29e4774e71bd4c9e6c6548244cf947e6fd2fc",
+          "checkedAt": "2026-11-06T03:01:11Z"
+        },
+        {
+          "periodEnd": "2025-12-31",
+          "value": 744900000,
+          "priorYearValue": 703700000,
+          "scale": "USD millions",
+          "form": "6-K",
+          "accessionNumber": "0001178913-26-000437",
+          "filedDate": "2026-02-12",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm",
+          "sha256": "8ef272912f302169edaf4a1ff1fb50c1e5631e05316988788a837752761bd90f",
+          "checkedAt": "2026-11-06T03:01:11Z"
+        },
+        {
+          "periodEnd": "2025-09-30",
+          "value": 677500000,
+          "priorYearValue": 635100000,
+          "scale": "USD millions",
+          "form": "6-K",
+          "accessionNumber": "0001178913-25-003565",
+          "filedDate": "2025-10-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325003565/2533887.htm",
+          "sha256": "ed1c08f61693f8a4297ec5cfb54bcc967f884030923292e50cf1f45cac7c85bb",
+          "checkedAt": "2026-11-06T03:01:11Z"
+        }
+      ],
+      "latest": {
+        "periodEnd": "2026-09-30",
+        "value": 669800000,
+        "priorYearValue": 677500000,
+        "scale": "USD millions",
+        "form": "6-K",
+        "accessionNumber": "0001178913-26-004953",
+        "filedDate": "2026-11-02",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004953/zk2636310.htm",
+        "sha256": "845eb37022eb27393dbc7567de56daac0a1a3bca895f7b76fe7ea1f0229d02a9",
+        "checkedAt": "2026-11-06T03:01:11Z"
+      },
+      "prior": {
+        "periodEnd": "2026-06-30",
+        "value": 673600000,
+        "priorYearValue": 665200000,
+        "scale": "USD millions",
+        "form": "6-K",
+        "accessionNumber": "0001178913-26-003696",
+        "filedDate": "2026-07-30",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003696/zk2635799.htm",
+        "sha256": "f05aeeb9fe7d1eeb95148e77a2cebe69bd13fb7676ad632e0a3adc9e8547e4e8",
+        "checkedAt": "2026-11-06T03:01:11Z"
+      }
+    }
+  ],
+  "failures": [],
+  "checks": [
+    {
+      "id": "checkpoint",
+      "url": "https://data.sec.gov/submissions/CIK0001015922.json",
+      "status": "checked"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004953/zk2636310.htm",
+      "status": "parsed"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004498/zk2636110.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004398/zk2636069.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003696/zk2635799.htm",
+      "status": "parsed"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003557/zk2635717.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003452/zk2635667.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003128/zk2635514.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326002519/zk2635263.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326002310/a2635159.htm",
+      "status": "parsed"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm",
+      "status": "parsed"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004003/zk2534083.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325003986/zk2534074.htm",
+      "status": "unavailable",
+      "reason": "not in saved EDGAR copy"
+    },
+    {
+      "id": "checkpoint",
+      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325003565/2533887.htm",
+      "status": "parsed"
+    }
+  ]
+}

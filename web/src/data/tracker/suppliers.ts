@@ -1,5 +1,6 @@
 import { effectiveManualTrackerSuppliers } from './correctionData'
 import { withEdgarRevenue } from './edgarRevenue'
+import { withReleaseRevenue } from './releaseRevenue'
 import { withDailyData } from './daily'
 /**
  * Tracked suppliers — step 5 of the autonomy plan
@@ -93,4 +94,4 @@ export { originalManualTrackerSuppliers as manualTrackerSuppliers } from './corr
 
 
 // Displayed SEC revenue follows checked structured facts; collector-owned claims stay manual.
-export const trackerSuppliers = effectiveManualTrackerSuppliers.map(withDailyData).map(withEdgarRevenue)
+export const trackerSuppliers = effectiveManualTrackerSuppliers.map(withDailyData).map(withEdgarRevenue).map(withReleaseRevenue)
