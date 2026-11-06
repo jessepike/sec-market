@@ -6,8 +6,8 @@
  * Jobs, all driven off src/data so that nothing here can drift from the page
  * content when a new edition or issue ships:
  *   1. Fail the build if the hand-maintained OG image (assets-src/og.svg) or
- *      the front page's og:image:alt / twitter:image:alt no longer match the
- *      current headline and contextStats — see the OG staleness gate below.
+ *      the front page's og:image:alt / twitter:image:alt no longer carry the
+ *      current SITE_HEADLINE. See the OG staleness gate below.
  *      This check runs against the front page only; it is the only route with
  *      a hand-authored social image.
  *   2. Inject a schema.org JSON-LD block into every emitted route's HTML —
@@ -28,7 +28,7 @@ import { corrections } from '../src/data/corrections.ts'
 import { feedIssuesNewestFirst } from '../src/data/issueHelpers.ts'
 import { issueById, issues } from '../src/data/issues/index.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
-import { contextStats, marketCall } from '../src/data/market.ts'
+import { marketCall } from '../src/data/market.ts'
 import {
   AUTHOR_NAME,
   LAST_UPDATED_ISO,
@@ -81,17 +81,16 @@ function readTitle(html: string): string {
 const frontHtml = readFileSync(htmlPath, 'utf8')
 
 // --- OG staleness gate (front page only) ------------------------------------
-// assets-src/og.svg bakes marketCall.headline and every contextStats[].value
-// into the image as literal text; it is rasterized to public/og.png by the
-// manual step assets-src/render-og.mjs, which nothing in `npm run build` runs.
-// index.html's og:image:alt and twitter:image:alt duplicate the headline for
-// the same unfurl. None of that is derived at build time, so editing
-// src/data/market.ts alone leaves the build green while every LinkedIn/Slack
-// unfurl keeps showing the old headline and stats under the new page. Fail
-// closed instead.
+// assets-src/og.svg bakes SITE_HEADLINE into the image as literal text; it is
+// rasterized to public/og.png by the manual step assets-src/render-og.mjs,
+// which nothing in `npm run build` runs. index.html's og:image:alt and
+// twitter:image:alt repeat the headline for the same unfurl. None of that is
+// derived at build time, so editing SITE_HEADLINE alone would leave the build
+// green while every LinkedIn/Slack unfurl kept showing the old headline. Fail
+// closed instead. The card carries no figures, so only the headline is checked.
 const ogSvg = readFileSync(resolve(webRoot, 'assets-src/og.svg'), 'utf8')
 
-// The headline is laid out as two separate <text> elements (one per line), so
+// The headline is laid out as separate <text> elements (one per line), so
 // strip comments/tags and collapse whitespace to read the image's text as the
 // single sentence a viewer sees.
 const ogSvgText = ogSvg
@@ -102,16 +101,8 @@ const ogSvgText = ogSvg
 
 const ogDrift: string[] = []
 
-if (!ogSvgText.includes(marketCall.headline)) {
-  ogDrift.push(`assets-src/og.svg does not contain the current headline: "${marketCall.headline}"`)
-}
-
-for (const stat of contextStats) {
-  if (!ogSvgText.includes(stat.value)) {
-    ogDrift.push(
-      `assets-src/og.svg does not contain the current contextStats value "${stat.value}" (${stat.label})`,
-    )
-  }
+if (!ogSvgText.includes(SITE_HEADLINE)) {
+  ogDrift.push(`assets-src/og.svg does not contain the current headline: "${SITE_HEADLINE}"`)
 }
 
 /** Reads a `content="…"` attribute off the named property/name meta tag in the front page HTML. */
@@ -120,34 +111,21 @@ function readMetaContent(attr: 'property' | 'name', key: string): string | null 
   return match ? match[1] : null
 }
 
-// GATE RELAXED (D-76/autonomy-coverage-plan.md §3, step 1, task item 6): this
-// used to also fail unless og:image:alt/twitter:image:alt contained
-// marketCall.headline — i.e. it forced the front page's social alt text to
-// keep restating the judged market call. The front page no longer asserts
-// that call, so the alt text was deliberately changed to a factual
-// description of the image instead (index.html); requiring it to contain
-// the retired headline would be requiring judged text on a live page, which
-// is exactly what this pass removes. public/og.png itself is untouched (it
-// still shows the old headline as pixels — see the report), so this keeps
-// only the sanity check that the tags exist at all, not that their words
-// match a judgment the page no longer makes.
-const ogImageAlt = readMetaContent('property', 'og:image:alt')
-const twitterImageAlt = readMetaContent('name', 'twitter:image:alt')
-
-if (ogImageAlt === null) {
-  ogDrift.push('index.html has no og:image:alt meta tag')
-}
-
-if (twitterImageAlt === null) {
-  ogDrift.push('index.html has no twitter:image:alt meta tag')
+for (const [attr, key] of [['property', 'og:image:alt'], ['name', 'twitter:image:alt']] as const) {
+  const alt = readMetaContent(attr, key)
+  if (alt === null) {
+    ogDrift.push(`index.html has no ${key} meta tag`)
+  } else if (!alt.includes(SITE_HEADLINE)) {
+    ogDrift.push(`index.html ${key} does not contain the current headline: "${SITE_HEADLINE}"`)
+  }
 }
 
 if (ogDrift.length > 0) {
   fail(
-    `${ogDrift.join('; ')}. src/data/market.ts changed and the OG image / social meta tags were not ` +
-      "updated to match: edit assets-src/og.svg's text to match, then re-run assets-src/render-og.mjs " +
-      '(from web/, inside the OrbStack dev VM) to rebuild public/og.png, and update index.html\'s ' +
-      'og:image:alt and twitter:image:alt to the current headline.',
+    `${ogDrift.join('; ')}. SITE_HEADLINE changed and the OG image / social meta tags were not ` +
+      "updated to match: edit assets-src/og.svg's text to match, then re-run " +
+      'node assets-src/render-og.mjs (from web/) to rebuild public/og.png, and update ' +
+      "index.html's og:image:alt and twitter:image:alt to the current headline.",
   )
 }
 

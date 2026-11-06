@@ -22,18 +22,15 @@
       property="og:description"
       content="Sourced facts about the business of the security market: who is growing, stalling, consolidating, being bought, or in financial trouble. Collected, checked and published automatically, with no stances, rankings or forecasts."
     />
-    <!-- public/og.png still shows the retired "Infrastructure is running ahead. Security is
-         splitting, not booming." headline as pixels (D-76 facts-only pass, step 1). It is a
-         manually rasterized asset (assets-src/render-og.mjs) outside `npm run build`; this pass
-         does not regenerate it — flagged in docs/archive/2026-10-refresh-gate/auto-001/step1/report.md for a separate
-         owner-approved regeneration. -->
+    <!-- public/og.png is rendered from assets-src/og.svg (node assets-src/render-og.mjs). The
+         build fails if the card or the alt text below drops the current SITE_HEADLINE. -->
     <meta property="og:image" content="https://securitymarketpulse.com/og.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Security Market Pulse — a sourced, evidence-linked picture of the security market, updated as facts change."
+      content="Security Market Pulse. Who grew. Who raised. Who bought. Who cut. Reported revenue, funding, acquisitions, restructuring, debt and leadership changes. Every figure keeps its period and source."
     />
     <meta property="og:locale" content="en_US" />
 
@@ -47,7 +44,7 @@
     <meta name="twitter:image" content="https://securitymarketpulse.com/og.png" />
     <meta
       name="twitter:image:alt"
-      content="Security Market Pulse — a sourced, evidence-linked picture of the security market, updated as facts change."
+      content="Security Market Pulse. Who grew. Who raised. Who bought. Who cut. Reported revenue, funding, acquisitions, restructuring, debt and leadership changes. Every figure keeps its period and source."
     />
 
     <!-- schema.org JSON-LD is injected at the end of the head at build time by
