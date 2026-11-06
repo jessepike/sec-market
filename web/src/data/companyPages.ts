@@ -14,9 +14,11 @@ import { trackerEvents } from './tracker/events'
 import { trackerSuppliers } from './tracker/suppliers'
 import type { TrackerFigure } from './tracker/jsonExport'
 import { companySlug } from './tracker/slugs'
-import { filingSeries } from './tracker/presentation'
+import { filingSeries, secFilingsInLastYear } from './tracker/presentation'
 
 export interface SecQuarter { periodEnd: string; revenueUsd: number; derived: boolean; filedDate: string; form: string; sourceUrl: string }
+
+export interface LedgerFiling { form: string; periodEnd: string; filedDate: string; sourceUrl: string }
 
 export interface CompanyView {
   id: string
@@ -31,6 +33,8 @@ export interface CompanyView {
   events: EventRow[]
   /** Quarterly revenue from SEC filings, exact USD, where the company files with the SEC. */
   secQuarters: SecQuarter[]
+  /** Activity ledger: each SEC 10-Q and 10-K filed in the trailing 12 months, newest first. */
+  filings: LedgerFiling[]
   path: string
 }
 
@@ -62,6 +66,9 @@ export function companyView(id: string): CompanyView | undefined {
     secQuarters: (row.supplier.edgarId ? filingSeries.find((s) => s.id === row.supplier.edgarId)?.quarters ?? [] : []).map((q) => ({
       periodEnd: q.periodEnd, revenueUsd: q.value, derived: !!q.derived, filedDate: q.filedDate, form: q.form, sourceUrl: q.sourceUrl,
     })),
+    filings: row.supplier.edgarId ? secFilingsInLastYear().filter((f) => f.supplierId === row.supplier.edgarId)
+      .sort((a, b) => b.filedDate.localeCompare(a.filedDate))
+      .map((f) => ({ form: f.form, periodEnd: f.periodEnd, filedDate: f.filedDate, sourceUrl: f.sourceUrl })) : [],
     path: companyPath(id),
   }
 }
@@ -118,6 +125,10 @@ export function companyMarkdown(view: CompanyView): string {
     out.push('', '## Quarterly revenue from SEC filings (USD)', '', '| Quarter ended | Revenue, USD | Filed | Source |', '|---|---|---|---|')
     for (const q of view.secQuarters) out.push(`| ${q.periodEnd} | ${q.revenueUsd.toLocaleString('en-US')}${q.derived ? ' (derived)' : ''} | ${q.filedDate} | [${q.form}](${q.sourceUrl}) |`)
   }
+  if (view.filings.length) {
+    out.push('', '## Activity ledger: SEC filings, last 12 months', '', '| Filed | Form | Latest quarter reported | Source |', '|---|---|---|---|')
+    for (const f of view.filings) out.push(`| ${f.filedDate} | ${f.form} | ${f.periodEnd} | [${f.form}](${f.sourceUrl}) |`)
+  }
   out.push('', `## Events, ${events.window.from} to ${events.window.to}`, '')
   if (view.events.length === 0) out.push('No events on record in this window.', '')
   else {
@@ -139,6 +150,7 @@ export function companyJson(view: CompanyView) {
     supplier: { id: view.id, name: view.name, ticker: view.ticker ?? null, type: view.typeLabel, domains: view.domains, coverageTier: view.tierNumber },
     figures: view.figures,
     secQuarterlyRevenue: view.secQuarters,
+    secFilings: view.filings,
     eventWindow: events.window,
     events: view.events,
   }

@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { recentChanges } from '../../src/data/tracker/presentation'
+import { feedChanges } from '../../src/data/tracker/feed'
 
 for (const width of [1440, 390]) {
   test(`approved hybrid works at ${width}px with keyboard, sourced figures and compact phone views`, async ({ page }) => {
@@ -14,11 +14,15 @@ for (const width of [1440, 390]) {
     await expect(page.locator('.desk-counts small').first()).toContainText('in 12 months')
     await expect(page.locator('.desk-hero')).not.toContainText(/\d+ suppliers|SEC filers certified/)
     await expect(page.locator('.market-desk')).not.toContainText(/Diagnostic candidate|Latest attempt/)
-    await expect(page.locator('.market-desk')).not.toContainText(/owner.s read|median/i)
+    await expect(page.locator('.market-desk')).not.toContainText(/owner.s read/i)
+    // Momentum by domain leads the page (owner approved 2026-11-06): certified growth, domain median, change vs prior quarter.
+    await expect(page.locator('#momentum-heading')).toHaveText('Revenue momentum by domain')
+    expect(await page.locator('#momentum').evaluate(e => e.getBoundingClientRect().top)).toBeLessThan(width === 390 ? 844 : 900)
+    await expect(page.locator('#momentum .momentum__row').first()).toContainText('pts')
+    await expect(page.locator('.desk-counts__snapshot').first()).not.toBeEmpty()
+    await expect(page.locator('#tracker-changed .desk-type', { hasText: 'SEC filing' })).toHaveCount(0)
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
     await expect(page.locator('.desk-change').first()).toBeVisible()
-    expect(await page.locator('.desk-change').first().evaluate(e => e.getBoundingClientRect().top)).toBeLessThan(width === 390 ? 844 : 900)
-    if (width === 1440) expect(await page.locator('#reported-growth').evaluate(e => e.getBoundingClientRect().top)).toBeLessThan(900)
     if (width === 390) {
       await expect(page.locator('.desk-domain.is-selected')).toBeVisible()
       await page.locator('.desk-domain-select select').selectOption('identity')
@@ -52,7 +56,7 @@ for (const width of [1440, 390]) {
     await expect(page.locator('#desk-timeline-events .desk-sources a').first()).toHaveAttribute('href', /^https:\/\//)
     if (width === 390) expect(await page.evaluate(() => document.body.scrollHeight)).toBeLessThan(10000)
     await page.locator('.desk-show-all').click()
-    await expect(page.locator('#tracker-changed .desk-change')).toHaveCount(recentChanges().length)
+    await expect(page.locator('#tracker-changed .desk-change')).toHaveCount(feedChanges.length)
     expect(errors).toEqual([])
   })
 }

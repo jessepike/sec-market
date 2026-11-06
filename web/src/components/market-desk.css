@@ -160,3 +160,50 @@
   .desk-hero:has(.desk-company-request[open])>.site-masthead { align-self: start; }
   .desk-hero>.desk-company-search:has(.desk-company-request[open]) { align-self: start; }
 }
+
+/* Revenue momentum by domain */
+.momentum__grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; border-top: 1px solid #e6e7e3; }
+.momentum__domain { padding: 12px 18px 10px; border-bottom: 1px solid #e6e7e3; min-width: 0; }
+.momentum__domain:nth-child(odd) { border-right: 1px solid #e6e7e3; }
+.momentum__domain-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.momentum__domain-head h3 { margin: 0; }.momentum__domain-head>span { font-size: 12px; color: #3e4a5c; }.momentum__domain-head strong { font-variant-numeric: tabular-nums; }
+.momentum__cols,.momentum__row { display: grid; grid-template-columns: 104px minmax(40px,1fr) 52px 78px; gap: 8px; align-items: center; }
+.momentum__cols.has-health,.momentum__rows.has-health .momentum__row { grid-template-columns: 124px minmax(40px,1fr) 52px 76px 64px 64px; }
+.momentum__cols { font-size: 10px; color: #62676a; margin: 8px 0 2px; line-height: 1.2; }
+.momentum__cols>span:nth-child(2) { grid-column: span 2; }.momentum__cols>span:nth-child(3) { display: none; }
+.momentum__cols>span:nth-child(n+4) { text-align: right; }
+.momentum__rows { list-style: none; padding: 0; margin: 0; }
+.momentum__row { min-height: 30px; border-top: 1px solid #f0f1ef; }
+.momentum__row .desk-supplier-link { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.momentum__bar { position: relative; height: 14px; background: #f4f5f3; }
+.momentum__fill { position: absolute; top: 0; bottom: 0; background: #1f5fc8; }
+.momentum__zero { position: absolute; top: -2px; bottom: -2px; width: 1px; background: #9aa3a8; }
+.momentum__median { position: absolute; top: -4px; bottom: -4px; width: 2px; margin-left: -1px; background: #141518; }
+.momentum__growth,.momentum__change,.momentum__metric { font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.momentum__growth { font-weight: 650; }.momentum__change { color: #3e4a5c; }.momentum__change span { font-size: 9px; }
+.momentum__metric-label { display: none; }.momentum__metric a { color: inherit; text-decoration: none; }.momentum__metric a:hover { text-decoration: underline; }
+.momentum__na { color: #9aa3a8; font-size: 11px; }
+.momentum__others { margin-top: 6px; font-size: 12px; }.momentum__others summary { cursor: pointer; color: #205bc0; min-height: 28px; display: flex; align-items: center; }
+.momentum__others ul { list-style: none; padding: 0; margin: 0 0 6px; }
+.momentum__others li { display: grid; grid-template-columns: 104px minmax(0,1fr) auto; gap: 8px; align-items: center; border-top: 1px solid #f0f1ef; }
+.momentum__others li .desk-supplier-link { font-weight: 400 !important; font-size: 12px; }.momentum__others li .desk-note { margin: 0; font-size: 11px; text-transform: none; }
+.momentum__none { padding: 10px 18px 14px; margin: 0; }
+.market-desk .momentum__mobile-toggle { display: none; }
+.desk-counts__snapshot { font-style: normal; font-size: 11px; line-height: 1.35; color: #252629; min-height: 2.7em; }
+@media(max-width:1100px) { .momentum__grid { grid-template-columns: minmax(0,1fr); }.momentum__domain:nth-child(odd) { border-right: 0; } }
+@media(max-width:640px) {
+  .momentum__domain { padding: 10px 12px; }
+  .momentum__cols { display: none; }
+  .momentum__row,.momentum__rows.has-health .momentum__row { grid-template-columns: minmax(0,1fr) auto auto; row-gap: 2px; padding: 6px 0; }
+  .momentum__bar { grid-column: 1/-1; grid-row: 2; height: 10px; }
+  .momentum__metric { text-align: left; display: grid; font-size: 12px; }
+  .momentum__metric-label { display: block; font-size: 10px; color: #62676a; }
+  .momentum__rows.has-health .momentum__row { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .momentum__rows.has-health .momentum__name { grid-column: 1; }
+  .momentum__rows.has-health .momentum__growth { grid-column: 2; }
+  .momentum__rows.has-health .momentum__change { grid-column: 3; }
+  .momentum__others li { grid-template-columns: minmax(0,1fr) auto; }.momentum__others li>span:nth-child(2) { grid-column: 1/-1; grid-row: 2; font-size: 11px; color: #3e4a5c; }
+  .desk-counts__snapshot { font-size: 10px; min-height: 0; }
+  .momentum__none { padding: 8px 12px 12px; }
+  .momentum:not(.is-expanded) .momentum__domain:nth-child(n+3) { display: none; }.market-desk .momentum__mobile-toggle { display: block; margin: 10px 12px; }
+}

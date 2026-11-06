@@ -28,6 +28,7 @@ export const dataFiles: DataFile[] = [
   { path: '/tracker.csv', format: 'CSV', what: 'The same figures as tracker.json, one row per figure.' },
   { path: '/events.json', format: 'JSON', what: 'Dated events for the trailing 12 months: funding, acquisitions, layoffs, restructuring, debt, leadership changes and more.' },
   { path: '/events.csv', format: 'CSV', what: 'The same events as events.json, one row per event.' },
+  { path: '/filings.csv', format: 'CSV', what: 'Activity ledger: every SEC quarterly and annual filing in the trailing 12 months, one row per filing, with the latest quarter it reports.' },
   { path: '/companies/<company>/data.json', format: 'JSON', what: 'One company: its figures and events. Also /companies/<company>/index.md as Markdown. Each page URL is pageUrl in tracker.json.' },
   { path: '/certified-coverage.json', format: 'JSON', what: 'The certification receipt: every SEC claim re-derived from filings, with its result.' },
   { path: '/corrections.json', format: 'JSON', what: 'Every correction, newest first.' },
@@ -126,6 +127,17 @@ export function trackerCsv(payload: TrackerJsonPayload): string {
       const s = suppliers.get(f.supplierId)
       return [f.id, f.supplierId, s?.name ?? '', s?.kind ?? '', (s?.domainIds ?? []).join(' '), f.type, f.label, f.value, f.period, f.certified, f.sourceUrls.join(' '), f.sourceDates.join(' ')]
     }),
+  )
+}
+
+export interface FilingLedgerRow { supplierId: string; supplierName: string; form: string; periodEnd: string; filedDate: string; revenueUsd: number; sourceUrl: string }
+
+/** Activity ledger: one row per SEC 10-Q or 10-K filing, newest first. Revenue is re-derived from SEC filings. */
+export function filingsCsv(rows: FilingLedgerRow[]): string {
+  return csv(
+    ['supplier_id', 'supplier_name', 'form', 'quarter_ended', 'filed', 'revenue_usd', 'source_url'],
+    rows.slice().sort((a, b) => b.filedDate.localeCompare(a.filedDate) || a.supplierId.localeCompare(b.supplierId))
+      .map((r) => [r.supplierId, r.supplierName, r.form, r.periodEnd, r.filedDate, String(r.revenueUsd), r.sourceUrl]),
   )
 }
 

@@ -2,7 +2,7 @@
  * Agent access files (D-139). Called from generate-feed.ts after
  * dist/tracker.json is written. Writes, beside the HTML site:
  *   dist/llms.txt, dist/index.md, dist/data/index.md,
- *   dist/tracker.csv, dist/events.json, dist/events.csv.
+ *   dist/tracker.csv, dist/events.json, dist/events.csv, dist/filings.csv.
  * Every value comes from the builders in src/data/agentExport.ts, which read
  * the same data the page renders. verify-dist.ts checks each file.
  */
@@ -12,11 +12,13 @@ import {
   dataPageMarkdown,
   eventsCsv,
   eventsJsonPayload,
+  filingsCsv,
   llmsTxt,
   trackerCsv,
   trackerJsonPayload,
   trackerMarkdown,
 } from '../src/data/agentExport.ts'
+import { secFilingsInLastYear } from '../src/data/tracker/presentation.ts'
 import { companyIds, companyJson, companyMarkdown, companyView } from '../src/data/companyPages.ts'
 import type { EvidenceRecord } from '../src/data/types.ts'
 import type { RunStatus } from '../src/data/runStatus.ts'
@@ -24,7 +26,7 @@ import type { TrackerDomain } from '../src/data/tracker/domains.ts'
 import type { TrackerEvent } from '../src/data/tracker/events.ts'
 import type { TrackerSupplier } from '../src/data/tracker/suppliers.ts'
 
-export const AGENT_FILES = ['llms.txt', 'index.md', 'data/index.md', 'tracker.csv', 'events.json', 'events.csv'] as const
+export const AGENT_FILES = ['llms.txt', 'index.md', 'data/index.md', 'tracker.csv', 'events.json', 'events.csv', 'filings.csv'] as const
 
 export function writeAgentFiles(
   suppliers: TrackerSupplier[],
@@ -45,6 +47,7 @@ export function writeAgentFiles(
     'tracker.csv': trackerCsv(tracker),
     'events.json': JSON.stringify(eventsPayload, null, 2) + '\n',
     'events.csv': eventsCsv(eventsPayload),
+    'filings.csv': filingsCsv(secFilingsInLastYear().map((f) => ({ ...f, supplierName: suppliers.find((s) => s.id === f.supplierId)?.name ?? f.supplierId, revenueUsd: f.value }))),
   }
   for (const [name, body] of Object.entries(files)) writeFileSync(resolve(distDir, name), body, 'utf8')
   // Per-company Markdown and JSON copies, beside each prerendered company page.

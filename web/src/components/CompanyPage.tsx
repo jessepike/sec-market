@@ -85,6 +85,31 @@ export function CompanyPage({ id }: { id: string }) {
         </>
       )}
 
+      {view.filings.length > 0 && (
+        <>
+          <h2 id="company-filings">Activity ledger: SEC filings</h2>
+          <p className="coverage-page__note">Every quarterly and annual report filed in the last 12 months. These routine filings no longer appear in the front page change log.</p>
+          <table className="coverage-table">
+            <thead>
+              <tr>
+                <th scope="col">Filed</th>
+                <th scope="col">Form</th>
+                <th scope="col">Latest quarter reported</th>
+              </tr>
+            </thead>
+            <tbody>
+              {view.filings.map((f) => (
+                <tr key={f.sourceUrl}>
+                  <th scope="row" data-label="Filed">{f.filedDate}</th>
+                  <td data-label="Form"><a href={f.sourceUrl} rel="noopener">{f.form}</a></td>
+                  <td data-label="Latest quarter reported">{f.periodEnd}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )}
+
       <h2 id="company-events">Events, {eventWindow.from} to {eventWindow.to}</h2>
       {view.events.length === 0 ? (
         <p className="coverage-page__note">No dated events on record in this window.</p>

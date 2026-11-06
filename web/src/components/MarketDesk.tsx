@@ -11,6 +11,9 @@ import type { ChangeItem } from '../data/tracker/presentation'
 import { SiteMasthead } from './SiteMasthead'
 import { CompanySearch } from './CompanySearch'
 import { companyPath } from '../data/companyPages'
+import { typeName } from '../data/tracker/typeNames'
+import { feedChanges, tileSnapshots } from '../data/tracker/feed'
+import { MomentumByDomain } from './MomentumByDomain'
 import './market-desk.css'
 
 const changes = recentChanges()
@@ -27,7 +30,6 @@ const nonSecGrowth = revenueGrowthRows().filter(r => !isCertifiedSupplier(r.supp
 const nonSecGrowthNote = nonSecGrowth.length ? `${nonSecGrowth.join(' and ')} ${nonSecGrowth.length > 1 ? 'figures come' : 'figure comes'} from company releases and ${nonSecGrowth.length > 1 ? 'are' : 'is'} not re-checked automatically; the rest are re-derived from SEC filings.` : 'All figures are re-derived from SEC filings.'
 const growthRows = revenueGrowthRows()
 const supplierById = Object.fromEntries(trackerSuppliers.map(s => [s.id, s]))
-const typeName = (type: string) => ({ 'exec-change': 'Leadership', 'going-concern': 'Going concern', layoff: 'Layoffs', filing: 'SEC filing', 'late-filing': 'Late filing' })[type] ?? type.replaceAll('-', ' ')
 
 function Sources({ ids }: { ids: string[] }) {
   return <span className="desk-sources">{ids.map(id => {
@@ -190,24 +192,25 @@ export function MarketDesk() {
   const [groupId, setGroupId] = useState<string | null>(null)
   const [allChanges, setAllChanges] = useState(false)
   const group = eventGroups.find(g => g.id === groupId)
-  const filtered = group ? unitsInGroup(monthUnits, group.id).flatMap(u => u.items).sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id)) : changes
+  const filtered = group ? unitsInGroup(monthUnits, group.id).flatMap(u => u.items).sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id)) : feedChanges
   return <div className="market-desk">
     <div className="desk-hero"><SiteMasthead />
       <CompanySearch openSupplier={setSupplierId} />
     </div>
+    <MomentumByDomain openSupplier={setSupplierId} />
     <div className="desk-counts" aria-label="Event counts in the last 30 days, with trailing twelve-month totals">{eventGroups.map(g => {
       const annual = unitsInGroup(yearUnits, g.id); const recent = unitsInGroup(monthUnits, g.id)
-      return <button type="button" key={g.id} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}><span>{g.label}</span><strong>{recent.length}</strong><small>{annual.length} in 12 months</small></button>
-    })}</div><p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}, with the trailing 12-month total below each count. Counts of sourced events, one per deal, not a market ranking. Select a type to filter the change log.</p>
-    <div className="desk-opening"><section id="tracker-changed" className={`desk-panel desk-changelog${allChanges ? ' is-expanded' : ''}`} aria-labelledby="tracker-changed-heading">
+      return <button type="button" key={g.id} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}><span>{g.label}</span><strong>{recent.length}</strong><em className="desk-counts__snapshot">{tileSnapshots[g.id] || 'None in 30 days'}</em><small>{annual.length} in 12 months</small></button>
+    })}</div><p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}, with the companies behind each count and the trailing 12-month total. Counts of sourced events, one per deal, not a market ranking. Amounts are the first dollar figure the source states. Select a type to filter the change log.</p>
+    <section id="tracker-changed" className={`desk-panel desk-changelog${allChanges ? ' is-expanded' : ''}`} aria-labelledby="tracker-changed-heading">
       <div className="desk-panel__head"><h2 id="tracker-changed-heading">What changed in the last 30 days</h2><span>{filtered.length} entries</span></div>
-      <p className="desk-note">Window ends {runStatus.lastChecked}. Results and their matching SEC filing share an entry.</p>
+      <p className="desk-note">Window ends {runStatus.lastChecked}. {group ? 'Newest first.' : <>Deals, funding, restructuring, debt and leadership, largest stated dollar amount first, then newest. Routine quarterly filings and results are in each company&rsquo;s activity ledger and in <a href="/filings.csv">filings.csv</a>.</>}</p>
       {group && <button type="button" onClick={() => setGroupId(null)}>Clear {group.label.toLowerCase()} filter</button>}
       <ul className="desk-changes">{(allChanges ? filtered : filtered.slice(0, 8)).map(item => <ChangeRow key={item.id} item={item} openSupplier={setSupplierId} />)}</ul>
       {filtered.length === 0 && <p className="desk-empty">No events of this type in this window.</p>}
-      {filtered.length > 4 && <button type="button" className="desk-show-all" aria-expanded={allChanges} onClick={() => setAllChanges(v => !v)}>{allChanges ? 'Show fewer entries' : `Show all ${filtered.length} entries`}</button>}
-    </section><GrowthChart openSupplier={setSupplierId} /></div>
-    <Timeline openSupplier={setSupplierId} /><PublicSuppliers openSupplier={setSupplierId} /><DomainBrowser openSupplier={setSupplierId} />
+      {filtered.length > 8 && <button type="button" className="desk-show-all" aria-expanded={allChanges} onClick={() => setAllChanges(v => !v)}>{allChanges ? 'Show fewer entries' : `Show all ${filtered.length} entries`}</button>}
+    </section>
+    <Timeline openSupplier={setSupplierId} /><GrowthChart openSupplier={setSupplierId} /><PublicSuppliers openSupplier={setSupplierId} /><DomainBrowser openSupplier={setSupplierId} />
     <SupplierDialog supplier={supplierId ? supplierById[supplierId] : null} close={() => setSupplierId(null)} />
   </div>
 }
