@@ -3,6 +3,8 @@ import { shortSupplierName } from '../data/tracker/names'
 import { certifiedGrowth, domainMomentum, formatPercent, formatPoints, healthFacts, marketMedian } from '../data/tracker/momentum'
 import type { DomainMomentum, MomentumRow } from '../data/tracker/momentum'
 import { typeName } from '../data/tracker/typeNames'
+import { companyPath } from '../data/companyPages'
+import type { TrackerSupplier } from '../data/tracker/suppliers'
 
 const domains = domainMomentum()
 const withRows = domains.filter(d => d.rows.length > 0)
@@ -27,11 +29,22 @@ function Health({ row }: { row: MomentumRow }) {
   </>
 }
 
-function Row({ row, median, openSupplier }: { row: MomentumRow; median: number | null; openSupplier: (id: string) => void }) {
+type Open = ((id: string) => void) | undefined
+
+/** A company name: opens the supplier record on the front page, or links to the company page elsewhere. */
+function Name({ supplier, open, className = '' }: { supplier: TrackerSupplier; open: Open; className?: string }) {
+  // Only ranked rows carry a title; names in the collapsed list stay out of title lookups.
+  const title = className ? supplier.name : undefined
+  return open
+    ? <button type="button" className={`desk-supplier-link ${className}`} title={title} onClick={() => open(supplier.id)}>{shortSupplierName(supplier.name)}</button>
+    : <a className={`desk-supplier-link ${className}`} title={title} href={companyPath(supplier.id)}>{shortSupplierName(supplier.name)}</a>
+}
+
+function Row({ row, median, openSupplier, highlight }: { row: MomentumRow; median: number | null; openSupplier: Open; highlight?: string }) {
   const { supplier, latest, change } = row
   const rev = supplier.revenue!.latest
-  return <li className="momentum__row">
-    <button type="button" className="desk-supplier-link momentum__name" title={supplier.name} onClick={() => openSupplier(supplier.id)}>{shortSupplierName(supplier.name)}</button>
+  return <li className={`momentum__row${highlight === supplier.id ? ' is-highlight' : ''}`} aria-current={highlight === supplier.id ? 'true' : undefined}>
+    <Name supplier={supplier} open={openSupplier} className="momentum__name" />
     <div className="momentum__bar" role="img" aria-label={`${supplier.name}: ${formatPercent(latest)} year-over-year revenue growth, quarter ended ${rev.periodEnd}${median !== null ? `; domain median ${formatPercent(median)}` : ''}`}>
       <i className="momentum__zero" style={{ left: pos(0) }} />
       <i className="momentum__fill" style={{ left: pos(Math.min(0, latest)), width: `${(Math.abs(latest) / (hi - lo)) * 100}%` }} />
@@ -45,15 +58,15 @@ function Row({ row, median, openSupplier }: { row: MomentumRow; median: number |
   </li>
 }
 
-function DomainCard({ d, openSupplier }: { d: DomainMomentum; openSupplier: (id: string) => void }) {
+export function DomainCard({ d, openSupplier, highlight }: { d: DomainMomentum; openSupplier?: (id: string) => void; highlight?: string }) {
   return <article className="momentum__domain" aria-labelledby={`momentum-${d.id}`}>
     <div className="momentum__domain-head"><h3 id={`momentum-${d.id}`}>{d.name}</h3>
       <span>{d.median !== null ? <>Median <strong>{formatPercent(d.median)}</strong> across {d.rows.length} filers</> : '1 SEC filer, no median'}</span></div>
     <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
       {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
-    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} />)}</ul>
-    {d.others.length > 0 && <details className="momentum__others"><summary>{d.others.length} more {d.others.length === 1 ? 'company' : 'companies'} without SEC financials</summary>
-      <ul>{d.others.map(o => <li key={o.supplier.id}><button type="button" className="desk-supplier-link" onClick={() => openSupplier(o.supplier.id)}>{shortSupplierName(o.supplier.name)}</button>
+    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} highlight={highlight} />)}</ul>
+    {d.others.length > 0 && <details className="momentum__others" open={d.others.some(o => o.supplier.id === highlight) || undefined}><summary>{d.others.length} more {d.others.length === 1 ? 'company' : 'companies'} without SEC financials</summary>
+      <ul>{d.others.map(o => <li key={o.supplier.id} className={highlight === o.supplier.id ? 'is-highlight' : undefined}><Name supplier={o.supplier} open={openSupplier} />
         <span>{o.fact}</span>
         <span className="desk-note">{o.latestEvent ? <>{typeName(o.latestEvent.type)} <time dateTime={o.latestEvent.date}>{o.latestEvent.date}</time>{o.eventCount > 1 ? ` · ${o.eventCount} events in 12 months` : ''}</> : 'No events in 12 months'}</span></li>)}</ul>
     </details>}

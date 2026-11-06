@@ -207,3 +207,30 @@
   .momentum__none { padding: 8px 12px 12px; }
   .momentum:not(.is-expanded) .momentum__domain:nth-child(n+3) { display: none; }.market-desk .momentum__mobile-toggle { display: block; margin: 10px 12px; }
 }
+
+/* Company page: growth, health and peers */
+.company-momentum__stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); background: white; border: 1px solid #dfe1de; border-radius: 10px; overflow: hidden; }
+.company-momentum__stat { display: grid; gap: 3px; padding: 14px; border-right: 1px solid #e6e7e3; }
+.company-momentum__stat:last-child { border-right: 0; }
+.company-momentum__stat span { font-size: 12px; font-weight: 600; color: #3e4a5c; }
+.company-momentum__stat strong { font-size: 26px; line-height: 1.1; font-variant-numeric: tabular-nums; color: #141518; }
+.company-momentum__stat small { font-size: 11px; color: #62676a; }
+.company-momentum__chart { margin: 16px 0 0; background: white; border: 1px solid #dfe1de; border-radius: 10px; padding: 14px 18px; }
+.company-momentum__chart figcaption { font-size: 12px; color: #3e4a5c; font-weight: 600; margin-bottom: 8px; }
+.company-momentum__chart ol { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0,1fr); gap: 12px; }
+.company-momentum__chart li { display: grid; grid-template-rows: auto 110px auto; justify-items: center; gap: 4px; font-variant-numeric: tabular-nums; }
+.company-momentum__value { font-size: 12px; font-weight: 650; }
+.company-momentum__col { width: 100%; max-width: 56px; display: flex; align-items: flex-end; background: #f4f5f3; }
+.company-momentum__col i { display: block; width: 100%; background: #1f5fc8; }.company-momentum__col i.is-negative { background: #7b8591; }
+.company-momentum__chart time { font-size: 11px; color: #62676a; }
+.company-momentum__peers { margin: 20px 0 8px; }
+.company-momentum__grid { background: white; border: 1px solid #dfe1de; border-radius: 10px; overflow: hidden; border-top: 1px solid #dfe1de; }
+.momentum__row.is-highlight { background: #eef4ff; box-shadow: inset 3px 0 #1f5fc8; }
+.momentum__others li.is-highlight { background: #eef4ff; }
+@media(max-width:640px) {
+  .company-momentum__stats { grid-template-columns: repeat(2,minmax(0,1fr)); }.company-momentum__stat { border-bottom: 1px solid #e6e7e3; padding: 10px; }.company-momentum__stat strong { font-size: 21px; }
+  .company-momentum__chart { padding: 12px; }.company-momentum__chart ol { gap: 6px; }.company-momentum__chart li { grid-template-rows: auto 80px auto; }
+  .company-momentum__value { font-size: 10px; }.company-momentum__chart time { font-size: 9px; }
+}
+.company-momentum__grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.company-momentum__grid>.momentum__domain:only-child { grid-column: 1/-1; border-right: 0; }.company-momentum__grid>.momentum__domain:last-child:nth-child(odd) { border-bottom: 0; }
+@media(max-width:1100px) { .company-momentum__grid { grid-template-columns: minmax(0,1fr); } }

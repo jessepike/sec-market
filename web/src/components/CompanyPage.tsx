@@ -1,4 +1,5 @@
 import { companyView, eventWindow } from '../data/companyPages'
+import { CompanyMomentum } from './CompanyMomentum'
 
 /**
  * `/companies/<id>/` (D-139): every figure and dated event the site holds for
@@ -19,6 +20,8 @@ export function CompanyPage({ id }: { id: string }) {
         Coverage tier {view.tierNumber}: {view.tierName}.
         Every figure keeps the period it is true for and the source it is cited to.
       </p>
+
+      <CompanyMomentum id={id} />
 
       <h2 id="company-figures">Figures</h2>
       {view.figures.length === 0 ? (
