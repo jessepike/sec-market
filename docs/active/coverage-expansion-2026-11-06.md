@@ -40,6 +40,12 @@ So a roster change on its own would break the daily run. It must ship as a forma
 The same blocker holds SEC-076 (Optiv source link) and SEC-080 (Check Point SEC sources). They
 should ride on the same transition.
 
+Check Point inputs for the transition (from the SEC-080 thread): add `checkpoint-sase:sec_facts`,
+`:sec_submissions` and `:sec_documents` (CIK 0001015922), copied from the `cloudflare:sec_*` entries,
+and append them to the supplier's `sourceIds`. The transition restamps both the Q4 authority and the
+correction policy stamp. The 6-K results parser and site wiring stay with the SEC-080 work and must
+not join the certified cohort.
+
 ## Proposed onboarding gate
 
 1. **One reusable "additive roster transition" (J to K).** A transition type that only adds
