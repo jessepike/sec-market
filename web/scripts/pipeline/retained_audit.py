@@ -1,4 +1,5 @@
 """Hash-bound retained document replay. Lookup hints never confer coverage."""
+import copy
 import json
 import re
 import threading
@@ -45,8 +46,24 @@ def legacy_eligible(receipt, contract, store):
     return True
 
 
+# Original discovery replays only write-once evidence (plans, sealed receipts,
+# manifests, observations, content-addressed bodies), so one process may reuse a
+# verified replay. Reconcile asks for the same origin once per retained URL; on
+# the November 5 archive that repeated about 2,000 sitemap parses per check.
+_ORIGINAL_DISCOVERY = {}
+_VERIFIED_PLANS = set()
+
+
 def original_discovery(binding, contract, source, store, require_complete=True):
     """Read the original source signature from pinned discovery bodies, never a cursor."""
+    key = (str(Path(store.root).resolve()), canonical(binding['origin']), digest(source), digest(contract),
+           bool(require_complete))
+    if key not in _ORIGINAL_DISCOVERY:
+        _ORIGINAL_DISCOVERY[key] = _original_discovery(binding, contract, source, store, require_complete)
+    return copy.deepcopy(_ORIGINAL_DISCOVERY[key])
+
+
+def _original_discovery(binding, contract, source, store, require_complete=True):
     origin = resolve_origin(store, binding['origin'], contract, source['id'])
     old_contract = original_contract(store, binding['origin'])
     old_source = next(s for s in old_contract['sources'] if s['id'] == source['id'])
@@ -328,8 +345,14 @@ def resolve_origin(store, origin, contract, source_id, inventory_only=False):
             bridge(original, contract, source_id)
     else:
         require(plan and plan['contractSha256'] == digest(contract), 'Retained origin policy differs')
-    require(plan == plan_run(original, plan['scheduledAt'], plan.get('previousRunId')),
-            'Retained origin plan inventory differs')
+    # A stored plan is write-once; re-deriving it once per process is enough.
+    # Plans live at a write-once path and original_contract has already bound
+    # this contract to plan['contractSha256'].
+    verified = (str(Path(store.root).resolve()), origin['runId'], plan['contractSha256'])
+    if verified not in _VERIFIED_PLANS:
+        require(plan == plan_run(original, plan['scheduledAt'], plan.get('previousRunId')),
+                'Retained origin plan inventory differs')
+        _VERIFIED_PLANS.add(verified)
     task = next((task for task in plan['tasks'] if task['taskId'] == origin['taskId']), None)
     require(task and task['sourceId'] == source_id, 'Retained origin source task differs')
     if 'receipt' in origin:
