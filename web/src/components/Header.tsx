@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
   { href: '#research', label: 'Evidence' },
   { href: '#method', label: 'Method' },
   { href: '/feed.xml', label: 'Feed', crossPage: true },
+  { href: '/data/', label: 'Data', crossPage: true },
 ]
 
 function scrollToHash(hash: string) {

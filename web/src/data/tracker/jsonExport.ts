@@ -2,6 +2,8 @@ import type { EvidenceRecord } from '../types'
 import type { RunStatus } from '../runStatus'
 import type { TrackerDomain } from './domains'
 import type { SupplierKind, TrackerSupplier } from './suppliers'
+import { isCertifiedSupplier, receiptComplete } from './certification'
+import { DATA_LICENSE, DATA_LICENSE_URL, SITE_URL } from '../meta'
 
 /**
  * The machine-readable `/tracker.json` export (AUTO-001 fix pass 4, item
@@ -28,6 +30,14 @@ export interface TrackerFigure {
   /** The reporting period or as-of date this value is true for — never the run date. */
   period: string
   sourceUrls: string[]
+  /** Publication date of each cited source, in the same order as sourceUrls. */
+  sourceDates: string[]
+  /**
+   * True only for SEC revenue that the certification gate re-derived from the
+   * company's own filings (D-100). Every other figure keeps its own source and
+   * date and is not re-checked automatically.
+   */
+  certified: boolean
 }
 
 export interface TrackerJsonDomain {
@@ -44,6 +54,10 @@ export interface TrackerJsonSupplier {
 }
 
 export interface TrackerJsonPayload {
+  about: string
+  license: string
+  licenseUrl: string
+  documentation: string
   generatedAt: string
   runStatus: {
     lastChecked: string
@@ -69,11 +83,33 @@ function sourceUrlsFor(evidenceIds: string[], evidenceByIdMap: Record<string, Ev
   return urls
 }
 
+/** Publication dates of the same evidence records sourceUrlsFor resolves, in the same order. */
+function sourceDatesFor(evidenceIds: string[], evidenceByIdMap: Record<string, EvidenceRecord>): string[] {
+  const seen = new Set<string>()
+  const dates: string[] = []
+  for (const id of evidenceIds) {
+    const record = evidenceByIdMap[id]
+    const url = record?.canonicalUrl
+    if (url && !seen.has(url)) {
+      seen.add(url)
+      dates.push(record.publicationDate)
+    }
+  }
+  return dates
+}
+
+const CERTIFIED_TYPES: ReadonlySet<TrackerFigureType> = new Set(['revenue-latest', 'revenue-prior'])
+
+/** Whether a figure of this type for this supplier is part of the certified claim set. */
+export function isCertifiedFigure(supplierId: string, type: TrackerFigureType): boolean {
+  return receiptComplete && CERTIFIED_TYPES.has(type) && isCertifiedSupplier(supplierId)
+}
+
 function figuresForSupplier(
   supplier: TrackerSupplier,
   evidenceByIdMap: Record<string, EvidenceRecord>,
 ): TrackerFigure[] {
-  const figures: TrackerFigure[] = []
+  const figures: Omit<TrackerFigure, 'certified'>[] = []
 
   if (supplier.headlineMetric) {
     const metric = supplier.headlineMetric
@@ -85,6 +121,7 @@ function figuresForSupplier(
       value: metric.value,
       period: metric.period,
       sourceUrls: sourceUrlsFor(metric.evidenceIds, evidenceByIdMap),
+      sourceDates: sourceDatesFor(metric.evidenceIds, evidenceByIdMap),
     })
   }
 
@@ -98,6 +135,7 @@ function figuresForSupplier(
       value: latest.value,
       period: latest.period,
       sourceUrls: sourceUrlsFor(latest.evidenceIds, evidenceByIdMap),
+      sourceDates: sourceDatesFor(latest.evidenceIds, evidenceByIdMap),
     })
   }
 
@@ -111,6 +149,7 @@ function figuresForSupplier(
       value: prior.value,
       period: prior.period,
       sourceUrls: sourceUrlsFor(prior.evidenceIds, evidenceByIdMap),
+      sourceDates: sourceDatesFor(prior.evidenceIds, evidenceByIdMap),
     })
   }
 
@@ -124,6 +163,7 @@ function figuresForSupplier(
       value: round.amount,
       period: round.date,
       sourceUrls: sourceUrlsFor(round.evidenceIds, evidenceByIdMap),
+      sourceDates: sourceDatesFor(round.evidenceIds, evidenceByIdMap),
     })
   }
 
@@ -137,10 +177,11 @@ function figuresForSupplier(
       value: ownership.relationship ?? ownership.status,
       period: ownership.closed ?? ownership.announced ?? '',
       sourceUrls: sourceUrlsFor(ownership.evidenceIds, evidenceByIdMap),
+      sourceDates: sourceDatesFor(ownership.evidenceIds, evidenceByIdMap),
     })
   }
 
-  return figures
+  return figures.map((figure) => ({ ...figure, certified: isCertifiedFigure(supplier.id, figure.type) }))
 }
 
 export function trackerJsonPayload(
@@ -150,6 +191,12 @@ export function trackerJsonPayload(
   status: RunStatus,
 ): TrackerJsonPayload {
   return {
+    about:
+      'Security Market Pulse: dated, sourced facts about the business of security suppliers. Every figure carries ' +
+      'its reporting period and the source it is cited to. Facts only, no rankings or forecasts.',
+    license: DATA_LICENSE,
+    licenseUrl: DATA_LICENSE_URL,
+    documentation: `${SITE_URL}/data/`,
     generatedAt: status.lastChecked,
     runStatus: {
       lastChecked: status.lastChecked,

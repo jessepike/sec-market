@@ -39,6 +39,9 @@ export const PRODUCT_TITLE = 'Security Market Pulse'
 export const SITE_URL = 'https://securitymarketpulse.com'
 export const AUTHOR_NAME = 'Jesse Pike'
 export const CONTACT_EMAIL = 'jp@jessepike.dev'
+/** License for the published data and pages (owner decision, 2026-11-06, D-139). */
+export const DATA_LICENSE = 'CC-BY-4.0'
+export const DATA_LICENSE_URL = 'https://creativecommons.org/licenses/by/4.0/'
 
 /**
  * One-sentence description of what the site is (design-spec v0.3 §3.2). Shown

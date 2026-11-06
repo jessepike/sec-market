@@ -1,7 +1,7 @@
 import { issues } from './issues/index'
 import type { Issue } from './types'
 
-export type RouteKind = 'front' | 'archive' | 'corrections' | 'issue' | 'thesis' | 'coverage'
+export type RouteKind = 'front' | 'archive' | 'corrections' | 'issue' | 'thesis' | 'coverage' | 'data'
 
 export interface RouteEntry {
   /** Always starts and ends with "/", e.g. "/", "/issues/", "/issues/2026-w36/". */
@@ -24,6 +24,7 @@ export function routesFor(issuesList: Issue[]): RouteEntry[] {
     { path: '/corrections/', kind: 'corrections' },
     { path: '/thesis/', kind: 'thesis' },
     { path: '/coverage/', kind: 'coverage' },
+    { path: '/data/', kind: 'data' },
     ...issuesList.map((issue) => ({ path: `/issues/${issue.id}/`, kind: 'issue' as const, issueId: issue.id })),
   ]
 }

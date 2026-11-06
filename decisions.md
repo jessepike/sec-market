@@ -22,6 +22,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Model route | D-109, D-126 | The AI step runs on the owner's ChatGPT subscription in GitHub Actions. Standard v0.7 allows this at T2 because a failed run cannot publish anything wrong, the outside watchdog alerts, and the login secret serves one job |
 | Spend on automation | D-129 | GitHub Actions budget $5/month, shared with the owner's other sites, and watched |
 | Backlog and coverage | D-130, D-131 | Documents older than 12 months are archived, not reviewed; a supplier-mention check runs before any model call. `/coverage/` lists all 74 suppliers with a tier derived from their data |
+| Agent access | D-139 | Every fact is also published as JSON, CSV and Markdown with its period, sources and certified flag, plus `/llms.txt` and a `/data/` page. Data and pages are CC BY 4.0; AI training allowed |
 | Retired code | D-133 | Codex Cloud, local-worker and Cloudflare runtimes and the legacy `promote.yml`/`certified-refresh.yml` workflows are removed; Git history keeps them |
 | Pending correction | D-132 | Optiv's May 8 closing date stays; its source link moves to the May 8 closing release at the next accepted contract change |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
@@ -1524,3 +1525,13 @@ after a contract transition adds it to the daily pipeline and it passes three cl
 Adding one supplier to `contracts/market.json` was measured to fail 40 of 1,064 `ops/ci` tests and the
 collector's Q4 seeding path, so the transition (SEC-083) is reusable and ships after the collection
 timeout fix. Plan: [coverage-expansion-2026-11-06.md](docs/active/coverage-expansion-2026-11-06.md).
+**D-139 · 2026-11-06 — Agent access: data files, Markdown views and an open license.**
+The owner, 2026-11-06: "I want this site to be agent accessible, like highly agents accessible."
+Shown a recommendation (build-time files, then one page per company, an MCP server only if usage
+shows demand; no Cloudflare), the owner said: "yes to both. And then, yeah, let's go with your
+recommendations there." "Both" answers two questions: the data and pages are licensed CC BY 4.0,
+and AI training is allowed (`Content-Signal: search=yes, ai-input=yes, ai-train=yes` in robots.txt).
+Built: `/data/` page, `/llms.txt`, `/index.md`, `/data/index.md`, `/tracker.csv`, `/events.json`,
+`/events.csv`, a `certified` flag and source dates on every tracker figure, license fields in the
+JSON, Dataset JSON-LD on `/data/`, and Link headers. All are generated at build from the same data
+the page renders; nothing adds a function, a scheduled job or a provider. Next: per-company pages.

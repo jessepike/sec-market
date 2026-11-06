@@ -66,6 +66,9 @@ import { runStatus } from '../src/data/runStatus.ts'
 import { trackerDomains } from '../src/data/tracker/domains.ts'
 import { trackerJsonPayload } from '../src/data/tracker/jsonExport.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
+import { trackerEvents } from '../src/data/tracker/events.ts'
+import { isCertifiedEvent } from '../src/data/tracker/certification.ts'
+import { writeAgentFiles } from './generate-agent.ts'
 import type { Correction, EvidenceRecord, Issue } from '../src/data/types.ts'
 import type { RunStatus } from '../src/data/runStatus.ts'
 import type { TrackerDomain } from '../src/data/tracker/domains.ts'
@@ -303,6 +306,8 @@ if (isMainModule()) {
   )
 
   const trackerResult = writeTrackerJson(trackerSuppliers, trackerDomains, evidenceById, runStatus, distDir)
+  const agentFiles = writeAgentFiles(trackerSuppliers, trackerDomains, trackerEvents, evidenceById, runStatus, isCertifiedEvent, distDir)
+  console.log(`generate-feed OK: wrote ${agentFiles.length} agent file(s): ${agentFiles.join(', ')}.`)
   console.log(
     `generate-feed OK: wrote dist/tracker.json with ${trackerResult.figureCount} figure(s).`,
   )
@@ -327,6 +332,7 @@ if (isMainModule()) {
     { href: `${SITE_URL}/corrections.json`, title: 'Corrections (JSON)' },
     ...(factualCorrectionGroups.length ? [{ href: `${SITE_URL}/factual-corrections.json`, title: 'Factual correction records (JSON)' }] : []),
     { href: `${SITE_URL}/tracker.json`, title: 'Tracker (JSON)' },
+    { href: `${SITE_URL}/events.json`, title: 'Events (JSON)' },
   ]
 
   for (const routeEntry of routes) {
@@ -353,7 +359,15 @@ if (isMainModule()) {
       )
       .join('\n')
 
-    const linkTags = `${rssLinkTag}\n${jsonLinkTags}\n  `
+    // D-139: the Markdown twin of this page, where one is built, plus the CSV
+    // copy of the tracker and the agent guide.
+    const markdownHref = routeEntry.path === '/' ? `${SITE_URL}/index.md` : routeEntry.path === '/data/' ? `${SITE_URL}/data/index.md` : null
+    const agentLinkTags = [
+      ...(markdownHref ? [`    <link rel="alternate" type="text/markdown" title="This page (Markdown)" href="${markdownHref}" />`] : []),
+      `    <link rel="alternate" type="text/csv" title="Tracker (CSV)" href="${SITE_URL}/tracker.csv" />`,
+      `    <link rel="help" type="text/plain" title="Guide for agents" href="${SITE_URL}/llms.txt" />`,
+    ].join('\n')
+    const linkTags = `${rssLinkTag}\n${jsonLinkTags}\n${agentLinkTags}\n  `
     const nextHtml = html.replace('</head>', () => `${linkTags}</head>`)
     writeFileSync(outPath, nextHtml)
   }

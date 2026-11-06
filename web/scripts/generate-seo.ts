@@ -31,6 +31,7 @@ import { routes, type RouteEntry } from '../src/data/routes.ts'
 import { marketCall } from '../src/data/market.ts'
 import {
   AUTHOR_NAME,
+  DATA_LICENSE_URL,
   LAST_UPDATED_ISO,
   PRODUCT_TITLE,
   SITE_DESCRIPTION,
@@ -186,6 +187,32 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
       isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
       inLanguage: 'en',
       dateModified: LAST_UPDATED_ISO,
+    }
+  }
+
+  if (routeEntry.kind === 'data') {
+    // D-139: schema.org Dataset, so dataset search and agents can find the files.
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Dataset',
+      '@id': `${url}#dataset`,
+      url,
+      name: `${PRODUCT_TITLE} tracker data`,
+      description: readDescription(html),
+      inLanguage: 'en',
+      isAccessibleForFree: true,
+      license: DATA_LICENSE_URL,
+      dateModified: LAST_UPDATED_ISO,
+      creator: { '@type': 'Organization', '@id': PUBLISHER_ID, name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      publisher: { '@type': 'Organization', '@id': PUBLISHER_ID, name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      keywords: ['cybersecurity market', 'security vendors', 'revenue', 'funding', 'acquisitions', 'layoffs', 'SEC filings'],
+      distribution: [
+        { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${SITE_URL}/tracker.json` },
+        { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: `${SITE_URL}/tracker.csv` },
+        { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: `${SITE_URL}/events.json` },
+        { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: `${SITE_URL}/events.csv` },
+      ],
     }
   }
 

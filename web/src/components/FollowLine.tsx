@@ -7,7 +7,7 @@ export function FollowLine() {
   return (
     <section id="follow" className="follow-line" aria-label="Follow">
       <p>
-        Every certified claim and its SEC source is listed in the <a href="/certified-coverage.json">certification receipt</a>. Follow new records by <a href="/feed.xml">RSS</a>.
+        Every certified claim and its SEC source is listed in the <a href="/certified-coverage.json">certification receipt</a>. Follow new records by <a href="/feed.xml">RSS</a>. Programs and AI agents can read every fact as JSON, CSV or Markdown on the <a href="/data/">data page</a>.
       </p>
     </section>
   )

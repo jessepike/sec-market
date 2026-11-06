@@ -94,6 +94,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   // never nested on either page, both routes covered by this one entry.
   thesis: ['thesis', 'read'],
   coverage: ['coverage'],
+  data: ['data'],
 }
 
 function runMustSeeGate(routeEntry: RouteEntry, appHtml: string): void {
@@ -158,6 +159,15 @@ function headFor(routeEntry: RouteEntry): RouteHead {
       description:
         'Every security supplier Security Market Pulse tracks, its company type, and how much is covered for it: ' +
         'SEC-checked revenue, company-reported results, funding and company statements, or ownership and events only.',
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'data') {
+    return {
+      title: 'Data for agents · Security Market Pulse',
+      description:
+        'Every fact on Security Market Pulse as files that programs and AI agents can read: JSON, CSV and ' +
+        'Markdown, each figure with its period, source and certified flag. Licensed CC BY 4.0.',
       ogUrl: url,
     }
   }
