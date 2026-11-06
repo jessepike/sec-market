@@ -3,7 +3,7 @@ import type { Issue } from './types'
 import { trackerSuppliers } from './tracker/suppliers'
 import { companySlug } from './tracker/slugs'
 
-export type RouteKind = 'front' | 'archive' | 'corrections' | 'issue' | 'thesis' | 'coverage' | 'data' | 'funding' | 'company'
+export type RouteKind = 'front' | 'archive' | 'corrections' | 'issue' | 'thesis' | 'coverage' | 'data' | 'funding' | 'market' | 'company'
 
 export interface RouteEntry {
   /** Always starts and ends with "/", e.g. "/", "/issues/", "/issues/2026-w36/". */
@@ -29,6 +29,7 @@ export function routesFor(issuesList: Issue[], supplierIds: readonly string[] = 
     { path: '/coverage/', kind: 'coverage' },
     { path: '/data/', kind: 'data' },
     { path: '/funding/', kind: 'funding' },
+    { path: '/market/', kind: 'market' },
     ...issuesList.map((issue) => ({ path: `/issues/${issue.id}/`, kind: 'issue' as const, issueId: issue.id })),
     // D-139: one page per tracked supplier.
     ...supplierIds.map((id) => ({ path: `/companies/${companySlug(id)}/`, kind: 'company' as const, supplierId: id })),

@@ -26,9 +26,9 @@ interface NavItem {
 // comment).
 const navItems: NavItem[] = [
   { href: '#tracker-changed', label: 'What changed' },
-  { href: '#reported-growth', label: 'Reported growth' },
+  { href: '#momentum', label: 'Revenue growth' },
   { href: '/issues/', label: 'Archive', crossPage: true },
-  { href: '#market', label: 'Market' },
+  { href: '/market/', label: 'Market', crossPage: true },
   { href: '/coverage/', label: 'Coverage', crossPage: true },
   { href: '/funding/', label: 'Funding', crossPage: true },
   { href: '#research', label: 'Evidence' },

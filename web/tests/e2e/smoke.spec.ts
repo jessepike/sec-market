@@ -91,12 +91,15 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   // The twelve-domain tracker stays visible on first paint — no click
   // required to reach the market-by-domain tables, the 30-day change log,
   // or the coverage statement.
-  await expect(page.locator('#market-heading')).toHaveText('The market by domain')
-  await expect(page.locator('#market .tracker-domain')).toHaveCount(12)
+  await expect(page.locator('#momentum-heading')).toHaveText('Company revenue growth')
   await expect(page.locator('#tracker-changed-heading')).toHaveText('What changed in the last 30 days')
   await expect(page.locator('#tracker-coverage-heading')).toHaveText('What this site covers')
   await expect(page.locator('.tracker-coverage__domains li').first()).toBeVisible()
 
+  // The twelve-domain index lives on /market/ (design review 2026-11-06).
+  await page.goto('/market/')
+  await expect(page.locator('#market-heading')).toHaveText('The market by domain')
+  await expect(page.locator('#market .tracker-domain')).toHaveCount(12)
   // Segments keep their own scope and never borrow a parent's total revenue.
   await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
   await expect(page.locator('.desk-dialog .desk-gap')).toContainText('No separately reported quarterly revenue')
@@ -131,7 +134,7 @@ test('no judged stamps on the front page', async ({ page }) => {
 })
 
 test('supplier records link attributed public sources and close with Escape', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/market/')
   await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
   const dialog = page.locator('.desk-dialog')
   await expect(dialog).toBeVisible()
@@ -156,6 +159,7 @@ test('the front page never opens a judged evidence record', async ({ page }) => 
   const libraryText = await page.locator('#research .evidence-library__list').innerText()
   expect(libraryText).not.toContain('strongest realized network-security acceleration')
 
+  await page.goto('/market/')
   await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
   await expect(page.locator('.desk-dialog').getByRole('heading', { name: 'Interpretation' })).toHaveCount(0)
 })

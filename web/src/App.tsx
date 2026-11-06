@@ -143,6 +143,7 @@ function RouteContent({ path }: { path: string }) {
   if (route.kind === 'data') return <DataForAgents />
   if (route.kind === 'company' && route.supplierId) return <CompanyPage id={route.supplierId} />
   if (route.kind === 'funding') return <FundingRounds />
+  if (route.kind === 'market') return <MarketDesk view="market" />
   if (route.kind === 'issue' && route.issueId && issueById[route.issueId]) {
     return <IssuePage issue={issueById[route.issueId]} />
   }
@@ -156,7 +157,7 @@ function AppShell({ path }: { path: string }) {
     <>
       <SkipLink />
       <ProvenanceRail />
-      <div className={`app-shell${matchRoute(path).kind === 'front' ? ' app-shell--desk' : ''}`} inert={isOpen ? true : undefined}>
+      <div className={`app-shell${['front', 'market'].includes(matchRoute(path).kind) ? ' app-shell--desk' : ''}`} inert={isOpen ? true : undefined}>
         <Header path={path} />
         <main id="main" className="main-content" tabIndex={-1}>
           <RouteContent path={path} />

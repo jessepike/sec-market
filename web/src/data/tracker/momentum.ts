@@ -57,8 +57,8 @@ export interface DomainMomentum {
   others: OtherCompany[]
 }
 
-const median = (values: number[]): number | null => {
-  if (values.length < 2) return null
+const median = (values: number[], min = 2): number | null => {
+  if (values.length < min) return null
   const s = values.slice().sort((a, b) => a - b)
   const mid = Math.floor(s.length / 2)
   return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2
@@ -86,7 +86,8 @@ export function domainMomentum(): DomainMomentum[] {
   return trackerDomains.map(domain => {
     const members = new Set(suppliersForDomain(domain.id).map(s => s.id))
     const growth = certifiedGrowth.filter(r => members.has(r.supplier.id))
-    const med = median(growth.map(r => r.latest))
+    // A median of two filers reads as a domain signal it is not; shown from three.
+    const med = median(growth.map(r => r.latest), 3)
     const rows = growth.map(r => ({
       supplier: r.supplier,
       latest: r.latest,

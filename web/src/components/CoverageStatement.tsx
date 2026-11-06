@@ -18,7 +18,7 @@ export function CoverageStatement() {
       <ul className="tracker-coverage__domains">
         {trackerDomains.map((domain) => (
           <li key={domain.id}>
-            <a href={`#domain-${domain.id}`}>{domain.name}</a> — {domain.scope}
+            <a href={`/market/#domain-${domain.id}`}>{domain.name}</a>: {domain.scope}
           </li>
         ))}
       </ul>

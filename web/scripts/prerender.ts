@@ -86,7 +86,8 @@ if (typeof mod.render !== 'function') {
 // domain" cards) no longer renders on this route; see the comment above
 // FrontPage() in src/App.tsx.
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
-  front: ['overview', 'market', 'tracker-changed', 'tracker-coverage', 'follow'],
+  front: ['overview', 'tracker-changed', 'momentum', 'tracker-coverage', 'follow'],
+  market: ['event-timeline', 'reported-growth', 'market'],
   archive: ['issues'],
   corrections: ['corrections'],
   issue: ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think'],
@@ -180,6 +181,15 @@ function headFor(routeEntry: RouteEntry): RouteHead {
     return {
       title: `${view.displayName}${view.ticker ? ` (${view.ticker})` : ''}: revenue, funding and events · Security Market Pulse`,
       description: companyDescription(view),
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'market') {
+    return {
+      title: 'Market detail: twelve months of events, growth and domains · Security Market Pulse',
+      description:
+        'Twelve months of tracked security market events by month, revenue growth for every public supplier, ' +
+        'and every tracked company by security domain, each with its source.',
       ogUrl: url,
     }
   }

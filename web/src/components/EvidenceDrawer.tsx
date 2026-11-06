@@ -131,7 +131,7 @@ export function EvidenceDrawer() {
                           {record.sourceAttributions.map((source, index) => (
                             <li key={`${source.organization}-${index}`}>
                               <strong>{source.organization}</strong>
-                              {' — '}
+                              {', '}
                               <time dateTime={source.publicationDate}>{source.publicationDate}</time>
                               {source.economicPeriod ? ` (${source.economicPeriod})` : ''}
                               {source.canonicalUrl && (
@@ -193,7 +193,7 @@ export function EvidenceDrawer() {
                             className="conflict-link"
                             onClick={() => openConflictingEvidence(item.id)}
                           >
-                            <strong>{item.organization}</strong> — {item.title}
+                            <strong>{item.organization}</strong>: {item.title}
                           </button>
                           <p>{item.interpretation}</p>
                         </li>

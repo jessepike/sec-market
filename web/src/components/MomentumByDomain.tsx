@@ -61,7 +61,7 @@ function Row({ row, median, openSupplier, highlight }: { row: MomentumRow; media
 export function DomainCard({ d, openSupplier, highlight }: { d: DomainMomentum; openSupplier?: (id: string) => void; highlight?: string }) {
   return <article className="momentum__domain" aria-labelledby={`momentum-${d.id}`}>
     <div className="momentum__domain-head"><h3 id={`momentum-${d.id}`}>{d.name}</h3>
-      <span>{d.median !== null ? <>Median <strong>{formatPercent(d.median)}</strong> across {d.rows.length} filers</> : '1 SEC filer, no median'}</span></div>
+      <span>{d.median !== null ? <>Median <strong>{formatPercent(d.median)}</strong> across {d.rows.length} filers</> : `${d.rows.length} SEC ${d.rows.length === 1 ? 'filer' : 'filers'}; median shown from 3`}</span></div>
     <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
       {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
     <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} highlight={highlight} />)}</ul>
@@ -73,16 +73,35 @@ export function DomainCard({ d, openSupplier, highlight }: { d: DomainMomentum; 
   </article>
 }
 
+/** All certified filers once, ranked by latest growth, with the market median as the tick. */
+function AllDomains({ openSupplier }: { openSupplier: (id: string) => void }) {
+  const seen = new Set<string>()
+  const rows = withRows.flatMap(d => d.rows).filter(r => !seen.has(r.supplier.id) && seen.add(r.supplier.id)).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
+  return <article className="momentum__domain momentum__all" aria-label="All SEC filers ranked">
+    <div className="momentum__domain-head"><h3>All {rows.length} SEC filers</h3>{marketMedian !== null && <span>Median <strong>{formatPercent(marketMedian)}</strong></span>}</div>
+    <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
+      {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
+    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{rows.map(row => <Row key={row.supplier.id} row={{ ...row, vsMedian: null }} median={marketMedian} openSupplier={openSupplier} />)}</ul>
+  </article>
+}
+
 export function MomentumByDomain({ openSupplier }: { openSupplier: (id: string) => void }) {
   const [expanded, setExpanded] = useState(false)
+  const [all, setAll] = useState(false)
   return <section id="momentum" className={`desk-panel momentum${expanded ? ' is-expanded' : ''}`} aria-labelledby="momentum-heading">
-    <div className="desk-panel__head"><h2 id="momentum-heading">Revenue momentum by domain</h2>
-      <span>{marketMedian !== null && <>All {certifiedGrowth.length} SEC filers: median {formatPercent(marketMedian)}</>}</span></div>
-    <p className="desk-note">Year-over-year revenue growth for the latest quarter, highest first, re-derived from SEC filings. Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. The arrow shows the change from the prior quarter&rsquo;s growth rate, in percentage points. The tick on each bar is the domain median. A company can appear in more than one domain.
-      {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They are computed from the same SEC filings but are not yet part of the certified check. Debt is not shown yet: SEC tags for it are not consistent enough across these 16 filers.</>}
-      {' '}Private companies, segments and non-SEC filers have no comparable financials here; their events are listed under each domain.</p>
-    <div className="momentum__grid">{withRows.map(d => <DomainCard key={d.id} d={d} openSupplier={openSupplier} />)}</div>
-    <button type="button" className="momentum__mobile-toggle" aria-expanded={expanded} onClick={() => setExpanded(v => !v)}>{expanded ? 'Show fewer domains' : `Show all ${withRows.length} domains`}</button>
-    {withoutRows.length > 0 && <p className="desk-note momentum__none">No SEC filer in {withoutRows.map(d => d.name).join(', ')}. Their companies are in the domain list below.</p>}
+    <div className="desk-panel__head"><h2 id="momentum-heading">Company revenue growth</h2>
+      <div className="momentum__toggle" role="group" aria-label="Group companies">
+        <button type="button" aria-pressed={!all} onClick={() => setAll(false)}>By domain</button>
+        <button type="button" aria-pressed={all} onClick={() => setAll(true)}>All domains</button>
+      </div></div>
+    <p className="desk-note">Whole-company revenue growth, year over year, for the latest quarter, re-derived from SEC filings. The arrow is the change from the prior quarter&rsquo;s growth rate. The tick is the median.</p>
+    <details className="momentum__how"><summary>How to read this</summary><p className="desk-note">Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. Growth is for the whole company, not for its business in one domain, so a company can appear in more than one domain card. A domain median is shown only with three or more filers.
+      {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They come from the same SEC filings but are not yet part of the certified check. Debt is not shown yet: SEC tags for it are not consistent enough across these 16 filers.</>}
+      {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest event.</p></details>
+    {all ? <div className="momentum__grid momentum__grid--one"><AllDomains openSupplier={openSupplier} /></div> : <>
+      <div className="momentum__grid">{withRows.map(d => <DomainCard key={d.id} d={d} openSupplier={openSupplier} />)}</div>
+      <button type="button" className="momentum__mobile-toggle" aria-expanded={expanded} onClick={() => setExpanded(v => !v)}>{expanded ? 'Show fewer domains' : `Show all ${withRows.length} domains`}</button>
+      {withoutRows.length > 0 && <p className="desk-note momentum__none">No SEC filer in {withoutRows.map(d => d.name).join(', ')}. Their companies are on the <a href="/market/#market">market page</a>.</p>}
+    </>}
   </section>
 }

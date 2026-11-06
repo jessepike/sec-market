@@ -11,18 +11,52 @@ for (const width of [1440, 390]) {
     await expect(page.locator('.site-masthead__stamps a')).toHaveAttribute('href', '#overview')
     await expect(page.locator('.desk-hero')).not.toContainText(/Daily source intake|Document processing|Historical review/)
     await expect(page.locator('#overview')).toContainText('re-derived from their own SEC filings')
-    await expect(page.locator('.desk-counts small').first()).toContainText('in 12 months')
+    await expect(page.locator('.desk-counts small')).toHaveCount(0)
+    await expect(page.locator('.desk-counts-note a', { hasText: 'Explore 12 months' })).toHaveAttribute('href', '/market/#event-timeline')
     await expect(page.locator('.desk-hero')).not.toContainText(/\d+ suppliers|SEC filers certified/)
     await expect(page.locator('.market-desk')).not.toContainText(/Diagnostic candidate|Latest attempt/)
     await expect(page.locator('.market-desk')).not.toContainText(/owner.s read/i)
-    // Momentum by domain leads the page (owner approved 2026-11-06): certified growth, domain median, change vs prior quarter.
-    await expect(page.locator('#momentum-heading')).toHaveText('Revenue momentum by domain')
-    expect(await page.locator('#momentum').evaluate(e => e.getBoundingClientRect().top)).toBeLessThan(width === 390 ? 844 : 900)
+    await expect(page.locator('.market-desk')).not.toContainText('—')
+    // Landing order (design review 2026-11-06): tiles, a short feed, then company revenue growth.
+    const top = (sel: string) => page.locator(sel).evaluate(e => e.getBoundingClientRect().top)
+    expect(await top('.desk-counts')).toBeLessThan(await top('#tracker-changed'))
+    expect(await top('#tracker-changed')).toBeLessThan(await top('#momentum'))
+    await expect(page.locator('#momentum-heading')).toHaveText('Company revenue growth')
     await expect(page.locator('#momentum .momentum__row').first()).toContainText('pts')
     await expect(page.locator('.desk-counts__snapshot').first()).not.toBeEmpty()
-    await expect(page.locator('#tracker-changed .desk-type', { hasText: 'SEC filing' })).toHaveCount(0)
+    await expect(page.locator('#tracker-changed .desk-tag', { hasText: 'SEC filing' })).toHaveCount(0)
+    await expect(page.locator('#tracker-changed .desk-line')).toHaveCount(Math.min(5, feedChanges.length))
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
-    await expect(page.locator('.desk-change').first()).toBeVisible()
+    // The heatmap, the full growth chart and the domain index moved to /market/.
+    await expect(page.locator('#event-timeline, #reported-growth, #market')).toHaveCount(0)
+    // All domains: every SEC filer once.
+    await page.getByRole('button', { name: 'All domains', exact: true }).click()
+    await expect(page.locator('.momentum__all .momentum__row')).toHaveCount(16)
+    await page.getByRole('button', { name: 'By domain', exact: true }).click()
+    // An entry opens the event in the side panel, with its source.
+    await page.locator('#tracker-changed .desk-line__fact').first().click()
+    const event = page.locator('.desk-event-dialog')
+    await expect(event).toBeVisible()
+    await expect(event.locator('.desk-sources a').first()).toHaveAttribute('href', /^https:\/\//)
+    await page.keyboard.press('Escape')
+    await expect(event).toBeHidden()
+    if (width === 390) expect(await page.evaluate(() => document.body.scrollHeight)).toBeLessThan(10000)
+    if (feedChanges.length > 5) {
+      await page.locator('#tracker-changed .desk-show-all').click()
+      await expect(page.locator('#tracker-changed .desk-line')).toHaveCount(feedChanges.length)
+    }
+    expect(errors).toEqual([])
+  })
+}
+
+for (const width of [1440, 390]) {
+  test(`market page holds the timeline, growth chart and domains at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 390 ? 844 : 900 })
+    const errors: string[] = []
+    page.on('pageerror', error => errors.push(error.message))
+    await page.goto('/market/')
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
+    await expect(page.locator('#desk-timeline-heading + span')).toContainText(/\d+ events from \d+ entries/)
     if (width === 390) {
       await expect(page.locator('.desk-domain.is-selected')).toBeVisible()
       await page.locator('.desk-domain-select select').selectOption('identity')
@@ -38,9 +72,9 @@ for (const width of [1440, 390]) {
     await page.getByRole('button', { name: 'Sort A–Z', exact: true }).click()
     const open = chart.getByRole('button', { name: 'Cloudflare', exact: true })
     await open.focus(); await page.keyboard.press('Enter')
-    const dialog = page.getByRole('dialog', { name: 'Cloudflare, Inc.' })
-    await expect(page.locator('.desk-dialog')).toBeVisible()
-    await expect(page.locator('.desk-dialog')).toContainText('+35.9%')
+    const dialog = page.locator('.desk-dialog')
+    await expect(dialog).toBeVisible()
+    await expect(dialog).toContainText('+35.9%')
     await expect(page.locator('.desk-quarter-table')).toBeVisible()
     await page.keyboard.press('Tab')
     expect(await page.evaluate(() => document.activeElement?.closest('dialog') !== null)).toBe(true)
@@ -54,9 +88,6 @@ for (const width of [1440, 390]) {
     await expect(point).toHaveAttribute('aria-pressed', 'true')
     await expect(page.locator('#desk-timeline-events .desk-change').first()).toBeVisible()
     await expect(page.locator('#desk-timeline-events .desk-sources a').first()).toHaveAttribute('href', /^https:\/\//)
-    if (width === 390) expect(await page.evaluate(() => document.body.scrollHeight)).toBeLessThan(10000)
-    await page.locator('.desk-show-all').click()
-    await expect(page.locator('#tracker-changed .desk-change')).toHaveCount(feedChanges.length)
     expect(errors).toEqual([])
   })
 }

@@ -34,7 +34,7 @@ for (const width of [1440, 390]) {
     await expect(field).toHaveValue('')
     await expect(field).toBeFocused()
     await expect(search.locator('li')).toHaveCount(0)
-    await expect(page.locator('.desk-change').first()).toBeVisible()
+    await expect(page.locator('.desk-line').first()).toBeVisible()
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
     expect(errors).toEqual([])
   })

@@ -24,7 +24,7 @@ import { SITE_HEADLINE } from '../../src/data/meta.ts'
 // tracker (`market`) and its two supporting sections, plus `follow`.
 // AUTO-001 fix pass (2026-09-26), item 4: 'landscape' is dropped —
 // DomainBoard's LandscapeSection no longer renders on any route.
-const TRACKER_FRONT_IDS = ['market', 'tracker-changed', 'tracker-coverage', 'follow']
+const TRACKER_FRONT_IDS = ['tracker-changed', 'momentum', 'tracker-coverage', 'follow']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
@@ -129,9 +129,9 @@ test.describe('weekly issue — front page', () => {
   // a nav target — see tests/e2e/thesis.spec.ts). AUTO-001 fix pass
   // (2026-09-26): "Landscape" (#landscape) was this regression's exercise
   // target until DomainBoard's LandscapeSection stopped rendering on any
-  // route (item 4); "Market" (#market) is still a front-page-only hash item,
+  // route (item 4); "What changed" (#tracker-changed) is a front-page-only hash item,
   // absent from the issue permalink, and exercises the same regression.
-  test('permalink page: clicking "Market" navigates to the front page at #market', async ({
+  test('permalink page: clicking "What changed" navigates to the front page at #tracker-changed', async ({
     page,
   }) => {
     await page.goto(`/issues/${latestIssue.id}/`)
@@ -144,10 +144,10 @@ test.describe('weekly issue — front page', () => {
     // exact: true — the brand link's own accessible name ("Security Market
     // Pulse") also contains the substring "Market", which a non-exact match
     // resolves ambiguously against the nav's "Market" link.
-    await page.getByRole('link', { name: 'Market', exact: true }).click()
-    await page.waitForURL(/\/#market$/)
+    await page.getByRole('link', { name: 'What changed', exact: true }).click()
+    await page.waitForURL(/\/#tracker-changed$/)
 
-    expect(new URL(page.url()).hash).toBe('#market')
-    await expect(page.locator('#market')).toBeVisible()
+    expect(new URL(page.url()).hash).toBe('#tracker-changed')
+    await expect(page.locator('#tracker-changed')).toBeVisible()
   })
 })
