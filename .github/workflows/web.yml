@@ -39,8 +39,7 @@ jobs:
       - run: npm ci
       - name: Verify all operational guards for exact code
         working-directory: .
-        # Same tests as `python3 -m unittest discover -s ops/ci`, on every core (about 5 min to under 2).
-        run: python3 ops/ci/run_suite.py
+        run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
       - name: Verify the weekly funding collector
         working-directory: .
         run: python3 -m unittest discover -s ops/funding -p 'test_*.py' -v
