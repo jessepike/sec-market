@@ -21,6 +21,7 @@ import { RunStatus } from './components/RunStatus'
 import { SkipLink } from './components/SkipLink'
 import { SupplierCoverage } from './components/SupplierCoverage'
 import { DataForAgents } from './components/DataForAgents'
+import { CompanyPage } from './components/CompanyPage'
 import { FundingRounds } from './components/FundingRounds'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { WeThink } from './components/WeThink'
@@ -140,6 +141,7 @@ function RouteContent({ path }: { path: string }) {
   if (route.kind === 'thesis') return <ThesisPage />
   if (route.kind === 'coverage') return <SupplierCoverage />
   if (route.kind === 'data') return <DataForAgents />
+  if (route.kind === 'company' && route.supplierId) return <CompanyPage id={route.supplierId} />
   if (route.kind === 'funding') return <FundingRounds />
   if (route.kind === 'issue' && route.issueId && issueById[route.issueId]) {
     return <IssuePage issue={issueById[route.issueId]} />

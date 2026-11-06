@@ -361,7 +361,7 @@ if (isMainModule()) {
 
     // D-139: the Markdown twin of this page, where one is built, plus the CSV
     // copy of the tracker and the agent guide.
-    const markdownHref = routeEntry.path === '/' ? `${SITE_URL}/index.md` : routeEntry.path === '/data/' ? `${SITE_URL}/data/index.md` : null
+    const markdownHref = routeEntry.path === '/' ? `${SITE_URL}/index.md` : routeEntry.path === '/data/' ? `${SITE_URL}/data/index.md` : routeEntry.kind === 'company' ? `${SITE_URL}${routeEntry.path}index.md` : null
     const agentLinkTags = [
       ...(markdownHref ? [`    <link rel="alternate" type="text/markdown" title="This page (Markdown)" href="${markdownHref}" />`] : []),
       `    <link rel="alternate" type="text/csv" title="Tracker (CSV)" href="${SITE_URL}/tracker.csv" />`,

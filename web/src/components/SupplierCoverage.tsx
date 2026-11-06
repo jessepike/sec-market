@@ -1,3 +1,4 @@
+import { companyPath } from '../data/companyPages'
 import { formatShortDate } from '../data/tracker/derive'
 import { coverageRows, coverageTiers, rowsForTier, typeTierCounts } from '../data/tracker/coverage'
 import { onboardingRows, showOnboarding } from '../data/tracker/onboarding'
@@ -76,7 +77,7 @@ export function SupplierCoverage() {
                 {rows.map((row) => (
                   <tr key={row.supplier.id}>
                     <th scope="row" data-label="Supplier">
-                      <span className="coverage-table__name" title={row.supplier.name}>{row.displayName}</span>
+                      <a className="coverage-table__name" title={row.supplier.name} href={companyPath(row.supplier.id)}>{row.displayName}</a>
                       {row.supplier.ticker ? <span className="coverage-table__ticker"> {row.supplier.ticker}</span> : null}
                       <span className="coverage-table__domains">{row.domains.join(' · ')}</span>
                     </th>

@@ -3,6 +3,7 @@ import type { RunStatus } from '../runStatus'
 import type { TrackerDomain } from './domains'
 import type { SupplierKind, TrackerSupplier } from './suppliers'
 import { isCertifiedSupplier, receiptComplete } from './certification'
+import { companySlug } from './slugs'
 import { DATA_LICENSE, DATA_LICENSE_URL, SITE_URL } from '../meta'
 
 /**
@@ -51,6 +52,8 @@ export interface TrackerJsonSupplier {
   name: string
   domainIds: string[]
   kind: SupplierKind
+  /** The supplier's own page on the site (D-139). Its Markdown copy is pageUrl + index.md, its JSON copy pageUrl + data.json. */
+  pageUrl: string
 }
 
 export interface TrackerJsonPayload {
@@ -209,6 +212,7 @@ export function trackerJsonPayload(
       name: supplier.name,
       domainIds: supplier.domainIds,
       kind: supplier.kind,
+      pageUrl: `${SITE_URL}/companies/${companySlug(supplier.id)}/`,
     })),
     figures: suppliers.flatMap((supplier) => figuresForSupplier(supplier, evidenceByIdMap)),
   }

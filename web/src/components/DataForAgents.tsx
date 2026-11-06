@@ -39,7 +39,7 @@ export function DataForAgents() {
         <tbody>
           {dataFiles.map((file) => (
             <tr key={file.path}>
-              <th scope="row" data-label="File"><a href={file.path}>{file.path}</a></th>
+              <th scope="row" data-label="File">{file.path.includes('<') ? <code>{file.path}</code> : <a href={file.path}>{file.path}</a>}</th>
               <td data-label="Format">{file.format}</td>
               <td data-label="What it holds">{file.what}</td>
             </tr>

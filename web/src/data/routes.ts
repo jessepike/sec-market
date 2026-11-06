@@ -1,13 +1,16 @@
 import { issues } from './issues/index'
 import type { Issue } from './types'
+import { trackerSuppliers } from './tracker/suppliers'
+import { companySlug } from './tracker/slugs'
 
-export type RouteKind = 'front' | 'archive' | 'corrections' | 'issue' | 'thesis' | 'coverage' | 'data' | 'funding'
+export type RouteKind = 'front' | 'archive' | 'corrections' | 'issue' | 'thesis' | 'coverage' | 'data' | 'funding' | 'company'
 
 export interface RouteEntry {
   /** Always starts and ends with "/", e.g. "/", "/issues/", "/issues/2026-w36/". */
   path: string
   kind: RouteKind
   issueId?: string
+  supplierId?: string
 }
 
 /**
@@ -17,7 +20,7 @@ export interface RouteEntry {
  * compute the same route table a real build would, without importing the
  * real src/data/issues data.
  */
-export function routesFor(issuesList: Issue[]): RouteEntry[] {
+export function routesFor(issuesList: Issue[], supplierIds: readonly string[] = []): RouteEntry[] {
   return [
     { path: '/', kind: 'front' },
     { path: '/issues/', kind: 'archive' },
@@ -27,6 +30,8 @@ export function routesFor(issuesList: Issue[]): RouteEntry[] {
     { path: '/data/', kind: 'data' },
     { path: '/funding/', kind: 'funding' },
     ...issuesList.map((issue) => ({ path: `/issues/${issue.id}/`, kind: 'issue' as const, issueId: issue.id })),
+    // D-139: one page per tracked supplier.
+    ...supplierIds.map((id) => ({ path: `/companies/${companySlug(id)}/`, kind: 'company' as const, supplierId: id })),
   ]
 }
 
@@ -36,7 +41,7 @@ export function routesFor(issuesList: Issue[]): RouteEntry[] {
  * src/App.tsx (client/server render switch), scripts/prerender.ts,
  * scripts/generate-seo.ts, scripts/generate-feed.ts and scripts/verify-dist.ts.
  */
-export const routes: RouteEntry[] = routesFor(issues)
+export const routes: RouteEntry[] = routesFor(issues, trackerSuppliers.map((s) => s.id))
 
 /** Normalises a pathname: drops a query string, ensures a single trailing slash. */
 export function normalizePath(path: string): string {

@@ -17,6 +17,7 @@ import {
   trackerJsonPayload,
   trackerMarkdown,
 } from '../src/data/agentExport.ts'
+import { companyIds, companyJson, companyMarkdown, companyView } from '../src/data/companyPages.ts'
 import type { EvidenceRecord } from '../src/data/types.ts'
 import type { RunStatus } from '../src/data/runStatus.ts'
 import type { TrackerDomain } from '../src/data/tracker/domains.ts'
@@ -46,5 +47,14 @@ export function writeAgentFiles(
     'events.csv': eventsCsv(eventsPayload),
   }
   for (const [name, body] of Object.entries(files)) writeFileSync(resolve(distDir, name), body, 'utf8')
-  return Object.keys(files)
+  // Per-company Markdown and JSON copies, beside each prerendered company page.
+  for (const id of companyIds) {
+    const view = companyView(id)
+    if (!view) throw new Error(`generate-agent: no company view for ${id}`)
+    const dir = resolve(distDir, view.path.replace(/^\/|\/$/g, ''))
+    mkdirSync(dir, { recursive: true })
+    writeFileSync(resolve(dir, 'index.md'), companyMarkdown(view), 'utf8')
+    writeFileSync(resolve(dir, 'data.json'), JSON.stringify(companyJson(view), null, 2) + '\n', 'utf8')
+  }
+  return [...Object.keys(files), `companies/<id>/index.md and data.json for ${companyIds.length} companies`]
 }

@@ -28,6 +28,7 @@ import { corrections } from '../src/data/corrections.ts'
 import { feedIssuesNewestFirst } from '../src/data/issueHelpers.ts'
 import { issueById, issues } from '../src/data/issues/index.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
+import { companyDescription, companyView } from '../src/data/companyPages.ts'
 import { marketCall } from '../src/data/market.ts'
 import {
   AUTHOR_NAME,
@@ -187,6 +188,31 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
       isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
       inLanguage: 'en',
       dateModified: LAST_UPDATED_ISO,
+    }
+  }
+
+  if (routeEntry.kind === 'company' && routeEntry.supplierId) {
+    // D-139: one supplier's page. `about` names the company; values come from the same view the page renders.
+    const view = companyView(routeEntry.supplierId)
+    if (!view) fail(`no company view for ${routeEntry.supplierId}`)
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${url}#page`,
+      url,
+      name: `${view.displayName}: revenue, funding and events`,
+      description: companyDescription(view),
+      inLanguage: 'en',
+      isAccessibleForFree: true,
+      license: DATA_LICENSE_URL,
+      dateModified: LAST_UPDATED_ISO,
+      about: {
+        '@type': 'Organization',
+        name: view.name,
+        ...(view.ticker ? { tickerSymbol: view.ticker } : {}),
+      },
+      publisher: { '@type': 'Organization', '@id': PUBLISHER_ID, name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
     }
   }
 

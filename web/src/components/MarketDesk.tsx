@@ -10,6 +10,7 @@ import { countedUnits, currencyName, eventGroups, filingSeries, recentChanges, r
 import type { ChangeItem } from '../data/tracker/presentation'
 import { SiteMasthead } from './SiteMasthead'
 import { CompanySearch } from './CompanySearch'
+import { companyPath } from '../data/companyPages'
 import './market-desk.css'
 
 const changes = recentChanges()
@@ -69,7 +70,7 @@ function SupplierDialog({ supplier, close }: { supplier: TrackerSupplier | null;
   return <dialog ref={ref} className="desk-dialog" aria-labelledby="desk-supplier-title" onClose={close} onCancel={close}>
     {supplier && <>
       <div className="desk-dialog__head"><div><span className="desk-kicker">Supplier record</span><h2 id="desk-supplier-title">{supplier.name}</h2></div><button type="button" onClick={close} aria-label="Close supplier record">Close</button></div>
-      <p>{supplier.domainIds.map(id => trackerDomains.find(d => d.id === id)?.name).join(' · ')}</p>
+      <p>{supplier.domainIds.map(id => trackerDomains.find(d => d.id === id)?.name).join(' · ')} · <a href={companyPath(supplier.id)}>Company page</a></p>
       <p className="desk-note desk-cert-note">{isCertifiedSupplier(supplier.id)
         ? 'Certified: name and ticker, quarterly revenue, year-over-year growth, the quarterly table, and the filing and date of SEC-filed events, all re-derived from SEC filings. Other facts here keep their own source and date and are not re-checked automatically.'
         : 'Not certified. Each fact keeps its own source and date and is not re-checked automatically.'}</p>

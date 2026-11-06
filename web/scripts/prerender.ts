@@ -18,6 +18,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { escapeHtmlAttr } from '../src/data/htmlEscape.ts'
 import { issueById } from '../src/data/issues/index.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
+import { companyDescription, companyView } from '../src/data/companyPages.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const serverEntry = resolve(webRoot, 'dist-ssr/entry-server.js')
@@ -96,6 +97,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   coverage: ['coverage'],
   data: ['data'],
   funding: ['funding'],
+  company: ['company'],
 }
 
 function runMustSeeGate(routeEntry: RouteEntry, appHtml: string): void {
@@ -169,6 +171,15 @@ function headFor(routeEntry: RouteEntry): RouteHead {
       description:
         'Every fact on Security Market Pulse as files that programs and AI agents can read: JSON, CSV and ' +
         'Markdown, each figure with its period, source and certified flag. Licensed CC BY 4.0.',
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'company' && routeEntry.supplierId) {
+    const view = companyView(routeEntry.supplierId)
+    if (!view) throw new Error(`no company view for ${routeEntry.supplierId}`)
+    return {
+      title: `${view.displayName}${view.ticker ? ` (${view.ticker})` : ''}: revenue, funding and events · Security Market Pulse`,
+      description: companyDescription(view),
       ogUrl: url,
     }
   }

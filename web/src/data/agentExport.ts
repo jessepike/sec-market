@@ -28,6 +28,7 @@ export const dataFiles: DataFile[] = [
   { path: '/tracker.csv', format: 'CSV', what: 'The same figures as tracker.json, one row per figure.' },
   { path: '/events.json', format: 'JSON', what: 'Dated events for the trailing 12 months: funding, acquisitions, layoffs, restructuring, debt, leadership changes and more.' },
   { path: '/events.csv', format: 'CSV', what: 'The same events as events.json, one row per event.' },
+  { path: '/companies/<company>/data.json', format: 'JSON', what: 'One company: its figures and events. Also /companies/<company>/index.md as Markdown. Each page URL is pageUrl in tracker.json.' },
   { path: '/certified-coverage.json', format: 'JSON', what: 'The certification receipt: every SEC claim re-derived from filings, with its result.' },
   { path: '/corrections.json', format: 'JSON', what: 'Every correction, newest first.' },
   { path: '/issues/index.json', format: 'JSON', what: 'The weekly issue archive.' },
@@ -163,13 +164,14 @@ export function llmsTxt(payload: TrackerJsonPayload, eventCount: number): string
     '',
     '## Data',
     '',
-    ...dataFiles.filter((f) => f.path !== '/llms.txt').map((f) => `- [${f.path}](${absolute(f.path)}): ${f.format}. ${f.what}`),
+    ...dataFiles.filter((f) => f.path !== '/llms.txt').map((f) => `- ${f.path.includes('<') ? `${absolute(f.path)}` : `[${f.path}](${absolute(f.path)})`}: ${f.format}. ${f.what}`),
     '',
     '## Pages',
     '',
     `- [Tracker](${SITE_URL}/): the front page. Its Markdown copy is ${SITE_URL}/index.md.`,
     `- [Supplier coverage](${SITE_URL}/coverage/): every supplier and how much is covered for it.`,
     `- [Data for agents](${SITE_URL}/data/): these files, their fields and the license.`,
+    `- One page per company, e.g. [CrowdStrike](${SITE_URL}/companies/crowdstrike/). Add index.md for Markdown or data.json for JSON. Every company's page URL is pageUrl in /tracker.json.`,
     `- [Corrections](${SITE_URL}/corrections/)`,
     `- [Issue archive](${SITE_URL}/issues/)`,
     '',
@@ -220,7 +222,7 @@ export function trackerMarkdown(payload: TrackerJsonPayload, events: EventsJsonP
   ]
   for (const s of [...payload.suppliers].sort((a, b) => a.name.localeCompare(b.name))) {
     out.push(`### ${s.name}`, '')
-    out.push(`- id: \`${s.id}\` · type: ${s.kind} · domains: ${s.domainIds.map((id) => domainNames.get(id) ?? id).join(', ')}`)
+    out.push(`- id: \`${s.id}\` · type: ${s.kind} · domains: ${s.domainIds.map((id) => domainNames.get(id) ?? id).join(', ')} · page: ${s.pageUrl}`)
     for (const f of figuresBySupplier.get(s.id) ?? []) {
       const period = f.period ? ` (${f.period})` : ''
       const cert = f.certified ? ' · certified, re-derived from SEC filings' : ''
@@ -259,7 +261,7 @@ export function dataPageMarkdown(payload: TrackerJsonPayload): string {
     '',
     '| File | Format | What it holds |',
     '|---|---|---|',
-    ...dataFiles.map((f) => `| [${f.path}](${absolute(f.path)}) | ${f.format} | ${f.what} |`),
+    ...dataFiles.map((f) => `| ${f.path.includes('<') ? `\`${f.path}\`` : `[${f.path}](${absolute(f.path)})`} | ${f.format} | ${f.what} |`),
     '',
     '## Markdown',
     '',
