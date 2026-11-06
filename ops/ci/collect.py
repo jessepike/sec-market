@@ -371,7 +371,10 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
     session = LocalStore(root).read("session.json")
     if source_probe:
         try:
-            contract = validate_contract(json.loads((REPO / 'contracts/market.json').read_text()))
+            import roster_transition
+            # Dormant qualification probes are pinned to J; under J's roster successor they judge J (D-138).
+            contract = roster_transition.authority_contract(
+                validate_contract(json.loads((REPO / 'contracts/market.json').read_text())))
         except Exception as error:
             session_runtime.checkpoint(root, state, session, 'failed',
                 {'errorType': type(error).__name__, 'executionCompleted': False, 'published': False}, finish=True)
@@ -381,11 +384,14 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
     try:
         contract = validate_contract(json.loads((REPO / "contracts/market.json").read_text()))
         import q4_qualification_origin as q4_origin
-        if q4_origin.is_successor(contract):
+        import roster_transition
+        # Seeding authorities judge J; a reviewed additive roster successor collects as itself (D-138).
+        authority = roster_transition.authority_contract(contract)
+        if q4_origin.is_successor(authority):
             from q4_qualification_seed import seed_before_collection
         else:
             from html_qualification_seed import seed_before_collection
-        seed_before_collection(REPO, root, state, session, contract, session_runtime)
+        seed_before_collection(REPO, root, state, session, authority, session_runtime)
         corrections_enabled = (REPO / 'contracts/factual-corrections.json').exists()
         reused=reuse_scheduled_collection(state,contract,utcnow(),corrections_enabled=corrections_enabled)
         if reused:

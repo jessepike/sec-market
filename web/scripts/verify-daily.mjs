@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto'
 import { resolve } from 'node:path'
 import { verifyProspectiveV2Migration } from './pipeline/daily_baseline_migration.mjs'
 import { Q4_J, verifyQ4BaselineMigration } from './pipeline/daily_q4_baseline_migration.mjs'
+import { rosterBaseFor } from './pipeline/roster_transition.mjs'
 
 const canonical = x => Array.isArray(x) ? '[' + x.map(canonical).join(',') + ']' : x && typeof x === 'object' ? '{' + Object.keys(x).sort().map(k => JSON.stringify(k) + ':' + canonical(x[k])).join(',') + '}' : JSON.stringify(x)
 const hash = x => createHash('sha256').update(canonical(x)).digest('hex')
@@ -97,7 +98,9 @@ export function verifyDaily(web) {
   const seal = JSON.parse(readFileSync(sealPath, 'utf8'))
   const fileSha256 = createHash('sha256').update(bytes).digest('hex')
   if (seal.fileSha256 !== fileSha256 || seal.runId !== data.runId || seal.contractSha256 !== data.contractSha256) throw new Error('Daily snapshot differs from its validated seal')
-  const contract = JSON.parse(readFileSync(resolve(web, '../contracts/market.json'), 'utf8'))
+  let contract = JSON.parse(readFileSync(resolve(web, '../contracts/market.json'), 'utf8'))
+  // A snapshot from the base contract stays valid under its reviewed additive roster successor (D-138).
+  if (hash(contract) !== data.contractSha256) contract = rosterBaseFor(web, contract, data.contractSha256) ?? contract
   if (createHash('sha256').update(canonical(contract)).digest('hex') !== data.contractSha256) throw new Error('Daily coverage contract changed')
   const ids = new Set(contract.suppliers.map(s => s.id))
   const coverage = data.coverage

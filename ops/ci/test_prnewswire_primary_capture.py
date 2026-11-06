@@ -34,6 +34,7 @@ from storage import LocalStore
 from onboarding import PersistentProbeBudget
 from fetcher import Fetcher
 import prnewswire_primary_capture as operation
+from roster_transition import authority_contract
 
 NOW = '2026-10-25T15:00:00Z'
 NEXT_DAY = '2026-10-26T00:00:00Z'
@@ -110,7 +111,7 @@ class CaptureTests(unittest.TestCase):
             # unchanged production validator and sealed portable input graph.
             with patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK')), \
                  patch.object(LocalStore, '__init__', side_effect=AssertionError('NO_FROZEN_STORE')):
-                contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+                contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
                 normalized = operation.validate_plan(contract, FixtureStore(), PLAN.read_bytes())
             cls._normalized_mechanics_bytes = canonical({
                 'targets': normalized['targets'], 'streams': normalized['streams']})
@@ -133,7 +134,7 @@ class CaptureTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(); self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name); self.clock = Clock(); self.base = FixtureStore()
         self.local = LocalStore(self.root / 'state'); self.store = Overlay(self.local, self.base)
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        self.contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         self.raw = PLAN.read_bytes(); self.plan = json.loads(self.raw)
         self.path = self.root / 'plan.json'; self.path.write_bytes(self.raw)
         self.net = patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK'))
@@ -389,7 +390,7 @@ class MechanicsBoundaryTests(unittest.TestCase):
 
     def test_normalized_bytes_match_fresh_uncached_full_sealed_graph(self):
         frozen = CaptureTests.authenticated_mechanics_bytes()
-        contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         with patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK')), \
              patch.object(LocalStore, '__init__', side_effect=AssertionError('NO_FROZEN_STORE')):
             normalized = operation.validate_plan(contract, FixtureStore(), PLAN.read_bytes())
@@ -423,7 +424,7 @@ class FullHistoricalReplay(unittest.TestCase):
         from test_priority_two_corrections import ReadOnlyJ
         from test_prnewswire_retained_window import replay_complete
         import q4_qualification_origin as origin
-        base=ReadOnlyJ();market=json.loads((ROOT/'contracts/market.json').read_bytes())
+        base=ReadOnlyJ();market=authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         with patch.object(socket.socket,'connect',side_effect=AssertionError('NO_NETWORK')), \
              patch.object(LocalStore,'__init__',side_effect=AssertionError('NO_FROZEN_STORE')):
             old=origin.inverse_policy(market,base)

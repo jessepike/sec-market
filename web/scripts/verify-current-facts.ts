@@ -44,6 +44,8 @@ export interface CurrentFactInputs {
   edgarEvidence: readonly EvidenceRecord[]
   applySecRevenue: (supplier: TrackerSupplier) => TrackerSupplier
   lastChecked: string
+  /** Suppliers still onboarding (D-138): collected, but nothing of theirs publishes yet. */
+  onboardingSupplierIds?: readonly string[]
 }
 
 const copy = <T>(value: T): T => structuredClone(value)
@@ -69,10 +71,18 @@ export function expectedCurrentFacts(inputs: CurrentFactInputs): CurrentFactView
     }
     return inputs.applySecRevenue(current)
   })
-  const retained = [...correctedEvents, ...copy(inputs.filingEvents), ...copy(daily.enabled ? daily.events : [])]
+  const held = new Set(inputs.onboardingSupplierIds ?? [])
+  const dailyEventsAll = daily.enabled ? daily.events : []
+  const dailyUpdatesAll = Object.entries(daily.enabled ? daily.supplierUpdates : {})
+  const evidenceOf = (u: DailyFactInput['supplierUpdates'][string]) => [...(u.headlineMetric?.evidenceIds ?? []), ...(u.lastRound?.evidenceIds ?? [])]
+  const keptEvidence = new Set([...dailyEventsAll.filter((e) => !held.has(e.supplierId)).flatMap((e) => e.evidenceIds),
+    ...dailyUpdatesAll.filter(([sid]) => !held.has(sid)).flatMap(([, u]) => evidenceOf(u))])
+  const heldEvidence = new Set([...dailyEventsAll.filter((e) => held.has(e.supplierId)).flatMap((e) => e.evidenceIds),
+    ...dailyUpdatesAll.filter(([sid]) => held.has(sid)).flatMap(([, u]) => evidenceOf(u))].filter((id) => !keptEvidence.has(id)))
+  const retained = [...correctedEvents, ...copy(inputs.filingEvents), ...copy(dailyEventsAll.filter((e) => !held.has(e.supplierId)))]
   const end = Date.parse(`${inputs.lastChecked}T00:00:00Z`)
   assert.ok(Number.isFinite(end), 'Current facts refused: invalid event window')
-  const evidence = [...correctedEvidence, ...copy(inputs.edgarEvidence), ...copy(inputs.filingEvidence), ...copy(daily.enabled ? daily.evidence : [])]
+  const evidence = [...correctedEvidence, ...copy(inputs.edgarEvidence), ...copy(inputs.filingEvidence), ...copy(daily.enabled ? daily.evidence.filter((record) => !heldEvidence.has(record.id)) : [])]
   return {
     handCollectedEvents: copy(originals.events),
     retainedTrackerEvents: retained,
@@ -110,6 +120,7 @@ export function loadCurrentFactInputs(web = resolve(dirname(fileURLToPath(import
     // 6-K results-release revenue (SEC-080) is company-reported and follows the SEC overlay.
     edgarEvidence: copy([...edgarRevenueEvidence, ...releaseRevenueEvidence]), applySecRevenue: (s) => withReleaseRevenue(withEdgarRevenue(s)),
     lastChecked: runStatus.lastChecked,
+    onboardingSupplierIds: read<{ suppliers: Array<{ id: string }> }>('src/data/tracker/onboarding.json').suppliers.map((s) => s.id),
   }
 }
 

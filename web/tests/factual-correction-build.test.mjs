@@ -5,6 +5,8 @@ import { tmpdir } from 'node:os'
 import { resolve } from 'node:path'
 import { createHash } from 'node:crypto'
 import { verifyFactualCorrections } from '../scripts/verify-factual-corrections.mjs'
+import { repoBaseContract } from '../scripts/pipeline/roster_transition.mjs'
+import { fileURLToPath } from 'node:url'
 
 const canonical = value => Array.isArray(value) ? '[' + value.map(canonical).join(',') + ']' : value && typeof value === 'object' ? '{' + Object.keys(value).sort().map(k => JSON.stringify(k) + ':' + canonical(value[k])).join(',') + '}' : JSON.stringify(value)
 const digest = value => createHash('sha256').update(typeof value === 'string' || Buffer.isBuffer(value) ? value : canonical(value)).digest('hex')
@@ -36,6 +38,8 @@ function fixture(t, enabled = true) {
     mkdirSync(resolve(root, file, '..'), { recursive: true })
     const bytes = file === 'contracts/factual-corrections.json' ? historicalRequests
       : file === 'web/src/data/tracker/factualCorrectionPolicy.json' ? historicalStamp
+        // The historical stamp judged J; under its additive roster successor that is the exact inverse (D-138).
+        : file === 'contracts/market.json' ? JSON.stringify(repoBaseContract(fileURLToPath(new URL('..', import.meta.url))), null, 2) + '\n'
         : readFileSync(new URL('../../' + file, import.meta.url))
     writeFileSync(resolve(root, file), bytes)
   }

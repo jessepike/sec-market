@@ -6873,9 +6873,543 @@
       "seedEvidenceUrls": [],
       "supplierId": "zscaler",
       "url": "https://data.sec.gov/submissions/CIK0001713683.json"
+    },
+    {
+      "allowedHosts": [
+        "www.f5.com"
+      ],
+      "family": "official_announcements",
+      "id": "f5:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.f5.com/company/news/press-releases/earnings-q4-fy26"
+      ],
+      "supplierId": "f5",
+      "url": "https://www.f5.com/"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "f5:sec_facts",
+      "kind": "sec_facts",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "f5",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001048695.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "f5:sec_submissions",
+      "kind": "sec_submissions",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "f5",
+      "url": "https://data.sec.gov/submissions/CIK0001048695.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "cik": "0001048695",
+      "family": "filing_documents",
+      "id": "f5:sec_documents",
+      "kind": "sec_documents",
+      "lookbackDays": 365,
+      "maxPages": 100,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "f5",
+      "url": "https://data.sec.gov/submissions/CIK0001048695.json"
+    },
+    {
+      "allowedHosts": [
+        "www.f5.com"
+      ],
+      "evidenceId": "OB-f5-1",
+      "family": "citation_integrity",
+      "id": "f5:citation:OB-f5-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "f5",
+      "url": "https://www.f5.com/company/news/press-releases/earnings-q4-fy26"
+    },
+    {
+      "allowedHosts": [
+        "www.akamai.com"
+      ],
+      "family": "official_announcements",
+      "id": "akamai:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "akamai",
+      "url": "https://www.akamai.com/"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "akamai:sec_facts",
+      "kind": "sec_facts",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "akamai",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001086222.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "akamai:sec_submissions",
+      "kind": "sec_submissions",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "akamai",
+      "url": "https://data.sec.gov/submissions/CIK0001086222.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "cik": "0001086222",
+      "family": "filing_documents",
+      "id": "akamai:sec_documents",
+      "kind": "sec_documents",
+      "lookbackDays": 365,
+      "maxPages": 100,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "akamai",
+      "url": "https://data.sec.gov/submissions/CIK0001086222.json"
+    },
+    {
+      "allowedHosts": [
+        "www.sec.gov"
+      ],
+      "evidenceId": "OB-akamai-1",
+      "family": "citation_integrity",
+      "id": "akamai:citation:OB-akamai-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "akamai",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001086222/000108622226000097/exhibit991-q32026.htm"
+    },
+    {
+      "allowedHosts": [
+        "www.aikido.dev"
+      ],
+      "family": "official_announcements",
+      "id": "aikido:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "aikido",
+      "url": "https://www.aikido.dev/"
+    },
+    {
+      "allowedHosts": [
+        "siliconangle.com"
+      ],
+      "evidenceId": "OB-aikido-1",
+      "family": "citation_integrity",
+      "id": "aikido:citation:OB-aikido-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "aikido",
+      "url": "https://siliconangle.com/2026/01/14/aikido-security-raises-60m-series-b-1b-valuation-unify-application-security/"
+    },
+    {
+      "allowedHosts": [
+        "7ai.com"
+      ],
+      "family": "official_announcements",
+      "id": "7ai:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "7ai",
+      "url": "https://7ai.com/"
+    },
+    {
+      "allowedHosts": [
+        "www.securityweek.com"
+      ],
+      "evidenceId": "OB-7ai-1",
+      "family": "citation_integrity",
+      "id": "7ai:citation:OB-7ai-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "7ai",
+      "url": "https://www.securityweek.com/agentic-security-firm-7ai-raises-130-million/"
+    },
+    {
+      "allowedHosts": [
+        "www.straiker.ai"
+      ],
+      "family": "official_announcements",
+      "id": "straiker:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "straiker",
+      "url": "https://www.straiker.ai/"
+    },
+    {
+      "allowedHosts": [
+        "fintech.global"
+      ],
+      "evidenceId": "OB-straiker-1",
+      "family": "citation_integrity",
+      "id": "straiker:citation:OB-straiker-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "straiker",
+      "url": "https://fintech.global/2026/06/30/straiker-raises-64m-to-lock-down-the-ai-agent-era/"
+    },
+    {
+      "allowedHosts": [
+        "www.lumos.com"
+      ],
+      "family": "official_announcements",
+      "id": "lumos:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "lumos",
+      "url": "https://www.lumos.com/"
+    },
+    {
+      "allowedHosts": [
+        "www.businesswire.com"
+      ],
+      "evidenceId": "OB-lumos-1",
+      "family": "citation_integrity",
+      "id": "lumos:citation:OB-lumos-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "lumos",
+      "url": "https://www.businesswire.com/news/home/20240523314788/en"
+    },
+    {
+      "allowedHosts": [
+        "www.skyflow.com"
+      ],
+      "family": "official_announcements",
+      "id": "skyflow:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "skyflow",
+      "url": "https://www.skyflow.com/"
+    },
+    {
+      "allowedHosts": [
+        "www.businesswire.com"
+      ],
+      "evidenceId": "OB-skyflow-1",
+      "family": "citation_integrity",
+      "id": "skyflow:citation:OB-skyflow-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "skyflow",
+      "url": "https://www.businesswire.com/news/home/20240328765469/en"
+    },
+    {
+      "allowedHosts": [
+        "www.secuvy.ai"
+      ],
+      "family": "official_announcements",
+      "id": "secuvy:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "secuvy",
+      "url": "https://www.secuvy.ai/"
+    },
+    {
+      "allowedHosts": [
+        "www.businesswire.com"
+      ],
+      "evidenceId": "OB-secuvy-1",
+      "family": "citation_integrity",
+      "id": "secuvy:citation:OB-secuvy-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "secuvy",
+      "url": "https://www.businesswire.com/news/home/20230310005374/en/Secuvy-Announces-New-Investments-from-Dell-Technologies-Capital-and-WestWave-Capital-to-Modernize-Data-Privacy-and-Security"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "checkpoint-sase:sec_facts",
+      "kind": "sec_facts",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "checkpoint-sase",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001015922.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "checkpoint-sase:sec_submissions",
+      "kind": "sec_submissions",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "checkpoint-sase",
+      "url": "https://data.sec.gov/submissions/CIK0001015922.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "cik": "0001015922",
+      "family": "filing_documents",
+      "id": "checkpoint-sase:sec_documents",
+      "kind": "sec_documents",
+      "lookbackDays": 365,
+      "maxPages": 100,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "checkpoint-sase",
+      "url": "https://data.sec.gov/submissions/CIK0001015922.json"
+    },
+    {
+      "allowedHosts": [
+        "www.optiv.com"
+      ],
+      "evidenceId": "TR-optiv-closing-2026-05-08",
+      "family": "citation_integrity",
+      "id": "optiv:citation:TR-optiv-closing-2026-05-08",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "optiv",
+      "url": "https://www.optiv.com/company/press-releases/optiv-completes-comprehensive-amendment-and-extension-its-credit-facilities"
     }
   ],
   "suppliers": [
+    {
+      "aliases": [],
+      "domainIds": [
+        "secops"
+      ],
+      "fundingStage": "Series A",
+      "id": "7ai",
+      "kind": "private",
+      "name": "7AI",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "7ai:official:1",
+        "7ai:citation:OB-7ai-1"
+      ],
+      "startupStatus": "unclassified"
+    },
     {
       "aliases": [],
       "domainIds": [
@@ -6906,6 +7440,74 @@
         "abnormal-security:official:1",
         "abnormal-security:citation:TR-abnormal-1",
         "abnormal-security:citation:TR-abnormal-2"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "appsec"
+      ],
+      "fundingStage": "Series B",
+      "id": "aikido",
+      "kind": "private",
+      "name": "Aikido Security",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "aikido:official:1",
+        "aikido:citation:OB-aikido-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "network-sase"
+      ],
+      "fundingStage": null,
+      "id": "akamai",
+      "kind": "public",
+      "name": "Akamai",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "regulatory_filings",
+        "filing_documents"
+      ],
+      "sourceIds": [
+        "akamai:official:1",
+        "akamai:sec_facts",
+        "akamai:sec_submissions",
+        "akamai:sec_documents",
+        "akamai:citation:OB-akamai-1"
       ],
       "startupStatus": "unclassified"
     },
@@ -7281,7 +7883,10 @@
         "checkpoint-sase:citation:TR-checkpoint-2",
         "checkpoint-sase:citation:TR-checkpoint-3",
         "checkpoint-sase:citation:TR-checkpoint-4",
-        "checkpoint-sase:citation:TR-checkpoint-5"
+        "checkpoint-sase:citation:TR-checkpoint-5",
+        "checkpoint-sase:sec_facts",
+        "checkpoint-sase:sec_submissions",
+        "checkpoint-sase:sec_documents"
       ],
       "startupStatus": "unclassified"
     },
@@ -7755,6 +8360,42 @@
       "startupStatus": "unclassified"
     },
     {
+      "aliases": [],
+      "domainIds": [
+        "network-sase"
+      ],
+      "fundingStage": null,
+      "id": "f5",
+      "kind": "public",
+      "name": "F5",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "regulatory_filings",
+        "filing_documents"
+      ],
+      "sourceIds": [
+        "f5:official:1",
+        "f5:sec_facts",
+        "f5:sec_submissions",
+        "f5:sec_documents",
+        "f5:citation:OB-f5-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
       "aliases": [
         "Forescout Technologies"
       ],
@@ -8029,6 +8670,38 @@
       ],
       "sourceIds": [
         "lakera:citation:TR-lakera-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "identity"
+      ],
+      "fundingStage": "Series B",
+      "id": "lumos",
+      "kind": "private",
+      "name": "Lumos",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "lumos:official:1",
+        "lumos:citation:OB-lumos-1"
       ],
       "startupStatus": "unclassified"
     },
@@ -8315,7 +8988,8 @@
         "optiv:official:1",
         "optiv:citation:TR-optiv-1",
         "optiv:citation:TR-optiv-3",
-        "optiv:citation:TR-optiv-4"
+        "optiv:citation:TR-optiv-4",
+        "optiv:citation:TR-optiv-closing-2026-05-08"
       ],
       "startupStatus": "unclassified"
     },
@@ -8816,6 +9490,70 @@
       "startupStatus": "unclassified"
     },
     {
+      "aliases": [],
+      "domainIds": [
+        "data"
+      ],
+      "fundingStage": null,
+      "id": "secuvy",
+      "kind": "private",
+      "name": "Secuvy",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "secuvy:official:1",
+        "secuvy:citation:OB-secuvy-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "data"
+      ],
+      "fundingStage": "Series B",
+      "id": "skyflow",
+      "kind": "private",
+      "name": "Skyflow",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "skyflow:official:1",
+        "skyflow:citation:OB-skyflow-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
       "aliases": [
         "Snyk"
       ],
@@ -8952,6 +9690,38 @@
       "sourceIds": [
         "splunk:citation:TR-splunk-1",
         "splunk:citation:TR-splunk-2"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "ai-security"
+      ],
+      "fundingStage": "Series A",
+      "id": "straiker",
+      "kind": "private",
+      "name": "Straiker",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "straiker:official:1",
+        "straiker:citation:OB-straiker-1"
       ],
       "startupStatus": "unclassified"
     },

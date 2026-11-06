@@ -1,4 +1,5 @@
 import raw from '../generated/dailyMarket.json' with { type: 'json' }
+import onboarding from './onboarding.json' with { type: 'json' }
 import type { EvidenceRecord } from '../types'
 import type { TrackerEvent } from './events'
 import type { TrackerSupplier } from './suppliers'
@@ -17,8 +18,24 @@ interface Snapshot {
   reviewQueue: Array<{ supplierId: string; factId: string; reason: string }>
 }
 export const dailySnapshot = raw as unknown as Snapshot
-export const dailyEvidence: EvidenceRecord[] = dailySnapshot.enabled ? dailySnapshot.evidence : []
-export const dailyEvents: TrackerEvent[] = dailySnapshot.enabled ? dailySnapshot.events : []
+// Suppliers still onboarding (D-138) are collected by the pipeline but publish
+// nothing until they graduate: their daily events, and evidence used only by
+// them, stay out of every page and export.
+export const onboardingSupplierIds: ReadonlySet<string> = new Set(onboarding.suppliers.map((s) => s.id))
+const allEvents = dailySnapshot.enabled ? dailySnapshot.events : []
+const allUpdates = Object.entries(dailySnapshot.enabled ? dailySnapshot.supplierUpdates ?? {} : {})
+const updateEvidence = (u: Update) => [...(u.headlineMetric?.evidenceIds ?? []), ...(u.lastRound?.evidenceIds ?? [])]
+const liveEvents = allEvents.filter((e) => !onboardingSupplierIds.has(e.supplierId))
+const liveEvidenceIds = new Set([
+  ...liveEvents.flatMap((e) => e.evidenceIds),
+  ...allUpdates.filter(([sid]) => !onboardingSupplierIds.has(sid)).flatMap(([, u]) => updateEvidence(u)),
+])
+const heldEvidenceIds = new Set([
+  ...allEvents.filter((e) => onboardingSupplierIds.has(e.supplierId)).flatMap((e) => e.evidenceIds),
+  ...allUpdates.filter(([sid]) => onboardingSupplierIds.has(sid)).flatMap(([, u]) => updateEvidence(u)),
+].filter((id) => !liveEvidenceIds.has(id)))
+export const dailyEvidence: EvidenceRecord[] = dailySnapshot.enabled ? dailySnapshot.evidence.filter((e) => !heldEvidenceIds.has(e.id)) : []
+export const dailyEvents: TrackerEvent[] = liveEvents
 
 interface DailyCoverageBase {
   checkedAt: string

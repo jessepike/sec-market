@@ -390,6 +390,8 @@ def is_qualification_predecessor(origin):
 
 
 def qualification_predecessors(contract, source_id, store, before_time=None):
+    import roster_transition
+    contract = roster_transition.authority_contract(contract)
     source = next((s for s in contract['sources'] if s['id'] == source_id), None)
     if not source or 'qualificationOrigin' not in source:
         return []
@@ -551,6 +553,8 @@ def _required_inventory_hints(store, baseline, source_id, completed, authority, 
 
 
 def resolve_inventory_origin(origin, contract, source_id, store, before_time=None):
+    import roster_transition
+    contract = roster_transition.authority_contract(contract)
     import q4_qualification_origin as q4
     if q4.is_successor(contract):
         if isinstance(origin, dict) and origin.get('kind') == q4.PREDECESSOR_KIND:

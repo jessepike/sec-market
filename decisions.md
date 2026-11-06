@@ -1556,3 +1556,18 @@ source is retried for three weeks instead of being held at once; the file change
 content changes, so a quiet week makes no commit; a portfolio read with over a quarter new names is
 treated as a page redesign; the page shows the latest 12 weeks. The first feed was rebuilt with
 these rules.
+
+**D-141 · 2026-11-06 — The locked source list grows by an additive roster transition (SEC-083).**
+
+Owner, after the collection timeout fix: "I don't want to push stuff off if it doesn't need to be
+pushed off. Push it right now. Update it. Fix it." `contracts/market.json` now holds 82 suppliers and
+329 sources. `contracts/roster-transition.json` declares exactly what was added to J (`47b9f226…`):
+the eight D-138 suppliers with their sources, Check Point's three SEC sources (SEC-080) and the Optiv
+May 8 closing release as a citation source (SEC-076). `roster_transition.py` and `.mjs` prove the
+current contract inverts to J byte for byte and refuse any other change. Qualification and seeding
+authorities still judge J. The correction policy stamp was restamped (`879c4688…`). Onboarding
+suppliers are collected like the other 74, but their daily events and evidence stay off every page and
+export until they graduate. The first collection under the new contract re-reviews current-window
+documents once, because document caches are keyed by the contract. The watchdog and publisher will
+report the contract change until that first collection completes.
+

@@ -138,7 +138,9 @@ class PublisherDisclosureCorrectionTests(unittest.TestCase):
 
     def test_historical_baseline_and_exact_three_field_amendment_preserve_accepted_groups(self):
         requests = historical_requests()
-        market = json.loads((ROOT / "contracts/market.json").read_bytes())
+        # The historical stamp judged J; under its additive roster successor the inverse is J (D-138).
+        from roster_transition import authority_contract
+        market = authority_contract(json.loads((ROOT / "contracts/market.json").read_bytes()))
         repair = json.loads((ROOT / "docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.json").read_bytes())
         permitted = {"FC-20261023-checkpoint-sase": {"noteTemplate", "reasonCode"},
                      "FC-20261023-zscaler": {"noteTemplate"}}

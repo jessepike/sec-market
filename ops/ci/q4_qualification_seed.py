@@ -129,8 +129,9 @@ def validate_seed(repo, store, contract, at):
 
 def seed_before_collection(repo, root, store, session, contract, runtime):
     """Validate the full immutable union before the first operation import."""
+    import roster_transition
     require(Path(runtime.REPO).resolve() == Path(repo).resolve() and
-            digest(json.loads((Path(repo) / 'contracts/market.json').read_bytes())) == digest(contract),
+            digest(roster_transition.authority_contract(json.loads((Path(repo) / 'contracts/market.json').read_bytes()))) == digest(contract),
             'Q4_SEED_RUNTIME_POLICY_OR_REPOSITORY_DIFFERS')
     html._context(root, store, session, runtime, runtime.utcnow())
     checked = validate_seed(repo, store, contract, runtime.utcnow())

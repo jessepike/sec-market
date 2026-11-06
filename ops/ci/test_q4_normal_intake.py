@@ -24,6 +24,7 @@ import q4_qualification_seed as seed
 import q4_baseline_migration as baseline
 import source_qualification_origin as origins
 from q4_intake_fixtures import ARCHIVE, ReadOnlyArchive, Overlay, CommittedSeed
+from roster_transition import authority_contract
 
 NOW = '2026-10-25T12:30:00Z'
 LATER = '2026-10-25T13:30:00Z'
@@ -33,7 +34,7 @@ class ActualProofTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.store = CommittedSeed(ROOT)
-        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        cls.contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         # Guard-only tests keep their existing mocked-preflight boundary. The
         # complete unmocked preflight is a separately labeled external test.
         cls.checked = {'files': cls.store.files, 'manifestSha256': cls.store.manifest_sha256,
@@ -246,7 +247,7 @@ class ActualArchiveProofTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.store = ReadOnlyArchive()
-        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        cls.contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')), \
              patch.object(LocalStore, '__init__', side_effect=AssertionError('frozen initialization prohibited')):
             cls.checked = seed.validate_seed(ROOT, cls.store, cls.contract, NOW)
@@ -299,7 +300,7 @@ class ActualArchiveProofTests(unittest.TestCase):
 class OrdinaryDiscoveryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        cls.contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         cls.archive = CommittedSeed(ROOT)
         cls.raw = {}
         for sid, sha in zip(q4.SOURCE_IDS, ('f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19',

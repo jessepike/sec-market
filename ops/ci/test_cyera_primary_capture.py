@@ -16,6 +16,7 @@ from storage import LocalStore
 from onboarding import PersistentProbeBudget
 from fetcher import Fetcher
 import cyera_primary_capture as operation
+from roster_transition import authority_contract
 
 NOW = '2026-10-25T15:00:00Z'
 NEXT_DAY = '2026-10-26T00:00:00Z'
@@ -66,7 +67,7 @@ class CaptureTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(); self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name); self.clock = Clock(); self.base = FixtureStore()
         self.local = LocalStore(self.root / 'state'); self.store = Overlay(self.local, self.base)
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        self.contract = authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()))
         self.raw = PLAN.read_bytes(); self.plan = json.loads(self.raw)
         self.path = self.root / 'plan.json'; self.path.write_bytes(self.raw)
         self.net = patch.object(socket.socket, 'connect', side_effect=AssertionError('NO_NETWORK'))
@@ -293,7 +294,7 @@ class FullActualArchiveTests(unittest.TestCase):
             def get(self,ref):
                 raw=self.raw(ref['key']);assert digest(raw)==ref['sha256'] and len(raw)==ref['bytes'];return raw
             def read(self,key):return json.loads(self.raw(key))
-        base=ReadOnly();contract=json.loads((ROOT/'contracts/market.json').read_bytes());rawplan=PLAN.read_bytes()
+        base=ReadOnly();contract=authority_contract(json.loads((ROOT / 'contracts/market.json').read_bytes()));rawplan=PLAN.read_bytes()
         with patch.object(socket.socket,'connect',side_effect=AssertionError('NO_NETWORK')),patch.object(LocalStore,'__init__',side_effect=AssertionError('NO_FROZEN_STORE')):
             normalized=operation.validate_plan(contract,base,rawplan)
             original=operation.origin.inverse_policy(contract,base)

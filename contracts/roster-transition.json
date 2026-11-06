@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "kind": "additive_roster_transition",
+  "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "activatedContractSha256": "1d04b857a02ce8635b1507736e4850263ab8c3a2a4852942e67ae81e5a4c84c1",
+  "addedSuppliers": [
+    "f5",
+    "akamai",
+    "aikido",
+    "7ai",
+    "straiker",
+    "lumos",
+    "skyflow",
+    "secuvy"
+  ],
+  "addedSources": [
+    "f5:official:1",
+    "f5:sec_facts",
+    "f5:sec_submissions",
+    "f5:sec_documents",
+    "f5:citation:OB-f5-1",
+    "akamai:official:1",
+    "akamai:sec_facts",
+    "akamai:sec_submissions",
+    "akamai:sec_documents",
+    "akamai:citation:OB-akamai-1",
+    "aikido:official:1",
+    "aikido:citation:OB-aikido-1",
+    "7ai:official:1",
+    "7ai:citation:OB-7ai-1",
+    "straiker:official:1",
+    "straiker:citation:OB-straiker-1",
+    "lumos:official:1",
+    "lumos:citation:OB-lumos-1",
+    "skyflow:official:1",
+    "skyflow:citation:OB-skyflow-1",
+    "secuvy:official:1",
+    "secuvy:citation:OB-secuvy-1",
+    "checkpoint-sase:sec_facts",
+    "checkpoint-sase:sec_submissions",
+    "checkpoint-sase:sec_documents",
+    "optiv:citation:TR-optiv-closing-2026-05-08"
+  ],
+  "appendedSourceIds": {
+    "checkpoint-sase": [
+      "checkpoint-sase:sec_facts",
+      "checkpoint-sase:sec_submissions",
+      "checkpoint-sase:sec_documents"
+    ],
+    "optiv": [
+      "optiv:citation:TR-optiv-closing-2026-05-08"
+    ]
+  }
+}

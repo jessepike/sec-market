@@ -5,10 +5,12 @@ import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
 import { gunzipSync } from 'node:zlib'
 import { verifyQ4BaselineMigration, verifyQ4PolicyTransition, Q4_J } from '../scripts/pipeline/daily_q4_baseline_migration.mjs'
+import { repoBaseContract } from '../scripts/pipeline/roster_transition.mjs'
 
 const read = path => JSON.parse(readFileSync(fileURLToPath(new URL(path, import.meta.url))))
 const original = read('../scripts/migration-proofs/q4-h-original/market.json')
-const current = read('../../contracts/market.json')
+// Under J's additive roster successor (D-138) the J these proofs pin is its exact inverse.
+const current = repoBaseContract(fileURLToPath(new URL('..', import.meta.url)))
 const registry = read('../scripts/migration-proofs/q4-h-original/authority.json')
 const transition = read('../scripts/migration-proofs/q4-h-original/transition.json')
 // Accepted prospective J baseline, frozen from immutable Git blob 3794b800ffc9d691604d77ed1d06a3a8daebf517.

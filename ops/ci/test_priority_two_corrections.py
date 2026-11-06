@@ -60,7 +60,8 @@ class PendingPolicyTests(unittest.TestCase):
   self.market=read(ROOT/'contracts/market.json');self.requests=read(ROOT/'contracts/factual-corrections.json');self.packet=read(PACKET)
  def test_exact_packet_append_version_and_current_J_with_immutable_old_six(self):
   self.assertEqual(digest(PACKET.read_bytes()),'ffe9400b6f5d1750032ed7d6a1c04c190f43084fa0adde61a47edb3c2244519a')
-  self.assertEqual(digest(self.market),'47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a')
+  from roster_transition import authority_contract
+  self.assertEqual(digest(authority_contract(self.market)),'47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a')
   self.assertEqual(self.requests['version'],'2026-10-25.1');self.assertEqual(self.requests['groups'][:6],historical_requests()['groups'])
   self.assertEqual(self.requests['groups'][6:],self.packet['groups']);self.assertEqual(sum(len(g['targets'])for g in self.packet['groups']),5)
   oldraw=(ROOT/'ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json').read_text();newraw=(ROOT/'contracts/factual-corrections.json').read_text();decoder=json.JSONDecoder();i=oldraw.index('"groups": [')+len('"groups": [')

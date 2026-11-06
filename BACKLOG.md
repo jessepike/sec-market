@@ -107,6 +107,8 @@ policy stamp. First use: the eight D-138 suppliers, Check Point's SEC sources (S
 source link (SEC-076). Then a graduation check moves a supplier from `onboarding.json` into the
 tracker after three clean daily runs. Waits for daily collection to fit under its timeout with
 headroom. Plan: [coverage-expansion-2026-11-06.md](docs/active/coverage-expansion-2026-11-06.md).
+**Status (2026-11-06, D-141):** transition built and on preview. Left: the first collection on main, the
+Optiv correction request group that cites the new source, and the graduation check.
 **Authorization:** owner-approved (D-138).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers

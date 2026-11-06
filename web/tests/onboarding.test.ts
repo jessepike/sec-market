@@ -13,8 +13,10 @@ describe('onboarding suppliers', () => {
     assert.equal(showOnboarding, process.env.VERCEL_ENV === 'preview')
   })
 
-  it('are not yet in the tracker, the contract or the originals', () => {
-    const live = new Set([...trackerSuppliers.map(s => s.id), ...market.suppliers.map(s => s.id), ...originals.suppliers.map(s => s.id)])
+  it('are collected under the contract but not yet in the tracker or the originals', () => {
+    const registered = new Set(market.suppliers.map(s => s.id))
+    for (const supplier of onboardingSuppliers) assert.ok(registered.has(supplier.id), `${supplier.id} is not in the contract`)
+    const live = new Set([...trackerSuppliers.map(s => s.id), ...originals.suppliers.map(s => s.id)])
     for (const supplier of onboardingSuppliers) assert.ok(!live.has(supplier.id), `${supplier.id} is already live`)
     const liveEvidence = new Set(originals.evidence.map(e => e.id))
     for (const record of onboardingEvidence) assert.ok(!liveEvidence.has(record.id), `${record.id} collides with live evidence`)
@@ -47,5 +49,24 @@ describe('onboarding suppliers', () => {
 
   it('keep machine text free of em dashes', () => {
     for (const row of onboardingRows) for (const fact of row.facts) assert.ok(!fact.includes('—'), fact)
+  })
+})
+
+describe('onboarding hold on daily data', () => {
+  it('keeps an onboarding supplier event and its evidence out of the expected public views', async () => {
+    const { expectedCurrentFacts, loadCurrentFactInputs } = await import('../scripts/verify-current-facts.ts')
+    const inputs = loadCurrentFactInputs()
+    const evidence = { id: 'EV-synthetic-onboarding', title: 'Synthetic', organization: 'F5, Inc.', publicationDate: '2026-11-01',
+      economicPeriod: 'N/A', canonicalUrl: 'https://www.f5.com/company/news/press-releases/synthetic', excerpt: 'Synthetic event text for the hold test.',
+      sourceClass: 'IR', interpretation: '', limitations: '', conflictingEvidenceIds: [], artifactLabel: 'test', tags: [] }
+    const event = { id: 'EV-daily-synthetic', supplierId: 'f5', date: '2026-11-01', type: 'results' as const,
+      text: 'Synthetic event text for the hold test.', evidenceIds: [evidence.id], rung: 1 as const }
+    const daily = { ...inputs.daily, enabled: true, events: [...(inputs.daily.enabled ? inputs.daily.events : []), event],
+      evidence: [...(inputs.daily.enabled ? inputs.daily.evidence : []), evidence], supplierUpdates: inputs.daily.enabled ? inputs.daily.supplierUpdates : {} }
+    const views = expectedCurrentFacts({ ...inputs, daily })
+    assert.ok(!views.retainedTrackerEvents.some(e => e.id === event.id))
+    assert.ok(!views.evidenceRecords.some(e => e.id === evidence.id))
+    const open = expectedCurrentFacts({ ...inputs, daily, onboardingSupplierIds: [] })
+    assert.ok(open.retainedTrackerEvents.some(e => e.id === event.id))
   })
 })
