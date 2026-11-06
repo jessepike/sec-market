@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-082.
+stands. New items continue from SEC-084.
 
 ## Next
 
@@ -88,6 +88,16 @@ leave unsupported facts held. No supplier expansion is authorized by this work.
 **Authorization:** D-104 through D-110. A successful run is not full coverage.
 
 ## Soon
+
+### SEC-083 · Additive roster transition for onboarding suppliers
+
+Build one reusable contract transition that only adds suppliers and their sources, proved by
+inversion to the current contract (`47b9f226…`), and restamp the Q4 authority and the correction
+policy stamp. First use: the eight D-138 suppliers, Check Point's SEC sources (SEC-080) and the Optiv
+source link (SEC-076). Then a graduation check moves a supplier from `onboarding.json` into the
+tracker after three clean daily runs. Waits for daily collection to fit under its timeout with
+headroom. Plan: [coverage-expansion-2026-11-06.md](docs/active/coverage-expansion-2026-11-06.md).
+**Authorization:** owner-approved (D-138).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers
 

@@ -1510,3 +1510,17 @@ recommended option, which is what was built (SEC-081).
 Asked "Which credential should the company request box use?", the owner chose "Reuse the timer's
 GitHub App". This confirms the design built under D-136: no new app or secret, and each request
 token is limited to issues.
+
+**D-138 · 2026-11-06 — Eight suppliers onboard through a preview-only gate.**
+
+Owner: "companies to add: cyera, secuvy, straiker, F5, akamai, lumos, aikido, 7ai, rubrik, cohesity,
+skyflow" and "what I don't want is half done companies there. So let's be creative here and think
+of a good low friction, but high value way to do that." On the decision card the owner chose "Build
+the onboarding gate". Cyera, Rubrik and Cohesity were already covered. The other eight (F5, Akamai,
+Aikido, 7AI, Straiker, Lumos, Skyflow, Secuvy) have sourced seed records in
+`web/src/data/tracker/onboarding.json`, shown on Vercel preview builds only in a "Being onboarded"
+section of `/coverage/`. The production build is pixel-identical to before. A supplier goes live only
+after a contract transition adds it to the daily pipeline and it passes three clean daily runs.
+Adding one supplier to `contracts/market.json` was measured to fail 40 of 1,064 `ops/ci` tests and the
+collector's Q4 seeding path, so the transition (SEC-083) is reusable and ships after the collection
+timeout fix. Plan: [coverage-expansion-2026-11-06.md](docs/active/coverage-expansion-2026-11-06.md).

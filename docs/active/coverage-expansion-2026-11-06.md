@@ -2,7 +2,7 @@
 
 Owner request (Jess, 2026-11-06): add Cyera, Secuvy, Straiker, F5, Akamai, Lumos, Aikido, 7AI,
 Rubrik, Cohesity and Skyflow. "What I don't want is half done companies there." New companies go
-through the full pipeline. Status: **plan, waiting for the owner's choice of route. Nothing built.**
+through the full pipeline. Status: **owner chose the onboarding gate (D-138). Seed records and the preview-only section are built. The contract transition (SEC-083) waits for the collection timeout fix.**
 
 ## Already covered
 

@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "status": "onboarding",
+  "note": "Seed records for suppliers being onboarded (D-138). Shown on preview builds only. They reach production only after the contract change adds them to the daily pipeline and they pass three clean daily runs.",
+  "suppliers": [
+    {
+      "id": "f5",
+      "name": "F5",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "public",
+      "ticker": "FFIV",
+      "cik": "0001048695",
+      "revenue": {
+        "scope": "company",
+        "latest": {
+          "value": "$917 million",
+          "priorYearValue": "$810 million",
+          "yoyGrowth": "+13.2%",
+          "period": "Q4 FY2026",
+          "periodEnd": "2026-09-30",
+          "releaseDate": "2026-10-27",
+          "evidenceIds": [
+            "OB-f5-1"
+          ]
+        }
+      },
+      "ownership": {
+        "status": "Independent, publicly traded on Nasdaq.",
+        "evidenceIds": [
+          "OB-f5-1"
+        ]
+      }
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai",
+      "domainIds": [
+        "network-sase"
+      ],
+      "kind": "public",
+      "ticker": "AKAM",
+      "cik": "0001086222",
+      "headlineMetric": {
+        "label": "Security revenue",
+        "value": "$622 million",
+        "period": "Q3 2026, ended 2026-09-30",
+        "evidenceIds": [
+          "OB-akamai-1"
+        ]
+      },
+      "revenue": {
+        "scope": "company",
+        "latest": {
+          "value": "$1,122.0 million",
+          "priorYearValue": "$1,054.6 million",
+          "yoyGrowth": "+6.4%",
+          "period": "Q3 2026",
+          "periodEnd": "2026-09-30",
+          "releaseDate": "2026-11-05",
+          "evidenceIds": [
+            "OB-akamai-1"
+          ]
+        }
+      },
+      "ownership": {
+        "status": "Independent, publicly traded on Nasdaq.",
+        "evidenceIds": [
+          "OB-akamai-1"
+        ]
+      }
+    },
+    {
+      "id": "aikido",
+      "name": "Aikido Security",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2026-01-14",
+        "stage": "Series B",
+        "amount": "$60 million",
+        "lead": "DST Global",
+        "evidenceIds": [
+          "OB-aikido-1"
+        ],
+        "valuation": "$1 billion"
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-aikido-1"
+        ]
+      }
+    },
+    {
+      "id": "7ai",
+      "name": "7AI",
+      "domainIds": [
+        "secops"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2025-12-04",
+        "stage": "Series A",
+        "amount": "$130 million",
+        "lead": "Index Ventures",
+        "evidenceIds": [
+          "OB-7ai-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-7ai-1"
+        ]
+      }
+    },
+    {
+      "id": "straiker",
+      "name": "Straiker",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2026-06-30",
+        "stage": "Series A",
+        "amount": "$64 million",
+        "lead": "Marathon Management Partners, Citi Ventures, Illuminate Financial and Workday Ventures",
+        "evidenceIds": [
+          "OB-straiker-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-straiker-1"
+        ]
+      }
+    },
+    {
+      "id": "lumos",
+      "name": "Lumos",
+      "domainIds": [
+        "identity"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2024-05-23",
+        "stage": "Series B",
+        "amount": "$35 million",
+        "lead": "Scale Venture Partners",
+        "evidenceIds": [
+          "OB-lumos-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-lumos-1"
+        ]
+      }
+    },
+    {
+      "id": "skyflow",
+      "name": "Skyflow",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2024-03-28",
+        "stage": "Series B extension",
+        "amount": "$30 million",
+        "lead": "Khosla Ventures",
+        "evidenceIds": [
+          "OB-skyflow-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-skyflow-1"
+        ]
+      }
+    },
+    {
+      "id": "secuvy",
+      "name": "Secuvy",
+      "domainIds": [
+        "data"
+      ],
+      "kind": "private",
+      "ownership": {
+        "status": "Independent, venture-backed. Last disclosed round led by Dell Technologies Capital and WestWave Capital, March 2023, amount not disclosed.",
+        "evidenceIds": [
+          "OB-secuvy-1"
+        ]
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "id": "OB-f5-1",
+      "title": "F5 Reports Fourth Quarter Fiscal 2026 Results",
+      "organization": "F5, Inc.",
+      "publicationDate": "2026-10-27",
+      "economicPeriod": "Quarter ended 2026-09-30",
+      "canonicalUrl": "https://www.f5.com/company/news/press-releases/earnings-q4-fy26",
+      "excerpt": "Fourth quarter fiscal year 2026 revenue totaled $917 million, representing 13% growth compared with $810 million",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release. Not yet re-derived from the 10-K.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-f5-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "network-sase"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-akamai-1",
+      "title": "Akamai Reports Third Quarter 2026 Financial Results",
+      "organization": "Akamai Technologies, Inc.",
+      "publicationDate": "2026-11-05",
+      "economicPeriod": "Quarter ended 2026-09-30",
+      "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001086222/000108622226000097/exhibit991-q32026.htm",
+      "excerpt": "Security revenue of $622 million, up 9% year-over-year and up 10% when adjusted for foreign exchange",
+      "sourceClass": "FILING",
+      "interpretation": "",
+      "limitations": "Exhibit 99.1 to Form 8-K. Total revenue for the quarter was $1,121,961 thousand against $1,054,630 thousand a year earlier.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-akamai-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "network-sase"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-aikido-1",
+      "title": "Aikido Security raises $60M Series B at $1B valuation",
+      "organization": "SiliconANGLE",
+      "publicationDate": "2026-01-14",
+      "economicPeriod": "January 2026",
+      "canonicalUrl": "https://siliconangle.com/2026/01/14/aikido-security-raises-60m-series-b-1b-valuation-unify-application-security/",
+      "excerpt": "has raised $60 million in new funding at a $1 billion valuation",
+      "sourceClass": "INDEPENDENT",
+      "interpretation": "",
+      "limitations": "Lead investor from the same article: \"The round was led by DST Global LP.\"",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-aikido-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "appsec"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-7ai-1",
+      "title": "Agentic Security Firm 7AI Raises $130 Million",
+      "organization": "SecurityWeek",
+      "publicationDate": "2025-12-04",
+      "economicPeriod": "December 2025",
+      "canonicalUrl": "https://www.securityweek.com/agentic-security-firm-7ai-raises-130-million/",
+      "excerpt": "Boston, Mass-based agentic cybersecurity firm 7AI today announced a $130 million Series A funding round.",
+      "sourceClass": "INDEPENDENT",
+      "interpretation": "",
+      "limitations": "Lead investor from the same article: Index Ventures. No valuation stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-7ai-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "secops"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-straiker-1",
+      "title": "Straiker raises $64m to lock down the AI agent era",
+      "organization": "FinTech Global",
+      "publicationDate": "2026-06-30",
+      "economicPeriod": "June 2026",
+      "canonicalUrl": "https://fintech.global/2026/06/30/straiker-raises-64m-to-lock-down-the-ai-agent-era/",
+      "excerpt": "has closed a $64m Series A funding round, lifting its total capital raised to $85m.",
+      "sourceClass": "INDEPENDENT",
+      "interpretation": "",
+      "limitations": "Co-led by Marathon Management Partners, Citi Ventures, Illuminate Financial and Workday Ventures. No valuation stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-straiker-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "ai-security"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-lumos-1",
+      "title": "Lumos Secures $35M Series B Funding",
+      "organization": "Lumos",
+      "publicationDate": "2024-05-23",
+      "economicPeriod": "May 2024",
+      "canonicalUrl": "https://www.businesswire.com/news/home/20240523314788/en",
+      "excerpt": "announced its $35M Series B financing led by Scale Venture Partners",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Date taken from the Business Wire release address. No valuation stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-lumos-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "identity"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-skyflow-1",
+      "title": "Skyflow Raises 30 Million led by Khosla Ventures",
+      "organization": "Skyflow",
+      "publicationDate": "2024-03-28",
+      "economicPeriod": "March 2024",
+      "canonicalUrl": "https://www.businesswire.com/news/home/20240328765469/en",
+      "excerpt": "Skyflow, the data privacy vault company, has raised $30 million to extend its Series B funding.",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Date taken from the Business Wire release address. No valuation stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-skyflow-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "data"
+      ],
+      "retrievedAt": "2026-11-06"
+    },
+    {
+      "id": "OB-secuvy-1",
+      "title": "Secuvy Announces New Investments from Dell Technologies Capital and WestWave Capital",
+      "organization": "Secuvy",
+      "publicationDate": "2023-03-10",
+      "economicPeriod": "March 2023",
+      "canonicalUrl": "https://www.businesswire.com/news/home/20230310005374/en/Secuvy-Announces-New-Investments-from-Dell-Technologies-Capital-and-WestWave-Capital-to-Modernize-Data-Privacy-and-Security",
+      "excerpt": "The latest funding round was led by Dell Technologies Capital & WestWave Capital, with participation from Z5 Capital.",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "No amount disclosed. Date taken from the Business Wire release address.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-secuvy-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "data"
+      ],
+      "retrievedAt": "2026-11-06"
+    }
+  ],
+  "events": []
+}

@@ -10,6 +10,8 @@ updated: 2026-11-06
 
 **Front page hierarchy (2026-11-04, on preview, owner review).** Pipeline status lines moved from the masthead into the Data status section (`#overview`), leaving a one-line disclaimer and link up top. Count tiles lead with the last 30 days and show the 12-month total small. The 12-month grid shades cells by count. Panel and domain card headers have a tinted band. Public supplier rows say "Quarter ended". Check Point and Trend Micro have no automated path to a new quarter (SEC-080).
 
+**Coverage expansion (2026-11-06, D-138, on preview).** Eight suppliers (F5, Akamai, Aikido, 7AI, Straiker, Lumos, Skyflow, Secuvy) have sourced seed records in `web/src/data/tracker/onboarding.json` and show on preview only, in a "Being onboarded" section of `/coverage/`. Production is pixel-identical. They join the daily pipeline through a reusable contract transition (SEC-083) after the collection timeout fix, then go live after three clean runs.
+
 The site is live and updates itself. Production (`main`) and `preview` were level at ed9cce8 on
 November 3; preview is now ahead by the contact-email change and this docs cleanup.
 

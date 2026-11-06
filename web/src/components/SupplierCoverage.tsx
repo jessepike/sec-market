@@ -1,5 +1,6 @@
 import { formatShortDate } from '../data/tracker/derive'
 import { coverageRows, coverageTiers, rowsForTier, typeTierCounts } from '../data/tracker/coverage'
+import { onboardingRows, showOnboarding } from '../data/tracker/onboarding'
 
 /**
  * `/coverage/`: every tracked supplier, its company type, and how much the
@@ -89,6 +90,45 @@ export function SupplierCoverage() {
           </section>
         )
       })}
+
+      {showOnboarding && onboardingRows.length > 0 ? (
+        <section id="coverage-onboarding" className="coverage-list coverage-onboarding" aria-labelledby="coverage-onboarding-heading">
+          <h3 id="coverage-onboarding-heading">Being onboarded ({onboardingRows.length}, preview only)</h3>
+          <p className="coverage-page__note">
+            These suppliers have a sourced seed record but are not yet collected by the daily pipeline. They appear on
+            the live site only after the pipeline has collected and checked them for three clean days in a row.
+          </p>
+          <table className="coverage-table">
+            <thead>
+              <tr>
+                <th scope="col">Supplier</th>
+                <th scope="col">Company type</th>
+                <th scope="col">Seed record</th>
+                <th scope="col">Target tier</th>
+              </tr>
+            </thead>
+            <tbody>
+              {onboardingRows.map((row) => (
+                <tr key={row.supplier.id}>
+                  <th scope="row" data-label="Supplier">
+                    <span className="coverage-table__name" title={row.supplier.name}>{row.displayName}</span>
+                    {row.supplier.ticker ? <span className="coverage-table__ticker"> {row.supplier.ticker}</span> : null}
+                    <span className="coverage-table__domains">{row.domains.join(' · ')}</span>
+                  </th>
+                  <td data-label="Company type">{row.typeLabel}</td>
+                  <td data-label="Seed record">
+                    {row.facts.join('; ')}
+                    {row.sources.map((source) => (
+                      <span key={source.url}> <a href={source.url} rel="noopener noreferrer">Source: {source.label}</a></span>
+                    ))}
+                  </td>
+                  <td data-label="Target tier">Tier {row.targetTier}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      ) : null}
 
       <p className="coverage-page__note">
         A supplier moves tier on its own when its data changes, for example when a private company goes public
