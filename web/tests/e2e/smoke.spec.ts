@@ -177,3 +177,21 @@ test('every rendered certification date reads the same receipt', async ({ page }
   await expect(page.locator('#overview .run-status__line')).toContainText(`Last certified change: ${certifiedDateDisplay}`)
   await expect(page.getByText('Last complete data refresh')).toHaveCount(0)
 })
+
+// The header brand goes to the top of the front page, from every route.
+// It used to point at `#overview`, which sits at the bottom of the front page.
+test('header brand returns to the top of the front page', async ({ page }) => {
+  await page.goto('/')
+  const brand = page.locator('.site-header__brand')
+  await expect(brand).toHaveAttribute('href', '/')
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+  await brand.click()
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
+  expect(new URL(page.url()).pathname).toBe('/')
+  expect(new URL(page.url()).hash).toBe('')
+
+  await page.goto('/coverage/')
+  await page.locator('.site-header__brand').click()
+  await page.waitForURL((url) => url.pathname === '/' && url.hash === '')
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0)
+})

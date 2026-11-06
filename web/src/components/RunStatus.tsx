@@ -6,7 +6,7 @@ import { dailyCoverage, dailyOverdue, type DailyCoverage } from '../data/tracker
  * AUTO-002 Phase 2: the `#overview` slot states what is certified and when,
  * in one paragraph. It replaces the collector run-status line and its list of
  * failed newsroom sources (the laptop collector is retired). The prerender
- * must-see gate and the header brand link still resolve to `#overview`.
+ * must-see gate and the masthead "Data status" link still resolve to `#overview`.
  *
  * The date is the certification run that produced the committed data. The
  * scheduled check follows the active collection cadence and publishes a new

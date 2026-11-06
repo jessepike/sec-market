@@ -99,14 +99,24 @@ export function Header({ path = '/' }: { path?: string }) {
     }
   }
 
+  /**
+   * The brand goes to the top of the front page. It used to point at
+   * `#overview`, which now sits below the market desk at the bottom of the
+   * page. Elsewhere the plain href navigates to `/`; on the front page the
+   * click scrolls to the top in place and clears any hash from the URL.
+   */
+  function handleBrandClick(event: MouseEvent<HTMLAnchorElement>) {
+    setNavOpen(false)
+    if (!onFrontPage || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+    event.preventDefault()
+    window.history.replaceState(null, '', '/')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a
-          href={hrefFor('#overview')}
-          className="site-header__brand"
-          onClick={handleNavClick('#overview')}
-        >
+        <a href="/" className="site-header__brand" onClick={handleBrandClick}>
           <span className="site-header__mark" aria-hidden="true" />
           <strong>{PRODUCT_TITLE}</strong>
         </a>
