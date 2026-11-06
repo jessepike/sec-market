@@ -3452,6 +3452,8 @@ summary:focus-visible,
 
 .site-masthead h1 {
   margin: 0 0 0.6rem;
+  /* Keeps the four short sentences of the headline together on narrow screens. */
+  text-wrap: balance;
 }
 
 .site-masthead__description {
