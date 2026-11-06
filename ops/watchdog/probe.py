@@ -7,6 +7,7 @@ filesystem, Vercel secret or third-party notification service is required.
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import urllib.request
@@ -26,6 +27,13 @@ PUBLIC_COVERAGE_URL = "https://securitymarketpulse.com/daily-coverage.json"
 PUBLIC_COVERAGE_PATH = "static/daily-coverage.json"
 DEFAULT_PUBLIC_BYTES = 1_000_000
 MAX_COVERAGE_BYTES = 40_000_000
+KNOWN_GAPS_PATH = ROOT / "ops/watchdog/known-gaps.json"
+# D-136: these reasons describe coverage the pipeline was never built to reach
+# (unregistered source families, the review backlog, withheld claims). They stay
+# in every receipt and in the issue body, but only a change raises the alert.
+TRACKED_REASON = re.compile(r"(PUBLIC_)?(DAILY_INTAKE_INCOMPLETE|PROCESSING_PENDING_\d+|PROCESSING_HELD_\d+"
+                            r"|HISTORICAL_REVIEW_PENDING_\d+|COVERAGE_INCOMPLETE_OR_OVERDUE)"
+                            r"|OVERDUE_OR_INCOMPLETE_COVERAGE|HELD_CLAIMS_\d+")
 
 
 def _original_plan(contract, coverage, read_archive=None, plan=None):
@@ -385,11 +393,69 @@ def inspect(contract, read_archive, get_live, now, authority=None):
     return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"], "reasons": problems, **details}
 
 
+def triage(result, contract, coverage, previous, known, now):
+    """Split known gaps from regressions (D-136).
+
+    Alert when the collection is overdue, when a source fails that is not in
+    the known-gap baseline, or when review stops moving between daily runs.
+    Every other reason is kept as tracked, never dropped.
+    """
+    reasons = result.get("reasons", [])
+    alerts = [r for r in reasons if not TRACKED_REASON.fullmatch(r)]
+    tracked = [r for r in reasons if TRACKED_REASON.fullmatch(r)]
+    try:
+        age = (instant(now) - instant(coverage["checkedAt"])).total_seconds()/3600
+        if not 0 <= age <= contract["schedule"]["overdueHours"]:
+            alerts.append("COVERAGE_OVERDUE")
+        accepted = known["sourceGaps"]
+        require(type(accepted) is dict, "KNOWN_GAPS_INVALID")
+        def failing_sources(receipt):
+            gaps = set(receipt["gapTaskIds"])
+            return {row["sourceId"] for row in receipt["tasks"] if row["taskId"] in gaps and row.get("sourceId")}
+        failing = failing_sources(coverage)
+        # A source must fail on two daily runs in a row: one-day blips (rate
+        # limits, a slow site) recover by themselves and would only add noise.
+        repeated = failing & failing_sources(previous) if previous is not None else failing
+        new = sorted(repeated - set(accepted))
+        result["newSourceGapsFirstDay"] = sorted(failing - repeated - set(accepted))
+        if new:
+            alerts.append("NEW_SOURCE_GAPS_" + str(len(new)))
+        result["newSourceGaps"] = new
+        result["knownGapsNowCollecting"] = sorted(set(accepted) - failing)
+        now_p = coverage["processing"]
+        if previous is None:
+            if now_p["pendingDocuments"]:
+                alerts.append("REVIEW_TREND_UNREADABLE")
+        else:
+            before = previous["processing"]
+            if (now_p["pendingDocuments"] and now_p["reviewedDocuments"] <= before["reviewedDocuments"]
+                    and now_p["pendingDocuments"] >= before["pendingDocuments"]):
+                alerts.append("REVIEW_STALLED")
+            result["reviewedSincePreviousRun"] = now_p["reviewedDocuments"] - before["reviewedDocuments"]
+    except (ValueError, KeyError, TypeError):
+        alerts.append("TRIAGE_INPUT_INVALID")
+    result["reasons"] = list(dict.fromkeys(alerts))
+    result["tracked"] = list(dict.fromkeys(tracked))
+    result["healthy"] = not result["reasons"]
+    return result
+
+
+def previous_day_coverage(commit, current_run, read_archive_at):
+    """Newest archived coverage from an earlier daily run, or None."""
+    history = api(f"commits?sha={commit}&path=state/heads/latest-run.json&per_page=10")
+    for entry in history:
+        head = read_archive_at(entry["sha"], "heads/latest-run.json")
+        if head.get("runId") != current_run:
+            return read_archive_at(entry["sha"], head["receipt"]["key"], reference=head["receipt"])
+    return None
+
+
 def notify(result):
     issues = api("issues?state=open&per_page=100&sort=updated&direction=desc")
     existing = next((i for i in issues if i["title"] == TITLE and "pull_request" not in i), None)
     body = ("The independent daily pipeline probe " + ("recovered." if result["healthy"] else "needs attention.")
-            + "\n\nChecked: " + result["checkedAt"] + "\n\nReasons: " + ", ".join(result["reasons"])
+            + "\n\nChecked: " + result["checkedAt"] + "\n\nReasons: " + (", ".join(result["reasons"]) or "none")
+            + "\n\nTracked known gaps (D-136, not alerting): " + (", ".join(result.get("tracked", [])) or "none")
             + "\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref."
             + "\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)")
     if result["healthy"] and not existing:
@@ -420,13 +486,15 @@ def main():
     result = None
     try:
         commit = api("git/ref/archive/market-evidence")["object"]["sha"]
-        def read_archive(key, reference=None):
+        def read_archive_at(ref, key, reference=None):
             if not key.replace("/", "").replace("-", "").replace("_", "").replace(".", "").isalnum() or ".." in key.split("/"):
                 raise ValueError("Invalid independent archive key")
-            body = api(f"contents/state/{key}?ref={commit}", raw=True)
+            body = api(f"contents/state/{key}?ref={ref}", raw=True)
             if reference and (digest(body) != reference["sha256"] or len(body) != reference["bytes"]):
                 raise ValueError("Independent coverage object hash differs")
             return json.loads(body)
+        def read_archive(key, reference=None):
+            return read_archive_at(commit, key, reference)
         authority = GitHubAuthority()
         result = inspect_collection(contract, read_archive, now, authority)
         if (ROOT / "contracts/factual-corrections.json").exists():
@@ -441,6 +509,19 @@ def main():
     except (ValueError, OSError, KeyError, subprocess.SubprocessError) as error:
         result = {**(result or {}), "healthy": False, "checkedAt": now,
                   "reasons": list(dict.fromkeys((result or {}).get("reasons", []) + ["INDEPENDENT_PROBE_FAILED", type(error).__name__]))}
+    else:
+        try:
+            latest = read_archive("heads/latest-run.json")
+            coverage = read_archive(latest["receipt"]["key"], reference=latest["receipt"])
+            try:
+                previous = previous_day_coverage(commit, coverage["runId"], read_archive_at)
+            except (ValueError, OSError, KeyError, TypeError, subprocess.SubprocessError):
+                previous = None
+            known = json.loads(KNOWN_GAPS_PATH.read_text())
+            result = triage(result, contract, coverage, previous, known, now)
+        except (ValueError, OSError, KeyError, TypeError, subprocess.SubprocessError) as error:
+            result = {**result, "healthy": False,
+                      "reasons": list(dict.fromkeys(result.get("reasons", []) + ["TRIAGE_FAILED", type(error).__name__]))}
     if args.notify:
         result["notification"] = notify(result)
     print(json.dumps(result, indent=2))

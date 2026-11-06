@@ -321,3 +321,83 @@ class SeparateCoverageTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RegressionTriageTests(unittest.TestCase):
+    """D-136: known structural gaps are tracked; only a change raises the alert."""
+    NOW = "2026-11-04T20:00:00Z"
+
+    def setUp(self):
+        self.contract = {"schedule": {"overdueHours": 30}}
+        self.known = {"sourceGaps": {"acme:official:1": "HTTP_403"}}
+        self.coverage = {"runId": "today", "checkedAt": "2026-11-04T05:35:00Z",
+                         "gapTaskIds": ["t1", "t2"],
+                         "tasks": [{"taskId": "t1", "sourceId": "acme:official:1"},
+                                   {"taskId": "t2", "sourceId": None},
+                                   {"taskId": "t3", "sourceId": "acme:citation:1"}],
+                         "processing": {"pendingDocuments": 100, "reviewedDocuments": 50}}
+        self.previous = {"runId": "yesterday", "processing": {"pendingDocuments": 110, "reviewedDocuments": 40},
+                         "gapTaskIds": ["y1", "y3"], "tasks": [{"taskId": "y1", "sourceId": "acme:official:1"},
+                                                              {"taskId": "y3", "sourceId": "acme:citation:1"}]}
+        self.reasons = ["OVERDUE_OR_INCOMPLETE_COVERAGE", "DAILY_INTAKE_INCOMPLETE", "PROCESSING_PENDING_100",
+                        "PROCESSING_HELD_3", "HISTORICAL_REVIEW_PENDING_9", "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+                        "PUBLIC_PROCESSING_PENDING_100", "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE", "HELD_CLAIMS_5"]
+
+    def triage(self, reasons=None, previous="default"):
+        previous = self.previous if previous == "default" else previous
+        return probe.triage({"reasons": list(self.reasons if reasons is None else reasons)},
+                            self.contract, self.coverage, previous, self.known, self.NOW)
+
+    def test_known_gaps_with_moving_review_are_tracked_not_alerted(self):
+        result = self.triage()
+        self.assertTrue(result["healthy"])
+        self.assertEqual(result["reasons"], [])
+        self.assertEqual(result["tracked"], self.reasons)
+        self.assertEqual(result["reviewedSincePreviousRun"], 10)
+
+    def test_a_source_outside_the_baseline_failing_alerts(self):
+        self.coverage["gapTaskIds"].append("t3")
+        result = self.triage()
+        self.assertEqual(result["reasons"], ["NEW_SOURCE_GAPS_1"])
+        self.assertEqual(result["newSourceGaps"], ["acme:citation:1"])
+
+    def test_a_one_day_blip_is_reported_but_does_not_alert(self):
+        self.coverage["gapTaskIds"].append("t3")
+        self.previous["gapTaskIds"] = ["y1"]
+        result = self.triage()
+        self.assertTrue(result["healthy"])
+        self.assertEqual(result["newSourceGapsFirstDay"], ["acme:citation:1"])
+
+    def test_known_gap_that_recovers_is_reported_for_baseline_pruning(self):
+        self.coverage["gapTaskIds"] = ["t2"]
+        result = self.triage()
+        self.assertTrue(result["healthy"])
+        self.assertEqual(result["knownGapsNowCollecting"], ["acme:official:1"])
+
+    def test_review_that_stops_moving_alerts(self):
+        self.previous["processing"].update(pendingDocuments=100, reviewedDocuments=50)
+        self.assertEqual(self.triage()["reasons"], ["REVIEW_STALLED"])
+
+    def test_unreadable_review_trend_is_not_counted_as_progress(self):
+        self.assertEqual(self.triage(previous=None)["reasons"], ["REVIEW_TREND_UNREADABLE"])
+        self.coverage["processing"]["pendingDocuments"] = 0
+        self.assertTrue(self.triage(previous=None)["healthy"])
+
+    def test_overdue_collection_alerts_even_though_incompleteness_is_tracked(self):
+        self.coverage["checkedAt"] = "2026-11-03T05:35:00Z"
+        self.assertIn("COVERAGE_OVERDUE", self.triage()["reasons"])
+
+    def test_pipeline_failures_still_alert(self):
+        result = self.triage(self.reasons + ["COLLECTION_HAS_NOT_REACHED_PRODUCTION", "SCHEDULED_COLLECTION_OVERDUE"])
+        self.assertEqual(result["reasons"], ["COLLECTION_HAS_NOT_REACHED_PRODUCTION", "SCHEDULED_COLLECTION_OVERDUE"])
+
+    def test_malformed_input_alerts(self):
+        self.known = {"sourceGaps": ["not", "a", "map"]}
+        self.assertIn("TRIAGE_INPUT_INVALID", self.triage()["reasons"])
+
+    def test_baseline_names_only_real_contract_sources(self):
+        known = json.loads(probe.KNOWN_GAPS_PATH.read_text())
+        contract = json.loads((probe.ROOT / "contracts/market.json").read_text())
+        ids = {source["id"] for source in contract["sources"]}
+        self.assertTrue(known["sourceGaps"])
+        self.assertLessEqual(set(known["sourceGaps"]), ids)
