@@ -40,9 +40,9 @@ function bannedWordsIn(text: string): string[] {
 }
 
 describe('tracker domains and suppliers', () => {
-  it('declares exactly twelve domains with unique ids', () => {
-    assert.equal(trackerDomains.length, 12)
-    assert.equal(new Set(trackerDomainIds).size, 12)
+  it('declares exactly thirteen domains with unique ids', () => {
+    assert.equal(trackerDomains.length, 13)
+    assert.equal(new Set(trackerDomainIds).size, 13)
   })
 
   it('gives every domain at least three suppliers', () => {

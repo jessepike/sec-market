@@ -55,7 +55,12 @@ export const trackerDomains: TrackerDomain[] = [
   {
     id: 'data',
     name: 'Data security',
-    scope: 'Data security posture management, data loss prevention, and backup and resilience treated as security.',
+    scope: 'Data security posture management, data loss prevention, and data discovery and classification.',
+  },
+  {
+    id: 'resilience',
+    name: 'Cyber resilience',
+    scope: 'Backup, recovery and ransomware recovery treated as security.',
   },
   {
     id: 'exposure',
@@ -81,11 +86,32 @@ export const trackerDomains: TrackerDomain[] = [
     id: 'ai-security',
     name: 'AI security',
     scope:
-      'Security products for AI systems, covered as a market — who is buying whom and what is reported as revenue, not as news.',
+      'Security products for AI systems, covered as a market: who is buying whom and what is reported as revenue, not as news.',
   },
 ]
 
 export const trackerDomainIds = trackerDomains.map((domain) => domain.id)
+
+/**
+ * Domain moves the owner approved after the supplier originals and the collection contract were
+ * pinned (2026-11-06: backup and recovery companies leave Data security for Cyber resilience).
+ * Supplier records keep their pinned domainIds so the correction and certification checks are
+ * unchanged; every page and export reads domains through displayDomainIds. The contract's
+ * domainIds follow at its next transition.
+ */
+export const domainReassignments: Readonly<Record<string, { from: string; to: string }>> = {
+  rubrik: { from: 'data', to: 'resilience' },
+  commvault: { from: 'data', to: 'resilience' },
+  cohesity: { from: 'data', to: 'resilience' },
+  veeam: { from: 'data', to: 'resilience' },
+}
+
+/** The domains a supplier is shown under. */
+export function displayDomainIds(supplier: { id: string; domainIds: readonly string[] }): string[] {
+  const move = domainReassignments[supplier.id]
+  const ids = move ? supplier.domainIds.map((id) => (id === move.from ? move.to : id)) : supplier.domainIds
+  return [...new Set(ids)]
+}
 
 /**
  * What the site does not cover, stated plainly (product-core.md §4,

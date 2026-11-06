@@ -7,7 +7,7 @@ canonical; `CLAUDE.md` and `.cursor/rules/project.mdc` point here.
 
 https://securitymarketpulse.com, a public tracker of the business of the security market: revenue,
 funding, acquisitions, restructuring, debt and leadership changes for 74 security suppliers across
-12 market domains. SEC figures for 16 public filers are checked against their filings in the daily pipeline.
+13 market domains. SEC figures for 16 public filers are checked against their filings in the daily pipeline.
 Data and routine changes publish automatically when every check passes; the owner reviews only
 major changes. No machine writes opinions. The owner is
 Jesse Pike.

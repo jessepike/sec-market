@@ -6,6 +6,7 @@
  * tracker only after the contract change adds it to the daily pipeline and it
  * passes three clean daily runs.
  */
+import { displayDomainIds } from './domains'
 import onboarding from './onboarding.json' with { type: 'json' }
 import { coverageTierFor, coverageTiers, supplierKindLabel } from './coverage'
 import { trackerDomains } from './domains'
@@ -76,7 +77,7 @@ export const onboardingRows: OnboardingRow[] = onboardingSuppliers
     supplier,
     displayName: shortSupplierName(supplier.name),
     typeLabel: supplierKindLabel[supplier.kind],
-    domains: supplier.domainIds.map((id) => domainName.get(id) ?? id),
+    domains: displayDomainIds(supplier).map((id) => domainName.get(id) ?? id),
     targetTier: supplier.cik ? 1 : (coverageTiers.find((t) => t.id === coverageTierFor(supplier))?.number ?? 4),
     facts: factsFor(supplier),
     sources: sourcesFor(supplier),

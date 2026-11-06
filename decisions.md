@@ -1589,3 +1589,12 @@ review backlog that cannot drain. The watchdog now raises its alert only for cha
 a source outside `ops/watchdog/known-gaps.json` failing on two daily runs in a row, review stalled, or
 unreadable inputs. Known gaps are listed in the issue body as tracked, not alerting, and stay in
 BACKLOG SEC-071 and SEC-072. Remove an entry from the list once its source collects again.
+
+**D-144 · 2026-11-06 — Cyber resilience is its own domain.**
+
+Owner chose "Own domain: Cyber resilience" when asked where cyber resilience companies should live.
+Rubrik, Commvault, Cohesity and Veeam move from Data security to a new 13th domain, Cyber resilience
+(backup, recovery and ransomware recovery). Data security keeps Varonis, Cyera and BigID. The pinned
+supplier originals and `contracts/market.json` keep `domainIds: ["data"]` so the correction and
+certification checks are unchanged; pages and exports read domains through `displayDomainIds`
+(`web/src/data/tracker/domains.ts`). The contract's domainIds follow at its next transition.

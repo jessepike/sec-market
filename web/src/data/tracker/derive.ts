@@ -3,6 +3,7 @@
  * Kept separate from the components so the logic can be unit-tested without
  * rendering React — see tests/tracker-data.test.ts.
  */
+import { displayDomainIds } from './domains'
 import { runStatus } from '../runStatus'
 import { trackerEvents } from './events'
 import { shortSupplierName } from './names'
@@ -22,7 +23,7 @@ export { shortSupplierName }
 /** Suppliers assigned to a domain, alphabetical by name — the front page's default order. */
 export function suppliersForDomain(domainId: string): TrackerSupplier[] {
   return trackerSuppliers
-    .filter((supplier) => supplier.domainIds.includes(domainId))
+    .filter((supplier) => displayDomainIds(supplier).includes(domainId))
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name))
 }

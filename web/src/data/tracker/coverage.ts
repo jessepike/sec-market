@@ -10,6 +10,7 @@
  * tier 2, a funding round or a company-stated figure for tier 3, and nothing
  * financial for tier 4. A supplier moves tier on its own when its data changes.
  */
+import { displayDomainIds } from './domains'
 import edgarFacts from '../generated/edgarFacts.json' with { type: 'json' }
 import { trackerDomains } from './domains'
 import { retainedTrackerEvents } from './events'
@@ -155,7 +156,7 @@ export const coverageRows: CoverageRow[] = trackerSuppliers
       displayName: shortSupplierName(supplier.name),
       tier,
       typeLabel: supplierKindLabel[supplier.kind],
-      domains: supplier.domainIds.map((id) => domainName.get(id) ?? id),
+      domains: displayDomainIds(supplier).map((id) => domainName.get(id) ?? id),
       holdings: holdingsFor(supplier, tier, events12m),
       latestFact: latestFactFor(supplier),
       events12m,

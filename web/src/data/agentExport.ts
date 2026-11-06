@@ -6,6 +6,8 @@
  * data the page renders, so the two cannot disagree. Do not add a number,
  * date or claim here that is not already in the site data.
  */
+import { displayDomainIds } from './tracker/domains'
+
 import type { EvidenceRecord } from './types'
 import type { RunStatus } from './runStatus'
 import type { TrackerDomain } from './tracker/domains'
@@ -125,7 +127,7 @@ export function trackerCsv(payload: TrackerJsonPayload): string {
     ['figure_id', 'supplier_id', 'supplier_name', 'supplier_kind', 'domain_ids', 'type', 'label', 'value', 'period', 'certified', 'source_urls', 'source_dates'],
     payload.figures.map((f) => {
       const s = suppliers.get(f.supplierId)
-      return [f.id, f.supplierId, s?.name ?? '', s?.kind ?? '', (s?.domainIds ?? []).join(' '), f.type, f.label, f.value, f.period, f.certified, f.sourceUrls.join(' '), f.sourceDates.join(' ')]
+      return [f.id, f.supplierId, s?.name ?? '', s?.kind ?? '', (s ? displayDomainIds(s) : []).join(' '), f.type, f.label, f.value, f.period, f.certified, f.sourceUrls.join(' '), f.sourceDates.join(' ')]
     }),
   )
 }
@@ -234,7 +236,7 @@ export function trackerMarkdown(payload: TrackerJsonPayload, events: EventsJsonP
   ]
   for (const s of [...payload.suppliers].sort((a, b) => a.name.localeCompare(b.name))) {
     out.push(`### ${s.name}`, '')
-    out.push(`- id: \`${s.id}\` · type: ${s.kind} · domains: ${s.domainIds.map((id) => domainNames.get(id) ?? id).join(', ')} · page: ${s.pageUrl}`)
+    out.push(`- id: \`${s.id}\` · type: ${s.kind} · domains: ${displayDomainIds(s).map((id) => domainNames.get(id) ?? id).join(', ')} · page: ${s.pageUrl}`)
     for (const f of figuresBySupplier.get(s.id) ?? []) {
       const period = f.period ? ` (${f.period})` : ''
       const cert = f.certified ? ' · certified, re-derived from SEC filings' : ''

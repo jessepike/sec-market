@@ -6,7 +6,7 @@ import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import { runStatus } from '../src/data/runStatus.ts'
 import { edgarFilingsInLast30Days } from '../src/data/tracker/derive.ts'
-import { notCoveredByTracker, trackerDomains } from '../src/data/tracker/domains.ts'
+import { displayDomainIds, notCoveredByTracker, trackerDomains } from '../src/data/tracker/domains.ts'
 import { retainedTrackerEvents, trackerEvents } from '../src/data/tracker/events.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 
@@ -245,7 +245,7 @@ for (const supplier of trackerSuppliers) {
   if (supplier.domainIds.length === 0) {
     fail(`supplier "${supplier.id}" (${supplier.name}) names no domain`)
   }
-  for (const domainId of supplier.domainIds) {
+  for (const domainId of displayDomainIds(supplier)) {
     if (!domainIds.has(domainId)) {
       fail(`supplier "${supplier.id}" names unknown domain "${domainId}"`)
       continue
@@ -487,7 +487,7 @@ if (staleFigureFound && runStatus.state === 'updated') {
 
 const namesByDomain = new Map<string, Map<string, string[]>>()
 for (const supplier of trackerSuppliers) {
-  for (const domainId of supplier.domainIds) {
+  for (const domainId of displayDomainIds(supplier)) {
     if (!namesByDomain.has(domainId)) namesByDomain.set(domainId, new Map())
     const byName = namesByDomain.get(domainId)!
     const ids = byName.get(supplier.name) ?? []

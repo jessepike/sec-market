@@ -1,3 +1,4 @@
+import { displayDomainIds } from '../data/tracker/domains'
 import { isCertifiedSupplier } from '../data/tracker/certification'
 import { domainMomentum, formatPercent, formatPoints, healthFacts } from '../data/tracker/momentum'
 import { eventGroups, yearChanges } from '../data/tracker/presentation'
@@ -30,7 +31,7 @@ export function CompanyMomentum({ id }: { id: string }) {
   const supplier = trackerSuppliers.find(s => s.id === id)
   if (!supplier) return null
   const certified = isCertifiedSupplier(id) && !!supplier.revenue
-  const own = domains.filter(d => supplier.domainIds.includes(d.id))
+  const own = domains.filter(d => displayDomainIds(supplier).includes(d.id))
   const health = healthFacts.suppliers[id]
   const series = certified && supplier.edgarId ? quarterlyGrowth(supplier.edgarId) : []
   const max = Math.max(10, ...series.map(s => Math.abs(s.growth)))

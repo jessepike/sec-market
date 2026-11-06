@@ -99,7 +99,7 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   // The twelve-domain index lives on /market/ (design review 2026-11-06).
   await page.goto('/market/')
   await expect(page.locator('#market-heading')).toHaveText('The market by domain')
-  await expect(page.locator('#market .tracker-domain')).toHaveCount(12)
+  await expect(page.locator('#market .tracker-domain')).toHaveCount(13)
   // Segments keep their own scope and never borrow a parent's total revenue.
   await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
   await expect(page.locator('.desk-dialog .desk-gap')).toContainText('No separately reported quarterly revenue')

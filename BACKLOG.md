@@ -99,6 +99,14 @@ production without waiting for a code promotion; add the rounds to the agent fil
 (GITHUB_TOKEN pushes do not trigger workflows).
 **Authorization:** owner-approved (D-140).
 
+### SEC-086 · Carry the Cyber resilience domain into the contract
+
+D-144 moved Rubrik, Commvault, Cohesity and Veeam to a new `resilience` domain at display time
+(`displayDomainIds`). At the next contract transition, set their `domainIds` in `contracts/market.json`
+and the supplier originals, then delete `domainReassignments`. The evaluation scorecard groups by the
+contract's domainIds until then.
+**Authorization:** owner-approved (D-144).
+
 ### SEC-083 · Additive roster transition for onboarding suppliers
 
 Build one reusable contract transition that only adds suppliers and their sources, proved by

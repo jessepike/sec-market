@@ -1,3 +1,4 @@
+import { displayDomainIds } from './domains'
 import type { EvidenceRecord } from '../types'
 import type { RunStatus } from '../runStatus'
 import type { TrackerDomain } from './domains'
@@ -210,7 +211,7 @@ export function trackerJsonPayload(
     suppliers: suppliers.map((supplier) => ({
       id: supplier.id,
       name: supplier.name,
-      domainIds: supplier.domainIds,
+      domainIds: displayDomainIds(supplier),
       kind: supplier.kind,
       pageUrl: `${SITE_URL}/companies/${companySlug(supplier.id)}/`,
     })),
