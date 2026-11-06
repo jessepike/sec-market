@@ -18,7 +18,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
-| Daily clock | D-127, D-128 | Vercel Cron in a separate project starts the daily collector; GitHub's schedule is a backup, and timer starts skip once the day has collected. An outside watchdog (GitHub App alerts) reports stale data, failed runs and an expired ChatGPT login. API-key model fallback is deferred (SEC-075) |
+| Daily clock | D-127, D-128, D-143 | Vercel Cron in a separate project starts the daily collector; GitHub's schedule is a backup, and timer starts skip once the day has collected. An outside watchdog (GitHub App alerts) reports stale data, failed runs and an expired ChatGPT login. The watchdog alerts on regressions only; known coverage gaps are listed, not alerted (D-143). API-key model fallback is deferred (SEC-075) |
 | Model route | D-109, D-126 | The AI step runs on the owner's ChatGPT subscription in GitHub Actions. Standard v0.7 allows this at T2 because a failed run cannot publish anything wrong, the outside watchdog alerts, and the login secret serves one job |
 | Spend on automation | D-129 | GitHub Actions budget $5/month, shared with the owner's other sites, and watched |
 | Backlog and coverage | D-130, D-131 | Documents older than 12 months are archived, not reviewed; a supplier-mention check runs before any model call. `/coverage/` lists all 74 suppliers with a tier derived from their data |
@@ -1580,3 +1580,12 @@ domains · N SEC filers certified" is removed, and so are the counts in the comp
 this site covers" and the method page's coverage note. The `/coverage/` list stays. Counts that agents
 read in `/data/` exports and in operational run status stay, because they are computed from the
 roster.
+
+**D-143 · 2026-11-06 — The pipeline watchdog alerts on regressions only.**
+
+Owner: "Sure, go ahead with regressions only." Issue #10 could never clear, because D-112 counts all
+557 source obligations and 254 of them come from source families that were never registered, plus a
+review backlog that cannot drain. The watchdog now raises its alert only for change: coverage overdue,
+a source outside `ops/watchdog/known-gaps.json` failing on two daily runs in a row, review stalled, or
+unreadable inputs. Known gaps are listed in the issue body as tracked, not alerting, and stay in
+BACKLOG SEC-071 and SEC-072. Remove an entry from the list once its source collects again.

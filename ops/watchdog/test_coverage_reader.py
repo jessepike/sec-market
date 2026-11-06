@@ -302,6 +302,7 @@ class CoverageReaderTests(unittest.TestCase):
         archive_commit=actual('archive-ref')['object']['sha']
         def api(path,raw=False):
             if path=='git/ref/archive/market-evidence':return {'object':{'sha':archive_commit}}
+            if path.startswith('commits?sha='):return []
             prefix='contents/state/'
             self.assertTrue(raw and path.startswith(prefix))
             key=path[len(prefix):].split('?ref=')[0]
@@ -315,7 +316,9 @@ class CoverageReaderTests(unittest.TestCase):
             self.assertEqual(probe.main(),2)
         result=json.loads(output.getvalue())
         self.assertFalse(result['healthy']);self.assertIn('SCHEDULED_COLLECTION_RECEIPT_DIFFERS',result['reasons'])
-        self.assertIn('HELD_CLAIMS_37',result['reasons']);self.assertNotIn('INDEPENDENT_PROBE_FAILED',result['reasons'])
+        self.assertIn('HELD_CLAIMS_37',result['tracked']);self.assertNotIn('INDEPENDENT_PROBE_FAILED',result['reasons'])
+        # D-143: no earlier daily run is readable here, so review progress cannot be shown.
+        self.assertIn('REVIEW_TREND_UNREADABLE',result['reasons'])
 
 
     def test_historical_receipts_reject_the_mutable_current_J_contract(self):
@@ -346,6 +349,7 @@ class CoverageReaderTests(unittest.TestCase):
         def api(path, raw=False):
             if path == 'git/ref/archive/market-evidence': return {'object': {'sha': archive_commit}}
             if path == 'issues?state=open&per_page=100&sort=updated&direction=desc': return []
+            if path.startswith('commits?sha='): return []
             prefix = 'contents/state/'
             self.assertTrue(raw and path.startswith(prefix))
             key = path[len(prefix):].split('?ref=')[0]
@@ -367,10 +371,11 @@ class CoverageReaderTests(unittest.TestCase):
             self.assertEqual(probe.main(), 2)
         result = json.loads(output.getvalue())
         self.assertFalse(result['healthy']); self.assertEqual(result['checkedAt'], NOW)
-        for reason in ('SCHEDULED_COLLECTION_RECEIPT_DIFFERS', 'DAILY_INTAKE_INCOMPLETE',
-                       'PROCESSING_PENDING_10617', 'PROCESSING_HELD_10',
+        self.assertIn('SCHEDULED_COLLECTION_RECEIPT_DIFFERS', result['reasons'])
+        for reason in ('DAILY_INTAKE_INCOMPLETE', 'PROCESSING_PENDING_10617', 'PROCESSING_HELD_10',
                        'HISTORICAL_REVIEW_PENDING_10616', 'HELD_CLAIMS_37'):
-            self.assertIn(reason, result['reasons'])
+            self.assertIn(reason, result['tracked'])
+            self.assertNotIn(reason, result['reasons'])
         self.assertNotIn('INDEPENDENT_PROBE_FAILED', result['reasons'])
         self.assertEqual(result['notification']['delivery'], 'github_issue_updated')
         self.assertEqual(result['notification']['state'], 'open')
@@ -380,6 +385,7 @@ class CoverageReaderTests(unittest.TestCase):
         self.assertEqual(payload['title'], probe.TITLE); self.assertEqual(payload['assignees'], ['jessepike'])
         self.assertNotIn('state', payload)
         self.assertIn('HELD_CLAIMS_37', payload['body']); self.assertIn(NOW, payload['body'])
+        self.assertIn('Tracked known gaps (D-143, not alerting): ', payload['body'])
 
 
 if __name__=='__main__':unittest.main()
