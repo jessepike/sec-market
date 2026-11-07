@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "1d04b857a02ce8635b1507736e4850263ab8c3a2a4852942e67ae81e5a4c84c1",
+  "activatedContractSha256": "6d7ecf5e84a9be72a843bf28155bb8d0e6c35f8233c5ecc32f690e49d6a8199c",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -11,7 +11,12 @@
     "straiker",
     "lumos",
     "skyflow",
-    "secuvy"
+    "secuvy",
+    "semgrep",
+    "endor-labs",
+    "checkmarx",
+    "black-duck",
+    "noma"
   ],
   "addedSources": [
     "f5:official:1",
@@ -36,15 +41,21 @@
     "skyflow:citation:OB-skyflow-1",
     "secuvy:official:1",
     "secuvy:citation:OB-secuvy-1",
-    "checkpoint-sase:sec_facts",
-    "checkpoint-sase:sec_submissions",
     "checkpoint-sase:sec_documents",
-    "optiv:citation:TR-optiv-closing-2026-05-08"
+    "optiv:citation:TR-optiv-closing-2026-05-08",
+    "semgrep:official:1",
+    "semgrep:citation:OB-semgrep-1",
+    "endor-labs:official:1",
+    "endor-labs:citation:OB-endor-labs-1",
+    "checkmarx:official:1",
+    "checkmarx:citation:OB-checkmarx-1",
+    "black-duck:official:1",
+    "black-duck:citation:OB-black-duck-1",
+    "noma:official:1",
+    "noma:citation:OB-noma-1"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
-      "checkpoint-sase:sec_facts",
-      "checkpoint-sase:sec_submissions",
       "checkpoint-sase:sec_documents"
     ],
     "optiv": [

@@ -1605,3 +1605,18 @@ page shows total company revenue, re-derived from SEC filings and labeled as com
 security revenue, labeled as company-reported from its earnings release. This overrides the earlier
 exclusion of Akamai from `edgarRegistry.ts` (total revenue is not a security figure), provided the
 label makes the scope clear. It applies at graduation (SEC-083).
+
+**D-146 · 2026-11-07 — Fuller application and AI security coverage; private companies listed in every domain card.**
+Owner said "Yes" to three proposals in the "Strengthen application and AI security coverage" thread:
+(1) add Checkmarx, Black Duck, Semgrep and Endor Labs to Application security (Aikido is already
+onboarding, D-138), and Noma Security to AI security; (2) define AI security as "security for how
+organizations use, build and run AI", in three sub-areas: AI usage control, AI application and model
+protection, AI agent security; (3) show private, acquired and segment companies as rows without
+bars, with their latest funding, ownership or deal and their latest event, and drop Palo Alto
+Networks' revenue bar from AI security (it is listed there for buying Protect AI). AI security shows
+no revenue bars at all (`revenueBars: false` in `domains.ts`), because no public company sells only
+AI security. The five companies ride the same additive roster transition (SEC-083): 87 suppliers.
+The same transition drops `checkpoint-sase:sec_facts` and `:sec_submissions` (20-F filer, agreed with
+SEC-080). Not done here: the contract's domainIds for cyber resilience (D-144), because the additive
+transition only adds rows; that needs its own transition. Rejected for now: tagging F5 and Akamai into
+Application security, because most of their revenue is not application security.

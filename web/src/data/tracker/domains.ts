@@ -18,6 +18,25 @@ export interface TrackerDomain {
   name: string
   /** One factual sentence: what this domain covers. No judgment words. */
   scope: string
+  /**
+   * False when a company's whole revenue says little about this domain, so the
+   * domain shows no revenue bars: every company is listed with its latest
+   * funding, ownership or deal instead. AI security is the case today: no
+   * public company sells only AI security, and Palo Alto Networks is listed
+   * there for buying Protect AI, not for its AI revenue.
+   */
+  revenueBars?: false
+  /** Named parts of the domain, each with the companies listed under it. A classification, not a ranking. */
+  subareas?: TrackerSubarea[]
+}
+
+export interface TrackerSubarea {
+  id: string
+  name: string
+  /** One factual line: what this part covers. */
+  scope: string
+  /** Tracker or onboarding supplier ids in this part. */
+  supplierIds: string[]
 }
 
 export const trackerDomains: TrackerDomain[] = [
@@ -86,7 +105,28 @@ export const trackerDomains: TrackerDomain[] = [
     id: 'ai-security',
     name: 'AI security',
     scope:
-      'Security products for AI systems, covered as a market: who is buying whom and what is reported as revenue, not as news.',
+      'Security for how organizations use, build and run AI: control of staff use of AI tools, protection of AI applications and models, and security for AI agents.',
+    revenueBars: false,
+    subareas: [
+      {
+        id: 'ai-usage',
+        name: 'AI usage control',
+        scope: 'Visibility and policy for how staff use AI tools and what data they share with them.',
+        supplierIds: ['witnessai', 'surepath'],
+      },
+      {
+        id: 'ai-apps-models',
+        name: 'AI application and model protection',
+        scope: 'Prompt-injection defense, model scanning and runtime guardrails for AI applications.',
+        supplierIds: ['panw', 'protect-ai', 'hiddenlayer', 'lakera', 'straiker'],
+      },
+      {
+        id: 'ai-agents',
+        name: 'AI agent security',
+        scope: 'Inventory, permissions and runtime controls for AI agents.',
+        supplierIds: ['zenity', 'noma'],
+      },
+    ],
   },
 ]
 

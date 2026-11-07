@@ -200,6 +200,103 @@
           "OB-secuvy-1"
         ]
       }
+    },
+    {
+      "id": "semgrep",
+      "name": "Semgrep",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2025-02-05",
+        "stage": "Series D",
+        "amount": "$100 million",
+        "lead": "Menlo Ventures",
+        "evidenceIds": [
+          "OB-semgrep-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-semgrep-1"
+        ]
+      }
+    },
+    {
+      "id": "endor-labs",
+      "name": "Endor Labs",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2025-04-23",
+        "stage": "Series B",
+        "amount": "$93 million",
+        "lead": "DFJ Growth",
+        "evidenceIds": [
+          "OB-endor-labs-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-endor-labs-1"
+        ]
+      }
+    },
+    {
+      "id": "checkmarx",
+      "name": "Checkmarx",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "pe-owned",
+      "ownership": {
+        "status": "PE-owned. Hellman & Friedman bought it from Insight Partners at a $1.15 billion valuation, announced March 16, 2020.",
+        "evidenceIds": [
+          "OB-checkmarx-1"
+        ]
+      }
+    },
+    {
+      "id": "black-duck",
+      "name": "Black Duck Software",
+      "domainIds": [
+        "appsec"
+      ],
+      "kind": "pe-owned",
+      "ownership": {
+        "status": "PE-owned. Clearlake Capital and Francisco Partners completed the purchase of the former Synopsys Software Integrity Group on October 1, 2024, valued at up to $2.1 billion.",
+        "evidenceIds": [
+          "OB-black-duck-1"
+        ]
+      }
+    },
+    {
+      "id": "noma",
+      "name": "Noma Security",
+      "domainIds": [
+        "ai-security"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2025-07-31",
+        "stage": "Series B",
+        "amount": "$100 million",
+        "lead": "Evolution Equity Partners",
+        "evidenceIds": [
+          "OB-noma-1"
+        ]
+      },
+      "ownership": {
+        "status": "Independent, venture-backed.",
+        "evidenceIds": [
+          "OB-noma-1"
+        ]
+      }
     }
   ],
   "evidence": [
@@ -362,6 +459,106 @@
         "data"
       ],
       "retrievedAt": "2026-11-06"
+    },
+    {
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-semgrep-1",
+      "canonicalUrl": "https://www.securityweek.com/semgrep-raises-100m-for-ai-powered-code-security-platform/",
+      "conflictingEvidenceIds": [],
+      "economicPeriod": "February 2025",
+      "excerpt": "has raised $100 million in a Series D funding round led by Menlo Ventures",
+      "id": "OB-semgrep-1",
+      "interpretation": "",
+      "limitations": "No valuation is stated in the article.",
+      "organization": "SecurityWeek",
+      "publicationDate": "2025-02-05",
+      "retrievedAt": "2026-11-07",
+      "sourceClass": "INDEPENDENT",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "appsec"
+      ],
+      "title": "Semgrep raises $100M for AI-powered code security platform"
+    },
+    {
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-endor-labs-1",
+      "canonicalUrl": "https://endorlabs.com/learn/why-we-raised-a-93m-series-b-in-this-market",
+      "conflictingEvidenceIds": [],
+      "economicPeriod": "April 2025",
+      "excerpt": "Today, we're announcing our $93M Series B, led by DFJ Growth with participation from Salesforce Ventures.",
+      "id": "OB-endor-labs-1",
+      "interpretation": "",
+      "limitations": "Company blog post by its chief executive. No valuation is stated.",
+      "organization": "Endor Labs",
+      "publicationDate": "2025-04-23",
+      "retrievedAt": "2026-11-07",
+      "sourceClass": "OFFICIAL",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "appsec"
+      ],
+      "title": "Why we raised a $93M Series B in this market"
+    },
+    {
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-checkmarx-1",
+      "canonicalUrl": "https://techcrunch.com/2020/03/16/insight-partners-sells-security-firm-checkmarx-to-hellman-friedman-for-1-15b/",
+      "conflictingEvidenceIds": [],
+      "economicPeriod": "March 2020",
+      "excerpt": "was sold today to Hellman & Friedman, another private equity firm at a valuation of $1.15 billion",
+      "id": "OB-checkmarx-1",
+      "interpretation": "",
+      "limitations": "Insight Partners kept a minority stake, per the Checkmarx release of the same day.",
+      "organization": "TechCrunch",
+      "publicationDate": "2020-03-16",
+      "retrievedAt": "2026-11-07",
+      "sourceClass": "INDEPENDENT",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "appsec"
+      ],
+      "title": "Insight Partners sells security firm Checkmarx to Hellman & Friedman for $1.15B"
+    },
+    {
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-black-duck-1",
+      "canonicalUrl": "https://clearlake.com/clearlake-and-francisco-partners-complete-acquisition-of-black-duck-software-formerly-known-as-synopsys-software-integrity-group/",
+      "conflictingEvidenceIds": [],
+      "economicPeriod": "October 2024",
+      "excerpt": "is valued at up to $2.1 billion, including up to $475 million in cash",
+      "id": "OB-black-duck-1",
+      "interpretation": "",
+      "limitations": "The $475 million is contingent on the buyers reaching a set rate of return, per the same release.",
+      "organization": "Clearlake Capital",
+      "publicationDate": "2024-10-01",
+      "retrievedAt": "2026-11-07",
+      "sourceClass": "OFFICIAL",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "appsec"
+      ],
+      "title": "Clearlake and Francisco Partners complete acquisition of Black Duck Software, formerly known as Synopsys Software Integrity Group"
+    },
+    {
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-noma-1",
+      "canonicalUrl": "https://www.securityweek.com/noma-security-raises-100-million-for-ai-security-platform/",
+      "conflictingEvidenceIds": [],
+      "economicPeriod": "July 2025",
+      "excerpt": "The funding round was led by Evolution Equity Partners.",
+      "id": "OB-noma-1",
+      "interpretation": "",
+      "limitations": "Amount and round from the same article: \"raised $100 million in Series B funding\".",
+      "organization": "SecurityWeek",
+      "publicationDate": "2025-07-31",
+      "retrievedAt": "2026-11-07",
+      "sourceClass": "INDEPENDENT",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "ai-security"
+      ],
+      "title": "Noma Security raises $100 million for AI security platform"
     }
   ],
   "events": []

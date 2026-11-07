@@ -130,7 +130,10 @@ Akamai join `edgarRegistry.ts` when they graduate into the tracker, not before: 
 registry against tracker public suppliers, and `sec-adapter.mjs` stays unchanged. Left: replacement citations
 for the three blocked ones, binding verification for the eight official sources, the Optiv correction request
 group, and the graduation check.
-**Authorization:** owner-approved (D-138).
+**2026-11-07 (D-146):** the transition now also adds Checkmarx, Black Duck, Semgrep, Endor Labs and Noma
+(87 suppliers, 337 sources) and drops `checkpoint-sase:sec_facts` and `:sec_submissions`. Their
+`official:1` sources start as unverified bindings like the other onboarding ones.
+**Authorization:** owner-approved (D-138, D-146).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers
 

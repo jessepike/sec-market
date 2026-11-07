@@ -24,8 +24,6 @@
     "checkpoint-email:official:1": "SOURCE_BINDING_UNVERIFIED",
     "checkpoint-email:official:2": "SOURCE_BINDING_UNVERIFIED",
     "checkpoint-sase:official:1": "SOURCE_BINDING_UNVERIFIED",
-    "checkpoint-sase:sec_facts": "Independent SEC validation failed",
-    "checkpoint-sase:sec_submissions": "Independent SEC validation failed",
     "cohesity:citation:TR-cohesity-1": "HTTP_403",
     "cohesity:official:1": "HTTP_403",
     "cyera:official:1": "SOURCE_BINDING_UNVERIFIED",

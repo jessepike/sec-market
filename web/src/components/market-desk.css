@@ -185,7 +185,11 @@
 .momentum__na { color: #9aa3a8; font-size: 11px; }
 .momentum__others { margin-top: 6px; font-size: 12px; }.momentum__others summary { cursor: pointer; color: #205bc0; min-height: 28px; display: flex; align-items: center; }
 .momentum__others ul { list-style: none; padding: 0; margin: 0 0 6px; }
-.momentum__others li { display: grid; grid-template-columns: 104px minmax(0,1fr) auto; gap: 8px; align-items: center; border-top: 1px solid #f0f1ef; }
+.momentum__others li,.momentum__others-cols { display: grid; grid-template-columns: 124px minmax(0,1fr) minmax(0,auto); gap: 8px; align-items: center; border-top: 1px solid #f0f1ef; min-height: 28px; }
+.momentum__others-cols { font-size: 10px; color: #62676a; border-top: 0; min-height: 0; margin: 10px 0 2px; line-height: 1.2; }.momentum__others-cols>span:first-child { grid-column: span 1; }.momentum__others-cols>span:last-child { text-align: right; }
+.momentum__others li>span:last-child { text-align: right; }
+.momentum__scope { margin: 4px 0 0; font-size: 12px; }
+.momentum__group-name { margin: 8px 0 2px; font-size: 12px; font-weight: 650; color: #141518; }.momentum__group-name .desk-note { font-weight: 400; font-size: 11px; text-transform: none; }
 .momentum__others li .desk-supplier-link { font-weight: 400 !important; font-size: 12px; }.momentum__others li .desk-note { margin: 0; font-size: 11px; text-transform: none; }
 .momentum__none { padding: 10px 18px 14px; margin: 0; }
 .market-desk .momentum__mobile-toggle { display: none; }
@@ -202,7 +206,8 @@
   .momentum__rows.has-health .momentum__name { grid-column: 1; }
   .momentum__rows.has-health .momentum__growth { grid-column: 2; }
   .momentum__rows.has-health .momentum__change { grid-column: 3; }
-  .momentum__others li { grid-template-columns: minmax(0,1fr) auto; }.momentum__others li>span:nth-child(2) { grid-column: 1/-1; grid-row: 2; font-size: 11px; color: #3e4a5c; }
+  .momentum__others li { grid-template-columns: minmax(0,1fr) auto; padding: 4px 0; row-gap: 2px; }.momentum__others li>span:nth-child(2) { grid-column: 1/-1; grid-row: 2; font-size: 11px; color: #3e4a5c; }
+  .momentum__others-cols { display: none; }.momentum__group-name .desk-note { display: block; }
   .desk-counts__snapshot { font-size: 10px; min-height: 0; }
   .momentum__none { padding: 8px 12px 12px; }
   .momentum:not(.is-expanded) .momentum__domain:nth-child(n+3) { display: none; }.market-desk .momentum__mobile-toggle { display: block; margin: 10px 12px; }

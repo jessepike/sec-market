@@ -7306,40 +7306,6 @@
     },
     {
       "allowedHosts": [
-        "data.sec.gov"
-      ],
-      "family": "regulatory_filings",
-      "id": "checkpoint-sase:sec_facts",
-      "kind": "sec_facts",
-      "maxPages": 40,
-      "registration": "verified",
-      "required": true,
-      "scopePrefixes": [
-        "/"
-      ],
-      "seedEvidenceUrls": [],
-      "supplierId": "checkpoint-sase",
-      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001015922.json"
-    },
-    {
-      "allowedHosts": [
-        "data.sec.gov"
-      ],
-      "family": "regulatory_filings",
-      "id": "checkpoint-sase:sec_submissions",
-      "kind": "sec_submissions",
-      "maxPages": 40,
-      "registration": "verified",
-      "required": true,
-      "scopePrefixes": [
-        "/"
-      ],
-      "seedEvidenceUrls": [],
-      "supplierId": "checkpoint-sase",
-      "url": "https://data.sec.gov/submissions/CIK0001015922.json"
-    },
-    {
-      "allowedHosts": [
         "data.sec.gov",
         "www.sec.gov"
       ],
@@ -7375,6 +7341,207 @@
       "seedEvidenceUrls": [],
       "supplierId": "optiv",
       "url": "https://www.optiv.com/company/press-releases/optiv-completes-comprehensive-amendment-and-extension-its-credit-facilities"
+    },
+    {
+      "allowedHosts": [
+        "semgrep.dev"
+      ],
+      "family": "official_announcements",
+      "id": "semgrep:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "semgrep",
+      "url": "https://semgrep.dev/"
+    },
+    {
+      "allowedHosts": [
+        "www.securityweek.com"
+      ],
+      "evidenceId": "OB-semgrep-1",
+      "family": "citation_integrity",
+      "id": "semgrep:citation:OB-semgrep-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "semgrep",
+      "url": "https://www.securityweek.com/semgrep-raises-100m-for-ai-powered-code-security-platform/"
+    },
+    {
+      "allowedHosts": [
+        "www.endorlabs.com",
+        "endorlabs.com"
+      ],
+      "family": "official_announcements",
+      "id": "endor-labs:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "endor-labs",
+      "url": "https://www.endorlabs.com/"
+    },
+    {
+      "allowedHosts": [
+        "endorlabs.com"
+      ],
+      "evidenceId": "OB-endor-labs-1",
+      "family": "citation_integrity",
+      "id": "endor-labs:citation:OB-endor-labs-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "endor-labs",
+      "url": "https://endorlabs.com/learn/why-we-raised-a-93m-series-b-in-this-market"
+    },
+    {
+      "allowedHosts": [
+        "checkmarx.com"
+      ],
+      "family": "official_announcements",
+      "id": "checkmarx:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "checkmarx",
+      "url": "https://checkmarx.com/"
+    },
+    {
+      "allowedHosts": [
+        "techcrunch.com"
+      ],
+      "evidenceId": "OB-checkmarx-1",
+      "family": "citation_integrity",
+      "id": "checkmarx:citation:OB-checkmarx-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "checkmarx",
+      "url": "https://techcrunch.com/2020/03/16/insight-partners-sells-security-firm-checkmarx-to-hellman-friedman-for-1-15b/"
+    },
+    {
+      "allowedHosts": [
+        "www.blackduck.com"
+      ],
+      "family": "official_announcements",
+      "id": "black-duck:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "black-duck",
+      "url": "https://www.blackduck.com/"
+    },
+    {
+      "allowedHosts": [
+        "clearlake.com"
+      ],
+      "evidenceId": "OB-black-duck-1",
+      "family": "citation_integrity",
+      "id": "black-duck:citation:OB-black-duck-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "black-duck",
+      "url": "https://clearlake.com/clearlake-and-francisco-partners-complete-acquisition-of-black-duck-software-formerly-known-as-synopsys-software-integrity-group/"
+    },
+    {
+      "allowedHosts": [
+        "noma.security"
+      ],
+      "family": "official_announcements",
+      "id": "noma:official:1",
+      "kind": "official_discovery",
+      "maxPages": 60,
+      "registration": "candidate",
+      "required": true,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "noma",
+      "url": "https://noma.security/"
+    },
+    {
+      "allowedHosts": [
+        "www.securityweek.com"
+      ],
+      "evidenceId": "OB-noma-1",
+      "family": "citation_integrity",
+      "id": "noma:citation:OB-noma-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "noma",
+      "url": "https://www.securityweek.com/noma-security-raises-100-million-for-ai-security-platform/"
     }
   ],
   "suppliers": [
@@ -7749,6 +7916,38 @@
     {
       "aliases": [],
       "domainIds": [
+        "appsec"
+      ],
+      "fundingStage": null,
+      "id": "black-duck",
+      "kind": "pe-owned",
+      "name": "Black Duck Software",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "black-duck:official:1",
+        "black-duck:citation:OB-black-duck-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
         "network-sase"
       ],
       "fundingStage": "Series G",
@@ -7810,6 +8009,38 @@
         "chainguard:official:1",
         "chainguard:citation:TR-chainguard-1",
         "chainguard:citation:TR-chainguard-2"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "appsec"
+      ],
+      "fundingStage": null,
+      "id": "checkmarx",
+      "kind": "pe-owned",
+      "name": "Checkmarx",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "checkmarx:official:1",
+        "checkmarx:citation:OB-checkmarx-1"
       ],
       "startupStatus": "unclassified"
     },
@@ -7884,8 +8115,6 @@
         "checkpoint-sase:citation:TR-checkpoint-3",
         "checkpoint-sase:citation:TR-checkpoint-4",
         "checkpoint-sase:citation:TR-checkpoint-5",
-        "checkpoint-sase:sec_facts",
-        "checkpoint-sase:sec_submissions",
         "checkpoint-sase:sec_documents"
       ],
       "startupStatus": "unclassified"
@@ -8253,6 +8482,38 @@
         "dragos:official:1",
         "dragos:citation:TR-dragos-1",
         "dragos:citation:TR-dragos-2"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "appsec"
+      ],
+      "fundingStage": "Series B",
+      "id": "endor-labs",
+      "kind": "private",
+      "name": "Endor Labs",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "endor-labs:official:1",
+        "endor-labs:citation:OB-endor-labs-1"
       ],
       "startupStatus": "unclassified"
     },
@@ -8874,6 +9135,38 @@
         "netskope:citation:TR-netskope-4",
         "netskope:citation:TR-netskope-5",
         "netskope:sec_documents"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "ai-security"
+      ],
+      "fundingStage": "Series B",
+      "id": "noma",
+      "kind": "private",
+      "name": "Noma Security",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "noma:official:1",
+        "noma:citation:OB-noma-1"
       ],
       "startupStatus": "unclassified"
     },
@@ -9518,6 +9811,38 @@
       "sourceIds": [
         "secuvy:official:1",
         "secuvy:citation:OB-secuvy-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "appsec"
+      ],
+      "fundingStage": "Series D",
+      "id": "semgrep",
+      "kind": "private",
+      "name": "Semgrep",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "semgrep:official:1",
+        "semgrep:citation:OB-semgrep-1"
       ],
       "startupStatus": "unclassified"
     },

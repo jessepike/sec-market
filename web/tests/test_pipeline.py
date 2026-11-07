@@ -1126,11 +1126,11 @@ class PipelineTests(unittest.TestCase):
         snapshot['secCertification']['claimKeys']=['fixture.revenue'];coverage['checkedAt']='2026-10-16T16:00:00Z'
         with self.assertRaises(ContractError):prepare()
 
-    def test_real_roster_has_all_82_and_honest_gaps(self):
-        # 74 live suppliers plus the 8 onboarding under D-138.
+    def test_real_roster_has_all_87_and_honest_gaps(self):
+        # 74 live suppliers plus the 8 onboarding under D-138 and the 5 added for application and AI security.
         c=validate_contract(json.loads((SCRIPTS.parents[2]/'contracts/market.json').read_text()))
         p=plan_run(c,T)
-        self.assertEqual(len(p['supplierIds']),82)
+        self.assertEqual(len(p['supplierIds']),87)
         self.assertTrue(any(t['kind']=='missing_discovery' for t in p['tasks']))
 
     def test_distribution_and_investor_sites_are_not_company_discovery(self):

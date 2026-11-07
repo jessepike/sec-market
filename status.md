@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-06
+updated: 2026-11-07
 ---
 
 # Current state
+
+**Application and AI security coverage (2026-11-07, D-146, on preview, owner review).** Five more onboarding suppliers (Checkmarx, Black Duck, Semgrep, Endor Labs, Noma) in the additive roster transition, now 87. Every domain card on the front page lists its private, acquired and segment companies as rows with their latest funding, ownership or deal, so cards without SEC filers (MDR, email, OT) now show. AI security has no revenue bars and three sub-areas (usage control, app and model protection, agents).
 
 **Site health check (2026-11-06).** One GitHub issue titled "Site health: OK" (or "N failing") is the status page. `ops/timer/api/health.js` rewrites it hourly from Vercel with 16 checks and comments only when a check newly goes bad or all recover. The collector records evidence size and free runner disk for it (`evidence-disk` annotation). Live once `main` advances, since the timer project deploys from `main`. Since 2026-11-07 it also starts the publisher when a finished gate has no publisher run after it (split release, below).
 

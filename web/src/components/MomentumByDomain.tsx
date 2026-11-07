@@ -1,14 +1,17 @@
 import { useState } from 'react'
+import type { ReactNode } from 'react'
 import { shortSupplierName } from '../data/tracker/names'
 import { certifiedGrowth, domainMomentum, formatPercent, formatPoints, healthFacts, marketMedian } from '../data/tracker/momentum'
-import type { DomainMomentum, MomentumRow } from '../data/tracker/momentum'
+import type { DomainMomentum, MomentumRow, OtherCompany } from '../data/tracker/momentum'
+import { trackerDomains } from '../data/tracker/domains'
 import { typeName } from '../data/tracker/typeNames'
 import { companyPath } from '../data/companyPages'
 import type { TrackerSupplier } from '../data/tracker/suppliers'
 
 const domains = domainMomentum()
 const withRows = domains.filter(d => d.rows.length > 0)
-const withoutRows = domains.filter(d => d.rows.length === 0)
+const shown = domains.filter(d => d.rows.length > 0 || d.others.length > 0)
+const empty = domains.filter(d => d.rows.length === 0 && d.others.length === 0)
 const all = certifiedGrowth.map(r => r.latest)
 const lo = Math.min(0, Math.floor(Math.min(...all) / 10) * 10)
 const hi = Math.max(10, Math.ceil(Math.max(...all) / 10) * 10)
@@ -65,18 +68,37 @@ function Row({ row, median, openSupplier, highlight }: { row: MomentumRow; media
   </li>
 }
 
+function headText(d: DomainMomentum): ReactNode {
+  if (!d.revenueBars) return 'Listed by latest funding or deal'
+  if (d.rows.length === 0) return 'No SEC filer'
+  if (d.median !== null) return <>Median <strong>{formatPercent(d.median)}</strong> across {d.rows.length} filers</>
+  return `${d.rows.length} SEC ${d.rows.length === 1 ? 'filer' : 'filers'}; median shown from 3`
+}
+
+function Other({ o, openSupplier, highlight }: { o: OtherCompany; openSupplier: Open; highlight?: string }) {
+  return <li className={highlight === o.supplier.id ? 'is-highlight' : undefined}><Name supplier={o.supplier} open={openSupplier} />
+    <span>{o.fact}</span>
+    <span className="desk-note">{o.latestEvent ? <>{typeName(o.latestEvent.type)} <time dateTime={o.latestEvent.date}>{o.latestEvent.date}</time>{o.eventCount > 1 ? ` · ${o.eventCount} events in 12 months` : ''}</> : 'No events in 12 months'}</span></li>
+}
+
 export function DomainCard({ d, openSupplier, highlight }: { d: DomainMomentum; openSupplier?: (id: string) => void; highlight?: string }) {
-  return <article className="momentum__domain" aria-labelledby={`momentum-${d.id}`}>
+  const domain = trackerDomains.find(t => t.id === d.id)
+  return <article className="momentum__domain" id={`momentum-card-${d.id}`} aria-labelledby={`momentum-${d.id}`}>
     <div className="momentum__domain-head"><h3 id={`momentum-${d.id}`}>{d.name}</h3>
-      <span>{d.median !== null ? <>Median <strong>{formatPercent(d.median)}</strong> across {d.rows.length} filers</> : `${d.rows.length} SEC ${d.rows.length === 1 ? 'filer' : 'filers'}; median shown from 3`}</span></div>
-    <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
-      {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
-    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} highlight={highlight} />)}<Axis /></ul>
-    {d.others.length > 0 && <details className="momentum__others" open={d.others.some(o => o.supplier.id === highlight) || undefined}><summary>{d.others.length} more {d.others.length === 1 ? 'company' : 'companies'} without SEC financials</summary>
-      <ul>{d.others.map(o => <li key={o.supplier.id} className={highlight === o.supplier.id ? 'is-highlight' : undefined}><Name supplier={o.supplier} open={openSupplier} />
-        <span>{o.fact}</span>
-        <span className="desk-note">{o.latestEvent ? <>{typeName(o.latestEvent.type)} <time dateTime={o.latestEvent.date}>{o.latestEvent.date}</time>{o.eventCount > 1 ? ` · ${o.eventCount} events in 12 months` : ''}</> : 'No events in 12 months'}</span></li>)}</ul>
-    </details>}
+      <span>{headText(d)}</span></div>
+    {domain?.subareas && <p className="desk-note momentum__scope">{domain.scope}</p>}
+    {d.rows.length > 0 && <>
+      <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
+        {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
+      <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} highlight={highlight} />)}<Axis /></ul>
+    </>}
+    {d.otherGroups.length > 0 && <div className="momentum__others">
+      <div className="momentum__others-cols" aria-hidden="true"><span>{d.rows.length > 0 ? 'Private, acquired and other companies' : 'Company'}</span><span>Latest funding, ownership or deal</span><span>Latest event</span></div>
+      {d.otherGroups.map(g => <div key={g.id ?? 'all'} className="momentum__group">
+        {g.name && <h4 className="momentum__group-name">{g.name}{g.scope && <span className="desk-note"> {g.scope}</span>}</h4>}
+        <ul>{g.companies.map(o => <Other key={o.supplier.id} o={o} openSupplier={openSupplier} highlight={highlight} />)}</ul>
+      </div>)}
+    </div>}
   </article>
 }
 
@@ -104,11 +126,11 @@ export function MomentumByDomain({ openSupplier }: { openSupplier: (id: string) 
     <p className="desk-note">Whole-company revenue growth, year over year, for the latest quarter, re-derived from SEC filings. The arrow is the change from the prior quarter&rsquo;s growth rate. The tick is the median.</p>
     <details className="momentum__how"><summary>How to read this</summary><p className="desk-note">Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. Growth is for the whole company, not for its business in one domain, so a company can appear in more than one domain card. A domain median is shown only with three or more filers.
       {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They come from the same SEC filings but are not yet part of the certified check. Debt is not shown yet: SEC tags for it are not consistent enough across these 16 filers.</>}
-      {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest event.</p></details>
+      {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest funding, ownership or deal and their latest event. AI security shows no bars: no public company sells only AI security, so a whole-company growth rate would not describe it.</p></details>
     {all ? <div className="momentum__grid momentum__grid--one"><AllDomains openSupplier={openSupplier} /></div> : <>
-      <div className="momentum__grid">{withRows.map(d => <DomainCard key={d.id} d={d} openSupplier={openSupplier} />)}</div>
+      <div className="momentum__grid">{shown.map(d => <DomainCard key={d.id} d={d} openSupplier={openSupplier} />)}</div>
       <button type="button" className="momentum__mobile-toggle" aria-expanded={expanded} onClick={() => setExpanded(v => !v)}>{expanded ? 'Show fewer domains' : 'Show all domains'}</button>
-      {withoutRows.length > 0 && <p className="desk-note momentum__none">No SEC filer in {withoutRows.map(d => d.name).join(', ')}. Their companies are on the <a href="/market/#market">market page</a>.</p>}
+      {empty.length > 0 && <p className="desk-note momentum__none">No companies tracked yet in {empty.map(d => d.name).join(', ')}.</p>}
     </>}
   </section>
 }

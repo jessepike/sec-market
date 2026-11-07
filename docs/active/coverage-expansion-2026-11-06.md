@@ -84,3 +84,16 @@ Chosen for scale and fresh public activity, and to fill thin domains:
 
 Unverified: the Island $400M round and Noma's reported $132M total come from aggregator pages only.
 The test that settles each one is the company's own press release.
+
+## Second batch (2026-11-07, D-146)
+
+| Company | Kind | Domain | Seed fact | Source |
+|---|---|---|---|---|
+| Semgrep | private, venture | appsec | $100M Series D led by Menlo Ventures, Feb 5 2025 | [SecurityWeek](https://www.securityweek.com/semgrep-raises-100m-for-ai-powered-code-security-platform/) |
+| Endor Labs | private, venture | appsec | $93M Series B led by DFJ Growth, Apr 23 2025 | [Endor Labs](https://endorlabs.com/learn/why-we-raised-a-93m-series-b-in-this-market) |
+| Checkmarx | PE-owned (Hellman & Friedman) | appsec | Bought from Insight Partners at $1.15B, Mar 16 2020 | [TechCrunch](https://techcrunch.com/2020/03/16/insight-partners-sells-security-firm-checkmarx-to-hellman-friedman-for-1-15b/) |
+| Black Duck Software | PE-owned (Clearlake, Francisco Partners) | appsec | Purchase of former Synopsys SIG completed Oct 1 2024, up to $2.1B | [Clearlake](https://clearlake.com/clearlake-and-francisco-partners-complete-acquisition-of-black-duck-software-formerly-known-as-synopsys-software-integrity-group/) |
+| Noma Security | private, venture | ai-security (agents) | $100M Series B led by Evolution Equity Partners, Jul 31 2025 | [SecurityWeek](https://www.securityweek.com/noma-security-raises-100-million-for-ai-security-platform/) |
+
+Newer facts the daily run should pick up from official sources: Checkmarx bought Tromzo (Dec 2025)
+and Endor Labs bought Autonomous Plane (2026); both are in search results only, not yet sourced here.
