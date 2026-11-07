@@ -103,9 +103,9 @@ test.describe('/thesis/ — the standing thesis', () => {
       await expect(page.getByText(trigger, { exact: true })).toHaveCount(0)
     }
 
-    // "Thesis" left the top nav; "Standing thesis" is the plain link to the
-    // archived record (see src/components/ArchiveLinks.tsx).
+    // "Thesis" left the top nav; "Standing analysis" in the footer links the
+    // archived record (src/components/SiteFooter.tsx).
     await expect(page.locator('.site-header').getByRole('link', { name: 'Thesis' })).toHaveCount(0)
-    await expect(page.getByRole('link', { name: 'Standing thesis' })).toHaveAttribute('href', '/thesis/')
+    await expect(page.locator('.site-footer').getByRole('link', { name: 'Standing analysis' })).toHaveAttribute('href', '/thesis/')
   })
 })

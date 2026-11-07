@@ -1,3 +1,4 @@
+import { typeName } from '../data/tracker/typeNames'
 import { companyView, eventWindow } from '../data/companyPages'
 import { CompanyMomentum } from './CompanyMomentum'
 
@@ -130,7 +131,7 @@ export function CompanyPage({ id }: { id: string }) {
             {view.events.map((e) => (
               <tr key={e.id}>
                 <th scope="row" data-label="Date">{e.date}</th>
-                <td data-label="Type">{e.type}</td>
+                <td data-label="Type">{typeName(e.type)}</td>
                 <td data-label="Event">{e.text}</td>
                 <td data-label="Source">
                   {e.sourceUrls.map((url, i) => (

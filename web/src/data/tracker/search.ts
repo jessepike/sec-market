@@ -17,5 +17,11 @@ export function searchCompanies(suppliers: readonly TrackerSupplier[], query: st
       const normalized = normalize(identifier)
       return terms.every(term => normalized.includes(term))
     }))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) => rank(a, terms[0]) - rank(b, terms[0]) || a.name.localeCompare(b.name))
+}
+
+/** Whole companies before their segments; a name that starts with the query before one that contains it. */
+function rank(supplier: TrackerSupplier, first: string): number {
+  const starts = normalize(supplier.name).startsWith(first) || normalize(supplier.ticker ?? '') === first
+  return (supplier.kind === 'segment' ? 2 : 0) + (starts ? 0 : 1)
 }

@@ -19,8 +19,8 @@ function quarterlyGrowth(edgarId: string) {
   })
 }
 
-function Stat({ label, value, detail }: { label: string; value: string; detail: string }) {
-  return <div className="company-momentum__stat"><span>{label}</span><strong>{value}</strong><small>{detail}</small></div>
+function Stat({ label, value, detail, group }: { label: string; value: string; detail: string; group?: string }) {
+  return <div className={`company-momentum__stat${group ? ` desk-count--${group}` : ''}`}><span>{label}</span><strong>{value}</strong><small>{detail}</small></div>
 }
 
 /**
@@ -58,7 +58,7 @@ export function CompanyMomentum({ id }: { id: string }) {
     </> : <>
       <div className="company-momentum__stats">{eventGroups.map(g => {
         const items = events.filter(i => g.types.includes(i.type as never))
-        return <Stat key={g.id} label={g.label} value={String(items.length)} detail={items[0] ? `Latest ${items[0].date}` : 'None in 12 months'} />
+        return <Stat key={g.id} group={g.id} label={g.label} value={String(items.length)} detail={items[0] ? `Latest ${items[0].date}` : 'None in 12 months'} />
       })}</div>
       <p className="coverage-page__note">{supplier.kind === 'public' ? 'This company does not file comparable quarterly revenue with the SEC.' : 'Private companies, segments and acquired companies have no comparable SEC financials.'} Counts are sourced events in the trailing 12 months; each is listed below. Its domain&rsquo;s SEC filers are shown for context.</p>
     </>}

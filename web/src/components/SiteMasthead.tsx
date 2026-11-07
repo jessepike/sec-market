@@ -19,7 +19,7 @@ export function SiteMasthead() {
       <h1 id="site-masthead-heading">{SITE_HEADLINE}</h1>
       <p className="site-masthead__description">Reported revenue, funding, acquisitions, restructuring, debt and leadership changes. Every figure keeps its period and source.</p>
       <p className="site-masthead__stamps">
-        {SITE_DISCLAIMER} · Certified SEC figures last changed {certifiedDateDisplay}. · <a href="#overview">Data status and method</a>
+        {SITE_DISCLAIMER} · Certified SEC figures last changed {certifiedDateDisplay}. · <a href="/method/#overview">Data status and method</a>
       </p>
     </section>
   )

@@ -12,7 +12,7 @@ export function CoverageStatement() {
         <h2 id="tracker-coverage-heading">What this site covers</h2>
         <p>
           Adding or dropping a domain or a supplier is a data change, not a promise about who belongs in the
-          market. <a href="/coverage/">See every supplier and how much is covered for each</a>.
+          market. <a href="/coverage/#coverage-tiers">See every supplier and how much is covered for each</a>.
         </p>
       </div>
       <ul className="tracker-coverage__domains">

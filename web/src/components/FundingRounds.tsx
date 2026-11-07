@@ -23,7 +23,8 @@ export function FundingRounds() {
   const roundCount = weeks.reduce((n, w) => n + w.rounds.length, 0)
   return (
     <section id="funding" className="coverage-page funding-page" aria-labelledby="funding-heading">
-      <h1 id="funding-heading">Funding rounds</h1>
+      <h1 id="funding-heading">Venture rounds</h1>
+      <p className="coverage-page__scope">All announced security rounds, including companies not tracked here.</p>
       <p className="coverage-page__lede">
         Venture rounds and other financings announced by security companies, week by week, including companies
         the site does not track. Each round comes from the weekly Return on Security funding list. It is shown

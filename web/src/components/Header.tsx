@@ -24,17 +24,13 @@ interface NavItem {
 // dropped — DomainBoard's LandscapeSection no longer renders on any route,
 // so the link had no target left to resolve to (see App.tsx's FrontPage
 // comment).
+// UX and consistency review (2026-11-07, owner approved): four pages, each label matching its
+// page's h1. Section anchors, the archive, the feed and the data page moved to the footer.
 const navItems: NavItem[] = [
-  { href: '#tracker-changed', label: 'What changed' },
-  { href: '#momentum', label: 'Revenue growth' },
-  { href: '/issues/', label: 'Archive', crossPage: true },
   { href: '/market/', label: 'Market', crossPage: true },
-  { href: '/coverage/', label: 'Coverage', crossPage: true },
-  { href: '/funding/', label: 'Funding', crossPage: true },
-  { href: '#research', label: 'Evidence' },
-  { href: '#method', label: 'Method' },
-  { href: '/feed.xml', label: 'Feed', crossPage: true },
-  { href: '/data/', label: 'Data', crossPage: true },
+  { href: '/coverage/', label: 'Companies', crossPage: true },
+  { href: '/funding/', label: 'Venture rounds', crossPage: true },
+  { href: '/method/', label: 'How this works', crossPage: true },
 ]
 
 function scrollToHash(hash: string) {
@@ -139,7 +135,7 @@ export function Header({ path = '/' }: { path?: string }) {
             {navItems.map((item) =>
               item.crossPage ? (
                 <li key={item.href}>
-                  <a href={item.href} onClick={() => setNavOpen(false)}>
+                  <a href={item.href} onClick={() => setNavOpen(false)} aria-current={normalizePath(path) === item.href || (item.href === '/coverage/' && normalizePath(path).startsWith('/companies/')) ? 'page' : undefined}>
                     {item.label}
                   </a>
                 </li>

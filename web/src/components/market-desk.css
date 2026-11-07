@@ -241,7 +241,7 @@
 @media(max-width:1100px) { .company-momentum__grid { grid-template-columns: minmax(0,1fr); } }
 
 /* Event-type hues: one fixed hue and icon per type. Blue stays for data; no red or green. */
-.market-desk { --ev-ownership: #6d28d9; --ev-funding: #0e7490; --ev-results: #475569; --ev-restructuring: #b45309; --ev-debt: #a21caf; --ev-leadership: #854d0e; }
+.market-desk { --ev-ownership: #6d28d9; --ev-funding: #0e7490; --ev-results: #475569; --ev-restructuring: #b45309; --ev-debt: #be185d; --ev-leadership: #4d7c0f; }
 .event-icon { flex: none; vertical-align: -2px; margin-right: 5px; }
 .desk-count--ownership { --ev: var(--ev-ownership); }.desk-count--funding { --ev: var(--ev-funding); }.desk-count--results { --ev: var(--ev-results); }
 .desk-count--restructuring { --ev: var(--ev-restructuring); }.desk-count--debt { --ev: var(--ev-debt); }.desk-count--leadership { --ev: var(--ev-leadership); }
@@ -327,3 +327,62 @@
 .momentum__cols { font-size: 12px; }.momentum__change span { font-size: 12px; }
 .momentum__zero { width: 2px; margin-left: -1px; background: #4b5257; }
 @media(max-width:640px) { .momentum__ticks span:last-child { transform: translateX(-100%); }.momentum__axis { display: grid; }.momentum__axis>span:first-child { display: none; }.momentum__ticks { grid-column: 1/-1; } }
+
+/* ---- One page shell and one panel and table style on every page (UX review 2026-11-07) ---- */
+:root { --color-accent: #205bc0; --color-accent-soft: #eef4ff; --color-border: #dfe1de; --color-heading: #141518; --radius: 10px; --radius-sm: 10px; }
+.app-shell--desk .main-content { width: 100%; max-width: var(--content-max); margin: 0 auto; }
+.app-shell--desk a { color: #205bc0; }
+.app-shell--desk .site-header__nav a { color: #3e4a5c; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+.app-shell--desk .site-header__nav a:hover { color: #141518; }
+.app-shell--desk .site-header__nav a[aria-current=page] { color: #141518; font-weight: 600; border-bottom-color: #1f5fc8; }
+.app-shell--desk :is(.coverage-page,.data-page,.corrections-page,.issue-archive,.company-page) h1,
+.app-shell--desk main > section > h1, .app-shell--desk main > div > section > h1 { font-family: var(--font-sans); font-size: 36px; font-weight: 650; letter-spacing: -.035em; line-height: 1.12; }
+.app-shell--desk main h2 { font-family: var(--font-sans); }
+/* Tables sit in the landing panel: rounded, a tinted header band, plain sans headers. */
+.app-shell--desk .table-scroll { border: 1px solid #dfe1de; border-radius: 10px; background: white; overflow: auto; }
+.app-shell--desk .table-scroll > table { border: 0; }
+.app-shell--desk :is(.coverage-table,.coverage-grid,.tempo-table,.data-table) thead th { font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #3e4a5c; background: #e9eef6; border-bottom: 1px solid #cdd6e3; }
+.app-shell--desk :is(.coverage-table,.coverage-grid,.tempo-table,.data-table) :is(th,td) { border-bottom-color: #ededeb; }
+.app-shell--desk .coverage-grid caption { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0; text-transform: none; font-weight: 600; color: #3e4a5c; }
+.app-shell--desk .coverage-table__ticker { font-family: var(--font-sans); }
+.app-shell--desk .coverage-table__name a, .app-shell--desk .coverage-table a { color: #205bc0; }
+/* Coverage tiers use the same panel. */
+.app-shell--desk .coverage-tier { border: 1px solid #dfe1de; border-radius: 10px; padding: 0; overflow: hidden; background: white; }
+.app-shell--desk .coverage-tier > * { padding-left: 16px; padding-right: 16px; }
+.app-shell--desk .coverage-tier__label { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0; text-transform: none; font-weight: 600; color: #3e4a5c; background: #e9eef6; border-bottom: 1px solid #cdd6e3; box-shadow: inset 0 3px #1f5fc8; padding-top: 12px; padding-bottom: 10px; margin: 0 0 10px; }
+.app-shell--desk .coverage-tier__fresh { padding-bottom: 14px; }
+.coverage-page__scope { margin: 4px 0 8px; font-size: 15px; color: #3e4a5c; }
+/* Other boxed blocks on inner pages pick up the panel shape. */
+.app-shell--desk :is(.run-status,.tracker-coverage,.method,.evidence-library,.depth,.methodology-note,.data-page__files,.correction,.issue-card) { border-radius: 10px; }
+.app-shell--desk .run-status { border: 1px solid #dfe1de; background: white; padding: 16px 18px; box-shadow: inset 0 3px #1f5fc8; }
+.app-shell--desk .run-status__line { font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: #141518; }
+.app-shell--desk .depth { border: 1px solid #dfe1de; background: white; }
+.app-shell--desk .depth > summary { font-family: var(--font-sans); font-weight: 650; }
+/* Footer */
+.site-footer { max-width: var(--content-max); margin: 0 auto; padding: 22px 28px 36px; border-top: 1px solid #e2e3e0; font-size: 13px; color: #62676a; display: grid; gap: 10px; }
+.site-footer ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 20px; padding: 0; margin: 0; }
+.site-footer a { color: #205bc0; }
+.site-footer p { margin: 0; }
+.method-page { display: grid; gap: 24px; }
+.method-page__head h1 { margin: 8px 0 6px; }
+@media(max-width:640px) { .site-footer { padding: 18px 16px 28px; } .app-shell--desk :is(.coverage-page,.data-page,.corrections-page,.issue-archive,.company-page) h1, .app-shell--desk main > section > h1, .app-shell--desk main > div > section > h1 { font-size: 27px; } }
+.app-shell--desk .momentum__metric a { color: inherit; }
+
+/* Event hues on the twelve-month grid and company activity tiles (review item 8). */
+.desk-lane--ownership { --ev: var(--ev-ownership); }.desk-lane--funding { --ev: var(--ev-funding); }.desk-lane--results { --ev: var(--ev-results); }
+.desk-lane--restructuring { --ev: var(--ev-restructuring); }.desk-lane--debt { --ev: var(--ev-debt); }.desk-lane--leadership { --ev: var(--ev-leadership); }
+.desk-timeline__lane>span:first-child { color: var(--ev); }
+.market-desk .desk-timeline__lane .desk-timeline__cell button { background: color-mix(in srgb, var(--ev) 12%, white); color: color-mix(in srgb, var(--ev) 85%, black); }
+.market-desk .desk-timeline__lane .desk-timeline__cell button[data-level="2"] { background: color-mix(in srgb, var(--ev) 28%, white); }
+.market-desk .desk-timeline__lane .desk-timeline__cell button[data-level="3"] { background: color-mix(in srgb, var(--ev) 55%, white); color: color-mix(in srgb, var(--ev) 30%, black); }
+.market-desk .desk-timeline__lane .desk-timeline__cell button[data-level="4"] { background: var(--ev); color: white; }
+.company-momentum__stat.desk-count--ownership,.company-momentum__stat[class*="desk-count--"] { box-shadow: inset 0 3px var(--ev); }
+.company-momentum__stat[class*="desk-count--"]>span { color: var(--ev); font-weight: 600; }
+.company-momentum { --ev-ownership: #6d28d9; --ev-funding: #0e7490; --ev-results: #475569; --ev-restructuring: #b45309; --ev-debt: #be185d; --ev-leadership: #4d7c0f; }
+/* One button style (review item 10). */
+.app-shell--desk button, .desk-dialog button, .desk-sidepane button { font-family: var(--font-sans); }
+.market-desk button:not(.desk-supplier-link):not(.desk-line__fact):not(.desk-link-button):not([data-level]), .app-shell--desk main button:not(.desk-supplier-link):not(.desk-line__fact):not(.desk-link-button):not([data-level]) { border-radius: 6px; min-height: 36px; }
+.market-desk .momentum__toggle button { min-height: 36px; }
+.market-desk .desk-timeline__cell button { min-height: 28px; border-radius: 4px; }
+@media (pointer: coarse) { .market-desk .momentum__toggle button, .market-desk .desk-show-all, .market-desk .momentum__mobile-toggle { min-height: 44px; } }
+.desk-changes>li time { white-space: nowrap; }

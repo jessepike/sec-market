@@ -24,7 +24,7 @@ for (const width of [1440, 390]) {
     await expect(event.locator('.desk-sources a')).toHaveAttribute('href', primaryRelease)
     await page.keyboard.press('Escape')
     await expect(event).toBeHidden()
-    await agreement.getByRole('button', { name: 'Varonis Systems', exact: true }).click()
+    await agreement.getByRole('link', { name: 'Varonis Systems', exact: true }).click()
     const record = page.getByRole('dialog', { name: 'Varonis Systems, Inc.' })
     await expect(record).toBeVisible()
     const ownership = record.locator('.desk-fact').filter({ hasText: 'Ownership' })

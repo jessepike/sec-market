@@ -1,5 +1,6 @@
 import { displayDomainIds } from '../data/tracker/domains'
 import { useEffect, useRef, useState } from 'react'
+import type React from 'react'
 import { evidenceById } from '../data/evidence'
 import { runStatus } from '../data/runStatus'
 import { isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
@@ -73,7 +74,7 @@ function SupplierDialog({ supplier, close }: { supplier: TrackerSupplier | null;
     if (!supplier && dialog?.open) dialog.close()
   }, [supplier])
   const quarters = supplier ? filingSeries.find(s => s.id === supplier.edgarId)?.quarters ?? [] : []
-  return <dialog ref={ref} className="desk-dialog" aria-labelledby="desk-supplier-title" onClose={close} onCancel={close}>
+  return <dialog ref={ref} className="desk-dialog" aria-labelledby="desk-supplier-title" onClose={close} onCancel={close} onClick={closeOnBackdrop(close)}>
     {supplier && <>
       <div className="desk-dialog__head"><div><span className="desk-kicker">Supplier record</span><h2 id="desk-supplier-title">{supplier.name}</h2></div><button type="button" onClick={close} aria-label="Close supplier record">Close</button></div>
       <p>{displayDomainIds(supplier).map(id => trackerDomains.find(d => d.id === id)?.name).join(' · ')} · <a href={companyPath(supplier.id)}>Company page</a></p>
@@ -90,8 +91,8 @@ function SupplierDialog({ supplier, close }: { supplier: TrackerSupplier | null;
   </dialog>
 }
 
-function ChangeRow({ item, openSupplier }: { item: ChangeItem; openSupplier: (id: string) => void }) {
-  return <li className="desk-change"><time dateTime={item.date}>{item.date}</time><div>
+function ChangeRow({ item, openSupplier, otherMonth = false }: { item: ChangeItem; openSupplier: (id: string) => void; otherMonth?: boolean }) {
+  return <li className="desk-change"><time dateTime={item.date}>{otherMonth ? <>{item.type === 'acquisition' && /complet|closed/i.test(item.text) ? 'Completed' : 'Dated'} {item.date}, same deal</> : item.date}</time><div>
     <button type="button" className="desk-supplier-link" onClick={() => openSupplier(item.supplierId)}>{shortSupplierName(supplierById[item.supplierId]?.name ?? item.supplierId)}</button>
     <span className="desk-type">{typeName(item.type)}</span>{item.type !== 'filing' && isCertifiedEvent(item) && <span className="desk-cert">SEC filing, date checked</span>}<p>{item.text}</p><Sources ids={item.evidenceIds} />
     {item.filings.map(f => <a className="desk-filing" key={`${f.supplierId}-${f.periodEnd}`} href={f.sourceUrl} target="_blank" rel="noreferrer">SEC {f.form} · quarter ended {f.periodEnd} · filed {f.filedDate} ↗</a>)}
@@ -142,14 +143,14 @@ function Timeline({ openSupplier }: { openSupplier: (id: string) => void }) {
     <p className="desk-note">{start.toISOString().slice(0, 10)} to {runStatus.lastChecked}. Monthly groups; endpoint months are partial. Darker cells hold more events. Entries that report one deal, such as an announcement and its completion, count as one event. Select a count to read every event and its source.</p>
     <div className="desk-timeline__scroll" tabIndex={0} role="region" aria-label="Monthly event timeline, scroll horizontally on a phone">
       <div className="desk-timeline__grid"><span />{months.map(month => <span className="desk-timeline__month" key={month}>{new Date(`${month}-01T00:00:00Z`).toLocaleDateString('en-US', { month: 'short', year: '2-digit', timeZone: 'UTC' })}</span>)}
-        {eventGroups.map(group => <div className="desk-timeline__lane" key={group.id}><span>{group.label}</span>{months.map(month => {
+        {eventGroups.map(group => <div className={`desk-timeline__lane desk-lane--${group.id}`} key={group.id}><span><EventIcon group={group.id} />{group.label}</span>{months.map(month => {
           const count = unitsInGroup(yearUnits, group.id).filter(u => u.date.startsWith(month)).length
           const key = `${group.id}:${month}`
           return <div className="desk-timeline__cell" key={month}>{count > 0 ? <button type="button" data-level={count >= 6 ? 4 : count >= 4 ? 3 : count >= 2 ? 2 : 1} aria-label={`${group.label}, ${month}, ${plural(count, 'event')}`} aria-pressed={selected === key} aria-controls="desk-timeline-events" onClick={() => { setSelected(key); setShowAll(false) }}>{count}</button> : <span aria-label="No events">·</span>}</div>
         })}</div>)}
       </div>
     </div>
-    <div id="desk-timeline-events" aria-live="polite">{selected && <><h3>{eventGroups.find(g => g.id === selected.split(':')[0])?.label} · {selected.split(':')[1]}</h3><ul className="desk-changes">{chosen.map(item => <ChangeRow key={item.id} item={item} openSupplier={openSupplier} />)}</ul></>}</div>
+    <div id="desk-timeline-events" aria-live="polite">{selected && <><h3>{eventGroups.find(g => g.id === selected.split(':')[0])?.label} · {selected.split(':')[1]}</h3><ul className="desk-changes">{chosen.map(item => <ChangeRow key={item.id} item={item} openSupplier={openSupplier} otherMonth={item.date.slice(0, 7) !== selected.split(':')[1]} />)}</ul></>}</div>
     <details open={showAll} onToggle={event => setShowAll(event.currentTarget.open)}><summary>Read all {yearItems.length} entries as a dated list</summary>
       <ul className="desk-changes">{yearItems.map(item => <ChangeRow key={item.id} item={item} openSupplier={openSupplier} />)}</ul>
     </details>
@@ -180,6 +181,7 @@ function DomainBrowser({ openSupplier }: { openSupplier: (id: string) => void })
     <div className="desk-section-head"><div><h2 id="market-heading">The market by domain</h2><p className="desk-note">Every tracked supplier, alphabetical. Company metrics measure different things; their labels and dates stay with them.</p></div>
       <label className="desk-search">Find a supplier<input type="search" value={search} onChange={e => setSearch(e.target.value)} placeholder="Name or ticker" /></label></div>
     <label className="desk-domain-select">Security domain<select value={domainId} onChange={e => setDomainId(e.target.value)}>{trackerDomains.map(d => <option value={d.id} key={d.id}>{d.name} ({suppliersForDomain(d.id).length})</option>)}</select></label>
+    {search && !trackerSuppliers.some(s => `${s.name} ${s.ticker ?? ''}`.toLowerCase().includes(search.toLowerCase())) && <p className="desk-empty" role="status">No tracked supplier matches &ldquo;{search}&rdquo;.</p>}
     <div className="desk-domains__grid">{trackerDomains.map(domain => <article id={`domain-${domain.id}`} className={`tracker-domain desk-domain${search && !suppliersForDomain(domain.id).some(s => `${s.name} ${s.ticker ?? ''}`.toLowerCase().includes(search.toLowerCase())) ? ' is-search-empty' : ''}${domainId === domain.id || search ? ' is-selected' : ''}`} key={domain.id}>
       <h3>{domain.name}</h3><p className="desk-note">{domain.scope}</p><ul>{suppliersForDomain(domain.id).filter(s => `${s.name} ${s.ticker ?? ''}`.toLowerCase().includes(search.toLowerCase())).map(supplier => {
         const summary = eventSummaryForSupplier(supplier.id)
@@ -191,6 +193,20 @@ function DomainBrowser({ openSupplier }: { openSupplier: (id: string) => void })
   </section>
 }
 
+/** A company name that is a real link to its page; a plain click opens the side pane instead. */
+export function CompanyLink({ id, open, className = 'desk-supplier-link', title }: { id: string; open?: (id: string) => void; className?: string; title?: string }) {
+  return <a className={className} href={companyPath(id)} title={title} onClick={event => {
+    if (!open || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
+    event.preventDefault(); open(id)
+  }}>{shortSupplierName(supplierById[id]?.name ?? id)}</a>
+}
+
+/** Close a modal side pane when the click lands on its backdrop, not its content. */
+const closeOnBackdrop = (close: () => void) => (event: React.MouseEvent<HTMLDialogElement>) => {
+  const r = event.currentTarget.getBoundingClientRect()
+  if (event.target === event.currentTarget && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) close()
+}
+
 /** One line per event: date, company, type, the extracted fact, deal status and a labelled amount. */
 function FeedRow({ item, openSupplier, openEvent }: { item: ChangeItem; openSupplier: (id: string) => void; openEvent: (item: ChangeItem) => void }) {
   const fact = eventFact(item)
@@ -198,7 +214,7 @@ function FeedRow({ item, openSupplier, openEvent }: { item: ChangeItem; openSupp
   const source = item.evidenceIds.map(id => evidenceById[id]).find(Boolean)
   return <li className="desk-line">
     <time dateTime={item.date}>{item.date.slice(5)}</time>
-    <button type="button" className="desk-supplier-link" onClick={() => openSupplier(item.supplierId)}>{shortSupplierName(supplierById[item.supplierId]?.name ?? item.supplierId)}</button>
+    <CompanyLink id={item.supplierId} open={openSupplier} />
     <span className={`desk-tag desk-tag--${group}`}><EventIcon group={group} />{typeName(item.type)}</span>
     <button type="button" className="desk-line__fact" onClick={() => openEvent(item)} aria-label={`${fact.line}. Open the event`}>
       <span>{fact.line}</span>
@@ -218,7 +234,7 @@ function EventDialog({ item, close, openSupplier }: { item: ChangeItem | null; c
     if (!item && dialog?.open) dialog.close()
   }, [item])
   const fact = item ? eventFact(item) : null
-  return <dialog ref={ref} className="desk-sidepane desk-event-dialog" aria-labelledby="desk-event-title" onClose={close} onCancel={close}>
+  return <dialog ref={ref} className="desk-sidepane desk-event-dialog" aria-labelledby="desk-event-title" onClose={close} onCancel={close} onClick={closeOnBackdrop(close)}>
     {item && fact && <>
       <div className="desk-dialog__head"><div><span className="desk-kicker">{typeName(item.type)} · <time dateTime={item.date}>{item.date}</time></span><h2 id="desk-event-title">{fact.line}</h2></div><button type="button" onClick={close} aria-label="Close event">Close</button></div>
       {(fact.status || fact.amount) && <p className="desk-event-dialog__facts">{fact.status && <span>{fact.status}</span>}{fact.amount && <span><strong>{fact.amount.text}</strong> {fact.amount.label}, the first dollar figure the source states</span>}</p>}
@@ -243,7 +259,7 @@ export function MarketDesk({ view = 'front' }: { view?: 'front' | 'market' }) {
   const dialogs = <><SupplierDialog supplier={supplierId ? supplierById[supplierId] : null} close={() => setSupplierId(null)} />
     <EventDialog item={event} close={() => setEvent(null)} openSupplier={setSupplierId} /></>
   if (view === 'market') return <div className="market-desk">
-    <section className="desk-market-head" aria-labelledby="market-page-heading"><h1 id="market-page-heading">Market detail</h1>
+    <section className="desk-market-head" aria-labelledby="market-page-heading"><h1 id="market-page-heading">Market</h1>
       <p className="desk-note">Twelve months of tracked events, revenue growth for every public supplier, and every tracked company by domain. The <a href="/">front page</a> keeps the last 30 days and SEC revenue growth.</p></section>
     <Timeline openSupplier={setSupplierId} /><GrowthChart openSupplier={setSupplierId} /><PublicSuppliers openSupplier={setSupplierId} /><DomainBrowser openSupplier={setSupplierId} />
     {dialogs}
@@ -258,7 +274,7 @@ export function MarketDesk({ view = 'front' }: { view?: 'front' | 'market' }) {
         return <button type="button" key={g.id} className={`desk-count desk-count--${g.id}`} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}>
           <span><EventIcon group={g.id} />{g.label}</span><strong>{recent.length}</strong><em className="desk-counts__snapshot">{tileSnapshots[g.id] || `None since ${windowStart}`}</em></button>
       })}</div>
-      <p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}. Counts of sourced events, one per deal. Select a type to filter the list. <a href="/market/#event-timeline">Explore 12 months<span aria-hidden="true"> →</span></a></p>
+      <p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}. Counts of sourced events, one per deal. Select a type to filter the list. <a href="/market/#event-timeline">Explore 12 months<span aria-hidden="true"> →</span></a> · <a href="/funding/">All venture rounds</a></p>
       <section id="tracker-changed" className="desk-panel desk-changelog" aria-labelledby="tracker-changed-heading">
         <div className="desk-panel__head"><h2 id="tracker-changed-heading">What changed in the last 30 days</h2><span>{group ? `${group.label}: ` : ''}{filtered.length} entries</span></div>
         <p className="desk-note">Newest first. Select an entry for the full sourced text. {group ? <button type="button" className="desk-link-button" onClick={() => setGroupId(null)}>Clear {group.label.toLowerCase()} filter</button> : <>Routine quarterly filings and results are in each company&rsquo;s activity ledger and in <a href="/filings.csv">filings.csv</a>.</>}</p>
@@ -268,7 +284,7 @@ export function MarketDesk({ view = 'front' }: { view?: 'front' | 'market' }) {
       </section>
     </div>
     <MomentumByDomain openSupplier={setSupplierId} />
-    <nav className="desk-deep-links" aria-label="More detail"><a href="/market/#event-timeline">Twelve months of events</a><a href="/market/#reported-growth">Growth for all public suppliers</a><a href="/market/#market">Every company by domain</a><a href="/coverage/">Coverage</a><a href="/funding/">Funding rounds</a></nav>
+    <nav className="desk-deep-links" aria-label="More detail"><a href="/market/#event-timeline">Twelve months of events</a><a href="/market/#reported-growth">Growth for all public suppliers</a><a href="/market/#market">Every company by domain</a><a href="/coverage/">Companies</a><a href="/funding/">Venture rounds</a></nav>
     {dialogs}
   </div>
 }

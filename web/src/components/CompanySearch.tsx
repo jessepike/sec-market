@@ -7,6 +7,7 @@ import { CompanyRequest } from './CompanyRequest'
 export function CompanySearch({ openSupplier }: { openSupplier: (id: string) => void }) {
   const [query, setQuery] = useState('')
   const input = useRef<HTMLInputElement>(null)
+  const list = useRef<HTMLUListElement>(null)
   const results = searchCompanies(trackerSuppliers, query)
   const searching = query.trim().length > 0
   return <div className="desk-company-search">
@@ -15,13 +16,24 @@ export function CompanySearch({ openSupplier }: { openSupplier: (id: string) => 
     <div className="desk-company-search__field">
       <input ref={input} id="company-search" type="search" value={query} placeholder="Company name, ticker or alias"
         aria-describedby="company-search-help" aria-controls="company-search-results"
-        onChange={event => setQuery(event.target.value)} />
+        onChange={event => setQuery(event.target.value)}
+        onKeyDown={event => {
+          if (event.key === 'Enter' && results[0]) { event.preventDefault(); openSupplier(results[0].id) }
+          if (event.key === 'ArrowDown' && results[0]) { event.preventDefault(); list.current?.querySelector('button')?.focus() }
+        }} />
       {query && <button type="button" onClick={() => { setQuery(''); input.current?.focus() }}>Clear search</button>}
     </div>
     <p id="company-search-help" className="desk-note desk-company-search__help">Search the tracked companies and business segments. Select a result for facts, dated events and sources.</p>
     <div id="company-search-results">
       <p className="desk-note" role="status">{searching ? `${results.length} matching ${results.length === 1 ? 'record' : 'records'}.` : ''}</p>
-      {searching && (results.length ? <ul>{results.map(supplier => <li key={supplier.id}>
+      {searching && (results.length ? <ul ref={list} onKeyDown={event => {
+        if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return
+        event.preventDefault()
+        const items = [...(list.current?.querySelectorAll('button') ?? [])]
+        const at = items.indexOf(document.activeElement as HTMLButtonElement)
+        const next = event.key === 'ArrowDown' ? at + 1 : at - 1
+        if (next < 0) input.current?.focus(); else items[Math.min(next, items.length - 1)]?.focus()
+      }}>{results.map(supplier => <li key={supplier.id}>
         <button className="desk-supplier-link" type="button" title={supplier.name} onClick={() => openSupplier(supplier.id)}>
           {shortSupplierName(supplier.name)}{supplier.ticker && <> <span className="desk-company-search__ticker">{supplier.ticker}</span></>}
         </button>

@@ -40,6 +40,8 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
 
+  // The data status moved to /method/ (UX and consistency review, 2026-11-07).
+  await page.goto('/method/')
   // AUTO-002 Phase 2: the #overview slot states the certified tier in plain
   // text: no URLs in the sentence itself, no collector failure list.
   await expect(page.locator('#overview .run-status__line')).toContainText(`SEC figures for ${certifiedCount} public companies are re-derived from their own SEC filings`)
@@ -78,8 +80,9 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
     await expect(page.getByText(label, { exact: true })).toHaveCount(0)
   }
 
-  await expect(page.locator('#method summary')).toHaveText('How this is built')
-  await expect(page.locator('#research summary')).toHaveText('Research & evidence')
+  await expect(page.locator('#method h2').first()).toHaveText('How this is built')
+  await expect(page.locator('#research summary')).toHaveText('Research & evidence library')
+  await page.goto('/')
 
   // Step 5: PrintGrid ("This period", #prints-heading) and its print-card
   // headings are gone from the front page — no route renders PrintGrid any
@@ -93,6 +96,8 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   // or the coverage statement.
   await expect(page.locator('#momentum-heading')).toHaveText('Company revenue growth')
   await expect(page.locator('#tracker-changed-heading')).toHaveText('What changed in the last 30 days')
+  // "What this site covers" moved to the top of /coverage/ (UX review 2026-11-07).
+  await page.goto('/coverage/')
   await expect(page.locator('#tracker-coverage-heading')).toHaveText('What this site covers')
   await expect(page.locator('.tracker-coverage__domains li').first()).toBeVisible()
 
@@ -153,7 +158,7 @@ test('supplier records link attributed public sources and close with Escape', as
  * page's evidence library (#research) now lists tracker (TR-) records only.
  */
 test('the front page never opens a judged evidence record', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/method/')
 
   await page.locator('#research > summary').click()
   const libraryText = await page.locator('#research .evidence-library__list').innerText()
@@ -175,9 +180,11 @@ test('the front page never opens a judged evidence record', async ({ page }) => 
  */
 test('every rendered certification date reads the same receipt', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.rail__asof')).toContainText(`Certified SEC figures last changed ${certifiedDateDisplay}`)
+  // The dark provenance rail is gone from every page (UX and consistency review, 2026-11-07).
+  await expect(page.locator('.rail')).toHaveCount(0)
   await expect(page.locator('.site-header__updated')).toHaveCount(0)
   await expect(page.locator('.site-masthead__stamps')).toContainText(`Certified SEC figures last changed ${certifiedDateDisplay}`)
+  await page.goto('/method/')
   await expect(page.locator('#overview .run-status__line')).toContainText(`Last certified change: ${certifiedDateDisplay}`)
   await expect(page.getByText('Last complete data refresh')).toHaveCount(0)
 })

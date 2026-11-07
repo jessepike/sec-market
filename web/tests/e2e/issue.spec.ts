@@ -24,7 +24,7 @@ import { SITE_HEADLINE } from '../../src/data/meta.ts'
 // tracker (`market`) and its two supporting sections, plus `follow`.
 // AUTO-001 fix pass (2026-09-26), item 4: 'landscape' is dropped —
 // DomainBoard's LandscapeSection no longer renders on any route.
-const TRACKER_FRONT_IDS = ['tracker-changed', 'momentum', 'tracker-coverage', 'follow']
+const TRACKER_FRONT_IDS = ['tracker-changed', 'momentum', 'follow']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
@@ -65,7 +65,7 @@ test.describe('weekly issue — front page', () => {
     // is the first thing below it now (D-76/autonomy-coverage-plan.md §3,
     // step 1) — the issue permalink below still has the read as its h1.
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
-    await expect(page.locator('#overview .run-status__line')).toContainText('Last certified change:')
+    await expect(page.locator('.site-masthead__stamps a')).toHaveAttribute('href', '/method/#overview')
 
     for (const id of TRACKER_FRONT_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()
@@ -131,7 +131,7 @@ test.describe('weekly issue — front page', () => {
   // target until DomainBoard's LandscapeSection stopped rendering on any
   // route (item 4); "What changed" (#tracker-changed) is a front-page-only hash item,
   // absent from the issue permalink, and exercises the same regression.
-  test('permalink page: clicking "What changed" navigates to the front page at #tracker-changed', async ({
+  test('permalink page: the nav reaches the market page and marks it current', async ({
     page,
   }) => {
     await page.goto(`/issues/${latestIssue.id}/`)
@@ -144,10 +144,10 @@ test.describe('weekly issue — front page', () => {
     // exact: true — the brand link's own accessible name ("Security Market
     // Pulse") also contains the substring "Market", which a non-exact match
     // resolves ambiguously against the nav's "Market" link.
-    await page.getByRole('link', { name: 'What changed', exact: true }).click()
-    await page.waitForURL(/\/#tracker-changed$/)
-
-    expect(new URL(page.url()).hash).toBe('#tracker-changed')
-    await expect(page.locator('#tracker-changed')).toBeVisible()
+    await page.locator('.site-header').getByRole('link', { name: 'Market', exact: true }).click()
+    await page.waitForURL(/\/market\/$/)
+    if (await navToggle.isVisible()) await navToggle.click()
+    await expect(page.locator('.site-header').getByRole('link', { name: 'Market', exact: true })).toHaveAttribute('aria-current', 'page')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Market')
   })
 })

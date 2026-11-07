@@ -165,5 +165,5 @@ export const notCoveredByTracker: string[] = [
   'Physical security, guarding and access-control hardware as a market',
   'Governance, risk and compliance platforms that are not themselves a security-domain product',
   'Insurance and cyber-insurance underwriting',
-  'Security domains outside the twelve listed above',
+  'Security domains outside those listed above',
 ]

@@ -1,23 +1,16 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
-import { ArchiveLinks } from './components/ArchiveLinks'
 import { Corrections } from './components/Corrections'
-import { CoverageStatement } from './components/CoverageStatement'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
-import { EvidenceLibrary } from './components/EvidenceLibrary'
-import { FollowLine } from './components/FollowLine'
 import { Header } from './components/Header'
 import { HeroContent } from './components/Hero'
-import { HowThisWorks } from './components/HowThisWorks'
 import { IssueArchive } from './components/IssueArchive'
 import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
 import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketDesk } from './components/MarketDesk'
-import { MethodologyNote } from './components/MethodologyNote'
-import { NextEdition } from './components/NextEdition'
-import { ProvenanceRail } from './components/ProvenanceRail'
-import { RunStatus } from './components/RunStatus'
+import { SiteFooter } from './components/SiteFooter'
+import { MethodPage } from './components/MethodPage'
 import { SkipLink } from './components/SkipLink'
 import { SupplierCoverage } from './components/SupplierCoverage'
 import { DataForAgents } from './components/DataForAgents'
@@ -46,26 +39,7 @@ function ArchiveNotice({ text }: { text: string }) {
  * revenue comparison, event timeline and supplier records. Collection and method
  * remain below the market views; no owner-read placeholder or domain median. */
 function FrontPage() {
-  return (
-    <>
-      <MarketDesk />
-      <RunStatus />
-      <CoverageStatement />
-      <ArchiveLinks />
-      <FollowLine />
-
-      <details className="depth" id="method">
-        <summary>How this is built</summary>
-        <HowThisWorks />
-      </details>
-      <details className="depth" id="research">
-        <summary>Research &amp; evidence</summary>
-        <EvidenceLibrary />
-      </details>
-      <MethodologyNote />
-      <NextEdition />
-    </>
-  )
+  return <MarketDesk />
 }
 
 /**
@@ -144,6 +118,7 @@ function RouteContent({ path }: { path: string }) {
   if (route.kind === 'company' && route.supplierId) return <CompanyPage id={route.supplierId} />
   if (route.kind === 'funding') return <FundingRounds />
   if (route.kind === 'market') return <MarketDesk view="market" />
+  if (route.kind === 'method') return <MethodPage />
   if (route.kind === 'issue' && route.issueId && issueById[route.issueId]) {
     return <IssuePage issue={issueById[route.issueId]} />
   }
@@ -156,12 +131,12 @@ function AppShell({ path }: { path: string }) {
   return (
     <>
       <SkipLink />
-      <ProvenanceRail />
-      <div className={`app-shell${['front', 'market'].includes(matchRoute(path).kind) ? ' app-shell--desk' : ''}`} inert={isOpen ? true : undefined}>
+      <div className="app-shell app-shell--desk" inert={isOpen ? true : undefined}>
         <Header path={path} />
         <main id="main" className="main-content" tabIndex={-1}>
           <RouteContent path={path} />
         </main>
+        <SiteFooter />
       </div>
       <EvidenceDrawer />
       {/* Renders null on the server and on the client's first pass; it injects the

@@ -2,6 +2,7 @@ import { companyPath } from '../data/companyPages'
 import { formatShortDate } from '../data/tracker/derive'
 import { coverageRows, coverageTiers, rowsForTier, typeTierCounts } from '../data/tracker/coverage'
 import { onboardingRows, showOnboarding } from '../data/tracker/onboarding'
+import { CoverageStatement } from './CoverageStatement'
 
 /**
  * `/coverage/`: every tracked supplier, its company type, and how much the
@@ -12,7 +13,7 @@ export function SupplierCoverage() {
   const grid = typeTierCounts()
   return (
     <section id="coverage" className="coverage-page" aria-labelledby="coverage-heading">
-      <h1 id="coverage-heading">Supplier coverage</h1>
+      <h1 id="coverage-heading">Companies</h1>
       <p className="coverage-page__lede">
         This site tracks {coverageRows.length} security suppliers. How much it can show for each one depends on
         what that company makes public. A US-listed company files its revenue with the SEC every quarter. A
@@ -20,6 +21,8 @@ export function SupplierCoverage() {
         private equity, or a product line inside a larger company, usually publishes no financials of its own, so
         the site can only record ownership and dated events.
       </p>
+
+      <CoverageStatement />
 
       <h2 id="coverage-tiers">What each tier includes</h2>
       <div className="coverage-page__tiers">

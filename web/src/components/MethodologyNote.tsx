@@ -18,8 +18,7 @@ export function MethodologyNote() {
   const newestPublished = publishedIssues[publishedIssues.length - 1]
 
   return (
-    <footer className="methodology-note">
-      <p>Public sources only. Not investment advice. See How this is built.</p>
+    <section className="methodology-note" aria-label="Archive data">
       <p className="methodology-note__data">
         Data: <a href="/issues/index.json">issue index</a>
         {newestPublished ? (
@@ -31,6 +30,6 @@ export function MethodologyNote() {
         {' · '}
         <a href="/issues/lock.json">publication ledger</a>
       </p>
-    </footer>
+    </section>
   )
 }

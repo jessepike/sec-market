@@ -45,9 +45,10 @@ type Open = ((id: string) => void) | undefined
 function Name({ supplier, open, className = '' }: { supplier: TrackerSupplier; open: Open; className?: string }) {
   // Only ranked rows carry a title; names in the collapsed list stay out of title lookups.
   const title = className ? supplier.name : undefined
-  return open
-    ? <button type="button" className={`desk-supplier-link ${className}`} title={title} onClick={() => open(supplier.id)}>{shortSupplierName(supplier.name)}</button>
-    : <a className={`desk-supplier-link ${className}`} title={title} href={companyPath(supplier.id)}>{shortSupplierName(supplier.name)}</a>
+  return <a className={`desk-supplier-link ${className}`} title={title} href={companyPath(supplier.id)} onClick={event => {
+    if (!open || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return
+    event.preventDefault(); open(supplier.id)
+  }}>{shortSupplierName(supplier.name)}</a>
 }
 
 function Row({ row, median, openSupplier, highlight }: { row: MomentumRow; median: number | null; openSupplier: Open; highlight?: string }) {

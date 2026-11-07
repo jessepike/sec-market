@@ -8,7 +8,7 @@ test('visible collection status agrees with the public source receipt', async ({
   const coverage = await response.json()
   expect(coverage.runId).toBe(snapshot.runId)
   expect(coverage.requiredTasks).toBe(snapshot.coverage?.requiredTasks)
-  await page.goto('/')
+  await page.goto('/method/')
   await expect(page.locator('#overview')).toContainText(coverage.intake?.evaluated === false
     ? `Daily source intake: not yet collected (${coverage.successfulTasks} of ${coverage.requiredTasks})`
     : coverage.schemaVersion === 2 ? `${coverage.successfulTasks} of ${coverage.requiredTasks} checked` : `${coverage.successfulTasks} of ${coverage.requiredTasks} required source checks completed`)

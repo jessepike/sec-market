@@ -86,8 +86,9 @@ if (typeof mod.render !== 'function') {
 // domain" cards) no longer renders on this route; see the comment above
 // FrontPage() in src/App.tsx.
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
-  front: ['overview', 'tracker-changed', 'momentum', 'tracker-coverage', 'follow'],
+  front: ['tracker-changed', 'momentum', 'follow'],
   market: ['event-timeline', 'reported-growth', 'market'],
+  method: ['overview', 'method'],
   archive: ['issues'],
   corrections: ['corrections'],
   issue: ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think'],
@@ -95,7 +96,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   // section id the front page's own #read pointer reuses (ThesisPointer) —
   // never nested on either page, both routes covered by this one entry.
   thesis: ['thesis', 'read'],
-  coverage: ['coverage'],
+  coverage: ['coverage', 'tracker-coverage'],
   data: ['data'],
   funding: ['funding'],
   company: ['company'],
@@ -181,6 +182,15 @@ function headFor(routeEntry: RouteEntry): RouteHead {
     return {
       title: `${view.displayName}${view.ticker ? ` (${view.ticker})` : ''}: revenue, funding and events · Security Market Pulse`,
       description: companyDescription(view),
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'method') {
+    return {
+      title: 'How this works · Security Market Pulse',
+      description:
+        'What Security Market Pulse checks and when: SEC figures re-derived from filings every day, how the ' +
+        'tracker is built, and the library of every source it cites.',
       ogUrl: url,
     }
   }
