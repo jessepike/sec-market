@@ -150,7 +150,10 @@ def seed_before_collection(repo, root, store, session, contract, runtime):
             receipt.get('receipt', {}).get('phase') == 'qualification_seeded' and
             receipt['receipt'].get('sessionId') == session['sessionId'] and
             receipt['receipt'].get('appRevision') == session['appRevision'] and
-            receipt['receipt'].get('role') == 'collector' and receipt['receipt'].get('contractSha256') == digest(contract) and
+            # The checkpoint records the running policy (contracts/market.json); under an
+            # additive roster successor that is not the J authority the seed is judged by.
+            receipt['receipt'].get('role') == 'collector' and
+            receipt['receipt'].get('contractSha256') == digest(json.loads((Path(repo) / 'contracts/market.json').read_bytes())) and
             receipt['receipt'].get('result') == result, 'Q4_SEED_REMOTE_ACK_REQUIRED')
     html._context(root, store, session, runtime, runtime.utcnow())
     return {**result, 'archive': archive}

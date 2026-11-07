@@ -157,7 +157,8 @@ class ActualProofTests(unittest.TestCase):
                 local.compare_and_swap('remote-archive', previous, archive)
                 return {'archive': archive, 'receipt': {'phase': phase, 'sessionId': current['sessionId'],
                     'appRevision': current['appRevision'], 'role': 'collector',
-                    'contractSha256': digest(self.contract), 'result': result}}
+                    # Real checkpoints record the running policy, not the J authority.
+                    'contractSha256': digest(json.loads((ROOT / 'contracts/market.json').read_bytes())), 'result': result}}
             runtime = SimpleNamespace(REPO=ROOT, utcnow=lambda: NOW,
                 require_lease=collect.session_runtime.require_lease, checkpoint=checkpoint)
             before = copy.deepcopy(state.read('heads/cloud-lease.json'))
