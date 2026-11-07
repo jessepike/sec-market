@@ -13,6 +13,13 @@ const all = certifiedGrowth.map(r => r.latest)
 const lo = Math.min(0, Math.floor(Math.min(...all) / 10) * 10)
 const hi = Math.max(10, Math.ceil(Math.max(...all) / 10) * 10)
 const pos = (v: number) => `${((v - lo) / (hi - lo)) * 100}%`
+const ticks = Array.from({ length: Math.floor((hi - lo) / 10) + 1 }, (_, i) => lo + i * 10).filter(v => v % 20 === 0)
+/** Light axis labels under the bars, at the same scale as every row. */
+function Axis() {
+  return <li className="momentum__row momentum__axis" aria-hidden="true"><span />
+    <div className="momentum__ticks">{ticks.map(v => <span key={v} style={{ left: pos(v) }}>{v}%</span>)}</div>
+  </li>
+}
 const ends = certifiedGrowth.map(r => r.supplier.revenue!.latest.periodEnd).sort()
 const hasHealth = Object.keys(healthFacts.suppliers).length > 0
 
@@ -64,7 +71,7 @@ export function DomainCard({ d, openSupplier, highlight }: { d: DomainMomentum; 
       <span>{d.median !== null ? <>Median <strong>{formatPercent(d.median)}</strong> across {d.rows.length} filers</> : `${d.rows.length} SEC ${d.rows.length === 1 ? 'filer' : 'filers'}; median shown from 3`}</span></div>
     <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
       {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
-    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} highlight={highlight} />)}</ul>
+    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} openSupplier={openSupplier} highlight={highlight} />)}<Axis /></ul>
     {d.others.length > 0 && <details className="momentum__others" open={d.others.some(o => o.supplier.id === highlight) || undefined}><summary>{d.others.length} more {d.others.length === 1 ? 'company' : 'companies'} without SEC financials</summary>
       <ul>{d.others.map(o => <li key={o.supplier.id} className={highlight === o.supplier.id ? 'is-highlight' : undefined}><Name supplier={o.supplier} open={openSupplier} />
         <span>{o.fact}</span>
@@ -81,7 +88,7 @@ function AllDomains({ openSupplier }: { openSupplier: (id: string) => void }) {
     <div className="momentum__domain-head"><h3>All SEC filers</h3>{marketMedian !== null && <span>Median <strong>{formatPercent(marketMedian)}</strong></span>}</div>
     <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
       {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
-    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{rows.map(row => <Row key={row.supplier.id} row={{ ...row, vsMedian: null }} median={marketMedian} openSupplier={openSupplier} />)}</ul>
+    <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{rows.map(row => <Row key={row.supplier.id} row={{ ...row, vsMedian: null }} median={marketMedian} openSupplier={openSupplier} />)}<Axis /></ul>
   </article>
 }
 

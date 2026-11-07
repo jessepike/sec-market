@@ -314,3 +314,11 @@
   .momentum__rows.has-health .momentum__row { align-items: end; }
   .momentum__rows.has-health .momentum__metric-label { white-space: normal; line-height: 1.2; }
 }
+
+/* Axis labels, readable column type, and a zero line at 3:1 or more (WCAG 1.4.11). */
+.momentum__axis { min-height: 18px; border-top: 0; }
+.momentum__ticks { position: relative; height: 16px; }
+.momentum__ticks span { position: absolute; transform: translateX(-50%); font-size: 11px; color: #62676a; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.momentum__cols { font-size: 12px; }.momentum__change span { font-size: 12px; }
+.momentum__zero { width: 2px; margin-left: -1px; background: #4b5257; }
+@media(max-width:640px) { .momentum__ticks span:last-child { transform: translateX(-100%); }.momentum__axis { display: grid; }.momentum__axis>span:first-child { display: none; }.momentum__ticks { grid-column: 1/-1; } }

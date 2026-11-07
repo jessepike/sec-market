@@ -31,7 +31,7 @@ for (const width of [1440, 390]) {
     await expect(page.locator('#event-timeline, #reported-growth, #market')).toHaveCount(0)
     // All domains: every SEC filer once.
     await page.getByRole('button', { name: 'All domains', exact: true }).click()
-    await expect(page.locator('.momentum__all .momentum__row')).toHaveCount(16)
+    await expect(page.locator('.momentum__all .momentum__row:not(.momentum__axis)')).toHaveCount(16)
     await page.getByRole('button', { name: 'By domain', exact: true }).click()
     // An entry opens the event in the side panel, with its source.
     await page.locator('#tracker-changed .desk-line__fact').first().click()
