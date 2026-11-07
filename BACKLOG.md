@@ -127,8 +127,12 @@ a render check and Akamai needs a labeling decision (total company revenue, not 
 Check Point's `sec_facts` cannot pass, because it is a 20-F filer; SEC-080 owns its route. At the next transition, drop
 `checkpoint-sase:sec_facts` and `:sec_submissions` and keep `:sec_documents` (agreed with the SEC-080 thread). F5 and
 Akamai join `edgarRegistry.ts` when they graduate into the tracker, not before: `verify-tracker` cross-checks the
-registry against tracker public suppliers, and `sec-adapter.mjs` stays unchanged. Left: replacement citations
-for the three blocked ones, binding verification for the eight official sources, the Optiv correction request
+registry against tracker public suppliers, and `sec-adapter.mjs` stays unchanged. **2026-11-07 later:** 19 workaround sources added as additions to the same transition: verified
+newsroom sitemaps for F5, Aikido, 7AI, Straiker, Lumos, Skyflow and Secuvy (`<id>:official:2`), second
+copies of the three blocked onboarding citations, and alternate copies on reachable hosts for nine
+blocked or rate-limited tracker citations (BeyondTrust, BigID, Cohesity, Delinea x2, Tines, Axonius x3;
+`-alt` ids, original sources kept). Akamai's newsroom and the Sophos rating actions still have no
+reachable copy. Left: binding verification for the eight official sources, the Optiv correction request
 group, and the graduation check.
 **2026-11-07 (D-146):** the transition now also adds Checkmarx, Black Duck, Semgrep, Endor Labs and Noma
 (87 suppliers, 337 sources) and drops `checkpoint-sase:sec_facts` and `:sec_submissions`. Their

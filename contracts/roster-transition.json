@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "6d7ecf5e84a9be72a843bf28155bb8d0e6c35f8233c5ecc32f690e49d6a8199c",
+  "activatedContractSha256": "5993e0f01f615c29f9e6f94ebe90c886d376d7ce441d41184b9842352828d683",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -52,7 +52,26 @@
     "black-duck:official:1",
     "black-duck:citation:OB-black-duck-1",
     "noma:official:1",
-    "noma:citation:OB-noma-1"
+    "noma:citation:OB-noma-1",
+    "f5:official:2",
+    "aikido:official:2",
+    "7ai:official:2",
+    "straiker:official:2",
+    "lumos:official:2",
+    "skyflow:official:2",
+    "secuvy:official:2",
+    "lumos:citation:OB-lumos-2",
+    "skyflow:citation:OB-skyflow-2",
+    "secuvy:citation:OB-secuvy-2",
+    "beyondtrust:citation:TR-beyondtrust-1-alt",
+    "bigid:citation:TR-bigid-1-alt",
+    "cohesity:citation:TR-cohesity-1-alt",
+    "delinea:citation:TR-delinea-3-alt",
+    "delinea:citation:TR-delinea-5-alt",
+    "tines:citation:TR-tines-1-alt",
+    "axonius:citation:TR-axonius-1-alt",
+    "axonius:citation:TR-axonius-2-alt",
+    "axonius:citation:TR-axonius-3-alt"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
@@ -60,6 +79,27 @@
     ],
     "optiv": [
       "optiv:citation:TR-optiv-closing-2026-05-08"
+    ],
+    "beyondtrust": [
+      "beyondtrust:citation:TR-beyondtrust-1-alt"
+    ],
+    "bigid": [
+      "bigid:citation:TR-bigid-1-alt"
+    ],
+    "cohesity": [
+      "cohesity:citation:TR-cohesity-1-alt"
+    ],
+    "delinea": [
+      "delinea:citation:TR-delinea-3-alt",
+      "delinea:citation:TR-delinea-5-alt"
+    ],
+    "tines": [
+      "tines:citation:TR-tines-1-alt"
+    ],
+    "axonius": [
+      "axonius:citation:TR-axonius-1-alt",
+      "axonius:citation:TR-axonius-2-alt",
+      "axonius:citation:TR-axonius-3-alt"
     ]
   }
 }

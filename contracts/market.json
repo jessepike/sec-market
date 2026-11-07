@@ -7542,6 +7542,358 @@
       "seedEvidenceUrls": [],
       "supplierId": "noma",
       "url": "https://www.securityweek.com/noma-security-raises-100-million-for-ai-security-platform/"
+    },
+    {
+      "allowedHosts": [
+        "www.f5.com"
+      ],
+      "family": "official_announcements",
+      "id": "f5:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/company/news/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.f5.com/company/news/press-releases/earnings-q4-fy26"
+      ],
+      "supplierId": "f5",
+      "url": "https://www.f5.com/press-releases-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.aikido.dev"
+      ],
+      "family": "official_announcements",
+      "id": "aikido:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/aikido-"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.aikido.dev/blog/aikido-funding-series-b"
+      ],
+      "supplierId": "aikido",
+      "url": "https://www.aikido.dev/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "7ai.com"
+      ],
+      "family": "official_announcements",
+      "id": "7ai:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press/"
+      ],
+      "seedEvidenceUrls": [
+        "https://7ai.com/press/7ai-names-israel-barak-new-ciso"
+      ],
+      "supplierId": "7ai",
+      "url": "https://7ai.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.straiker.ai"
+      ],
+      "family": "official_announcements",
+      "id": "straiker:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/straiker-"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.straiker.ai/blog/straiker-raises-64m-series-a-to-secure-the-agentic-workforce"
+      ],
+      "supplierId": "straiker",
+      "url": "https://www.straiker.ai/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.lumos.com"
+      ],
+      "family": "official_announcements",
+      "id": "lumos:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/pr-",
+        "/blog/lumos-"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.lumos.com/blog/lumos-secures-35m-series-b-funding-to-unify-the-saas-and-identity-management-industries"
+      ],
+      "supplierId": "lumos",
+      "url": "https://www.lumos.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "skyflow.com",
+        "www.skyflow.com"
+      ],
+      "family": "official_announcements",
+      "id": "skyflow:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press/"
+      ],
+      "seedEvidenceUrls": [
+        "https://skyflow.com/press/skyflow-launches-agentic-ai-security-and-privacy-layer"
+      ],
+      "supplierId": "skyflow",
+      "url": "https://skyflow.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "secuvy.ai",
+        "www.secuvy.ai"
+      ],
+      "family": "official_announcements",
+      "id": "secuvy:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/company/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://secuvy.ai/company/news/secuvy-expands-deployment-azure-gcp-on-premise"
+      ],
+      "supplierId": "secuvy",
+      "url": "https://secuvy.ai/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.silicon.co.uk"
+      ],
+      "evidenceId": "OB-lumos-2",
+      "family": "citation_integrity",
+      "id": "lumos:citation:OB-lumos-2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "lumos",
+      "url": "https://www.silicon.co.uk/press-release/lumos-secures-35m-series-b-funding-to-unify-the-saas-and-identity-management-industries"
+    },
+    {
+      "allowedHosts": [
+        "siliconangle.com"
+      ],
+      "evidenceId": "OB-skyflow-2",
+      "family": "citation_integrity",
+      "id": "skyflow:citation:OB-skyflow-2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "skyflow",
+      "url": "https://siliconangle.com/2024/03/28/cloud-data-privacy-solutions-provider-skyflow-raises-30m-enhance-data-privacy-vaults/"
+    },
+    {
+      "allowedHosts": [
+        "cioinfluence.com"
+      ],
+      "evidenceId": "OB-secuvy-2",
+      "family": "citation_integrity",
+      "id": "secuvy:citation:OB-secuvy-2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "secuvy",
+      "url": "https://cioinfluence.com/itechnology-series-news/secuvy-announces-new-investments-from-dell-technologies-capital-and-westwave-capital-to-modernize-data-privacy-and-security/"
+    },
+    {
+      "allowedHosts": [
+        "www.beyondtrust.com"
+      ],
+      "evidenceId": "TR-beyondtrust-1",
+      "family": "citation_integrity",
+      "id": "beyondtrust:citation:TR-beyondtrust-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "beyondtrust",
+      "url": "https://www.beyondtrust.com/press/beyondtrust-completes-transaction-with-clearlake-capital-and-francisco-partners"
+    },
+    {
+      "allowedHosts": [
+        "www.prnewswire.com"
+      ],
+      "evidenceId": "TR-bigid-1",
+      "family": "citation_integrity",
+      "id": "bigid:citation:TR-bigid-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "bigid",
+      "url": "https://www.prnewswire.com/news-releases/ai-security-market-fuels-a-60m-growth-round-for-unicorn-bigid-to-accelerate-ai-data-security-innovation-and-power-acquisitions-302091045.html"
+    },
+    {
+      "allowedHosts": [
+        "fintech.global"
+      ],
+      "evidenceId": "TR-cohesity-1",
+      "family": "citation_integrity",
+      "id": "cohesity:citation:TR-cohesity-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "cohesity",
+      "url": "https://fintech.global/2024/12/12/data-protection-leader-cohesity-secures-7bn-valuation-following-veritas-merger/"
+    },
+    {
+      "allowedHosts": [
+        "delinea.com"
+      ],
+      "evidenceId": "TR-delinea-3",
+      "family": "citation_integrity",
+      "id": "delinea:citation:TR-delinea-3-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "delinea",
+      "url": "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo"
+    },
+    {
+      "allowedHosts": [
+        "delinea.com"
+      ],
+      "evidenceId": "TR-delinea-5",
+      "family": "citation_integrity",
+      "id": "delinea:citation:TR-delinea-5-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "delinea",
+      "url": "https://delinea.com/news/delinea-acquires-strongdm-to-secure-ai-with-continuous-authorization"
+    },
+    {
+      "allowedHosts": [
+        "fintech.global"
+      ],
+      "evidenceId": "TR-tines-1",
+      "family": "citation_integrity",
+      "id": "tines:citation:TR-tines-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "tines",
+      "url": "https://fintech.global/2025/02/12/tines-raises-125m-to-accelerate-ai-powered-workflow-innovation/"
+    },
+    {
+      "allowedHosts": [
+        "www.govconwire.com"
+      ],
+      "evidenceId": "TR-axonius-1",
+      "family": "citation_integrity",
+      "id": "axonius:citation:TR-axonius-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "axonius",
+      "url": "https://www.govconwire.com/articles/axonius-200m-arr-joe-diamond-ceo-appointment"
+    },
+    {
+      "allowedHosts": [
+        "www.govconwire.com"
+      ],
+      "evidenceId": "TR-axonius-2",
+      "family": "citation_integrity",
+      "id": "axonius:citation:TR-axonius-2-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "axonius",
+      "url": "https://www.govconwire.com/articles/axonius-200m-arr-joe-diamond-ceo-appointment"
+    },
+    {
+      "allowedHosts": [
+        "siliconangle.com"
+      ],
+      "evidenceId": "TR-axonius-3",
+      "family": "citation_integrity",
+      "id": "axonius:citation:TR-axonius-3-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "axonius",
+      "url": "https://siliconangle.com/2022/03/08/cybersecurity-startup-axonius-valued-2-6b-latest-200m-funding-round/"
     }
   ],
   "suppliers": [
@@ -7573,7 +7925,8 @@
       ],
       "sourceIds": [
         "7ai:official:1",
-        "7ai:citation:OB-7ai-1"
+        "7ai:citation:OB-7ai-1",
+        "7ai:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -7638,7 +7991,8 @@
       ],
       "sourceIds": [
         "aikido:official:1",
-        "aikido:citation:OB-aikido-1"
+        "aikido:citation:OB-aikido-1",
+        "aikido:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -7814,7 +8168,10 @@
         "axonius:official:1",
         "axonius:citation:TR-axonius-1",
         "axonius:citation:TR-axonius-2",
-        "axonius:citation:TR-axonius-3"
+        "axonius:citation:TR-axonius-3",
+        "axonius:citation:TR-axonius-1-alt",
+        "axonius:citation:TR-axonius-2-alt",
+        "axonius:citation:TR-axonius-3-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -7878,7 +8235,8 @@
       ],
       "sourceIds": [
         "beyondtrust:official:1",
-        "beyondtrust:citation:TR-beyondtrust-1"
+        "beyondtrust:citation:TR-beyondtrust-1",
+        "beyondtrust:citation:TR-beyondtrust-1-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -7909,7 +8267,8 @@
         "investor_acquirer"
       ],
       "sourceIds": [
-        "bigid:citation:TR-bigid-1"
+        "bigid:citation:TR-bigid-1",
+        "bigid:citation:TR-bigid-1-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -8221,7 +8580,8 @@
       ],
       "sourceIds": [
         "cohesity:official:1",
-        "cohesity:citation:TR-cohesity-1"
+        "cohesity:citation:TR-cohesity-1",
+        "cohesity:citation:TR-cohesity-1-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -8446,7 +8806,9 @@
         "delinea:citation:TR-delinea-3",
         "delinea:citation:TR-delinea-4",
         "delinea:citation:TR-delinea-5",
-        "delinea:citation:TR-delinea-6"
+        "delinea:citation:TR-delinea-6",
+        "delinea:citation:TR-delinea-3-alt",
+        "delinea:citation:TR-delinea-5-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -8652,7 +9014,8 @@
         "f5:sec_facts",
         "f5:sec_submissions",
         "f5:sec_documents",
-        "f5:citation:OB-f5-1"
+        "f5:citation:OB-f5-1",
+        "f5:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8962,7 +9325,9 @@
       ],
       "sourceIds": [
         "lumos:official:1",
-        "lumos:citation:OB-lumos-1"
+        "lumos:citation:OB-lumos-1",
+        "lumos:official:2",
+        "lumos:citation:OB-lumos-2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9810,7 +10175,9 @@
       ],
       "sourceIds": [
         "secuvy:official:1",
-        "secuvy:citation:OB-secuvy-1"
+        "secuvy:citation:OB-secuvy-1",
+        "secuvy:official:2",
+        "secuvy:citation:OB-secuvy-2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9874,7 +10241,9 @@
       ],
       "sourceIds": [
         "skyflow:official:1",
-        "skyflow:citation:OB-skyflow-1"
+        "skyflow:citation:OB-skyflow-1",
+        "skyflow:official:2",
+        "skyflow:citation:OB-skyflow-2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10046,7 +10415,8 @@
       ],
       "sourceIds": [
         "straiker:official:1",
-        "straiker:citation:OB-straiker-1"
+        "straiker:citation:OB-straiker-1",
+        "straiker:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10184,7 +10554,8 @@
         "investor_acquirer"
       ],
       "sourceIds": [
-        "tines:citation:TR-tines-1"
+        "tines:citation:TR-tines-1",
+        "tines:citation:TR-tines-1-alt"
       ],
       "startupStatus": "unclassified"
     },

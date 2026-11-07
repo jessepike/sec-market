@@ -559,6 +559,66 @@
         "ai-security"
       ],
       "title": "Noma Security raises $100 million for AI security platform"
+    },
+    {
+      "id": "OB-lumos-2",
+      "title": "Lumos Secures $35M Series B Funding (Silicon UK copy of the release)",
+      "organization": "Lumos",
+      "publicationDate": "2024-05-23",
+      "economicPeriod": "May 2024",
+      "canonicalUrl": "https://www.silicon.co.uk/press-release/lumos-secures-35m-series-b-funding-to-unify-the-saas-and-identity-management-industries",
+      "excerpt": "announced its $35M Series B financing led by Scale Venture Partners",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Silicon UK repost of the Business Wire release, dated May 23, 2024. Second copy because Business Wire blocks the collector.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-lumos-2",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "identity"
+      ],
+      "retrievedAt": "2026-11-07"
+    },
+    {
+      "id": "OB-skyflow-2",
+      "title": "Skyflow raises $30M to enhance data privacy vaults",
+      "organization": "SiliconANGLE",
+      "publicationDate": "2024-03-28",
+      "economicPeriod": "March 2024",
+      "canonicalUrl": "https://siliconangle.com/2024/03/28/cloud-data-privacy-solutions-provider-skyflow-raises-30m-enhance-data-privacy-vaults/",
+      "excerpt": "has raised $30 million in new funding to expand its privacy vault solutions",
+      "sourceClass": "INDEPENDENT",
+      "interpretation": "",
+      "limitations": "News report of the same round. Second copy because Business Wire blocks the collector.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-skyflow-2",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "data"
+      ],
+      "retrievedAt": "2026-11-07"
+    },
+    {
+      "id": "OB-secuvy-2",
+      "title": "Secuvy Announces New Investments from Dell Technologies Capital and WestWave Capital (CIO Influence copy)",
+      "organization": "Secuvy",
+      "publicationDate": "2023-03-17",
+      "economicPeriod": "March 2023",
+      "canonicalUrl": "https://cioinfluence.com/itechnology-series-news/secuvy-announces-new-investments-from-dell-technologies-capital-and-westwave-capital-to-modernize-data-privacy-and-security/",
+      "excerpt": "The latest funding round was led by Dell Technologies Capital & WestWave Capital, with participation from Z5 Capital.",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "CIO Influence repost dated March 17, 2023; the original Business Wire release is dated March 10, 2023. No amount disclosed.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-secuvy-2",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "data"
+      ],
+      "retrievedAt": "2026-11-07"
     }
   ],
   "events": []
