@@ -143,7 +143,8 @@ investor_acquirer family), Checkmarx, Noma, Cyera, Sysdig, Abnormal, Nozomi, Cha
 BeyondTrust, plus RSS for Rubrik IR, Trend Micro, GitHub company news and Semgrep. Cyera, Sysdig, Abnormal, Nozomi,
 Akamai and BeyondTrust press paths could not be confirmed in their sitemaps from the sandbox (reads truncated): check
 item counts on the first run. Then Black Duck (Cision newsroom RSS) and a www.sysdig.com copy of the Sysdig CEO
-citation (sysdig.com redirects to www). Still no feed: Barracuda (Business Wire only), Check Point email.
+citation (sysdig.com redirects to www). JFrog and Rapid7 also get their Q4 IR RSS feeds (`official:2`), so they
+collect while the Q4 list rows fail schema checks (a parser fix needs requalification). Still no feed: Barracuda (Business Wire only), Check Point email.
 **Authorization:** owner-approved (D-138, D-146).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers

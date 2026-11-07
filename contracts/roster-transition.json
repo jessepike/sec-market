@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "1b12d386c588acabe99dad4f06ce543ad3ed3d2dff6a96e07fda3462250b8b06",
+  "activatedContractSha256": "b74dbdde17bd5684228a94606d9cf28e2610caa6880786df06e7aee7af3175ab",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -94,7 +94,9 @@
     "github-advanced-security:official:2",
     "semgrep:official:2",
     "black-duck:official:2",
-    "sysdig:citation:TR-sysdig-1-alt"
+    "sysdig:citation:TR-sysdig-1-alt",
+    "jfrog:official:2",
+    "rapid7:official:2"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
@@ -168,6 +170,12 @@
     ],
     "github-advanced-security": [
       "github-advanced-security:official:2"
+    ],
+    "jfrog": [
+      "jfrog:official:2"
+    ],
+    "rapid7": [
+      "rapid7:official:2"
     ]
   }
 }

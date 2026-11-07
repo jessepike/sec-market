@@ -8327,6 +8327,44 @@
       "seedEvidenceUrls": [],
       "supplierId": "sysdig",
       "url": "https://www.sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security"
+    },
+    {
+      "allowedHosts": [
+        "investors.jfrog.com"
+      ],
+      "family": "official_announcements",
+      "id": "jfrog:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Third-Quarter-2026-Results/default.aspx"
+      ],
+      "supplierId": "jfrog",
+      "url": "https://investors.jfrog.com/rss/pressrelease.aspx"
+    },
+    {
+      "allowedHosts": [
+        "investors.rapid7.com"
+      ],
+      "family": "official_announcements",
+      "id": "rapid7:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://investors.rapid7.com/news/news-details/2026/Rapid7-Announces-Third-Quarter-2026-Financial-Results/default.aspx"
+      ],
+      "supplierId": "rapid7",
+      "url": "https://investors.rapid7.com/rss/pressrelease.aspx"
     }
   ],
   "suppliers": [
@@ -9707,7 +9745,8 @@
         "jfrog:citation:TR-edgar-revenue-jfrog-2026-03-31-2026-05-08",
         "jfrog:citation:TR-edgar-revenue-jfrog-2026-06-30-2026-08-07",
         "jfrog:citation:TR-jfrog-1",
-        "jfrog:sec_documents"
+        "jfrog:sec_documents",
+        "jfrog:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10399,7 +10438,8 @@
         "rapid7:citation:TR-rapid7-4",
         "rapid7:citation:TR-rapid7-5",
         "rapid7:citation:TR-rapid7-6",
-        "rapid7:sec_documents"
+        "rapid7:sec_documents",
+        "rapid7:official:2"
       ],
       "startupStatus": "unclassified"
     },
