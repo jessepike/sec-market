@@ -53,7 +53,7 @@ def import_gate(store, authority, run_id, artifact_id, expected_archive):
     return inputs, receipt
 
 
-def dispatch_gate(store, archive, revision, authority, runner=subprocess.run):
+def dispatch_gate(store, archive, revision, authority, runner=subprocess.run, wait=True):
     require(re.fullmatch(r"[a-f0-9]{40}", revision), "Pin reviewed application revision")
     existing = authority._api("actions/workflows/market-release-gate.yml/runs?event=workflow_dispatch&per_page=30")["workflow_runs"]
     known = {r["id"] for r in existing}
@@ -72,6 +72,8 @@ def dispatch_gate(store, archive, revision, authority, runner=subprocess.run):
             if candidates:
                 selected = candidates[0]["id"]
                 store.write_once(f"gate-requests/{archive['commit']}.json", {"githubRunId": selected, "archive": archive, "appRevision": revision})
+                if not wait:
+                    return selected, None
         if selected:
             run = authority._api(f"actions/runs/{selected}")
             if run["status"] == "completed":
@@ -82,6 +84,49 @@ def dispatch_gate(store, archive, revision, authority, runner=subprocess.run):
                 return selected, matches[0]["id"]
         time.sleep(10)
     raise TimeoutError("Independent release gate did not finish within its budget")
+
+
+PENDING_GATE = "pending-gate"
+
+
+def gate_artifact(authority, run_id):
+    """A finished gate run's single unexpired artifact, or a refusal that retains production."""
+    run = authority._api(f"actions/runs/{run_id}")
+    require(run["status"] == "completed", "Independent release gate has not finished")
+    require(run["conclusion"] == "success", "Independent release gate failed; retain production")
+    artifacts = authority._api(f"actions/runs/{run_id}/artifacts")["artifacts"]
+    matches = [a for a in artifacts if a["name"] == "daily-market-gate" and not a["expired"]]
+    require(len(matches) == 1, "Independent gate artifact missing or ambiguous")
+    return matches[0]["id"]
+
+
+def close_pending(store, pending, outcome):
+    store.compare_and_swap(PENDING_GATE, pending, {**pending, "closedAt": utcnow(), "outcome": outcome})
+
+
+def complete_gate(store, contract, revision, adapter, previous, authority, pending, checkpoint):
+    """Second half of a split release: the gate has finished, so import it and publish.
+
+    The gate tested one exact collection receipt and code revision. If either has
+    moved since the request, the result is superseded and nothing is published.
+    """
+    latest = store.read("heads/latest-run.json")
+    if pending["appRevision"] != revision or not latest or latest["receipt"]["sha256"] != pending["collectionReceiptSha256"]:
+        close_pending(store, pending, "superseded")
+        checkpoint()
+        return {"published": False, "reason": "GATE_SUPERSEDED", "githubRunId": pending["gateRunId"]}
+    try:
+        artifact_id = gate_artifact(authority, pending["gateRunId"])
+    except Exception:
+        close_pending(store, pending, "gate_failed")
+        checkpoint()
+        raise
+    inputs, receipt = import_gate(store, authority, pending["gateRunId"], artifact_id, pending["archive"])
+    manifest = prepare_release(contract, inputs["coverage"], inputs["snapshot"], revision, inputs["artifact"], receipt, previous, utcnow(), authority)
+    head = publish(store, contract, manifest, adapter, checkpoint=checkpoint)
+    close_pending(store, pending, "published")
+    checkpoint()
+    return {"published": True, **head, "githubRunId": pending["gateRunId"]}
 
 
 def preflight_corrections(repo, store, contract, collection_run_id, previous_manifest, now):
@@ -102,13 +147,30 @@ def preflight_corrections(repo, store, contract, collection_run_id, previous_man
     project_bundle(repo, store, contract, outcome, previous_bundle=previous_bundle, publication_at=now)
 
 
-def release_daily(store, contract, archive, revision, config, checkpoint):
+def release_daily(store, contract, archive, revision, config, checkpoint, split=False, complete_only=False):
+    """Publish the archived collection through the independent gate.
+
+    split=False waits inside this job while the gate runs. split=True dispatches
+    the gate and returns; a later call (the gate's completion callback, or the
+    next publisher run) finds the open pending-gate head and completes it, so no
+    job is billed while the gate works. complete_only never requests a new gate.
+    """
     if not contract["publication"]["enabled"]:
         return {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}
     require(config.get("vercel"), "Vercel project configuration missing")
     adapter = VercelAdapter(store, **config["vercel"])
     require(adapter.production_paths_controlled(), "Close competing production paths before activating daily publication")
     previous = recover_publication(store, adapter)
+    pending = store.read(f"heads/{PENDING_GATE}.json")
+    if pending and not pending.get("closedAt"):
+        authority = GitHubAuthority()
+        run = authority._api(f"actions/runs/{pending['gateRunId']}")
+        if run["status"] != "completed":
+            return {"published": False, "reason": "GATE_PENDING", "githubRunId": pending["gateRunId"]}
+        with store.lock("daily-release-controller"):
+            return complete_gate(store, contract, revision, adapter, previous, authority, pending, checkpoint)
+    if complete_only:
+        return {"published": False, "reason": "NO_PENDING_GATE"}
     latest = store.read("heads/latest-run.json")
     require(latest is not None, "Collection receipt missing")
     already = store.read(f"releases/{previous['releaseId']}.json")
@@ -126,6 +188,13 @@ def release_daily(store, contract, archive, revision, config, checkpoint):
         # Persist the reservation remotely before dispatch. A killed ephemeral
         # runner must not refund its gate attempt on the next archive restore.
         checkpoint()
+        if split:
+            run_id, _ = dispatch_gate(store, archive, revision, authority, wait=False)
+            store.compare_and_swap(PENDING_GATE, store.read(f"heads/{PENDING_GATE}.json"),
+                                   {"gateRunId": run_id, "archive": archive, "appRevision": revision,
+                                    "collectionReceiptSha256": latest["receipt"]["sha256"], "requestedAt": utcnow()})
+            checkpoint()
+            return {"published": False, "reason": "GATE_REQUESTED", "githubRunId": run_id}
         run_id, artifact_id = dispatch_gate(store, archive, revision, authority)
         inputs, receipt = import_gate(store, authority, run_id, artifact_id, archive)
         manifest = prepare_release(contract, inputs["coverage"], inputs["snapshot"], revision, inputs["artifact"], receipt, previous, utcnow(), authority)

@@ -15,6 +15,14 @@ from release import release_daily
 from storage import LocalStore
 
 
+GATE_WORKFLOW = '.github/workflows/market-release-gate.yml'
+
+
+def gate_callback(event):
+    """True when this callback is the independent gate finishing (second half of a split release)."""
+    return event.get('workflow_run', {}).get('path') == GATE_WORKFLOW
+
+
 def callback_ready(event, api=None):
     """Read-only check before a workflow callback joins writer concurrency."""
     api = api or GitHubAuthority()._api
@@ -22,6 +30,12 @@ def callback_ready(event, api=None):
     if not isinstance(upstream.get('id'), int):
         return False
     run = api('actions/runs/' + str(upstream['id']))
+    if run.get('path') == GATE_WORKFLOW:
+        # Only a publisher-dispatched gate on main can complete a pending release;
+        # a failed gate still completes, so the failure is recorded and alerted.
+        return (run.get('id') == upstream['id'] and run.get('repository', {}).get('full_name') == PROJECT
+                and run.get('repository', {}).get('private') is True and run.get('head_branch') == 'main'
+                and run.get('event') == 'workflow_dispatch' and run.get('status') == 'completed')
     if not (run.get('id') == upstream['id'] and run.get('repository', {}).get('full_name') == PROJECT
             and run.get('repository', {}).get('private') is True
             and run.get('path') == '.github/workflows/subscription-collector.yml'
@@ -79,10 +93,12 @@ def execute(root):
     try:
         callback_ok = True
         upstream_id = None
+        from_gate = False
         if os.environ.get('GITHUB_EVENT_NAME') == 'workflow_run':
             event = json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text())
             callback_ok = callback_ready(event)
-            upstream_id = event.get('workflow_run', {}).get('id')
+            from_gate = gate_callback(event)
+            upstream_id = None if from_gate else event.get('workflow_run', {}).get('id')
         if not callback_ok or not initial_collection_ready(state, contract, upstream_id):
             result = {'githubRunId': os.environ['GITHUB_RUN_ID'], 'published': False,
                       'activated': False, 'reason': 'WAITING_ACTUAL_SCHEDULED_COLLECTION'}
@@ -96,8 +112,11 @@ def execute(root):
             config = {'vercel': {'project_id': PROJECT_ID, 'team_id': TEAM_ID, 'scope': SCOPE,
                                  'global_config': str(auth.root), 'runner': auth.isolated_runner}}
             archived = session_runtime.checkpoint(root, state, session, 'gate_requested', {})['archive']
+            # Split release: this job dispatches the gate and ends; the gate's completion
+            # (or the next publisher run) publishes, so no job is billed while it runs.
             publication = release_daily(state, contract, archived, revision, config,
-                checkpoint=lambda: session_runtime.checkpoint(root, state, session, 'publication_journal', {})['archive'])
+                checkpoint=lambda: session_runtime.checkpoint(root, state, session, 'publication_journal', {})['archive'],
+                split=True, complete_only=from_gate)
         result = {'githubRunId': os.environ['GITHUB_RUN_ID'], 'githubEventName': os.environ.get('GITHUB_EVENT_NAME'),
                   'appRevision': revision, 'activated': True, 'publication': publication}
         result['archive'] = session_runtime.checkpoint(root, state, session, 'finish', result, finish=True)['archive']

@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { assess, publishHealth, overall, parseDisk, readState, HEALTH_PREFIX } from './health.js'
+import { assess, finishGate, publishHealth, overall, parseDisk, readState, HEALTH_PREFIX } from './health.js'
 
 const NOW = Date.parse('2026-11-06T12:00:00Z')
 const MAIN = 'a'.repeat(40)
@@ -145,4 +145,24 @@ test('Actions counts as stopped only when no workflow at all has started a run f
   assert.equal(await status(12), 'ok')
   assert.equal(await status(20), 'warn')
   assert.equal(await status(30), 'fail')
+})
+
+test('a finished gate with no publisher run after it gets one started, once', async () => {
+  const gate = (age, status = 'completed') => ({ id: 7, status, updated_at: iso(age) })
+  const run = async (g, pubAge) => {
+    const writes = []
+    const gh = async (path, init = {}) => {
+      if (init.method) { writes.push({ path, body: JSON.parse(init.body) }); return null }
+      if (path.includes('market-release-gate.yml/runs')) return { workflow_runs: g ? [g] : [] }
+      if (path.includes('subscription-publisher.yml/runs')) return { workflow_runs: pubAge == null ? [] : [{ created_at: iso(pubAge) }] }
+      throw new Error('unrouted ' + path)
+    }
+    return { r: await finishGate(cfg, gh, NOW), writes }
+  }
+  const missed = await run(gate(1), 2)
+  assert.equal(missed.r.nudged, true)
+  assert.deepEqual(missed.writes, [{ path: '/repos/o/r/actions/workflows/subscription-publisher.yml/dispatches', body: { ref: 'main' } }])
+  for (const [g, pub, why] of [[gate(1), 0.5, 'callback already ran'], [gate(0.1), 2, 'callback may still come'],
+    [gate(1, 'in_progress'), 2, 'gate still running'], [gate(30), 40, 'too old'], [null, 2, 'no gate']])
+    assert.equal((await run(g, pub)).writes.length, 0, why)
 })

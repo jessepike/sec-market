@@ -16,6 +16,7 @@ import importlib.util
 from urllib.parse import urlsplit
 from types import SimpleNamespace
 from unittest.mock import patch
+from datetime import datetime, timezone
 
 SCRIPTS = Path(__file__).resolve().parents[1] / "scripts/pipeline"
 sys.path.insert(0, str(SCRIPTS))
@@ -1170,3 +1171,110 @@ class HistoryWindowSelectionTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class SplitReleaseTests(unittest.TestCase):
+    """The publisher dispatches the gate and ends; a later call completes it (no billed waiting)."""
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.store = LocalStore(self.temp.name)
+        self.c = contract()
+        self.c["publication"].update(enabled=True, maxBatchesPerDay=2)
+        self.store.write_once("releases/old.json", {"manifest": {}})
+        self.store.compare_and_swap("latest-run", None, {"receipt": {"sha256": "a" * 64}})
+        self.archive = {"commit": "c" * 40, "manifestSha256": "d" * 64}
+        self.checkpoints = 0
+        self.gate = {"status": "completed", "conclusion": "success"}
+        patches = {
+            "VercelAdapter": patch("release.VercelAdapter"),
+            "recover": patch("release.recover_publication", return_value={"releaseId": "old"}),
+            "preflight": patch("release.preflight_corrections"),
+            "authority": patch("release.GitHubAuthority"),
+            "dispatch": patch("release.dispatch_gate", return_value=(77, None)),
+            "artifact": patch("release.gate_artifact", return_value=88),
+            "import": patch("release.import_gate", return_value=({"coverage": {}, "snapshot": {}, "artifact": {}}, {})),
+            "prepare": patch("release.prepare_release", return_value={"manifest": True}),
+            "publish": patch("release.publish", return_value={"releaseId": "new"}),
+        }
+        self.m = {k: p.start() for k, p in patches.items()}
+        for p in patches.values():
+            self.addCleanup(p.stop)
+        self.m["VercelAdapter"].return_value.production_paths_controlled.return_value = True
+        self.m["authority"].return_value._api.side_effect = lambda path: self.gate
+
+    def checkpoint(self):
+        self.checkpoints += 1
+
+    def run_release(self, **kw):
+        return release_daily(self.store, self.c, self.archive, "b" * 40, {"vercel": {"project_id": "fixture"}}, self.checkpoint, split=True, **kw)
+
+    def budget(self):
+        day = datetime.now(timezone.utc).date().isoformat()
+        return (self.store.read(f"heads/gate-budget-{day}.json") or {}).get("attempts", 0)
+
+    def pending(self):
+        return self.store.read("heads/pending-gate.json")
+
+    def test_request_reserves_one_attempt_records_pending_and_does_not_wait(self):
+        result = self.run_release()
+        self.assertEqual(result, {"published": False, "reason": "GATE_REQUESTED", "githubRunId": 77})
+        self.assertEqual(self.m["dispatch"].call_args.kwargs, {"wait": False})
+        self.assertEqual(self.budget(), 1)
+        self.assertEqual(self.pending()["gateRunId"], 77)
+        self.assertEqual(self.pending()["collectionReceiptSha256"], "a" * 64)
+        self.assertEqual(self.pending()["archive"], self.archive)
+        self.assertNotIn("closedAt", self.pending())
+        self.assertEqual(self.checkpoints, 2)  # reservation before dispatch, pending after
+        self.m["publish"].assert_not_called()
+
+    def test_running_gate_is_left_alone_without_new_attempts(self):
+        self.run_release()
+        self.gate = {"status": "in_progress"}
+        self.assertEqual(self.run_release()["reason"], "GATE_PENDING")
+        self.assertEqual(self.budget(), 1)
+        self.assertEqual(self.m["dispatch"].call_count, 1)
+
+    def test_finished_gate_publishes_once_and_closes_pending(self):
+        self.run_release()
+        result = self.run_release(complete_only=True)
+        self.assertTrue(result["published"])
+        self.assertEqual(result["githubRunId"], 77)
+        self.m["import"].assert_called_once()
+        self.assertEqual(self.m["import"].call_args.args[2:], (77, 88, self.archive))
+        self.m["publish"].assert_called_once()
+        self.assertEqual(self.pending()["outcome"], "published")
+        self.assertEqual(self.budget(), 1)
+        # A gate callback after completion finds nothing to do and never requests a gate.
+        self.assertEqual(self.run_release(complete_only=True)["reason"], "NO_PENDING_GATE")
+        self.assertEqual(self.m["dispatch"].call_count, 1)
+
+    def test_gate_callback_without_pending_never_requests_or_spends(self):
+        self.assertEqual(self.run_release(complete_only=True)["reason"], "NO_PENDING_GATE")
+        self.m["dispatch"].assert_not_called()
+        self.assertEqual(self.budget(), 0)
+
+    def test_new_collection_or_code_supersedes_the_gate_result(self):
+        self.run_release()
+        self.store.compare_and_swap("latest-run", self.store.read("heads/latest-run.json"), {"receipt": {"sha256": "e" * 64}})
+        self.assertEqual(self.run_release()["reason"], "GATE_SUPERSEDED")
+        self.assertEqual(self.pending()["outcome"], "superseded")
+        self.m["publish"].assert_not_called()
+        self.run_release()  # the next run may request a fresh gate for the new collection
+        self.assertEqual(self.budget(), 2)
+
+    def test_failed_gate_refuses_records_and_retains_production(self):
+        self.run_release()
+        self.m["artifact"].side_effect = ValueError("Independent release gate failed; retain production")
+        with self.assertRaisesRegex(ValueError, "retain production"):
+            self.run_release()
+        self.assertEqual(self.pending()["outcome"], "gate_failed")
+        self.m["publish"].assert_not_called()
+
+    def test_waiting_mode_is_unchanged(self):
+        self.m["dispatch"].return_value = (77, 88)
+        result = release_daily(self.store, self.c, self.archive, "b" * 40, {"vercel": {"project_id": "fixture"}}, self.checkpoint)
+        self.assertTrue(result["published"])
+        self.assertEqual(self.m["dispatch"].call_args.kwargs, {})
+        self.assertIsNone(self.pending())

@@ -44,6 +44,20 @@ class PublisherBoundaryTests(unittest.TestCase):
         api = lambda path: {'workflow_runs': []} if 'workflows/' in path else skipped if path.endswith('/jobs?per_page=20') else run
         self.assertFalse(publish.callback_ready(event, api))
 
+    def test_gate_completion_callback_accepts_only_dispatched_main_gate(self):
+        run = {'id': 126, 'repository': {'full_name': 'jessepike/sec-market', 'private': True},
+               'path': '.github/workflows/market-release-gate.yml', 'head_branch': 'main',
+               'event': 'workflow_dispatch', 'status': 'completed', 'conclusion': 'failure'}
+        event = {'workflow_run': {'id': 126, 'path': '.github/workflows/market-release-gate.yml'}}
+        api = lambda path: run
+        # A failed gate still completes the pending release so the refusal is recorded and alerted.
+        self.assertTrue(publish.callback_ready(event, api))
+        self.assertTrue(publish.gate_callback(event))
+        for key, value in (('head_branch', 'preview'), ('event', 'push'), ('status', 'in_progress')):
+            changed = dict(run, **{key: value})
+            self.assertFalse(publish.callback_ready(event, lambda path: changed), key)
+        self.assertFalse(publish.gate_callback({'workflow_run': {'id': 1, 'path': '.github/workflows/subscription-collector.yml'}}))
+
     def test_initial_hold_finishes_lease_without_auth_or_gate_and_valid_source_continues(self):
         os.environ.update(GITHUB_RUN_ID='123', VERCEL_TOKEN='test-token', GITHUB_EVENT_NAME='schedule')
         for ready in (False, True):

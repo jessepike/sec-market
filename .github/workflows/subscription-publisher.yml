@@ -6,7 +6,9 @@ on:
     - cron: '23 16 * * *'
   workflow_dispatch:
   workflow_run:
-    workflows: ['bounded subscription collector']
+    # The gate's completion publishes the release this workflow requested
+    # (split release: no job waits while the gate runs).
+    workflows: ['bounded subscription collector', 'independent daily release gate']
     types: [completed]
 
 permissions: {}

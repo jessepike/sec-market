@@ -16,6 +16,7 @@ export function healthConfig(cfg) {
   return {
     site: new URL(cfg.DATA_URL).origin,
     publisher: cfg.PUBLISHER_FILE ?? 'subscription-publisher.yml',
+    gate: cfg.GATE_FILE ?? 'market-release-gate.yml',
     funding: cfg.FUNDING_FILE ?? 'funding-weekly.yml',
     observer: cfg.OBSERVER_FILE ?? 'freshness.yml',
     livePaths: (cfg.LIVE_PATHS ?? '/coverage/,/data/,/funding/,/llms.txt,/tracker.json,/events.json,/og.png,/favicon.svg')
@@ -333,10 +334,30 @@ export async function publishHealth(cfg, gh, assessed, now = Date.now()) {
   return { action: comment ? 'updated+commented' : 'updated', number: existing.number, title }
 }
 
+// Split release: the publisher dispatches the gate and ends, and the gate's
+// completion callback publishes. GitHub may not start that callback for a run
+// the workflow token dispatched, so if a finished gate has no publisher run
+// after it, start one. A publisher run with nothing pending exits without
+// spending a gate attempt, so a needless nudge is harmless.
+export async function finishGate(cfg, gh, now = Date.now()) {
+  const h = healthConfig(cfg)
+  const repo = cfg.GITHUB_REPO
+  const { workflow_runs: gates = [] } = await gh(`/repos/${repo}/actions/workflows/${h.gate}/runs?branch=${cfg.REF}&event=workflow_dispatch&per_page=1`)
+  const gate = gates[0]
+  const done = Date.parse(gate?.updated_at)
+  if (!gate || gate.status !== 'completed' || !(now - done >= 10 * 60000 && now - done <= 26 * HOUR)) return { nudged: false }
+  const { workflow_runs: pubs = [] } = await gh(`/repos/${repo}/actions/workflows/${h.publisher}/runs?per_page=1`)
+  if (pubs[0] && Date.parse(pubs[0].created_at) >= done) return { nudged: false }
+  await gh(`/repos/${repo}/actions/workflows/${h.publisher}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: cfg.REF }) })
+  return { nudged: true, gateRunId: gate.id }
+}
+
 export async function health(cfg, gh, fetcher = fetch, now = Date.now()) {
+  let nudge
+  try { nudge = await finishGate(cfg, gh, now) } catch (e) { nudge = { nudged: false, error: String(e.message || e) } }
   const assessed = await assess(cfg, gh, fetcher, now)
   const published = await publishHealth(cfg, gh, assessed, now)
-  return { ...published, checks: assessed.checks }
+  return { ...published, nudge, checks: assessed.checks }
 }
 
 export { ISSUE_TITLE }

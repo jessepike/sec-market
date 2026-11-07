@@ -159,7 +159,7 @@ class ExactCodeCiTests(unittest.TestCase):
         publisher = (root / '.github/workflows/subscription-publisher.yml').read_text()
         self.assertIn("- cron: '23 16 * * *'", publisher)
         self.assertNotIn("23 0,6,16 * * *", publisher)
-        self.assertIn("workflows: ['bounded subscription collector']", publisher)
+        self.assertIn("workflows: ['bounded subscription collector', 'independent daily release gate']", publisher)
         self.assertIn('types: [completed]', publisher)
         self.assertIn('workflow_dispatch:', publisher)
         self.assertIn('python3 ops/ci/job_alert.py --job publisher', publisher)
