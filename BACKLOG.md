@@ -124,8 +124,12 @@ Business Wire citations (HTTP 403), and `sec_facts`/`sec_submissions` for F5, Ak
 (`sec-adapter.mjs` only accepts suppliers in `edgarRegistry.ts`). Adding F5 and Akamai to the
 registry also changes what the gate's `refresh:edgar` writes to `generated/edgarFacts.json`, so it needs
 a render check and Akamai needs a labeling decision (total company revenue, not a security figure).
-Check Point's `sec_facts` cannot pass, because it is a 20-F filer; SEC-080 owns its route. Left: those fixes, the Optiv correction
-request group, and the graduation check.
+Check Point's `sec_facts` cannot pass, because it is a 20-F filer; SEC-080 owns its route. At the next transition, drop
+`checkpoint-sase:sec_facts` and `:sec_submissions` and keep `:sec_documents` (agreed with the SEC-080 thread). F5 and
+Akamai join `edgarRegistry.ts` when they graduate into the tracker, not before: `verify-tracker` cross-checks the
+registry against tracker public suppliers, and `sec-adapter.mjs` stays unchanged. Left: replacement citations
+for the three blocked ones, binding verification for the eight official sources, the Optiv correction request
+group, and the graduation check.
 **Authorization:** owner-approved (D-138).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers
