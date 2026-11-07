@@ -137,6 +137,12 @@ group, and the graduation check.
 **2026-11-07 (D-146):** the transition now also adds Checkmarx, Black Duck, Semgrep, Endor Labs and Noma
 (87 suppliers, 337 sources) and drops `checkpoint-sase:sec_facts` and `:sec_submissions`. Their
 `official:1` sources start as unverified bindings like the other onboarding ones.
+**2026-11-07 batch 2:** 21 more verified newsroom feeds as `<id>:official:2` (17 sitemaps, 4 RSS): Cato,
+Check Point (SASE only, to avoid counting one release twice), Forescout, Orca, Torq, Zenity, LevelBlue (Trustwave,
+investor_acquirer family), Checkmarx, Noma, Cyera, Sysdig, Abnormal, Nozomi, Chainguard, Endor Labs, Akamai,
+BeyondTrust, plus RSS for Rubrik IR, Trend Micro, GitHub company news and Semgrep. Cyera, Sysdig, Abnormal, Nozomi,
+Akamai and BeyondTrust press paths could not be confirmed in their sitemaps from the sandbox (reads truncated): check
+item counts on the first run. Still no feed: Barracuda, Black Duck, Check Point email.
 **Authorization:** owner-approved (D-138, D-146).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers

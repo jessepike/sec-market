@@ -7894,6 +7894,402 @@
       "seedEvidenceUrls": [],
       "supplierId": "axonius",
       "url": "https://siliconangle.com/2022/03/08/cybersecurity-startup-axonius-valued-2-6b-latest-200m-funding-round/"
+    },
+    {
+      "allowedHosts": [
+        "www.catonetworks.com"
+      ],
+      "family": "official_announcements",
+      "id": "cato:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.catonetworks.com/news/cato-networks-raises-77-million-for-cloud-security-platform-that-protects-remote-workforces/"
+      ],
+      "supplierId": "cato",
+      "url": "https://www.catonetworks.com/af-news-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.checkpoint.com"
+      ],
+      "family": "official_announcements",
+      "id": "checkpoint-sase:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.checkpoint.com/press-releases/cutting-complexity-to-strengthen-security-why-consolidation-matters/"
+      ],
+      "supplierId": "checkpoint-sase",
+      "url": "https://www.checkpoint.com/press-releases-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.forescout.com"
+      ],
+      "family": "official_announcements",
+      "id": "forescout:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.forescout.com/press-releases/forescout-expands-global-channel-partner-investment-recognizes-advancing-envision-partners/"
+      ],
+      "supplierId": "forescout",
+      "url": "https://www.forescout.com/press-release-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "orca.security"
+      ],
+      "family": "official_announcements",
+      "id": "orca:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/resources/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/"
+      ],
+      "supplierId": "orca",
+      "url": "https://orca.security/press-releases-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "torq.io"
+      ],
+      "family": "official_announcements",
+      "id": "torq:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://torq.io/news/torq-acquires-revrod-and-expands-ai-driven-hypersoc-2o/"
+      ],
+      "supplierId": "torq",
+      "url": "https://torq.io/news-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "zenity.io"
+      ],
+      "family": "official_announcements",
+      "id": "zenity:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-release/"
+      ],
+      "seedEvidenceUrls": [
+        "https://zenity.io/press-release/zenity-raises-38m-series-b-funding-round-to-secure-agentic-ai"
+      ],
+      "supplierId": "zenity",
+      "url": "https://zenity.io/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.levelblue.com"
+      ],
+      "family": "investor_acquirer",
+      "id": "trustwave:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/newsroom/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.levelblue.com/newsroom/press-releases/standalone-managed-cybersecurity-services-business"
+      ],
+      "supplierId": "trustwave",
+      "url": "https://www.levelblue.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "checkmarx.com"
+      ],
+      "family": "official_announcements",
+      "id": "checkmarx:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://checkmarx.com/press-releases/checkmarx-appoints-kobi-sivilya-as-chief-information-security-officer/"
+      ],
+      "supplierId": "checkmarx",
+      "url": "https://checkmarx.com/press-release-sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "noma.security"
+      ],
+      "family": "official_announcements",
+      "id": "noma:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/noma-security-",
+        "/blog/press-release-"
+      ],
+      "seedEvidenceUrls": [
+        "https://noma.security/blog/noma-security-raises-100m-to-drive-adoption-of-ai-agent-security"
+      ],
+      "supplierId": "noma",
+      "url": "https://noma.security/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.cyera.com"
+      ],
+      "family": "official_announcements",
+      "id": "cyera:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security"
+      ],
+      "supplierId": "cyera",
+      "url": "https://www.cyera.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.sysdig.com"
+      ],
+      "family": "official_announcements",
+      "id": "sysdig:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security"
+      ],
+      "supplierId": "sysdig",
+      "url": "https://www.sysdig.com/sitemap-rewrite/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "abnormal.ai"
+      ],
+      "family": "official_announcements",
+      "id": "abnormal-security:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/newsroom/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://abnormal.ai/newsroom/press-releases/abnormal-ai-names-don-jeter-cmo-to-accelerate-its-expansion-in-ai-security"
+      ],
+      "supplierId": "abnormal-security",
+      "url": "https://abnormal.ai/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.nozominetworks.com"
+      ],
+      "family": "official_announcements",
+      "id": "nozomi:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-release/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.nozominetworks.com/press-release/nozomi-networks-introduces-nozomi-compass-to-modernize-the-everyday-work-of-ot-asset-and-service-management"
+      ],
+      "supplierId": "nozomi",
+      "url": "https://www.nozominetworks.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.chainguard.dev"
+      ],
+      "family": "official_announcements",
+      "id": "chainguard:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/unchained/chainguard-"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.chainguard.dev/unchained/chainguard-receives-morgan-stanley-2026-innovation-award"
+      ],
+      "supplierId": "chainguard",
+      "url": "https://www.chainguard.dev/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.endorlabs.com"
+      ],
+      "family": "official_announcements",
+      "id": "endor-labs:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/learn/endor-labs-"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.endorlabs.com/learn/endor-labs-receives-strategic-investment-from-citi-ventures"
+      ],
+      "supplierId": "endor-labs",
+      "url": "https://www.endorlabs.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.akamai.com"
+      ],
+      "family": "official_announcements",
+      "id": "akamai:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/newsroom/press-release/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "akamai",
+      "url": "https://www.akamai.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.beyondtrust.com"
+      ],
+      "family": "official_announcements",
+      "id": "beyondtrust:official:2",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.beyondtrust.com/press/beyondtrust-completes-transaction-with-clearlake-capital-and-francisco-partners"
+      ],
+      "supplierId": "beyondtrust",
+      "url": "https://www.beyondtrust.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "ir.rubrik.com"
+      ],
+      "family": "official_announcements",
+      "id": "rubrik:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news-events/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Extends-Cyber-Resilience-Across-Enterprise-Unstructured-Data/default.aspx"
+      ],
+      "supplierId": "rubrik",
+      "url": "https://ir.rubrik.com/rss/pressrelease.aspx"
+    },
+    {
+      "allowedHosts": [
+        "newsroom.trendmicro.com"
+      ],
+      "family": "official_announcements",
+      "id": "trend-micro:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "trend-micro",
+      "url": "https://newsroom.trendmicro.com/news-releases?pagetemplate=rss"
+    },
+    {
+      "allowedHosts": [
+        "github.blog"
+      ],
+      "family": "official_announcements",
+      "id": "github-advanced-security:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news-insights/company-news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://github.blog/news-insights/company-news/github-availability-report-september-2026/"
+      ],
+      "supplierId": "github-advanced-security",
+      "url": "https://github.blog/news-insights/company-news/feed/"
+    },
+    {
+      "allowedHosts": [
+        "semgrep.dev"
+      ],
+      "family": "official_announcements",
+      "id": "semgrep:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/"
+      ],
+      "seedEvidenceUrls": [
+        "https://semgrep.dev/blog/2026/cursor-origin-security-scanning"
+      ],
+      "supplierId": "semgrep",
+      "url": "https://semgrep.dev/blog/rss"
     }
   ],
   "suppliers": [
@@ -7959,7 +8355,8 @@
       "sourceIds": [
         "abnormal-security:official:1",
         "abnormal-security:citation:TR-abnormal-1",
-        "abnormal-security:citation:TR-abnormal-2"
+        "abnormal-security:citation:TR-abnormal-2",
+        "abnormal-security:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8028,7 +8425,8 @@
         "akamai:sec_facts",
         "akamai:sec_submissions",
         "akamai:sec_documents",
-        "akamai:citation:OB-akamai-1"
+        "akamai:citation:OB-akamai-1",
+        "akamai:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8236,7 +8634,8 @@
       "sourceIds": [
         "beyondtrust:official:1",
         "beyondtrust:citation:TR-beyondtrust-1",
-        "beyondtrust:citation:TR-beyondtrust-1-alt"
+        "beyondtrust:citation:TR-beyondtrust-1-alt",
+        "beyondtrust:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8334,7 +8733,8 @@
         "cato:official:1",
         "cato:citation:TR-cato-1",
         "cato:citation:TR-cato-2",
-        "cato:citation:TR-cato-3"
+        "cato:citation:TR-cato-3",
+        "cato:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8367,7 +8767,8 @@
       "sourceIds": [
         "chainguard:official:1",
         "chainguard:citation:TR-chainguard-1",
-        "chainguard:citation:TR-chainguard-2"
+        "chainguard:citation:TR-chainguard-2",
+        "chainguard:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8399,7 +8800,8 @@
       ],
       "sourceIds": [
         "checkmarx:official:1",
-        "checkmarx:citation:OB-checkmarx-1"
+        "checkmarx:citation:OB-checkmarx-1",
+        "checkmarx:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8474,7 +8876,8 @@
         "checkpoint-sase:citation:TR-checkpoint-3",
         "checkpoint-sase:citation:TR-checkpoint-4",
         "checkpoint-sase:citation:TR-checkpoint-5",
-        "checkpoint-sase:sec_documents"
+        "checkpoint-sase:sec_documents",
+        "checkpoint-sase:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8770,7 +9173,8 @@
         "cyera:citation:TR-cyera-2",
         "cyera:citation:TR-cyera-3",
         "cyera:citation:TR-cyera-4",
-        "cyera:citation:TR-cyera-5"
+        "cyera:citation:TR-cyera-5",
+        "cyera:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8875,7 +9279,8 @@
       ],
       "sourceIds": [
         "endor-labs:official:1",
-        "endor-labs:citation:OB-endor-labs-1"
+        "endor-labs:citation:OB-endor-labs-1",
+        "endor-labs:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9049,7 +9454,8 @@
       ],
       "sourceIds": [
         "forescout:official:1",
-        "forescout:citation:TR-forescout-1"
+        "forescout:citation:TR-forescout-1",
+        "forescout:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9120,7 +9526,8 @@
       ],
       "sourceIds": [
         "github-advanced-security:official:1",
-        "github-advanced-security:citation:TR-ghas-1"
+        "github-advanced-security:citation:TR-ghas-1",
+        "github-advanced-security:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9531,7 +9938,8 @@
       ],
       "sourceIds": [
         "noma:official:1",
-        "noma:citation:OB-noma-1"
+        "noma:citation:OB-noma-1",
+        "noma:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9566,7 +9974,8 @@
       "sourceIds": [
         "nozomi:official:1",
         "nozomi:citation:TR-nozomi-1",
-        "nozomi:citation:TR-nozomi-2"
+        "nozomi:citation:TR-nozomi-2",
+        "nozomi:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -9680,7 +10089,8 @@
       "sourceIds": [
         "orca:official:1",
         "orca:citation:TR-orca-1",
-        "orca:citation:TR-orca-2"
+        "orca:citation:TR-orca-2",
+        "orca:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10060,7 +10470,8 @@
         "rubrik:citation:TR-filing-rubrik-0001943896-26-000055",
         "rubrik:citation:TR-rubrik-1",
         "rubrik:citation:TR-rubrik-3",
-        "rubrik:sec_documents"
+        "rubrik:sec_documents",
+        "rubrik:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10209,7 +10620,8 @@
       ],
       "sourceIds": [
         "semgrep:official:1",
-        "semgrep:citation:OB-semgrep-1"
+        "semgrep:citation:OB-semgrep-1",
+        "semgrep:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10481,7 +10893,8 @@
       ],
       "sourceIds": [
         "sysdig:official:1",
-        "sysdig:citation:TR-sysdig-1"
+        "sysdig:citation:TR-sysdig-1",
+        "sysdig:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10588,7 +11001,8 @@
       "sourceIds": [
         "torq:official:1",
         "torq:citation:TR-torq-1",
-        "torq:citation:TR-torq-2"
+        "torq:citation:TR-torq-2",
+        "torq:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10623,7 +11037,8 @@
       ],
       "sourceIds": [
         "trend-micro:official:1",
-        "trend-micro:citation:TR-trend-1"
+        "trend-micro:citation:TR-trend-1",
+        "trend-micro:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10657,7 +11072,8 @@
       ],
       "sourceIds": [
         "trustwave:official:1",
-        "trustwave:citation:TR-trustwave-1"
+        "trustwave:citation:TR-trustwave-1",
+        "trustwave:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10928,7 +11344,8 @@
       ],
       "sourceIds": [
         "zenity:official:1",
-        "zenity:citation:TR-zenity-1"
+        "zenity:citation:TR-zenity-1",
+        "zenity:official:2"
       ],
       "startupStatus": "unclassified"
     },

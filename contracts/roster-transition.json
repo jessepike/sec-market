@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "5993e0f01f615c29f9e6f94ebe90c886d376d7ce441d41184b9842352828d683",
+  "activatedContractSha256": "2bb89103164d4174ac5dcbf0dcc9bd234bc33fcd98e73d0f2f48a1921928743b",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -71,17 +71,40 @@
     "tines:citation:TR-tines-1-alt",
     "axonius:citation:TR-axonius-1-alt",
     "axonius:citation:TR-axonius-2-alt",
-    "axonius:citation:TR-axonius-3-alt"
+    "axonius:citation:TR-axonius-3-alt",
+    "cato:official:2",
+    "checkpoint-sase:official:2",
+    "forescout:official:2",
+    "orca:official:2",
+    "torq:official:2",
+    "zenity:official:2",
+    "trustwave:official:2",
+    "checkmarx:official:2",
+    "noma:official:2",
+    "cyera:official:2",
+    "sysdig:official:2",
+    "abnormal-security:official:2",
+    "nozomi:official:2",
+    "chainguard:official:2",
+    "endor-labs:official:2",
+    "akamai:official:2",
+    "beyondtrust:official:2",
+    "rubrik:official:2",
+    "trend-micro:official:2",
+    "github-advanced-security:official:2",
+    "semgrep:official:2"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
-      "checkpoint-sase:sec_documents"
+      "checkpoint-sase:sec_documents",
+      "checkpoint-sase:official:2"
     ],
     "optiv": [
       "optiv:citation:TR-optiv-closing-2026-05-08"
     ],
     "beyondtrust": [
-      "beyondtrust:citation:TR-beyondtrust-1-alt"
+      "beyondtrust:citation:TR-beyondtrust-1-alt",
+      "beyondtrust:official:2"
     ],
     "bigid": [
       "bigid:citation:TR-bigid-1-alt"
@@ -100,6 +123,48 @@
       "axonius:citation:TR-axonius-1-alt",
       "axonius:citation:TR-axonius-2-alt",
       "axonius:citation:TR-axonius-3-alt"
+    ],
+    "cato": [
+      "cato:official:2"
+    ],
+    "forescout": [
+      "forescout:official:2"
+    ],
+    "orca": [
+      "orca:official:2"
+    ],
+    "torq": [
+      "torq:official:2"
+    ],
+    "zenity": [
+      "zenity:official:2"
+    ],
+    "trustwave": [
+      "trustwave:official:2"
+    ],
+    "cyera": [
+      "cyera:official:2"
+    ],
+    "sysdig": [
+      "sysdig:official:2"
+    ],
+    "abnormal-security": [
+      "abnormal-security:official:2"
+    ],
+    "nozomi": [
+      "nozomi:official:2"
+    ],
+    "chainguard": [
+      "chainguard:official:2"
+    ],
+    "rubrik": [
+      "rubrik:official:2"
+    ],
+    "trend-micro": [
+      "trend-micro:official:2"
+    ],
+    "github-advanced-security": [
+      "github-advanced-security:official:2"
     ]
   }
 }
