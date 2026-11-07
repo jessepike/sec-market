@@ -115,8 +115,17 @@ policy stamp. First use: the eight D-138 suppliers, Check Point's SEC sources (S
 source link (SEC-076). Then a graduation check moves a supplier from `onboarding.json` into the
 tracker after three clean daily runs. Waits for daily collection to fit under its timeout with
 headroom. Plan: [coverage-expansion-2026-11-06.md](docs/active/coverage-expansion-2026-11-06.md).
-**Status (2026-11-06, D-141):** transition built and on preview. Left: the first collection on main, the
-Optiv correction request group that cites the new source, and the graduation check.
+**Status (2026-11-07, D-141):** on main. The first collection under it (run 42369492488, 2026-11-07)
+passed and published; no fact for the eight reached a page. Every new source was attempted. Working:
+the Optiv closing citation, five onboarding citations, and the F5, Akamai and Check Point
+`sec_documents` sources. Not yet working, listed in `ops/watchdog/known-gaps.json`: the eight
+`official:1` sources (binding unverified, like the existing 23), the Lumos, Secuvy and Skyflow
+Business Wire citations (HTTP 403), and `sec_facts`/`sec_submissions` for F5, Akamai and Check Point
+(`sec-adapter.mjs` only accepts suppliers in `edgarRegistry.ts`). Adding F5 and Akamai to the
+registry also changes what the gate's `refresh:edgar` writes to `generated/edgarFacts.json`, so it needs
+a render check and Akamai needs a labeling decision (total company revenue, not a security figure).
+Check Point's `sec_facts` cannot pass, because it is a 20-F filer; SEC-080 owns its route. Left: those fixes, the Optiv correction
+request group, and the graduation check.
 **Authorization:** owner-approved (D-138).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers
