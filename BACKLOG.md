@@ -142,7 +142,8 @@ Check Point (SASE only, to avoid counting one release twice), Forescout, Orca, T
 investor_acquirer family), Checkmarx, Noma, Cyera, Sysdig, Abnormal, Nozomi, Chainguard, Endor Labs, Akamai,
 BeyondTrust, plus RSS for Rubrik IR, Trend Micro, GitHub company news and Semgrep. Cyera, Sysdig, Abnormal, Nozomi,
 Akamai and BeyondTrust press paths could not be confirmed in their sitemaps from the sandbox (reads truncated): check
-item counts on the first run. Still no feed: Barracuda, Black Duck, Check Point email.
+item counts on the first run. Then Black Duck (Cision newsroom RSS) and a www.sysdig.com copy of the Sysdig CEO
+citation (sysdig.com redirects to www). Still no feed: Barracuda (Business Wire only), Check Point email.
 **Authorization:** owner-approved (D-138, D-146).
 
 ### SEC-080 · Roll company-reported quarters for non-XBRL public suppliers

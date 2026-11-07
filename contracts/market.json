@@ -8290,6 +8290,43 @@
       ],
       "supplierId": "semgrep",
       "url": "https://semgrep.dev/blog/rss"
+    },
+    {
+      "allowedHosts": [
+        "news.blackduck.com"
+      ],
+      "family": "official_announcements",
+      "id": "black-duck:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [
+        "https://news.blackduck.com/2026-09-08-Black-Duck-Joins-Anthropics-Project-Glasswing"
+      ],
+      "supplierId": "black-duck",
+      "url": "https://news.blackduck.com/news-releases?pagetemplate=rss"
+    },
+    {
+      "allowedHosts": [
+        "www.sysdig.com"
+      ],
+      "evidenceId": "TR-sysdig-1",
+      "family": "citation_integrity",
+      "id": "sysdig:citation:TR-sysdig-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "sysdig",
+      "url": "https://www.sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security"
     }
   ],
   "suppliers": [
@@ -8699,7 +8736,8 @@
       ],
       "sourceIds": [
         "black-duck:official:1",
-        "black-duck:citation:OB-black-duck-1"
+        "black-duck:citation:OB-black-duck-1",
+        "black-duck:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -10894,7 +10932,8 @@
       "sourceIds": [
         "sysdig:official:1",
         "sysdig:citation:TR-sysdig-1",
-        "sysdig:official:2"
+        "sysdig:official:2",
+        "sysdig:citation:TR-sysdig-1-alt"
       ],
       "startupStatus": "unclassified"
     },

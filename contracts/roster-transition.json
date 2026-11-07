@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "2bb89103164d4174ac5dcbf0dcc9bd234bc33fcd98e73d0f2f48a1921928743b",
+  "activatedContractSha256": "1b12d386c588acabe99dad4f06ce543ad3ed3d2dff6a96e07fda3462250b8b06",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -92,7 +92,9 @@
     "rubrik:official:2",
     "trend-micro:official:2",
     "github-advanced-security:official:2",
-    "semgrep:official:2"
+    "semgrep:official:2",
+    "black-duck:official:2",
+    "sysdig:citation:TR-sysdig-1-alt"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
@@ -146,7 +148,8 @@
       "cyera:official:2"
     ],
     "sysdig": [
-      "sysdig:official:2"
+      "sysdig:official:2",
+      "sysdig:citation:TR-sysdig-1-alt"
     ],
     "abnormal-security": [
       "abnormal-security:official:2"
