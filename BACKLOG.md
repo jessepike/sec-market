@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-085.
+stands. New items continue from SEC-090.
 
 ## Next
 
@@ -192,6 +192,40 @@ working copy or an archived snapshot; leave the cited text unchanged. **Authoriz
 maintenance; any change to what a record says goes through a correction.
 
 ## Later (implementation authority noted per item)
+
+### SEC-085 · Sharpen the tagline and event labels for a CISO reader
+
+Future, low priority. The owner wants to revisit the "who grew, who raised, who bought, who cut"
+line and the event tile labels (reported revenue, funding, acquisitions, restructuring) and
+"clean that up a little bit or sharpen it", angled toward a CISO or security leader. The owner is
+happy with the current preview direction and does not want to focus on this now (2026-11-06).
+**Authorization:** not authorized. Page wording is a major change and needs the owner's wording
+and review of a preview.
+
+### SEC-087 · Watch list: a leader tracks their own partners and vendors
+
+Future, low priority. Owner's reasoning (2026-11-06): "If I'm a CISO, I'm going to want to track my
+partners." In a fast-moving, volatile space a security or business leader doing business with
+these companies wants to keep an eye on them. Someone logs in and sees the partners and companies
+they follow. Focus on value first; the owner is "not interested in the monetization just yet" and
+will discuss charging only once there is enough value. Overlaps the digest work in SEC-060.
+**Authorization:** not authorized. Logins and per-user lists need stored user data, which the
+constraints do not allow today (no database), plus a new owner decision.
+
+### SEC-088 · Map coverage to the owner's own partner companies
+
+Future, low priority. Show which covered suppliers are the owner's partner companies, as a first,
+private use of the SEC-087 watch list. From the 2026-11-06 product brainstorm ("mapping to Jess's
+partner companies later"). **Authorization:** not authorized. The partner list is the owner's to
+supply; nothing about it appears on the public site without approval.
+
+### SEC-089 · Explore a third-party risk assessment angle
+
+Future, low priority, exploration only. The owner asked whether the watch list "could evolve into
+some type of third-party risk assessment kind of component" and sees value in scenarios like that
+(2026-11-06). Any such view must show sourced facts only: a machine-written risk rating is a
+judgment and is not authorized (D-76). **Authorization:** not authorized. Explore and report back
+before any design.
 
 ### SEC-075 · Capped API-key fallback when the ChatGPT login fails
 
