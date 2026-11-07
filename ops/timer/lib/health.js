@@ -21,7 +21,7 @@ export function healthConfig(cfg) {
     livePaths: (cfg.LIVE_PATHS ?? '/coverage/,/data/,/funding/,/llms.txt,/tracker.json,/events.json,/og.png,/favicon.svg')
       .split(',').map(s => s.trim()).filter(s => s.startsWith('/')),
     requestUrl: cfg.REQUEST_URL ?? 'https://market-pipeline-timer.vercel.app/api/request',
-    jobLimitMinutes: Number(cfg.COLLECT_LIMIT_MINUTES || 35),
+    jobLimitMinutes: Number(cfg.COLLECT_LIMIT_MINUTES || 45),
     minutesLimit: Number(cfg.ACTIONS_MINUTES_LIMIT || 3000),
     usdPerMinute: Number(cfg.ACTIONS_USD_PER_MINUTE || 0.008),
     budgetUsd: Number(cfg.ACTIONS_BUDGET_USD || 5),

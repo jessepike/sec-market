@@ -34,14 +34,16 @@ session_runtime = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(session_runtime)
 
 
-# The collect step runs inside a 35-minute job. About 2 minutes go to setup
+# The collect step runs inside a 45-minute job. About 2 minutes go to setup
 # before this script starts and about 2 to cleanup after it, so the script must
-# finish within 30 minutes. The work after collection (two evidence checks, the
+# finish within 40 minutes. The work after collection (two evidence checks, the
 # snapshot and two archive pushes) is reserved before collection starts: on
 # November 5 a fixed 20-minute collection left too little time for it and the
-# job was cancelled with nothing recorded for the day.
-STEP_SECONDS = 1800
-POST_COLLECTION_RESERVE_SECONDS = 600
+# job was cancelled with nothing recorded for the day. On November 7, the first
+# run with 603 sources, that work took 14 minutes against a 10-minute reserve
+# and the job ended 7 seconds inside its old 35-minute limit.
+STEP_SECONDS = 2400
+POST_COLLECTION_RESERVE_SECONDS = 1200
 MINIMUM_COLLECTION_SECONDS = 300
 
 

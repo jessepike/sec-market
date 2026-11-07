@@ -61,7 +61,7 @@ jobs:
     needs: schedule-guard
     if: needs.schedule-guard.outputs.allowed == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
     permissions:
       contents: write # Dedicated evidence ref; this script never writes app branches.
       actions: read # Prove an abandoned lease's owning run actually terminated.
