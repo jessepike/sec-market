@@ -162,7 +162,7 @@ test('a finished gate with no publisher run after it gets one started, once', as
   const missed = await run(gate(1), 2)
   assert.equal(missed.r.nudged, true)
   assert.deepEqual(missed.writes, [{ path: '/repos/o/r/actions/workflows/subscription-publisher.yml/dispatches', body: { ref: 'main' } }])
-  for (const [g, pub, why] of [[gate(1), 0.5, 'callback already ran'], [gate(0.1), 2, 'callback may still come'],
+  for (const [g, pub, why] of [[gate(1), 0.5, 'callback already ran'], [gate(0.02), 2, 'gate artifact may still be settling'],
     [gate(1, 'in_progress'), 2, 'gate still running'], [gate(30), 40, 'too old'], [null, 2, 'no gate']])
     assert.equal((await run(g, pub)).writes.length, 0, why)
 })
