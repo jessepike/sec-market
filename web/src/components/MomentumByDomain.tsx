@@ -78,7 +78,7 @@ function AllDomains({ openSupplier }: { openSupplier: (id: string) => void }) {
   const seen = new Set<string>()
   const rows = withRows.flatMap(d => d.rows).filter(r => !seen.has(r.supplier.id) && seen.add(r.supplier.id)).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
   return <article className="momentum__domain momentum__all" aria-label="All SEC filers ranked">
-    <div className="momentum__domain-head"><h3>All {rows.length} SEC filers</h3>{marketMedian !== null && <span>Median <strong>{formatPercent(marketMedian)}</strong></span>}</div>
+    <div className="momentum__domain-head"><h3>All SEC filers</h3>{marketMedian !== null && <span>Median <strong>{formatPercent(marketMedian)}</strong></span>}</div>
     <div className={`momentum__cols${hasHealth ? ' has-health' : ''}`} aria-hidden="true"><span>Company</span><span>Revenue growth, year over year</span><span /><span>vs prior quarter</span>
       {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}</div>
     <ul className={`momentum__rows${hasHealth ? ' has-health' : ''}`}>{rows.map(row => <Row key={row.supplier.id} row={{ ...row, vsMedian: null }} median={marketMedian} openSupplier={openSupplier} />)}</ul>
@@ -100,7 +100,7 @@ export function MomentumByDomain({ openSupplier }: { openSupplier: (id: string) 
       {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest event.</p></details>
     {all ? <div className="momentum__grid momentum__grid--one"><AllDomains openSupplier={openSupplier} /></div> : <>
       <div className="momentum__grid">{withRows.map(d => <DomainCard key={d.id} d={d} openSupplier={openSupplier} />)}</div>
-      <button type="button" className="momentum__mobile-toggle" aria-expanded={expanded} onClick={() => setExpanded(v => !v)}>{expanded ? 'Show fewer domains' : `Show all ${withRows.length} domains`}</button>
+      <button type="button" className="momentum__mobile-toggle" aria-expanded={expanded} onClick={() => setExpanded(v => !v)}>{expanded ? 'Show fewer domains' : 'Show all domains'}</button>
       {withoutRows.length > 0 && <p className="desk-note momentum__none">No SEC filer in {withoutRows.map(d => d.name).join(', ')}. Their companies are on the <a href="/market/#market">market page</a>.</p>}
     </>}
   </section>
