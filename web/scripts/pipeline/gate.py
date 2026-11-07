@@ -98,6 +98,24 @@ def prepare_data(repo, store, destination):
     return contract, verified, snapshot, raw, cache, latest["receipt"]["sha256"]
 
 
+def generated_bundle(repo):
+    """The tested build inputs, so the preview branch can show the accepted data.
+
+    Fixed member order and timestamps make the bytes reproducible. The preview
+    copy is a convenience; production is still built only from the gate's build.zip.
+    """
+    import io
+    import zipfile
+    folder = repo / "web/src/data/generated"
+    output = io.BytesIO()
+    with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as bundle:
+        for path in sorted(folder.glob("*.json")):
+            info = zipfile.ZipInfo(path.name, date_time=(1980, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            bundle.writestr(info, path.read_bytes())
+    return output.getvalue()
+
+
 def run_gate(repo, store, destination, github_run_id, app_revision):
     destination.mkdir(parents=True, exist_ok=True)
     contract, coverage, snapshot, raw, cache, collection_hash = prepare_data(repo, store, destination)
@@ -142,6 +160,9 @@ def run_gate(repo, store, destination, github_run_id, app_revision):
                "archiveCommit": os.environ.get("SMP_ARCHIVE_COMMIT"), "archiveManifestSha256": os.environ.get("SMP_ARCHIVE_MANIFEST_SHA256")}
     if correction_proof:
         receipt["factualCorrections"] = correction_proof
+    generated = generated_bundle(repo)
+    receipt["generatedSha256"] = digest(generated)
+    (destination / "generated.zip").write_bytes(generated)
     (destination / "gate-receipt.json").write_bytes(canonical(receipt))
     (destination / "build.zip").write_bytes(store.get(artifact["archive"]))
     (destination / "snapshot.json").write_bytes(raw)

@@ -52,6 +52,8 @@ jobs:
       contents: write
       actions: write # Dispatch/read the independent main gate and exact artifact.
       issues: write
+    outputs:
+      gate_run: ${{ steps.released.outputs.gate_run }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -92,6 +94,19 @@ jobs:
         run: |
           gh auth setup-git --hostname github.com
           python3 ops/ci/publish.py --root "$RUNNER_TEMP/smp-publication" --output "$RUNNER_TEMP/smp-publish-receipt.json"
+      - id: released
+        name: Name the gate run of an acknowledged release
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          receipt = json.loads((Path(os.environ['RUNNER_TEMP']) / 'smp-publish-receipt.json').read_text())
+          publication = receipt.get('publication') or {}
+          gate = publication.get('githubRunId')
+          if publication.get('published') is True and type(gate) is int and gate > 0:
+              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+                  output.write(f'gate_run={gate}\n')
+          PY
       - name: Retain nonsecret publication receipt
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -109,3 +124,33 @@ jobs:
       - name: Remove ephemeral publisher credentials and evidence
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/smp-publication"
+  preview-data:
+    # Preview builds from the data committed on its branch. After a release is
+    # acknowledged, copy the data the gate accepted to preview so the preview
+    # URL shows current figures. It never touches main or production, uses no
+    # secret, and skips when preview's own checks would refuse the data.
+    needs: [publish]
+    if: ${{ needs.publish.outputs.gate_run != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write # Push the accepted data files to preview only.
+      actions: read # Read the gate run and its artifact.
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+          path: application
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: preview
+          path: preview
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Copy the accepted data to preview
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GATE_RUN: ${{ needs.publish.outputs.gate_run }}
+        run: python3 application/ops/ci/preview_data.py --repo preview --gate-run "$GATE_RUN"

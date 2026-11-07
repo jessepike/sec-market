@@ -75,6 +75,15 @@ controls were applied and verified. Promotion and rollback use explicit project/
 the high-level CLI account lookup that caused the earlier probe/promotion failure is bypassed.
 After an alias change, the adapter verifies that automatic domain assignment stays disabled.
 
+After an acknowledged release, the publisher's `preview-data` job copies the gate's tested data
+files (`generated.zip`, hashed in the gate receipt as `generatedSha256`) to
+`web/src/data/generated/` on `preview`, so the preview URL shows current figures. It never touches
+`main` or production and uses no secret. It skips when preview's own daily-data check refuses the
+data, for example when preview already carries a newer source contract. The data commit is pushed
+with the workflow token, so it starts no web CI run. To promote a tip that ends in a data commit,
+fast-forward `main` to the newest commit with a passing `web` run, or let the next push to preview
+run CI over it.
+
 ## Failure and recovery
 
 Collector/publisher execution failures create or update an issue assigned to `jessepike` and
