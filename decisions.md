@@ -1598,3 +1598,10 @@ Rubrik, Commvault, Cohesity and Veeam move from Data security to a new 13th doma
 supplier originals and `contracts/market.json` keep `domainIds: ["data"]` so the correction and
 certification checks are unchanged; pages and exports read domains through `displayDomainIds`
 (`web/src/data/tracker/domains.ts`). The contract's domainIds follow at its next transition.
+
+**D-145 · 2026-11-07 — Akamai shows both revenue figures, each labeled.**
+Owner chose "Both, clearly labeled" on the decision card. When Akamai graduates from onboarding, its
+page shows total company revenue, re-derived from SEC filings and labeled as company revenue, and
+security revenue, labeled as company-reported from its earnings release. This overrides the earlier
+exclusion of Akamai from `edgarRegistry.ts` (total revenue is not a security figure), provided the
+label makes the scope clear. It applies at graduation (SEC-083).
