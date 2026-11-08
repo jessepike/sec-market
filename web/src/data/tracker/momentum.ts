@@ -19,7 +19,7 @@ import type { ChangeItem } from './presentation'
 import type { TrackerSupplier } from './suppliers'
 
 export interface HealthFigure { value: number; periodEnd: string; sourceUrl: string; form: string }
-export interface BalanceFigure { cash: number; debt: number; asOf: string; sourceUrl: string; form: string }
+export interface BalanceFigure { cash: number; debt: number | null; asOf: string; sourceUrl: string; form: string }
 export interface SupplierHealth {
   /** Operating income over revenue, trailing four quarters. */
   operatingMargin: HealthFigure | null

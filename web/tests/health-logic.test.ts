@@ -23,12 +23,12 @@ test('cash adds short-term investments and debt reads the filer\'s own tag on th
   assert.deepEqual([h.balance?.cash, h.balance?.debt, h.balance?.asOf], [2000, 1500, '2026-07-31'])
 })
 
-test('no debt tag on the quarter end leaves cash and debt out and records the gap', () => {
+test('no borrowing tag on the quarter end keeps cash and marks debt as not tagged', () => {
   const facts = structuredClone(fixture.companyFacts)
   delete facts.facts['us-gaap'].ConvertibleNotesPayable
-  const { health: h, gaps } = computeHealth(fixture.cik, fixture.quarters, facts)
-  assert.equal(h.balance, null)
-  assert.ok(gaps.includes('debt carrying value at the latest quarter end'))
+  const { health: h, notes } = computeHealth(fixture.cik, fixture.quarters, facts)
+  assert.deepEqual([h.balance?.cash, h.balance?.debt], [2000, null])
+  assert.ok(notes.includes('no borrowing tagged at the latest quarter end'))
 })
 
 test('every committed margin covers the same quarter as the revenue beside it', () => {
@@ -37,4 +37,21 @@ test('every committed margin covers the same quarter as the revenue beside it', 
     if (!h?.operatingMargin) continue
     assert.equal(h.operatingMargin.periodEnd, s.quarters[0].periodEnd, s.id)
   }
+})
+
+test('a filer with old PP&E facts but current capex only under ProductiveAssets falls back to it', () => {
+  const facts = structuredClone(fixture.companyFacts)
+  const g = facts.facts['us-gaap']
+  g.PaymentsToAcquireProductiveAssets.units.USD.push(...g.PaymentsToAcquirePropertyPlantAndEquipment.units.USD)
+  g.PaymentsToAcquirePropertyPlantAndEquipment = { units: { USD: [{ start: '2021-02-01', end: '2022-01-31', val: 1, accn: 'x', form: '10-K', filed: '2022-03-01' }] } }
+  const { health: h } = computeHealth(fixture.cik, fixture.quarters, facts)
+  assert.ok(h.fcfMargin, 'falls back to PaymentsToAcquireProductiveAssets')
+})
+
+test('debt read from DebtInstrumentCarryingAmount when the usual tags are absent', () => {
+  const facts = structuredClone(fixture.companyFacts)
+  const g = facts.facts['us-gaap']
+  delete g.ConvertibleNotesPayable
+  g.DebtInstrumentCarryingAmount = { units: { USD: [{ end: '2026-07-31', val: 358, accn: '0000000001-26-000031', form: '10-Q', filed: '2026-08-27' }] } }
+  assert.equal(computeHealth(fixture.cik, fixture.quarters, facts).health.balance?.debt, 358)
 })

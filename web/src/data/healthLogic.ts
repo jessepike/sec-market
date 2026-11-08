@@ -12,7 +12,8 @@
 import type { CompanyFacts, QuarterFact, XbrlFact } from './edgarLogic.ts'
 
 export interface HealthFigure { value: number; periodEnd: string; form: string; sourceUrl: string }
-export interface BalanceFigure { cash: number; debt: number; asOf: string; form: string; sourceUrl: string }
+/** debt is null when the filer tags no borrowing on that date (often a company without debt, but not proven). */
+export interface BalanceFigure { cash: number; debt: number | null; asOf: string; form: string; sourceUrl: string }
 export interface SupplierHealth { operatingMargin: HealthFigure | null; fcfMargin: HealthFigure | null; balance: BalanceFigure | null }
 export interface HealthFile {
   generatedAt: string
@@ -23,7 +24,7 @@ export interface HealthFile {
 }
 
 export const CASH = 'CashAndCashEquivalentsAtCarryingValue'
-export const INVESTMENTS = ['ShortTermInvestments', 'MarketableSecuritiesCurrent', 'AvailableForSaleSecuritiesDebtSecuritiesCurrent']
+export const INVESTMENTS = ['ShortTermInvestments', 'MarketableSecuritiesCurrent', 'AvailableForSaleSecuritiesDebtSecuritiesCurrent', 'DebtSecuritiesAvailableForSaleExcludingAccruedInterestCurrent']
 /** Debt in order of preference; each entry is one way a filer tags its total. */
 export const DEBT_WAYS: { total?: string; parts?: string[] }[] = [
   { total: 'LongTermDebt' },
@@ -31,12 +32,14 @@ export const DEBT_WAYS: { total?: string; parts?: string[] }[] = [
   { total: 'ConvertibleNotesPayable' },
   { parts: ['ConvertibleLongTermNotesPayable', 'ConvertibleNotesPayableCurrent'] },
   { parts: ['ConvertibleDebtNoncurrent', 'ConvertibleDebtCurrent'] },
+  { total: 'DebtInstrumentCarryingAmount' },
+  { total: 'SecuredLongTermDebt' },
 ]
 
 export const healthMethod: Record<string, string> = {
   operatingMargin: 'OperatingIncomeLoss over revenue, trailing four quarters ending on the latest revenue quarter. Year-to-date facts are converted with the prior fiscal year: FY + YTD - prior YTD.',
   fcfMargin: 'NetCashProvidedByUsedInOperatingActivities minus PaymentsToAcquirePropertyPlantAndEquipment (PaymentsToAcquireProductiveAssets when PP&E is not tagged) minus capitalized software (PaymentsToDevelopSoftware or PaymentsForSoftware), over revenue, trailing four quarters.',
-  balance: `Cash: ${CASH} plus the first of ${INVESTMENTS.join(', ')} that is tagged, on the latest revenue quarter end. Debt: carrying value from the first of LongTermDebt, LongTermDebtNoncurrent plus LongTermDebtCurrent, or the convertible notes tags that the filer uses on that date. Not shown when no debt tag is filed for that date.`,
+  balance: `Cash: ${CASH} plus the first of ${INVESTMENTS.join(', ')} that is tagged, on the latest revenue quarter end. Debt: carrying value from the first of LongTermDebt, LongTermDebtNoncurrent plus LongTermDebtCurrent, or the convertible notes tags that the filer uses on that date. When no borrowing tag is filed for that date, cash is shown and debt is marked as not tagged.`,
   revenue: 'The same four quarters of certified SEC revenue the tracker shows (edgarFacts.json).',
 }
 
@@ -107,10 +110,9 @@ export function computeHealth(cik: string, quarters: QuarterFact[], cf: CompanyF
 
   const op = ttm(cf, 'OperatingIncomeLoss', end)
   const cfo = ttm(cf, 'NetCashProvidedByUsedInOperatingActivities', end)
-  const hasPpe = facts(cf, 'PaymentsToAcquirePropertyPlantAndEquipment').length > 0
-  const cap = hasPpe
-    ? ttmBridged(cf, 'PaymentsToAcquirePropertyPlantAndEquipment', 'PaymentsToAcquireProductiveAssets', end)
-    : ttm(cf, 'PaymentsToAcquireProductiveAssets', end)
+  // PP&E capex first; a filer that tags capex only as PaymentsToAcquireProductiveAssets falls back to it.
+  const cap = ttmBridged(cf, 'PaymentsToAcquirePropertyPlantAndEquipment', 'PaymentsToAcquireProductiveAssets', end)
+    ?? ttm(cf, 'PaymentsToAcquireProductiveAssets', end)
   if (cap && 'bridged' in cap && cap.bridged) notes.push('prior fiscal year capital expenditure tagged as PaymentsToAcquireProductiveAssets; matched on a shared period')
   const sw = ttm(cf, 'PaymentsToDevelopSoftware', end) ?? ttm(cf, 'PaymentsForSoftware', end)
 
@@ -128,10 +130,11 @@ export function computeHealth(cik: string, quarters: QuarterFact[], cf: CompanyF
     if (way.total) { const f = instant(cf, way.total, end); if (f) { debt = f.val; break } }
     else {
       const parts = way.parts!.map(c => instant(cf, c, end))
-      if (parts[0]) { debt = parts.reduce((s, f) => s + (f?.val ?? 0), 0); break }
+      if (parts.some(Boolean)) { debt = parts.reduce((s, f) => s + (f?.val ?? 0), 0); break }
     }
   }
-  if (cash && debt !== null) health.balance = { cash: cash.val + (inv?.val ?? 0), debt, asOf: end, form: cash.form!, sourceUrl: indexUrl(cik, cash) }
-  else gaps.push(cash ? 'debt carrying value at the latest quarter end' : 'cash at the latest quarter end')
+  if (cash) health.balance = { cash: cash.val + (inv?.val ?? 0), debt, asOf: end, form: cash.form!, sourceUrl: indexUrl(cik, cash) }
+  else gaps.push('cash at the latest quarter end')
+  if (cash && debt === null) notes.push('no borrowing tagged at the latest quarter end')
   return { health, gaps, notes }
 }

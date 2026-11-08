@@ -39,7 +39,7 @@ function Health({ row }: { row: MomentumRow }) {
   return <>
     {cell('op', 'Operating margin', h?.operatingMargin ? formatPercent(h.operatingMargin.value) : null, h?.operatingMargin ? `Four quarters to ${h.operatingMargin.periodEnd}` : undefined, h?.operatingMargin?.sourceUrl)}
     {cell('fcf', 'Free cash flow margin', h?.fcfMargin ? formatPercent(h.fcfMargin.value) : null, h?.fcfMargin ? `Four quarters to ${h.fcfMargin.periodEnd}` : undefined, h?.fcfMargin?.sourceUrl)}
-    {hasBalance && cell('bal', 'Net cash', h?.balance ? formatNetCash(h.balance.cash, h.balance.debt) : null, h?.balance ? `Cash and short-term investments ${formatUsd(h.balance.cash)}, debt ${formatUsd(h.balance.debt)}, at ${h.balance.asOf}` : undefined, h?.balance?.sourceUrl)}
+    {hasBalance && cell('bal', 'Net cash', h?.balance && h.balance.debt !== null ? formatNetCash(h.balance.cash, h.balance.debt) : null, h?.balance ? `Cash and short-term investments ${formatUsd(h.balance.cash)}, ${h.balance.debt === null ? 'no borrowing tagged' : `debt ${formatUsd(h.balance.debt)}`}, at ${h.balance.asOf}` : undefined, h?.balance?.sourceUrl)}
   </>
 }
 
@@ -132,7 +132,7 @@ export function MomentumByDomain({ openSupplier }: { openSupplier: (id: string) 
       </div></div>
     <p className="desk-note">Whole-company revenue growth, year over year, for the latest quarter, re-derived from SEC filings. The arrow is the change from the prior quarter&rsquo;s growth rate. The dark tick is the domain median; the light tick is the median of all SEC filers.</p>
     <details className="momentum__how"><summary>How to read this</summary><p className="desk-note">Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. Growth is for the whole company, not for its business in one domain, so a company can appear in more than one domain card. A domain median is shown only with three or more filers.
-      {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They come from the same SEC filings but are not yet part of the certified check.{hasBalance ? ' Net cash is cash and short-term investments minus the carrying value of debt, at the same quarter end; it is not reported where a filer tags no debt for that date.' : ' Debt is not shown yet.'}</>}
+      {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They come from the same SEC filings but are not yet part of the certified check.{hasBalance ? ' Net cash is cash and short-term investments minus the carrying value of debt, at the same quarter end; it is not reported where a filer tags no borrowing for that date.' : ' Debt is not shown yet.'}</>}
       {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest funding, ownership or deal and their latest event. AI security shows no bars: no public company sells only AI security, so a whole-company growth rate would not describe it.</p></details>
     {all ? <div className="momentum__grid momentum__grid--one"><AllDomains openSupplier={openSupplier} /></div> : <>
       <div className="momentum__grid">{shown.map(d => <DomainCard key={d.id} d={d} openSupplier={openSupplier} />)}</div>

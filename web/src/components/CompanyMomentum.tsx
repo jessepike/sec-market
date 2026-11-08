@@ -52,7 +52,7 @@ export function CompanyMomentum({ id }: { id: string }) {
         <Stat label="vs prior quarter" value={row.change === null ? '–' : `${row.change > 0 ? '▲' : row.change < 0 ? '▼' : '■'} ${formatPoints(row.change)}`} detail={supplier.revenue!.prior ? `Prior quarter ${supplier.revenue!.prior.yoyGrowth}` : 'No prior quarter on file'} />
         {health?.operatingMargin && <Stat label="Operating margin" value={formatPercent(health.operatingMargin.value)} detail={`Four quarters to ${health.operatingMargin.periodEnd}`} />}
         {health?.fcfMargin && <Stat label="Free cash flow margin" value={formatPercent(health.fcfMargin.value)} detail={`Four quarters to ${health.fcfMargin.periodEnd}`} />}
-        {health?.balance && <Stat label="Cash and debt" value={`${formatUsd(health.balance.cash)} / ${formatUsd(health.balance.debt)}`} detail={`Cash and short-term investments / debt, ${health.balance.asOf}`} />}
+        {health?.balance && <Stat label="Cash and debt" value={health.balance.debt === null ? formatUsd(health.balance.cash) : `${formatUsd(health.balance.cash)} / ${formatUsd(health.balance.debt)}`} detail={health.balance.debt === null ? `Cash and short-term investments, ${health.balance.asOf}; no borrowing tagged` : `Cash and short-term investments / debt, ${health.balance.asOf}`} />}
         {marketMedian !== null && <Stat label="All SEC filers, median growth" value={formatPercent(marketMedian)} detail={`This company ${row.latest - marketMedian >= 0 ? '+' : '−'}${Math.abs(row.latest - marketMedian).toFixed(1)} pts`} />}
       </div>
       {series.length > 1 && <figure className="company-momentum__chart">
@@ -70,7 +70,7 @@ export function CompanyMomentum({ id }: { id: string }) {
         const items = events.filter(i => g.types.includes(i.type as never))
         return <Stat key={g.id} group={g.id} label={g.label} value={String(items.length)} detail={items[0] ? `Latest ${items[0].date}` : 'None in 12 months'} />
       })}</div>}
-      <p className="coverage-page__note">{supplier.kind === 'public' ? 'This company does not file comparable quarterly revenue with the SEC.' : 'Private companies, segments and acquired companies have no comparable SEC financials.'} Counts are sourced events in the trailing 12 months; each is listed below. Its domain&rsquo;s SEC filers are shown for context.</p>
+      <p className="coverage-page__note">{supplier.kind === 'public' ? 'This company does not file comparable quarterly revenue with the SEC.' : 'Private companies, segments and acquired companies have no comparable SEC financials.'}{events.length > 0 && ' Counts are sourced events in the trailing 12 months; each is listed below.'} Its domain&rsquo;s SEC filers are shown for context.</p>
     </>}
     {own.filter(d => d.rows.length > 0).length > 0 && <>
       <h3 className="company-momentum__peers">{certified ? 'Against domain peers' : 'SEC filers in its domains'}</h3>
