@@ -41,9 +41,13 @@ spec.loader.exec_module(session_runtime)
 # November 5 a fixed 20-minute collection left too little time for it and the
 # job was cancelled with nothing recorded for the day. On November 7, the first
 # run with 603 sources, that work took 14 minutes against a 10-minute reserve
-# and the job ended 7 seconds inside its old 35-minute limit.
+# and the job ended 7 seconds inside its old 35-minute limit. On November 8,
+# with 667 sources, the last in-flight requests ran 163 seconds past the
+# collection budget and the closing work (mostly reconcile's retained-evidence
+# replay) took 1161 seconds: 2524 seconds in all, and the job ended 104 seconds
+# inside its 45-minute limit. The reserve covers both with about 3 minutes spare.
 STEP_SECONDS = 2400
-POST_COLLECTION_RESERVE_SECONDS = 1200
+POST_COLLECTION_RESERVE_SECONDS = 1500
 MINIMUM_COLLECTION_SECONDS = 300
 
 
