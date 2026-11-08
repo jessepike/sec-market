@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-07
+updated: 2026-11-08
 ---
 
 # Current state
+
+**Weekly improvement loop (2026-11-08, owner approved).** A Claude scheduled task, "Weekly site improvements", runs Sundays and follows `docs/reference/improvement-loop.md`: a deterministic scorecard (`web/scripts/improve/scan.ts`) of gaps against the product question, the company request queue and a review of local renders, then at most five ranked ideas on the "Site improvements" issue. Data fixes ship on their own; features land on preview with `Owner-Review: required` and wait for a "go" on that issue. One preview push per run, no workflows of its own, 0 Actions minutes for the AI step.
 
 **Application and AI security coverage (2026-11-07, D-146, on preview, owner review).** Five more onboarding suppliers (Checkmarx, Black Duck, Semgrep, Endor Labs, Noma) in the additive roster transition, now 87. Every domain card on the front page lists its private, acquired and segment companies as rows with their latest funding, ownership or deal, so cards without SEC filers (MDR, email, OT) now show. AI security has no revenue bars and three sub-areas (usage control, app and model protection, agents).
 
