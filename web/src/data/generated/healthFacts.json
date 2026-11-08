@@ -3,7 +3,7 @@
  "method": {
   "operatingMargin": "OperatingIncomeLoss over revenue, trailing four quarters ending on the latest revenue quarter. Year-to-date facts are converted with the prior fiscal year: FY + YTD - prior YTD.",
   "fcfMargin": "NetCashProvidedByUsedInOperatingActivities minus PaymentsToAcquirePropertyPlantAndEquipment (PaymentsToAcquireProductiveAssets when PP&E is not tagged) minus capitalized software (PaymentsToDevelopSoftware or PaymentsForSoftware), over revenue, trailing four quarters.",
-  "balance": "Cash: CashAndCashEquivalentsAtCarryingValue plus the first of ShortTermInvestments, MarketableSecuritiesCurrent, AvailableForSaleSecuritiesDebtSecuritiesCurrent that is tagged, on the latest revenue quarter end. Debt: carrying value from the first of LongTermDebt, LongTermDebtNoncurrent plus LongTermDebtCurrent, or the convertible notes tags that the filer uses on that date. Not shown when no debt tag is filed for that date.",
+  "balance": "Cash: CashAndCashEquivalentsAtCarryingValue plus the first of ShortTermInvestments, MarketableSecuritiesCurrent, AvailableForSaleSecuritiesDebtSecuritiesCurrent, DebtSecuritiesAvailableForSaleExcludingAccruedInterestCurrent that is tagged, on the latest revenue quarter end. Debt: carrying value from the first of LongTermDebt, LongTermDebtNoncurrent plus LongTermDebtCurrent, or the convertible notes tags that the filer uses on that date. When no borrowing tag is filed for that date, cash is shown and debt is marked as not tagged.",
   "revenue": "The same four quarters of certified SEC revenue the tracker shows (edgarFacts.json)."
  },
  "suppliers": {
@@ -42,7 +42,7 @@
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000157/0001713683-26-000157-index.htm"
    },
    "balance": {
-    "cash": 928354000,
+    "cash": 3474151000,
     "debt": 1696355000,
     "asOf": "2026-07-31",
     "form": "10-K",
@@ -56,7 +56,12 @@
     "form": "10-K",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/0001327567-26-000023-index.htm"
    },
-   "fcfMargin": null,
+   "fcfMargin": {
+    "value": 35.8,
+    "periodEnd": "2026-07-31",
+    "form": "10-K",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/0001327567-26-000023-index.htm"
+   },
    "balance": {
     "cash": 3071000000,
     "debt": 1774000000,
@@ -120,7 +125,13 @@
     "form": "10-Q",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/0001660134-26-000069-index.htm"
    },
-   "balance": null
+   "balance": {
+    "cash": 2299000000,
+    "debt": 0,
+    "asOf": "2026-07-31",
+    "form": "10-Q",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/0001660134-26-000069-index.htm"
+   }
   },
   "sailpoint": {
    "operatingMargin": {
@@ -135,7 +146,13 @@
     "form": "10-Q",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/0002030781-26-000021-index.htm"
    },
-   "balance": null
+   "balance": {
+    "cash": 309850000,
+    "debt": null,
+    "asOf": "2026-07-31",
+    "form": "10-Q",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/0002030781-26-000021-index.htm"
+   }
   },
   "s1": {
    "operatingMargin": {
@@ -150,7 +167,13 @@
     "form": "10-Q",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000055/0001583708-26-000055-index.htm"
    },
-   "balance": null
+   "balance": {
+    "cash": 655248000,
+    "debt": null,
+    "asOf": "2026-07-31",
+    "form": "10-Q",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000055/0001583708-26-000055-index.htm"
+   }
   },
   "rubrik": {
    "operatingMargin": {
@@ -228,7 +251,13 @@
     "form": "10-Q",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000035/0001660280-26-000035-index.htm"
    },
-   "balance": null
+   "balance": {
+    "cash": 298209000,
+    "debt": 358125000,
+    "asOf": "2026-06-30",
+    "form": "10-Q",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000035/0001660280-26-000035-index.htm"
+   }
   },
   "qualys": {
    "operatingMargin": {
@@ -243,7 +272,13 @@
     "form": "10-Q",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000035/0001107843-26-000035-index.htm"
    },
-   "balance": null
+   "balance": {
+    "cash": 426294000,
+    "debt": null,
+    "asOf": "2026-06-30",
+    "form": "10-Q",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000035/0001107843-26-000035-index.htm"
+   }
   },
   "rapid7": {
    "operatingMargin": {
@@ -300,35 +335,31 @@
     "form": "10-Q",
     "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm"
    },
-   "balance": null
+   "balance": {
+    "cash": 824486000,
+    "debt": null,
+    "asOf": "2026-06-30",
+    "form": "10-Q",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm"
+   }
   }
  },
- "gaps": {
-  "panw": [
-   "operating cash flow or capital expenditure, trailing four quarters"
-  ],
-  "okta": [
-   "debt carrying value at the latest quarter end"
-  ],
-  "sailpoint": [
-   "debt carrying value at the latest quarter end"
-  ],
-  "s1": [
-   "debt carrying value at the latest quarter end"
-  ],
-  "tenable": [
-   "debt carrying value at the latest quarter end"
-  ],
-  "qualys": [
-   "debt carrying value at the latest quarter end"
-  ],
-  "jfrog": [
-   "debt carrying value at the latest quarter end"
-  ]
- },
+ "gaps": {},
  "notes": {
   "fortinet": [
    "prior fiscal year capital expenditure tagged as PaymentsToAcquireProductiveAssets; matched on a shared period"
+  ],
+  "sailpoint": [
+   "no borrowing tagged at the latest quarter end"
+  ],
+  "s1": [
+   "no borrowing tagged at the latest quarter end"
+  ],
+  "qualys": [
+   "no borrowing tagged at the latest quarter end"
+  ],
+  "jfrog": [
+   "no borrowing tagged at the latest quarter end"
   ]
  }
 }
