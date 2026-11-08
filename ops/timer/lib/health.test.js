@@ -147,6 +147,26 @@ test('Actions counts as stopped only when no workflow at all has started a run f
   assert.equal(await status(30), 'fail')
 })
 
+test('a fix reaching main after a failed gate starts the publisher once', async () => {
+  const run = async ({ conclusion = 'failure', sha = 'new', commitAge = 0.5, pubAge = 1 } = {}) => {
+    const writes = []
+    const gh = async (path, init = {}) => {
+      if (init.method) { writes.push({ path, body: JSON.parse(init.body) }); return null }
+      if (path.includes('market-release-gate.yml/runs')) return { workflow_runs: [{ id: 7, status: 'completed', conclusion, head_sha: 'old', updated_at: iso(2) }] }
+      if (path.includes('subscription-publisher.yml/runs')) return { workflow_runs: [{ created_at: iso(pubAge) }] }
+      if (path === '/repos/o/r/commits/main/check-runs?per_page=100') return { check_runs: [{ head_sha: sha, completed_at: iso(commitAge + 0.1) }, { head_sha: sha, completed_at: iso(commitAge) }] }
+      throw new Error('unrouted ' + path)
+    }
+    return { r: await finishGate(cfg, gh, NOW), writes }
+  }
+  const fixed = await run()
+  assert.equal(fixed.r.nudged, true)
+  assert.deepEqual(fixed.writes, [{ path: '/repos/o/r/actions/workflows/subscription-publisher.yml/dispatches', body: { ref: 'main' } }])
+  for (const [opts, why] of [[{ conclusion: 'success' }, 'gate passed'], [{ sha: 'old' }, 'main unchanged'],
+    [{ commitAge: 3 }, 'main CI finished before the failure'], [{ pubAge: 0.2 }, 'publisher already ran for this commit']])
+    assert.equal((await run(opts)).writes.length, 0, why)
+})
+
 test('a finished gate with no publisher run after it gets one started, once', async () => {
   const gate = (age, status = 'completed') => ({ id: 7, status, updated_at: iso(age) })
   const run = async (g, pubAge) => {
