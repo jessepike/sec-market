@@ -130,7 +130,7 @@ jobs:
     # URL shows current figures. It never touches main or production, uses no
     # secret, and skips when preview's own checks would refuse the data.
     needs: [publish]
-    if: ${{ needs.publish.outputs.gate_run != '' }}
+    if: ${{ !cancelled() && needs.publish.outputs.gate_run != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
