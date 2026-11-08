@@ -3,6 +3,7 @@ import contextlib
 import copy
 import io
 import json
+import re
 import os
 from pathlib import Path
 import signal
@@ -177,8 +178,7 @@ class LeasedSourceProbeTests(unittest.TestCase):
         self.assertFalse(self.root.exists())
 
     def test_private_event_and_explicit_true_input_are_required(self):
-        for event in ({'repository': {'full_name': 'jessepike/sec-market', 'private': False}, 'inputs': {'source_probe': 'true'}},
-                      {'repository': {'full_name': 'other/repo', 'private': True}, 'inputs': {'source_probe': 'true'}},
+        for event in ({'repository': {'full_name': 'other/repo', 'private': True}, 'inputs': {'source_probe': 'true'}},
                       *[{'repository': {'full_name': 'jessepike/sec-market', 'private': True}, 'inputs': {'source_probe': value}}
                         for value in (False, 'false', None, 1)]):
             with self.subTest(event=event):
@@ -393,7 +393,8 @@ class SourceProbeEntryTests(unittest.TestCase):
         probe = workflow.split('- name: Probe candidate sources', 1)[1].split('- name:', 1)[0]
         self.assertIn("if: github.event_name == 'workflow_dispatch' && inputs.source_probe", probe)
         self.assertIn('--source-probe', probe)
-        self.assertNotIn('secrets.', probe)
+        # The only secret is the deploy key for the private evidence repository.
+        self.assertEqual(set(re.findall(r'secrets\.(\w+)', probe)), {'SMP_EVIDENCE_DEPLOY_KEY'})
         self.assertNotIn('SMP_CODEX_AUTH_JSON', probe)
         for label in ('Install pinned application and official account client',
                       'Restore acknowledged evidence, collect bounded deltas and reconcile'):

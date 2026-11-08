@@ -340,33 +340,30 @@ class CoverageReaderTests(unittest.TestCase):
         with patch.object(Path, 'read_bytes', guarded_bytes), patch.object(Path, 'read_text', guarded_text):
             self.test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure()
 
-    def test_full_historical_main_loop_notifies_with_honest_alarms_and_open_issue_ack(self):
+    def test_full_historical_main_loop_notifies_with_honest_alarms_by_annotation(self):
         original = actual('actual-monitor-result')
         collection = {**original, 'reasons': original['reasons'][:6]}
         collection.pop('notification', None)
         archive_commit = actual('archive-ref')['object']['sha']
-        sent = []
         def api(path, raw=False):
             if path == 'git/ref/archive/market-evidence': return {'object': {'sha': archive_commit}}
-            if path == 'issues?state=open&per_page=100&sort=updated&direction=desc': return []
+            self.assertFalse(path.startswith('issues'))
             if path.startswith('commits?sha='): return []
             prefix = 'contents/state/'
             self.assertTrue(raw and path.startswith(prefix))
             key = path[len(prefix):].split('?ref=')[0]
             return probe.canonical(self.entries[key])
-        def delivery(args, **kwargs):
-            payload = json.loads(Path(args[-1]).read_bytes()); sent.append((args, payload))
-            return probe.subprocess.CompletedProcess(args, 0,
-                probe.canonical({'number': 10, 'state': 'open',
-                                 'html_url': 'https://github.com/jessepike/sec-market/issues/10'}), b'')
-        output = io.StringIO()
+        def no_delivery(args, **kwargs):
+            raise AssertionError('the probe must not write issues: ' + str(args))
+        output, errors = io.StringIO(), io.StringIO()
         with patch.object(probe, 'ROOT', self.fixture_root), patch.object(probe, 'api', side_effect=api), \
              patch.object(probe, 'utcnow', return_value=NOW), \
              patch.object(probe, 'inspect_collection', return_value=collection), \
              patch.object(probe, 'inspect_corrections', return_value=[]), \
              patch.object(probe, 'GitHubAuthority', return_value=self.authority), \
              patch.object(probe, 'get_json', side_effect=self.live_read), \
-             patch.object(probe.subprocess, 'run', side_effect=delivery), \
+             patch.object(probe.subprocess, 'run', side_effect=no_delivery), \
+             patch.object(probe.sys, 'stderr', errors), \
              patch('sys.argv', ['probe.py', '--notify']), redirect_stdout(output):
             self.assertEqual(probe.main(), 2)
         result = json.loads(output.getvalue())
@@ -377,15 +374,13 @@ class CoverageReaderTests(unittest.TestCase):
             self.assertIn(reason, result['tracked'])
             self.assertNotIn(reason, result['reasons'])
         self.assertNotIn('INDEPENDENT_PROBE_FAILED', result['reasons'])
-        self.assertEqual(result['notification']['delivery'], 'github_issue_updated')
-        self.assertEqual(result['notification']['state'], 'open')
-        self.assertEqual(len(sent), 1)
-        args, payload = sent[0]
-        self.assertEqual(args[0:3], ['gh', 'api', 'repos/jessepike/sec-market/issues'])
-        self.assertEqual(payload['title'], probe.TITLE); self.assertEqual(payload['assignees'], ['jessepike'])
-        self.assertNotIn('state', payload)
-        self.assertIn('HELD_CLAIMS_37', payload['body']); self.assertIn(NOW, payload['body'])
-        self.assertIn('Tracked known gaps (D-143, not alerting): ', payload['body'])
+        self.assertEqual(result['notification'], {'delivery': 'workflow_annotation',
+                                                  'title': 'pipeline-watchdog', 'state': 'open'})
+        annotation = errors.getvalue()
+        self.assertTrue(annotation.startswith('::error title=pipeline-watchdog::needs attention'))
+        self.assertIn('HELD_CLAIMS_37', annotation)
+        self.assertIn('tracked known gaps (D-143, not alerting): ', annotation)
+        self.assertEqual(annotation.count('\n'), 1)
 
 
 if __name__=='__main__':unittest.main()

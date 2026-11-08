@@ -20,9 +20,11 @@ sys.path.insert(0, str(ROOT / "ops/ci"))
 import timer
 from publication import health, verify_acknowledgement
 from provenance import GitHubAuthority
+from archive import EVIDENCE_REMOTE
 
 REPO = "jessepike/sec-market"
 TITLE = "Daily pipeline needs attention"
+WATCHDOG_ANNOTATION = "pipeline-watchdog"
 PUBLIC_COVERAGE_URL = "https://securitymarketpulse.com/daily-coverage.json"
 PUBLIC_COVERAGE_PATH = "static/daily-coverage.json"
 DEFAULT_PUBLIC_BYTES = 1_000_000
@@ -143,16 +145,62 @@ def separate_health(contract, coverage, public=False, *, read_archive=None, plan
         return ['SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED'], {'expectedCoverageMeasure': 'daily_source_intake_v2'}
 
 
-def api(path, raw=False):
-    args = ["gh", "api", f"repos/{REPO}/{path}", "--header", "Cache-Control: no-cache"]
-    if raw:
-        args.extend(["--header", "Accept: application/vnd.github.raw+json"])
-    result = subprocess.run(args, capture_output=True, timeout=60)
+EVIDENCE_REF = "refs/archive/market-evidence"
+# Commits of evidence history fetched for the probe. Each daily run writes about
+# 20 archive commits; previous_day_coverage needs an earlier day's run.
+EVIDENCE_DEPTH = 120
+_evidence_root = None
+
+
+def _evidence_git(*args):
+    """Read the private evidence repository through a shallow, blobless mirror.
+
+    The archive lives in its own private repository while this one is public;
+    the runner reaches it over SSH with the deploy key ops/ci/evidence_key.sh
+    installs. Blobs are fetched lazily, only for the files the probe reads.
+    """
+    global _evidence_root
+    if _evidence_root is None:
+        import tempfile
+        root = Path(tempfile.mkdtemp(prefix="smp-watchdog-evidence-", dir=os.environ.get("RUNNER_TEMP"))) / "mirror.git"
+        for command in (["init", "--bare", "--quiet", str(root)],
+                        ["-C", str(root), "config", "core.repositoryformatversion", "1"],
+                        ["-C", str(root), "config", "extensions.partialClone", "origin"],
+                        ["-C", str(root), "remote", "add", "origin", EVIDENCE_REMOTE],
+                        ["-C", str(root), "config", "remote.origin.promisor", "true"],
+                        ["-C", str(root), "config", "remote.origin.partialclonefilter", "blob:none"],
+                        ["-C", str(root), "fetch", "--quiet", "--no-tags", "--filter=blob:none", "--depth", str(EVIDENCE_DEPTH),
+                         "origin", "+" + EVIDENCE_REF + ":" + EVIDENCE_REF]):
+            done = subprocess.run(["git", *command], capture_output=True, timeout=240)
+            if done.returncode:
+                raise ValueError("Independent archive/API check unavailable")
+        _evidence_root = root
+    result = subprocess.run(["git", "-C", str(_evidence_root), *args], capture_output=True, timeout=120)
     if result.returncode:
         raise ValueError("Independent archive/API check unavailable")
-    if len(result.stdout) > 40_000_000:
-        raise ValueError("Health receipt exceeds byte budget")
-    return result.stdout if raw else json.loads(result.stdout)
+    return result.stdout
+
+
+def api(path, raw=False):
+    """Archive reads, in the shapes of the GitHub REST paths this probe used."""
+    if path == "git/ref/archive/market-evidence":
+        sha = _evidence_git("rev-parse", "--verify", EVIDENCE_REF + "^{commit}").decode().strip()
+        require(re.fullmatch(r"[0-9a-f]{40}", sha), "Independent archive ref is invalid")
+        return {"ref": EVIDENCE_REF, "object": {"sha": sha, "type": "commit"}}
+    content = re.fullmatch(r"contents/state/([A-Za-z0-9_./-]+)\?ref=([0-9a-f]{40})", path)
+    if content and raw:
+        key, ref = content.groups()
+        require(".." not in key.split("/"), "Invalid independent archive key")
+        body = _evidence_git("cat-file", "blob", ref + ":state/" + key)
+        if len(body) > 40_000_000:
+            raise ValueError("Health receipt exceeds byte budget")
+        return body
+    history = re.fullmatch(r"commits\?sha=([0-9a-f]{40})&path=([A-Za-z0-9_./-]+)&per_page=([1-9][0-9]?)", path)
+    if history:
+        sha, file, count = history.groups()
+        listed = _evidence_git("log", "--format=%H", "-n", count, sha, "--", file).decode().split()
+        return [{"sha": entry} for entry in listed]
+    raise ValueError("Independent archive/API check unavailable")
 
 
 def _coverage_entry(entry):
@@ -451,30 +499,17 @@ def previous_day_coverage(commit, current_run, read_archive_at):
 
 
 def notify(result):
-    issues = api("issues?state=open&per_page=100&sort=updated&direction=desc")
-    existing = next((i for i in issues if i["title"] == TITLE and "pull_request" not in i), None)
-    body = ("The independent daily pipeline probe " + ("recovered." if result["healthy"] else "needs attention.")
-            + "\n\nChecked: " + result["checkedAt"] + "\n\nReasons: " + (", ".join(result["reasons"]) or "none")
-            + "\n\nTracked known gaps (D-143, not alerting): " + (", ".join(result.get("tracked", [])) or "none")
-            + "\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref."
-            + "\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)")
-    if result["healthy"] and not existing:
-        return {"delivery": "no_alert_needed"}
-    import tempfile
-    with tempfile.TemporaryDirectory(prefix="smp-health-") as directory:
-        file = Path(directory) / "issue.json"
-        if existing:
-            payload = {"body": body, "state": "closed" if result["healthy"] else "open"}
-            path, method = f"issues/{existing['number']}", "PATCH"
-        else:
-            payload = {"title": TITLE, "body": body, "assignees": ["jessepike"]}
-            path, method = "issues", "POST"
-        file.write_bytes(canonical(payload))
-        sent = subprocess.run(["gh", "api", f"repos/{REPO}/{path}", "--method", method, "--input", str(file)], capture_output=True, timeout=60)
-        if sent.returncode:
-            raise ValueError("GITHUB_OWNER_ALERT_DELIVERY_FAILED")
-        issue = json.loads(sent.stdout)
-        return {"delivery": "github_issue_updated", "url": issue["html_url"], "number": issue["number"], "state": issue["state"], "notificationTransport": "GitHub account notification settings"}
+    """Report through a workflow annotation, which the hourly health check reads.
+
+    Issues live in the private repository the workflow token cannot write, so
+    the outside health check (ops/timer) carries this alert to the owner.
+    """
+    reasons = ", ".join(result["reasons"]) or "none"
+    tracked = ", ".join(result.get("tracked", [])) or "none"
+    level = "notice" if result["healthy"] else "error"
+    message = ("healthy" if result["healthy"] else "needs attention") + "; reasons: " + reasons + "; tracked known gaps (D-143, not alerting): " + tracked
+    print(f"::{level} title={WATCHDOG_ANNOTATION}::" + message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"), file=sys.stderr)
+    return {"delivery": "workflow_annotation", "title": WATCHDOG_ANNOTATION, "state": "closed" if result["healthy"] else "open"}
 
 
 def main():

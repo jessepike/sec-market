@@ -2,6 +2,7 @@
 import contextlib
 import copy
 import json
+import re
 import os
 from pathlib import Path
 import shutil
@@ -213,8 +214,7 @@ class RuntimeCanaryTests(unittest.TestCase):
         self.assert_no_market_work()
 
     def test_wrong_private_hosting_context_starts_no_archive_restore(self):
-        for event in ({'repository': {'full_name': 'jessepike/sec-market', 'private': False}},
-                      {'repository': {'full_name': 'other/repo', 'private': True}}, {}):
+        for event in ({'repository': {'full_name': 'other/repo', 'private': True}}, {}):
             with self.subTest(event=event):
                 self.event.write_text(json.dumps(event))
                 with self.assertRaises(ValueError):
@@ -247,7 +247,8 @@ class RuntimeCanaryTests(unittest.TestCase):
         self.assertIn('without source requests', workflow)
         self.assertIn('contents: read', workflow)
         self.assertNotIn('contents: write', workflow)
-        self.assertNotIn('secrets.', workflow)
+        # The only secret is the deploy key for the private evidence repository.
+        self.assertEqual(set(re.findall(r'secrets\.(\w+)', workflow)), {'SMP_EVIDENCE_DEPLOY_KEY'})
         self.assertNotIn('probe a source', workflow)
 
 

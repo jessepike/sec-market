@@ -8,6 +8,7 @@ import { TIMER_TITLE, LOGIN_ANNOTATION, ISSUE_TITLE } from './core.js'
 
 export const HEALTH_PREFIX = 'Site health:'
 export const DISK_ANNOTATION = 'evidence-disk'
+export const WATCHDOG_TITLES = ['pipeline-watchdog', 'pipeline-observer']
 const HOUR = 3600000
 const GB = 1e9
 const STATE_RE = /<!-- health-state (\{.*?\}) -->/
@@ -222,14 +223,26 @@ export async function assess(cfg, gh, fetcher = fetch, now = Date.now()) {
       `${r.conclusion === 'success' ? 'Succeeded' : 'Failed'} ${ago(now, at)} ([run](${r.html_url}))`, how)
   })
 
-  // 11. Open alerts.
+  // 11. Open alerts: bot issues in the issues repo, plus failure annotations the
+  // in-repo watchdog leaves on its newest run (the workflow token cannot write
+  // issues to the private issues repo, so the watchdog reports by annotation).
   let openIssues = []
-  await guard('alerts', 'No open pipeline alerts', 'Open alert issues', async () => {
-    openIssues = await gh(`/repos/${repo}/issues?state=open&per_page=100`)
+  await guard('alerts', 'No open pipeline alerts', 'Open alert issues and watchdog annotations', async () => {
+    openIssues = await gh(`/repos/${cfg.ISSUES_REPO || repo}/issues?state=open&per_page=100`)
     const alerts = openIssues.filter(i => !i.pull_request && i.user?.type === 'Bot' && !i.title.startsWith(HEALTH_PREFIX) && !/^Company requests/.test(i.title))
-    add('alerts', 'No open pipeline alerts', alerts.length ? 'warn' : 'ok',
-      alerts.length ? alerts.map(i => `[#${i.number}](${i.html_url}) ${i.title}`).join('; ') : 'None open',
-      'Open issues opened by the pipeline bots (each failing job opens one and closes it on recovery).')
+      .map(i => `[#${i.number}](${i.html_url}) ${i.title}`)
+    const { workflow_runs: watch = [] } = await gh(`/repos/${repo}/actions/workflows/${h.observer}/runs?status=completed&per_page=1`)
+    if (watch[0]?.id) {
+      const { jobs = [] } = await gh(`/repos/${repo}/actions/runs/${watch[0].id}/jobs?per_page=20`)
+      for (const job of jobs) {
+        if (!['daily-pipeline', 'observer-alert'].includes(job.name) || job.conclusion === 'skipped') continue
+        const notes = await gh(`/repos/${repo}/check-runs/${job.id}/annotations?per_page=50`)
+        for (const n of notes) if (WATCHDOG_TITLES.includes(n.title) && n.annotation_level === 'failure')
+          alerts.push(`Watchdog ([run](${watch[0].html_url})): ${String(n.message).slice(0, 300)}`)
+      }
+    }
+    add('alerts', 'No open pipeline alerts', alerts.length ? 'warn' : 'ok', alerts.length ? alerts.join('; ') : 'None open',
+      'Open issues opened by the pipeline bots, and failure annotations (pipeline-watchdog, pipeline-observer) on the newest in-repo watchdog run.')
   })
 
   // 12. Actions minutes against the budget.
@@ -315,7 +328,7 @@ export async function publishHealth(cfg, gh, assessed, now = Date.now()) {
   const bad = checks.filter(c => c.status === 'fail' || c.status === 'warn').map(c => `${c.id}:${c.status}`)
   const { title } = overall(checks)
   const body = render(checks, now, { bad })
-  const base = `/repos/${cfg.GITHUB_REPO}/issues`
+  const base = `/repos/${cfg.ISSUES_REPO || cfg.GITHUB_REPO}/issues`
   const existing = (openIssues.length ? openIssues : await gh(`${base}?state=open&per_page=100`))
     .find(i => !i.pull_request && i.title.startsWith(HEALTH_PREFIX))
   if (!existing) {

@@ -11,22 +11,21 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "web/scripts/pipeline"))
-from archive import GitArchive
+from archive import EVIDENCE_REMOTE, GitArchive
 from contracts import digest, instant, plan_run, require, utcnow, validate_contract
 from storage import LocalStore
 from coverage_summary import coverage_details
 
 
 def run(root):
-    require(os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_REPOSITORY") == "jessepike/sec-market", "Use the actual private repository's GitHub runner")
+    require(os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_REPOSITORY") == "jessepike/sec-market", "Use the actual repository's GitHub runner")
     event = json.loads(Path(os.environ.get('GITHUB_EVENT_PATH', '')).read_text())
-    require(event.get('repository', {}).get('full_name') == 'jessepike/sec-market'
-            and event.get('repository', {}).get('private') is True, 'PRIVATE_GITHUB_HOSTING_CONTEXT_REQUIRED')
+    require(event.get('repository', {}).get('full_name') == 'jessepike/sec-market', 'GITHUB_HOSTING_CONTEXT_REQUIRED')
     root = Path(root).resolve()
     require(not root.is_relative_to(REPO), "Canary state must be outside the application checkout")
     require(shutil.disk_usage(root.parent).free >= 5_000_000_000, "Insufficient disk for verified archive restore")
     revision = subprocess.check_output(["git", "-C", str(REPO), "rev-parse", "HEAD"], text=True).strip()
-    archive = GitArchive(root / "mirror", "https://github.com/jessepike/sec-market.git")
+    archive = GitArchive(root / "mirror", EVIDENCE_REMOTE)
     restored = archive.restore(root / "state")
     state = LocalStore(root / "state")
     latest = state.read("heads/latest-run.json")

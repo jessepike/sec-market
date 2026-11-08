@@ -13,7 +13,7 @@ from urllib.parse import quote
 
 from publisher_probe import PublisherAuth, PROJECT_ID, TEAM_ID, SCOPE, execute
 from bootstrap import PROJECT, REPO
-from archive import GitArchive
+from archive import EVIDENCE_REMOTE, GitArchive
 from artifacts import stage_files
 from contracts import digest, require, utcnow
 from storage import LocalStore
@@ -50,7 +50,7 @@ def run(root):
     os.environ['VERCEL_TOKEN'] = token
     access = execute(root / 'read-auth')
     require(access['publisherAccessPassed'], 'EXISTING_PROJECT_READ_REQUIRED')
-    archive = GitArchive(root / 'mirror', 'https://github.com/jessepike/sec-market.git')
+    archive = GitArchive(root / 'mirror', EVIDENCE_REMOTE)
     restored = archive.restore(root / 'state')
     state = LocalStore(root / 'state')
     manifest = state.read('staging-tests/' + SMOKE_ID + '.json')

@@ -27,7 +27,10 @@ function world(over = {}) {
     '/repos/o/r/actions/workflows/subscription-publisher.yml/runs': { workflow_runs: [{ id: 3, created_at: iso(2), html_url: 'https://gh/run/3' }, { id: 4, created_at: iso(6), html_url: 'https://gh/run/4' }] },
     '/repos/o/r/actions/runs/3/jobs': { jobs: [{ name: 'publish', conclusion: 'skipped', status: 'completed' }] },
     '/repos/o/r/actions/runs/4/jobs': { jobs: [{ name: 'publish', status: 'completed', conclusion: w.publish, started_at: iso(6) }] },
-    '/repos/o/r/actions/workflows/freshness.yml/runs': { workflow_runs: [{ created_at: iso(3) }] },
+    '/repos/o/r/actions/workflows/freshness.yml/runs': { workflow_runs: [{ id: 5, created_at: iso(3), html_url: 'https://gh/run/5' }] },
+    '/repos/o/r/actions/runs/5/jobs': { jobs: [{ id: 50, name: 'daily-pipeline', conclusion: 'success' }, { id: 51, name: 'observer-alert', conclusion: 'success' }, { id: 52, name: 'probe', conclusion: 'skipped' }] },
+    '/repos/o/r/check-runs/50/annotations': w.watchdog ?? [],
+    '/repos/o/r/check-runs/51/annotations': [{ title: 'pipeline-observer', annotation_level: 'notice', message: 'completed' }],
     '/repos/o/r/actions/workflows/funding-weekly.yml/runs': { workflow_runs: [] },
     '/repos/o/r/issues': w.issues,
     '/repos/o/r/actions/runs': { workflow_runs: [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9), head_sha: MAIN, created_at: iso(5), name: 'web' }] },
@@ -52,6 +55,24 @@ function world(over = {}) {
 }
 
 const byId = checks => Object.fromEntries(checks.map(c => [c.id, c]))
+
+test('a watchdog failure annotation raises the alerts check; notices do not', async () => {
+  const { gh, fetcher } = world({ watchdog: [{ title: 'pipeline-watchdog', annotation_level: 'failure', message: 'needs attention; reasons: X' }] })
+  const alerts = byId((await assess(cfg, gh, fetcher, NOW)).checks).alerts
+  assert.equal(alerts.status, 'warn')
+  assert.match(alerts.detail, /needs attention; reasons: X/)
+  const quiet = world({ watchdog: [{ title: 'pipeline-watchdog', annotation_level: 'notice', message: 'healthy' }] })
+  assert.equal(byId((await assess(cfg, quiet.gh, quiet.fetcher, NOW)).checks).alerts.status, 'ok')
+})
+
+test('alert issues are read from ISSUES_REPO', async () => {
+  const { gh, fetcher } = world()
+  const seen = []
+  const spy = async (path, init) => { seen.push(path); return path.startsWith('/repos/o/private/issues') ? [] : gh(path, init) }
+  await assess({ ...cfg, ISSUES_REPO: 'o/private' }, spy, fetcher, NOW)
+  assert.ok(seen.some(p => p.startsWith('/repos/o/private/issues')))
+  assert.ok(!seen.some(p => p.startsWith('/repos/o/r/issues')))
+})
 
 test('a healthy pipeline is all green, skipped runs are passed over', async () => {
   const { gh, fetcher } = world()

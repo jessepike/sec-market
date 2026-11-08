@@ -168,7 +168,6 @@ def scheduled_upstream(run_id, runner=subprocess.run):
     require(response.returncode == 0, 'DRILL_UPSTREAM_STATUS_UNAVAILABLE')
     run=json.loads(response.stdout)
     require(run.get('id') == int(run_id) and run.get('repository',{}).get('full_name') == PROJECT
-            and run.get('repository',{}).get('private') is True
             and run.get('path') == '.github/workflows/subscription-publisher.yml'
             and run.get('head_branch') == 'main' and re.fullmatch(r'[a-f0-9]{40}',run.get('head_sha',''))
             and run.get('status') == 'completed' and run.get('conclusion') == 'success'

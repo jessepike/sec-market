@@ -46,7 +46,6 @@ def proof(sha, read=api):
                 or run['head_repository'].get('full_name') != REPOSITORY
                 or type(run.get('repository')) is not dict
                 or run['repository'].get('full_name') != REPOSITORY
-                or run['repository'].get('private') is not True
                 or type(run.get('run_attempt')) is not int or run['run_attempt'] <= 0):
             continue
         attempt = run['run_attempt']

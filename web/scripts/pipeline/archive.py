@@ -1,4 +1,4 @@
-"""Git-backed evidence archive, using an existing private repository and no database.
+"""Git-backed evidence archive, using a dedicated private repository and no database.
 
 Normal fast-forward pushes arbitrate concurrent writers. Every version has an
 independently verifiable manifest; restoration needs no original worker disk.
@@ -14,10 +14,16 @@ from contracts import canonical, digest, require
 from storage import LocalStore, ConflictError
 
 
+# The evidence archive holds full copies of third-party pages, so it lives in a
+# private repository of its own while the application repository is public.
+# Runners reach it over SSH with a write deploy key scoped to that one repository.
+EVIDENCE_REMOTE = "git@github.com:jessepike/sec-market-private.git"
+
+
 class GitArchive:
     def __init__(self, mirror, remote, branch="data/archive"):
         require(branch == "data/archive", "Evidence must use the dedicated archive ref")
-        require(remote == "https://github.com/jessepike/sec-market.git" or Path(remote).is_absolute(), "Unapproved archive remote")
+        require(remote == EVIDENCE_REMOTE or Path(remote).is_absolute(), "Unapproved archive remote")
         self.root = Path(mirror).resolve()
         self.remote, self.branch = remote, branch
         # Ordinary application fetches use refs/heads/* and do not download this

@@ -23,8 +23,13 @@ export function config(env) {
   if (!app && !env.GITHUB_TOKEN) missing.push('GITHUB_APP_ID + GITHUB_APP_PRIVATE_KEY (or GITHUB_TOKEN)')
   if (missing.length) throw new Error('TIMER_NOT_CONFIGURED: ' + missing.join(', '))
   if (!/^[\w.-]+\/[\w.-]+$/.test(env.GITHUB_REPO)) throw new Error('GITHUB_REPO_INVALID')
+  // Issues (alerts, health, company requests) can live in a private repo of the
+  // same owner while the pipeline repo is public. Defaults to GITHUB_REPO.
+  const issuesRepo = env.ISSUES_REPO || env.GITHUB_REPO
+  if (!/^[\w.-]+\/[\w.-]+$/.test(issuesRepo) || issuesRepo.split('/')[0] !== env.GITHUB_REPO.split('/')[0])
+    throw new Error('ISSUES_REPO_INVALID')
   if (new URL(env.DATA_URL).protocol !== 'https:') throw new Error('DATA_URL_MUST_BE_HTTPS')
-  return { ...env, MAX_AGE_HOURS: Number(env.MAX_AGE_HOURS || 30), REF: env.WORKFLOW_REF || 'main',
+  return { ...env, ISSUES_REPO: issuesRepo, MAX_AGE_HOURS: Number(env.MAX_AGE_HOURS || 30), REF: env.WORKFLOW_REF || 'main',
            ASSIGNEE: env.ALERT_ASSIGNEE || env.GITHUB_REPO.split('/')[0] }
 }
 
@@ -58,7 +63,8 @@ export async function githubToken(cfg, fetcher = fetch, now = Date.now(), permis
   if (!found.ok) throw new Error('APP_NOT_INSTALLED_' + found.status)
   const { id } = await found.json()
   const issued = await fetcher(`${API}/app/installations/${id}/access_tokens`, { method: 'POST', headers: jwt, signal: AbortSignal.timeout(20000),
-    body: JSON.stringify({ repositories: [cfg.GITHUB_REPO.split('/')[1]], ...(permissions && { permissions }) }) })
+    body: JSON.stringify({ repositories: [...new Set([cfg.GITHUB_REPO, cfg.ISSUES_REPO || cfg.GITHUB_REPO].map(r => r.split('/')[1]))],
+      ...(permissions && { permissions }) }) })
   if (!issued.ok) throw new Error('APP_TOKEN_FAILED_' + issued.status)
   return (await issued.json()).token
 }
@@ -124,7 +130,7 @@ export async function inspect(cfg, gh, fetcher = fetch, now = Date.now()) {
 export async function watch(cfg, fetcher = fetch, now = Date.now()) {
   const gh = client(await githubToken(cfg, fetcher, now), fetcher)
   const found = await inspect(cfg, gh, fetcher, now)
-  const base = `/repos/${cfg.GITHUB_REPO}/issues`
+  const base = `/repos/${cfg.ISSUES_REPO || cfg.GITHUB_REPO}/issues`
   const open = (await gh(`${base}?state=open&per_page=100`)).find(i => i.title === ISSUE_TITLE && !i.pull_request)
   const lines = found.problems.map(p => `- ${PROBLEMS[p]}`)
   const facts = `Data age: ${found.age === null ? 'unreadable' : found.age.toFixed(1) + ' hours'} (limit ${cfg.MAX_AGE_HOURS}). ` +

@@ -55,6 +55,7 @@ notify you.
 | `GITHUB_APP_PRIVATE_KEY` | The full private key (`.pem` text) |
 | `CRON_SECRET` | A random string of 16 or more characters. Vercel sends it with each cron call |
 | `GITHUB_REPO` | `jessepike/sec-market` |
+| `ISSUES_REPO` | `jessepike/sec-market-private`. Optional; where alerts, the health issue and company requests go. Must have the same owner, and the app must be installed on it. Defaults to `GITHUB_REPO` |
 | `WORKFLOW_FILE` | `subscription-collector.yml` |
 | `DATA_URL` | `https://securitymarketpulse.com/daily-coverage.json` |
 | `MAX_AGE_HOURS` | `30`. Optional; matches `overdueHours` |

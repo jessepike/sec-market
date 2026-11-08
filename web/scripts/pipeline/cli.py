@@ -29,7 +29,7 @@ def main():
     parser.add_argument("--baseline", help="Optional exported baseline supplier JSON")
     parser.add_argument("--expected-sha256", help="Independently retained backup root hash")
     parser.add_argument("--archive-mirror", help="Dedicated Git mirror outside the live state directory")
-    parser.add_argument("--archive-remote", default="https://github.com/jessepike/sec-market.git")
+    parser.add_argument("--archive-remote", default="git@github.com:jessepike/sec-market-private.git")
     parser.add_argument("--expected-commit", help="Pinned remote archive commit for push or restoration")
     parser.add_argument("--subscription-worker", action="store_true", help="Use existing ChatGPT-authenticated Codex CLI; never API-key fallback")
     parser.add_argument("--native-worker", action="store_true", help="Queue model work for the scheduled native Codex agent; no nested login")

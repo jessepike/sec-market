@@ -14,7 +14,6 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[2]
 WORKFLOW = ROOT / '.github/workflows/freshness.yml'
 REPO = 'jessepike/sec-market'
-TITLE = 'Daily pipeline observer could not complete'
 
 
 def program(marker):
@@ -37,15 +36,8 @@ def program(marker):
 def receipt(healthy=False):
     return {'healthy': healthy, 'checkedAt': '2026-10-26T05:41:00Z',
             'reasons': [] if healthy else ['DAILY_INTAKE_INCOMPLETE', 'HELD_CLAIMS_37'],
-            'notification': {'delivery': 'github_issue_updated', 'url': 'https://github.com/' + REPO + '/issues/10',
-                             'number': 10, 'state': 'closed' if healthy else 'open',
-                             'notificationTransport': 'GitHub account notification settings'}}
-
-
-def ack(number=11, state='open'):
-    return {'number': number, 'state': state, 'title': TITLE,
-            'html_url': 'https://github.com/' + REPO + '/issues/' + str(number),
-            'assignees': [{'login': 'jessepike'}]}
+            'notification': {'delivery': 'workflow_annotation', 'title': 'pipeline-watchdog',
+                             'state': 'closed' if healthy else 'open'}}
 
 
 class ProbeReceiptTests(unittest.TestCase):
@@ -84,8 +76,8 @@ class ProbeReceiptTests(unittest.TestCase):
                          lambda p:p.update(reasons=['x'*257]), lambda p:p.update(reasons=['x']*1001),
                          lambda p:p.update(checkedAt='tomorrow'), lambda p:p.update(checkedAt='2026-10-26'),
                          lambda p:p['notification'].update(state='closed'),
-                         lambda p:p['notification'].update(number=True),
-                         lambda p:p['notification'].update(url='https://evil.invalid/issues/10'),
+                         lambda p:p['notification'].update(title='other'),
+                         lambda p:p['notification'].update(delivery='github_issue_updated'),
                          lambda p:p['notification'].update(extra=True),
                          lambda p:p.update(notification={'delivery':'no_alert_needed'})]:
             value = receipt(); mutation(value)
@@ -108,32 +100,19 @@ class ObserverReporterTests(unittest.TestCase):
         self.code = program('WATCHDOG_OBSERVER_REPORTER')
         self.env = {'REPOSITORY':REPO,'GITHUB_RUN_ID':'40273459773','TESTS_OUTCOME':'failure',
                     'PROBE_OUTCOME':'skipped','PROBE_ACKNOWLEDGED':'','OBSERVER_JOB_RESULT':'failure'}
-        self.calls = []
-    def run_reporter(self, responses, changes=None):
-        log=io.StringIO(); queued=list(responses);self.calls=[]
-        def api(args, **kwargs):
-            self.assertEqual(args[:2], ['gh','api']);self.assertNotIn('shell',kwargs)
-            self.assertEqual(kwargs['timeout'],60)
-            payload=json.loads(kwargs['input']) if kwargs['input'] is not None else None
-            self.calls.append((args,payload))
-            response=queued.pop(0)
-            if isinstance(response,Exception):raise response
-            if isinstance(response,subprocess.CompletedProcess):return response
-            return subprocess.CompletedProcess(args,0,json.dumps(response),'')
-        with patch.dict(os.environ,{**self.env,**(changes or {})}), \
-             patch.object(self.code['subprocess'],'run',side_effect=api),redirect_stdout(log):
+    def run_reporter(self, changes=None):
+        log=io.StringIO();errors=io.StringIO()
+        with patch.dict(os.environ,{**self.env,**(changes or {})}),redirect_stdout(log), \
+             patch.object(self.code['sys'],'stderr',errors):
             self.assertEqual(self.code['main'](),0)
-        self.assertEqual(queued,[])
-        return json.loads(log.getvalue())
-    def test_failed_tests_create_owner_assigned_observer_issue_only(self):
-        result=self.run_reporter([[],ack()])
-        args,payload=self.calls[1]
-        self.assertEqual(args[2],'repos/'+REPO+'/issues')
-        self.assertEqual(payload['title'],TITLE);self.assertEqual(payload['assignees'],['jessepike'])
-        self.assertIn('/actions/runs/40273459773',payload['body'])
-        self.assertIn('Tests: failure',payload['body']);self.assertIn('Probe: skipped',payload['body'])
-        self.assertEqual(result['state'],'open');self.assertFalse(result['observerRecovered'])
-        self.assertFalse(result['healthIssueChanged'])
+        return json.loads(log.getvalue()),errors.getvalue()
+    def test_failed_tests_raise_an_error_annotation_and_write_no_issue(self):
+        self.assertNotIn('subprocess',self.code)
+        result,annotation=self.run_reporter()
+        self.assertEqual(result['delivery'],'workflow_annotation');self.assertEqual(result['state'],'open')
+        self.assertFalse(result['observerRecovered']);self.assertFalse(result['healthIssueChanged'])
+        self.assertTrue(annotation.startswith('::error title=pipeline-observer::'))
+        self.assertIn('Tests: failure',annotation);self.assertIn('Probe: skipped',annotation)
     def test_checkout_setup_skipped_cancelled_and_missing_outputs_report_failure(self):
         for changes in [{'TESTS_OUTCOME':'','PROBE_OUTCOME':''},
                         {'TESTS_OUTCOME':'cancelled','OBSERVER_JOB_RESULT':'cancelled'},
@@ -141,56 +120,23 @@ class ObserverReporterTests(unittest.TestCase):
                         {'TESTS_OUTCOME':'success','PROBE_OUTCOME':'skipped','PROBE_ACKNOWLEDGED':'true'},
                         {'TESTS_OUTCOME':'success','PROBE_OUTCOME':'failure','PROBE_ACKNOWLEDGED':'false'},
                         {'TESTS_OUTCOME':'success','PROBE_OUTCOME':'success','PROBE_ACKNOWLEDGED':'true','OBSERVER_JOB_RESULT':'cancelled'},
-                        {'TESTS_OUTCOME':'success','PROBE_OUTCOME':'','PROBE_ACKNOWLEDGED':'true'}]:
+                        {'TESTS_OUTCOME':'success','PROBE_OUTCOME':'','PROBE_ACKNOWLEDGED':'true'},
+                        {'TESTS_OUTCOME':'success'}]:
             with self.subTest(changes=changes):
-                self.assertFalse(self.run_reporter([[],ack()],changes)['observerRecovered'])
-    def test_test_success_alone_cannot_close_any_issue(self):
-        result=self.run_reporter([[ack()],ack()],{'TESTS_OUTCOME':'success'})
-        self.assertFalse(result['observerRecovered']);self.assertEqual(self.calls[1][1]['state'],'open')
-    def test_trusted_unhealthy_probe_recovers_observer_but_preserves_health_gap_issue(self):
-        health={'number':10,'title':'Daily pipeline needs attention','state':'open'}
-        result=self.run_reporter([[health,ack()],ack(state='closed')],
-            {'TESTS_OUTCOME':'success','PROBE_OUTCOME':'failure','PROBE_ACKNOWLEDGED':'true'})
-        self.assertTrue(result['observerRecovered']);self.assertFalse(result['healthIssueChanged'])
-        self.assertEqual(self.calls[1][0][2],'repos/'+REPO+'/issues/11')
-        self.assertEqual(self.calls[1][1]['state'],'closed')
-        self.assertIn('actual health gaps',self.calls[1][1]['body'])
-    def test_trusted_healthy_recovery_and_quiet_no_prior_observer_issue(self):
-        result=self.run_reporter([[],],{'TESTS_OUTCOME':'success','PROBE_OUTCOME':'success',
-                                     'PROBE_ACKNOWLEDGED':'true','OBSERVER_JOB_RESULT':'success'})
-        self.assertEqual(result['delivery'],'no_alert_needed');self.assertEqual(len(self.calls),1)
-    def test_real_health_issue_is_never_selected_and_pull_requests_are_ignored(self):
-        health={'number':10,'title':'Daily pipeline needs attention','state':'open'}
-        pr={**ack(12),'pull_request':{}}
-        result=self.run_reporter([[health,pr],ack()])
-        self.assertEqual(result['number'],11);self.assertEqual(self.calls[1][0][2],'repos/'+REPO+'/issues')
-    def test_untrusted_inputs_reject_before_api_and_are_not_shell_programs(self):
+                result,annotation=self.run_reporter(changes)
+                self.assertFalse(result['observerRecovered']);self.assertTrue(annotation.startswith('::error'))
+    def test_trusted_probe_recovers_observer_with_a_notice(self):
+        for probe in ('success','failure'):
+            result,annotation=self.run_reporter({'TESTS_OUTCOME':'success','PROBE_OUTCOME':probe,
+                                                 'PROBE_ACKNOWLEDGED':'true','OBSERVER_JOB_RESULT':probe})
+            self.assertTrue(result['observerRecovered']);self.assertEqual(result['state'],'closed')
+            self.assertTrue(annotation.startswith('::notice title=pipeline-observer::'))
+    def test_untrusted_inputs_reject_and_are_not_shell_programs(self):
         changes=[{'GITHUB_RUN_ID':'1;touch /tmp/invalid'},{'GITHUB_RUN_ID':'0'},
                  {'REPOSITORY':'evil/repo'},{'TESTS_OUTCOME':'$(id)'},
                  {'PROBE_ACKNOWLEDGED':'TRUE'},{'OBSERVER_JOB_RESULT':'unknown'}]
         for change in changes:
-            with self.subTest(change=change),self.assertRaises(ValueError): self.run_reporter([],change)
-            self.assertEqual(self.calls,[])
-    def test_failed_oversized_duplicate_or_malformed_api_response_has_no_delivery_claim(self):
-        for response in [subprocess.CompletedProcess([],1,'{}','failure'),
-                         subprocess.CompletedProcess([],0,'x'*1_000_001,''),
-                         subprocess.CompletedProcess([],0,'{"x":1,"x":2}',''),
-                         subprocess.CompletedProcess([],0,'{"x":NaN}',''),
-                         subprocess.CompletedProcess([],0,'not-json',''),
-                         {},[ack(),ack(12)],[ack(10)]]:
-            with self.subTest(response=str(response)[:80]),self.assertRaises((ValueError,TypeError)):
-                self.run_reporter([response])
-            self.assertEqual(len(self.calls),1)
-    def test_bad_delivery_ack_fails_without_claiming_success(self):
-        changes=[lambda p:p.update(number=True),lambda p:p.update(number=10),
-                 lambda p:p.update(state='closed'),lambda p:p.update(title='Daily pipeline needs attention'),
-                 lambda p:p.update(html_url='https://evil.invalid/11'),lambda p:p.update(assignees=[]),
-                 lambda p:p.update(pull_request={})]
-        for change in changes:
-            value=ack();change(value)
-            with self.subTest(value=value),self.assertRaises(ValueError):self.run_reporter([[],value])
-    def test_existing_issue_ack_cannot_substitute_another_number(self):
-        with self.assertRaises(ValueError):self.run_reporter([[ack()],ack(12)])
+            with self.subTest(change=change),self.assertRaises(ValueError): self.run_reporter(change)
 
 
 class WorkflowBindingTests(unittest.TestCase):
@@ -201,7 +147,8 @@ class WorkflowBindingTests(unittest.TestCase):
         self.assertIn("if: success() && steps.watchdog_tests.outcome == 'success'",daily)
         self.assertIn('needs: daily-pipeline',reporter);self.assertIn('if: always()',reporter)
         self.assertNotIn('actions/checkout',reporter);self.assertNotIn('probe.py',reporter)
-        self.assertIn('issues: write',reporter)
+        self.assertNotIn('issues: write',source.split('\n  probe:',1)[0])
+        self.assertIn('permissions: {}',reporter)
         for name in ['tests_outcome','probe_outcome','probe_acknowledged']:
             self.assertIn('needs.daily-pipeline.outputs.'+name,reporter)
         self.assertEqual(source.count('timeout-minutes: 5'),3)

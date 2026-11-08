@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'web/scripts/pipeline'))
-from archive import GitArchive
+from archive import EVIDENCE_REMOTE, GitArchive
 from contracts import digest, require, utcnow
 from storage import LocalStore
 
@@ -44,7 +44,7 @@ def release_terminated(store, lookup=github_run):
 
 def recover(root):
     root = Path(root).resolve()
-    archive = GitArchive(root / 'archive', 'https://github.com/jessepike/sec-market.git')
+    archive = GitArchive(root / 'archive', EVIDENCE_REMOTE)
     restored = archive.restore(root / 'state')
     store = LocalStore(root / 'state')
     result = release_terminated(store)

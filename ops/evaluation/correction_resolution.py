@@ -42,7 +42,7 @@ import regulatory as regulatory_module  # noqa: E402
 from artifacts import inventory, stage_files, unpack  # noqa: E402
 from contracts import canonical, digest, instant, require, valid_hash  # noqa: E402
 from corrections import load_policy, project_bundle, replay_admission  # noqa: E402
-from archive import GitArchive  # noqa: E402
+from archive import EVIDENCE_REMOTE, GitArchive  # noqa: E402
 from provenance import GitHubAuthority  # noqa: E402
 from publication import verify_acknowledgement  # noqa: E402
 from storage import LocalStore  # noqa: E402
@@ -440,7 +440,7 @@ def _authenticate_collector_record(clock, authority):
     github_run_id = int(clock['githubRunId'])
     run = _api_json(authority, f'actions/runs/{github_run_id}')
     require(run.get('id') == github_run_id and run.get('repository', {}).get('full_name') == PROJECT
-            and run.get('repository', {}).get('private') is True and run.get('path') == COLLECTOR_WORKFLOW
+            and run.get('path') == COLLECTOR_WORKFLOW
             and run.get('status') == 'completed' and run.get('conclusion') == 'success'
             and run.get('head_branch') == 'main' and run.get('head_sha') == clock['appRevision']
             and run.get('run_attempt') == clock['githubRunAttempt']
@@ -550,7 +550,6 @@ def _authenticate_publisher(state, manifest, authority, archive, remote_commit):
     github_run_id = int(published['githubRunId'])
     run = _api_json(authority, f'actions/runs/{github_run_id}')
     require(run.get('id') == github_run_id and run.get('repository', {}).get('full_name') == PROJECT
-            and run.get('repository', {}).get('private') is True
             and run.get('path') == '.github/workflows/subscription-publisher.yml'
             and run.get('status') == 'completed' and run.get('conclusion') == 'success'
             and run.get('head_branch') == 'main' and run.get('head_sha') == manifest.get('appRevision')
@@ -865,7 +864,7 @@ def gather(root, archive_mirror=None, restored_archive=None, now=None,
                 state_path = archive.root / 'state'
                 restored = {'commit': archive.commit, 'manifestSha256': archive.manifest_sha256}
             else:
-                legacy = GitArchive(archive_mirror, 'https://github.com/jessepike/sec-market.git')
+                legacy = GitArchive(archive_mirror, EVIDENCE_REMOTE)
                 state_path = Path(directory) / 'state'
                 try:
                     restored = legacy.restore(state_path)

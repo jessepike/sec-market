@@ -204,7 +204,6 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
             continue
         run=lookup(str(clock['githubRunId']))
         if run.get('id') != int(clock['githubRunId']) or run.get('repository',{}).get('full_name') != PROJECT \
-                or run.get('repository',{}).get('private') is not True \
                 or run.get('path') != '.github/workflows/subscription-collector.yml' \
                 or run.get('status') != 'completed' or run.get('conclusion') != 'success' \
                 or not timer.trusted_run(run) or run.get('event') != clock.get('githubEventName') \

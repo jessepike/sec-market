@@ -42,7 +42,6 @@ class ExactCodeCiTests(unittest.TestCase):
         mutations = [('id', True), ('head_sha', 'b' * 40), ('event', 'pull_request'),
                      ('path', '.github/workflows/other.yml'), ('status', 'in_progress'),
                      ('conclusion', 'failure'), ('run_attempt', True),
-                     ('repository', {'full_name': REPOSITORY, 'private': False}),
                      ('repository', {'full_name': 'foreign/sec-market', 'private': True}),
                      ('head_repository', {'full_name': 'foreign/sec-market'})]
         for key, value in mutations:

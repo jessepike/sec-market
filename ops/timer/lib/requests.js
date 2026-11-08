@@ -89,7 +89,7 @@ export async function handle(request, env, fetcher = fetch, now = Date.now()) {
 export async function record(cfg, name, fetcher = fetch, now = Date.now()) {
   const token = await githubToken(cfg, fetcher, now, { issues: 'write', metadata: 'read' })
   const gh = client(token, fetcher)
-  const repo = `/repos/${cfg.GITHUB_REPO}`
+  const repo = `/repos/${cfg.ISSUES_REPO || cfg.GITHUB_REPO}`
   const today = new Date(now).toISOString().slice(0, 10)
   const open = await gh(`${repo}/issues?state=open&labels=${QUEUE_LABEL}&per_page=10`)
   const issue = open.find(i => i.title === QUEUE_TITLE && !i.pull_request)

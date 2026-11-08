@@ -36,7 +36,7 @@ concurrency:
 
 jobs:
   schedule-guard:
-    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[collect-account]'))
+    if: github.repository == 'jessepike/sec-market' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[collect-account]'))
     runs-on: ubuntu-latest
     timeout-minutes: 2
     permissions:
@@ -63,9 +63,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     permissions:
-      contents: write # Dedicated evidence ref; this script never writes app branches.
+      contents: read # Evidence goes to the private evidence repository over its deploy key.
       actions: read # Prove an abandoned lease's owning run actually terminated.
-      issues: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -109,12 +108,14 @@ jobs:
         if: github.event_name != 'workflow_dispatch' || !inputs.source_probe
         env:
           GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
           SMP_CODEX_AUTH_JSON: ${{ secrets.SMP_CODEX_AUTH_JSON }}
           SMP_AUTH_STORE_TOKEN: ${{ secrets.SMP_AUTH_STORE_TOKEN }}
           SMP_EVENT_SCHEDULE: ${{ github.event.schedule }}
           SMP_TIMER: ${{ github.event_name == 'workflow_dispatch' && inputs.timer && 'true' || 'false' }}
         run: |
           gh auth setup-git --hostname github.com
+          bash ops/ci/evidence_key.sh
           python3 ops/ci/collect.py --root "$RUNNER_TEMP/smp-collection" --maximum-seconds 1200 --output "$RUNNER_TEMP/smp-collection-receipt.json"
       - name: Flag an expired ChatGPT login for the outside watchdog
         if: always() && (github.event_name != 'workflow_dispatch' || !inputs.source_probe)
@@ -138,8 +139,10 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.source_probe
         env:
           GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
         run: |
           gh auth setup-git --hostname github.com
+          bash ops/ci/evidence_key.sh
           python3 ops/ci/collect.py --source-probe --root "$RUNNER_TEMP/smp-collection" --maximum-seconds 1200 --output "$RUNNER_TEMP/smp-collection-receipt.json"
       - name: Retain only the bounded nonsecret collection receipt
         if: always()

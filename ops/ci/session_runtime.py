@@ -17,7 +17,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "web/scripts/pipeline"))
 sys.path.insert(0, str(REPO / "ops/ci"))
-from archive import GitArchive
+from archive import EVIDENCE_REMOTE, GitArchive
 from contracts import canonical, digest, instant, require, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
@@ -37,7 +37,7 @@ def git(*args):
 
 
 def archive_for(root):
-    return GitArchive(root / "archive", "https://github.com/jessepike/sec-market.git")
+    return GitArchive(root / "archive", EVIDENCE_REMOTE)
 
 
 def require_source_probe_context(session_id):
@@ -52,7 +52,6 @@ def require_source_probe_context(session_id):
     event = json.loads(Path(os.environ.get('GITHUB_EVENT_PATH', '')).read_text())
     selected = event.get('inputs', {}).get('source_probe')
     require(event.get('repository', {}).get('full_name') == 'jessepike/sec-market'
-            and event.get('repository', {}).get('private') is True
             and (selected is True or selected == 'true'), 'SOURCE_PROBE_DISPATCH_INPUT_REQUIRED')
 
 

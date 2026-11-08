@@ -40,7 +40,6 @@ jobs:
     permissions:
       actions: read
       contents: read
-      issues: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -105,7 +104,9 @@ jobs:
         if: success() && steps.watchdog_tests.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
         run: |
+          bash ops/ci/evidence_key.sh
           # BEGIN WATCHDOG_PROBE_RECEIPT
           python3 - <<'PY'
           import json
@@ -116,7 +117,6 @@ jobs:
           from datetime import datetime
 
           MAX_BYTES = 1_000_000
-          REPO = 'jessepike/sec-market'
 
 
           def unique_object(pairs):
@@ -154,13 +154,10 @@ jobs:
                       return False
                   if sent == {'delivery': 'no_alert_needed'}:
                       return healthy
-                  if set(sent) != {'delivery', 'url', 'number', 'state', 'notificationTransport'}:
-                      return False
-                  number = sent['number']
-                  return (sent['delivery'] == 'github_issue_updated' and type(number) is int and number > 0
-                          and sent['url'] == 'https://github.com/' + REPO + '/issues/' + str(number)
-                          and sent['state'] == ('closed' if healthy else 'open')
-                          and sent['notificationTransport'] == 'GitHub account notification settings')
+                  # Issues live in the private repository; the hourly outside health
+                  # check reads this annotation and carries it to the owner.
+                  return sent == {'delivery': 'workflow_annotation', 'title': 'pipeline-watchdog',
+                                  'state': 'closed' if healthy else 'open'}
               except (ValueError, TypeError, KeyError, UnicodeError, RecursionError, OverflowError):
                   return False
 
@@ -191,12 +188,10 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    permissions:
-      issues: write
+    permissions: {}
     steps:
       - name: Report observer failure independently of checkout and tests
         env:
-          GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
           TESTS_OUTCOME: ${{ needs.daily-pipeline.outputs.tests_outcome }}
           PROBE_OUTCOME: ${{ needs.daily-pipeline.outputs.probe_outcome }}
@@ -208,35 +203,10 @@ jobs:
           import json
           import os
           import re
-          import subprocess
+          import sys
 
           REPO = 'jessepike/sec-market'
-          TITLE = 'Daily pipeline observer could not complete'
-          MAX_BYTES = 1_000_000
-
-
-          def unique_object(pairs):
-              result = {}
-              for key, value in pairs:
-                  if key in result:
-                      raise ValueError('DUPLICATE_OBSERVER_API_KEY')
-                  result[key] = value
-              return result
-
-
-          def constant(_):
-              raise ValueError('NONFINITE_OBSERVER_API_VALUE')
-
-
-          def api(path, payload=None, method=None):
-              args = ['gh', 'api', 'repos/' + REPO + '/' + path, '--header', 'Cache-Control: no-cache']
-              if payload is not None:
-                  args += ['--method', method, '--input', '-']
-              result = subprocess.run(args, input=json.dumps(payload) if payload is not None else None,
-                                      capture_output=True, text=True, timeout=60)
-              if result.returncode or type(result.stdout) is not str or not 0 < len(result.stdout.encode('utf-8')) <= MAX_BYTES:
-                  raise ValueError('OBSERVER_ALERT_API_FAILED_OR_OVERSIZED')
-              return json.loads(result.stdout, object_pairs_hook=unique_object, parse_constant=constant)
+          ANNOTATION = 'pipeline-observer'
 
 
           def main():
@@ -251,38 +221,16 @@ jobs:
                       or ack not in {'', 'true', 'false'}):
                   raise ValueError('OBSERVER_ALERT_INPUT_INVALID')
               recovered = tests == 'success' and probe in {'success', 'failure'} and ack == 'true' and job in {'success', 'failure'}
-              issues = api('issues?state=open&per_page=100&sort=updated&direction=desc')
-              if type(issues) is not list or len(issues) > 100:
-                  raise ValueError('OBSERVER_ALERT_ISSUE_LIST_INVALID')
-              found = [issue for issue in issues if type(issue) is dict and issue.get('title') == TITLE and 'pull_request' not in issue]
-              if len(found) > 1:
-                  raise ValueError('OBSERVER_ALERT_ISSUE_AMBIGUOUS')
-              existing = found[0] if found else None
-              if existing is not None and (type(existing.get('number')) is not int or existing['number'] <= 0 or existing['number'] == 10 or existing.get('state') != 'open'):
-                  raise ValueError('OBSERVER_ALERT_ISSUE_ID_INVALID')
-              if recovered and existing is None:
-                  print(json.dumps({'delivery': 'no_alert_needed', 'observerRecovered': True, 'healthIssueChanged': False}))
-                  return 0
-              url = 'https://github.com/' + REPO + '/actions/runs/' + run_id
-              body = ('The daily pipeline observer ' + ('recovered after its tests passed and a trusted probe returned an acknowledged notification outcome.'
-                      if recovered else 'could not complete a tested probe with an acknowledged notification outcome.')
-                      + '\n\n[Workflow run and logs](' + url + '). Job: ' + (job or 'missing')
-                      + '. Tests: ' + (tests or 'not reached') + '. Probe: ' + (probe or 'not reached')
-                      + '. Notification outcome acknowledged: ' + (ack or 'missing') + '.'
-                      + '\n\nThis issue tracks observer execution only. The separate Daily pipeline needs attention issue retains actual health gaps. '
-                      + 'Test success alone does not prove freshness or close that health issue. GitHub acknowledgement does not prove phone or email delivery.')
-              state = 'closed' if recovered else 'open'
-              payload = {'body': body, 'state': state} if existing else {'title': TITLE, 'body': body, 'assignees': ['jessepike']}
-              sent = api('issues/' + str(existing['number']) if existing else 'issues', payload, 'PATCH' if existing else 'POST')
-              if (type(sent) is not dict or type(sent.get('number')) is not int or sent['number'] <= 0 or sent['number'] == 10
-                      or existing is not None and sent['number'] != existing['number']
-                      or sent.get('title') != TITLE or sent.get('state') != state or 'pull_request' in sent
-                      or sent.get('html_url') != 'https://github.com/' + REPO + '/issues/' + str(sent['number'])
-                      or existing is None and (type(sent.get('assignees')) is not list
-                          or not any(type(owner) is dict and owner.get('login') == 'jessepike' for owner in sent['assignees']))):
-                  raise ValueError('OBSERVER_ALERT_DELIVERY_ACK_INVALID')
-              print(json.dumps({'delivery': 'github_issue_updated', 'number': sent['number'], 'state': sent['state'],
-                                'url': sent['html_url'], 'observerRecovered': recovered, 'healthIssueChanged': False}))
+              # Issues live in the private repository the workflow token cannot write.
+              # The hourly outside health check (ops/timer) reads this annotation.
+              message = ('completed a tested probe with an acknowledged outcome' if recovered
+                         else 'could not complete a tested probe with an acknowledged outcome')
+              message += ('. Job: ' + (job or 'missing') + '. Tests: ' + (tests or 'not reached')
+                          + '. Probe: ' + (probe or 'not reached') + '. Outcome acknowledged: ' + (ack or 'missing') + '.')
+              print('::' + ('notice' if recovered else 'error') + ' title=' + ANNOTATION + '::' + message, file=sys.stderr)
+              print(json.dumps({'delivery': 'workflow_annotation', 'title': ANNOTATION,
+                                'state': 'closed' if recovered else 'open',
+                                'observerRecovered': recovered, 'healthIssueChanged': False}))
               return 0
 
 

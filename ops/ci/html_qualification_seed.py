@@ -221,7 +221,6 @@ def _context(root, store, session, runtime, at):
             session.get('sessionId') == 'github-' + run + '-' + attempt, 'HTML_SEED_RUN_IDENTITY_DIFFERS')
     event = json.loads(Path(os.environ.get('GITHUB_EVENT_PATH', '')).read_bytes())
     require(event.get('repository', {}).get('full_name') == 'jessepike/sec-market' and
-            event.get('repository', {}).get('private') is True and
             event.get('inputs', {}).get('source_probe') not in (True, 'true'), 'HTML_SEED_PRIVATE_COLLECTION_REQUIRED')
     from storage import LocalStore
     require(LocalStore(root).read('session.json') == session, 'HTML_SEED_SESSION_DIFFERS')

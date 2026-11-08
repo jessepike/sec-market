@@ -39,6 +39,31 @@ test('GitHub App JWT verifies and installation token is scoped to the one repo',
   const token = await githubToken(config({ ...env, GITHUB_TOKEN: '', GITHUB_APP_ID: '123', GITHUB_APP_PRIVATE_KEY: pem }), fetcher, NOW)
   assert.equal(token, 'inst')
   assert.deepEqual(calls[1].body, { repositories: ['sec-market'] })
+  calls.length = 0
+  await githubToken(config({ ...env, GITHUB_TOKEN: '', GITHUB_APP_ID: '123', GITHUB_APP_PRIVATE_KEY: pem,
+    ISSUES_REPO: 'jessepike/sec-market-private' }), fetcher, NOW)
+  assert.deepEqual(calls[1].body, { repositories: ['sec-market', 'sec-market-private'] })
+})
+
+test('config keeps issues in GITHUB_REPO unless ISSUES_REPO names a repo of the same owner', () => {
+  assert.equal(config(env).ISSUES_REPO, 'jessepike/sec-market')
+  assert.equal(config({ ...env, ISSUES_REPO: 'jessepike/sec-market-private' }).ISSUES_REPO, 'jessepike/sec-market-private')
+  assert.throws(() => config({ ...env, ISSUES_REPO: 'someone/else' }), /ISSUES_REPO_INVALID/)
+})
+
+test('watch writes its alert issue to ISSUES_REPO', async () => {
+  const urls = []
+  const fetcher = async (url, init = {}) => {
+    urls.push(url)
+    if (url.includes('/actions/workflows/')) return res({ workflow_runs: [] })
+    if (url.includes('daily-coverage')) return res({ checkedAt: new Date(NOW).toISOString() })
+    if (url.endsWith('/issues?state=open&per_page=100')) return res([])
+    return res({ number: 1 }, 201)
+  }
+  await watch(config({ ...env, ISSUES_REPO: 'jessepike/sec-market-private' }), fetcher, NOW)
+  const issueCalls = urls.filter(u => u.includes('/issues'))
+  assert.ok(issueCalls.length > 0)
+  assert.ok(issueCalls.every(u => u.includes('/repos/jessepike/sec-market-private/issues')))
 })
 
 test('dispatch posts timer=true on main to the collector workflow', async () => {

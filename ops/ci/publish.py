@@ -34,10 +34,9 @@ def callback_ready(event, api=None):
         # Only a publisher-dispatched gate on main can complete a pending release;
         # a failed gate still completes, so the failure is recorded and alerted.
         return (run.get('id') == upstream['id'] and run.get('repository', {}).get('full_name') == PROJECT
-                and run.get('repository', {}).get('private') is True and run.get('head_branch') == 'main'
+                and run.get('head_branch') == 'main'
                 and run.get('event') == 'workflow_dispatch' and run.get('status') == 'completed')
     if not (run.get('id') == upstream['id'] and run.get('repository', {}).get('full_name') == PROJECT
-            and run.get('repository', {}).get('private') is True
             and run.get('path') == '.github/workflows/subscription-collector.yml'
             and run.get('head_branch') == 'main' and timer.trusted_run(run)
             and run.get('status') == 'completed' and run.get('conclusion') == 'success'):

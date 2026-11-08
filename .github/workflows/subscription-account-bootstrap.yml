@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   initialize:
-    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[bootstrap-account]'))
+    if: github.repository == 'jessepike/sec-market' && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[bootstrap-account]'))
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:

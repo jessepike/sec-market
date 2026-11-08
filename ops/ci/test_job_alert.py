@@ -1,32 +1,37 @@
+import io
 import unittest
-from unittest.mock import patch
 
 from job_alert import notify
 
 
 class JobAlertTests(unittest.TestCase):
-    @patch('job_alert.api')
-    def test_failure_assigns_owner_and_links_actual_run(self, api):
-        api.side_effect = [[], {'number': 9, 'state': 'open', 'html_url': 'https://github.com/issue/9'}]
-        result = notify('collector', 'failure', '123')
-        payload = api.call_args.args[1]
-        self.assertEqual(payload['assignees'], ['jessepike'])
-        self.assertIn('/actions/runs/123', payload['body'])
+    def test_failure_writes_an_error_annotation_linking_the_actual_run(self):
+        stream = io.StringIO()
+        result = notify('collector', 'failure', '123', stream)
+        self.assertTrue(stream.getvalue().startswith('::error title=pipeline-job::The daily collector'))
+        self.assertIn('/actions/runs/123', stream.getvalue())
         self.assertEqual(result['state'], 'open')
+        self.assertEqual(result['delivery'], 'workflow_annotation')
 
-    @patch('job_alert.api')
-    def test_recovery_closes_existing_alert(self, api):
-        api.side_effect = [[{'title': 'Daily market collector needs attention', 'number': 9}],
-                           {'number': 9, 'state': 'closed', 'html_url': 'https://github.com/issue/9'}]
-        notify('collector', 'success', 124)
-        self.assertEqual(api.call_args.args[1]['state'], 'closed')
-        self.assertIn('recovered', api.call_args.args[1]['body'])
+    def test_success_is_quiet_and_writes_nothing(self):
+        stream = io.StringIO()
+        self.assertEqual(notify('publisher', 'success', 125, stream), {'delivery': 'no_alert_needed'})
+        self.assertEqual(stream.getvalue(), '')
 
-    @patch('job_alert.api', return_value=[])
-    def test_success_without_prior_failure_is_quiet(self, api):
-        self.assertEqual(notify('publisher', 'success', 125), {'delivery': 'no_alert_needed'})
-        self.assertEqual(api.call_count, 1)
+    def test_cancelled_is_reported(self):
+        stream = io.StringIO()
+        self.assertEqual(notify('publisher', 'cancelled', 126, stream)['state'], 'open')
+        self.assertIn('Runner result: cancelled', stream.getvalue())
 
-    def test_untrusted_run_id_rejected_before_remote_call(self):
+    def test_untrusted_run_id_rejected(self):
         with self.assertRaisesRegex(ValueError, 'INVALID_JOB_ALERT_INPUT'):
             notify('collector', 'failure', '123?token=bad')
+
+    def test_no_github_write_path_remains(self):
+        import job_alert
+        self.assertFalse(hasattr(job_alert, 'api'))
+        self.assertFalse(hasattr(job_alert, 'subprocess'))
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -41,7 +41,7 @@ jobs:
           PY
   publish:
     needs: [callback-preflight]
-    if: ${{ !cancelled() && github.repository == 'jessepike/sec-market' && github.event.repository.private == true && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || needs.callback-preflight.outputs.ready == 'true') }}
+    if: ${{ !cancelled() && github.repository == 'jessepike/sec-market' && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || needs.callback-preflight.outputs.ready == 'true') }}
     concurrency:
       # Skipped/read-only callbacks never replace a pending collector.
       group: sec-market-subscription-account
@@ -51,7 +51,6 @@ jobs:
     permissions:
       contents: write
       actions: write # Dispatch/read the independent main gate and exact artifact.
-      issues: write
     outputs:
       gate_run: ${{ steps.released.outputs.gate_run }}
     steps:
@@ -90,9 +89,11 @@ jobs:
       - name: Restore acknowledged evidence and publish through independent gate
         env:
           GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           gh auth setup-git --hostname github.com
+          bash ops/ci/evidence_key.sh
           python3 ops/ci/publish.py --root "$RUNNER_TEMP/smp-publication" --output "$RUNNER_TEMP/smp-publish-receipt.json"
       - id: released
         name: Name the gate run of an acknowledged release

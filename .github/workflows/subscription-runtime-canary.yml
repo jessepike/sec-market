@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   private-runner-proof:
-    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true
+    if: github.repository == 'jessepike/sec-market'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
@@ -40,8 +40,10 @@ jobs:
       - name: Verify archived evidence integrity from the private GitHub runner without source requests
         env:
           GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
         run: |
           gh auth setup-git --hostname github.com
+          bash ops/ci/evidence_key.sh
           python3 ops/ci/runtime_canary.py --root "$RUNNER_TEMP/smp-host-canary" --output "$RUNNER_TEMP/smp-runtime-canary.json"
       - name: Retain bounded nonsecret runtime receipt
         if: always()

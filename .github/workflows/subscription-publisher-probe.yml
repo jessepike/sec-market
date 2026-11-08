@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   publisher-access-and-stage:
-    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[probe-publisher]'))
+    if: github.repository == 'jessepike/sec-market' && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[probe-publisher]'))
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -40,9 +40,11 @@ jobs:
         if: contains(github.event.head_commit.message, '[stage-publisher]')
         env:
           GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           gh auth setup-git --hostname github.com
+          bash ops/ci/evidence_key.sh
           operation=$(jq -r '.operation' ops/ci/publisher-request.json)
           if [ "$operation" = stage_verified_preview_gate ]; then
             python3 ops/ci/stage_gate.py --request ops/ci/publisher-request.json --root "$RUNNER_TEMP/smp-publisher-stage" --output "$RUNNER_TEMP/smp-publisher-stage-receipt.json"
