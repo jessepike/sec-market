@@ -226,9 +226,14 @@ def review_resolution(store, contract, held_sha, fact_ref, policy, resolved_at):
     return {**record, 'resolutionSha256':digest(record)}
 
 
-def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous=None, continuity=None):
+def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous=None, continuity=None,
+                   reconciled_here=False):
     # Recompute from raw receipts and evidence, not a worker's completion flag.
-    verified = reconcile(plan, coverage["receipts"], contract, now, store)
+    # reconciled_here: the caller passes the reconcile() result it computed in
+    # this same process moments ago (the collector). Repeating it cost about 8
+    # minutes of the collector's closing work on November 8. The independent
+    # release gate still recomputes everything from the archive.
+    verified = coverage if reconciled_here else reconcile(plan, coverage["receipts"], contract, now, store)
     require(verified["runId"] == coverage["runId"], "Snapshot run differs")
     age = (instant(now) - instant(coverage["checkedAt"])).total_seconds() / 3600
     require(0 <= age <= contract["schedule"]["overdueHours"], "Snapshot coverage is stale/future")

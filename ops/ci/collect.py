@@ -432,7 +432,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         checked = reconcile(plan, receipts, contract, utcnow(), state)
         state.write_once(f"verifications/{collected['runId']}/{checked['checkedAt'].replace(':', '-')}.json", checked)
         previous = state.read("heads/dailySnapshot.json") or state.read("heads/cloud-snapshot.json")
-        snapshot = build_snapshot(contract, plan, checked, state, utcnow(), previous=previous)
+        snapshot = build_snapshot(contract, plan, checked, state, utcnow(), previous=previous, reconciled_here=True)
         state.compare_and_swap("dailySnapshot", state.read("heads/dailySnapshot.json"), snapshot)
         state.compare_and_swap("cloud-snapshot", state.read("heads/cloud-snapshot.json"), snapshot)
         rows = inventory(contract, utcnow(), checked)
