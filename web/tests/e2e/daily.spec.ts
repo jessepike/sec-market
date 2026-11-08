@@ -33,6 +33,6 @@ test('a missed future run becomes visibly overdue without another deployment', a
   test.skip(!snapshot.enabled || !snapshot.coverage?.validUntil, 'No source deadline in this build')
   const deadline = Date.parse(snapshot.coverage!.validUntil!)
   await page.clock.install({ time: new Date(deadline + 3600000) })
-  await page.goto('/')
+  await page.goto('/method/')
   await expect(page.locator('#overview')).toContainText(/The next (source )?check is overdue\./)
 })
