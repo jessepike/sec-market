@@ -18,6 +18,11 @@ only, plain language, no em dashes.
 Future audience, not now: CISOs and business leaders tracking their vendors (SEC-085, 087 to 089).
 Ideas toward it rank lower until the owner moves it up.
 
+## Once a week
+
+If `docs/active/improvement-loop/` already has a report dated in the last 6 days, end at once with
+no changes and no message (an extra or manual run must not repeat the week).
+
 ## Inputs
 
 1. **Scorecard.** From `web/`:
