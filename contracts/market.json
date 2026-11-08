@@ -8365,6 +8365,78 @@
       ],
       "supplierId": "rapid7",
       "url": "https://investors.rapid7.com/rss/pressrelease.aspx"
+    },
+    {
+      "allowedHosts": [
+        "www.endorlabs.com"
+      ],
+      "evidenceId": "OB-endor-labs-1",
+      "family": "citation_integrity",
+      "id": "endor-labs:citation:OB-endor-labs-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "endor-labs",
+      "url": "https://www.endorlabs.com/learn/why-we-raised-a-93m-series-b-in-this-market"
+    },
+    {
+      "allowedHosts": [
+        "www.silicon.co.uk"
+      ],
+      "evidenceId": "OB-black-duck-1",
+      "family": "citation_integrity",
+      "id": "black-duck:citation:OB-black-duck-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "black-duck",
+      "url": "https://www.silicon.co.uk/press-release/clearlake-and-francisco-partners-complete-acquisition-of-black-duck-software-formerly-known-as-synopsys-software-integrity-group"
+    },
+    {
+      "allowedHosts": [
+        "www.ynetnews.com"
+      ],
+      "evidenceId": "TR-axonius-1",
+      "family": "citation_integrity",
+      "id": "axonius:citation:TR-axonius-1-alt2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "axonius",
+      "url": "https://www.ynetnews.com/business/article/hkmq8sfkze"
+    },
+    {
+      "allowedHosts": [
+        "www.ynetnews.com"
+      ],
+      "evidenceId": "TR-axonius-2",
+      "family": "citation_integrity",
+      "id": "axonius:citation:TR-axonius-2-alt2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "axonius",
+      "url": "https://www.ynetnews.com/business/article/hkmq8sfkze"
     }
   ],
   "suppliers": [
@@ -8644,7 +8716,9 @@
         "axonius:citation:TR-axonius-3",
         "axonius:citation:TR-axonius-1-alt",
         "axonius:citation:TR-axonius-2-alt",
-        "axonius:citation:TR-axonius-3-alt"
+        "axonius:citation:TR-axonius-3-alt",
+        "axonius:citation:TR-axonius-1-alt2",
+        "axonius:citation:TR-axonius-2-alt2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8775,7 +8849,8 @@
       "sourceIds": [
         "black-duck:official:1",
         "black-duck:citation:OB-black-duck-1",
-        "black-duck:official:2"
+        "black-duck:official:2",
+        "black-duck:citation:OB-black-duck-1-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -9356,7 +9431,8 @@
       "sourceIds": [
         "endor-labs:official:1",
         "endor-labs:citation:OB-endor-labs-1",
-        "endor-labs:official:2"
+        "endor-labs:official:2",
+        "endor-labs:citation:OB-endor-labs-1-alt"
       ],
       "startupStatus": "unclassified"
     },
