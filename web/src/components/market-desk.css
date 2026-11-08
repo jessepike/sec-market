@@ -386,3 +386,13 @@
 .market-desk .desk-timeline__cell button { min-height: 28px; border-radius: 4px; }
 @media (pointer: coarse) { .market-desk .momentum__toggle button, .market-desk .desk-show-all, .market-desk .momentum__mobile-toggle { min-height: 44px; } }
 .desk-changes>li time { white-space: nowrap; }
+
+/* Improvement loop IL-001 and IL-003: the all-filers median as a light second tick, and net cash beside the margins. */
+.momentum__median--all { background: #8f979c; width: 2px; top: -2px; bottom: -2px; }
+.momentum__cols.has-balance,.momentum__rows.has-balance .momentum__row { grid-template-columns: 116px minmax(40px,1fr) 52px 72px 60px 60px 64px; }
+@media(max-width:640px) {
+  .momentum__rows.has-health .momentum__row .momentum__metric--op { grid-column: 3; grid-row: 3; }
+  .momentum__rows.has-health .momentum__row .momentum__metric--fcf { grid-column: 4; grid-row: 3; }
+  .momentum__rows.has-balance .momentum__row .momentum__metric--bal { grid-column: 1/-1; grid-row: 4; display: flex; gap: 6px; align-items: baseline; }
+}
+.company-momentum__none { margin: 0; padding: 12px 14px; background: white; border: 1px solid #dfe1de; border-radius: 10px; font-size: 14px; }

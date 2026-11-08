@@ -142,3 +142,6 @@ export function formatUsd(n: number): string {
   const text = a >= 1e9 ? `$${(a / 1e9).toFixed(1)}B` : a >= 1e6 ? `$${Math.round(a / 1e6)}M` : `$${Math.round(a).toLocaleString('en-US')}`
   return n < 0 ? `−${text}` : text
 }
+
+/** Cash minus debt, signed: "+$3.2B", "−$1.1B". */
+export const formatNetCash = (cash: number, debt: number) => `${cash - debt >= 0 ? '+' : ''}${formatUsd(cash - debt)}`

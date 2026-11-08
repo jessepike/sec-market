@@ -66,7 +66,7 @@ export function scan(requestBody = ''): { asOf: string; gaps: Gap[]; requests: {
 
   // Health lags growth: margins from an older quarter than the revenue beside them.
   add({ id: 'health-lags-growth', question: 'health', fix: 'data',
-    title: `Margins older than the revenue quarter shown beside them (health snapshot of ${healthFacts.generatedAt.slice(0, 10)}, not in the daily refresh)`,
+    title: `Margins older than the revenue quarter shown beside them (health figures of ${healthFacts.generatedAt.slice(0, 10)})`,
     items: [...new Set(rows.filter(r => {
       const h = r.health?.operatingMargin?.periodEnd
       const g = r.supplier.revenue?.latest.periodEnd
