@@ -1,0 +1,54 @@
+name: evidence archive migration
+
+# One-time copy of refs/archive/market-evidence from this repository to the
+# private evidence repository (jessepike/sec-market-private), so the archive of
+# third-party pages stays private when this repository is public. It copies the
+# ref exactly (same commits, same SHAs) and refuses to overwrite a different
+# history. Remove this workflow once the copy is verified.
+on:
+  push:
+    branches: [preview]
+    paths: ['ops/ci/evidence-migrate-request.json']
+  workflow_dispatch:
+
+permissions: {}
+concurrency:
+  group: evidence-migrate
+  cancel-in-progress: false
+
+jobs:
+  copy:
+    if: github.repository == 'jessepike/sec-market'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: ops/ci/evidence_key.sh
+          sparse-checkout-cone-mode: false
+      - name: Copy the evidence ref to the private repository and verify it
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SMP_EVIDENCE_DEPLOY_KEY: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          bash ops/ci/evidence_key.sh
+          ref=refs/archive/market-evidence
+          mirror="$RUNNER_TEMP/evidence-mirror.git"
+          git init --bare --quiet "$mirror"
+          git -C "$mirror" -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)" \
+            fetch --quiet --no-tags "https://github.com/${GITHUB_REPOSITORY}.git" "+$ref:$ref"
+          source=$(git -C "$mirror" rev-parse "$ref")
+          echo "source $ref at $source ($(git -C "$mirror" rev-list --count "$ref") commits)"
+          remote=git@github.com:jessepike/sec-market-private.git
+          existing=$(git -C "$mirror" ls-remote "$remote" "$ref" | cut -f1)
+          if [ -n "$existing" ] && [ "$existing" != "$source" ]; then
+            git -C "$mirror" merge-base --is-ancestor "$existing" "$source" || { echo "::error::private ref has a different history"; exit 1; }
+          fi
+          git -C "$mirror" push --quiet "$remote" "$source:$ref"
+          copied=$(git -C "$mirror" ls-remote "$remote" "$ref" | cut -f1)
+          test "$copied" = "$source"
+          echo "::notice title=evidence-migrate::private $ref now at $copied"
