@@ -1,0 +1,4 @@
+{
+  "cutoff": "2026-11-09T22:40:00Z",
+  "purpose": "Erase run logs and artifacts that print old evidence archive ids before the repository goes public."
+}
