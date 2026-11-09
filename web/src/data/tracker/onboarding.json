@@ -621,5 +621,39 @@
       "retrievedAt": "2026-11-07"
     }
   ],
-  "events": []
+  "events": [
+    {
+      "id": "EV-ob-aikido-1",
+      "supplierId": "aikido",
+      "date": "2026-01-14",
+      "type": "funding",
+      "text": "Aikido Security raised $60 million in a Series B led by DST Global at a $1 billion valuation.",
+      "evidenceIds": [
+        "OB-aikido-1"
+      ],
+      "rung": 4
+    },
+    {
+      "id": "EV-ob-7ai-1",
+      "supplierId": "7ai",
+      "date": "2025-12-04",
+      "type": "funding",
+      "text": "7AI announced a $130 million Series A led by Index Ventures.",
+      "evidenceIds": [
+        "OB-7ai-1"
+      ],
+      "rung": 4
+    },
+    {
+      "id": "EV-ob-straiker-1",
+      "supplierId": "straiker",
+      "date": "2026-06-30",
+      "type": "funding",
+      "text": "Straiker closed a $64 million Series A.",
+      "evidenceIds": [
+        "OB-straiker-1"
+      ],
+      "rung": 4
+    }
+  ]
 }

@@ -22,7 +22,7 @@ function quarterlyGrowth(edgarId: string) {
 /** The company's newest dated fact on file, for a page with no events: its last round, or its ownership change. */
 function lastFact(s: (typeof trackerSuppliers)[number]): string | null {
   if (s.lastRound) return `${s.lastRound.stage}, ${s.lastRound.amount}${s.lastRound.lead ? `, led by ${s.lastRound.lead}` : ''} (${s.lastRound.date})`
-  if (s.ownership) return `${s.ownership.status}${s.ownership.closed ? ` (${s.ownership.closed})` : s.ownership.announced ? ` (${s.ownership.announced})` : ''}`
+  if (s.ownership) return `${s.ownership.status.replace(/\.$/, '')}${s.ownership.closed ? ` (${s.ownership.closed})` : s.ownership.announced ? ` (${s.ownership.announced})` : ''}`
   return null
 }
 

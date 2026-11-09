@@ -2,6 +2,7 @@ import { effectiveManualTrackerSuppliers } from './correctionData'
 import { withEdgarRevenue } from './edgarRevenue'
 import { withReleaseRevenue } from './releaseRevenue'
 import { withDailyData } from './daily'
+import { graduatedSuppliers } from './graduation'
 /**
  * Tracked suppliers — step 5 of the autonomy plan
  * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4–5, D-76/D-77). One record per
@@ -94,4 +95,5 @@ export { originalManualTrackerSuppliers as manualTrackerSuppliers } from './corr
 
 
 // Displayed SEC revenue follows checked structured facts; collector-owned claims stay manual.
-export const trackerSuppliers = effectiveManualTrackerSuppliers.map(withDailyData).map(withEdgarRevenue).map(withReleaseRevenue)
+// Graduated onboarding suppliers (D-138) follow the reviewed originals.
+export const trackerSuppliers = [...effectiveManualTrackerSuppliers, ...graduatedSuppliers].map(withDailyData).map(withEdgarRevenue).map(withReleaseRevenue)

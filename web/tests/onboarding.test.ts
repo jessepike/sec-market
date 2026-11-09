@@ -56,10 +56,12 @@ describe('onboarding hold on daily data', () => {
   it('keeps an onboarding supplier event and its evidence out of the expected public views', async () => {
     const { expectedCurrentFacts, loadCurrentFactInputs } = await import('../scripts/verify-current-facts.ts')
     const inputs = loadCurrentFactInputs()
+    const held = inputs.onboardingSupplierIds?.[0]
+    if (!held) return // every onboarding supplier has graduated
     const evidence = { id: 'EV-synthetic-onboarding', title: 'Synthetic', organization: 'F5, Inc.', publicationDate: '2026-11-01',
       economicPeriod: 'N/A', canonicalUrl: 'https://www.f5.com/company/news/press-releases/synthetic', excerpt: 'Synthetic event text for the hold test.',
       sourceClass: 'IR', interpretation: '', limitations: '', conflictingEvidenceIds: [], artifactLabel: 'test', tags: [] }
-    const event = { id: 'EV-daily-synthetic', supplierId: 'f5', date: '2026-11-01', type: 'results' as const,
+    const event = { id: 'EV-daily-synthetic', supplierId: held, date: '2026-11-01', type: 'results' as const,
       text: 'Synthetic event text for the hold test.', evidenceIds: [evidence.id], rung: 1 as const }
     const daily = { ...inputs.daily, enabled: true, events: [...(inputs.daily.enabled ? inputs.daily.events : []), event],
       evidence: [...(inputs.daily.enabled ? inputs.daily.evidence : []), evidence], supplierUpdates: inputs.daily.enabled ? inputs.daily.supplierUpdates : {} }
@@ -68,5 +70,28 @@ describe('onboarding hold on daily data', () => {
     assert.ok(!views.evidenceRecords.some(e => e.id === evidence.id))
     const open = expectedCurrentFacts({ ...inputs, daily, onboardingSupplierIds: [] })
     assert.ok(open.retainedTrackerEvents.some(e => e.id === event.id))
+  })
+})
+
+describe('onboarding graduation', () => {
+  it('moves a graduated supplier, its evidence and events into the live views and out of the preview section', async () => {
+    const { splitOnboarding } = await import('../src/data/tracker/graduation.ts')
+    const onboarding = (await import('../src/data/tracker/onboarding.json', { with: { type: 'json' } })).default as Parameters<typeof splitOnboarding>[0]
+    const first = onboarding.suppliers[0].id
+    const split = splitOnboarding({ ...onboarding, graduated: { ...(onboarding.graduated ?? {}), [first]: { date: '2026-11-10', runIds: [] } } })
+    assert.ok(split.graduatedIds.has(first) && !split.heldIds.includes(first))
+    assert.ok(split.suppliers.some(s => s.id === first))
+    const cited = new Set(split.evidence.map(e => e.id))
+    for (const s of split.suppliers) for (const f of [s.revenue?.latest, s.headlineMetric, s.lastRound, s.ownership]) for (const id of f?.evidenceIds ?? []) assert.ok(cited.has(id), id)
+    const { expectedCurrentFacts, loadCurrentFactInputs } = await import('../scripts/verify-current-facts.ts')
+    const inputs = loadCurrentFactInputs()
+    const views = expectedCurrentFacts({ ...inputs, onboardingSupplierIds: split.heldIds, graduated: { suppliers: split.suppliers, evidence: split.evidence, events: split.events } })
+    assert.ok(views.trackerSuppliers.some(s => s.id === first))
+    for (const id of cited) assert.ok(views.evidenceById[id], id)
+  })
+
+  it('live tracker and preview section never overlap', () => {
+    const live = new Set(trackerSuppliers.map(s => s.id))
+    for (const s of onboardingSuppliers) assert.ok(!live.has(s.id), s.id)
   })
 })

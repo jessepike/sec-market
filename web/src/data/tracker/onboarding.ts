@@ -8,6 +8,7 @@
  */
 import { displayDomainIds } from './domains'
 import onboarding from './onboarding.json' with { type: 'json' }
+import { graduatedSupplierIds } from './graduation'
 import { coverageTierFor, coverageTiers, supplierKindLabel } from './coverage'
 import { trackerDomains } from './domains'
 import { shortSupplierName } from './derive'
@@ -27,7 +28,8 @@ export const showOnboarding: boolean =
     ? __SMP_SHOW_ONBOARDING__ === true
     : (globalThis as { process?: { env?: Record<string, string | undefined> } }).process?.env?.VERCEL_ENV === 'preview'
 
-export const onboardingSuppliers = onboarding.suppliers as TrackerSupplier[]
+// Graduated suppliers are live (graduation.ts); only the held ones show here.
+export const onboardingSuppliers = (onboarding.suppliers as TrackerSupplier[]).filter((s) => !graduatedSupplierIds.has(s.id))
 export const onboardingEvidence = onboarding.evidence as EvidenceRecordLike[]
 
 const evidenceById = new Map(onboardingEvidence.map((record) => [record.id, record]))

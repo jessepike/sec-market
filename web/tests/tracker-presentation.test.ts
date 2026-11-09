@@ -27,7 +27,8 @@ test('change log retains every recent event and latest filing once after groupin
 
 test('growth comparison excludes company metrics and segments, retaining exact signed reported percentages', () => {
   const rows = revenueGrowthRows()
-  assert.equal(rows.length, 18)
+  // 18 before onboarding graduations (D-138); a graduated SEC filer adds a row.
+  assert.ok(rows.length >= 18)
   assert.ok(rows.some(r => r.latest < 0))
   for (const row of rows) {
     assert.equal(row.supplier.kind, 'public')

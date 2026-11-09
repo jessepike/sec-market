@@ -14,6 +14,12 @@ import type { FactualCorrectionInventories, FactualCorrectionReviewPolicyMap } f
 import type { TrackerEvent } from '../src/data/tracker/events.ts'
 import type { TrackerSupplier } from '../src/data/tracker/suppliers.ts'
 import type { EvidenceRecord } from '../src/data/types.ts'
+import { splitOnboarding } from '../src/data/tracker/graduation.ts'
+
+function onboardingInputs(file: { suppliers: TrackerSupplier[]; evidence: EvidenceRecord[]; events: TrackerEvent[]; graduated?: Record<string, unknown> }) {
+  const split = splitOnboarding(file)
+  return { onboardingSupplierIds: split.heldIds, graduated: { suppliers: split.suppliers, evidence: split.evidence, events: split.events } }
+}
 
 export interface CurrentFactViews {
   handCollectedEvents: readonly TrackerEvent[]
@@ -46,6 +52,8 @@ export interface CurrentFactInputs {
   lastChecked: string
   /** Suppliers still onboarding (D-138): collected, but nothing of theirs publishes yet. */
   onboardingSupplierIds?: readonly string[]
+  /** Graduated onboarding records (D-138), appended after the reviewed originals. */
+  graduated?: { suppliers: TrackerSupplier[]; evidence: EvidenceRecord[]; events: TrackerEvent[] }
 }
 
 const copy = <T>(value: T): T => structuredClone(value)
@@ -59,7 +67,8 @@ export function expectedCurrentFacts(inputs: CurrentFactInputs): CurrentFactView
   const correctedEvents = projectEvents(originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup)
   const correctedSuppliers = projectSuppliers(originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup)
   const correctedEvidence = projectEvidence(originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup)
-  const expectedSuppliers = correctedSuppliers.map((supplier) => {
+  const grad = inputs.graduated ?? { suppliers: [], evidence: [], events: [] }
+  const expectedSuppliers = [...correctedSuppliers, ...copy(grad.suppliers)].map((supplier) => {
     const current = copy(supplier)
     if (daily.enabled) {
       const update = daily.supplierUpdates[supplier.id]
@@ -79,10 +88,10 @@ export function expectedCurrentFacts(inputs: CurrentFactInputs): CurrentFactView
     ...dailyUpdatesAll.filter(([sid]) => !held.has(sid)).flatMap(([, u]) => evidenceOf(u))])
   const heldEvidence = new Set([...dailyEventsAll.filter((e) => held.has(e.supplierId)).flatMap((e) => e.evidenceIds),
     ...dailyUpdatesAll.filter(([sid]) => held.has(sid)).flatMap(([, u]) => evidenceOf(u))].filter((id) => !keptEvidence.has(id)))
-  const retained = [...correctedEvents, ...copy(inputs.filingEvents), ...copy(dailyEventsAll.filter((e) => !held.has(e.supplierId)))]
+  const retained = [...correctedEvents, ...copy(grad.events), ...copy(inputs.filingEvents), ...copy(dailyEventsAll.filter((e) => !held.has(e.supplierId)))]
   const end = Date.parse(`${inputs.lastChecked}T00:00:00Z`)
   assert.ok(Number.isFinite(end), 'Current facts refused: invalid event window')
-  const evidence = [...correctedEvidence, ...copy(inputs.edgarEvidence), ...copy(inputs.filingEvidence), ...copy(daily.enabled ? daily.evidence.filter((record) => !heldEvidence.has(record.id)) : [])]
+  const evidence = [...correctedEvidence, ...copy(grad.evidence), ...copy(inputs.edgarEvidence), ...copy(inputs.filingEvidence), ...copy(daily.enabled ? daily.evidence.filter((record) => !heldEvidence.has(record.id)) : [])]
   return {
     handCollectedEvents: copy(originals.events),
     retainedTrackerEvents: retained,
@@ -120,7 +129,7 @@ export function loadCurrentFactInputs(web = resolve(dirname(fileURLToPath(import
     // 6-K results-release revenue (SEC-080) is company-reported and follows the SEC overlay.
     edgarEvidence: copy([...edgarRevenueEvidence, ...releaseRevenueEvidence]), applySecRevenue: (s) => withReleaseRevenue(withEdgarRevenue(s)),
     lastChecked: runStatus.lastChecked,
-    onboardingSupplierIds: read<{ suppliers: Array<{ id: string }> }>('src/data/tracker/onboarding.json').suppliers.map((s) => s.id),
+    ...onboardingInputs(read<{ suppliers: TrackerSupplier[]; evidence: EvidenceRecord[]; events: TrackerEvent[]; graduated?: Record<string, unknown> }>('src/data/tracker/onboarding.json')),
   }
 }
 

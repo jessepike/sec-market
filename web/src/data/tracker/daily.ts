@@ -1,5 +1,5 @@
 import raw from '../generated/dailyMarket.json' with { type: 'json' }
-import onboarding from './onboarding.json' with { type: 'json' }
+import { heldOnboardingIds } from './graduation'
 import type { EvidenceRecord } from '../types'
 import type { TrackerEvent } from './events'
 import type { TrackerSupplier } from './suppliers'
@@ -21,7 +21,7 @@ export const dailySnapshot = raw as unknown as Snapshot
 // Suppliers still onboarding (D-138) are collected by the pipeline but publish
 // nothing until they graduate: their daily events, and evidence used only by
 // them, stay out of every page and export.
-export const onboardingSupplierIds: ReadonlySet<string> = new Set(onboarding.suppliers.map((s) => s.id))
+export const onboardingSupplierIds: ReadonlySet<string> = new Set(heldOnboardingIds)
 const allEvents = dailySnapshot.enabled ? dailySnapshot.events : []
 const allUpdates = Object.entries(dailySnapshot.enabled ? dailySnapshot.supplierUpdates ?? {} : {})
 const updateEvidence = (u: Update) => [...(u.headlineMetric?.evidenceIds ?? []), ...(u.lastRound?.evidenceIds ?? [])]

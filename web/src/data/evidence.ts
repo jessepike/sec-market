@@ -3,6 +3,7 @@ import { edgarRevenueEvidence } from './tracker/edgarRevenue'
 import { releaseRevenueEvidence } from './tracker/releaseRevenue'
 import type { EvidenceRecord } from './types'
 import { dailyEvidence } from './tracker/daily'
+import { graduatedEvidence } from './tracker/graduation'
 import generatedFilingEvidence from './generated/filingEvidence.json' with { type: 'json' }
 
 export { originalHandWrittenEvidenceRecords as handWrittenEvidenceRecords } from './tracker/correctionData'
@@ -10,6 +11,7 @@ export { originalHandWrittenEvidenceRecords as handWrittenEvidenceRecords } from
 
 export const evidenceRecords: EvidenceRecord[] = [
   ...effectiveHandWrittenEvidenceRecords,
+  ...graduatedEvidence,
   ...edgarRevenueEvidence,
   ...releaseRevenueEvidence,
   ...(generatedFilingEvidence as EvidenceRecord[]),

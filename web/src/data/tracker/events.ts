@@ -9,6 +9,7 @@
  */
 
 import { effectiveHandCollectedEvents, originalHandCollectedEvents } from './correctionData'
+import { graduatedEvents } from './graduation'
 import generatedFilingEvents from '../generated/filingEvents.json' with { type: 'json' }
 import { runStatus } from '../runStatus'
 import { dailyEvents } from './daily'
@@ -51,6 +52,7 @@ export { originalHandCollectedEvents as handCollectedEvents, effectiveHandCollec
 
 export const retainedTrackerEvents: TrackerEvent[] = [
   ...effectiveHandCollectedEvents,
+  ...graduatedEvents,
   ...(generatedFilingEvents as TrackerEvent[]),
   ...dailyEvents,
 ]
