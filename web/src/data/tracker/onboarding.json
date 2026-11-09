@@ -655,5 +655,55 @@
       ],
       "rung": 4
     }
-  ]
+  ],
+  "graduated": {
+    "aikido": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "7ai": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "straiker": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "semgrep": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "endor-labs": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "checkmarx": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "black-duck": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    },
+    "noma": {
+      "date": "2026-11-09",
+      "runIds": [
+        "96cd356b7da952e515eb06895ea2147fdedf1d5e80cd236de2d62666a8da7bad"
+      ]
+    }
+  }
 }

@@ -1,7 +1,8 @@
 """Graduate onboarding suppliers to the live tracker (D-138).
 
-A supplier in web/src/data/tracker/onboarding.json goes live after three
-consecutive clean daily runs. A run is clean for a supplier when, in that day's
+A supplier in web/src/data/tracker/onboarding.json goes live after one clean
+scheduled daily run (owner, 2026-11-09; the plan's three runs were never asked
+for) plus every build check passing. A run is clean for a supplier when, in that day's
 scheduled run:
   1. every seed record verifies: each citation source either still matches, or
      an -alt copy of the same record does (the original may be blocked);
@@ -107,7 +108,7 @@ def graduate(report_by_id, ids, today):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true'); ap.add_argument('--archive', default=str(ROOT))
-    ap.add_argument('--runs', type=int, default=3); ap.add_argument('--json')
+    ap.add_argument('--runs', type=int, default=1); ap.add_argument('--json')
     ap.add_argument('--only', nargs='*', help='graduate these ids regardless of the run check (testing)')
     a = ap.parse_args()
     report = evaluate(a.archive, a.runs)

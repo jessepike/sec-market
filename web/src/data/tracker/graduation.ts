@@ -1,7 +1,7 @@
 /**
  * Graduation from onboarding (D-138). onboarding.json lists every supplier that
  * entered through the onboarding gate. `graduated` names the ones that passed
- * three consecutive clean daily runs (ops/onboarding/graduate.py). A graduated
+ * a clean daily run and every build check (ops/onboarding/graduate.py). A graduated
  * supplier's seed record, its evidence and its events join the live tracker;
  * the rest stay held on preview builds only.
  *
