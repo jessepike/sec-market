@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "244f6742a2144c750de8a78757b0521c311bb6ae5a2f0782cfa7d28d60479448",
+  "activatedContractSha256": "ca752c0be8f905af30a6850920379832b3d5ee77ee5b8c8c6d7e28406664531b",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -100,7 +100,8 @@
     "endor-labs:citation:OB-endor-labs-1-alt",
     "black-duck:citation:OB-black-duck-1-alt",
     "axonius:citation:TR-axonius-1-alt2",
-    "axonius:citation:TR-axonius-2-alt2"
+    "axonius:citation:TR-axonius-2-alt2",
+    "checkpoint-email:official:3"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
@@ -182,6 +183,9 @@
     ],
     "rapid7": [
       "rapid7:official:2"
+    ],
+    "checkpoint-email": [
+      "checkpoint-email:official:3"
     ]
   }
 }

@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-09T06:12:19.734Z",
+ "generatedAt": "2026-10-21T04:45:17.623Z",
  "method": {
   "operatingMargin": "OperatingIncomeLoss over revenue, trailing four quarters ending on the latest revenue quarter. Year-to-date facts are converted with the prior fiscal year: FY + YTD - prior YTD.",
   "fcfMargin": "NetCashProvidedByUsedInOperatingActivities minus PaymentsToAcquirePropertyPlantAndEquipment (PaymentsToAcquireProductiveAssets when PP&E is not tagged) minus capitalized software (PaymentsToDevelopSoftware or PaymentsForSoftware), over revenue, trailing four quarters.",
@@ -72,44 +72,44 @@
   },
   "fortinet": {
    "operatingMargin": {
-    "value": 33,
-    "periodEnd": "2026-09-30",
+    "value": 32.4,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/0001262039-26-000027-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000021/0001262039-26-000021-index.htm"
    },
    "fcfMargin": {
-    "value": 43.5,
-    "periodEnd": "2026-09-30",
+    "value": 41.4,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/0001262039-26-000027-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000021/0001262039-26-000021-index.htm"
    },
    "balance": {
-    "cash": 3750600000,
-    "debt": 497100000,
-    "asOf": "2026-09-30",
+    "cash": 2934900000,
+    "debt": 496900000,
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000027/0001262039-26-000027-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1262039/000126203926000021/0001262039-26-000021-index.htm"
    }
   },
   "cloudflare": {
    "operatingMargin": {
     "value": -14.1,
-    "periodEnd": "2026-09-30",
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000061/0001477333-26-000061-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000054/0001477333-26-000054-index.htm"
    },
    "fcfMargin": {
-    "value": 13.2,
-    "periodEnd": "2026-09-30",
+    "value": 13.9,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000061/0001477333-26-000061-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000054/0001477333-26-000054-index.htm"
    },
    "balance": {
-    "cash": 5128693000,
-    "debt": 4441900000,
-    "asOf": "2026-09-30",
+    "cash": 4162798000,
+    "debt": 3270266000,
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000061/0001477333-26-000061-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000054/0001477333-26-000054-index.htm"
    }
   },
   "okta": {
@@ -198,23 +198,23 @@
   },
   "varonis": {
    "operatingMargin": {
-    "value": -22.8,
-    "periodEnd": "2026-09-30",
+    "value": -22,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000162828026070185/0001628280-26-070185-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000162828026050630/0001628280-26-050630-index.htm"
    },
    "fcfMargin": {
-    "value": 16.1,
-    "periodEnd": "2026-09-30",
+    "value": 17.2,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000162828026070185/0001628280-26-070185-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000162828026050630/0001628280-26-050630-index.htm"
    },
    "balance": {
-    "cash": 593667000,
-    "debt": 453792000,
-    "asOf": "2026-09-30",
+    "cash": 660117000,
+    "debt": 453278000,
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000162828026070185/0001628280-26-070185-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000162828026050630/0001628280-26-050630-index.htm"
    }
   },
   "netskope": {
@@ -240,23 +240,23 @@
   },
   "tenable": {
    "operatingMargin": {
-    "value": 4.4,
-    "periodEnd": "2026-09-30",
+    "value": 3.6,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000054/0001660280-26-000054-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000035/0001660280-26-000035-index.htm"
    },
    "fcfMargin": {
-    "value": 25,
-    "periodEnd": "2026-09-30",
+    "value": 24.4,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000054/0001660280-26-000054-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000035/0001660280-26-000035-index.htm"
    },
    "balance": {
-    "cash": 495261000,
-    "debt": 779016000,
-    "asOf": "2026-09-30",
+    "cash": 298209000,
+    "debt": 358125000,
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000054/0001660280-26-000054-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000035/0001660280-26-000035-index.htm"
    }
   },
   "qualys": {
@@ -282,65 +282,65 @@
   },
   "rapid7": {
    "operatingMargin": {
-    "value": 1.6,
-    "periodEnd": "2026-09-30",
+    "value": 1.2,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000050/0001560327-26-000050-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000044/0001560327-26-000044-index.htm"
    },
    "fcfMargin": {
-    "value": 14.6,
-    "periodEnd": "2026-09-30",
+    "value": 15,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000050/0001560327-26-000050-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000044/0001560327-26-000044-index.htm"
    },
    "balance": {
-    "cash": 731567000,
-    "debt": 895238000,
-    "asOf": "2026-09-30",
+    "cash": 702579000,
+    "debt": 894226000,
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000050/0001560327-26-000050-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000044/0001560327-26-000044-index.htm"
    }
   },
   "commvault": {
    "operatingMargin": {
-    "value": 7.4,
-    "periodEnd": "2026-09-30",
+    "value": 6.1,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000035/0001169561-26-000035-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm"
    },
    "fcfMargin": {
-    "value": 20.4,
-    "periodEnd": "2026-09-30",
+    "value": 21.3,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000035/0001169561-26-000035-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm"
    },
    "balance": {
-    "cash": 897250000,
-    "debt": 882989000,
-    "asOf": "2026-09-30",
+    "cash": 929837000,
+    "debt": 881926000,
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000035/0001169561-26-000035-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm"
    }
   },
   "jfrog": {
    "operatingMargin": {
-    "value": -7.7,
-    "periodEnd": "2026-09-30",
+    "value": -11.5,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526451981/0001193125-26-451981-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm"
    },
    "fcfMargin": {
-    "value": 32.3,
-    "periodEnd": "2026-09-30",
+    "value": 28.3,
+    "periodEnd": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526451981/0001193125-26-451981-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm"
    },
    "balance": {
-    "cash": 880888000,
+    "cash": 824486000,
     "debt": null,
-    "asOf": "2026-09-30",
+    "asOf": "2026-06-30",
     "form": "10-Q",
-    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526451981/0001193125-26-451981-index.htm"
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm"
    }
   }
  },

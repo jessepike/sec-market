@@ -231,17 +231,6 @@
     "rung": 1
   },
   {
-    "id": "EV-filing-varonis-0001213900-26-116540",
-    "supplierId": "varonis",
-    "date": "2026-11-06",
-    "type": "acquisition",
-    "text": "Form PREM14A reporting a preliminary proxy statement for a proposed merger, filed 2026-11-06.",
-    "evidenceIds": [
-      "TR-filing-varonis-0001213900-26-116540"
-    ],
-    "rung": 1
-  },
-  {
     "id": "EV-filing-varonis-0001213900-26-109901",
     "supplierId": "varonis",
     "date": "2026-10-15",

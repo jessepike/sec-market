@@ -8437,6 +8437,25 @@
       "seedEvidenceUrls": [],
       "supplierId": "axonius",
       "url": "https://www.ynetnews.com/business/article/hkmq8sfkze"
+    },
+    {
+      "allowedHosts": [
+        "blog.checkpoint.com"
+      ],
+      "family": "official_announcements",
+      "id": "checkpoint-email:official:3",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/email-security/"
+      ],
+      "seedEvidenceUrls": [
+        "https://blog.checkpoint.com/email-security/beyond-unified-detection-what-email-security-teams-need-to-control/"
+      ],
+      "supplierId": "checkpoint-email",
+      "url": "https://blog.checkpoint.com/category/email-security/feed/"
     }
   ],
   "suppliers": [
@@ -8988,7 +9007,8 @@
         "checkpoint-email:official:1",
         "checkpoint-email:official:2",
         "checkpoint-email:citation:TR-checkpoint-email-1",
-        "checkpoint-email:citation:TR-checkpoint-email-2"
+        "checkpoint-email:citation:TR-checkpoint-email-2",
+        "checkpoint-email:official:3"
       ],
       "startupStatus": "unclassified"
     },
