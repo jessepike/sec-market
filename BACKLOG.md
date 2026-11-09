@@ -20,6 +20,7 @@ Look back on the first days of automatic operation and check costs before covera
 Measured data only; flag anything unverified with the check that would settle it. Baseline:
 [docs/active/cost-review/baseline-2026-11-05.md](docs/active/cost-review/baseline-2026-11-05.md).
 **Authorization:** requested by the owner 2026-11-06; read-only review.
+Reviewed 2026-11-09. Vercel previews now build only from `preview`, and only when `web/` or `contracts/` changed (f984884, 4e4aa6b). Open: move the `market-pipeline-timer` Vercel project off Turbo builds.
 
 ### SEC-072 · Make the current site consistently accurate, fresh and durable
 
