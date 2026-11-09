@@ -1,0 +1,152 @@
+<title>Source Scorecard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: summary band, then a filterable ledger with one row per company that opens to its sources. */
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --fg:#17202b; --muted:#5b6675; --line:#dfe3e9; --accent:#2f5d8a;
+  --ok:#1f7a4d; --ok-bg:#e3f3ea; --wait:#8a6a12; --wait-bg:#fbf1d6; --block:#a8322b; --block-bg:#fbe4e2;
+  --setup:#5b6675; --setup-bg:#eceff3; --err:#7a3fa0; --err-bg:#f1e6f8;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12161c; --panel:#1a2029; --fg:#e6eaf0; --muted:#98a3b3; --line:#2c3440; --accent:#7fb0e0;
+  --ok:#6fd3a0; --ok-bg:#183326; --wait:#e8c264; --wait-bg:#3a3018; --block:#f0857c; --block-bg:#3d1f1d;
+  --setup:#a9b3c1; --setup-bg:#262d37; --err:#cfa2ec; --err-bg:#2f2238; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12161c; --panel:#1a2029; --fg:#e6eaf0; --muted:#98a3b3; --line:#2c3440; --accent:#7fb0e0;
+  --ok:#6fd3a0; --ok-bg:#183326; --wait:#e8c264; --wait-bg:#3a3018; --block:#f0857c; --block-bg:#3d1f1d;
+  --setup:#a9b3c1; --setup-bg:#262d37; --err:#cfa2ec; --err-bg:#2f2238; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+h1{font-size:1.6rem;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.lede{color:var(--muted);margin:4px 0 0;max-width:68ch}
+.mono{font-family:var(--mono);font-size:.82rem}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.box h2{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0;font-weight:600}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;background:var(--line)}
+.bar span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem}
+.legend b{font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:baseline}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:5px 12px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.chip:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+input[type=search]{font:inherit;font-size:.9rem;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--fg);min-width:0;flex:1 1 200px;max-width:320px}
+.ledger{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;background:var(--panel);overflow:hidden}
+details{border-top:1px solid var(--line)}
+details:first-child{border-top:0}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1.6fr) auto minmax(0,2fr);gap:12px;align-items:center;padding:10px 14px}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--bg)}
+.name{font-weight:600;min-width:0}
+.name small{display:block;font-weight:400;color:var(--muted);font-size:.8rem}
+.tags{display:inline-flex;gap:4px;flex-wrap:wrap;margin-left:6px;vertical-align:middle}
+.tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;border:1px solid var(--line);color:var(--muted);border-radius:4px;padding:0 5px;font-weight:500}
+.pill{font-size:.78rem;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap;justify-self:start}
+.p-good{background:var(--ok-bg);color:var(--ok)} .p-partial{background:var(--wait-bg);color:var(--wait)} .p-none{background:var(--block-bg);color:var(--block)} .p-parent{background:var(--setup-bg);color:var(--setup)}
+.act{grid-column:1/-1;font-size:.84rem;color:var(--muted);display:flex;gap:8px;align-items:baseline}
+.act b{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:1px 6px;border-radius:4px;white-space:nowrap}
+.a-fixing{background:var(--wait-bg);color:var(--wait)} .a-watching{background:var(--ok-bg);color:var(--ok)} .a-decision{background:var(--block-bg);color:var(--block)}
+.mini{display:flex;gap:3px;flex-wrap:wrap;min-width:0}
+.mini i{width:12px;height:12px;border-radius:3px;display:block}
+.s-ok{background:var(--ok)} .s-waiting{background:var(--wait)} .s-blocked{background:var(--block)} .s-setup{background:var(--setup);opacity:.55} .s-error{background:var(--err)} .s-new{background:var(--accent)}
+.detail{padding:4px 14px 14px;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:620px}
+th{text-align:left;font-weight:600;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:6px 8px;border-bottom:1px solid var(--line)}
+td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td a{color:var(--accent);text-decoration:none;word-break:break-all}
+td a:hover{text-decoration:underline}
+.st{font-weight:600;font-size:.78rem;padding:1px 8px;border-radius:4px;white-space:nowrap}
+.st-ok{background:var(--ok-bg);color:var(--ok)} .st-waiting{background:var(--wait-bg);color:var(--wait)} .st-blocked{background:var(--block-bg);color:var(--block)} .st-setup{background:var(--setup-bg);color:var(--setup)} .st-error{background:var(--err-bg);color:var(--err)} .st-new{background:var(--setup-bg);color:var(--accent)}
+.gaps{color:var(--muted);font-size:.84rem;margin-top:8px}
+.empty{padding:24px;color:var(--muted);text-align:center}
+.foot{color:var(--muted);font-size:.84rem;max-width:80ch}
+@media (max-width:640px){summary{grid-template-columns:minmax(0,1fr) auto}.mini{grid-column:1/-1}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Source Scorecard</h1>
+    <p class="lede">Every company the tracker covers, the sources it reads for each one, and what happened to each source on the latest daily run. <span class="mono" id="meta"></span></p>
+  </header>
+
+  <section class="summary" aria-label="Summary">
+    <div class="box"><h2>Companies</h2><div class="bar" id="cbar"></div><div class="legend" id="cleg"></div></div>
+    <div class="box"><h2>Sources on the latest run</h2><div class="bar" id="sbar"></div><div class="legend" id="sleg"></div></div>
+  </section>
+
+  <div class="controls" role="toolbar" aria-label="Filter companies">
+    <button class="chip" id="f-all" aria-pressed="true" data-f="all">All</button>
+    <button class="chip" id="f-none" aria-pressed="false" data-f="none">No working company source</button>
+    <button class="chip" id="f-parent" aria-pressed="false" data-f="parent">Covered by parent filings</button>
+    <button class="chip" id="f-decision" aria-pressed="false" data-f="decision">Needs your decision</button>
+    <button class="chip" id="f-partial" aria-pressed="false" data-f="partial">Reachable, review queued</button>
+    <button class="chip" id="f-good" aria-pressed="false" data-f="good">Collected</button>
+    <button class="chip" id="f-blocked" aria-pressed="false" data-f="blocked">Has a blocked source</button>
+    <input type="search" id="q" placeholder="Find a company" aria-label="Find a company">
+  </div>
+
+  <div class="ledger" id="ledger"></div>
+
+  <p class="foot">
+    <b>Collected</b>: at least one company newsroom, wire, owner or SEC source was read and reviewed on the latest run.
+    <b>Reachable, review queued</b>: the sources answered, but the run's AI review budget or time ran out before the pages were checked.
+    <b>Covered by parent filings</b>: a product line of a public company, or a company a public company bought. Its figures come from the parent's SEC filings, and those records are rechecked every run.
+    <b>No working company source</b>: the company is covered only by single saved records (citations) until a newsroom or filing source works.
+    Single records are rechecked daily to confirm the cited page still says what we quote. "Missing source types" lists kinds of source the contract expects but has none registered for.
+  </p>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const LABEL = {ok:'Collected', waiting:'Review queued', blocked:'Blocked', setup:'Not set up', error:'Error', new:'New'};
+const HLABEL = {good:'Collected', partial:'Review queued', none:'No working company source', parent:'Covered by parent filings'};
+const ALABEL = {fixing:'Fixing', watching:'Fix in place', decision:'Needs your decision'};
+const HCOL = {good:'var(--ok)', partial:'var(--wait)', none:'var(--block)', parent:'var(--setup)'};
+const SCOL = {ok:'var(--ok)', waiting:'var(--wait)', blocked:'var(--block)', setup:'var(--setup)', error:'var(--err)', new:'var(--accent)'};
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('meta').textContent = `Latest run ${D.latestRun}. Runs read: ${D.runDays.join(', ')}.`;
+
+function bar(el, leg, counts, order, cols, labels){
+  const tot = order.reduce((a,k)=>a+(counts[k]||0),0);
+  el.innerHTML = order.filter(k=>counts[k]).map(k=>`<span style="width:${(counts[k]/tot*100).toFixed(2)}%;background:${cols[k]}" title="${labels[k]}: ${counts[k]}"></span>`).join('');
+  leg.innerHTML = order.filter(k=>counts[k]).map(k=>`<span><i class="dot" style="background:${cols[k]}"></i>${labels[k]} <b>${counts[k]}</b></span>`).join('');
+}
+const hc = {}, sc = {};
+for (const s of D.suppliers){ hc[s.health]=(hc[s.health]||0)+1; for (const r of s.sources) sc[r.status]=(sc[r.status]||0)+1; }
+bar(cbar, cleg, hc, ['good','partial','parent','none'], HCOL, HLABEL);
+bar(sbar, sleg, sc, ['ok','waiting','blocked','error','setup','new'], SCOL, LABEL);
+
+const ORDER = {none:0, partial:1, parent:2, good:3};
+const rows = [...D.suppliers].sort((a,b)=>ORDER[a.health]-ORDER[b.health] || a.name.localeCompare(b.name));
+const SORDER = {blocked:0,error:1,waiting:2,setup:3,new:4,ok:5};
+function card(s){
+  const tags = [s.kind==='public'?'Public':'Private', s.certified?'SEC certified':'', s.onboarding?'Onboarding':''].filter(Boolean).map(t=>`<span class="tag">${t}</span>`).join('');
+  const srcs = [...s.sources].sort((a,b)=>SORDER[a.status]-SORDER[b.status]);
+  const mini = srcs.map(r=>`<i class="s-${r.status}" title="${esc(r.label)}: ${LABEL[r.status]}"></i>`).join('');
+  const body = srcs.map(r=>`<tr><td><span class="st st-${r.status}">${LABEL[r.status]}</span></td><td>${esc(r.label)}<br><a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.host)}</a></td><td>${esc(r.reason)}</td><td class="mono">${r.lastOk||'never'}</td></tr>`).join('');
+  const gaps = s.missingFamilies.length ? `<div class="gaps">Missing source types: ${esc(s.missingFamilies.join(', '))}</div>` : '';
+  return `<details data-h="${s.health}" data-b="${s.sources.some(r=>r.status==='blocked')}" data-a="${s.action?s.action.state:''}" data-n="${esc(s.name.toLowerCase())}">
+    <summary><span class="name">${esc(s.name)}<span class="tags">${tags}</span><small>${s.sources.length} sources, ${s.counts.ok||0} collected</small></span>
+    <span class="pill p-${s.health}">${HLABEL[s.health]}</span><span class="mini">${mini}</span>${s.action?`<span class="act"><b class="a-${s.action.state}">${ALABEL[s.action.state]}</b><span>${esc(s.action.text)}</span></span>`:''}</summary>
+    <div class="detail"><table><thead><tr><th>Status</th><th>Source</th><th>Latest result</th><th>Last collected</th></tr></thead><tbody>${body}</tbody></table>${gaps}</div></details>`;
+}
+ledger.innerHTML = rows.map(card).join('');
+let filter='all';
+function apply(){
+  const q = document.getElementById('q').value.trim().toLowerCase(); let shown=0;
+  for (const d of ledger.querySelectorAll('details')){
+    const ok = (filter==='all' || (filter==='blocked' ? d.dataset.b==='true' : filter==='decision' ? d.dataset.a==='decision' : d.dataset.h===filter)) && (!q || d.dataset.n.includes(q));
+    d.hidden = !ok; if (ok) shown++;
+  }
+  let e = document.getElementById('empty');
+  if (!shown){ if(!e){e=document.createElement('div');e.id='empty';e.className='empty';e.textContent='No companies match this filter.';ledger.after(e);} e.hidden=false;} else if(e) e.hidden=true;
+}
+for (const b of document.querySelectorAll('.chip')) b.addEventListener('click',()=>{filter=b.dataset.f;for(const c of document.querySelectorAll('.chip'))c.setAttribute('aria-pressed',String(c===b));apply();});
+document.getElementById('q').addEventListener('input',apply);
+</script>

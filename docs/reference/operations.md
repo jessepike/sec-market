@@ -94,3 +94,11 @@ A company qualifies if it files 10-Q and 10-K reports with XBRL revenue under it
 GitHub, Vercel and Cloudflare are under the owner's accounts, with passkey and two-factor sign-in.
 Agents do not create tokens or copy credentials into CI (D-83). Open account items are
 backlog item SEC-061 in [BACKLOG.md](../../BACKLOG.md).
+
+## Source scorecard
+
+`python3 ops/scorecard/build.py OUT_DIR [--archive DIR]` reads the last 7 daily runs from
+`refs/archive/market-evidence` and writes `scorecard.json` (per company: each source's latest result,
+last good date, missing source types, and the action in `ops/scorecard/actions.json`) and
+`scorecard.html`, the owner's private page. Agents keep `actions.json` current: every company
+flagged red carries what is being done about it (fixing, fix in place, or needs the owner's decision).

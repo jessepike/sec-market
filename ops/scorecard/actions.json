@@ -1,0 +1,16 @@
+{
+  "note": "What is being done about each company the scorecard flags. Kept by agents; state is fixing (an agent is on it), decision (waiting on the owner) or watching (fixed, confirming on the next runs).",
+  "actions": {
+    "ping-identity": {"state": "watching", "since": "2026-11-09", "text": "Newsroom page parser fails; added the newsroom's RSS feed (ping-identity:official:3). Confirming on the Nov 10 run."},
+    "sonatype": {"state": "watching", "since": "2026-11-09", "text": "Newsroom page parser fails; added the press-release RSS feed (sonatype:official:2). Confirming on the Nov 10 run."},
+    "xage": {"state": "watching", "since": "2026-11-09", "text": "Had no newsroom source; added the press RSS feed (xage:official:2). Confirming on the Nov 10 run."},
+    "tines": {"state": "watching", "since": "2026-11-09", "text": "No press page exists; added the company blog feed, where funding and launches are announced (tines:official:2). Confirming on the Nov 10 run."},
+    "checkpoint-email": {"state": "watching", "since": "2026-11-09", "text": "Added the email-security blog feed (checkpoint-email:official:3). Confirming on the Nov 10 run."},
+    "barracuda": {"state": "decision", "since": "2026-11-09", "text": "Releases go out only on Business Wire, which refuses the collector, and the blog feed is closed to robots. Option on the table: a Bing News feed of trade coverage (new kind of source)."},
+    "axonius": {"state": "fixing", "since": "2026-11-09", "text": "Company site rate-limits the collector. Records copied to ynetnews and siliconangle work; looking for a wire or trade feed."},
+    "bigid": {"state": "fixing", "since": "2026-11-09", "text": "Releases go out on PRWeb and PR Newswire; the company site has no feed. Next: qualify the PR Newswire adapter for BigID."},
+    "claroty": {"state": "fixing", "since": "2026-11-09", "text": "Press releases are not in the sitemap and have no feed. Next: a press-page adapter or the PR Newswire adapter."},
+    "veracode": {"state": "fixing", "since": "2026-11-09", "text": "Press releases go out on Business Wire (refused) and the site's press feed is empty. Next: a press-page adapter."},
+    "delinea": {"state": "fixing", "since": "2026-11-09", "text": "Newsroom page parser fails and GlobeNewswire refuses the collector. Eight saved records still verify. Next: repair the newsroom parser."}
+  }
+}
