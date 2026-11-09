@@ -8532,6 +8532,60 @@
       ],
       "supplierId": "tines",
       "url": "https://www.tines.com/rss/tines-blog.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.silicon.co.uk"
+      ],
+      "evidenceId": "OB-lumos-1",
+      "family": "citation_integrity",
+      "id": "lumos:citation:OB-lumos-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "lumos",
+      "url": "https://www.silicon.co.uk/press-release/lumos-secures-35m-series-b-funding-to-unify-the-saas-and-identity-management-industries"
+    },
+    {
+      "allowedHosts": [
+        "www.silicon.co.uk"
+      ],
+      "evidenceId": "OB-skyflow-1",
+      "family": "citation_integrity",
+      "id": "skyflow:citation:OB-skyflow-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "skyflow",
+      "url": "https://www.silicon.co.uk/press-release/skyflow-raises-30-million-led-by-khosla-ventures-for-data-privacy-in-ai-and-global-data-residency"
+    },
+    {
+      "allowedHosts": [
+        "cioinfluence.com"
+      ],
+      "evidenceId": "OB-secuvy-1",
+      "family": "citation_integrity",
+      "id": "secuvy:citation:OB-secuvy-1-alt",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "secuvy",
+      "url": "https://cioinfluence.com/security/secuvy-announces-new-investments-from-dell-technologies-capital-and-westwave-capital-to-modernize-data-privacy-and-security/"
     }
   ],
   "suppliers": [
@@ -9983,7 +10037,8 @@
         "lumos:official:1",
         "lumos:citation:OB-lumos-1",
         "lumos:official:2",
-        "lumos:citation:OB-lumos-2"
+        "lumos:citation:OB-lumos-2",
+        "lumos:citation:OB-lumos-1-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -10839,7 +10894,8 @@
         "secuvy:official:1",
         "secuvy:citation:OB-secuvy-1",
         "secuvy:official:2",
-        "secuvy:citation:OB-secuvy-2"
+        "secuvy:citation:OB-secuvy-2",
+        "secuvy:citation:OB-secuvy-1-alt"
       ],
       "startupStatus": "unclassified"
     },
@@ -10906,7 +10962,8 @@
         "skyflow:official:1",
         "skyflow:citation:OB-skyflow-1",
         "skyflow:official:2",
-        "skyflow:citation:OB-skyflow-2"
+        "skyflow:citation:OB-skyflow-2",
+        "skyflow:citation:OB-skyflow-1-alt"
       ],
       "startupStatus": "unclassified"
     },

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "8f6ae74a16b3c06d7bff545df59b47f267b53616ac215d575b19bfc5d7152e6f",
+  "activatedContractSha256": "96d48c637822af9f500c08e152d3b95a4930bc764cc71dcf2e21e56444406655",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -105,7 +105,10 @@
     "ping-identity:official:3",
     "sonatype:official:2",
     "xage:official:2",
-    "tines:official:2"
+    "tines:official:2",
+    "lumos:citation:OB-lumos-1-alt",
+    "skyflow:citation:OB-skyflow-1-alt",
+    "secuvy:citation:OB-secuvy-1-alt"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
