@@ -115,6 +115,25 @@
       "weekOf": "2026-10-26"
     },
     {
+      "amountUsd": 10000000,
+      "checkedAt": "2026-11-09",
+      "company": "ARMS Cyber",
+      "companyUrl": "https://www.armscyber.com",
+      "confirmation": "Form D total amount sold differs",
+      "country": "US",
+      "foundVia": {
+        "issue": 268,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-268"
+      },
+      "id": "arms-cyber:2026-10-26:venture-round",
+      "lead": null,
+      "sourceKind": "sec-form-d",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2161341/000216134126000001/xslFormDX01/primary_doc.xml",
+      "stage": "Venture round",
+      "weekOf": "2026-10-26"
+    },
+    {
       "amountUsd": 316200,
       "checkedAt": "2026-11-06",
       "company": "Sunnies",
@@ -776,10 +795,11 @@
       "url": "https://www.ylventures.com/portfolio/"
     }
   },
-  "postsProcessed": [],
+  "postsProcessed": [
+    268
+  ],
   "retries": {
-    "arms-cyber:2026-10-26:venture-round": 1,
-    "ultra-security:2026-10-19:seed": 1
+    "ultra-security:2026-10-19:seed": 2
   },
   "rounds": [
     {
@@ -993,5 +1013,5 @@
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-11-06"
+  "updatedAt": "2026-11-09"
 }
