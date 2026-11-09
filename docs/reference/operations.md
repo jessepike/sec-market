@@ -61,6 +61,12 @@ node scripts/shot.mjs <url> <prefix>   # full-page screenshots at 1440 and 390 (
 6. The next gated publisher run delivers it. Confirm the acknowledged release and
    `https://securitymarketpulse.com/app-release.json` before reporting it live.
 
+A change to `contracts/market.json` on `preview` also restores `web/src/data/generated` from `main`
+(`git checkout origin/main -- web/src/data/generated`). After each release the publisher copies the
+gate's accepted data to `preview` (`ops/ci/preview_data.py`). That data is stamped with the release's
+contract, so the preview build and `test:data` refuse it under a newer contract. The copy step refuses
+it too, until the next release after promotion.
+
 Install the push hook once per clone: `./.githooks/install`.
 
 ## Rolling back

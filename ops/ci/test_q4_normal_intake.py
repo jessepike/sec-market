@@ -1,5 +1,6 @@
 """Exact-J offline integration. Actual proof is read-only; transport is synthetic."""
 import copy
+import gzip
 import json
 import os
 from pathlib import Path
@@ -120,7 +121,9 @@ class ActualProofTests(unittest.TestCase):
         self.assertEqual(checked['plan']['sources'], [])
 
     def test_python_zero_credit_baseline_exact_and_mutations_reject(self):
-        value = json.loads((ROOT / 'web/src/data/generated/dailyMarket.json').read_bytes())
+        # The zero-credit baseline is frozen as a fixture: preview's generated data is
+        # replaced by gate-accepted copies after each release (ops/ci/preview_data.py).
+        value = json.loads(gzip.decompress((ROOT / 'ops/ci/fixtures/q4-zero-credit-dailyMarket.json.gz').read_bytes()))
         baseline.verify(ROOT, self.contract, self.overlay, value)
         self.assertEqual(value['coverage']['successfulTasks'], 0)
         self.assertIsNone(value['coverage']['validUntil'])

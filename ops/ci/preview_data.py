@@ -88,8 +88,13 @@ def write(repo, files):
 
 
 def preview_accepts(repo):
-    """Run the same daily-data check the preview build runs."""
-    script = "import('./web/scripts/verify-daily.mjs').then(m => m.verifyDaily('web'))"
+    """Run the daily-data and correction checks the preview build runs.
+
+    The correction bundle is stamped with the release's contract, so a preview
+    that already carries a newer contract refuses it and keeps its own data.
+    """
+    script = ("Promise.all([import('./web/scripts/verify-daily.mjs'), import('./web/scripts/verify-factual-corrections.mjs')])"
+              ".then(([d, c]) => { d.verifyDaily('web'); c.verifyFactualCorrections('web') })")
     return subprocess.run(['node', '--input-type=module', '-e', script], cwd=repo,
                           capture_output=True, text=True, timeout=120).returncode == 0
 
