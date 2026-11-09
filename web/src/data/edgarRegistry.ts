@@ -186,6 +186,24 @@ export const edgarRegistry: EdgarSupplier[] = [
     fiscalYearEnd: '1231',
     revenueConcepts: STANDARD_REVENUE_CONCEPTS,
   },
+  // Onboarding (D-138). Akamai is company-wide revenue, labeled as such on the page (D-145);
+  // the security segment stays in `unsupported` below.
+  {
+    id: 'f5',
+    name: 'F5',
+    ticker: 'FFIV',
+    cik: '0001048695',
+    fiscalYearEnd: '0930',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
+  {
+    id: 'akamai',
+    name: 'Akamai Technologies',
+    ticker: 'AKAM',
+    cik: '0001086222',
+    fiscalYearEnd: '1231',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
 ]
 
 /**
