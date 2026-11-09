@@ -8456,6 +8456,82 @@
       ],
       "supplierId": "checkpoint-email",
       "url": "https://blog.checkpoint.com/category/email-security/feed/"
+    },
+    {
+      "allowedHosts": [
+        "press.pingidentity.com"
+      ],
+      "family": "official_announcements",
+      "id": "ping-identity:official:3",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [
+        "https://press.pingidentity.com/2026-10-30-Ping-Identity-Recognized-as-a-Leader-in-2026-Gartner-R-Magic-Quadrant-TM-for-Customer-Identity-and-Access-Management"
+      ],
+      "supplierId": "ping-identity",
+      "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+    },
+    {
+      "allowedHosts": [
+        "www.sonatype.com"
+      ],
+      "family": "official_announcements",
+      "id": "sonatype:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus"
+      ],
+      "supplierId": "sonatype",
+      "url": "https://www.sonatype.com/press-releases/rss.xml"
+    },
+    {
+      "allowedHosts": [
+        "xage.com"
+      ],
+      "family": "official_announcements",
+      "id": "xage:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press/"
+      ],
+      "seedEvidenceUrls": [
+        "https://xage.com/press/xage-security-named-in-2026-gartner-magic-quadrant-for-privileged-access-management/"
+      ],
+      "supplierId": "xage",
+      "url": "https://xage.com/category/press/feed/"
+    },
+    {
+      "allowedHosts": [
+        "www.tines.com"
+      ],
+      "family": "official_announcements",
+      "id": "tines:official:2",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.tines.com/blog/tines-expands-partner-ecosystem-to-power-intelligent-workflows-across-the-enterpr/"
+      ],
+      "supplierId": "tines",
+      "url": "https://www.tines.com/rss/tines-blog.xml"
     }
   ],
   "suppliers": [
@@ -10382,7 +10458,8 @@
         "ping-identity:official:2",
         "ping-identity:citation:TR-ping-1",
         "ping-identity:citation:TR-ping-2",
-        "ping-identity:citation:TR-ping-3"
+        "ping-identity:citation:TR-ping-3",
+        "ping-identity:official:3"
       ],
       "startupStatus": "unclassified"
     },
@@ -10899,7 +10976,8 @@
       "sourceIds": [
         "sonatype:official:1",
         "sonatype:citation:TR-sonatype-1",
-        "sonatype:citation:TR-sonatype-2"
+        "sonatype:citation:TR-sonatype-2",
+        "sonatype:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -11143,7 +11221,8 @@
       ],
       "sourceIds": [
         "tines:citation:TR-tines-1",
-        "tines:citation:TR-tines-1-alt"
+        "tines:citation:TR-tines-1-alt",
+        "tines:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -11487,7 +11566,8 @@
         "investor_acquirer"
       ],
       "sourceIds": [
-        "xage:citation:TR-xage-1"
+        "xage:citation:TR-xage-1",
+        "xage:official:2"
       ],
       "startupStatus": "unclassified"
     },
