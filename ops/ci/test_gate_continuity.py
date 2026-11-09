@@ -225,3 +225,52 @@ class GateContinuityTests(unittest.TestCase):
         self.assertEqual(build.call_args.kwargs['previous'],published)
         self.assertEqual(build.call_args.kwargs['continuity']['pendingFacts'][0]['event'],self.event)
         self.assertEqual((data/'certifiedCoverage.json').read_bytes(),b'{"baseline":"published"}')
+
+    def rehearsal_fixture(self,archive_contract=True):
+        repo=Path(self.temp.name)/'rehearsal-repo'
+        (repo/'contracts').mkdir(parents=True)
+        self.store.write_once('runs/actual-run/plan.json',{**self.plan,'contractSha256':digest(self.contract)})
+        if archive_contract:
+            self.store.write_once('contracts/'+digest(self.contract)+'.json',self.contract)
+        self.store.compare_and_swap('latest-run',None,{'receipt':self.store.put(self.coverage)})
+        return repo
+
+    def test_rehearsal_keeps_a_candidate_contract_that_matches_the_archived_plan(self):
+        repo=self.rehearsal_fixture()
+        (repo/'contracts/market.json').write_text(json.dumps(self.contract,indent=1))
+        before=(repo/'contracts/market.json').read_bytes()
+        result=gate.rehearsal_contract(repo,self.store)
+        self.assertFalse(result['substituted'])
+        self.assertEqual((repo/'contracts/market.json').read_bytes(),before)
+
+    def test_rehearsal_substitutes_the_archived_contract_when_the_candidate_changed_it(self):
+        repo=self.rehearsal_fixture()
+        changed={**self.contract,'schedule':{'overdueHours':31}}
+        (repo/'contracts/market.json').write_text(json.dumps(changed))
+        result=gate.rehearsal_contract(repo,self.store)
+        self.assertEqual(result,{'substituted':True,'candidateContractSha256':digest(changed),
+                                 'archivedContractSha256':digest(self.contract)})
+        self.assertEqual(digest(json.loads((repo/'contracts/market.json').read_text())),digest(self.contract))
+
+    def test_rehearsal_stops_when_the_archived_contract_is_missing(self):
+        repo=self.rehearsal_fixture(archive_contract=False)
+        (repo/'contracts/market.json').write_text(json.dumps({**self.contract,'schedule':{'overdueHours':31}}))
+        with self.assertRaisesRegex(ValueError,'REHEARSAL_ARCHIVED_CONTRACT_MISSING'):
+            gate.rehearsal_contract(repo,self.store)
+
+    def test_rehearsal_writes_only_a_rehearsal_receipt(self):
+        repo=Path(self.temp.name)/'run-repo';data=repo/'web/src/data/generated';data.mkdir(parents=True)
+        (data/'certifiedCoverage.json').write_text('{"state":"complete"}')
+        (data/'certifiedVerification.json').write_text('{"verifiedClaims":[]}')
+        destination=Path(self.temp.name)/'rehearsal-out';destination.mkdir()
+        cache=destination/'sec-cache.json';cache.write_text('{}')
+        done=type('Done',(),{'returncode':0})()
+        def fake_run(args,stdout=None,**kwargs):
+            stdout.write(b'# tests 3\n');return done
+        with patch('gate.rehearsal_contract',return_value={'substituted':True}), \
+             patch('gate.prepare_data',return_value=(self.contract,self.coverage,{},b'{}',cache,'h')), \
+             patch('gate.subprocess.run',side_effect=fake_run):
+            receipt=gate.run_gate(repo,self.store,destination,7,'a'*40,rehearsal=True)
+        self.assertEqual(receipt['result'],'rehearsal_pass')
+        names=sorted(p.name for p in destination.iterdir() if p.suffix!='.log')
+        self.assertEqual(names,['rehearsal-receipt.json'])

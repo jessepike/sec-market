@@ -44,6 +44,28 @@ def prepare_corrections(repo, store, contract, coverage, previous_bundle=None, n
     return seal
 
 
+def rehearsal_contract(repo, store):
+    """Let a rehearsal test candidate code when the candidate also changes the contract.
+
+    The archived run was planned under one contract, and reconciliation refuses any
+    other. A rehearsal therefore rebuilds with the archived contract in the worker's
+    own checkout. It reports the substitution and can never produce a release receipt.
+    """
+    latest = store.read("heads/latest-run.json")
+    require(latest is not None, "No archived collection receipt")
+    coverage = json.loads(store.get(latest["receipt"]))
+    plan = store.read(f"runs/{coverage['runId']}/plan.json")
+    require(plan is not None, "REHEARSAL_ARCHIVED_PLAN_MISSING")
+    path = repo / "contracts/market.json"
+    candidate = digest(json.loads(path.read_text()))
+    if candidate == plan["contractSha256"]:
+        return {"substituted": False, "candidateContractSha256": candidate, "archivedContractSha256": candidate}
+    archived = store.read(f"contracts/{plan['contractSha256']}.json")
+    require(archived is not None and digest(archived) == plan["contractSha256"], "REHEARSAL_ARCHIVED_CONTRACT_MISSING")
+    path.write_text(json.dumps(archived, indent=2, ensure_ascii=False) + "\n")
+    return {"substituted": True, "candidateContractSha256": candidate, "archivedContractSha256": plan["contractSha256"]}
+
+
 def prepare_data(repo, store, destination):
     contract = validate_contract(json.loads((repo / "contracts/market.json").read_text()))
     latest = store.read("heads/latest-run.json")
@@ -116,8 +138,9 @@ def generated_bundle(repo):
     return output.getvalue()
 
 
-def run_gate(repo, store, destination, github_run_id, app_revision):
+def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=False):
     destination.mkdir(parents=True, exist_ok=True)
+    substitution = rehearsal_contract(repo, store) if rehearsal else None
     contract, coverage, snapshot, raw, cache, collection_hash = prepare_data(repo, store, destination)
     env = dict(os.environ, VERCEL_GIT_COMMIT_SHA=app_revision)
     checks, logs = {}, []
@@ -140,6 +163,15 @@ def run_gate(repo, store, destination, github_run_id, app_revision):
     coverage_sec = json.loads((repo / "web/src/data/generated/certifiedCoverage.json").read_text())
     proof = json.loads((repo / "web/src/data/generated/certifiedVerification.json").read_text())
     require(coverage_sec["state"] == "complete", "SEC certification incomplete")
+    if rehearsal:
+        # A rehearsal proves the candidate code can rebuild and pass. It writes no
+        # gate receipt, build or release input, so nothing can publish from it.
+        receipt = {"result": "rehearsal_pass", "executedTests": executed, "checks": checks, "githubRunId": github_run_id,
+                   "appRevision": app_revision, "runId": coverage["runId"], "contract": substitution}
+        (destination / "rehearsal-receipt.json").write_bytes(canonical(receipt))
+        cache.unlink()
+        print(json.dumps({"result": "rehearsal_pass", "executedTests": executed, "contractSubstituted": substitution["substituted"]}))
+        return receipt
     snapshot_ref = store.put(raw)
     cohort = next(c for c in contract["certifiedCohorts"] if c["id"] == "sec")
     snapshot_ref.update(contractSha256=digest(contract), allChangedClaimsVerified=True,
@@ -179,9 +211,12 @@ if __name__ == "__main__":
     parser.add_argument("--repo", required=True)
     parser.add_argument("--state", required=True)
     parser.add_argument("--destination", required=True)
+    parser.add_argument("--rehearsal", action="store_true",
+                        help="test candidate code against the archived run; writes only rehearsal-receipt.json")
     args = parser.parse_args()
     try:
-        run_gate(Path(args.repo).resolve(), LocalStore(args.state), Path(args.destination).resolve(), int(os.environ["GITHUB_RUN_ID"]), os.environ["GITHUB_SHA"])
+        run_gate(Path(args.repo).resolve(), LocalStore(args.state), Path(args.destination).resolve(), int(os.environ["GITHUB_RUN_ID"]), os.environ["GITHUB_SHA"],
+                 rehearsal=args.rehearsal)
     except (ValueError, OSError, RuntimeError, subprocess.SubprocessError) as error:
         print(json.dumps({"ok": False, "reason": str(error)[:180]}), file=sys.stderr)
         raise SystemExit(2)
