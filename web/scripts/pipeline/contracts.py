@@ -65,6 +65,9 @@ def validate_contract(contract):
     require(1 <= schedule["maxWorkers"] <= 16, "Unsafe worker parallelism")
     require(contract["model"]["provider"] == "codex_subscription", "Only approved subscription provider allowed")
     require(contract["model"]["allowApiBilling"] is False, "Paid API fallback is prohibited")
+    if "extractModel" in contract["model"]:
+        name = contract["model"]["extractModel"]
+        require(type(name) is str and re.fullmatch(r"[a-z0-9][a-z0-9.-]{1,63}", name) is not None, "Invalid first-pass model name")
     for key in ("maxDocumentsPerRun", "maxCallsPerRun", "maxDocumentChars", "timeoutSeconds"):
         require(0 < contract["model"][key], f"Invalid model budget: {key}")
     suppliers, sources = contract["suppliers"], contract["sources"]
