@@ -14,7 +14,7 @@ import { formatOwnershipCompact, suppliersForDomain } from './derive'
 import { trackerDomains } from './domains'
 import type { TrackerDomain } from './domains'
 import { joinNames, shortSupplierName } from './names'
-import { revenueGrowthRows, yearChanges } from './presentation'
+import { ageInDays, quarterlyGrowth, revenueGrowthRows, yearChanges } from './presentation'
 import type { ChangeItem } from './presentation'
 import type { TrackerSupplier } from './suppliers'
 
@@ -40,6 +40,10 @@ export interface MomentumRow {
   /** Latest growth minus the domain median, percentage points; null with no median. */
   vsMedian: number | null
   health: SupplierHealth | null
+  /** Year-over-year growth for each quarter the SEC series can compare, oldest first. */
+  trend: { periodEnd: string; growth: number }[]
+  /** Revenue for the latest quarter in US dollars, from the SEC series. */
+  revenue: number | null
 }
 
 export interface OtherCompany {
@@ -49,6 +53,8 @@ export interface OtherCompany {
   /** Its newest tracked event in the trailing 12 months, if any. */
   latestEvent: ChangeItem | null
   eventCount: number
+  /** The date of the newest dated public fact on file: an event, a round, an ownership change or a dated company figure. */
+  signalDate: string | null
 }
 
 export interface OtherGroup {
@@ -97,9 +103,29 @@ function others(domainId: string, ranked: Set<string>): OtherCompany[] {
       ? `Public company. Bought ${joinNames(bought)}`
       : supplier.revenue && !isCertifiedSupplier(supplier.id)
         ? `${supplier.revenue.latest.yoyGrowth} revenue growth, company-reported`
-        : supplier.headlineMetric && !supplier.lastRound ? `${supplier.headlineMetric.label} ${supplier.headlineMetric.value}` : formatOwnershipCompact(supplier)
-    return { supplier, fact, latestEvent: own[0] ?? null, eventCount: own.length }
-  })
+        : supplier.headlineMetric && !supplier.lastRound ? `${supplier.headlineMetric.label} ${supplier.headlineMetric.value}`
+          // A short company-stated figure rides beside the last round; a long one stays on the company page.
+          : supplier.headlineMetric && supplier.headlineMetric.value.length <= 40 ? `${formatOwnershipCompact(supplier)} · ${supplier.headlineMetric.label.replace(/ \(company-stated[^)]*\)/, '')} ${supplier.headlineMetric.value}, company-stated`
+            : formatOwnershipCompact(supplier)
+    return { supplier, fact, latestEvent: own[0] ?? null, eventCount: own.length, signalDate: signalDate(supplier, own[0]?.date) }
+  }).sort((a, b) => (b.signalDate ?? '').localeCompare(a.signalDate ?? '') || a.supplier.name.localeCompare(b.supplier.name))
+}
+
+const fullDate = (d: string | undefined) => !d ? null : /^\d{4}-\d{2}$/.test(d) ? `${d}-01` : /^\d{4}-\d{2}-\d{2}$/.test(d) ? d : null
+/** The newest dated public fact held for a company. A company figure counts only when its period carries a full date. */
+export function signalDate(supplier: TrackerSupplier, latestEvent?: string): string | null {
+  const dates = [latestEvent, supplier.lastRound?.date, supplier.ownership?.closed, supplier.ownership?.announced,
+    supplier.headlineMetric?.period.match(/\d{4}-\d{2}-\d{2}/)?.[0], supplier.revenue?.latest.releaseDate].map(fullDate).filter((d): d is string => d !== null)
+  return dates.sort().at(-1) ?? null
+}
+
+/** "this month", "4 months ago", "1 year ago", "5 years ago": whole units, rounded down. */
+export function signalAge(date: string, asOf?: string): string {
+  const months = Math.floor(ageInDays(date, asOf) / 30.44)
+  if (months < 1) return 'this month'
+  if (months < 12) return `${months} ${months === 1 ? 'month' : 'months'} ago`
+  const years = Math.floor(months / 12)
+  return `${years} ${years === 1 ? 'year' : 'years'} ago`
 }
 
 function groups(domain: TrackerDomain, list: OtherCompany[]): OtherGroup[] {
@@ -110,6 +136,12 @@ function groups(domain: TrackerDomain, list: OtherCompany[]): OtherGroup[] {
   const rest = list.filter(o => !placed.has(o.supplier.id))
   if (rest.length) out.push({ id: 'other', name: 'Other', scope: null, companies: rest })
   return out.filter(g => g.companies.length > 0)
+}
+
+function series(supplier: TrackerSupplier): Pick<MomentumRow, 'trend' | 'revenue'> {
+  const quarters = supplier.edgarId ? quarterlyGrowth(supplier.edgarId) : []
+  const latest = quarters.find(q => q.periodEnd === supplier.revenue?.latest.periodEnd)
+  return { trend: quarters.slice(-8).map(({ periodEnd, growth }) => ({ periodEnd, growth })), revenue: latest?.value ?? null }
 }
 
 /** One block per domain, in the site's domain order. Rows are ranked by latest growth, highest first. */
@@ -126,6 +158,7 @@ export function domainMomentum(): DomainMomentum[] {
       change: r.prior === null ? null : round1(r.latest - r.prior),
       vsMedian: med === null ? null : round1(r.latest - med),
       health: healthFacts.suppliers[r.supplier.id] ?? null,
+      ...series(r.supplier),
     })).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
     const list = others(domain.id, new Set(rows.map(r => r.supplier.id)))
     return { id: domain.id, name: domain.name, rows, median: med, revenueBars, others: list, otherGroups: groups(domain, list) }

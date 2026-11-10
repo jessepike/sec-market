@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { feedChanges } from '../../src/data/tracker/feed'
+import { feedEntries } from '../../src/data/tracker/feed'
 
 for (const width of [1440, 390]) {
   test(`approved hybrid works at ${width}px with keyboard, sourced figures and compact phone views`, async ({ page }) => {
@@ -25,7 +25,11 @@ for (const width of [1440, 390]) {
     await expect(page.locator('#momentum .momentum__row').first()).toContainText('pts')
     await expect(page.locator('.desk-counts__snapshot').first()).not.toBeEmpty()
     await expect(page.locator('#tracker-changed .desk-tag', { hasText: 'SEC filing' })).toHaveCount(0)
-    await expect(page.locator('#tracker-changed .desk-line')).toHaveCount(Math.min(5, feedChanges.length))
+    // Eight entries on a wide screen, five on a phone, each stating a fact and never a bare filing notice.
+    await expect(page.locator('#tracker-changed .desk-line:visible')).toHaveCount(Math.min(width === 390 ? 5 : 8, feedEntries.length))
+    await expect(page.locator('#tracker-changed .desk-line__fact', { hasText: /^Form [^,]+ reporting/ })).toHaveCount(0)
+    await expect(page.locator('#momentum .momentum__row .momentum__spark').first()).toBeVisible()
+    await expect(page.locator('#momentum .momentum__rev').first()).toContainText('$')
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
     // The heatmap, the full growth chart and the domain index moved to /market/.
     await expect(page.locator('#event-timeline, #reported-growth, #market')).toHaveCount(0)
@@ -37,14 +41,18 @@ for (const width of [1440, 390]) {
     await page.locator('#tracker-changed .desk-line__fact').first().click()
     const event = page.locator('.desk-event-dialog')
     await expect(event).toBeVisible()
-    await expect(event.locator('.desk-sources a').first()).toHaveAttribute('href', /^https:\/\//)
+    await expect(event.locator('.desk-sources a, .desk-filing').first()).toHaveAttribute('href', /^https:\/\//)
     await page.keyboard.press('Escape')
     await expect(event).toBeHidden()
     if (width === 390) expect(await page.evaluate(() => document.body.scrollHeight)).toBeLessThan(10000)
-    if (feedChanges.length > 5) {
+    if (feedEntries.length > (width === 390 ? 5 : 8)) {
       await page.locator('#tracker-changed .desk-show-all').click()
-      await expect(page.locator('#tracker-changed .desk-line')).toHaveCount(feedChanges.length)
+      await expect(page.locator('#tracker-changed .desk-line:visible')).toHaveCount(feedEntries.length)
     }
+    // All domains opens with growth against free cash flow margin, one dot per filer.
+    await page.getByRole('button', { name: 'All domains', exact: true }).click()
+    await expect(page.locator('.momentum__scatter circle')).toHaveCount(16)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
     expect(errors).toEqual([])
   })
 }
@@ -66,10 +74,10 @@ for (const width of [1440, 390]) {
     }
     const chart = page.locator('.desk-growth__rows')
     await expect(chart.locator('li')).toHaveCount(18)
-    expect(await chart.locator('li').first().innerText()).toContain('Check Point')
-    await page.getByRole('button', { name: 'Sort by value', exact: true }).click()
+    // The comparison opens ranked by growth; A to Z is one press away.
     await expect(page.getByRole('button', { name: 'Sort A–Z', exact: true })).toHaveAttribute('aria-pressed', 'true')
     await page.getByRole('button', { name: 'Sort A–Z', exact: true }).click()
+    expect(await chart.locator('li').first().innerText()).toContain('Check Point')
     const open = chart.getByRole('button', { name: 'Cloudflare', exact: true })
     await open.focus(); await page.keyboard.press('Enter')
     const dialog = page.locator('.desk-dialog')

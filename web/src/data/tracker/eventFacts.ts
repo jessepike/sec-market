@@ -12,6 +12,23 @@ export interface EventFact {
   status: 'Announced' | 'Closed' | null
   /** A dollar figure and what it measures, e.g. { text: '$6.3B', label: 'deal value' }. */
   amount: { value: number; text: string; label: string } | null
+  /** A second sourced fact for the same line, e.g. a named person or the prior quarter's growth. */
+  detail?: string
+}
+
+/**
+ * A filing notice written from the form and item number alone ("Form 8-K (Item 5.02) reporting
+ * a change in directors or certain officers, filed 2026-10-15."). It says a filing exists, not
+ * what happened, so it never leads the front feed. A notice that quotes the filing is not one.
+ */
+export const isFilingNotice = (text: string) => /^Form [^,]+ reporting [^.]+, filed \d{4}-\d{2}-\d{2}\.$/.test(text)
+
+/** What a filing notice adds to a deal already on file: "Preliminary merger proxy filed". */
+export function filingStep(text: string): string {
+  if (/^Form PREM14A\b/.test(text)) return 'Preliminary merger proxy filed'
+  if (/^Form DEFM14A\b/.test(text)) return 'Merger proxy filed'
+  if (/Item 2\.01\)/.test(text)) return 'Completion filed'
+  return 'SEC filing'
 }
 
 const ROLES: [RegExp, string][] = [
@@ -43,7 +60,8 @@ function amountWith(text: string, label: string): EventFact['amount'] {
 
 /** The opening words of the source text, cut at a word boundary. */
 function opening(text: string, max = 80): string {
-  const first = text.split(/(?<=[a-z0-9)])\.\s/)[0].replace(/\.$/, '')
+  const sentence = text.split(/(?<=[a-z0-9)])\.\s/)[0].replace(/\.$/, '')
+  const first = sentence.charAt(0).toUpperCase() + sentence.slice(1)
   if (first.length <= max) return first
   return first.slice(0, max).replace(/\s+\S*$/, '') + '…'
 }
@@ -94,10 +112,14 @@ function funding(text: string): EventFact {
   const stage = text.match(/\b(Series [A-Z](?:\s(?:extension|\d))?|growth[- ]equity(?: investment)?|growth financing|seed|strategic funding round|equity round)\b/i)?.[1]
   const lead = text.match(/led by (?:funds managed by )?([A-Z][^,.;]*?)(?=,| with| at | achieving| bringing| in [A-Z]|\.|$)/)?.[1]
   const valuation = text.match(/(?:valuation of (?:over |approximately )?|at a |its valuation to )\$(\d[\d.,]*)\s*(billion|million)/i)
+  const amount = amountWith(text, 'raised')
+  // "Ontario Teachers' Pension Plan has also agreed to make an investment into Proofpoint": name the investor.
+  const investor = text.match(/^(?:The )?([A-Z][^,.;]*?) (?:has |have )?(?:also )?agreed to (?:make an investment|invest) in(?:to)?\b/)?.[1]
+  if (!stage && !lead && !valuation) return { line: investor ? `Investment from ${investor}` : amount ? 'Funding round' : opening(text, 90), status: null, amount }
   const kind = stage ? stage.replace(/^growth[- ]equity investment$/i, 'growth equity') : 'funding round'
   const parts = [kind[0].toUpperCase() + kind.slice(1), lead ? `led by ${lead}` : null,
     valuation ? `${shortUsd(Number(valuation[1].replaceAll(',', '')) * (valuation[2].toLowerCase() === 'billion' ? 1e9 : 1e6))} valuation` : null]
-  return { line: parts.filter(Boolean).join(' · '), status: null, amount: amountWith(text, 'raised') }
+  return { line: parts.filter(Boolean).join(' · '), status: null, amount }
 }
 
 function debt(text: string): EventFact {
@@ -118,7 +140,10 @@ function leadership(text: string): EventFact {
   const leaving = /\b(resign|stepped (?:down|back)|step down|retire|depart|ceased|notified)/i.test(text)
   const joining = /\b(appointed|appointment|named|join|promoted|became|succeed)/i.test(text)
   const action = joining && leaving ? 'change' : leaving ? 'departure' : joining ? 'appointed' : 'change'
-  return { line: role ? `${role} ${action}` : opening(text, 70), status: null, amount: null }
+  // A person is named only when the text puts the name right before "as" or "to" a role.
+  const person = text.match(/\b(?:appointed|named|promoted|hired)\s+(?:industry veteran\s+)?([A-Z][a-z]+(?: [A-Z][a-zA-Z.'-]+){1,2})\s+(?:as|to)\s+(?:its\s+|the\s+)?(?:new\s+)?(?:Chief|President|CEO|CFO|CRO|COO|CTO)/)?.[1]
+    ?? text.match(/^([A-Z][a-z]+(?: [A-Z][a-zA-Z.'-]+){1,2}) appointed (?:Chief|President|CEO|CFO|CRO|COO|CTO)/)?.[1]
+  return { line: role ? `${role} ${action}` : opening(text, 90), status: null, amount: null, ...(role && person ? { detail: person } : {}) }
 }
 
 function restructuring(text: string): EventFact {

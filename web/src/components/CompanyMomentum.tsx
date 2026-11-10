@@ -2,22 +2,12 @@ import { displayDomainIds } from '../data/tracker/domains'
 import { isCertifiedSupplier } from '../data/tracker/certification'
 import { domainMomentum, formatPercent, formatPoints, formatUsd, healthFacts, marketMedian } from '../data/tracker/momentum'
 import { eventGroups, yearChanges } from '../data/tracker/presentation'
-import { filingSeries } from '../data/tracker/presentation'
+import { quarterlyGrowth } from '../data/tracker/presentation'
 import { trackerSuppliers } from '../data/tracker/suppliers'
 import { DomainCard } from './MomentumByDomain'
 
 const domains = domainMomentum()
 const yearItems = yearChanges().filter(item => item.type !== 'filing')
-
-/** Year-over-year growth for each recent quarter that has the same quarter a year earlier in the SEC series. */
-function quarterlyGrowth(edgarId: string) {
-  const quarters = (filingSeries.find(s => s.id === edgarId)?.quarters ?? []).slice().sort((a, b) => a.periodEnd.localeCompare(b.periodEnd))
-  return quarters.flatMap(q => {
-    const end = Date.parse(q.periodEnd)
-    const prior = quarters.find(p => Math.abs(Date.parse(p.periodEnd) - (end - 365 * 86_400_000)) <= 7 * 86_400_000)
-    return prior ? [{ periodEnd: q.periodEnd, growth: Math.round((q.value / prior.value - 1) * 1000) / 10 }] : []
-  })
-}
 
 /** The company's newest dated fact on file, for a page with no events: its last round, or its ownership change. */
 function lastFact(s: (typeof trackerSuppliers)[number]): string | null {

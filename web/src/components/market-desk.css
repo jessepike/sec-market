@@ -396,3 +396,58 @@
   .momentum__rows.has-balance .momentum__row .momentum__metric--bal { grid-column: 1/-1; grid-row: 4; display: flex; gap: 6px; align-items: baseline; }
 }
 .company-momentum__none { margin: 0; padding: 12px 14px; background: white; border: 1px solid #dfe1de; border-radius: 10px; font-size: 14px; }
+
+/* ---- Reader value review 2026-11-09: facts in the feed, trend and size in the growth rows, growth against cash, readable sizes ---- */
+.desk-tag { text-transform: none; font-size: 12px; }
+.desk-line { grid-template-columns: 84px 150px 150px minmax(0,1fr) auto; }
+.desk-line__detail { font-size: 12px; color: #62676a; font-variant-numeric: tabular-nums; }
+.desk-line__status { font-size: 12px; }
+.desk-event-dialog__facts>span:first-child:not(:has(strong)) { padding: 0 6px; border: 1px solid #9aa3a8; border-radius: 3px; }
+.desk-event-dialog__facts>span:first-child:has(strong) { padding: 0; border: 0; }
+.desk-event-dialog .desk-dialog__events .desk-filing { display: block; font-size: 12px; }
+@media(max-width:900px) { .desk-line { grid-template-columns: 84px minmax(0,1fr) auto; } }
+@media(max-width:640px) { .desk-line { grid-template-columns: 84px minmax(0,1fr) auto; } }
+/* Inline links tall enough to tap (24px or more). */
+.desk-line__source,.desk-counts-note a,.app-shell--desk .site-masthead__stamps a,.desk-panel>.desk-note a,.momentum__others li>a,.site-footer a { display: inline-block; padding-block: 4px; }
+/* Nothing a reader needs under 12px. */
+.desk-counts__snapshot,.momentum__others-cols,.momentum__others li .desk-note,.momentum__group-name .desk-note,.momentum__ticks span,.momentum__na,.company-momentum__stat small,.company-momentum__chart time,.company-momentum__value { font-size: 12px; }
+.momentum__na { color: #62676a; }
+@media(max-width:640px) { .desk-counts__snapshot,.momentum__metric-label,.momentum__others li>span:nth-child(2) { font-size: 12px; } }
+/* Company with its quarterly revenue, and a trend line before the change. */
+.momentum__who { display: grid; min-width: 0; line-height: 1.25; padding: 3px 0; }
+.momentum__rev { font-size: 12px; color: #62676a; font-variant-numeric: tabular-nums; }
+.momentum__spark { vertical-align: -3px; color: #62676a; overflow: visible; }
+.momentum__growth .momentum__metric-label,.momentum__change .momentum__metric-label,.momentum__rev .momentum__metric-label { display: none; }
+@media(min-width:641px) {
+  .momentum__cols.has-balance,.momentum__rows.has-balance .momentum__row { grid-template-columns: 116px minmax(36px,1fr) 52px 96px 56px 56px 72px; }
+  .momentum__cols.has-health:not(.has-balance),.momentum__rows.has-health:not(.has-balance) .momentum__row { grid-template-columns: 124px minmax(36px,1fr) 52px 96px 60px 60px; }
+  .momentum__cols:not(.has-health),.momentum__rows:not(.has-health) .momentum__row { grid-template-columns: 116px minmax(40px,1fr) 52px 96px; }
+}
+@media(max-width:640px) {
+  .momentum__rows .momentum__who,.momentum__rows.has-health .momentum__who { grid-column: 1/-1; grid-row: 1; display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; }
+  .momentum__rev .momentum__metric-label { display: inline; color: inherit; }
+  .momentum__growth,.momentum__change { display: grid; }
+  .momentum__growth .momentum__metric-label,.momentum__change .momentum__metric-label { display: block; font-weight: 400; color: #62676a; white-space: normal; line-height: 1.2; }
+}
+/* Growth against cash generation. */
+.momentum__scatter { margin: 4px 0 14px; }
+.momentum__scatter figcaption { font-size: 12px; color: #62676a; line-height: 1.5; margin-bottom: 6px; }.momentum__scatter figcaption strong { color: #141518; font-size: 13px; }
+.momentum__scatter-scroll { overflow-x: auto; }
+.momentum__scatter svg { display: block; width: 100%; min-width: 560px; max-width: 900px; height: auto; font-family: var(--font-sans); }
+.momentum__scatter line { stroke: #e6e7e3; stroke-width: 1; }.momentum__scatter line.is-zero { stroke: #6b7378; }
+.momentum__scatter line.is-median { stroke: #141518; stroke-width: 1; stroke-dasharray: 4 4; }
+.momentum__scatter text { font-size: 12px; fill: #62676a; font-variant-numeric: tabular-nums; }
+.momentum__scatter text.momentum__scatter-axis { fill: #3e4a5c; font-weight: 600; }
+.momentum__scatter circle { fill: #1f5fc8; stroke: white; stroke-width: 1.5; }
+.momentum__scatter a text.momentum__scatter-name { fill: #141518; font-weight: 500; }
+.momentum__scatter a:hover text,.momentum__scatter a:focus-visible text { text-decoration: underline; }
+.momentum__who .desk-supplier-link { min-height: 0; padding: 0; }
+.momentum__rows .momentum__row { min-height: 42px; }
+.desk-type { text-transform: none; }
+@media(max-width:640px) {
+  .momentum__scatter svg { min-width: 720px; }
+  /* A phone shows five entries until the reader asks for all of them. */
+  .desk-lines:not(.is-all)>li:nth-child(n+6) { display: none; }
+}
+@media(min-width:641px) { .market-desk .desk-show-all--phone { display: none; } }
+.desk-type { font-size: 12px; }

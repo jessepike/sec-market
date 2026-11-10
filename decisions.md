@@ -1620,3 +1620,15 @@ The same transition drops `checkpoint-sase:sec_facts` and `:sec_submissions` (20
 SEC-080). Not done here: the contract's domainIds for cyber resilience (D-144), because the additive
 transition only adds rows; that needs its own transition. Rejected for now: tagging F5 and Akamai into
 Application security, because most of their revenue is not application security.
+
+**D-147 · 2026-11-09 — The front page states the fact; filing boilerplate is out; core first.**
+After the reader-value review the owner said: "I don't want filing boilerplate", "I want to get the
+basic core functionality sharp", and of the "my vendors" follow view, "I like that idea, but I don't
+want to work on that just yet". Decided: (1) feed lines state what happened (revenue and growth for
+results, the deal with its later filing steps as one entry, the named person for leadership); an SEC
+notice that carries no person, amount or deal is not a feed entry and stays on the company pages and
+in `/filings.csv`; (2) the tiles count the entries the feed lists; (3) growth rows show revenue size
+and the growth trend, and All domains opens with growth against free cash flow margin; (4) rows
+without SEC figures show how old their newest dated fact is. Every value is a reported or re-derived
+figure; no label, rank or reading is added (D-76). Deferred: the "my vendors" view and events feed,
+a 12-quarter SEC series, and domain pages.

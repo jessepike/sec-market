@@ -8,23 +8,20 @@ import { eventsForSupplier, formatOwnershipCompact, shortSupplierName, suppliers
 import { trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
 import type { TrackerSupplier } from '../data/tracker/suppliers'
-import { countedUnits, currencyName, eventGroups, filingSeries, recentChanges, revenueGrowthRows, yearChanges } from '../data/tracker/presentation'
+import { countedUnits, currencyName, eventGroups, filingSeries, revenueGrowthRows, yearChanges } from '../data/tracker/presentation'
 import type { ChangeItem } from '../data/tracker/presentation'
 import { SiteMasthead } from './SiteMasthead'
 import { CompanySearch } from './CompanySearch'
 import { companyPath } from '../data/companyPages'
 import { typeName } from '../data/tracker/typeNames'
-import { feedChanges, tileSnapshots } from '../data/tracker/feed'
-import { eventFact } from '../data/tracker/eventFacts'
-import { groupIdFor } from '../data/tracker/presentation'
+import { entriesInGroup, feedEntries, ledgerNoticeCount, tileSnapshots } from '../data/tracker/feed'
+import type { FeedEntry } from '../data/tracker/feed'
 import { EventIcon } from './EventIcon'
 import { MomentumByDomain } from './MomentumByDomain'
 import './market-desk.css'
 
-const changes = recentChanges()
 const yearItems = yearChanges()
 const yearUnits = countedUnits(yearItems)
-const monthUnits = countedUnits(changes)
 const unitsInGroup = (units: typeof yearUnits, groupId: string) => units.filter(u => u.groupId === groupId)
 const plural = (n: number, word: string) => `${n} ${word}${n === 1 ? '' : 's'}`
 function eventSummaryForSupplier(id: string) {
@@ -100,7 +97,7 @@ function ChangeRow({ item, openSupplier, otherMonth = false }: { item: ChangeIte
 }
 
 function GrowthChart({ openSupplier }: { openSupplier: (id: string) => void }) {
-  const [byValue, setByValue] = useState(false)
+  const [byValue, setByValue] = useState(true)
   const [expanded, setExpanded] = useState(false)
   const rows = byValue ? growthRows.slice().sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name)) : growthRows
   const all = rows.flatMap(r => [r.latest, ...(r.prior === null ? [] : [r.prior])])
@@ -207,57 +204,73 @@ const closeOnBackdrop = (close: () => void) => (event: React.MouseEvent<HTMLDial
   if (event.target === event.currentTarget && (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom)) close()
 }
 
-/** One line per event: date, company, type, the extracted fact, deal status and a labelled amount. */
-function FeedRow({ item, openSupplier, openEvent }: { item: ChangeItem; openSupplier: (id: string) => void; openEvent: (item: ChangeItem) => void }) {
-  const fact = eventFact(item)
-  const group = groupIdFor(item.type)
-  const source = item.evidenceIds.map(id => evidenceById[id]).find(Boolean)
+const tagName = (entry: FeedEntry) => entry.groupId === 'results' ? 'Results' : typeName(entry.primary.type)
+/** The source behind the line: the leading item's evidence record, or the SEC filing for a result. */
+function entrySource(entry: FeedEntry) {
+  for (const item of [entry.primary, ...entry.items]) {
+    const evidence = item.evidenceIds.map(id => evidenceById[id]).find(Boolean)
+    if (evidence) return { href: evidence.canonicalUrl, title: `${evidence.organization} ${evidence.publicationDate}`, label: evidence.organization }
+    if (item.filings[0]) return { href: item.filings[0].sourceUrl, title: `SEC ${item.filings[0].form}, filed ${item.filings[0].filedDate}`, label: `SEC ${item.filings[0].form}` }
+  }
+  return null
+}
+
+/** One line per event: date, company, type, the fact, deal status, a labelled figure and the latest step. */
+function FeedRow({ entry, openSupplier, openEvent }: { entry: FeedEntry; openSupplier: (id: string) => void; openEvent: (entry: FeedEntry) => void }) {
+  const { fact, step } = entry
+  const source = entrySource(entry)
   return <li className="desk-line">
-    <time dateTime={item.date}>{item.date.slice(5)}</time>
-    <CompanyLink id={item.supplierId} open={openSupplier} />
-    <span className={`desk-tag desk-tag--${group}`}><EventIcon group={group} />{typeName(item.type)}</span>
-    <button type="button" className="desk-line__fact" onClick={() => openEvent(item)} aria-label={`${fact.line}. Open the event`}>
+    <time dateTime={entry.date}>{entry.date}</time>
+    <CompanyLink id={entry.primary.supplierId} open={openSupplier} />
+    <span className={`desk-tag desk-tag--${entry.groupId}`}><EventIcon group={entry.groupId} />{tagName(entry)}</span>
+    <button type="button" className="desk-line__fact" onClick={() => openEvent(entry)} aria-label={`${fact.line}. Open the event`}>
       <span>{fact.line}</span>
       {fact.status && <span className="desk-line__status">{fact.status}</span>}
       {fact.amount && <span className="desk-line__amount"><strong>{fact.amount.text}</strong> {fact.amount.label}</span>}
+      {fact.detail && <span className="desk-line__detail">{fact.detail}</span>}
+      {step && <span className="desk-line__detail">{step.label} <time dateTime={step.date}>{step.date}</time></span>}
     </button>
-    {source && <a className="desk-line__source" href={source.canonicalUrl} target="_blank" rel="noreferrer" title={`${source.organization} ${source.publicationDate}`} aria-label={`Source: ${source.organization}`}>Source<span aria-hidden="true"> ↗</span></a>}
+    {source && <a className="desk-line__source" href={source.href} target="_blank" rel="noreferrer" title={source.title} aria-label={`Source: ${source.label}`}>Source<span aria-hidden="true"> ↗</span></a>}
   </li>
 }
 
-/** The side panel for one event: its full sourced text, sources and a link to the company record. */
-function EventDialog({ item, close, openSupplier }: { item: ChangeItem | null; close: () => void; openSupplier: (id: string) => void }) {
+/** The side panel for one event: every sourced entry behind the line, its sources and a link to the company record. */
+function EventDialog({ entry, close, openSupplier }: { entry: FeedEntry | null; close: () => void; openSupplier: (id: string) => void }) {
   const ref = useRef<HTMLDialogElement>(null)
   useEffect(() => {
     const dialog = ref.current
-    if (item && dialog && !dialog.open) dialog.showModal()
-    if (!item && dialog?.open) dialog.close()
-  }, [item])
-  const fact = item ? eventFact(item) : null
+    if (entry && dialog && !dialog.open) dialog.showModal()
+    if (!entry && dialog?.open) dialog.close()
+  }, [entry])
+  const fact = entry?.fact
+  const item = entry?.primary
   return <dialog ref={ref} className="desk-sidepane desk-event-dialog" aria-labelledby="desk-event-title" onClose={close} onCancel={close} onClick={closeOnBackdrop(close)}>
-    {item && fact && <>
-      <div className="desk-dialog__head"><div><span className="desk-kicker">{typeName(item.type)} · <time dateTime={item.date}>{item.date}</time></span><h2 id="desk-event-title">{fact.line}</h2></div><button type="button" onClick={close} aria-label="Close event">Close</button></div>
-      {(fact.status || fact.amount) && <p className="desk-event-dialog__facts">{fact.status && <span>{fact.status}</span>}{fact.amount && <span><strong>{fact.amount.text}</strong> {fact.amount.label}, the first dollar figure the source states</span>}</p>}
-      <p>{item.text}</p>
-      {isCertifiedEvent(item) && <p className="desk-note"><span className="desk-cert">SEC filing, date checked</span> The filing and its date are re-derived from SEC filings; the written summary is not.</p>}
-      <Sources ids={item.evidenceIds} />
+    {entry && item && fact && <>
+      <div className="desk-dialog__head"><div><span className="desk-kicker">{tagName(entry)} · <time dateTime={entry.date}>{entry.date}</time></span><h2 id="desk-event-title">{fact.line}</h2></div><button type="button" onClick={close} aria-label="Close event">Close</button></div>
+      {(fact.status || fact.amount || fact.detail) && <p className="desk-event-dialog__facts">{fact.status && <span>{fact.status}</span>}{fact.amount && <span><strong>{fact.amount.text}</strong> {fact.amount.label}{entry.groupId === 'results' ? '' : ', the first dollar figure the source states'}</span>}{fact.detail && <span>{fact.detail}</span>}</p>}
+      <ul className="desk-dialog__events">{entry.items.map(each => <li key={each.id}><time dateTime={each.date}>{each.date}</time> <span className="desk-type">{typeName(each.type)}</span>{each.type !== 'filing' && isCertifiedEvent(each) && <span className="desk-cert">SEC filing, date checked</span>}
+        <p>{each.text}</p><Sources ids={each.evidenceIds} />
+        {each.filings.map(f => <a className="desk-filing" key={`${f.supplierId}-${f.periodEnd}`} href={f.sourceUrl} target="_blank" rel="noreferrer">SEC {f.form} · quarter ended {f.periodEnd} · filed {f.filedDate} ↗</a>)}</li>)}</ul>
+      {entry.items.some(each => each.type !== 'filing' && isCertifiedEvent(each)) && <p className="desk-note">For an SEC filing, the filing and its date are re-derived from SEC filings; the written summary is not.</p>}
       <p><button type="button" onClick={() => { close(); openSupplier(item.supplierId) }}>{shortSupplierName(supplierById[item.supplierId]?.name ?? item.supplierId)}: full record</button> · <a href={companyPath(item.supplierId)}>Company page</a></p>
     </>}
   </dialog>
 }
 
-const FEED_SHOWN = 5
+const FEED_SHOWN = 8
+/** A phone shows fewer rows (market-desk.css); the button appears there sooner. */
+const FEED_SHOWN_PHONE = 5
 
 export function MarketDesk({ view = 'front' }: { view?: 'front' | 'market' }) {
   const [supplierId, setSupplierId] = useState<string | null>(null)
-  const [event, setEvent] = useState<ChangeItem | null>(null)
+  const [event, setEvent] = useState<FeedEntry | null>(null)
   const [groupId, setGroupId] = useState<string | null>(null)
   const [allChanges, setAllChanges] = useState(false)
   const group = eventGroups.find(g => g.id === groupId)
-  const filtered = group ? unitsInGroup(monthUnits, group.id).flatMap(u => u.items).sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id)) : feedChanges
+  const filtered = group ? entriesInGroup(group.id) : feedEntries
   const windowStart = new Date(Date.parse(runStatus.lastChecked) - 30 * 86_400_000).toISOString().slice(0, 10)
   const dialogs = <><SupplierDialog supplier={supplierId ? supplierById[supplierId] : null} close={() => setSupplierId(null)} />
-    <EventDialog item={event} close={() => setEvent(null)} openSupplier={setSupplierId} /></>
+    <EventDialog entry={event} close={() => setEvent(null)} openSupplier={setSupplierId} /></>
   if (view === 'market') return <div className="market-desk">
     <section className="desk-market-head" aria-labelledby="market-page-heading"><h1 id="market-page-heading">Market</h1>
       <p className="desk-note">Twelve months of tracked events, revenue growth for every public supplier, and every tracked company by domain. The <a href="/">front page</a> keeps the last 30 days and SEC revenue growth.</p></section>
@@ -270,17 +283,17 @@ export function MarketDesk({ view = 'front' }: { view?: 'front' | 'market' }) {
     </div>
     <div className="desk-glance">
       <div className="desk-counts" aria-label="Event counts in the last 30 days">{eventGroups.map(g => {
-        const recent = unitsInGroup(monthUnits, g.id)
+        const recent = entriesInGroup(g.id)
         return <button type="button" key={g.id} className={`desk-count desk-count--${g.id}`} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}>
           <span><EventIcon group={g.id} />{g.label}</span><strong>{recent.length}</strong><em className="desk-counts__snapshot">{tileSnapshots[g.id] || `None since ${windowStart}`}</em></button>
       })}</div>
-      <p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}. Counts of sourced events, one per deal. Select a type to filter the list. <a href="/market/#event-timeline">Explore 12 months<span aria-hidden="true"> →</span></a> · <a href="/funding/">All venture rounds</a></p>
+      <p className="desk-note desk-counts-note">Last 30 days to {runStatus.lastChecked}. One entry per event and one per deal. Select a type to filter the list. <a href="/market/#event-timeline">Explore 12 months<span aria-hidden="true"> →</span></a> · <a href="/funding/">All venture rounds</a></p>
       <section id="tracker-changed" className="desk-panel desk-changelog" aria-labelledby="tracker-changed-heading">
-        <div className="desk-panel__head"><h2 id="tracker-changed-heading">What changed in the last 30 days</h2><span>{group ? `${group.label}: ` : ''}{filtered.length} entries</span></div>
-        <p className="desk-note">Newest first. Select an entry for the full sourced text. {group ? <button type="button" className="desk-link-button" onClick={() => setGroupId(null)}>Clear {group.label.toLowerCase()} filter</button> : <>Routine quarterly filings and results are in each company&rsquo;s activity ledger and in <a href="/filings.csv">filings.csv</a>.</>}</p>
-        <ul className="desk-lines">{(allChanges ? filtered : filtered.slice(0, FEED_SHOWN)).map(item => <FeedRow key={item.id} item={item} openSupplier={setSupplierId} openEvent={setEvent} />)}</ul>
+        <div className="desk-panel__head"><h2 id="tracker-changed-heading">What changed in the last 30 days</h2><span>{group ? `${group.label}: ` : ''}{filtered.length} {filtered.length === 1 ? 'entry' : 'entries'}</span></div>
+        <p className="desk-note">Newest first. Select an entry for the full sourced text. {group ? <button type="button" className="desk-link-button" onClick={() => setGroupId(null)}>Clear {group.label.toLowerCase()} filter</button> : <>Results show revenue and growth from the SEC filing.{ledgerNoticeCount > 0 && <> {ledgerNoticeCount === 1 ? 'One SEC filing notice that names' : `${ledgerNoticeCount} SEC filing notices that name`} no person, amount or deal {ledgerNoticeCount === 1 ? 'is' : 'are'} left to the company pages.</>} Every filing is in <a href="/filings.csv">filings.csv</a>.</>}</p>
+        <ul className={`desk-lines${allChanges ? ' is-all' : ''}`}>{(allChanges ? filtered : filtered.slice(0, FEED_SHOWN)).map(entry => <FeedRow key={entry.key} entry={entry} openSupplier={setSupplierId} openEvent={setEvent} />)}</ul>
         {filtered.length === 0 && <p className="desk-empty">No events of this type since {windowStart}.</p>}
-        {filtered.length > FEED_SHOWN && <button type="button" className="desk-show-all" aria-expanded={allChanges} onClick={() => setAllChanges(v => !v)}>{allChanges ? 'Show fewer entries' : `Show all ${filtered.length} entries`}</button>}
+        {filtered.length > FEED_SHOWN_PHONE && <button type="button" className={`desk-show-all${filtered.length <= FEED_SHOWN ? ' desk-show-all--phone' : ''}`} aria-expanded={allChanges} onClick={() => setAllChanges(v => !v)}>{allChanges ? 'Show fewer entries' : `Show all ${filtered.length} entries`}</button>}
       </section>
     </div>
     <MomentumByDomain openSupplier={setSupplierId} />

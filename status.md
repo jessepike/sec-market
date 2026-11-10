@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-08
+updated: 2026-11-10
 ---
 
 # Current state
+
+**Front page states facts (2026-11-09, D-147, on preview, owner said go 2026-11-10).** From the reader-value review. The 30-day feed shows one entry per event and one per deal, and each line states the fact: results read "Revenue $179M +30.9% year over year" with the quarter before, a later merger proxy is a step inside its deal ("Proofpoint acquiring Varonis, $6.3B, preliminary merger proxy filed"), leadership lines name the person when the source does. An SEC notice that names no person, amount or deal is left to the company pages and `/filings.csv`, and the tiles count the same entries the feed lists. Growth rows carry quarterly revenue and a trend line of the year-over-year rate over the quarters on file. All domains opens with a chart of growth against free cash flow margin for the SEC filers. Private, acquired and segment rows show the date and age of their newest dated fact. The Market page growth chart opens sorted by value. Landed on `preview` after the 2026-11-10 05:17 UTC run published; it ships with that day's promotion. Deferred: a longer trend needs 12 quarters in the SEC series (certification chain), names for 8-K item 5.02 events need the AI step, and the "my vendors" view waits on the owner.
 
 **Weekly improvement loop (2026-11-08, owner approved).** A Claude scheduled task, "Weekly site improvements", runs Sundays and follows `docs/reference/improvement-loop.md`: a deterministic scorecard (`web/scripts/improve/scan.ts`) of gaps against the product question, the company request queue and a review of local renders, then at most five ranked ideas on the "Site improvements" issue. Data fixes ship on their own; features land on preview with `Owner-Review: required` and wait for a "go" on that issue. One preview push per run, no workflows of its own, 0 Actions minutes for the AI step. First run 2026-11-08: 5 ideas on issue #28, nothing shipped (Actions minutes check red); report `docs/active/improvement-loop/2026-11-08.md`.
 

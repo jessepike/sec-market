@@ -2,6 +2,7 @@ import edgarFacts from '../generated/edgarFacts.json' with { type: 'json' }
 import { runStatus } from '../runStatus'
 import { edgarFilingsInLast30Days, eventsInLast30Days, parseGrowthPercent, shortSupplierName } from './derive'
 import { dealIds } from './deals'
+import { isFilingNotice } from './eventFacts'
 import type { EdgarFiling } from './derive'
 import { trackerEvents } from './events'
 import type { TrackerEventType } from './events'
@@ -104,6 +105,7 @@ export interface CountedUnit {
 }
 
 const dealTypes: ReadonlySet<string> = new Set(['acquisition', 'divestiture', 'funding'])
+const ownershipTypes: ReadonlySet<string> = new Set(['acquisition', 'divestiture'])
 const supplierNamePatterns = trackerSuppliers.map(s => ({ id: s.id,
   pattern: new RegExp(`\\b(${[...new Set([s.name, shortSupplierName(s.name)])].map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\b`, 'i') }))
 const mentions = (item: ChangeItem, supplierId: string) => supplierNamePatterns.find(p => p.id === supplierId)?.pattern.test(item.text) ?? false
@@ -114,6 +116,19 @@ const mentions = (item: ChangeItem, supplierId: string) => supplierNamePatterns.
  * or name each other's supplier, with at least one ownership row among them. Every row stays in
  * the change log and the supplier's own history.
  */
+/**
+ * The deal a bare filing notice belongs to: the newest earlier acquisition or divestiture entry,
+ * within nine months, that is about the same company or names it. A merger proxy filed weeks
+ * after the announcement is a step in that deal, not a second deal.
+ */
+export function dealParent(item: ChangeItem, pool: ChangeItem[]): ChangeItem | null {
+  if (!ownershipTypes.has(item.type) || !isFilingNotice(item.text)) return null
+  return pool.filter(other => other.id !== item.id && ownershipTypes.has(other.type) && !isFilingNotice(other.text)
+    && other.date <= item.date && ageInDays(other.date, item.date) <= 270
+    && (other.supplierId === item.supplierId || mentions(other, item.supplierId)))
+    .sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id))[0] ?? null
+}
+
 export function countedUnits(items: ChangeItem[]): CountedUnit[] {
   const parent = new Map(items.map(item => [item.id, item.id]))
   const find = (id: string): string => { const p = parent.get(id)!; return p === id ? id : find(p) }
@@ -126,6 +141,7 @@ export function countedUnits(items: ChangeItem[]): CountedUnit[] {
       && (a.supplierId === b.supplierId || mentions(a, b.supplierId) || mentions(b, a.supplierId))
     if (linked || sameDay) join(a.id, b.id)
   }
+  for (const item of deals) { const earlier = dealParent(item, deals); if (earlier) join(item.id, earlier.id) }
   const clusters = new Map<string, ChangeItem[]>()
   for (const item of items) clusters.set(find(item.id), [...(clusters.get(find(item.id)) ?? []), item])
   return [...clusters.values()].map(members => {
@@ -168,3 +184,13 @@ export const secFilerCount = trackerSuppliers.filter(s => s.kind === 'public' &&
 export const secCollectedCount = edgarFacts.suppliers.filter(s => trackerSuppliers.some(t => t.kind === 'public' && t.edgarId === s.id)
   && !(edgarFacts.failures as { id: string }[]).some(f => f.id === s.id)).length
 export const filingSeries = edgarFacts.suppliers
+
+/** Year-over-year growth for each quarter that has the same quarter a year earlier in the SEC series, oldest first. */
+export function quarterlyGrowth(edgarId: string): { periodEnd: string; growth: number; value: number }[] {
+  const quarters = (filingSeries.find(s => s.id === edgarId)?.quarters ?? []).slice().sort((a, b) => a.periodEnd.localeCompare(b.periodEnd))
+  return quarters.flatMap(q => {
+    const end = Date.parse(q.periodEnd)
+    const prior = quarters.find(p => Math.abs(Date.parse(p.periodEnd) - (end - 365 * 86_400_000)) <= 7 * 86_400_000)
+    return prior ? [{ periodEnd: q.periodEnd, growth: Math.round((q.value / prior.value - 1) * 1000) / 10, value: q.value }] : []
+  })
+}
