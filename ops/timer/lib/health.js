@@ -82,7 +82,9 @@ async function monthMinutes(gh, repo, now) {
     const { workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/runs?created=%3E%3D${new Date(start).toISOString().slice(0, 10)}&per_page=100&page=${page}`)
     for (const r of runs) {
       if (!r.run_started_at || r.status !== 'completed') continue
-      used += Math.max(1, Math.ceil(minutes(r.run_started_at, r.updated_at)))
+      // updated_at also moves when a run's logs are deleted, so cap each run at the
+      // 6-hour Actions job limit rather than trust a weeks-long span.
+      used += Math.min(360, Math.max(1, Math.ceil(minutes(r.run_started_at, r.updated_at))))
       count++
     }
     if (runs.length < 100) break
@@ -247,6 +249,12 @@ export async function assess(cfg, gh, fetcher = fetch, now = Date.now()) {
 
   // 12. Actions minutes against the budget.
   await guard('minutes', 'Actions minutes on budget', 'Run times this month', async () => {
+    const info = await gh(`/repos/${repo}`)
+    if (info && info.private === false) {
+      add('minutes', 'Actions minutes on budget', 'ok', 'Public repository: standard GitHub-hosted runner minutes are free',
+        'A public repository is not billed for standard GitHub-hosted runners. For a private one this sums run times this month against the included minutes and budget.')
+      return
+    }
     const m = await monthMinutes(gh, repo, now)
     const hardLimit = h.minutesLimit + h.budgetUsd / h.usdPerMinute
     const basis = m.projected ?? m.used

@@ -32,8 +32,9 @@ function world(over = {}) {
     '/repos/o/r/check-runs/50/annotations': w.watchdog ?? [],
     '/repos/o/r/check-runs/51/annotations': [{ title: 'pipeline-observer', annotation_level: 'notice', message: 'completed' }],
     '/repos/o/r/actions/workflows/funding-weekly.yml/runs': { workflow_runs: [] },
+    '/repos/o/r': { private: w.public ? false : true },
     '/repos/o/r/issues': w.issues,
-    '/repos/o/r/actions/runs': { workflow_runs: [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9), head_sha: MAIN, created_at: iso(5), name: 'web' }] },
+    '/repos/o/r/actions/runs': { workflow_runs: w.runs ?? [{ status: 'completed', run_started_at: iso(5), updated_at: iso(4.9), head_sha: MAIN, created_at: iso(5), name: 'web' }] },
   }
   const writes = []
   const gh = async (path, init = {}) => {
@@ -206,4 +207,18 @@ test('a finished gate with no publisher run after it gets one started, once', as
   for (const [g, pub, why] of [[gate(1), 0.5, 'callback already ran'], [gate(0.02), 2, 'gate artifact may still be settling'],
     [gate(1, 'in_progress'), 2, 'gate still running'], [gate(30), 40, 'too old'], [null, 2, 'no gate']])
     assert.equal((await run(g, pub)).writes.length, 0, why)
+})
+
+test('a public repository passes the minutes check without counting runs', async () => {
+  const { gh, fetcher } = world({ public: true })
+  const c = byId((await assess(cfg, gh, fetcher, NOW)).checks).minutes
+  assert.equal(c.status, 'ok')
+  assert.match(c.detail, /Public repository/)
+})
+
+test('a run whose logs were deleted later counts at most six hours', async () => {
+  const runs = [{ status: 'completed', run_started_at: iso(100), updated_at: iso(0), head_sha: MAIN, created_at: iso(100), name: 'web' }]
+  const { gh, fetcher } = world({ runs })
+  const c = byId((await assess(cfg, gh, fetcher, NOW)).checks).minutes
+  assert.match(c.detail, /About 360 min used/)
 })
