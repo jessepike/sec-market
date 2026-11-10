@@ -44,9 +44,9 @@ class NativeAgent(SubscriptionAgent):
         self.stage = None
         self.extraction_session = None
 
-    def extract(self, text, supplier):
+    def extract(self, text, supplier, first_pass=True):
         self.stage = "extract"
-        return super().extract(text, supplier)
+        return super().extract(text, supplier, first_pass=first_pass)
 
     def review(self, text, candidate, observation, policy_hash):
         self.stage = "review"

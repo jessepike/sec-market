@@ -197,6 +197,40 @@ class HistoryWindowPipelineTests(unittest.TestCase):
         self.assertGreater(self.agent.calls, 0)
         self.assertEqual(result['processing']['reviewedDocuments'], 2)
 
+    def first_pass_agent(self, default_model_agrees):
+        log = []
+
+        class Agent(fixtures.FakeAgent):
+            def extract(self, text, supplier, first_pass=True):
+                log.append('extract:first' if first_pass else 'extract:default')
+                return [] if first_pass else super().extract(text, supplier)
+
+            def review(self, *args):
+                log.append('review')
+                return super().review(*args)
+
+            def review_empty(self, *args):
+                log.append('review_empty')
+                return {**super().review_empty(*args), 'noRelevantFacts': default_model_agrees}
+        return Agent(), log
+
+    def test_default_model_redoes_a_page_when_it_disagrees_with_an_empty_first_pass(self):
+        self.f.contract['model']['extractModel'] = 'gpt-6-luna'
+        self.agent, log = self.first_pass_agent(default_model_agrees=False)
+        self.site({'name': ('2026-09-01', page(ABOUT))})
+        self.run_once()
+        self.assertEqual(log[:3], ['extract:first', 'review_empty', 'extract:default'])
+        self.assertIn('review', log[3:])
+        self.assertEqual(log.count('review_empty'), 1)
+
+    def test_agreed_empty_first_pass_costs_one_default_model_call(self):
+        self.f.contract['model']['extractModel'] = 'gpt-6-luna'
+        self.agent, log = self.first_pass_agent(default_model_agrees=True)
+        self.site({'name': ('2026-09-01', page(ABOUT))})
+        result, _ = self.run_once()
+        self.assertEqual(log, ['extract:first', 'review_empty'])
+        self.assertEqual(result['processing']['reviewedDocuments'], 1)
+
     def test_exhausted_model_budget_leaves_work_pending_but_keeps_draining_fetch_only_documents(self):
         self.f.contract['model']['maxDocumentsPerRun'] = 1
         docs = {'about-%d' % i: ('2026-09-%02d' % (i + 1), page(ABOUT + str(i))) for i in range(4)}

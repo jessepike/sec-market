@@ -347,6 +347,7 @@ class Pipeline:
                             pending_errors.append(self.model_unavailable or "SUBSCRIPTION_WORKER_REQUIRED")
                             return
                         model_text = input_view['modelText']
+                        empty_review = None
                         try:
                             extracted = self.store.read(f"document-extractions/{cache_key}.json")
                             if (extracted is None and self.model_budget_spent and not self.store.read(
@@ -361,6 +362,12 @@ class Pipeline:
                                     self._reserve("documents", self.contract["model"]["maxDocumentsPerRun"])
                                     self.store.write_once(reservation_key, {"cacheKey": cache_key})
                                 candidates = self.agent.extract(model_text, self.suppliers[source["supplierId"]])
+                                if not candidates and self.contract["model"].get("extractModel"):
+                                    # The smaller first-pass model found nothing (D-148). The default model must
+                                    # agree; when it does not, it redoes the page itself before anything is saved.
+                                    empty_review = self.agent.review_empty(model_text, self.suppliers[source["supplierId"]], observation, plan["contractSha256"])
+                                    if empty_review.get("noRelevantFacts") is not True:
+                                        candidates = self.agent.extract(model_text, self.suppliers[source["supplierId"]], first_pass=False)
                                 extracted = {"candidates": candidates, "body": observation["body"], "policySha256": plan["contractSha256"], **input_fields}
                                 if hasattr(self.agent, "extraction_session"):
                                     extracted["nativeCollectorSession"] = self.agent.extraction_session
@@ -381,7 +388,8 @@ class Pipeline:
                             pending_errors.append(str(exc)[:160])
                             return
                         if not candidates:
-                            review = self.agent.review_empty(model_text, self.suppliers[source["supplierId"]], observation, plan["contractSha256"])
+                            review = empty_review if empty_review is not None else self.agent.review_empty(
+                                model_text, self.suppliers[source["supplierId"]], observation, plan["contractSha256"])
                             require(review.get("noRelevantFacts") is True and review.get("evidenceSha256") == observation["body"]["sha256"] and review.get("policySha256") == plan["contractSha256"], "EMPTY_EXTRACTION_NOT_INDEPENDENTLY_CONFIRMED")
                             # A clear business signal must not disappear through two empty answers.
                             require(not __import__('re').search(r"\b(funding|raised|acquisition|appointed|restructuring|layoffs|ARR|revenue|debt|shutdown)\b", page.readable, __import__('re').I), "EMPTY_EXTRACTION_WITH_BUSINESS_SIGNAL")
