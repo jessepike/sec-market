@@ -1,4 +1,5 @@
 {
-  "cutoff": "2026-11-09T22:40:00Z",
-  "purpose": "Erase run logs and artifacts that print old evidence archive ids before the repository goes public."
+  "cutoff": "2026-11-10T06:50:00Z",
+  "minRunId": 42221835615,
+  "purpose": "Second pass: erase the remaining pre-public run logs and receipt files."
 }
