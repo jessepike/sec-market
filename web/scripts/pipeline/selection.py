@@ -157,6 +157,21 @@ def entity_url_priority(url, supplier):
     return False
 
 
+EVENT_URL_HINT = re.compile(
+    r'(acqui|merg|fund|financ|rais|series-|valuation|invest|ipo|revenue|results|earnings|appoint|names-|named|joins|hires|'
+    r'chief|ceo|cfo|cro|cto|cmo|ciso|president|board|steps-down|resign|layoff|restructur|workforce|debt|credit|'
+    r'divest|buyout|completes|closes|agreement)')
+
+
+def event_url_hint(url):
+    """A business-event word in the address is a work-order hint, never a filter.
+
+    Measured on 193 model-checked pages (D-148): the hint missed 5 of 15 pages that
+    produced a fact, so it may only move a page forward in the queue.
+    """
+    return bool(EVENT_URL_HINT.search(unquote(urlsplit(url).path).lower()))
+
+
 def select_documents(found, history, policy, now, supplier=None):
     """Return current/delta work first and retain every deferred URL for audit.
 
@@ -208,7 +223,9 @@ def select_documents(found, history, policy, now, supplier=None):
         selected += audit[:min(policy["maxAuditDocumentsPerSource"], maximum - len(selected))]
         return selected, sorted((set(current) | set(audit)) - set(selected))
     # Dated documents first, undated last; oldest successful audit first inside each.
-    audit.sort(key=lambda u: (not entity_url_priority(u, supplier), known_day(modified.get(u), now) is None, audit_order[u], u))
+    # Among never-reviewed pages, an address that names a business event goes first.
+    audit.sort(key=lambda u: (not entity_url_priority(u, supplier), known_day(modified.get(u), now) is None,
+                              bool(audit_order[u]) or not event_url_hint(u), audit_order[u], u))
     selected = current[:maximum]
     selected += audit[:min(policy["maxAuditDocumentsPerSource"], maximum - len(selected))]
     extra = policy.get("maxFetchAuditDocumentsPerSource", 0)

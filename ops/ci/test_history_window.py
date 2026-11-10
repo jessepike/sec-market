@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / 'web/scripts/pipeline'))
 import test_retained_audit_rebinding as fixtures
 from contracts import ContractError, validate_contract
 from engine import Pipeline
-from selection import (collection_policy, history_binding, load_history_policy, mentions_supplier,
+from selection import (collection_policy, event_url_hint, history_binding, load_history_policy, mentions_supplier,
                        outside_history_window, select_documents)
 from separation import MODE
 
@@ -57,6 +57,16 @@ class HistoryWindowSelectionTests(unittest.TestCase):
         self.assertEqual(deferred, [])
         self.assertFalse(outside_history_window('2099-01-01', policy, NOW))
         self.assertFalse(outside_history_window('', policy, NOW))
+
+    def test_undated_business_event_address_is_reviewed_before_other_undated_pages(self):
+        found = {'items': [BASE + 'a-product-tips', BASE + 'b-webinar', BASE + 'z-acme-raises-series-b', BASE + 'dated'],
+                 'itemModified': {BASE + 'dated': '2026-03-01'}}
+        policy = {**self.policy, 'maxDocumentsPerSource': 2, 'maxAuditDocumentsPerSource': 2, 'maxFetchAuditDocumentsPerSource': 0}
+        selected, deferred = select_documents(found, {}, policy, NOW)
+        self.assertEqual(selected, [BASE + 'dated', BASE + 'z-acme-raises-series-b'])  # dated still first
+        self.assertEqual(deferred, [BASE + 'a-product-tips', BASE + 'b-webinar'])  # nothing is dropped
+        self.assertTrue(event_url_hint(BASE + 'names-new-chief-financial-officer'))
+        self.assertFalse(event_url_hint('https://fundraising.example.invalid/blog/product-tips'))  # host is ignored
 
     def test_already_reviewed_old_document_is_neither_archived_nor_reaudited(self):
         found = {'items': ['old'], 'itemModified': {'old': '2020-01-01'}}
