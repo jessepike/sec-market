@@ -1632,3 +1632,11 @@ and the growth trend, and All domains opens with growth against free cash flow m
 without SEC figures show how old their newest dated fact is. Every value is a reported or re-derived
 figure; no label, rank or reading is added (D-76). Deferred: the "my vendors" view and events feed,
 a 12-quarter SEC series, and domain pages.
+
+**D-148 · 2026-11-09 — Make the AI step and the evidence archive efficient; one SQLite index file is allowed.**
+
+Owner: "These AI calls, are these all needed? Do we need like reasoning models for this, or can we use like System 1 models?" and "I don't know what all of these 100,000 files are. Like, should we move to a database?" The owner then chose "All five steps" on the decision card "Approve the efficiency plan for the AI step and the archive?" The card's text for that option: "Rules first, smaller model after an accuracy test, limit test, one SQLite index file in the private repo, rehearsal. Lifts the no-database rule for that one file. $0 added."
+
+Measured the same day from the evidence archive: 113,803 files (37,550 page copies, about 76,000 bookkeeping receipts, 87 facts, of which 29 came from the AI step and 58 from SEC filings by rule). The AI step runs the Codex default model with no model chosen, at least two calls a page, under our own 80-call setting. Of 193 pages the AI fully checked, 21 produced facts, 71 produced held claims and 101 were empty. A web-address keyword rule missed 5 of 15 fact pages, so it may order the queue but must not exclude pages. A page-text keyword rule kept all 92 fact or held pages and dropped 29 of 101 empty ones.
+
+Decided, in order: (1) rules order the queue and drop pages with no business words; (2) a smaller model does the first pass on the same ChatGPT login, after an accuracy test on the 193 checked pages, and the stronger model keeps the independent check; (3) a one-day test at 240 calls to find the real allowance; (4) the bookkeeping receipts move into one SQLite index file kept in the private evidence repo, which is the only exception to "no database": no hosted database and no new service; (5) a rehearsal of the daily run before promotion, and a retry of failed runs. The paid Claude Haiku API route was costed and not chosen; D-128 stands. The owner also said to finish the open implementations first and decide on a feature pause afterward.
