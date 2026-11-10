@@ -1640,3 +1640,20 @@ Owner: "These AI calls, are these all needed? Do we need like reasoning models f
 Measured the same day from the evidence archive: 113,803 files (37,550 page copies, about 76,000 bookkeeping receipts, 87 facts, of which 29 came from the AI step and 58 from SEC filings by rule). The AI step runs the Codex default model with no model chosen, at least two calls a page, under our own 80-call setting. Of 193 pages the AI fully checked, 21 produced facts, 71 produced held claims and 101 were empty. A web-address keyword rule missed 5 of 15 fact pages, so it may order the queue but must not exclude pages. A page-text keyword rule kept all 92 fact or held pages and dropped 29 of 101 empty ones.
 
 Decided, in order: (1) rules order the queue and drop pages with no business words; (2) a smaller model does the first pass on the same ChatGPT login, after an accuracy test on the 193 checked pages, and the stronger model keeps the independent check; (3) a one-day test at 240 calls to find the real allowance; (4) the bookkeeping receipts move into one SQLite index file kept in the private evidence repo, which is the only exception to "no database": no hosted database and no new service; (5) a rehearsal of the daily run before promotion, and a retry of failed runs. The paid Claude Haiku API route was costed and not chosen; D-128 stands. The owner also said to finish the open implementations first and decide on a feature pause afterward.
+
+**D-149 · 2026-11-10 — The repository goes public; evidence and issues move to a private repository.**
+The owner asked "I'm thinking public is just fine. thoughts? or is there some IP here to consider?",
+then after the audit: "let's move that evidence archive and let's get those issues off. I don't want
+those to be part of the public, but I think overall then we can make it public." The owner chose "Go:
+private side repo + deploy key" on the card "Approve this route to going public, with one new deploy
+key?" (D-83 approval for the key), "Delete logs, keep run records" for the old run logs, and "Include
+it and promote now" for the 2026-11-10 promotion. Decided: (1) `refs/archive/market-evidence` lives
+in `jessepike/sec-market-private`; runners reach it with the write deploy key secret
+`SMP_EVIDENCE_DEPLOY_KEY` (`ops/ci/evidence_key.sh`, `EVIDENCE_REMOTE` in `archive.py`); (2) the
+health, company request and improvement-loop issues live there too; the timer writes them through
+`ISSUES_REPO`, and workflow alerts are annotations (`pipeline-job`, `pipeline-watchdog`,
+`pipeline-observer`) that the timer's health check reads; (3) the `repository.private` guards are
+removed, the repository identity, branch and fork checks stay; (4) logs and receipt files of runs
+before the cutover are erased, run records stay. Reason: public repositories get free Actions
+minutes, which keeps the site inside the owner's $10 a month ceiling. First daily run on the new
+route passed 2026-11-10 05:17 UTC.

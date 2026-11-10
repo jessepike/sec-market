@@ -39,8 +39,8 @@ appear only when the owner writes them.
 Vercel Cron (project market-pipeline-timer, ops/timer)      GitHub schedule 05:17 + 09:47 backup
    |  05:17 UTC: workflow_dispatch timer=true                  |  skips once the day has collected
    v                                                           v
-subscription-collector.yml  (GitHub Actions, private repo)
-   |  restore evidence archive (refs/archive/market-evidence), take the shared lease,
+subscription-collector.yml  (GitHub Actions)
+   |  restore evidence archive (refs/archive/market-evidence in sec-market-private), take the lease,
    |  fetch registered sources within the daily budget, Codex CLI on the owner's ChatGPT login
    |  extracts and reviews candidate facts, 12-month history window (contracts/history-window.json)
    v

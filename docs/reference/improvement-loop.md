@@ -25,6 +25,11 @@ no changes and no message (an extra or manual run must not repeat the week).
 
 ## Inputs
 
+All three issues below live in the private repository `jessepike/sec-market-private` (moved
+2026-11-10 when this repository went public; D-149). Attach it to the session first
+(`add_repo jessepike/sec-market-private`) and read and write them there with the REST API, for
+example `gh api repos/jessepike/sec-market-private/issues?labels=improvement-loop`.
+
 1. **Scorecard.** From `web/`:
    `npx tsx --tsconfig tsconfig.app.json scripts/improve/scan.ts --requests /tmp/requests.md --out /tmp/scan.json`.
    It measures gaps against the question (no growth signal, no peer median, no margins or cash and

@@ -98,7 +98,7 @@ backlog item SEC-061 in [BACKLOG.md](../../BACKLOG.md).
 ## Source scorecard
 
 `python3 ops/scorecard/build.py OUT_DIR [--archive DIR]` reads the last 7 daily runs from
-`refs/archive/market-evidence` and writes `scorecard.json` (per company: each source's latest result,
+`refs/archive/market-evidence` (fetched from `jessepike/sec-market-private`, D-149) and writes `scorecard.json` (per company: each source's latest result,
 last good date, missing source types, and the action in `ops/scorecard/actions.json`) and
 `scorecard.html`, the owner's private page. Agents keep `actions.json` current: every company
 flagged red carries what is being done about it (fixing, fix in place, or needs the owner's decision).
