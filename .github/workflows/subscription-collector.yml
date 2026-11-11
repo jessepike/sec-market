@@ -61,7 +61,7 @@ jobs:
     needs: schedule-guard
     if: needs.schedule-guard.outputs.allowed == 'true'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     permissions:
       contents: read # Evidence goes to the private evidence repository over its deploy key.
       actions: read # Prove an abandoned lease's owning run actually terminated.

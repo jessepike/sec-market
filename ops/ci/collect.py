@@ -34,7 +34,7 @@ session_runtime = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(session_runtime)
 
 
-# The collect step runs inside a 45-minute job. About 2 minutes go to setup
+# The collect step runs inside a 90-minute job (45 until November 11). About 2 minutes go to setup
 # before this script starts and about 2 to cleanup after it, so the script must
 # finish within 40 minutes. The work after collection (two evidence checks, the
 # snapshot and two archive pushes) is reserved before collection starts: on
@@ -45,10 +45,27 @@ spec.loader.exec_module(session_runtime)
 # with 667 sources, the last in-flight requests ran 163 seconds past the
 # collection budget and the closing work (mostly reconcile's retained-evidence
 # replay) took 1161 seconds: 2524 seconds in all, and the job ended 104 seconds
-# inside its 45-minute limit. The reserve covers both with about 3 minutes spare.
-STEP_SECONDS = 2400
-POST_COLLECTION_RESERVE_SECONDS = 1500
+# inside its 45-minute limit. On November 11, the first run with the eight
+# graduated companies and the evidence in its own repository, restore took 276
+# seconds, collection was cut to 623, and the closing work was still running
+# when the job was cancelled at 45 minutes: nothing was recorded for the day.
+# The job now has 90 minutes (minutes are free for a public repository), the
+# closing work has an hour, and each phase prints its duration so the next
+# change to these numbers is measured, not guessed.
+STEP_SECONDS = 5100
+POST_COLLECTION_RESERVE_SECONDS = 3600
 MINIMUM_COLLECTION_SECONDS = 300
+
+
+def phase_timer(started):
+    """Print how long each closing phase took. Nonsecret: a name and seconds."""
+    last = [started]
+
+    def mark(name):
+        now = time.monotonic()
+        print(json.dumps({"phase": name, "seconds": round(now - last[0]), "elapsed": round(now - started)}), flush=True)
+        last[0] = now
+    return mark
 
 
 def collection_seconds(maximum_seconds, started, now, step_seconds=STEP_SECONDS,
@@ -420,8 +437,12 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         # All restored checkpoints and daily budgets exist before model work.
         scheduled_at = utcnow()
         escrow_budgets(root, state, session, contract, scheduled_at)
+        mark = phase_timer(started)
+        mark("restore")
         collected = collector.run(scheduled_at, replay=work is not None, force_refresh=scheduled_source_refresh())
+        mark("collection")
         session_runtime.checkpoint(root, state, session, "collection", session_runtime.summary(state))
+        mark("collectionArchivePush")
         plan = state.read(f"runs/{collected['runId']}/plan.json")
         receipts = []
         for claimed in collected["receipts"]:
@@ -429,6 +450,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
             require(archived == claimed, "CI summary differs from archived evidence")
             receipts.append(archived)
         checked = reconcile(plan, receipts, contract, utcnow(), state)
+        mark("reconcile")
         state.write_once(f"verifications/{collected['runId']}/{checked['checkedAt'].replace(':', '-')}.json", checked)
         previous = state.read("heads/dailySnapshot.json") or state.read("heads/cloud-snapshot.json")
         snapshot = build_snapshot(contract, plan, checked, state, utcnow(), previous=previous, reconciled_here=True)
@@ -438,6 +460,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         state.put(csv_matrix(rows).encode())
         state.put(markdown_matrix(contract, rows).encode())
         keeper.checkpoint()
+        mark("snapshot")
         result = {"githubRunId": os.environ["GITHUB_RUN_ID"],
                   "githubEventName": os.environ.get("GITHUB_EVENT_NAME"),
                   "githubRef": os.environ.get("GITHUB_REF"), "appRevision": revision,
@@ -459,6 +482,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         archive_collection_result(state, result, contract, os.environ.get('GITHUB_RUN_ATTEMPT', '1'))
         finished = session_runtime.checkpoint(root, state, session, "finish", result, finish=True)
         result["archive"] = finished["archive"]
+        mark("finishArchivePush")
         # A cancellation arriving during the final remote write still fails
         # execution, even if the durable evidence checkpoint succeeded.
         result.update(execution_outcome(checked['complete'], collector.cancelled, checked))
