@@ -1,5 +1,0 @@
-{
-  "request": "copy refs/archive/market-evidence to jessepike/sec-market-private",
-  "requestedAt": "2026-11-10",
-  "reason": "re-sync before the first collector run on the private route"
-}
