@@ -6,7 +6,7 @@ with the cause. Nothing stops at "reported".
 | Layer | Where | How often | Does |
 |---|---|---|---|
 | Doctor | `ops/timer/lib/doctor.js`, Vercel Cron `/api/doctor` | every 10 min | Sorts the day into a known case and takes one bounded step. No AI, no Actions minutes |
-| Repair step | Claude scheduled task "Pipeline repair" (this runbook) | 00:37, 07:47 and 14:47 UTC | Fixes the cause of anything the doctor hands on, ships the fix, checks it worked |
+| Repair step | Claude scheduled task "Pipeline repair" (this runbook) | 00:37, 07:37 and 14:37 UTC | Fixes the cause of anything the doctor hands on, ships the fix, checks it worked |
 | Owner | Jess, in the project thread | only for a decision | Picks an option from a recommendation |
 
 The health issue ("Site health: ...") and the watchdog stay as they are. They describe the state.
@@ -36,10 +36,11 @@ every new failure the loop meets.
 
 Each run:
 
-1. `node ops/timer/doctor-cli.mjs --json` on `preview`. The cloud sandbox cannot reach the live
-   site: read `checkedAt` of `https://securitymarketpulse.com/daily-coverage.json` through the
-   Vercel connector or Remote Control and pass `--live-at <iso>`. Exit 0 means nothing to repair:
-   update the checklist and end without a message.
+1. `env -u GITHUB_TOKEN node ops/timer/doctor-cli.mjs --json --live-at <iso>` on `preview`. The
+   cloud sandbox cannot reach the live site, so read `checkedAt` from
+   `https://securitymarketpulse.com/daily-coverage.json` with the Vercel connector
+   (`web_fetch_vercel_url`, then grep `checkedAt`; the file is about 2 MB) and pass it in. Exit 0
+   means nothing to repair: update the checklist and end without a message.
 2. For each finding handed to `repair`, find the cause from evidence: the failed run's log
    (`gh run view <id> --log-failed`), the gate's failing test, the collector's `phase` timing lines,
    recent commits on `main`. Write the cause in one sentence before changing anything.
