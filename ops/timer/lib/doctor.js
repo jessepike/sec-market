@@ -108,13 +108,17 @@ export function diagnose(obs, cfg = {}) {
   const realToday = obs.collections.filter(c => day(at(c.created)) === today && c.job && c.job.conclusion !== 'skipped')
   const collecting = obs.collections.find(c => c.status !== 'completed')
   const gatesToday = obs.gates.filter(g => day(at(g.created)) === today)
+  // The gate allows gatesPerDay attempts per code revision and twice that in
+  // total each UTC day (release.py gate_budget_check, owner 2026-11-12).
+  const onMain = gatesToday.filter(g => obs.mainSha && g.sha === obs.mainSha).length
+  const budgetUsed = gatesToday.length >= 2 * d.gatesPerDay || onMain >= d.gatesPerDay
   const gateRunning = obs.gates.find(g => g.status !== 'completed')
   const pubRunning = obs.pubs.find(p => p.status !== 'completed')
   const newestGate = obs.gates[0] || null
 
   facts.push(liveAt !== null ? `Live data from ${new Date(liveAt).toISOString()}` : 'Live data unreadable')
   if (lastGood) facts.push(`Newest good collection started ${lastGood.job.started}${liveCurrent ? ' and is live' : ', not live'} (${lastGood.url})`)
-  facts.push(`Gate runs today: ${gatesToday.length} of ${d.gatesPerDay}`)
+  facts.push(`Gate runs today: ${gatesToday.length} of ${2 * d.gatesPerDay}, ${onMain} of ${d.gatesPerDay} on main's code`)
   if (collecting) facts.push(`Collector running (${collecting.url})`)
   if (gateRunning) facts.push(`Gate running (${gateRunning.url})`)
   if (pubRunning) facts.push(`Publisher running (${pubRunning.url})`)
@@ -149,9 +153,9 @@ export function diagnose(obs, cfg = {}) {
       // Same code would fail the same way: that needs a fix. New code on main
       // gets one more attempt, today if the budget allows, else after 00:00 UTC.
       if (!fixedSince) find('GATE_FAILED', { gate: gateAfter.url })
-      else if (gatesToday.length >= d.gatesPerDay) find('GATE_BUDGET_USED', { gate: gateAfter.url, waitUntil: day(now + 24 * HOUR) + 'T00:05:00Z' })
+      else if (budgetUsed) find('GATE_BUDGET_USED', { gate: gateAfter.url, waitUntil: day(now + 24 * HOUR) + 'T00:05:00Z' })
       else find('GATE_BUDGET_USED', { gate: gateAfter.url, retryReady: true })
-    } else if (gatesToday.length >= d.gatesPerDay) {
+    } else if (budgetUsed) {
       find('GATE_BUDGET_USED', { waitUntil: day(now + 24 * HOUR) + 'T00:05:00Z' })
     } else if (!gateAfter && now - doneAt >= 30 * MIN) {
       facts.push(`Collection finished ${lastGood.job.completed}; no gate run since`)

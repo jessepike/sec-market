@@ -23,7 +23,7 @@ collection. Every limit is counted from GitHub's run list, so it keeps no state 
 | `COLLECT_FAILED` | Collection failed for another reason | same as above | repair, if the retry fails |
 | `NO_COLLECTION` | Nothing started by 06:00 UTC | start one | repair, if that fails |
 | `RELEASE_NOT_STARTED` | Collection done 30 min ago, no gate since | start the publisher (once an hour, 3 a day) | repair after 3 |
-| `GATE_BUDGET_USED` | Both gate attempts used, collection waiting | wait; after 00:05 UTC start the publisher once, if main changed since the failed gate | repair, if refused |
+| `GATE_BUDGET_USED` | The gate allowance is used, collection waiting. The gate allows 2 attempts per code revision and 4 in total each UTC day (D-150) | a fix on main gets its own attempts: start the publisher; otherwise wait for 00:05 UTC | repair, if refused |
 | `GATE_FAILED` | Gate refused on the same code | none: a retry would fail the same way and burn an attempt | repair |
 | `PUBLISH_STORM` | 3+ publisher runs refused in 2 h, no gate | none; the doctor's own starts are capped | repair |
 | `STALE_UNEXPLAINED` | Live data over 30 h old, no case fits | none | repair |

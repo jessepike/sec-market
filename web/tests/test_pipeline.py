@@ -1229,6 +1229,24 @@ class SplitReleaseTests(unittest.TestCase):
         self.assertEqual(self.checkpoints, 2)  # reservation before dispatch, pending after
         self.m["publish"].assert_not_called()
 
+    def test_gate_budget_is_per_revision_with_a_daily_total(self):
+        from release import gate_budget_check
+        self.run_release()
+        day = datetime.now(timezone.utc).date().isoformat()
+        self.assertEqual(self.store.read(f"heads/gate-budget-{day}.json"), {"attempts": 1, "byRevision": {"b" * 40: 1}})
+        # Two attempts on the same code use its allowance.
+        with self.assertRaisesRegex(Exception, "DAILY_GATE_BUDGET_EXHAUSTED"):
+            gate_budget_check({"attempts": 2, "byRevision": {"b" * 40: 2}}, "b" * 40, 2)
+        # New code on main gets its own attempts the same day.
+        self.assertEqual(gate_budget_check({"attempts": 2, "byRevision": {"b" * 40: 2}}, "f" * 40, 2)[0], 2)
+        # The daily total still holds: 4 attempts across any revisions.
+        with self.assertRaisesRegex(Exception, "DAILY_GATE_BUDGET_EXHAUSTED"):
+            gate_budget_check({"attempts": 4, "byRevision": {"x": 2, "y": 2}}, "z" * 40, 2)
+        # A record written before this rule counts toward the total only.
+        self.assertEqual(gate_budget_check({"attempts": 2}, "b" * 40, 2)[0], 2)
+        with self.assertRaisesRegex(Exception, "DAILY_GATE_BUDGET_EXHAUSTED"):
+            gate_budget_check({"attempts": 4}, "b" * 40, 2)
+
     def test_running_gate_is_left_alone_without_new_attempts(self):
         self.run_release()
         self.gate = {"status": "in_progress"}

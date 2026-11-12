@@ -1657,3 +1657,16 @@ removed, the repository identity, branch and fork checks stay; (4) logs and rece
 before the cutover are erased, run records stay. Reason: public repositories get free Actions
 minutes, which keeps the site inside the owner's $10 a month ceiling. First daily run on the new
 route passed 2026-11-10 05:17 UTC.
+
+**D-150 · 2026-11-12 — A self-healing repair loop; gate attempts count per code revision.**
+The site did not publish on November 11 and 12. The owner asked "why aren't we developing a loop
+around these things to help make site and automation durable?" Decided: (1) a deterministic doctor
+on the Vercel timer (`ops/timer/lib/doctor.js`, every 10 minutes) sorts each day into a known case
+and takes one bounded step: one extra collection a day, or a capped publisher start; (2) a Claude
+scheduled task, "Pipeline repair", fixes the causes the doctor hands on and messages the owner only
+for decisions (`docs/reference/repair-loop.md`). Asked what the release allowance is, the owner
+accepted the recommendation to keep two gate attempts a day but not count attempts on code that has
+since changed on main: "Okay, yeah, let's do your recommendations, but like clearly we need to get
+it released." So the gate allows `maxBatchesPerDay` attempts per app revision and twice that in total
+each UTC day (`gate_budget_check` in `release.py`); the total also bounds the timer's restart after
+each new main commit. The release of November 12's collection came first.

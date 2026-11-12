@@ -147,6 +147,18 @@ def preflight_corrections(repo, store, contract, collection_run_id, previous_man
     project_bundle(repo, store, contract, outcome, previous_bundle=previous_bundle, publication_at=now)
 
 
+def gate_budget_check(prior, revision, per_revision):
+    """Gate attempts are counted per code revision (owner, 2026-11-12): a fix
+    that reaches main gets its own attempts the same day instead of waiting for
+    00:00 UTC. A hard daily total of twice that bounds every path, including
+    the timer's restart after each new main commit. Attempts recorded before
+    this rule carry no revision and count toward the total only."""
+    count = (prior or {}).get("attempts", 0)
+    by_revision = dict((prior or {}).get("byRevision", {}))
+    require(by_revision.get(revision, 0) < per_revision and count < 2 * per_revision, "DAILY_GATE_BUDGET_EXHAUSTED")
+    return count, by_revision
+
+
 def release_daily(store, contract, archive, revision, config, checkpoint, split=False, complete_only=False):
     """Publish the archived collection through the independent gate.
 
@@ -182,9 +194,8 @@ def release_daily(store, contract, archive, revision, config, checkpoint, split=
     day = datetime.now(timezone.utc).date().isoformat()
     with store.lock("daily-release-controller"):
         prior = store.read(f"heads/gate-budget-{day}.json")
-        count = (prior or {}).get("attempts", 0)
-        require(count < contract["publication"]["maxBatchesPerDay"], "DAILY_GATE_BUDGET_EXHAUSTED")
-        store.compare_and_swap(f"gate-budget-{day}", prior, {"attempts": count + 1})
+        count, by_revision = gate_budget_check(prior, revision, contract["publication"]["maxBatchesPerDay"])
+        store.compare_and_swap(f"gate-budget-{day}", prior, {"attempts": count + 1, "byRevision": {**by_revision, revision: by_revision.get(revision, 0) + 1}})
         # Persist the reservation remotely before dispatch. A killed ephemeral
         # runner must not refund its gate attempt on the next archive restore.
         checkpoint()

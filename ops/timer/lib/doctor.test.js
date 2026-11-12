@@ -97,13 +97,30 @@ test('Nov 12 06:10: timed out again (retry and ask for a fix) and the gate failu
   assert.equal(p.escalate, 'repair', 'two timeouts in a row need a fix, not only a retry')
 })
 
-test('Nov 12 21:40: fix on main, gate budget used, publisher looping: wait for 00:05 and flag the loop', () => {
+test('Nov 12 21:40: the fix on main gets its own attempts the same day; the looping publisher is flagged', () => {
   const obs = at('2026-11-12T21:40:00Z', { mainSha: M })
   const d = diagnose(obs)
   assert.deepEqual(codes(d), ['PUBLISH_STORM', 'GATE_BUDGET_USED'])
-  const wait = plan(d.findings[1], obs)
-  assert.equal(wait.step, 'none')
-  assert.match(wait.why, /2026-11-13T00:05:00Z/)
+  assert.equal(d.findings[1].retryReady, true)
+  // The loop's runs are recent, so the doctor does not add another start.
+  assert.equal(plan(d.findings[1], obs).step, 'none')
+  // Without the loop, the doctor starts the publisher once for the fixed code.
+  obs.pubs = obs.pubs.filter(p => !/^4\d$/.test(String(p.id)))
+  const calm = diagnose(obs)
+  assert.deepEqual(codes(calm), ['GATE_BUDGET_USED'])
+  assert.equal(plan(calm.findings[0], obs).step, 'publish')
+})
+
+test('two attempts on main\'s own code wait for 00:05 UTC; four in a day wait whatever the code', () => {
+  const obs = at('2026-11-12T21:40:00Z', { mainSha: '038472c' })
+  obs.pubs = obs.pubs.filter(p => !/^4\d$/.test(String(p.id)))
+  obs.gates.unshift({ id: 24, url: 'gate/24', created: '2026-11-12T19:00:00Z', updated: '2026-11-12T19:20:00Z', status: 'completed', conclusion: 'failure', sha: '038472c' })
+  const d = diagnose(obs)
+  assert.deepEqual(codes(d), ['GATE_FAILED'], 'same code as the failed gate needs a fix')
+  obs.mainSha = M
+  obs.gates.unshift({ id: 25, url: 'gate/25', created: '2026-11-12T20:00:00Z', updated: '2026-11-12T20:20:00Z', status: 'completed', conclusion: 'failure', sha: 'other' })
+  const total = diagnose(obs)
+  assert.match(plan(total.findings[0], obs).why, /2026-11-13T00:05:00Z/)
 })
 
 test('Nov 13 00:10: the budget has reset and main has the fix, so start the publisher once', () => {
