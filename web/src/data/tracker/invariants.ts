@@ -10,7 +10,7 @@
  * holds, noted in place: rule 3 can only judge growth whose basis text names a currency, and
  * rule 5 checks that a source link exists in the data, not that the URL still loads.
  */
-import edgarFacts from '../generated/edgarFacts.json' with { type: 'json' }
+import { listedEdgarFacts as edgarFacts } from './listedEdgar'
 import { evidenceById } from '../evidence'
 import { runStatus } from '../runStatus'
 import { dealIds } from './deals'

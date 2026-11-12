@@ -1,4 +1,4 @@
-import edgarFacts from '../generated/edgarFacts.json' with { type: 'json' }
+import { listedEdgarFacts as edgarFacts } from './listedEdgar'
 import { runStatus } from '../runStatus'
 import { edgarFilingsInLast30Days, eventsInLast30Days, parseGrowthPercent, shortSupplierName } from './derive'
 import { dealIds } from './deals'

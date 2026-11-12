@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import edgarFacts from '../src/data/generated/edgarFacts.json' with { type: 'json' }
+import rawEdgarFacts from '../src/data/generated/edgarFacts.json' with { type: 'json' }
+import { listedEdgarFacts as edgarFacts } from '../src/data/tracker/listedEdgar'
 import { runStatus } from '../src/data/runStatus'
 import { edgarFilingsInLast30Days } from '../src/data/tracker/derive'
 import { trackerSuppliers } from '../src/data/tracker/suppliers'
@@ -13,6 +14,12 @@ test('SEC coverage includes every corrected filer and counts failures independen
   assert.equal(secFilerCount, edgarFacts.suppliers.length)
   assert.ok(edgarFacts.suppliers.some(s => s.id === 'netskope'))
   assert.ok(edgarFacts.suppliers.some(s => s.id === 'sailpoint'))
+})
+
+test('SEC companies still in onboarding never reach the page through the EDGAR collection', () => {
+  const listed = new Set(trackerSuppliers.filter(s => s.kind === 'public' && s.edgarId).map(s => s.edgarId))
+  for (const s of edgarFacts.suppliers) assert.ok(listed.has(s.id), s.id)
+  for (const s of rawEdgarFacts.suppliers) if (!listed.has(s.id)) assert.ok(!secFilingsInLastYear().some(f => f.supplierId === s.id), s.id)
 })
 
 test('change log retains every recent event and latest filing once after grouping', () => {

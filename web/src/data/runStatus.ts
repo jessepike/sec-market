@@ -1,7 +1,7 @@
 import refreshCoverage from './generated/refreshCoverage.json' with { type: 'json' }
 import { lastCompleteRefreshAt } from './refreshPublication'
 import collectStateRaw from './generated/collectState.json' with { type: 'json' }
-import edgarFactsRaw from './generated/edgarFacts.json' with { type: 'json' }
+import { listedEdgarFacts as edgarFactsRaw } from './tracker/listedEdgar'
 import { formatShortDate } from './dates'
 import { joinNames, shortSupplierName } from './tracker/names'
 import { trackerSuppliers } from './tracker/suppliers'
