@@ -81,7 +81,7 @@ test('a healthy pipeline is all green, skipped runs are passed over', async () =
   const c = byId(checks)
   for (const id of ['site', 'data', 'timer', 'collect', 'login', 'disk', 'publish', 'delivered', 'observer', 'alerts', 'minutes', 'release', 'pages', 'request'])
     assert.equal(c[id].status, 'ok', `${id}: ${c[id].detail}`)
-  assert.match(c.collect.detail, /20 of 45 min/)
+  assert.match(c.collect.detail, /20 of 90 min/)
   assert.match(c.publish.detail, /run\/4/)
   assert.equal(c.funding.status, 'none')
   assert.match(c.coverage.detail, /74 suppliers/)
@@ -97,7 +97,7 @@ test('failed collection, refused publish, stale data and low disk fail', async (
 })
 
 test('a slow collection near the job limit warns', async () => {
-  const { gh, fetcher } = world({ collectMinutes: 40 })
+  const { gh, fetcher } = world({ collectMinutes: 80 })
   assert.equal(byId((await assess(cfg, gh, fetcher, NOW)).checks).collect.status, 'warn')
 })
 

@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-10
+updated: 2026-11-12
 ---
 
 # Current state
+
+**Repair loop (2026-11-12, on preview, owner asked).** Nov 11 and 12 did not publish: the 05:17 collection hit the 45-minute limit both days, GitHub's backup collected 7 to 8 h late, and the gate then failed a test on the registry change (fixed in aa4b7d5 after both attempts were used). The health check and watchdog saw it and only reported. Now `ops/timer/lib/doctor.js` (Vercel Cron every 10 min, live once `main` advances) sorts each day into a known case and takes one bounded step (one extra collection, a publisher start after the 00:05 UTC gate reset), and a Claude scheduled task "Pipeline repair" fixes what the doctor hands on. Runbook: `docs/reference/repair-loop.md`. Open: the owner's answer on how far the repair step may promote on its own; the finish-gate loop fix belongs to the architecture thread.
 
 **Public repository cutover (2026-11-10, D-149).** The evidence archive and the health, company request and improvement-loop issues live in `jessepike/sec-market-private` (issues #1 requests, #2 Site improvements, #3 Site health). Runners reach the archive with the deploy key `SMP_EVIDENCE_DEPLOY_KEY`; the timer writes issues through `ISSUES_REPO`; Issues are off here. The first daily run on this route passed 2026-11-10 05:17 UTC. Pre-cutover run logs and receipt files are erased. The old ref was deleted 2026-11-10; its commits may still resolve by id until GitHub cleans up (owner accepted). The repository went public 2026-11-11 00:27 UTC.
 

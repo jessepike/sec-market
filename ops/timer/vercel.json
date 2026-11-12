@@ -17,6 +17,10 @@
     {
       "path": "/api/finish-gate",
       "schedule": "*/10 * * * *"
+    },
+    {
+      "path": "/api/doctor",
+      "schedule": "5-55/10 * * * *"
     }
   ]
 }
