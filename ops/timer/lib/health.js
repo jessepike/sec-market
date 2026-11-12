@@ -368,14 +368,16 @@ export async function finishGate(cfg, gh, now = Date.now()) {
   const gate = gates[0]
   const done = Date.parse(gate?.updated_at)
   if (!gate || gate.status !== 'completed' || !(now - done >= 2 * 60000 && now - done <= 26 * HOUR)) return { nudged: false }
-  const { workflow_runs: pubs = [] } = await gh(`/repos/${repo}/actions/workflows/${h.publisher}/runs?per_page=1`)
+  const { workflow_runs: pubs = [] } = await gh(`/repos/${repo}/actions/workflows/${h.publisher}/runs?per_page=20`)
   const lastPub = pubs[0] ? Date.parse(pubs[0].created_at) : 0
   if (lastPub >= done) {
     // A failed gate leaves the day unpublished until the publisher's 16:23
     // recovery run, which GitHub often starts hours late (Nov 8). When a fix
     // reaches main after the failure, start the publisher once for that commit;
-    // it re-gates within the daily budget. The publisher run it starts is newer
-    // than the commit, so this never repeats for the same main.
+    // it re-gates within the daily budget. Once is judged by the publisher's
+    // own runs: one for this commit after the failed gate means it was started.
+    // Comparing times with main's check runs repeated every 10 minutes on
+    // Nov 12, because each publisher run adds new check runs to the commit.
     if (gate.conclusion !== 'failure') return { nudged: false }
     // Main's check runs give its commit with the Checks read access the timer
     // already has. Main only moves after its CI passed, so the commit counts as
@@ -383,7 +385,8 @@ export async function finishGate(cfg, gh, now = Date.now()) {
     const { check_runs: checks = [] } = await gh(`/repos/${repo}/commits/${cfg.REF}/check-runs?per_page=100`)
     const sha = checks[0]?.head_sha
     const ready = Math.max(0, ...checks.map(c => Date.parse(c.completed_at) || 0))
-    if (!sha || sha === gate.head_sha || !(ready > done) || lastPub >= ready) return { nudged: false }
+    const started = pubs.some(p => p.head_sha === sha && Date.parse(p.created_at) >= done)
+    if (!sha || sha === gate.head_sha || !(ready > done) || started) return { nudged: false }
     await gh(`/repos/${repo}/actions/workflows/${h.publisher}/dispatches`, { method: 'POST', body: JSON.stringify({ ref: cfg.REF }) })
     return { nudged: true, gateRunId: gate.id, retry: sha }
   }
