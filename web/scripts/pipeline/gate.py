@@ -138,6 +138,18 @@ def generated_bundle(repo):
     return output.getvalue()
 
 
+FAILURE_LINE = re.compile(r"(✘|\bFAIL\b|ERROR:|Error:|AssertionError|^not ok|Expected|Received|\d+\) \[|ERR!|Traceback|> \d+ \|)")
+
+
+def failure_excerpt(name, body, context=200):
+    """Failure lines plus the last lines of a failed check's log, bounded."""
+    lines = body.decode("utf8", errors="replace").splitlines()
+    hits = [line for line in lines if FAILURE_LINE.search(line)][:60]
+    tail = lines[-40:]
+    return "\n".join([f"::group::Gate check {name} failed", *[line[:context] for line in hits], "--- last lines ---",
+                      *[line[:context] for line in tail], "::endgroup::"])
+
+
 def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=False):
     destination.mkdir(parents=True, exist_ok=True)
     substitution = rehearsal_contract(repo, store) if rehearsal else None
@@ -152,6 +164,10 @@ def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=Fa
         log = destination / (name.replace(":", "-") + ".log")
         with log.open("wb") as output:
             result = subprocess.run(["npm", "run", name], cwd=repo / "web", env=child_env, stdout=output, stderr=output, timeout=1800)
+        if result.returncode != 0:
+            # The repair loop reads the job log, not the uploaded artifact (the
+            # cloud sandbox cannot download artifacts). Name the failing check.
+            print(failure_excerpt(name, log.read_bytes()), file=sys.stderr, flush=True)
         require(result.returncode == 0, f"RELEASE_GATE_FAILED_{name}")
         body = log.read_bytes()
         checks[name] = {"result": "pass", "logSha256": digest(body)}

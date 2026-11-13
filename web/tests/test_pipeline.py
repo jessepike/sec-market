@@ -1229,6 +1229,16 @@ class SplitReleaseTests(unittest.TestCase):
         self.assertEqual(self.checkpoints, 2)  # reservation before dispatch, pending after
         self.m["publish"].assert_not_called()
 
+    def test_failed_gate_check_names_the_failing_test_in_the_job_log(self):
+        from gate import failure_excerpt
+        body = ("test_failed_x ... ok\n" * 100 + "  1) [chromium] > market page\n"
+                "    Error: expect(locator).toHaveCount(expected) failed\n    > 76 |     toHaveCount(18)\n").encode()
+        text = failure_excerpt("test", body)
+        self.assertIn("Gate check test failed", text)
+        self.assertIn("toHaveCount(18)", text)
+        self.assertNotIn("test_failed_x ... ok\ntest_failed_x", text.split("--- last lines ---")[0])
+        self.assertLess(len(text.splitlines()), 110)
+
     def test_gate_budget_is_per_revision_with_a_daily_total(self):
         from release import gate_budget_check
         self.run_release()

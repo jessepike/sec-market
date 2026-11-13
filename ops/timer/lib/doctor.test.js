@@ -164,12 +164,24 @@ test('dry run reads but never dispatches', async () => {
     if (key.includes('market-release-gate.yml')) return { workflow_runs: obs.gates.map(g => ({ ...g, html_url: g.url, created_at: g.created, updated_at: g.updated, head_sha: g.sha })) }
     if (key.includes('subscription-publisher.yml')) return { workflow_runs: obs.pubs.map(p => ({ ...p, html_url: p.url, created_at: p.created, updated_at: p.updated })) }
     if (key.includes('/check-runs')) return { check_runs: [{ head_sha: '1cca665' }] }
+    if (key.includes('web.yml')) return { workflow_runs: [{ conclusion: 'failure', head_sha: '05776ca', html_url: 'ci/1', created_at: '2026-11-11T08:49:51Z' }] }
     throw new Error('unrouted ' + key)
   }
   const fetcher = async () => ({ ok: true, json: async () => ({ checkedAt: LIVE }) })
   const cfg = { GITHUB_REPO: 'o/r', WORKFLOW_FILE: 'c.yml', REF: 'main', DATA_URL: 'https://site.test/d.json', COLLECT_LIMIT_MINUTES: 45, DOCTOR_DRY_RUN: 'true' }
   const r = await doctor(cfg, gh, fetcher, T('2026-11-11T06:10:00Z'))
-  assert.deepEqual(r.findings.map(f => f.code), ['COLLECT_TIMEOUT'])
+  assert.deepEqual(r.findings.map(f => f.code), ['COLLECT_TIMEOUT', 'PREVIEW_RED'])
   assert.equal(r.findings[0].plan.step, 'collect')
+  assert.equal(r.findings[1].plan.escalate, 'repair')
   assert.deepEqual(writes, [])
+})
+
+test('a red preview is handed to repair before it is promoted (Nov 11-13)', () => {
+  const obs = at('2026-11-11T09:30:00Z')
+  obs.previewCi = { url: 'ci/1', conclusion: 'failure', sha: '05776ca' }
+  const d = diagnose(obs, { COLLECT_LIMIT_MINUTES: 45 })
+  assert.ok(codes(d).includes('PREVIEW_RED'))
+  assert.equal(plan(d.findings.find(f => f.code === 'PREVIEW_RED'), obs).escalate, 'repair')
+  obs.previewCi.conclusion = 'success'
+  assert.ok(!codes(diagnose(obs, { COLLECT_LIMIT_MINUTES: 45 })).includes('PREVIEW_RED'))
 })

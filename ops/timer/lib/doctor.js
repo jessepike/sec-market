@@ -26,6 +26,7 @@ export const CASES = {
   RELEASE_NOT_STARTED: 'A collection finished but no release has started.',
   PUBLISH_STORM: 'The publisher keeps starting and being refused.',
   STALE_UNEXPLAINED: 'The live data is stale and no known case explains it.',
+  PREVIEW_RED: 'The newest checks on preview failed; promoting would carry the failure to the gate.',
 }
 
 // What the doctor itself may do, and what it hands on.
@@ -34,7 +35,7 @@ export const CASES = {
 //   owner: only Jess can do it (for example sign in again)
 export const HANDLING = {
   COLLECT_TIMEOUT: 'act', COLLECT_FAILED: 'act', NO_COLLECTION: 'act', GATE_BUDGET_USED: 'act', RELEASE_NOT_STARTED: 'act',
-  LOGIN_EXPIRED: 'owner', GATE_FAILED: 'repair', PUBLISH_STORM: 'repair', STALE_UNEXPLAINED: 'repair',
+  LOGIN_EXPIRED: 'owner', GATE_FAILED: 'repair', PUBLISH_STORM: 'repair', STALE_UNEXPLAINED: 'repair', PREVIEW_RED: 'repair',
   OK: 'none', WAITING: 'none',
 }
 
@@ -42,6 +43,7 @@ export function doctorConfig(cfg) {
   return {
     publisher: cfg.PUBLISHER_FILE ?? 'subscription-publisher.yml',
     gate: cfg.GATE_FILE ?? 'market-release-gate.yml',
+    ci: cfg.BUILD_FILE ?? 'web.yml',
     collectLimit: Number(cfg.COLLECT_LIMIT_MINUTES || 90),
     gatesPerDay: Number(cfg.GATES_PER_DAY || 2),
     // One extra collection a day at most, on top of the 05:17 timer start.
@@ -85,10 +87,15 @@ export async function observe(cfg, gh, fetcher = fetch, now = Date.now()) {
   }
   const { workflow_runs: gateRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.gate}/runs?branch=${cfg.REF}&event=workflow_dispatch&per_page=10`)
   const { workflow_runs: pubRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.publisher}/runs?per_page=30`)
+  // Preview's newest finished CI run. A red preview is promoted into a gate failure
+  // (Nov 11-13: a test broken on preview for two days failed three gates).
+  const { workflow_runs: ciRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.ci}/runs?branch=preview&status=completed&per_page=5`)
+  const ci = ciRuns.find(r => r.conclusion !== 'cancelled')
+  const previewCi = ci ? { url: ci.html_url, conclusion: ci.conclusion, sha: ci.head_sha, created: ci.created_at } : null
   // Main's commit, from its check runs (the access the timer already has).
   const { check_runs: checks = [] } = await gh(`/repos/${repo}/commits/${cfg.REF}/check-runs?per_page=1`)
   const slim = r => ({ id: r.id, url: r.html_url, event: r.event, created: r.created_at, updated: r.updated_at, status: r.status, conclusion: r.conclusion, sha: r.head_sha })
-  return { now, liveAt, mainSha: checks[0]?.head_sha ?? null, collections, loginExpired, gates: gateRuns.map(slim), pubs: pubRuns.map(slim) }
+  return { now, liveAt, previewCi, mainSha: checks[0]?.head_sha ?? null, collections, loginExpired, gates: gateRuns.map(slim), pubs: pubRuns.map(slim) }
 }
 
 // Pure: sort one observation into findings, each with its handling. Two tracks
@@ -163,6 +170,11 @@ export function diagnose(obs, cfg = {}) {
     }
   }
 
+  if (obs.previewCi?.conclusion === 'failure') {
+    facts.push(`Preview CI failed on ${String(obs.previewCi.sha).slice(0, 7)} (${obs.previewCi.url})`)
+    find('PREVIEW_RED', { run: obs.previewCi.url })
+  }
+
   const stale = liveAt === null || now - liveAt > 30 * HOUR
   if (!findings.length && stale && !collecting && !gateRunning && !pubRunning) find('STALE_UNEXPLAINED')
   const busy = collecting || gateRunning || pubRunning || (lastGood && !liveCurrent)
@@ -201,7 +213,7 @@ export function plan(finding, obs, cfg = {}) {
       return { step: 'publish', why: 'Start the publisher once to release the waiting collection' }
     }
     case 'LOGIN_EXPIRED': return { step: 'none', why: 'Only the owner can sign in again', escalate: 'owner' }
-    case 'GATE_FAILED': case 'PUBLISH_STORM': case 'STALE_UNEXPLAINED':
+    case 'GATE_FAILED': case 'PUBLISH_STORM': case 'STALE_UNEXPLAINED': case 'PREVIEW_RED':
       return { step: 'none', why: 'Needs a diagnosis and a code fix', escalate: 'repair' }
     default: return { step: 'none', why: 'Nothing to do', escalate: 'none' }
   }
