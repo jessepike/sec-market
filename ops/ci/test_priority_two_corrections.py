@@ -72,7 +72,11 @@ class PendingPolicyTests(unittest.TestCase):
   ctx=load_policy(ROOT,self.market);current=read(ROOT/'web/src/data/tracker/factualCorrectionPolicy.json');self.assertEqual(current,stamp(self.requests,self.market))
   for gid,policy in historical_stamp()['reviewPolicySha256ByGroup'].items():self.assertEqual(ctx['reviewPolicySha256ByGroup'][gid],policy)
   self.assertNotEqual(ctx['policySha256'],historical_stamp()['policySha256'])
-  self.assertEqual(read(ROOT/'web/src/data/generated/factualCorrections.json'),{'schemaVersion':1,'enabled':False,'policySha256':None,'checkedAt':None,'groups':[]})
+  # The publisher copies each accepted gate's projection to preview, so the committed
+  # file is either the disabled stub or a projection under the current policy.
+  projection=read(ROOT/'web/src/data/generated/factualCorrections.json')
+  if projection['enabled']:self.assertEqual(projection['policySha256'],ctx['policySha256'])
+  else:self.assertEqual(projection,{'schemaVersion':1,'enabled':False,'policySha256':None,'checkedAt':None,'groups':[]})
   self.assertEqual(digest((ROOT/'contracts/factual-baseline.json').read_bytes()),self.requests['baseline']['sha256'])
  def test_original_target_source_and_attestation_substitutions_reject(self):
   mutations=[]
