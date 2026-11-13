@@ -225,3 +225,12 @@ an actual successful named suite step; an older green workflow without that step
 A two-core Basic log and actual$0.007 build charge prove the chosen machine and its reported
 build cost. A$0.01134 subtotal during the open day does not prove a complete five-cent day.
 Preserve the closed prior day's Turbo overspend and every ongoing retained-resource liability.
+
+## 2026-11-13 · A red preview is a gate failure that has not happened yet
+
+A graduation changed a chart from 18 to 20 rows and left an e2e test pinned at 18. Preview CI was
+red for two days, the commit was promoted anyway, and the gate failed on it three times. Before
+promoting, read the web workflow result for the exact commit; update pinned counts in the same
+commit that changes them. Preview tests run on committed data while the gate regenerates it, so a
+registry or roster change also needs a gate rehearsal. Review: docs/active/retro-2026-11-13.md.
+

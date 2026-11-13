@@ -26,6 +26,7 @@ collection. Every limit is counted from GitHub's run list, so it keeps no state 
 | `GATE_BUDGET_USED` | The gate allowance is used, collection waiting. The gate allows 2 attempts per code revision and 4 in total each UTC day (D-150) | a fix on main gets its own attempts: start the publisher; otherwise wait for 00:05 UTC | repair, if refused |
 | `GATE_FAILED` | Gate refused on the same code | none: a retry would fail the same way and burn an attempt | repair |
 | `PUBLISH_STORM` | 3+ publisher runs refused in 2 h, no gate | none; the doctor's own starts are capped | repair |
+| `PREVIEW_RED` | Preview's newest web CI run failed | none | repair: fix the test or code before anything is promoted |
 | `STALE_UNEXPLAINED` | Live data over 30 h old, no case fits | none | repair |
 | `LOGIN_EXPIRED` | ChatGPT login expired | none (a collection cannot succeed) | owner |
 
