@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T03:01:11.000Z",
+  "generatedAt": "2026-11-13T16:52:06.076Z",
   "suppliers": [
     {
       "id": "checkpoint",
@@ -99,85 +99,6 @@
       "id": "checkpoint",
       "url": "https://data.sec.gov/submissions/CIK0001015922.json",
       "status": "checked"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004953/zk2636310.htm",
-      "status": "parsed"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004498/zk2636110.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326004398/zk2636069.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003696/zk2635799.htm",
-      "status": "parsed"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003557/zk2635717.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003452/zk2635667.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326003128/zk2635514.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326002519/zk2635263.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326002310/a2635159.htm",
-      "status": "parsed"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm",
-      "status": "parsed"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004003/zk2534083.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325003986/zk2534074.htm",
-      "status": "unavailable",
-      "reason": "not in saved EDGAR copy"
-    },
-    {
-      "id": "checkpoint",
-      "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325003565/2533887.htm",
-      "status": "parsed"
     }
   ]
 }
