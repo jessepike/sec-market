@@ -142,20 +142,35 @@ class GuardedRunner:
                     raise ModelUnavailable("AUTH_REFRESH_PERSISTENCE_FAILED_STOP_WORK") from None
 
 
+def check_request(request, secrets):
+    """initialize_codex creates the login; sign_in_again replaces an expired one.
+
+    Both need the owner's approval recorded in the request. Replacing is refused
+    unless a login exists, so a typo cannot turn a first setup into a silent overwrite.
+    """
+    operation = request.get("operation")
+    if operation not in ("initialize_codex", "sign_in_again") or request.get("ownerApproved") is not True:
+        raise RuntimeError("EXPLICIT_INITIALIZATION_REQUEST_REQUIRED")
+    if operation == "sign_in_again" and not request.get("approval"):
+        raise RuntimeError("OWNER_APPROVAL_REFERENCE_REQUIRED")
+    if secrets.get("total_count", 0) > 100:
+        raise RuntimeError("SECRET_INVENTORY_REQUIRES_PAGINATION_REVIEW")
+    exists = any(s["name"] == "SMP_CODEX_AUTH_JSON" for s in secrets["secrets"])
+    if operation == "initialize_codex" and exists:
+        raise RuntimeError("ACCOUNT_ALREADY_INITIALIZED_USE_PROBE_INSTEAD")
+    if operation == "sign_in_again" and not exists:
+        raise RuntimeError("NO_LOGIN_TO_REPLACE_USE_INITIALIZE")
+    return operation
+
+
 def execute(root):
     if os.environ.get("GITHUB_ACTIONS") != "true" or os.environ.get("GITHUB_REPOSITORY") != PROJECT:
         raise RuntimeError("PRIVATE_GITHUB_RUNNER_REQUIRED")
     request = json.loads((REPO / "ops/ci/bootstrap-request.json").read_text())
-    if request.get("operation") != "initialize_codex" or request.get("ownerApproved") is not True:
-        raise RuntimeError("EXPLICIT_INITIALIZATION_REQUEST_REQUIRED")
     writer = os.environ.pop("SMP_AUTH_STORE_TOKEN", "")
     if not writer:
         raise RuntimeError("SMP_AUTH_STORE_TOKEN_NOT_CONFIGURED")
-    secrets = github("actions/secrets?per_page=100", writer)
-    if any(s["name"] == "SMP_CODEX_AUTH_JSON" for s in secrets["secrets"]):
-        raise RuntimeError("ACCOUNT_ALREADY_INITIALIZED_USE_PROBE_INSTEAD")
-    if secrets.get("total_count", 0) > 100:
-        raise RuntimeError("SECRET_INVENTORY_REQUIRES_PAGINATION_REVIEW")
+    check_request(request, github("actions/secrets?per_page=100", writer))
     check = SetupCheck(os.environ["GH_TOKEN"])
     home = Path(root).resolve() / "codex-account"
     if home.is_relative_to(REPO) or home.exists():

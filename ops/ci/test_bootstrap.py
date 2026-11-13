@@ -6,10 +6,26 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from auth_store import AuthStoreError
-from bootstrap import GuardedRunner, device_challenge, safe_process_env, ModelUnavailable
+from bootstrap import check_request, GuardedRunner, device_challenge, safe_process_env, ModelUnavailable
 
 
 class BootstrapTests(unittest.TestCase):
+    def test_sign_in_again_replaces_only_an_existing_login_with_owner_approval(self):
+        have = {"total_count": 1, "secrets": [{"name": "SMP_CODEX_AUTH_JSON"}]}
+        none = {"total_count": 0, "secrets": []}
+        again = {"operation": "sign_in_again", "ownerApproved": True, "approval": "owner 2026-11-13"}
+        first = {"operation": "initialize_codex", "ownerApproved": True}
+        self.assertEqual(check_request(again, have), "sign_in_again")
+        self.assertEqual(check_request(first, none), "initialize_codex")
+        for request, secrets, reason in [
+            (first, have, "ACCOUNT_ALREADY_INITIALIZED_USE_PROBE_INSTEAD"),
+            (again, none, "NO_LOGIN_TO_REPLACE_USE_INITIALIZE"),
+            (dict(again, approval=""), have, "OWNER_APPROVAL_REFERENCE_REQUIRED"),
+            (dict(again, ownerApproved=False), have, "EXPLICIT_INITIALIZATION_REQUEST_REQUIRED"),
+        ]:
+            with self.assertRaisesRegex(RuntimeError, reason):
+                check_request(request, secrets)
+
     def test_only_official_device_url_and_a_standalone_code_are_exposed(self):
         self.assertEqual(device_challenge('Open https://auth.openai.com/codex/device\n\x1b[32mABCD-EFGHI\x1b[0m\n'),
                          {'url':'https://auth.openai.com/codex/device','code':'ABCD-EFGHI'})
