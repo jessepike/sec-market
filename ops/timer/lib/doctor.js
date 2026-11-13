@@ -22,7 +22,7 @@ export const CASES = {
   NO_COLLECTION: 'No collection has started today.',
   LOGIN_EXPIRED: 'The ChatGPT login used by the AI step has expired.',
   GATE_FAILED: 'The release gate refused the release (a check failed).',
-  GATE_BUDGET_USED: 'Both of today\'s gate attempts are used; a collection is waiting to publish.',
+  GATE_BUDGET_USED: 'A collection is waiting to publish after a failed or used-up gate.',
   RELEASE_NOT_STARTED: 'A collection finished but no release has started.',
   PUBLISH_STORM: 'The publisher keeps starting and being refused.',
   STALE_UNEXPLAINED: 'The live data is stale and no known case explains it.',
@@ -161,7 +161,7 @@ export function diagnose(obs, cfg = {}) {
       // gets one more attempt, today if the budget allows, else after 00:00 UTC.
       if (!fixedSince) find('GATE_FAILED', { gate: gateAfter.url })
       else if (budgetUsed) find('GATE_BUDGET_USED', { gate: gateAfter.url, waitUntil: day(now + 24 * HOUR) + 'T00:05:00Z' })
-      else find('GATE_BUDGET_USED', { gate: gateAfter.url, retryReady: true })
+      else find('GATE_BUDGET_USED', { gate: gateAfter.url, gateDone: gateAfter.updated, retryReady: true })
     } else if (budgetUsed) {
       find('GATE_BUDGET_USED', { waitUntil: day(now + 24 * HOUR) + 'T00:05:00Z' })
     } else if (!gateAfter && now - doneAt >= 30 * MIN) {
@@ -209,6 +209,12 @@ export function plan(finding, obs, cfg = {}) {
       // At most one doctor start an hour and three a day; each start is visible as a run.
       const dispatched = obs.pubs.filter(p => p.event === 'workflow_dispatch' && day(at(p.created)) === today)
       if (obs.pubs.some(p => obs.now - at(p.created) < 60 * MIN)) return { step: 'none', why: 'A publisher run started in the last hour', escalate: 'none' }
+      // New code on main after a failed gate: one start for that commit, whatever ran before it.
+      if (finding.retryReady) {
+        if (obs.pubs.some(p => p.sha === obs.mainSha && at(p.created) >= at(finding.gateDone)))
+          return { step: 'none', why: 'The publisher already ran for main\'s new code', escalate: 'repair' }
+        return { step: 'publish', why: 'Start the publisher once for the fix on main' }
+      }
       if (dispatched.length >= 3) return { step: 'none', why: 'Publisher already started 3 times today', escalate: 'repair' }
       return { step: 'publish', why: 'Start the publisher once to release the waiting collection' }
     }
