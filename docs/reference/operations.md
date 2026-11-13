@@ -17,7 +17,7 @@ fast-forward of `main` and the next gated publisher run.
 
 | Signal | Meaning | What to do |
 |---|---|---|
-| GitHub issue "Daily pipeline needs attention (outside watchdog)" | Published data older than 30 hours, the latest collector failed or never started, or the ChatGPT login expired | The issue names which. For an expired login, sign in again and refresh the secret with `ops/ci/bootstrap.py`. It closes itself on recovery |
+| GitHub issue "Daily pipeline needs attention (outside watchdog)" | Published data older than 30 hours, the latest collector failed or never started, or the ChatGPT login expired | The issue names which. For an expired login, push `ops/ci/bootstrap-request.json` to preview with `"operation": "sign_in_again"`, the owner's approval and a new nonce, and `[bootstrap-account]` in the commit message; the device code appears on the "Dedicated subscription account setup" check (public repo: hand it to the owner at once, it expires in 15 min). It closes itself on recovery |
 | Collector or publisher job-alert issue | A run failed | Open the linked run. Fix on `preview`, promote, and let the next run recover. Never reset a daily allowance |
 | Freshness probe issue | Coverage, heartbeat or public-release gap | Read the issue; ongoing source gaps are expected and are not failures |
 | GitHub Actions spend near $5 for the month | Shared Actions budget (D-129) | Check minutes per workflow in GitHub billing before adding scheduled work |
