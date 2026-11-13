@@ -542,6 +542,10 @@ def main():
             result["reasons"] = list(dict.fromkeys(result["reasons"] + publication["reasons"]))
             result["healthy"] = not result["reasons"]
     except (ValueError, OSError, KeyError, subprocess.SubprocessError) as error:
+        # Name the failing check in the job log so the repair step can act on it
+        # (the probe was red for days on a bare "ContractError"). Messages are the
+        # pipeline's own reason codes, never archive content.
+        print("::warning title=probe-error::" + type(error).__name__ + ": " + str(error)[:200].replace("\n", " "), file=sys.stderr)
         result = {**(result or {}), "healthy": False, "checkedAt": now,
                   "reasons": list(dict.fromkeys((result or {}).get("reasons", []) + ["INDEPENDENT_PROBE_FAILED", type(error).__name__]))}
     else:
