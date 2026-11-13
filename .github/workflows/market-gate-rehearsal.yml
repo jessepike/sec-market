@@ -1,0 +1,80 @@
+name: gate rehearsal on preview
+
+# Runs the release gate's own checks on candidate code against the newest archived
+# collection, before that code is promoted (D-148 step 5). Preview's web CI tests
+# committed data; the gate regenerates it, and that difference failed four gate
+# attempts on Nov 11-13. A rehearsal writes only rehearsal-receipt.json: no gate
+# receipt, build or release input, so nothing can publish from it, and it does not
+# use the daily gate allowance (that lives in the publisher). The doctor reads the
+# newest run and hands a failure to the repair step before anything is promoted.
+
+on:
+  push:
+    branches: [preview]
+    paths:
+      - 'web/**'
+      - 'contracts/**'
+      - 'ops/ci/**'
+      - '.github/workflows/market-gate-rehearsal.yml'
+      - '!web/src/data/generated/**'
+  workflow_dispatch:
+
+permissions: {}
+
+# A newer push replaces a rehearsal in progress. Separate from the real gate's
+# group, so a rehearsal never delays a release.
+concurrency:
+  group: market-gate-rehearsal
+  cancel-in-progress: true
+
+jobs:
+  rehearse:
+    if: github.repository == 'jessepike/sec-market' && github.ref == 'refs/heads/preview'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          path: application
+      - name: Read the newest archived collection
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: jessepike/sec-market-private
+          ssh-key: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
+          persist-credentials: false
+          path: evidence
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: application/web/package-lock.json
+      - name: Verify evidence integrity
+        run: |
+          python3 - <<'PY'
+          import sys
+          sys.path.insert(0,'application/web/scripts/pipeline')
+          from archive import GitArchive
+          GitArchive.verify('evidence')
+          PY
+      - name: Install pinned dependencies and browser
+        timeout-minutes: 8
+        working-directory: application/web
+        run: |
+          npm ci --no-audit --no-fund
+          CI=true node scripts/ensure-test-browser.mjs
+      - name: Rehearse the gate on this commit
+        env:
+          CI: 'true'
+        run: python3 application/web/scripts/pipeline/gate.py --repo application --state evidence/state --destination "$RUNNER_TEMP/rehearsal" --rehearsal
+      - name: Keep the rehearsal receipt and logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: gate-rehearsal
+          path: ${{ runner.temp }}/rehearsal
+          if-no-files-found: ignore
+          retention-days: 7

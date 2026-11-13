@@ -43,7 +43,9 @@ export function doctorConfig(cfg) {
   return {
     publisher: cfg.PUBLISHER_FILE ?? 'subscription-publisher.yml',
     gate: cfg.GATE_FILE ?? 'market-release-gate.yml',
-    ci: cfg.BUILD_FILE ?? 'web.yml',
+    // Preview checks: the web CI and the gate rehearsal (the gate's own checks run
+    // on the candidate code against the newest archived run).
+    ci: (cfg.BUILD_FILE ?? 'web.yml,market-gate-rehearsal.yml').split(',').map(s => s.trim()).filter(Boolean),
     collectLimit: Number(cfg.COLLECT_LIMIT_MINUTES || 90),
     gatesPerDay: Number(cfg.GATES_PER_DAY || 2),
     // One extra collection a day at most, on top of the 05:17 timer start.
@@ -89,9 +91,15 @@ export async function observe(cfg, gh, fetcher = fetch, now = Date.now()) {
   const { workflow_runs: pubRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.publisher}/runs?per_page=30`)
   // Preview's newest finished CI run. A red preview is promoted into a gate failure
   // (Nov 11-13: a test broken on preview for two days failed three gates).
-  const { workflow_runs: ciRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.ci}/runs?branch=preview&status=completed&per_page=5`)
-  const ci = ciRuns.find(r => r.conclusion !== 'cancelled')
-  const previewCi = ci ? { url: ci.html_url, conclusion: ci.conclusion, sha: ci.head_sha, created: ci.created_at } : null
+  const previewChecks = []
+  for (const file of d.ci) {
+    let ciRuns = []
+    try { ({ workflow_runs: ciRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${file}/runs?branch=preview&status=completed&per_page=5`)) }
+    catch { continue } // a workflow not on main yet has no runs to read
+    const ci = ciRuns.find(r => r.conclusion !== 'cancelled')
+    if (ci) previewChecks.push({ workflow: file, url: ci.html_url, conclusion: ci.conclusion, sha: ci.head_sha, created: ci.created_at })
+  }
+  const previewCi = previewChecks.find(c => c.conclusion === 'failure') ?? previewChecks[0] ?? null
   // Main's commit, from its check runs (the access the timer already has).
   const { check_runs: checks = [] } = await gh(`/repos/${repo}/commits/${cfg.REF}/check-runs?per_page=1`)
   const slim = r => ({ id: r.id, url: r.html_url, event: r.event, created: r.created_at, updated: r.updated_at, status: r.status, conclusion: r.conclusion, sha: r.head_sha })
@@ -171,7 +179,7 @@ export function diagnose(obs, cfg = {}) {
   }
 
   if (obs.previewCi?.conclusion === 'failure') {
-    facts.push(`Preview CI failed on ${String(obs.previewCi.sha).slice(0, 7)} (${obs.previewCi.url})`)
+    facts.push(`Preview ${obs.previewCi.workflow ?? 'CI'} failed on ${String(obs.previewCi.sha).slice(0, 7)} (${obs.previewCi.url})`)
     find('PREVIEW_RED', { run: obs.previewCi.url })
   }
 

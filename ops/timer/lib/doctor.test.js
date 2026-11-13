@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { diagnose, plan, doctor } from './doctor.js'
+import { diagnose, plan, doctor, observe } from './doctor.js'
 
 // Replays of the real Nov 10-12 2026 runs (times from the Actions run list).
 // A run that finishes after the replay time is shown as still running.
@@ -184,4 +184,21 @@ test('a red preview is handed to repair before it is promoted (Nov 11-13)', () =
   assert.equal(plan(d.findings.find(f => f.code === 'PREVIEW_RED'), obs).escalate, 'repair')
   obs.previewCi.conclusion = 'success'
   assert.ok(!codes(diagnose(obs, { COLLECT_LIMIT_MINUTES: 45 })).includes('PREVIEW_RED'))
+})
+
+test('a failed gate rehearsal on preview counts as a red preview even when web CI is green', async () => {
+  const gh = async path => {
+    const key = path.split('?')[0]
+    if (key.includes('web.yml')) return { workflow_runs: [{ conclusion: 'success', head_sha: 'abc1234', html_url: 'ci/web' }] }
+    if (key.includes('market-gate-rehearsal.yml')) return { workflow_runs: [{ conclusion: 'failure', head_sha: 'abc1234', html_url: 'ci/rehearsal' }] }
+    if (key.includes('/check-runs')) return { check_runs: [{ head_sha: 'main123' }] }
+    return { workflow_runs: [] }
+  }
+  const fetcher = async () => ({ ok: true, json: async () => ({ checkedAt: '2026-11-13T16:37:41Z' }) })
+  const cfg = { GITHUB_REPO: 'o/r', WORKFLOW_FILE: 'c.yml', REF: 'main', DATA_URL: 'https://site.test/d.json' }
+  const obs = await observe(cfg, gh, fetcher, T('2026-11-13T18:00:00Z'))
+  assert.equal(obs.previewCi.workflow, 'market-gate-rehearsal.yml')
+  const d = diagnose(obs, cfg)
+  assert.ok(codes(d).includes('PREVIEW_RED'))
+  assert.ok(d.facts.some(f => f.includes('market-gate-rehearsal.yml')))
 })
