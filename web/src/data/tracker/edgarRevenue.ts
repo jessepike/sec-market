@@ -1,6 +1,8 @@
 import rawFacts from '../generated/edgarFacts.json' with { type: 'json' }
 import type { SupplierRecord, YoyFigure } from '../edgarLogic'
 import type { EvidenceRecord } from '../types'
+import { effectiveManualTrackerSuppliers } from './correctionData'
+import { graduatedSuppliers } from './graduation'
 import type { RevenuePeriod, SupplierRevenue, TrackerSupplier } from './suppliers'
 
 interface CheckedSupplierRecord extends SupplierRecord { sourceCheck?: { checkedAt: string; url: string; sha256: string } }
@@ -26,7 +28,11 @@ export function withEdgarRevenue(supplier: TrackerSupplier): TrackerSupplier {
   return { ...supplier, revenue }
 }
 
-export const edgarRevenueEvidence: EvidenceRecord[] = facts.suppliers.flatMap(record => [record.latest, record.prior]
+// The collection also covers filers the page does not read SEC revenue for yet (D-138). Only the
+// filers a listed supplier points at through edgarId get evidence records; the rest would be orphans.
+const citedEdgarIds = new Set([...effectiveManualTrackerSuppliers, ...graduatedSuppliers].map(s => s.edgarId).filter(Boolean))
+
+export const edgarRevenueEvidence: EvidenceRecord[] = facts.suppliers.filter(record => citedEdgarIds.has(record.id)).flatMap(record => [record.latest, record.prior]
   .filter((figure): figure is YoyFigure => figure !== null)
   .map(figure => ({ id: revenueEvidenceId(record.id, figure), title: `${record.name} ${figure.quarter.form}: quarterly revenue`,
     organization: record.name, publicationDate: figure.quarter.filedDate, economicPeriod: `Quarter ended ${figure.quarter.periodEnd}`,

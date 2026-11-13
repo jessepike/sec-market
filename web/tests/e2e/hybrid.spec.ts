@@ -73,11 +73,11 @@ for (const width of [1440, 390]) {
       await page.locator('.desk-growth__mobile-toggle').click()
     }
     const chart = page.locator('.desk-growth__rows')
-    await expect(chart.locator('li')).toHaveCount(18)
+    await expect(chart.locator('li')).toHaveCount(20)
     // The comparison opens ranked by growth; A to Z is one press away.
     await expect(page.getByRole('button', { name: 'Sort A–Z', exact: true })).toHaveAttribute('aria-pressed', 'true')
     await page.getByRole('button', { name: 'Sort A–Z', exact: true }).click()
-    expect(await chart.locator('li').first().innerText()).toContain('Check Point')
+    expect(await chart.locator('li').first().innerText()).toContain('Akamai')
     const open = chart.getByRole('button', { name: 'Cloudflare', exact: true })
     await open.focus(); await page.keyboard.press('Enter')
     const dialog = page.locator('.desk-dialog')
