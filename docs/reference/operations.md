@@ -102,3 +102,5 @@ backlog item SEC-061 in [BACKLOG.md](../../BACKLOG.md).
 last good date, missing source types, and the action in `ops/scorecard/actions.json`) and
 `scorecard.html`, the owner's private page. Agents keep `actions.json` current: every company
 flagged red carries what is being done about it (fixing, fix in place, or needs the owner's decision).
+Cloud Claude sessions cannot read the private repository, so `.github/workflows/source-scorecard.yml`
+builds both files after every publisher run and keeps them as the `source-scorecard` artifact.

@@ -1,0 +1,51 @@
+name: source scorecard
+
+# Builds the private source scorecard (ops/scorecard/build.py) after each publisher
+# run, from the evidence archive in jessepike/sec-market-private. Cloud Claude
+# sessions cannot read that repository, so the daily loop downloads this
+# artifact instead. Read-only: the job writes nothing back to either repository.
+# The artifact lists public sources, their hosts and their last status only.
+
+on:
+  workflow_run:
+    workflows: ['daily exact-artifact publisher']
+    types: [completed]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: source-scorecard
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.repository == 'jessepike/sec-market'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+          path: application
+      - name: Read the evidence archive
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: jessepike/sec-market-private
+          # The archive lives on its own ref, not a branch (archive.py).
+          ref: refs/archive/market-evidence
+          ssh-key: ${{ secrets.SMP_EVIDENCE_DEPLOY_KEY }}
+          persist-credentials: false
+          path: evidence
+      - name: Build the scorecard
+        run: |
+          git -C evidence update-ref refs/archive/market-evidence HEAD
+          python3 application/ops/scorecard/build.py "$RUNNER_TEMP/scorecard" --archive evidence --days 7
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: source-scorecard
+          path: ${{ runner.temp }}/scorecard
+          retention-days: 14
