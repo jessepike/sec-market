@@ -24,6 +24,9 @@ DELINEA_HTML_MODE_V2 = 'delinea-news-pagination-v2'
 DELINEA_HTML_MODE_V3 = 'delinea-news-pagination-v3'
 DELINEA_HTML_MODE_V4 = 'delinea-news-pagination-v4'
 DELINEA_HTML_MODE_V5 = 'delinea-news-pagination-v5'
+BARRACUDA_JSON_MODE = 'barracuda-newsroom-json-v1'
+BARRACUDA_NEWSROOM_JSON = ('https://www.barracuda.com/content/barracuda-corp/us/en/company/news/'
+                           'jcr:content/root/container/container/news_room.news_room.json')
 DELINEA_INDEX = 'https://delinea.com/news'
 SONATYPE_HTML_MODE = 'sonatype-press-pagination-v1'
 SONATYPE_HTML_MODE_V2 = 'sonatype-press-pagination-v2'
@@ -1013,12 +1016,57 @@ def discover_q4_press_list(source, request):
                 'observations': observations, 'reason': 'Q4_INDEX_INCOMPLETE:' + str(error)[:160]}
 
 
+def parse_barracuda_newsroom(body):
+    """Barracuda's own newsroom data: press releases only, each on its own article page."""
+    rows = json.loads(decoded_discovery_body(body).decode('utf8'))
+    require(type(rows) is list and 0 < len(rows) <= 2000, 'BARRACUDA_NEWSROOM_SHAPE_DIFFERS')
+    items, dates = set(), {}
+    for row in rows:
+        require(type(row) is dict and type(row.get('url')) is str and type(row.get('type')) is str,
+                'BARRACUDA_NEWSROOM_ROW_SHAPE_DIFFERS')
+        if row['type'] != 'press-release':
+            continue
+        require(type(row.get('publicationDate')) is int and row['publicationDate'] > 0, 'BARRACUDA_NEWSROOM_DATE_MISSING')
+        url = urljoin('https://www.barracuda.com/company/news', row['url'].strip()).split('#')[0]
+        parts = urlsplit(url)
+        require(parts.scheme == 'https' and parts.netloc == 'www.barracuda.com' and not parts.query and
+                re.fullmatch(r'/company/news/\d{4}/[a-z0-9][a-z0-9-]{0,200}', parts.path) is not None,
+                'BARRACUDA_NEWSROOM_URL_OUTSIDE_NEWSROOM')
+        day = datetime.fromtimestamp(row['publicationDate'] / 1000, tz=timezone.utc).date().isoformat()
+        require(dates.get(url, day) == day, 'BARRACUDA_NEWSROOM_CONFLICTING_DATES')
+        items.add(url)
+        dates[url] = day
+    require(bool(items), 'BARRACUDA_NEWSROOM_NO_PRESS_RELEASES')
+    return {'items': sorted(items), 'dates': dates}
+
+
+def discover_barracuda_newsroom(source, request):
+    observations = []
+    try:
+        require(source['url'] == BARRACUDA_NEWSROOM_JSON, 'BARRACUDA_NEWSROOM_ENDPOINT_DIFFERS')
+        observed, body = request(source['url'])
+        observations.append(observed)
+        if observed.get('status') not in ('fetched', 'not_modified'):
+            return {'complete': False, 'items': [], 'itemDates': {}, 'itemModified': {},
+                    'observations': observations, 'reason': observed.get('errorCode', 'FETCH_FAILED')}
+        parsed = parse_barracuda_newsroom(body)
+        items = [u for u in parsed['items'] if scoped(u, source)]
+        dates = {u: parsed['dates'][u] for u in items}
+        return {'complete': True, 'items': items, 'itemDates': dates, 'itemModified': dict(dates),
+                'observations': observations, 'reason': None}
+    except (ValueError, KeyError, TypeError, OSError, UnicodeError) as error:
+        return {'complete': False, 'items': [], 'itemDates': {}, 'itemModified': {},
+                'observations': observations, 'reason': 'BARRACUDA_NEWSROOM_INCOMPLETE:' + str(error)[:160]}
+
+
 def discover(source, request):
     """request(url) archives every response and returns an observation plus bytes."""
     if source["registration"] != "verified":
         return {"complete": False, "items": [], "observations": [], "reason": "SOURCE_BINDING_UNVERIFIED"}
     if source['kind'] == 'q4_press_list':
         return discover_q4_press_list(source, request)
+    if source.get('htmlCompleteness') == BARRACUDA_JSON_MODE:
+        return discover_barracuda_newsroom(source, request)
     if source["kind"] == "sec_index" or source["kind"] == "sec_documents" and 'regulatoryIssuer' in source:
         return discover_regulatory_index(source, request)
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}

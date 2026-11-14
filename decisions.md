@@ -1679,3 +1679,11 @@ limits in `.github/workflows/` within a fixed range (collector up to 120 minutes
 commits `Owner-Review: required`. It never promotes over a red preview CI or gate rehearsal, or
 while a gate or publisher runs. Still the owner's: the gate's checks and daily attempt budget, the
 certification chain, secrets, content rules and anything a reader would notice.
+
+**D-152 · 2026-11-14 — Newsroom sources for the five companies that had none that worked.**
+The owner said of BigID, Claroty, Delinea, Veracode and Barracuda: "take care of that... Handle it",
+and asked that Claude decide Barracuda. Decided, additive only: Barracuda is read from its own
+newsroom data file on www.barracuda.com (press releases only; third-party coverage is skipped),
+not from news aggregators. Delinea adds its sitemap's `/news/` pages; Claroty and Veracode add their
+press-release index pages; BigID adds its PR Newswire company page, limited to release paths that
+start with `bigid-`. No existing source changed.

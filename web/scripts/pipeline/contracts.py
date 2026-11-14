@@ -124,6 +124,13 @@ def validate_contract(contract):
                     source["url"] == "https://press.pingidentity.com/news-releases" and
                     type(source["maxPages"]) is int and source["maxPages"] <= 60,
                     "Ping HTML v3 mode requires its exact source, supplier and index endpoint")
+        if source.get('htmlCompleteness') == 'barracuda-newsroom-json-v1':
+            require(source['kind'] == 'html_index' and source['id'] == 'barracuda:official:2' and
+                    source['supplierId'] == 'barracuda' and source['family'] == 'official_announcements' and
+                    source['allowedHosts'] == ['www.barracuda.com'] and source['scopePrefixes'] == ['/company/news/'] and
+                    source['url'] == ('https://www.barracuda.com/content/barracuda-corp/us/en/company/news/'
+                                      'jcr:content/root/container/container/news_room.news_room.json') and
+                    source['maxPages'] == 1, 'Barracuda newsroom mode requires its exact source and data endpoint')
         for mode, supplier_id, host, index in (
                 ('delinea-news-pagination-v1', 'delinea', 'delinea.com', 'https://delinea.com/news'),
                 ('delinea-news-pagination-v2', 'delinea', 'delinea.com', 'https://delinea.com/news'),

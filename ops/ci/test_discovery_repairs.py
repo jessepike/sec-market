@@ -132,6 +132,43 @@ class DiscoveryRepairTests(unittest.TestCase):
         self.assertEqual(found['reason'], 'BARRACUDA_NEWSROOM_LAYOUT_UNVERIFIED')
         self.assertEqual(found['items'], [])
 
+    def _barracuda_json_source(self, **changes):
+        return source(**{'id': 'barracuda:official:2', 'supplierId': 'barracuda', 'url': 'https://www.barracuda.com' + DATA_PATH,
+                         'allowedHosts': ['www.barracuda.com'], 'scopePrefixes': ['/company/news/'], 'maxPages': 1,
+                         'htmlCompleteness': 'barracuda-newsroom-json-v1', **changes})
+
+    def test_barracuda_newsroom_data_lists_only_dated_press_releases(self):
+        url = 'https://www.barracuda.com' + DATA_PATH
+        rows = [{'type': 'press-release', 'url': '/company/news/2026/barracuda-appoints-cfo', 'publicationDate': 1793232000000},
+                {'type': 'press-release', 'url': 'https://www.barracuda.com/company/news/2026/msp-growth#top', 'publicationDate': 1793836800000},
+                {'type': 'in-the-news', 'url': 'https://example.com/coverage', 'publicationDate': 1793836800000},
+                {'type': '', 'url': '/company/news/below-the-surface'}]
+        found, calls, original = replay({url: gzip.compress(json.dumps(rows).encode())}, self._barracuda_json_source())
+        self.assertTrue(found['complete'])
+        self.assertEqual(calls, [url])
+        self.assertEqual(found['items'], ['https://www.barracuda.com/company/news/2026/barracuda-appoints-cfo',
+                                          'https://www.barracuda.com/company/news/2026/msp-growth'])
+        self.assertEqual(found['itemDates'], {'https://www.barracuda.com/company/news/2026/barracuda-appoints-cfo': '2026-10-29',
+                                              'https://www.barracuda.com/company/news/2026/msp-growth': '2026-11-05'})
+        self.assertEqual(found['itemModified'], found['itemDates'])
+        self.assertEqual(found['observations'], original)
+
+    def test_barracuda_newsroom_data_rejects_offsite_or_undated_releases(self):
+        url = 'https://www.barracuda.com' + DATA_PATH
+        for rows in ([{'type': 'press-release', 'url': 'https://evil.example/company/news/2026/x', 'publicationDate': 1}],
+                     [{'type': 'press-release', 'url': '/company/news/2026/x'}],
+                     [{'type': 'in-the-news', 'url': 'https://example.com/a', 'publicationDate': 1}],
+                     {'items': []}, []):
+            found, _, _ = replay({url: json.dumps(rows).encode()}, self._barracuda_json_source())
+            self.assertFalse(found['complete'])
+            self.assertTrue(found['reason'].startswith('BARRACUDA_NEWSROOM_INCOMPLETE:'))
+            self.assertEqual(found['items'], [])
+        found, _, _ = replay({url: b'<html>not json</html>'}, self._barracuda_json_source())
+        self.assertFalse(found['complete'])
+        found, calls, _ = replay({}, self._barracuda_json_source(url='https://www.barracuda.com/company/news'))
+        self.assertFalse(found['complete'])
+        self.assertEqual(calls, [])
+
     def test_barracuda_citation_behavior_is_unchanged(self):
         url = 'https://www.barracuda.com/company/news'
         found, _, _ = replay({url: gzip.compress(b'<main>shell</main>')}, source(url=url, kind='citation'))

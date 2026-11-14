@@ -8586,6 +8586,106 @@
       "seedEvidenceUrls": [],
       "supplierId": "secuvy",
       "url": "https://cioinfluence.com/security/secuvy-announces-new-investments-from-dell-technologies-capital-and-westwave-capital-to-modernize-data-privacy-and-security/"
+    },
+    {
+      "allowedHosts": [
+        "www.barracuda.com"
+      ],
+      "family": "official_announcements",
+      "htmlCompleteness": "barracuda-newsroom-json-v1",
+      "id": "barracuda:official:2",
+      "kind": "html_index",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/company/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.barracuda.com/company/news/2026/barracuda-appoints-dan-fletcher-chief-financial-officer"
+      ],
+      "supplierId": "barracuda",
+      "url": "https://www.barracuda.com/content/barracuda-corp/us/en/company/news/jcr:content/root/container/container/news_room.news_room.json"
+    },
+    {
+      "allowedHosts": [
+        "delinea.com"
+      ],
+      "family": "official_announcements",
+      "id": "delinea:official:3",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era"
+      ],
+      "supplierId": "delinea",
+      "url": "https://delinea.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "claroty.com"
+      ],
+      "family": "official_announcements",
+      "htmlCompleteness": "rel-next-exhaustion-v1",
+      "id": "claroty:official:1",
+      "kind": "html_index",
+      "maxPages": 5,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://claroty.com/press-releases/claroty-secures-150-million-in-series-f-funding-to-lead-charge-on-securing-the-worlds-mission-critical-infrastructure"
+      ],
+      "supplierId": "claroty",
+      "url": "https://claroty.com/press-releases"
+    },
+    {
+      "allowedHosts": [
+        "www.veracode.com"
+      ],
+      "family": "official_announcements",
+      "htmlCompleteness": "rel-next-exhaustion-v1",
+      "id": "veracode:official:2",
+      "kind": "html_index",
+      "maxPages": 5,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-release/",
+        "/news/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.veracode.com/press-release/veracode-finds-first-meaningful-gain-in-ai-code-security-since-2025-as-average-pass-rate-hits-62/"
+      ],
+      "supplierId": "veracode",
+      "url": "https://www.veracode.com/newsroom/press-release/"
+    },
+    {
+      "allowedHosts": [
+        "www.prnewswire.com"
+      ],
+      "family": "release_distribution",
+      "htmlCompleteness": "rel-next-exhaustion-v1",
+      "id": "bigid:official:1",
+      "kind": "html_index",
+      "maxPages": 5,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news-releases/bigid-"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.prnewswire.com/news-releases/bigid-launches-agentiq-the-agentic-automation-layer-for-data--ai-security-and-compliance-302884730.html"
+      ],
+      "supplierId": "bigid",
+      "url": "https://www.prnewswire.com/news/bigid/"
     }
   ],
   "suppliers": [
@@ -8899,7 +8999,8 @@
       ],
       "sourceIds": [
         "barracuda:official:1",
-        "barracuda:citation:TR-barracuda-1"
+        "barracuda:citation:TR-barracuda-1",
+        "barracuda:official:2"
       ],
       "startupStatus": "unclassified"
     },
@@ -8965,7 +9066,8 @@
       ],
       "sourceIds": [
         "bigid:citation:TR-bigid-1",
-        "bigid:citation:TR-bigid-1-alt"
+        "bigid:citation:TR-bigid-1-alt",
+        "bigid:official:1"
       ],
       "startupStatus": "unclassified"
     },
@@ -9211,7 +9313,8 @@
         "investor_acquirer"
       ],
       "sourceIds": [
-        "claroty:citation:TR-claroty-1"
+        "claroty:citation:TR-claroty-1",
+        "claroty:official:1"
       ],
       "startupStatus": "unclassified"
     },
@@ -9513,7 +9616,8 @@
         "delinea:citation:TR-delinea-5",
         "delinea:citation:TR-delinea-6",
         "delinea:citation:TR-delinea-3-alt",
-        "delinea:citation:TR-delinea-5-alt"
+        "delinea:citation:TR-delinea-5-alt",
+        "delinea:official:3"
       ],
       "startupStatus": "unclassified"
     },
@@ -11527,7 +11631,8 @@
       ],
       "sourceIds": [
         "veracode:official:1",
-        "veracode:citation:TR-veracode-1"
+        "veracode:citation:TR-veracode-1",
+        "veracode:official:2"
       ],
       "startupStatus": "unclassified"
     },

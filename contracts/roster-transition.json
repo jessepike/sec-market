@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "additive_roster_transition",
   "baseContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
-  "activatedContractSha256": "96d48c637822af9f500c08e152d3b95a4930bc764cc71dcf2e21e56444406655",
+  "activatedContractSha256": "9320f2628a6667f853b312ecd912922808919d70ecf274b9895a89ee92eb3504",
   "addedSuppliers": [
     "f5",
     "akamai",
@@ -108,7 +108,12 @@
     "tines:official:2",
     "lumos:citation:OB-lumos-1-alt",
     "skyflow:citation:OB-skyflow-1-alt",
-    "secuvy:citation:OB-secuvy-1-alt"
+    "secuvy:citation:OB-secuvy-1-alt",
+    "barracuda:official:2",
+    "delinea:official:3",
+    "claroty:official:1",
+    "veracode:official:2",
+    "bigid:official:1"
   ],
   "appendedSourceIds": {
     "checkpoint-sase": [
@@ -123,14 +128,16 @@
       "beyondtrust:official:2"
     ],
     "bigid": [
-      "bigid:citation:TR-bigid-1-alt"
+      "bigid:citation:TR-bigid-1-alt",
+      "bigid:official:1"
     ],
     "cohesity": [
       "cohesity:citation:TR-cohesity-1-alt"
     ],
     "delinea": [
       "delinea:citation:TR-delinea-3-alt",
-      "delinea:citation:TR-delinea-5-alt"
+      "delinea:citation:TR-delinea-5-alt",
+      "delinea:official:3"
     ],
     "tines": [
       "tines:citation:TR-tines-1-alt",
@@ -203,6 +210,15 @@
     ],
     "xage": [
       "xage:official:2"
+    ],
+    "barracuda": [
+      "barracuda:official:2"
+    ],
+    "claroty": [
+      "claroty:official:1"
+    ],
+    "veracode": [
+      "veracode:official:2"
     ]
   }
 }
