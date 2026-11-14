@@ -27,9 +27,9 @@
       "text": "Added the email-security blog feed (checkpoint-email:official:3). The Nov 10 run ran out of time before reaching it; confirming on the Nov 11 run."
     },
     "barracuda": {
-      "state": "decision",
-      "since": "2026-11-09",
-      "text": "Releases go out only on Business Wire, which refuses the collector, and the blog feed is closed to robots. Option on the table: a Bing News feed of trade coverage (new kind of source)."
+      "state": "watching",
+      "since": "2026-11-14",
+      "text": "New source barracuda:official:2 reads Barracuda's own newsroom data file (press releases only). First read on the Nov 15 run."
     },
     "axonius": {
       "state": "fixing",
@@ -37,24 +37,24 @@
       "text": "Company site rate-limits the collector. Records copied to ynetnews and siliconangle work; looking for a wire or trade feed."
     },
     "bigid": {
-      "state": "fixing",
-      "since": "2026-11-09",
-      "text": "Releases go out on PRWeb and PR Newswire; the company site has no feed. Next: qualify the PR Newswire adapter for BigID."
+      "state": "watching",
+      "since": "2026-11-14",
+      "text": "New source bigid:official:1 reads BigID's PR Newswire company page. First read on the Nov 15 run."
     },
     "claroty": {
-      "state": "fixing",
-      "since": "2026-11-09",
-      "text": "Press releases are not in the sitemap and have no feed. Next: a press-page adapter or the PR Newswire adapter."
+      "state": "watching",
+      "since": "2026-11-14",
+      "text": "New source claroty:official:1 reads the claroty.com press-release page. First read on the Nov 15 run."
     },
     "veracode": {
-      "state": "fixing",
-      "since": "2026-11-09",
-      "text": "Press releases go out on Business Wire (refused) and the site's press feed is empty. Next: a press-page adapter."
+      "state": "watching",
+      "since": "2026-11-14",
+      "text": "New source veracode:official:2 reads the Veracode newsroom press page. First read on the Nov 15 run."
     },
     "delinea": {
-      "state": "fixing",
-      "since": "2026-11-09",
-      "text": "Newsroom page parser fails and GlobeNewswire refuses the collector. Eight saved records still verify. Next: repair the newsroom parser."
+      "state": "watching",
+      "since": "2026-11-14",
+      "text": "New source delinea:official:3 reads the /news/ pages in delinea.com's sitemap. First read on the Nov 15 run."
     }
   }
 }
