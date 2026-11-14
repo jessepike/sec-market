@@ -319,6 +319,17 @@
     "rung": 1
   },
   {
+    "id": "EV-filing-commvault-0001169561-26-000041",
+    "supplierId": "commvault",
+    "date": "2026-11-13",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-11-13.",
+    "evidenceIds": [
+      "TR-filing-commvault-0001169561-26-000041"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-filing-commvault-0001169561-26-000030",
     "supplierId": "commvault",
     "date": "2026-09-24",
