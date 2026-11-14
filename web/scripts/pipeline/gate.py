@@ -63,6 +63,8 @@ def rehearsal_contract(repo, store):
     archived = store.read(f"contracts/{plan['contractSha256']}.json")
     require(archived is not None and digest(archived) == plan["contractSha256"], "REHEARSAL_ARCHIVED_CONTRACT_MISSING")
     path.write_text(json.dumps(archived, indent=2, ensure_ascii=False) + "\n")
+    # The roster transition and the correction policy stamp are paired with the
+    # contract they were made from (Nov 14: "Correction build policy manifest differs").
     # The roster transition is paired with the contract it maps from. A candidate that
     # adds sources also extends this file, and the extended chain no longer maps the
     # archived contract (Nov 14: QUALIFICATION_PREDECESSOR_SCHEMA_INVALID). Rehearse
@@ -72,7 +74,7 @@ def rehearsal_contract(repo, store):
             "restoredFrom": restored}
 
 
-PAIRED_CONTRACT_FILES = ("contracts/roster-transition.json",)
+PAIRED_CONTRACT_FILES = ("contracts/roster-transition.json", "web/src/data/tracker/factualCorrectionPolicy.json")
 
 
 def restore_paired_files(repo, contract_sha, depth=300):
