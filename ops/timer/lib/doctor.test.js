@@ -202,3 +202,21 @@ test('a failed gate rehearsal on preview counts as a red preview even when web C
   assert.ok(codes(d).includes('PREVIEW_RED'))
   assert.ok(d.facts.some(f => f.includes('market-gate-rehearsal.yml')))
 })
+
+test('a sign-in after the flagged collection clears the expired login (Nov 13)', async () => {
+  const flagged = { id: 7, html_url: 'run/7', event: 'workflow_dispatch', display_title: 'daily timer collection', created_at: '2026-11-13T05:17:56Z', status: 'completed', conclusion: 'success' }
+  const route = renewedAt => async path => {
+    const key = path.split('?')[0]
+    if (key.endsWith('/workflows/c.yml/runs')) return { workflow_runs: [flagged] }
+    if (key.includes('/runs/7/jobs')) return { jobs: [{ id: 70, name: 'collect-and-reconcile', status: 'completed', conclusion: 'success', started_at: '2026-11-13T05:18:30Z', completed_at: '2026-11-13T06:30:00Z' }] }
+    if (key.includes('/annotations')) return [{ title: 'chatgpt-login', message: 'CHATGPT_SIGN_IN_AGAIN' }]
+    if (key.includes('subscription-account-bootstrap.yml')) return { workflow_runs: renewedAt ? [{ updated_at: renewedAt }] : [] }
+    if (key.includes('/check-runs')) return { check_runs: [{ head_sha: 'main123' }] }
+    return { workflow_runs: [] }
+  }
+  const fetcher = async () => ({ ok: true, json: async () => ({ checkedAt: '2026-11-13T16:37:41Z' }) })
+  const cfg = { GITHUB_REPO: 'o/r', WORKFLOW_FILE: 'c.yml', REF: 'main', DATA_URL: 'https://site.test/d.json' }
+  assert.equal((await observe(cfg, route(null), fetcher, T('2026-11-14T00:38:00Z'))).loginExpired, true)
+  assert.equal((await observe(cfg, route('2026-11-13T16:21:00Z'), fetcher, T('2026-11-14T00:38:00Z'))).loginExpired, false)
+  assert.equal((await observe(cfg, route('2026-11-13T04:00:00Z'), fetcher, T('2026-11-14T00:38:00Z'))).loginExpired, true)
+})

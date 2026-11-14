@@ -8,6 +8,21 @@ const API = 'https://api.github.com'
 export const TIMER_TITLE = 'daily timer collection'
 export const ISSUE_TITLE = 'Daily pipeline needs attention (outside watchdog)'
 export const LOGIN_ANNOTATION = 'chatgpt-login'
+// Workflows that sign in again or prove the login works. A success after the
+// collection that flagged the login clears the flag (Nov 13: the owner signed in
+// at 16:20, but the 05:17 flag kept alarming until the next collection).
+export const LOGIN_RENEWALS = ['subscription-account-bootstrap.yml', 'subscription-account-probe.yml']
+
+export async function loginRenewedSince(gh, repo, since) {
+  const t = Date.parse(since)
+  if (!Number.isFinite(t)) return false
+  for (const file of LOGIN_RENEWALS) {
+    let runs = []
+    try { ({ workflow_runs: runs = [] } = await gh(`/repos/${repo}/actions/workflows/${file}/runs?status=success&per_page=5`)) } catch { continue }
+    if (runs.some(r => Date.parse(r.updated_at) > t)) return true
+  }
+  return false
+}
 const LOGIN_REASONS = new Set(['CHATGPT_SUBSCRIPTION_LOGIN_REQUIRED', 'CHATGPT_SIGN_IN_AGAIN'])
 export const PROBLEMS = {
   DATA_STALE: 'The published data is older than the limit, or could not be read.',
@@ -122,7 +137,8 @@ export async function inspect(cfg, gh, fetcher = fetch, now = Date.now()) {
   if (latest?.run.status === 'completed' && latest.run.conclusion !== 'success') problems.push('RUN_FAILED')
   if (latest?.job && latest.job.status === 'completed') {
     const notes = await gh(`/repos/${cfg.GITHUB_REPO}/check-runs/${latest.job.id}/annotations?per_page=50`)
-    if (notes.some(n => n.title === LOGIN_ANNOTATION && LOGIN_REASONS.has(String(n.message).trim()))) problems.push('CHATGPT_LOGIN_EXPIRED')
+    if (notes.some(n => n.title === LOGIN_ANNOTATION && LOGIN_REASONS.has(String(n.message).trim()))
+        && !(await loginRenewedSince(gh, cfg.GITHUB_REPO, latest.job.completed_at))) problems.push('CHATGPT_LOGIN_EXPIRED')
   }
   return { problems, age, runUrl: latest?.run.html_url ?? null }
 }

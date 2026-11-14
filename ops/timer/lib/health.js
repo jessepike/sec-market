@@ -4,7 +4,7 @@
 // says the overall state ("Site health: OK", "Site health: 1 failing").
 // Editing the issue is silent; a comment (which notifies the owner) is posted
 // only when a check newly goes bad, and once when everything recovers.
-import { TIMER_TITLE, LOGIN_ANNOTATION, ISSUE_TITLE } from './core.js'
+import { TIMER_TITLE, LOGIN_ANNOTATION, ISSUE_TITLE, loginRenewedSince } from './core.js'
 
 export const HEALTH_PREFIX = 'Site health:'
 export const DISK_ANNOTATION = 'evidence-disk'
@@ -165,8 +165,11 @@ export async function assess(cfg, gh, fetcher = fetch, now = Date.now()) {
     }
     let notes = []
     if (job.status === 'completed') notes = await gh(`/repos/${repo}/check-runs/${job.id}/annotations?per_page=50`)
-    const expired = notes.some(n => n.title === LOGIN_ANNOTATION)
-    add('login', 'ChatGPT login works', expired ? 'fail' : 'ok', expired ? 'The last collection reported the login expired' : 'No expired-login flag on the last collection',
+    const flagged = notes.some(n => n.title === LOGIN_ANNOTATION)
+    const renewed = flagged && await loginRenewedSince(gh, repo, job.completed_at)
+    const expired = flagged && !renewed
+    add('login', 'ChatGPT login works', expired ? 'fail' : 'ok',
+      expired ? 'The last collection reported the login expired' : renewed ? 'Signed in again since the last collection flagged it' : 'No expired-login flag on the last collection',
       'The collector writes a chatgpt-login annotation when the model step reports the login expired.')
     const disk = parseDisk(notes.find(n => n.title === DISK_ANNOTATION)?.message)
     const diskHow = 'The collector writes an evidence-disk annotation with the restored evidence size and the runner free space at the end of collection. Warn under 6 GB free, fail under 3 GB.'

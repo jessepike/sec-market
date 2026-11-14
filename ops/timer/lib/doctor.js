@@ -9,7 +9,7 @@
 // It keeps no state of its own. Every limit is counted from GitHub's run list,
 // so a crashed or repeated call can never act twice: a step it took is visible
 // as a run the next time it looks.
-import { TIMER_TITLE, LOGIN_ANNOTATION, dispatch } from './core.js'
+import { TIMER_TITLE, LOGIN_ANNOTATION, dispatch, loginRenewedSince } from './core.js'
 
 const HOUR = 3600000
 const MIN = 60000
@@ -85,7 +85,7 @@ export async function observe(cfg, gh, fetcher = fetch, now = Date.now()) {
   let loginExpired = false
   if (newestDone) {
     const notes = await gh(`/repos/${repo}/check-runs/${newestDone.job.id}/annotations?per_page=50`)
-    loginExpired = notes.some(n => n.title === LOGIN_ANNOTATION)
+    loginExpired = notes.some(n => n.title === LOGIN_ANNOTATION) && !(await loginRenewedSince(gh, repo, newestDone.job.completed))
   }
   const { workflow_runs: gateRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.gate}/runs?branch=${cfg.REF}&event=workflow_dispatch&per_page=10`)
   const { workflow_runs: pubRuns = [] } = await gh(`/repos/${repo}/actions/workflows/${d.publisher}/runs?per_page=30`)
