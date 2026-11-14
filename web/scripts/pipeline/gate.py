@@ -63,7 +63,36 @@ def rehearsal_contract(repo, store):
     archived = store.read(f"contracts/{plan['contractSha256']}.json")
     require(archived is not None and digest(archived) == plan["contractSha256"], "REHEARSAL_ARCHIVED_CONTRACT_MISSING")
     path.write_text(json.dumps(archived, indent=2, ensure_ascii=False) + "\n")
-    return {"substituted": True, "candidateContractSha256": candidate, "archivedContractSha256": plan["contractSha256"]}
+    # The roster transition is paired with the contract it maps from. A candidate that
+    # adds sources also extends this file, and the extended chain no longer maps the
+    # archived contract (Nov 14: QUALIFICATION_PREDECESSOR_SCHEMA_INVALID). Rehearse
+    # with the transition file that was committed beside the archived contract.
+    restored = restore_paired_files(repo, plan["contractSha256"])
+    return {"substituted": True, "candidateContractSha256": candidate, "archivedContractSha256": plan["contractSha256"],
+            "restoredFrom": restored}
+
+
+PAIRED_CONTRACT_FILES = ("contracts/roster-transition.json",)
+
+
+def restore_paired_files(repo, contract_sha, depth=300):
+    """Restore the contract's paired files from the newest commit whose contract has this digest."""
+    run = lambda *a: subprocess.run(["git", "-C", str(repo), *a], capture_output=True, check=True).stdout
+    commits = run("log", f"-{depth}", "--format=%H", "--", "contracts/market.json").decode().split()
+    for commit in commits:
+        try:
+            body = run("show", f"{commit}:contracts/market.json")
+        except subprocess.CalledProcessError:
+            continue
+        if digest(json.loads(body)) != contract_sha:
+            continue
+        for name in PAIRED_CONTRACT_FILES:
+            try:
+                (repo / name).write_bytes(run("show", f"{commit}:{name}"))
+            except subprocess.CalledProcessError:
+                (repo / name).unlink(missing_ok=True)
+        return commit
+    require(False, "REHEARSAL_ARCHIVED_CONTRACT_COMMIT_MISSING")
 
 
 def prepare_data(repo, store, destination):

@@ -38,6 +38,9 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
+          # History lets a rehearsal restore the roster transition committed beside
+          # the archived contract (gate.py restore_paired_files).
+          fetch-depth: 0
           persist-credentials: false
           path: application
       - name: Read the newest archived collection

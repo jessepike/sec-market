@@ -1239,6 +1239,29 @@ class SplitReleaseTests(unittest.TestCase):
         self.assertNotIn("test_failed_x ... ok\ntest_failed_x", text.split("--- last lines ---")[0])
         self.assertLess(len(text.splitlines()), 110)
 
+    def test_rehearsal_restores_the_roster_transition_paired_with_the_archived_contract(self):
+        # Nov 14: a candidate added sources and extended roster-transition.json; the
+        # rehearsal swapped in the archived contract but kept the new transition file.
+        from gate import restore_paired_files
+        from contracts import digest
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp)
+            git = lambda *a: subprocess.run(["git", "-C", tmp, *a], check=True, capture_output=True)
+            git("init", "-q"); git("config", "user.email", "t@t"); git("config", "user.name", "t")
+            (repo / "contracts").mkdir()
+            old = {"version": 1}
+            (repo / "contracts/market.json").write_text(json.dumps(old))
+            (repo / "contracts/roster-transition.json").write_text('{"chain": "old"}')
+            git("add", "-A"); git("commit", "-qm", "old")
+            (repo / "contracts/market.json").write_text(json.dumps({"version": 2}))
+            (repo / "contracts/roster-transition.json").write_text('{"chain": "new"}')
+            git("add", "-A"); git("commit", "-qm", "new")
+            (repo / "contracts/market.json").write_text(json.dumps(old))
+            self.assertTrue(restore_paired_files(repo, digest(old)))
+            self.assertEqual((repo / "contracts/roster-transition.json").read_text(), '{"chain": "old"}')
+            with self.assertRaisesRegex(ValueError, "REHEARSAL_ARCHIVED_CONTRACT_COMMIT_MISSING"):
+                restore_paired_files(repo, digest({"version": 9}))
+
     def test_gate_budget_is_per_revision_with_a_daily_total(self):
         from release import gate_budget_check
         self.run_release()
