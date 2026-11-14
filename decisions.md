@@ -1670,3 +1670,12 @@ since changed on main: "Okay, yeah, let's do your recommendations, but like clea
 it released." So the gate allows `maxBatchesPerDay` attempts per app revision and twice that in total
 each UTC day (`gate_budget_check` in `release.py`); the total also bounds the timer's restart after
 each new main commit. The release of November 12's collection came first.
+
+**D-151 · 2026-11-14 — The repair step may promote its own fixes, including job time limits.**
+Asked "May the repair loop promote its own fixes to production?", the owner answered "Yes, including
+workflow limits". Decided: the Pipeline repair step ships routine code and data fixes through
+preview and the approved D-110 promotion without waiting for the owner, and may change job time
+limits in `.github/workflows/` within a fixed range (collector up to 120 minutes), marking those
+commits `Owner-Review: required`. It never promotes over a red preview CI or gate rehearsal, or
+while a gate or publisher runs. Still the owner's: the gate's checks and daily attempt budget, the
+certification chain, secrets, content rules and anything a reader would notice.

@@ -58,11 +58,11 @@ Each run:
 
 ### What the repair step may change on its own
 
-Pending the owner's answer of 2026-11-12 (recommended: routine fixes plus job limits within a range).
+The owner allowed this on 2026-11-14 (D-151: "Yes, including workflow limits").
 
 - Routine code and data fixes: yes, through preview and the approved main promotion (D-110).
-- Job time limits in `.github/workflows/`: up to 120 minutes for the collector, with
-  `Owner-Review: required` noted in the commit, if the owner allows it.
+- Job time limits in `.github/workflows/`: yes, up to 120 minutes for the collector, with
+  `Owner-Review: required` in the commit.
 - Never alone: the gate's checks or its daily attempt budget, the certification chain, secrets,
   content rules, anything a reader would notice. Those wait for the owner with a recommendation.
 
