@@ -33,6 +33,7 @@ export function CompanyMomentum({ id }: { id: string }) {
   const series = certified && supplier.edgarId ? quarterlyGrowth(supplier.edgarId) : []
   const max = Math.max(10, ...series.map(s => Math.abs(s.growth)))
   const row = own.flatMap(d => d.rows).find(r => r.supplier.id === id)
+  const reported = own.some(d => d.reported.some(r => r.supplier.id === id))
   const events = yearItems.filter(i => i.supplierId === id)
   return <section className="company-momentum" aria-labelledby="company-momentum">
     <h2 id="company-momentum">{certified ? 'Growth and health' : 'Activity, last 12 months'}</h2>
@@ -60,7 +61,7 @@ export function CompanyMomentum({ id }: { id: string }) {
         const items = events.filter(i => g.types.includes(i.type as never))
         return <Stat key={g.id} group={g.id} label={g.label} value={String(items.length)} detail={items[0] ? `Latest ${items[0].date}` : 'None in 12 months'} />
       })}</div>}
-      <p className="coverage-page__note">{supplier.kind === 'public' ? 'This company does not file comparable quarterly revenue with the SEC.' : 'Private companies, segments and acquired companies have no comparable SEC financials.'}{events.length > 0 && ' Counts are sourced events in the trailing 12 months; each is listed below.'} Its domain&rsquo;s SEC filers are shown for context.</p>
+      <p className="coverage-page__note">{supplier.kind === 'public' ? `This company does not file comparable quarterly revenue with the SEC.${reported ? ' Its own reported growth is the outlined bar.' : ''}` : 'Private companies, segments and acquired companies have no comparable SEC financials.'}{events.length > 0 && ' Counts are sourced events in the trailing 12 months; each is listed below.'} Its domain&rsquo;s SEC filers are shown for context.</p>
     </>}
     {own.filter(d => d.rows.length > 0).length > 0 && <>
       <h3 className="company-momentum__peers">{certified ? 'Against domain peers' : 'SEC filers in its domains'}</h3>

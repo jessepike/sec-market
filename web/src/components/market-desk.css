@@ -388,6 +388,8 @@
 .desk-changes>li time { white-space: nowrap; }
 
 /* Improvement loop IL-001 and IL-003: the all-filers median as a light second tick, and net cash beside the margins. */
+.momentum__fill--reported { background: #fff; box-shadow: inset 0 0 0 1.5px #1f5fc8; }
+.momentum__row.is-reported .momentum__growth { color: #4a5157; font-weight: 500; }
 .momentum__median--all { background: #8f979c; width: 2px; top: -2px; bottom: -2px; }
 @media(min-width:641px) { .momentum__cols.has-balance,.momentum__rows.has-balance .momentum__row { grid-template-columns: 116px minmax(40px,1fr) 52px 72px 60px 60px 64px; } }
 @media(max-width:640px) {

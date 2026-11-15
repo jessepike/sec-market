@@ -46,6 +46,22 @@ export interface MomentumRow {
   revenue: number | null
 }
 
+/**
+ * A public company whose growth comes from its own results release, not re-derived from SEC
+ * filings (no `edgarId`, or a foreign filer). Drawn beside the certified rows with its own mark
+ * and kept out of every median.
+ */
+export interface ReportedRow {
+  supplier: TrackerSupplier
+  /** Year-over-year revenue growth as the company reports it, percent. */
+  latest: number
+  /** Quarterly revenue in US dollars as the company reports it; null when the text does not parse. */
+  revenue: number | null
+  periodEnd: string
+  /** The basis the company reports on, where it differs from US dollars. */
+  basis: string | null
+}
+
 export interface OtherCompany {
   supplier: TrackerSupplier
   /** The company's own compact fact: last round, ownership, or a company-stated metric. */
@@ -69,6 +85,8 @@ export interface DomainMomentum {
   id: string
   name: string
   rows: MomentumRow[]
+  /** Company-reported growth of public companies outside the SEC check, highest first. Not in `median`. */
+  reported: ReportedRow[]
   median: number | null
   /** False when the domain shows no revenue bars (domains.ts `revenueBars`). */
   revenueBars: boolean
@@ -88,6 +106,28 @@ const round1 = (n: number) => Math.round(n * 10) / 10
 /** Certified growth rows: public SEC filers only, never a company release or a segment. */
 export const certifiedGrowth = revenueGrowthRows().filter(r => isCertifiedSupplier(r.supplier.id))
 export const marketMedian = median(certifiedGrowth.map(r => r.latest))
+
+/** "+6.4%" -> 6.4, "-1.1%" -> -1.1; null for anything else. */
+export function parseGrowth(text: string): number | null {
+  const m = /^([+\-−]?)(\d+(?:\.\d+)?)%$/.exec(text.trim())
+  return m ? (m[1] === '-' || m[1] === '−' ? -1 : 1) * Number(m[2]) : null
+}
+/** "$1,122.0 million" -> 1_122_000_000, "$2.1 billion" -> 2_100_000_000; null for anything else. */
+export function parseUsd(text: string): number | null {
+  const m = /^\$([\d,]+(?:\.\d+)?)\s*(million|billion)$/i.exec(text.trim())
+  return m ? Number(m[1].replace(/,/g, '')) * (m[2].toLowerCase() === 'billion' ? 1e9 : 1e6) : null
+}
+
+/** Public companies with whole-company revenue growth from their own release and no certified figures. */
+export function reportedGrowth(domainId: string): ReportedRow[] {
+  return suppliersForDomain(domainId).flatMap(supplier => {
+    const rev = supplier.revenue
+    if (supplier.kind !== 'public' || !rev || rev.scope === 'segment' || isCertifiedSupplier(supplier.id)) return []
+    const latest = parseGrowth(rev.latest.yoyGrowth)
+    if (latest === null) return []
+    return [{ supplier, latest, revenue: parseUsd(rev.latest.value), periodEnd: rev.latest.periodEnd, basis: rev.latest.growthBasis ?? null }]
+  }).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
+}
 
 const yearItems = yearChanges().filter(item => item.type !== 'filing')
 
@@ -160,8 +200,10 @@ export function domainMomentum(): DomainMomentum[] {
       health: healthFacts.suppliers[r.supplier.id] ?? null,
       ...series(r.supplier),
     })).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
-    const list = others(domain.id, new Set(rows.map(r => r.supplier.id)))
-    return { id: domain.id, name: domain.name, rows, median: med, revenueBars, others: list, otherGroups: groups(domain, list) }
+    // Company-reported rows sit beside certified ones only where the domain draws bars and has a filer to compare with.
+    const reported = revenueBars && rows.length > 0 ? reportedGrowth(domain.id) : []
+    const list = others(domain.id, new Set([...rows, ...reported].map(r => r.supplier.id)))
+    return { id: domain.id, name: domain.name, rows, reported, median: med, revenueBars, others: list, otherGroups: groups(domain, list) }
   })
 }
 

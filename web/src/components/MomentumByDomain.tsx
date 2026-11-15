@@ -4,7 +4,7 @@ import { shortSupplierName } from '../data/tracker/names'
 import { certifiedGrowth, domainMomentum, formatPercent, formatNetCash, formatPoints, formatUsd, healthFacts, marketMedian, signalAge } from '../data/tracker/momentum'
 import { formatMonthYear } from '../data/tracker/derive'
 import { shortUsd } from '../data/tracker/eventFacts'
-import type { DomainMomentum, MomentumRow, OtherCompany } from '../data/tracker/momentum'
+import type { DomainMomentum, MomentumRow, OtherCompany, ReportedRow } from '../data/tracker/momentum'
 import { trackerDomains } from '../data/tracker/domains'
 import { typeName } from '../data/tracker/typeNames'
 import { companyPath } from '../data/companyPages'
@@ -97,6 +97,29 @@ function Row({ row, median, market, openSupplier, highlight }: { row: MomentumRo
   </li>
 }
 
+/**
+ * A public company outside the SEC check: its own reported growth on the same scale, drawn as an
+ * outline so it does not read as a certified figure, with no trend, margins or median of its own.
+ */
+function Reported({ row, openSupplier, highlight }: { row: ReportedRow; openSupplier: Open; highlight?: string }) {
+  const { supplier, latest } = row
+  const clamped = Math.max(lo, Math.min(hi, latest))
+  const note = `Company-reported in its results release for the quarter ended ${row.periodEnd}; not re-derived from SEC filings and not in the medians${row.basis ? `. ${row.basis}` : ''}`
+  const dash = (kind: string, label: string) => <span className={`momentum__metric momentum__metric--${kind}`} title={note}><span className="momentum__metric-label">{label}</span><span className="momentum__na">–</span></span>
+  return <li className={`momentum__row is-reported${highlight === supplier.id ? ' is-highlight' : ''}`} aria-current={highlight === supplier.id ? 'true' : undefined}>
+    <span className="momentum__who"><Name supplier={supplier} open={openSupplier} className="momentum__name" />
+      <span className="momentum__rev" title={note}>{row.revenue !== null && <><span className="momentum__metric-label">Quarterly revenue </span>{shortUsd(row.revenue)} · </>}company-reported</span></span>
+    <div className="momentum__bar" role="img" aria-label={`${supplier.name}: ${formatPercent(latest)} year-over-year revenue growth, company-reported, quarter ended ${row.periodEnd}`}>
+      <i className="momentum__zero" style={{ left: pos(0) }} />
+      <i className="momentum__fill momentum__fill--reported" style={{ left: pos(Math.min(0, clamped)), width: `${(Math.abs(clamped) / (hi - lo)) * 100}%` }} />
+    </div>
+    <span className="momentum__growth" title={note}><span className="momentum__metric-label">Revenue growth</span>{formatPercent(latest)}</span>
+    <span className="momentum__change" title={note}><span className="momentum__metric-label">Trend, change</span>–</span>
+    {hasHealth && <>{dash('op', 'Operating margin')}{dash('fcf', 'Free cash flow margin')}</>}
+    {hasBalance && dash('bal', 'Net cash')}
+  </li>
+}
+
 function headText(d: DomainMomentum): ReactNode {
   if (!d.revenueBars) return 'Listed by latest funding or deal'
   if (d.rows.length === 0) return 'No SEC filer'
@@ -121,7 +144,8 @@ export function DomainCard({ d, openSupplier, highlight }: { d: DomainMomentum; 
     {d.rows.length > 0 && <>
       <div className={colClass} aria-hidden="true"><span>Company, quarterly revenue</span><span>Revenue growth, year over year</span><span /><span>Trend, change vs prior quarter</span>
         {hasHealth && <><span>Operating margin</span><span>Free cash flow margin</span></>}{hasBalance && <span>Net cash</span>}</div>
-      <ul className={rowClass}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} market={marketMedian} openSupplier={openSupplier} highlight={highlight} />)}<Axis /></ul>
+      <ul className={rowClass}>{d.rows.map(row => <Row key={row.supplier.id} row={row} median={d.median} market={marketMedian} openSupplier={openSupplier} highlight={highlight} />)}
+        {d.reported.map(row => <Reported key={row.supplier.id} row={row} openSupplier={openSupplier} highlight={highlight} />)}<Axis /></ul>
     </>}
     {d.otherGroups.length > 0 && <div className="momentum__others">
       <div className="momentum__others-cols" aria-hidden="true"><span>{d.rows.length > 0 ? 'Private, acquired and other companies' : 'Company'}</span><span>Latest funding, ownership or deal</span><span>Newest event or dated fact</span></div>
@@ -200,7 +224,7 @@ export function MomentumByDomain({ openSupplier }: { openSupplier: (id: string) 
         <button type="button" aria-pressed={!all} onClick={() => setAll(false)}>By domain</button>
         <button type="button" aria-pressed={all} onClick={() => setAll(true)}>All domains</button>
       </div></div>
-    <p className="desk-note">Whole-company revenue growth, year over year, for the latest quarter, re-derived from SEC filings. The small line is the growth rate of the last quarters on file, followed by the change from the prior quarter. The dark tick is the domain median; the light tick is the median of all SEC filers.</p>
+    <p className="desk-note">Whole-company revenue growth, year over year, for the latest quarter, re-derived from SEC filings. The small line is the growth rate of the last quarters on file, followed by the change from the prior quarter. The dark tick is the domain median; the light tick is the median of all SEC filers. Outlined bars are growth a public company reports in its own results, not re-derived from SEC filings and not in either median.</p>
     <details className="momentum__how"><summary>How to read this</summary><p className="desk-note">Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. Growth is for the whole company, not for its business in one domain, so a company can appear in more than one domain card. A domain median is shown only with three or more filers. Every trend line uses one vertical scale: its full height is 16 percentage points, widened only when a company moved more. The SEC series holds eight quarters, so up to four growth rates can be compared.
       {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They come from the same SEC filings but are not yet part of the certified check.{hasBalance ? ' Net cash is cash and short-term investments minus the carrying value of debt, at the same quarter end; where a filer tags no borrowing for that date, cash is shown alone.' : ' Debt is not shown yet.'}</>}
       {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest funding, ownership or deal and their latest event. AI security shows no bars: no public company sells only AI security, so a whole-company growth rate would not describe it.</p></details>
