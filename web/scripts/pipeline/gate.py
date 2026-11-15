@@ -80,7 +80,10 @@ PAIRED_CONTRACT_FILES = ("contracts/roster-transition.json", "web/src/data/track
 def restore_paired_files(repo, contract_sha, depth=300):
     """Restore the contract's paired files from the newest commit whose contract has this digest."""
     run = lambda *a: subprocess.run(["git", "-C", str(repo), *a], capture_output=True, check=True).stdout
-    commits = run("log", f"-{depth}", "--format=%H", "--", "contracts/market.json").decode().split()
+    try:
+        commits = run("log", f"-{depth}", "--format=%H", "--", "contracts/market.json").decode().split()
+    except (subprocess.CalledProcessError, OSError):
+        return None  # no history (a plain checkout): rehearse with the candidate's paired files
     for commit in commits:
         try:
             body = run("show", f"{commit}:contracts/market.json")

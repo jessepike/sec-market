@@ -249,7 +249,7 @@ class GateContinuityTests(unittest.TestCase):
         (repo/'contracts/market.json').write_text(json.dumps(changed))
         result=gate.rehearsal_contract(repo,self.store)
         self.assertEqual(result,{'substituted':True,'candidateContractSha256':digest(changed),
-                                 'archivedContractSha256':digest(self.contract)})
+                                 'archivedContractSha256':digest(self.contract),'restoredFrom':None})
         self.assertEqual(digest(json.loads((repo/'contracts/market.json').read_text())),digest(self.contract))
 
     def test_rehearsal_stops_when_the_archived_contract_is_missing(self):
