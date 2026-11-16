@@ -1,6 +1,25 @@
 {
   "held": [
     {
+      "amountUsd": 3000000,
+      "checkedAt": "2026-11-16",
+      "company": "CyberKord",
+      "companyUrl": "https://www.cyberkord.com/",
+      "confirmation": "source does not state the amount",
+      "country": "IT",
+      "foundVia": {
+        "issue": 269,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-269"
+      },
+      "id": "cyberkord:2026-11-02:pre-seed",
+      "lead": "360 Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.cyberkord.com/",
+      "stage": "Pre-Seed",
+      "weekOf": "2026-11-02"
+    },
+    {
       "amountUsd": 25000,
       "checkedAt": "2026-11-06",
       "company": "ThreatBreaker",
@@ -132,6 +151,25 @@
       "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2161341/000216134126000001/xslFormDX01/primary_doc.xml",
       "stage": "Venture round",
       "weekOf": "2026-10-26"
+    },
+    {
+      "amountUsd": 10000000,
+      "checkedAt": "2026-11-16",
+      "company": "Ultra Security",
+      "companyUrl": "https://ultra.security",
+      "confirmation": "source unreadable on 3 weekly tries",
+      "country": "US",
+      "foundVia": {
+        "issue": 267,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-267"
+      },
+      "id": "ultra-security:2026-10-19:seed",
+      "lead": "Ludlow Ventures, Hidden Capital, Entrée Capital, Detroit Venture Partners, firedrop, and Forward Deployed Venture Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.businesswire.com/news/home/20261021802328/en/",
+      "stage": "Seed",
+      "weekOf": "2026-10-19"
     },
     {
       "amountUsd": 316200,
@@ -718,6 +756,10 @@
           "baseline": true,
           "firstSeen": "2026-11-06"
         },
+        "bay.io": {
+          "baseline": false,
+          "firstSeen": "2026-11-16"
+        },
         "clicktale.com": {
           "baseline": true,
           "firstSeen": "2026-11-06"
@@ -796,12 +838,51 @@
     }
   },
   "postsProcessed": [
+    267,
     268
   ],
   "retries": {
-    "ultra-security:2026-10-19:seed": 2
+    "enginsight:2026-11-02:venture-round": 1
   },
   "rounds": [
+    {
+      "amountUsd": 150000000,
+      "checkedAt": "2026-11-16",
+      "company": "Sentra",
+      "companyUrl": "http://www.sentra.io",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 269,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-269"
+      },
+      "id": "sentra:2026-11-02:series-c",
+      "lead": "Capital One Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://sentra.io/blog/why-we-raised-150m-series-c-data-security",
+      "stage": "Series C",
+      "weekOf": "2026-11-02"
+    },
+    {
+      "amountUsd": 15000000,
+      "checkedAt": "2026-11-16",
+      "company": "Brava Security",
+      "companyUrl": "https://brava.security",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 269,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-269"
+      },
+      "id": "brava-security:2026-11-02:seed",
+      "lead": "F2 Venture Capital and Pitango VC",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.brava.security/news/announcing-brava",
+      "stage": "Seed",
+      "weekOf": "2026-11-02"
+    },
     {
       "amountUsd": 70000000,
       "checkedAt": "2026-11-06",
@@ -1013,5 +1094,5 @@
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-11-09"
+  "updatedAt": "2026-11-16"
 }
