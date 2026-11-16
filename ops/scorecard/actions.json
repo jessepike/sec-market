@@ -27,9 +27,9 @@
       "text": "Added the email-security blog feed (checkpoint-email:official:3). The Nov 10 run ran out of time before reaching it; confirming on the Nov 11 run."
     },
     "barracuda": {
-      "state": "watching",
-      "since": "2026-11-14",
-      "text": "New source barracuda:official:2 reads Barracuda's own newsroom data file (press releases only). First read on the Nov 15 run."
+      "state": "fixing",
+      "since": "2026-11-16",
+      "text": "barracuda:official:2 got HTTP 404 on the Nov 16 run. The same request returns 200 from a home network, so Barracuda's CDN likely refuses GitHub's servers on this path. Business Wire (403) and the blog (robots) are closed too. Looking for another reachable copy."
     },
     "axonius": {
       "state": "fixing",
@@ -38,23 +38,23 @@
     },
     "bigid": {
       "state": "watching",
-      "since": "2026-11-14",
-      "text": "New source bigid:official:1 reads BigID's PR Newswire company page. First read on the Nov 15 run."
+      "since": "2026-11-16",
+      "text": "bigid:official:1 collected on the Nov 16 run: 24 pages found and queued for AI review. Watching for the first facts."
     },
     "claroty": {
       "state": "watching",
-      "since": "2026-11-14",
-      "text": "New source claroty:official:1 reads the claroty.com press-release page. First read on the Nov 15 run."
+      "since": "2026-11-16",
+      "text": "claroty:official:1 collected on the Nov 16 run: 9 pages found and queued for AI review. Watching for the first facts."
     },
     "veracode": {
       "state": "watching",
-      "since": "2026-11-14",
-      "text": "New source veracode:official:2 reads the Veracode newsroom press page. First read on the Nov 15 run."
+      "since": "2026-11-16",
+      "text": "veracode:official:2 collected on the Nov 16 run: 59 pages found and queued for AI review. Watching for the first facts."
     },
     "delinea": {
       "state": "watching",
-      "since": "2026-11-14",
-      "text": "New source delinea:official:3 reads the /news/ pages in delinea.com's sitemap. First read on the Nov 15 run."
+      "since": "2026-11-16",
+      "text": "delinea:official:3 collected on the Nov 16 run: 37 pages found and queued for AI review. Watching for the first facts."
     }
   }
 }
