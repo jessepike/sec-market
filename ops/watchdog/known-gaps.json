@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policy": "D-143: the watchdog alerts on change. These source gaps were already failing when the policy was set and are tracked in BACKLOG SEC-071 and SEC-072, not alerted. Unregistered source families (missing_discovery tasks) follow from contracts/market.json and need no entry. Remove an entry once its source collects again. Onboarding sources (D-141) measured on run 7b4de077... (2026-11-07) were added the same way and are tracked in BACKLOG SEC-083. Workaround sources that fail on reachability (run e785aa4a..., 2026-11-08: Akamai's own site and govconwire return 403) and two D-146 onboarding citations (Clearlake 403, Endor redirect host) are listed too; each has a reachable alternate or is tracked in SEC-083.",
+  "policy": "D-143: the watchdog alerts on change. These source gaps were already failing when the policy was set and are tracked in BACKLOG SEC-071 and SEC-072, not alerted. Unregistered source families (missing_discovery tasks) follow from contracts/market.json and need no entry. Remove an entry once its source collects again. Onboarding sources (D-141) measured on run 7b4de077... (2026-11-07) were added the same way and are tracked in BACKLOG SEC-083. Workaround sources that fail on reachability (run e785aa4a..., 2026-11-08: Akamai's own site and govconwire return 403) and two D-146 onboarding citations (Clearlake 403, Endor redirect host) are listed too; each has a reachable alternate or is tracked in SEC-083. D-146 AppSec/AI onboarding homepage crawls (black-duck, checkmarx, endor-labs, noma, semgrep :official:1) are unverified candidates that never collect; each supplier's verified :official:2 feed collects (run 5e62d425..., 2026-11-16). barracuda:official:2 returns 404 to GitHub runners only (200 from a home network); tracked on the source scorecard.",
   "measuredRunId": "8b782e00414e7efeaf92712288969dd3aafbb370c1bd35c00c1666a3f3daf9a2",
   "measuredAt": "2026-11-04T05:35:38.331052Z",
   "sourceGaps": {
@@ -62,6 +62,12 @@
     "trend-micro:official:1": "SOURCE_BINDING_UNVERIFIED",
     "trustwave:official:1": "SOURCE_BINDING_UNVERIFIED",
     "veracode:official:1": "SOURCE_BINDING_UNVERIFIED",
-    "zenity:official:1": "SOURCE_BINDING_UNVERIFIED"
+    "zenity:official:1": "SOURCE_BINDING_UNVERIFIED",
+    "black-duck:official:1": "SOURCE_BINDING_UNVERIFIED",
+    "checkmarx:official:1": "SOURCE_BINDING_UNVERIFIED",
+    "endor-labs:official:1": "SOURCE_BINDING_UNVERIFIED",
+    "noma:official:1": "SOURCE_BINDING_UNVERIFIED",
+    "semgrep:official:1": "SOURCE_BINDING_UNVERIFIED",
+    "barracuda:official:2": "HTTP_404"
   }
 }
