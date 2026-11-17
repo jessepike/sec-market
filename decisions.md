@@ -1704,3 +1704,10 @@ links from official public statements, never a machine-rated strength. Each bout
 specialist tags (vendors and domains), each backed by a dated source. Still open: whether to read UK
 Companies House records. Plan: https://claude.ai/artifact/XuxSaXspCABybYaSbQScf5. Adding suppliers,
 the domain and the partnership fact type remain major changes that land on preview for review.
+
+**D-154 · 2026-11-17 — UK Companies House accounts are read for tracked UK firms.**
+Asked whether to read UK Companies House records, after being told no key is needed, the owner
+answered "Yes". Decided: Phase 1 of D-153 reads the free daily Companies House Accounts Data Product
+(iXBRL, no sign-up, no credential) for the company numbers of tracked UK firms only, plus the public
+filing history for registered charges. Figures are read from the tagged values without model calls
+and labeled as filed annual accounts. No API key is created.
