@@ -11,6 +11,8 @@ import os
 import re
 import subprocess
 import sys
+import time
+from contextlib import contextmanager
 from pathlib import Path
 
 from artifacts import build_artifact, unpack, inventory
@@ -18,6 +20,16 @@ from contracts import canonical, digest, require, utcnow, validate_contract
 from snapshot import build_snapshot, collector_continuity
 from storage import LocalStore
 from validation import reconcile
+
+
+@contextmanager
+def stage(name):
+    """Print how long a gate stage took, so a slow gate shows which stage grew."""
+    started = time.monotonic()
+    try:
+        yield
+    finally:
+        print(f"gate-timing {name} {time.monotonic() - started:.1f}s", file=sys.stderr, flush=True)
 
 
 def prepare_corrections(repo, store, contract, coverage, previous_bundle=None, now=None):
@@ -108,10 +120,12 @@ def prepare_data(repo, store, destination):
     plan = store.read(f"runs/{coverage['runId']}/plan.json")
     archived = [store.read(f"runs/{coverage['runId']}/attempts/{r['attemptId']}.json") for r in coverage["receipts"]]
     require(archived == coverage["receipts"], "Worker summary differs from archived receipts")
-    verified = reconcile(plan, archived, contract, utcnow(), store)
+    with stage("reconcile"):
+        verified = reconcile(plan, archived, contract, utcnow(), store)
     collector=store.read('heads/dailySnapshot.json') or store.read('heads/cloud-snapshot.json')
     require(collector is not None, 'Archived collector continuity missing')
-    continuity=collector_continuity(collector,contract,coverage,store)
+    with stage("collector-continuity"):
+        continuity=collector_continuity(collector,contract,coverage,store)
     previous = json.loads((repo / "web/src/data/generated/dailyMarket.json").read_text())
     previous_corrections = None
     production = store.read("heads/production.json")
@@ -131,8 +145,10 @@ def prepare_data(repo, store, destination):
         if "static/factual-corrections.json" in files:
             previous_corrections = json.loads(files["static/factual-corrections.json"])
     if (repo / "contracts/factual-corrections.json").exists():
-        prepare_corrections(repo, store, contract, coverage, previous_bundle=previous_corrections)
-    snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous,continuity=continuity)
+        with stage("corrections"):
+            prepare_corrections(repo, store, contract, coverage, previous_bundle=previous_corrections)
+    with stage("snapshot"):
+        snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous,continuity=continuity)
     raw = (json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n").encode()
     target = repo / "web/src/data/generated/dailyMarket.json"
     target.write_bytes(raw)
@@ -187,7 +203,8 @@ def failure_excerpt(name, body, context=200):
 def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=False):
     destination.mkdir(parents=True, exist_ok=True)
     substitution = rehearsal_contract(repo, store) if rehearsal else None
-    contract, coverage, snapshot, raw, cache, collection_hash = prepare_data(repo, store, destination)
+    with stage("prepare-data"):
+        contract, coverage, snapshot, raw, cache, collection_hash = prepare_data(repo, store, destination)
     env = dict(os.environ, VERCEL_GIT_COMMIT_SHA=app_revision)
     checks, logs = {}, []
     for name in ("refresh:edgar", "refresh:filing-events", "certify:sec", "test"):
@@ -196,7 +213,7 @@ def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=Fa
             child_env["SMP_SEC_CACHE_MANIFEST"] = str(cache)
             child_env["NODE_OPTIONS"] = "--import=" + str(repo / "web/scripts/pipeline/sec-cache-fetch.mjs")
         log = destination / (name.replace(":", "-") + ".log")
-        with log.open("wb") as output:
+        with log.open("wb") as output, stage(name):
             result = subprocess.run(["npm", "run", name], cwd=repo / "web", env=child_env, stdout=output, stderr=output, timeout=1800)
         if result.returncode != 0:
             # The repair loop reads the job log, not the uploaded artifact (the
@@ -234,7 +251,8 @@ def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=Fa
         require(correction_proof["fileSha256"] == digest(correction_path.read_bytes()), "CORRECTION_PROJECTION_CHANGED_DURING_GATE")
         require((repo / "web/dist/factual-corrections.json").read_bytes() == correction_path.read_bytes(), "CORRECTION_PUBLIC_EXPORT_DIFFERS")
         snapshot_ref["factualCorrections"] = correction_proof
-    artifact = build_artifact(store, repo / "web/dist", json.loads((repo / "web/vercel.json").read_text()))
+    with stage("artifact"):
+        artifact = build_artifact(store, repo / "web/dist", json.loads((repo / "web/vercel.json").read_text()))
     receipt = {"result": "pass", "executedTests": executed, "checks": checks, "githubRunId": github_run_id,
                "appRevision": app_revision, "snapshotSha256": snapshot_ref["sha256"], "artifactSha256": artifact["sha256"],
                "runId": coverage["runId"], "contractSha256": digest(contract), "coverageSha256": digest(coverage),
