@@ -208,7 +208,19 @@ def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=Fa
     destination.mkdir(parents=True, exist_ok=True)
     substitution = rehearsal_contract(repo, store) if rehearsal else None
     with stage("prepare-data"):
-        contract, coverage, snapshot, raw, cache, collection_hash = prepare_data(repo, store, destination)
+        if rehearsal:
+            # Rehearsals profile the data rebuild (97% of gate time on Nov 17) so the
+            # slow functions show in the job log. The release gate itself is not profiled.
+            import cProfile
+            import pstats
+            profiler = cProfile.Profile()
+            result = profiler.runcall(prepare_data, repo, store, destination)
+            pstats.Stats(profiler, stream=sys.stderr).sort_stats("cumulative").print_stats(35)
+            pstats.Stats(profiler, stream=sys.stderr).sort_stats("tottime").print_stats(25)
+            sys.stderr.flush()
+        else:
+            result = prepare_data(repo, store, destination)
+        contract, coverage, snapshot, raw, cache, collection_hash = result
     env = dict(os.environ, VERCEL_GIT_COMMIT_SHA=app_revision)
     checks, logs = {}, []
     for name in ("refresh:edgar", "refresh:filing-events", "certify:sec", "test"):
