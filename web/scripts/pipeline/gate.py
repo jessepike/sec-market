@@ -147,8 +147,12 @@ def prepare_data(repo, store, destination):
     if (repo / "contracts/factual-corrections.json").exists():
         with stage("corrections"):
             prepare_corrections(repo, store, contract, coverage, previous_bundle=previous_corrections)
+    # `verified` is this process's own reconcile() of the archived receipts, a few
+    # lines above. Letting build_snapshot reconcile the same receipts again took
+    # about 6.5 of the gate's 20 minutes on Nov 17 (rehearsal 44115789813).
     with stage("snapshot"):
-        snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous,continuity=continuity)
+        snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous,continuity=continuity,
+                                  reconciled_here=True)
     raw = (json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n").encode()
     target = repo / "web/src/data/generated/dailyMarket.json"
     target.write_bytes(raw)
