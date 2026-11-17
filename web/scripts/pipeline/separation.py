@@ -20,17 +20,20 @@ def audit_version(contract):
 def original_contract(store, origin):
     plan = store.read('runs/' + origin['runId'] + '/plan.json')
     require(plan is not None, 'Original policy plan missing')
-    contract = store.read('contracts/' + plan['contractSha256'] + '.json')
-    # Contracts are content-addressed and write-once: hash each one once per process.
+    # Contracts are content-addressed and write-once: read, parse and hash each one
+    # once per process. The release gate asked for them about 70,000 times on Nov 17
+    # (rehearsal 44128681404), re-parsing a 350 KB file each time. Callers treat the
+    # result as read-only (semantic_context and onboarding deep-copy before editing).
     verified = (str(store.root), plan['contractSha256'])
-    if verified not in _VERIFIED_CONTRACTS:
+    contract = _VERIFIED_CONTRACTS.get(verified)
+    if contract is None:
+        contract = store.read('contracts/' + plan['contractSha256'] + '.json')
         require(contract is not None and digest(contract) == plan['contractSha256'], 'Original contract integrity differs')
-        _VERIFIED_CONTRACTS.add(verified)
-    require(contract is not None, 'Original contract integrity differs')
+        _VERIFIED_CONTRACTS[verified] = contract
     return contract
 
 
-_VERIFIED_CONTRACTS = set()
+_VERIFIED_CONTRACTS = {}
 
 
 def semantic_context(contract, source_id):
@@ -48,10 +51,23 @@ def semantic_context(contract, source_id):
 
 
 def bridge(original, current, source_id):
+    # The same (original, current, source) bridge was rebuilt about 55,000 times per
+    # gate run, each time deep-copying and hashing two 350 KB contracts. Reuse it
+    # while both arguments are the very same objects. A changed or rebuilt contract
+    # is a different object and is bridged afresh.
+    key = (id(original), id(current), source_id)
+    cached = _BRIDGES.get(key)
+    if cached is not None and cached[0] is original and cached[1] is current:
+        return dict(cached[2])
     old_context, context = semantic_context(original, source_id), semantic_context(current, source_id)
     require(old_context == context, 'Retained semantic policy/source/supplier context differs')
-    return {'schemaVersion': 1, 'originalContractSha256': digest(original),
-            'currentContractSha256': digest(current), 'semanticContextSha256': digest(context)}
+    result = {'schemaVersion': 1, 'originalContractSha256': digest(original),
+              'currentContractSha256': digest(current), 'semanticContextSha256': digest(context)}
+    _BRIDGES[key] = (original, current, result)
+    return dict(result)
+
+
+_BRIDGES = {}
 
 
 def compatible(original, current, source_id):
