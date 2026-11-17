@@ -1687,3 +1687,20 @@ newsroom data file on www.barracuda.com (press releases only; third-party covera
 not from news aggregators. Delinea adds its sitemap's `/news/` pages; Claroty and Veracode add their
 press-release index pages; BigID adds its PR Newswire company page, limited to release paths that
 start with `bigid-`. No existing source changed.
+
+**D-153 · 2026-11-17 — Coverage of security solution providers and service firms is planned (no site change yet).**
+The owner asked to "do some research, prep, and planning around cybersecurity service companies...
+useful to pair with OEM vendors", and scoped it: "public and private... the Presidios, ePlus, WWT,
+Guidepoint, etc.. Would also include smaller private boutique service providers such as Xalient,
+Epic Cyber". On boutiques: "a lot of times they are domain specific... a Zscaler service provider,
+or they specialize in Splunk... use any other public records we can... searches that we can
+automate". Asked three questions on 2026-11-17, the owner answered "yes to all the others". Decided:
+(1) a boutique is proposed automatically when a vendor already on the site names it (award, program
+status, partner release) and goes live when the owner approves it or asks for it; (2) a new domain
+named "Security solution providers and services", with no revenue bars; (3) ePlus, the owner's
+employer, is covered exactly like CDW and Insight, from its own filings and releases only, and no
+partner link ever comes from ePlus's own partner data. Pairing means announced partner and reseller
+links from official public statements, never a machine-rated strength. Each boutique carries
+specialist tags (vendors and domains), each backed by a dated source. Still open: whether to read UK
+Companies House records. Plan: https://claude.ai/artifact/XuxSaXspCABybYaSbQScf5. Adding suppliers,
+the domain and the partnership fact type remain major changes that land on preview for review.
