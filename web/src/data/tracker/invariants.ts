@@ -49,7 +49,7 @@ export function liveSiteData(): SiteData {
   return {
     asOf: runStatus.lastChecked,
     monthChanges, yearChanges: yearItems,
-    monthUnits: countedUnits(monthChanges), yearUnits: countedUnits(yearItems),
+    monthUnits: countedUnits(monthChanges, yearItems), yearUnits: countedUnits(yearItems),
     growthRows: revenueGrowthRows(),
     dealLinks: dealIds,
     supplierNames: Object.fromEntries(trackerSuppliers.map(s => [s.id, [...new Set([s.name, shortSupplierName(s.name)])]])),

@@ -74,7 +74,7 @@ function entryFor(unit: { key: string; groupId: string; items: ChangeItem[] }): 
 }
 
 export const monthChanges = recentChanges()
-const units = countedUnits(monthChanges)
+const units = countedUnits(monthChanges, yearItems)
 export const feedEntries: FeedEntry[] = units.flatMap(unit => entryFor(unit) ?? [])
   .sort((a, b) => b.date.localeCompare(a.date) || a.key.localeCompare(b.key))
 /** Filing notices with nothing to state, kept in the ledger: how many the feed leaves out. */

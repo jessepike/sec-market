@@ -67,6 +67,17 @@ test('a later merger proxy joins the deal it belongs to and is counted once', ()
   assert.equal(countedUnits([deal, proxy, other]).length, 2)
 })
 
+test('two filing notices for a deal announced before the window stay one entry (gate Nov 17)', () => {
+  const deal = item({ id: 'a', date: '2026-10-15', text: 'Varonis and Proofpoint announced a definitive agreement for Proofpoint to acquire Varonis in an all-cash transaction valued at approximately $6.3 billion.' })
+  const prem = item({ id: 'b', date: '2026-11-06', text: 'Form PREM14A reporting a preliminary proxy statement for a proposed merger, filed 2026-11-06.' })
+  const defm = item({ id: 'c', date: '2026-11-16', text: 'Form DEFM14A reporting a definitive proxy statement for a merger, filed 2026-11-16.' })
+  const other = item({ id: 'd', supplierId: 'okta', date: '2026-11-16', text: 'Form PREM14A reporting a preliminary proxy statement for a proposed merger, filed 2026-11-16.' })
+  // The month window holds only the notices; the announcement is in the year pool.
+  assert.equal(countedUnits([prem, defm]).length, 2)
+  assert.equal(countedUnits([prem, defm], [deal, prem, defm]).length, 1)
+  assert.equal(countedUnits([prem, defm, other], [deal, prem, defm, other]).length, 2)
+})
+
 test('leadership and funding lines name the person or investor only when the text does', () => {
   const cro = eventFact({ type: 'exec-change', text: 'appointed industry veteran Robert Ruelas as Chief Revenue Officer (CRO)' })
   assert.equal(cro.line, 'CRO appointed'); assert.equal(cro.detail, 'Robert Ruelas')

@@ -129,7 +129,12 @@ export function dealParent(item: ChangeItem, pool: ChangeItem[]): ChangeItem | n
     .sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id))[0] ?? null
 }
 
-export function countedUnits(items: ChangeItem[]): CountedUnit[] {
+/**
+ * `pool` is where a filing notice looks for the deal it reports. The month view passes the year's
+ * items, so two notices about a deal announced before the window (a preliminary and a definitive
+ * merger proxy) stay one entry instead of two entries that both lead with the same deal.
+ */
+export function countedUnits(items: ChangeItem[], pool: ChangeItem[] = items): CountedUnit[] {
   const parent = new Map(items.map(item => [item.id, item.id]))
   const find = (id: string): string => { const p = parent.get(id)!; return p === id ? id : find(p) }
   const join = (a: string, b: string) => { parent.set(find(a), find(b)) }
@@ -142,6 +147,13 @@ export function countedUnits(items: ChangeItem[]): CountedUnit[] {
     if (linked || sameDay) join(a.id, b.id)
   }
   for (const item of deals) { const earlier = dealParent(item, deals); if (earlier) join(item.id, earlier.id) }
+  const byParent = new Map<string, string>()
+  for (const item of deals) {
+    const earlier = pool === items ? null : dealParent(item, pool.filter(other => dealTypes.has(other.type)))
+    if (!earlier) continue
+    const first = byParent.get(earlier.id)
+    if (first) join(item.id, first); else byParent.set(earlier.id, item.id)
+  }
   const clusters = new Map<string, ChangeItem[]>()
   for (const item of items) clusters.set(find(item.id), [...(clusters.get(find(item.id)) ?? []), item])
   return [...clusters.values()].map(members => {
