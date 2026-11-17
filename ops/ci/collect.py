@@ -477,7 +477,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
             result['corrections'] = collected['corrections']
         if contract["publication"]["enabled"]:
             # Publication has a separate runner/time budget and never receives
-            # subscription auth. Its independent gate may take 35 minutes.
+            # subscription auth. Its independent gate may take 60 minutes.
             result["publication"] = {"published": False, "reason": "SEPARATE_PUBLISHER_REQUIRED"}
         archive_collection_result(state, result, contract, os.environ.get('GITHUB_RUN_ATTEMPT', '1'))
         finished = session_runtime.checkpoint(root, state, session, "finish", result, finish=True)

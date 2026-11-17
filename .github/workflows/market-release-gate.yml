@@ -26,7 +26,9 @@ jobs:
     # GitHubAuthority independently requires main and rejects preview artifacts.
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/preview'
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    # The reconstruct step grows with the archive: 23 min on Nov 15, 32.5 min on Nov 17,
+    # when the 35-minute cap cancelled the gate during its review capture.
+    timeout-minutes: 60
     permissions:
       contents: read
     steps:
