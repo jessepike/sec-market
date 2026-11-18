@@ -22,9 +22,9 @@
       "text": "No press page exists; added the company blog feed, where funding and launches are announced (tines:official:2). The Nov 10 run ran out of time before reaching it; confirming on the Nov 11 run."
     },
     "checkpoint-email": {
-      "state": "fixing",
-      "since": "2026-11-17",
-      "text": "checkpoint-email:official:3 (blog email-security feed) reads its feed (5 pages) but stops with \"Unexpected source response status\", a 2xx reply other than 200, on Nov 16 and the next gate. Finding which page returns it."
+      "state": "watching",
+      "since": "2026-11-18",
+      "text": "checkpoint-email:official:3 collected again on the Nov 18 run (5 pages) after two failed reads. Watching for a repeat."
     },
     "barracuda": {
       "state": "fixing",
@@ -43,8 +43,8 @@
     },
     "claroty": {
       "state": "watching",
-      "since": "2026-11-16",
-      "text": "claroty:official:1 collected on the Nov 16 run: 9 pages found and queued for AI review. Watching for the first facts."
+      "since": "2026-11-18",
+      "text": "claroty:official:1 collected Nov 16 and 17 (9 pages queued for AI review); on Nov 18 the run hit its collection time budget before Claroty. Watching the next run."
     },
     "veracode": {
       "state": "watching",
