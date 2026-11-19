@@ -22,9 +22,9 @@
       "text": "No press page exists; added the company blog feed, where funding and launches are announced (tines:official:2). The Nov 10 run ran out of time before reaching it; confirming on the Nov 11 run."
     },
     "checkpoint-email": {
-      "state": "watching",
-      "since": "2026-11-18",
-      "text": "checkpoint-email:official:3 collected again on the Nov 18 run (5 pages) after two failed reads. Watching for a repeat."
+      "state": "fixing",
+      "since": "2026-11-19",
+      "text": "checkpoint-email:official:3 fails on alternate runs (Nov 16, 17, 19; collected Nov 18) with \"Unexpected source response status\": one page answers with a 2xx other than 200. Finding which page and whether a second feed avoids it."
     },
     "barracuda": {
       "state": "fixing",
