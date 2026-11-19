@@ -1029,9 +1029,15 @@ def parse_barracuda_newsroom(body):
         require(type(row.get('publicationDate')) is int and row['publicationDate'] > 0, 'BARRACUDA_NEWSROOM_DATE_MISSING')
         url = urljoin('https://www.barracuda.com/company/news', row['url'].strip()).split('#')[0]
         parts = urlsplit(url)
-        require(parts.scheme == 'https' and parts.netloc == 'www.barracuda.com' and not parts.query and
-                re.fullmatch(r'/company/news/\d{4}/[a-z0-9][a-z0-9-]{0,200}', parts.path) is not None,
-                'BARRACUDA_NEWSROOM_URL_OUTSIDE_NEWSROOM')
+        path = parts.path.rstrip('/')
+        if path.endswith('.html'):
+            path = path[:-5]
+        # A press-release row that points off the newsroom (another host, a
+        # campaign page) is not a newsroom article: skip it, never follow it.
+        if not (parts.scheme == 'https' and parts.netloc == 'www.barracuda.com' and not parts.query and
+                re.fullmatch(r'/company/news/\d{4}/[A-Za-z0-9][A-Za-z0-9._-]{0,200}', path) is not None):
+            continue
+        url = 'https://www.barracuda.com' + path
         day = datetime.fromtimestamp(row['publicationDate'] / 1000, tz=timezone.utc).date().isoformat()
         require(dates.get(url, day) == day, 'BARRACUDA_NEWSROOM_CONFLICTING_DATES')
         items.add(url)

@@ -142,7 +142,10 @@ class DiscoveryRepairTests(unittest.TestCase):
         rows = [{'type': 'press-release', 'url': '/company/news/2026/barracuda-appoints-cfo', 'publicationDate': 1793232000000},
                 {'type': 'press-release', 'url': 'https://www.barracuda.com/company/news/2026/msp-growth#top', 'publicationDate': 1793836800000},
                 {'type': 'in-the-news', 'url': 'https://example.com/coverage', 'publicationDate': 1793836800000},
-                {'type': '', 'url': '/company/news/below-the-surface'}]
+                {'type': '', 'url': '/company/news/below-the-surface'},
+                {'type': 'press-release', 'url': 'https://www.barracuda.com/company/news/2026/msp-growth/', 'publicationDate': 1793836800000},
+                {'type': 'press-release', 'url': 'https://campaign.example/barracuda-launch', 'publicationDate': 1793836800000},
+                {'type': 'press-release', 'url': '/products/email-protection', 'publicationDate': 1793836800000}]
         found, calls, original = replay({url: gzip.compress(json.dumps(rows).encode())}, self._barracuda_json_source())
         self.assertTrue(found['complete'])
         self.assertEqual(calls, [url])
