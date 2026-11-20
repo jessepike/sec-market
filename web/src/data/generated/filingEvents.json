@@ -77,17 +77,6 @@
     "rung": 1
   },
   {
-    "id": "EV-filing-panw-0001193125-25-288132",
-    "supplierId": "panw",
-    "date": "2025-11-19",
-    "type": "exec-change",
-    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-11-19.",
-    "evidenceIds": [
-      "TR-filing-panw-0001193125-25-288132"
-    ],
-    "rung": 1
-  },
-  {
     "id": "EV-filing-cloudflare-0001477333-26-000042",
     "supplierId": "cloudflare",
     "date": "2026-06-30",

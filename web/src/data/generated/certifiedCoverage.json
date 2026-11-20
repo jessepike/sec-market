@@ -1,204 +1,204 @@
 {
   "contractVersion": "smp-certified-v2",
-  "checkedAt": "2026-11-19T06:38:12.818Z",
-  "windowEnd": "2026-11-19",
+  "checkedAt": "2026-11-20T06:41:05.652Z",
+  "windowEnd": "2026-11-20",
   "state": "complete",
-  "lastDataChangeAt": "2026-11-17T23:57:23.848Z",
+  "lastDataChangeAt": "2026-11-20T06:41:05.652Z",
   "allSuppliersAttempted": true,
   "supplierCount": 16,
   "supplierChecksReceived": 16,
   "sourceChecks": [
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
-      "checkedAt": "2026-11-19T05:26:25.560739Z",
+      "checkedAt": "2026-11-20T05:26:53.902833Z",
       "status": "ok",
       "sha256": "133dc2f16d0c041aed84439f6f5569235b26a75006c02a74aa8cd2d891994fc0"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001477333.json",
-      "checkedAt": "2026-11-19T05:26:27.876141Z",
+      "checkedAt": "2026-11-20T05:26:48.374138Z",
       "status": "ok",
-      "sha256": "6506f7811794258fb9ca9915951deb59c3382eb274aa63100fd3bf7b8488e83c"
+      "sha256": "32b9bcbbf2f05ad9c814486759514dacab079d9980a2a9eb2add1eec713220ef"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
-      "checkedAt": "2026-11-19T05:26:43.665956Z",
+      "checkedAt": "2026-11-20T05:26:48.126365Z",
       "status": "ok",
       "sha256": "7634bf7644061fe22fb4db05267a53aad02f017507bffd6515616b2cbbad125b"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001169561.json",
-      "checkedAt": "2026-11-19T05:26:22.921927Z",
+      "checkedAt": "2026-11-20T05:26:35.217966Z",
       "status": "ok",
-      "sha256": "47fd60d8181fa7ef5632606225f8cc53936a8e56a0b399a58ee65eeea36ce901"
+      "sha256": "f0ed2ab202da6d8b387b87fdde8cb5763b9e3f446df322f8c3bc84f2c801bb7e"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
-      "checkedAt": "2026-11-19T05:26:40.423245Z",
+      "checkedAt": "2026-11-20T05:26:47.519900Z",
       "status": "ok",
       "sha256": "a71a92f1f11bd3032271ca55be7a7770a96a846ec809f925829ef952fd5f3fa1"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001535527.json",
-      "checkedAt": "2026-11-19T05:26:25.246306Z",
+      "checkedAt": "2026-11-20T05:26:47.786900Z",
       "status": "ok",
-      "sha256": "61fa5e94cffe367b8bf7ed91a5fb27c9948b7435494bc452e8b53194eb5cacba"
+      "sha256": "23a61f33729bc08b671e0fe89fab7f8f7490a6c36fc7707012251418be1877aa"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
-      "checkedAt": "2026-11-19T05:26:28.412693Z",
+      "checkedAt": "2026-11-20T05:26:34.992972Z",
       "status": "ok",
       "sha256": "b29f9cfd9dc88b77b7ee4e957ac36599da40d1923ff1102ae0c82f3c2c78f1ae"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001262039.json",
-      "checkedAt": "2026-11-19T05:26:24.949209Z",
+      "checkedAt": "2026-11-20T05:26:33.699620Z",
       "status": "ok",
       "sha256": "11b57fb1b981ff7a258efbab86a9df625456f9d2f5579ecea3f300ff4195ce33"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
-      "checkedAt": "2026-11-19T05:26:30.552226Z",
+      "checkedAt": "2026-11-20T05:26:33.175483Z",
       "status": "ok",
       "sha256": "e1085e12a4946c54c29082884e58309d21125af08720cd7e19dd2dfcb9326916"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001800667.json",
-      "checkedAt": "2026-11-19T05:26:36.852423Z",
+      "checkedAt": "2026-11-20T05:26:38.484377Z",
       "status": "ok",
       "sha256": "37105cc34e377969ea578d3be2b8d8fcdd89da629aca5481c193186ecf325fb3"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
-      "checkedAt": "2026-11-19T05:26:38.590914Z",
+      "checkedAt": "2026-11-20T05:26:52.701271Z",
       "status": "ok",
       "sha256": "e526ccaf33366fa8af1b9a07cc6c92b80217feba3eaf0905fd63fbb6a0d8ca7c"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0002063196.json",
-      "checkedAt": "2026-11-19T05:26:33.504407Z",
+      "checkedAt": "2026-11-20T05:26:37.957099Z",
       "status": "ok",
       "sha256": "5a57c0c6b35fedf8cffa75212d2a2fc96fa59e5fd87ca9dba1aa09cddc5e6dc9"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
-      "checkedAt": "2026-11-19T05:26:32.086538Z",
+      "checkedAt": "2026-11-20T05:26:35.509550Z",
       "status": "ok",
       "sha256": "ce9d8dc684e7e95b8ab313f731115188cc90b20d383e32a0725832de18cef1d7"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001660134.json",
-      "checkedAt": "2026-11-19T05:26:30.999746Z",
+      "checkedAt": "2026-11-20T05:26:32.794662Z",
       "status": "ok",
       "sha256": "401ad0120efe04c1586c56d6e914bba94ab08a70ae3b34ae34fc361ddd3f1ac4"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-      "checkedAt": "2026-11-19T05:26:27.299755Z",
+      "checkedAt": "2026-11-20T05:26:36.715871Z",
       "status": "ok",
-      "sha256": "881c1ced47689b87bd0d5c5cad9c8365c90cd2ba4e167bcfe78ba7504e8b9896"
+      "sha256": "a1e58d53a63189c6a2ff057acc503008366212e312d0eb429c0cdea613c5561c"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001327567.json",
-      "checkedAt": "2026-11-19T05:26:32.483776Z",
+      "checkedAt": "2026-11-20T05:26:33.472626Z",
       "status": "ok",
-      "sha256": "0240864809cd7348a080be8502814c09421558badd242f1fe466221be8c6d243"
+      "sha256": "97aa17798ad5f572ef8989a65fab18ca5d02323bf58bfb960f714c0b30510d32"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
-      "checkedAt": "2026-11-19T05:26:27.815539Z",
+      "checkedAt": "2026-11-20T05:26:45.995885Z",
       "status": "ok",
       "sha256": "f0605b424ef3ff4e4fe6e967e97ab2448726645c7705c3099e899a4cd87fe553"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001107843.json",
-      "checkedAt": "2026-11-19T05:26:24.053968Z",
+      "checkedAt": "2026-11-20T05:26:44.745317Z",
       "status": "ok",
       "sha256": "7cea4486fb4ddf062316618074f72d757dad92892be87c8a83f729aa32425e8a"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
-      "checkedAt": "2026-11-19T05:26:23.771340Z",
+      "checkedAt": "2026-11-20T05:26:36.858321Z",
       "status": "ok",
       "sha256": "66f936c003cac75cf1dbb8a568f0791058a56523422e5510a12a21da4bcb9330"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001560327.json",
-      "checkedAt": "2026-11-19T05:26:32.153144Z",
+      "checkedAt": "2026-11-20T05:26:40.306251Z",
       "status": "ok",
       "sha256": "bb1df33ff5f1a9b843c663f23ee9d6390e2979af63629fcb4f446600c06ece80"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
-      "checkedAt": "2026-11-19T05:26:30.652271Z",
+      "checkedAt": "2026-11-20T05:26:40.756240Z",
       "status": "ok",
       "sha256": "7d6489b8a651ac695a633d56676efce3ca3796eb75cc5596785822855f40c1c4"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001943896.json",
-      "checkedAt": "2026-11-19T05:26:24.335726Z",
+      "checkedAt": "2026-11-20T05:26:42.912593Z",
       "status": "ok",
       "sha256": "a0a3aee0415a058ecc54d8064e490c2a723001f019cb8b5a208c0bbf044f4310"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
-      "checkedAt": "2026-11-19T05:26:40.876385Z",
+      "checkedAt": "2026-11-20T05:26:39.255700Z",
       "status": "ok",
       "sha256": "8c493fe6c6c4cd7e944856a59eb4f053bd56f94cf7d176c6eef713e1e87f205c"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001583708.json",
-      "checkedAt": "2026-11-19T05:26:22.525762Z",
+      "checkedAt": "2026-11-20T05:26:37.087464Z",
       "status": "ok",
       "sha256": "93ac5a1ae6604d5bcf66d8f9bf9e1b3880668e5cf0c24876b0f98356cc35fefd"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
-      "checkedAt": "2026-11-19T05:26:23.278319Z",
+      "checkedAt": "2026-11-20T05:26:52.756859Z",
       "status": "ok",
       "sha256": "d31f2c9865a8a3e2e3e362086ba45eddd4b8ad52a892aba51d0738d3a3742ac5"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0002030781.json",
-      "checkedAt": "2026-11-19T05:26:27.223628Z",
+      "checkedAt": "2026-11-20T05:26:40.817460Z",
       "status": "ok",
-      "sha256": "c10991e494586ba4feb3a89e63343d6a36bc534987519b15382d0d53bb14ed7a"
+      "sha256": "c2c3c66974a61dec92a14ecd83e8604bc735ab66010d3436b50a7faa854ec95e"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
-      "checkedAt": "2026-11-19T05:26:28.695856Z",
+      "checkedAt": "2026-11-20T05:26:46.810832Z",
       "status": "ok",
       "sha256": "d467a41c772a3448377f486f745ec049c8b81ae3530390431290579b335dd8c2"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001660280.json",
-      "checkedAt": "2026-11-19T05:26:34.035915Z",
+      "checkedAt": "2026-11-20T05:26:42.199704Z",
       "status": "ok",
       "sha256": "4108e55ff6e03dccebdedf3d859072f4e6f8fb5a277c09ab5f4ba01e1da277bf"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
-      "checkedAt": "2026-11-19T05:26:38.140473Z",
+      "checkedAt": "2026-11-20T05:26:49.624508Z",
       "status": "ok",
       "sha256": "bfcd7bb0d7ebbc168c3d1974f7fafd3a2c3b72a9655df45f01e7cba6de8f0a0c"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001361113.json",
-      "checkedAt": "2026-11-19T05:26:25.869933Z",
+      "checkedAt": "2026-11-20T05:26:37.815541Z",
       "status": "ok",
       "sha256": "7e487e18da39722bafc459f03dbba8db0ac5a4a5c55039be86888c01c5215796"
     },
     {
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
-      "checkedAt": "2026-11-19T05:26:22.251360Z",
+      "checkedAt": "2026-11-20T05:26:54.262960Z",
       "status": "ok",
       "sha256": "06053c252007a7d76d154eb77a698c48c832f9b4d6ad121a33b41d14a27a1434"
     },
     {
       "url": "https://data.sec.gov/submissions/CIK0001713683.json",
-      "checkedAt": "2026-11-19T05:26:33.087165Z",
+      "checkedAt": "2026-11-20T05:26:39.113887Z",
       "status": "ok",
-      "sha256": "56520c39c3bb2694985bb0d8b4b4c854e7fdd2910f4a9f3a8fc2cb8fcf667ec2"
+      "sha256": "9c1b847dd0e740e05b03b894e8001714040d7291ea45468ba6ac70390fb0e078"
     }
   ],
   "fields": [
@@ -206,7 +206,7 @@
       "supplierId": "cloudflare",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.006Z",
+      "checkedAt": "2026-11-20T06:40:57.725Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -219,7 +219,7 @@
       "supplierId": "cloudflare",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.006Z",
+      "checkedAt": "2026-11-20T06:40:57.725Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -232,7 +232,7 @@
       "supplierId": "cloudflare",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.006Z",
+      "checkedAt": "2026-11-20T06:40:57.725Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -245,7 +245,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.008Z",
+      "checkedAt": "2026-11-20T06:40:57.727Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -258,7 +258,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.008Z",
+      "checkedAt": "2026-11-20T06:40:57.727Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -271,7 +271,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.008Z",
+      "checkedAt": "2026-11-20T06:40:57.727Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -284,7 +284,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.008Z",
+      "checkedAt": "2026-11-20T06:40:57.727Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -297,7 +297,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.008Z",
+      "checkedAt": "2026-11-20T06:40:57.727Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -310,7 +310,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.008Z",
+      "checkedAt": "2026-11-20T06:40:57.727Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -323,7 +323,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.013Z",
+      "checkedAt": "2026-11-20T06:40:57.733Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -336,7 +336,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.013Z",
+      "checkedAt": "2026-11-20T06:40:57.733Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -349,7 +349,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.013Z",
+      "checkedAt": "2026-11-20T06:40:57.733Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -362,7 +362,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.013Z",
+      "checkedAt": "2026-11-20T06:40:57.733Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -375,7 +375,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.013Z",
+      "checkedAt": "2026-11-20T06:40:57.733Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -388,7 +388,7 @@
       "supplierId": "cloudflare",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.014Z",
+      "checkedAt": "2026-11-20T06:40:57.734Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -457,7 +457,7 @@
       "supplierId": "cloudflare",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.016Z",
+      "checkedAt": "2026-11-20T06:40:57.735Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "https://data.sec.gov/submissions/CIK0001477333.json"
@@ -527,7 +527,7 @@
       "supplierId": "commvault",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.543Z",
+      "checkedAt": "2026-11-20T06:40:58.266Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -540,7 +540,7 @@
       "supplierId": "commvault",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.543Z",
+      "checkedAt": "2026-11-20T06:40:58.266Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -553,7 +553,7 @@
       "supplierId": "commvault",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.543Z",
+      "checkedAt": "2026-11-20T06:40:58.266Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -566,7 +566,7 @@
       "supplierId": "commvault",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.544Z",
+      "checkedAt": "2026-11-20T06:40:58.268Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -579,7 +579,7 @@
       "supplierId": "commvault",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.544Z",
+      "checkedAt": "2026-11-20T06:40:58.268Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -592,7 +592,7 @@
       "supplierId": "commvault",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.544Z",
+      "checkedAt": "2026-11-20T06:40:58.268Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -605,7 +605,7 @@
       "supplierId": "commvault",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.544Z",
+      "checkedAt": "2026-11-20T06:40:58.268Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -618,7 +618,7 @@
       "supplierId": "commvault",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.544Z",
+      "checkedAt": "2026-11-20T06:40:58.268Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -631,7 +631,7 @@
       "supplierId": "commvault",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.544Z",
+      "checkedAt": "2026-11-20T06:40:58.268Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -644,7 +644,7 @@
       "supplierId": "commvault",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.549Z",
+      "checkedAt": "2026-11-20T06:40:58.275Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -657,7 +657,7 @@
       "supplierId": "commvault",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.549Z",
+      "checkedAt": "2026-11-20T06:40:58.275Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -670,7 +670,7 @@
       "supplierId": "commvault",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.549Z",
+      "checkedAt": "2026-11-20T06:40:58.275Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -683,7 +683,7 @@
       "supplierId": "commvault",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.549Z",
+      "checkedAt": "2026-11-20T06:40:58.275Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -696,7 +696,7 @@
       "supplierId": "commvault",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.549Z",
+      "checkedAt": "2026-11-20T06:40:58.275Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -709,7 +709,7 @@
       "supplierId": "commvault",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.549Z",
+      "checkedAt": "2026-11-20T06:40:58.276Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -802,7 +802,7 @@
       "supplierId": "commvault",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:05.551Z",
+      "checkedAt": "2026-11-20T06:40:58.279Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "https://data.sec.gov/submissions/CIK0001169561.json"
@@ -872,7 +872,7 @@
       "supplierId": "crwd",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.068Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -885,7 +885,7 @@
       "supplierId": "crwd",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.068Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -898,7 +898,7 @@
       "supplierId": "crwd",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.068Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -911,7 +911,7 @@
       "supplierId": "crwd",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.069Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -924,7 +924,7 @@
       "supplierId": "crwd",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.069Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -937,7 +937,7 @@
       "supplierId": "crwd",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.069Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -950,7 +950,7 @@
       "supplierId": "crwd",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.069Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -963,7 +963,7 @@
       "supplierId": "crwd",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.069Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -976,7 +976,7 @@
       "supplierId": "crwd",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.069Z",
+      "checkedAt": "2026-11-20T06:40:58.802Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -989,7 +989,7 @@
       "supplierId": "crwd",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.073Z",
+      "checkedAt": "2026-11-20T06:40:58.807Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1002,7 +1002,7 @@
       "supplierId": "crwd",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.073Z",
+      "checkedAt": "2026-11-20T06:40:58.807Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1015,7 +1015,7 @@
       "supplierId": "crwd",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.073Z",
+      "checkedAt": "2026-11-20T06:40:58.807Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1028,7 +1028,7 @@
       "supplierId": "crwd",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.073Z",
+      "checkedAt": "2026-11-20T06:40:58.807Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1041,7 +1041,7 @@
       "supplierId": "crwd",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.073Z",
+      "checkedAt": "2026-11-20T06:40:58.807Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1054,7 +1054,7 @@
       "supplierId": "crwd",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.073Z",
+      "checkedAt": "2026-11-20T06:40:58.808Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1101,7 +1101,7 @@
       "supplierId": "crwd",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.074Z",
+      "checkedAt": "2026-11-20T06:40:58.809Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "https://data.sec.gov/submissions/CIK0001535527.json"
@@ -1171,7 +1171,7 @@
       "supplierId": "fortinet",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.600Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1184,7 +1184,7 @@
       "supplierId": "fortinet",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.600Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1197,7 +1197,7 @@
       "supplierId": "fortinet",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.600Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1210,7 +1210,7 @@
       "supplierId": "fortinet",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.601Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1223,7 +1223,7 @@
       "supplierId": "fortinet",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.601Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1236,7 +1236,7 @@
       "supplierId": "fortinet",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.601Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1249,7 +1249,7 @@
       "supplierId": "fortinet",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.601Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1262,7 +1262,7 @@
       "supplierId": "fortinet",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.601Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1275,7 +1275,7 @@
       "supplierId": "fortinet",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.601Z",
+      "checkedAt": "2026-11-20T06:40:59.349Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1288,7 +1288,7 @@
       "supplierId": "fortinet",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.604Z",
+      "checkedAt": "2026-11-20T06:40:59.354Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1301,7 +1301,7 @@
       "supplierId": "fortinet",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.604Z",
+      "checkedAt": "2026-11-20T06:40:59.354Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1314,7 +1314,7 @@
       "supplierId": "fortinet",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.604Z",
+      "checkedAt": "2026-11-20T06:40:59.354Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1327,7 +1327,7 @@
       "supplierId": "fortinet",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.604Z",
+      "checkedAt": "2026-11-20T06:40:59.354Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1340,7 +1340,7 @@
       "supplierId": "fortinet",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.604Z",
+      "checkedAt": "2026-11-20T06:40:59.354Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1353,7 +1353,7 @@
       "supplierId": "fortinet",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.604Z",
+      "checkedAt": "2026-11-20T06:40:59.354Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1366,7 +1366,7 @@
       "supplierId": "fortinet",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:06.605Z",
+      "checkedAt": "2026-11-20T06:40:59.356Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "https://data.sec.gov/submissions/CIK0001262039.json"
@@ -1436,7 +1436,7 @@
       "supplierId": "jfrog",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.118Z",
+      "checkedAt": "2026-11-20T06:40:59.870Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1449,7 +1449,7 @@
       "supplierId": "jfrog",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.118Z",
+      "checkedAt": "2026-11-20T06:40:59.870Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1462,7 +1462,7 @@
       "supplierId": "jfrog",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.118Z",
+      "checkedAt": "2026-11-20T06:40:59.870Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1475,7 +1475,7 @@
       "supplierId": "jfrog",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.119Z",
+      "checkedAt": "2026-11-20T06:40:59.871Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1488,7 +1488,7 @@
       "supplierId": "jfrog",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.119Z",
+      "checkedAt": "2026-11-20T06:40:59.871Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1501,7 +1501,7 @@
       "supplierId": "jfrog",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.119Z",
+      "checkedAt": "2026-11-20T06:40:59.871Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1514,7 +1514,7 @@
       "supplierId": "jfrog",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.119Z",
+      "checkedAt": "2026-11-20T06:40:59.871Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1527,7 +1527,7 @@
       "supplierId": "jfrog",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.119Z",
+      "checkedAt": "2026-11-20T06:40:59.871Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1540,7 +1540,7 @@
       "supplierId": "jfrog",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.119Z",
+      "checkedAt": "2026-11-20T06:40:59.871Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1553,7 +1553,7 @@
       "supplierId": "jfrog",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.121Z",
+      "checkedAt": "2026-11-20T06:40:59.874Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1566,7 +1566,7 @@
       "supplierId": "jfrog",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.121Z",
+      "checkedAt": "2026-11-20T06:40:59.874Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1579,7 +1579,7 @@
       "supplierId": "jfrog",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.121Z",
+      "checkedAt": "2026-11-20T06:40:59.874Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1592,7 +1592,7 @@
       "supplierId": "jfrog",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.121Z",
+      "checkedAt": "2026-11-20T06:40:59.874Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1605,7 +1605,7 @@
       "supplierId": "jfrog",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.121Z",
+      "checkedAt": "2026-11-20T06:40:59.874Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1618,7 +1618,7 @@
       "supplierId": "jfrog",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.121Z",
+      "checkedAt": "2026-11-20T06:40:59.874Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1631,7 +1631,7 @@
       "supplierId": "jfrog",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.122Z",
+      "checkedAt": "2026-11-20T06:40:59.875Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "https://data.sec.gov/submissions/CIK0001800667.json"
@@ -1701,7 +1701,7 @@
       "supplierId": "netskope",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1714,7 +1714,7 @@
       "supplierId": "netskope",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1727,7 +1727,7 @@
       "supplierId": "netskope",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1740,7 +1740,7 @@
       "supplierId": "netskope",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1753,7 +1753,7 @@
       "supplierId": "netskope",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1766,7 +1766,7 @@
       "supplierId": "netskope",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1779,7 +1779,7 @@
       "supplierId": "netskope",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1792,7 +1792,7 @@
       "supplierId": "netskope",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1805,7 +1805,7 @@
       "supplierId": "netskope",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1818,7 +1818,7 @@
       "supplierId": "netskope",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1831,7 +1831,7 @@
       "supplierId": "netskope",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1844,7 +1844,7 @@
       "supplierId": "netskope",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1857,7 +1857,7 @@
       "supplierId": "netskope",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1870,7 +1870,7 @@
       "supplierId": "netskope",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1883,7 +1883,7 @@
       "supplierId": "netskope",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.380Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1930,7 +1930,7 @@
       "supplierId": "netskope",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:07.627Z",
+      "checkedAt": "2026-11-20T06:41:00.381Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "https://data.sec.gov/submissions/CIK0002063196.json"
@@ -1993,7 +1993,7 @@
       "supplierId": "okta",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.899Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2006,7 +2006,7 @@
       "supplierId": "okta",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.899Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2019,7 +2019,7 @@
       "supplierId": "okta",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.899Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2032,7 +2032,7 @@
       "supplierId": "okta",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.901Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2045,7 +2045,7 @@
       "supplierId": "okta",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.901Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2058,7 +2058,7 @@
       "supplierId": "okta",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.901Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2071,7 +2071,7 @@
       "supplierId": "okta",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.901Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2084,7 +2084,7 @@
       "supplierId": "okta",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.901Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2097,7 +2097,7 @@
       "supplierId": "okta",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.144Z",
+      "checkedAt": "2026-11-20T06:41:00.901Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2110,7 +2110,7 @@
       "supplierId": "okta",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.148Z",
+      "checkedAt": "2026-11-20T06:41:00.906Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2123,7 +2123,7 @@
       "supplierId": "okta",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.148Z",
+      "checkedAt": "2026-11-20T06:41:00.906Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2136,7 +2136,7 @@
       "supplierId": "okta",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.148Z",
+      "checkedAt": "2026-11-20T06:41:00.906Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2149,7 +2149,7 @@
       "supplierId": "okta",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.148Z",
+      "checkedAt": "2026-11-20T06:41:00.906Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2162,7 +2162,7 @@
       "supplierId": "okta",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.148Z",
+      "checkedAt": "2026-11-20T06:41:00.906Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2175,7 +2175,7 @@
       "supplierId": "okta",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.148Z",
+      "checkedAt": "2026-11-20T06:41:00.906Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2277,7 +2277,7 @@
       "supplierId": "okta",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.149Z",
+      "checkedAt": "2026-11-20T06:41:00.907Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "https://data.sec.gov/submissions/CIK0001660134.json"
@@ -2347,7 +2347,7 @@
       "supplierId": "panw",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.671Z",
+      "checkedAt": "2026-11-20T06:41:01.443Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2360,7 +2360,7 @@
       "supplierId": "panw",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.671Z",
+      "checkedAt": "2026-11-20T06:41:01.443Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2373,7 +2373,7 @@
       "supplierId": "panw",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.671Z",
+      "checkedAt": "2026-11-20T06:41:01.443Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2385,8 +2385,86 @@
     {
       "supplierId": "panw",
       "field": "revenue.latest.value",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.672Z",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.444Z",
+      "sourceUrls": [
+        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+        "https://data.sec.gov/submissions/CIK0001327567.json"
+      ],
+      "value": "$3,445,000,000",
+      "reason": "Re-derived from primary SEC data.",
+      "retained": false
+    },
+    {
+      "supplierId": "panw",
+      "field": "revenue.latest.priorYearValue",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.444Z",
+      "sourceUrls": [
+        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+        "https://data.sec.gov/submissions/CIK0001327567.json"
+      ],
+      "value": "$2,474,000,000",
+      "reason": "Re-derived from primary SEC data.",
+      "retained": false
+    },
+    {
+      "supplierId": "panw",
+      "field": "revenue.latest.yoyGrowth",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.444Z",
+      "sourceUrls": [
+        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+        "https://data.sec.gov/submissions/CIK0001327567.json"
+      ],
+      "value": "+39.2%",
+      "reason": "Re-derived from primary SEC data.",
+      "retained": false
+    },
+    {
+      "supplierId": "panw",
+      "field": "revenue.latest.period",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.444Z",
+      "sourceUrls": [
+        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+        "https://data.sec.gov/submissions/CIK0001327567.json"
+      ],
+      "value": "Quarter ended 2026-10-31",
+      "reason": "Re-derived from primary SEC data.",
+      "retained": false
+    },
+    {
+      "supplierId": "panw",
+      "field": "revenue.latest.periodEnd",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.444Z",
+      "sourceUrls": [
+        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+        "https://data.sec.gov/submissions/CIK0001327567.json"
+      ],
+      "value": "2026-10-31",
+      "reason": "Re-derived from primary SEC data.",
+      "retained": false
+    },
+    {
+      "supplierId": "panw",
+      "field": "revenue.latest.releaseDate",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.444Z",
+      "sourceUrls": [
+        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+        "https://data.sec.gov/submissions/CIK0001327567.json"
+      ],
+      "value": "2026-11-19",
+      "reason": "Re-derived from primary SEC data.",
+      "retained": false
+    },
+    {
+      "supplierId": "panw",
+      "field": "revenue.prior.value",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.450Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2397,9 +2475,9 @@
     },
     {
       "supplierId": "panw",
-      "field": "revenue.latest.priorYearValue",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.672Z",
+      "field": "revenue.prior.priorYearValue",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.450Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2410,9 +2488,9 @@
     },
     {
       "supplierId": "panw",
-      "field": "revenue.latest.yoyGrowth",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.672Z",
+      "field": "revenue.prior.yoyGrowth",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.450Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2423,9 +2501,9 @@
     },
     {
       "supplierId": "panw",
-      "field": "revenue.latest.period",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.672Z",
+      "field": "revenue.prior.period",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.450Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2436,9 +2514,9 @@
     },
     {
       "supplierId": "panw",
-      "field": "revenue.latest.periodEnd",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.672Z",
+      "field": "revenue.prior.periodEnd",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.450Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
@@ -2449,103 +2527,14 @@
     },
     {
       "supplierId": "panw",
-      "field": "revenue.latest.releaseDate",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.672Z",
-      "sourceUrls": [
-        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-        "https://data.sec.gov/submissions/CIK0001327567.json"
-      ],
-      "value": "2026-09-10",
-      "reason": "Re-derived from primary SEC data.",
-      "retained": false
-    },
-    {
-      "supplierId": "panw",
-      "field": "revenue.prior.value",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.675Z",
-      "sourceUrls": [
-        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-        "https://data.sec.gov/submissions/CIK0001327567.json"
-      ],
-      "value": "$3,002,000,000",
-      "reason": "Re-derived from primary SEC data.",
-      "retained": false
-    },
-    {
-      "supplierId": "panw",
-      "field": "revenue.prior.priorYearValue",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.675Z",
-      "sourceUrls": [
-        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-        "https://data.sec.gov/submissions/CIK0001327567.json"
-      ],
-      "value": "$2,289,000,000",
-      "reason": "Re-derived from primary SEC data.",
-      "retained": false
-    },
-    {
-      "supplierId": "panw",
-      "field": "revenue.prior.yoyGrowth",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.675Z",
-      "sourceUrls": [
-        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-        "https://data.sec.gov/submissions/CIK0001327567.json"
-      ],
-      "value": "+31.1%",
-      "reason": "Re-derived from primary SEC data.",
-      "retained": false
-    },
-    {
-      "supplierId": "panw",
-      "field": "revenue.prior.period",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.675Z",
-      "sourceUrls": [
-        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-        "https://data.sec.gov/submissions/CIK0001327567.json"
-      ],
-      "value": "Quarter ended 2026-04-30",
-      "reason": "Re-derived from primary SEC data.",
-      "retained": false
-    },
-    {
-      "supplierId": "panw",
-      "field": "revenue.prior.periodEnd",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.675Z",
-      "sourceUrls": [
-        "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
-        "https://data.sec.gov/submissions/CIK0001327567.json"
-      ],
-      "value": "2026-04-30",
-      "reason": "Re-derived from primary SEC data.",
-      "retained": false
-    },
-    {
-      "supplierId": "panw",
       "field": "secEvents",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.676Z",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.450Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
       ],
       "value": [
-        {
-          "id": "EV-filing-panw-0001193125-25-288132",
-          "date": "2025-11-19",
-          "type": "exec-change",
-          "accessions": [
-            "0001193125-25-288132"
-          ],
-          "evidenceDates": [
-            "2025-11-19"
-          ]
-        },
         {
           "id": "EV-filing-panw-0001193125-25-315915",
           "date": "2025-12-11",
@@ -2613,17 +2602,6 @@
           ]
         },
         {
-          "id": "EV-panw-3",
-          "date": "2025-11-19",
-          "type": "acquisition",
-          "accessions": [
-            "0001327567-25-000032"
-          ],
-          "evidenceDates": [
-            "2025-11-19"
-          ]
-        },
-        {
           "id": "EV-panw-4",
           "date": "2026-01-29",
           "type": "acquisition",
@@ -2641,13 +2619,20 @@
     {
       "supplierId": "panw",
       "field": "revenue.history",
-      "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:08.677Z",
+      "status": "updated",
+      "checkedAt": "2026-11-20T06:41:01.452Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "https://data.sec.gov/submissions/CIK0001327567.json"
       ],
       "value": [
+        {
+          "periodEnd": "2026-10-31",
+          "value": 3445000000,
+          "filedDate": "2026-11-19",
+          "accessionNumber": "0001327567-26-000033",
+          "derived": false
+        },
         {
           "periodEnd": "2026-07-31",
           "value": 3410000000,
@@ -2672,8 +2657,8 @@
         {
           "periodEnd": "2025-10-31",
           "value": 2474000000,
-          "filedDate": "2025-11-20",
-          "accessionNumber": "0001327567-25-000035",
+          "filedDate": "2026-11-19",
+          "accessionNumber": "0001327567-26-000033",
           "derived": false
         },
         {
@@ -2696,13 +2681,6 @@
           "filedDate": "2026-02-18",
           "accessionNumber": "0001327567-26-000005",
           "derived": false
-        },
-        {
-          "periodEnd": "2024-10-31",
-          "value": 2139000000,
-          "filedDate": "2025-11-20",
-          "accessionNumber": "0001327567-25-000035",
-          "derived": false
         }
       ],
       "reason": "Re-derived from primary SEC data.",
@@ -2712,7 +2690,7 @@
       "supplierId": "qualys",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.199Z",
+      "checkedAt": "2026-11-20T06:41:01.985Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2725,7 +2703,7 @@
       "supplierId": "qualys",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.199Z",
+      "checkedAt": "2026-11-20T06:41:01.985Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2738,7 +2716,7 @@
       "supplierId": "qualys",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.199Z",
+      "checkedAt": "2026-11-20T06:41:01.985Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2751,7 +2729,7 @@
       "supplierId": "qualys",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.200Z",
+      "checkedAt": "2026-11-20T06:41:01.986Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2764,7 +2742,7 @@
       "supplierId": "qualys",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.200Z",
+      "checkedAt": "2026-11-20T06:41:01.986Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2777,7 +2755,7 @@
       "supplierId": "qualys",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.200Z",
+      "checkedAt": "2026-11-20T06:41:01.986Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2790,7 +2768,7 @@
       "supplierId": "qualys",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.200Z",
+      "checkedAt": "2026-11-20T06:41:01.986Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2803,7 +2781,7 @@
       "supplierId": "qualys",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.200Z",
+      "checkedAt": "2026-11-20T06:41:01.986Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2816,7 +2794,7 @@
       "supplierId": "qualys",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.200Z",
+      "checkedAt": "2026-11-20T06:41:01.986Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2829,7 +2807,7 @@
       "supplierId": "qualys",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.204Z",
+      "checkedAt": "2026-11-20T06:41:01.991Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2842,7 +2820,7 @@
       "supplierId": "qualys",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.204Z",
+      "checkedAt": "2026-11-20T06:41:01.991Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2855,7 +2833,7 @@
       "supplierId": "qualys",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.204Z",
+      "checkedAt": "2026-11-20T06:41:01.991Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2868,7 +2846,7 @@
       "supplierId": "qualys",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.204Z",
+      "checkedAt": "2026-11-20T06:41:01.991Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2881,7 +2859,7 @@
       "supplierId": "qualys",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.204Z",
+      "checkedAt": "2026-11-20T06:41:01.991Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2894,7 +2872,7 @@
       "supplierId": "qualys",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.205Z",
+      "checkedAt": "2026-11-20T06:41:01.992Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -2930,7 +2908,7 @@
       "supplierId": "qualys",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.206Z",
+      "checkedAt": "2026-11-20T06:41:01.993Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "https://data.sec.gov/submissions/CIK0001107843.json"
@@ -3000,7 +2978,7 @@
       "supplierId": "rapid7",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.723Z",
+      "checkedAt": "2026-11-20T06:41:02.522Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3013,7 +2991,7 @@
       "supplierId": "rapid7",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.723Z",
+      "checkedAt": "2026-11-20T06:41:02.522Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3026,7 +3004,7 @@
       "supplierId": "rapid7",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.723Z",
+      "checkedAt": "2026-11-20T06:41:02.522Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3039,7 +3017,7 @@
       "supplierId": "rapid7",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.724Z",
+      "checkedAt": "2026-11-20T06:41:02.523Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3052,7 +3030,7 @@
       "supplierId": "rapid7",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.724Z",
+      "checkedAt": "2026-11-20T06:41:02.523Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3065,7 +3043,7 @@
       "supplierId": "rapid7",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.724Z",
+      "checkedAt": "2026-11-20T06:41:02.523Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3078,7 +3056,7 @@
       "supplierId": "rapid7",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.724Z",
+      "checkedAt": "2026-11-20T06:41:02.523Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3091,7 +3069,7 @@
       "supplierId": "rapid7",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.724Z",
+      "checkedAt": "2026-11-20T06:41:02.523Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3104,7 +3082,7 @@
       "supplierId": "rapid7",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.724Z",
+      "checkedAt": "2026-11-20T06:41:02.523Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3117,7 +3095,7 @@
       "supplierId": "rapid7",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.727Z",
+      "checkedAt": "2026-11-20T06:41:02.528Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3130,7 +3108,7 @@
       "supplierId": "rapid7",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.727Z",
+      "checkedAt": "2026-11-20T06:41:02.528Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3143,7 +3121,7 @@
       "supplierId": "rapid7",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.727Z",
+      "checkedAt": "2026-11-20T06:41:02.528Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3156,7 +3134,7 @@
       "supplierId": "rapid7",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.727Z",
+      "checkedAt": "2026-11-20T06:41:02.528Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3169,7 +3147,7 @@
       "supplierId": "rapid7",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.727Z",
+      "checkedAt": "2026-11-20T06:41:02.528Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3182,7 +3160,7 @@
       "supplierId": "rapid7",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.728Z",
+      "checkedAt": "2026-11-20T06:41:02.529Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3251,7 +3229,7 @@
       "supplierId": "rapid7",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:09.729Z",
+      "checkedAt": "2026-11-20T06:41:02.531Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "https://data.sec.gov/submissions/CIK0001560327.json"
@@ -3321,7 +3299,7 @@
       "supplierId": "rubrik",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3334,7 +3312,7 @@
       "supplierId": "rubrik",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3347,7 +3325,7 @@
       "supplierId": "rubrik",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3360,7 +3338,7 @@
       "supplierId": "rubrik",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3373,7 +3351,7 @@
       "supplierId": "rubrik",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3386,7 +3364,7 @@
       "supplierId": "rubrik",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3399,7 +3377,7 @@
       "supplierId": "rubrik",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3412,7 +3390,7 @@
       "supplierId": "rubrik",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3425,7 +3403,7 @@
       "supplierId": "rubrik",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.235Z",
+      "checkedAt": "2026-11-20T06:41:03.039Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3438,7 +3416,7 @@
       "supplierId": "rubrik",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.040Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3451,7 +3429,7 @@
       "supplierId": "rubrik",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.040Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3464,7 +3442,7 @@
       "supplierId": "rubrik",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.040Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3477,7 +3455,7 @@
       "supplierId": "rubrik",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.040Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3490,7 +3468,7 @@
       "supplierId": "rubrik",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.040Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3503,7 +3481,7 @@
       "supplierId": "rubrik",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.041Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3550,7 +3528,7 @@
       "supplierId": "rubrik",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.236Z",
+      "checkedAt": "2026-11-20T06:41:03.041Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "https://data.sec.gov/submissions/CIK0001943896.json"
@@ -3620,7 +3598,7 @@
       "supplierId": "s1",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.745Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3633,7 +3611,7 @@
       "supplierId": "s1",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.745Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3646,7 +3624,7 @@
       "supplierId": "s1",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.745Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3659,7 +3637,7 @@
       "supplierId": "s1",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.746Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3672,7 +3650,7 @@
       "supplierId": "s1",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.746Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3685,7 +3663,7 @@
       "supplierId": "s1",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.746Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3698,7 +3676,7 @@
       "supplierId": "s1",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.746Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3711,7 +3689,7 @@
       "supplierId": "s1",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.746Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3724,7 +3702,7 @@
       "supplierId": "s1",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.746Z",
+      "checkedAt": "2026-11-20T06:41:03.553Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3737,7 +3715,7 @@
       "supplierId": "s1",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.748Z",
+      "checkedAt": "2026-11-20T06:41:03.556Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3750,7 +3728,7 @@
       "supplierId": "s1",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.748Z",
+      "checkedAt": "2026-11-20T06:41:03.556Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3763,7 +3741,7 @@
       "supplierId": "s1",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.748Z",
+      "checkedAt": "2026-11-20T06:41:03.556Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3776,7 +3754,7 @@
       "supplierId": "s1",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.748Z",
+      "checkedAt": "2026-11-20T06:41:03.556Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3789,7 +3767,7 @@
       "supplierId": "s1",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.748Z",
+      "checkedAt": "2026-11-20T06:41:03.556Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3802,7 +3780,7 @@
       "supplierId": "s1",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.748Z",
+      "checkedAt": "2026-11-20T06:41:03.556Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3893,7 +3871,7 @@
       "supplierId": "s1",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:10.749Z",
+      "checkedAt": "2026-11-20T06:41:03.557Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "https://data.sec.gov/submissions/CIK0001583708.json"
@@ -3963,7 +3941,7 @@
       "supplierId": "sailpoint",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -3976,7 +3954,7 @@
       "supplierId": "sailpoint",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -3989,7 +3967,7 @@
       "supplierId": "sailpoint",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4002,7 +3980,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4015,7 +3993,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4028,7 +4006,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4041,7 +4019,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4054,7 +4032,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4067,7 +4045,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.253Z",
+      "checkedAt": "2026-11-20T06:41:04.062Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4080,7 +4058,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4093,7 +4071,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4106,7 +4084,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4119,7 +4097,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4132,7 +4110,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4145,7 +4123,7 @@
       "supplierId": "sailpoint",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4192,7 +4170,7 @@
       "supplierId": "sailpoint",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.254Z",
+      "checkedAt": "2026-11-20T06:41:04.063Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "https://data.sec.gov/submissions/CIK0002030781.json"
@@ -4262,7 +4240,7 @@
       "supplierId": "tenable",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.583Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4275,7 +4253,7 @@
       "supplierId": "tenable",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.583Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4288,7 +4266,7 @@
       "supplierId": "tenable",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.583Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4301,7 +4279,7 @@
       "supplierId": "tenable",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.584Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4314,7 +4292,7 @@
       "supplierId": "tenable",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.584Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4327,7 +4305,7 @@
       "supplierId": "tenable",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.584Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4340,7 +4318,7 @@
       "supplierId": "tenable",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.584Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4353,7 +4331,7 @@
       "supplierId": "tenable",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.584Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4366,7 +4344,7 @@
       "supplierId": "tenable",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.767Z",
+      "checkedAt": "2026-11-20T06:41:04.584Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4379,7 +4357,7 @@
       "supplierId": "tenable",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.772Z",
+      "checkedAt": "2026-11-20T06:41:04.589Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4392,7 +4370,7 @@
       "supplierId": "tenable",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.772Z",
+      "checkedAt": "2026-11-20T06:41:04.589Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4405,7 +4383,7 @@
       "supplierId": "tenable",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.772Z",
+      "checkedAt": "2026-11-20T06:41:04.589Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4418,7 +4396,7 @@
       "supplierId": "tenable",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.772Z",
+      "checkedAt": "2026-11-20T06:41:04.589Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4431,7 +4409,7 @@
       "supplierId": "tenable",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.772Z",
+      "checkedAt": "2026-11-20T06:41:04.589Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4444,7 +4422,7 @@
       "supplierId": "tenable",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.772Z",
+      "checkedAt": "2026-11-20T06:41:04.590Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4502,7 +4480,7 @@
       "supplierId": "tenable",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:11.773Z",
+      "checkedAt": "2026-11-20T06:41:04.591Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "https://data.sec.gov/submissions/CIK0001660280.json"
@@ -4572,7 +4550,7 @@
       "supplierId": "varonis",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.289Z",
+      "checkedAt": "2026-11-20T06:41:05.116Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4585,7 +4563,7 @@
       "supplierId": "varonis",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.289Z",
+      "checkedAt": "2026-11-20T06:41:05.116Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4598,7 +4576,7 @@
       "supplierId": "varonis",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.289Z",
+      "checkedAt": "2026-11-20T06:41:05.116Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4611,7 +4589,7 @@
       "supplierId": "varonis",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.290Z",
+      "checkedAt": "2026-11-20T06:41:05.117Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4624,7 +4602,7 @@
       "supplierId": "varonis",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.290Z",
+      "checkedAt": "2026-11-20T06:41:05.117Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4637,7 +4615,7 @@
       "supplierId": "varonis",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.290Z",
+      "checkedAt": "2026-11-20T06:41:05.117Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4650,7 +4628,7 @@
       "supplierId": "varonis",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.290Z",
+      "checkedAt": "2026-11-20T06:41:05.117Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4663,7 +4641,7 @@
       "supplierId": "varonis",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.290Z",
+      "checkedAt": "2026-11-20T06:41:05.117Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4676,7 +4654,7 @@
       "supplierId": "varonis",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.290Z",
+      "checkedAt": "2026-11-20T06:41:05.117Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4689,7 +4667,7 @@
       "supplierId": "varonis",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.295Z",
+      "checkedAt": "2026-11-20T06:41:05.122Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4702,7 +4680,7 @@
       "supplierId": "varonis",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.295Z",
+      "checkedAt": "2026-11-20T06:41:05.122Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4715,7 +4693,7 @@
       "supplierId": "varonis",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.295Z",
+      "checkedAt": "2026-11-20T06:41:05.122Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4728,7 +4706,7 @@
       "supplierId": "varonis",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.295Z",
+      "checkedAt": "2026-11-20T06:41:05.122Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4741,7 +4719,7 @@
       "supplierId": "varonis",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.295Z",
+      "checkedAt": "2026-11-20T06:41:05.122Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4754,7 +4732,7 @@
       "supplierId": "varonis",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.295Z",
+      "checkedAt": "2026-11-20T06:41:05.123Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4823,7 +4801,7 @@
       "supplierId": "varonis",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.297Z",
+      "checkedAt": "2026-11-20T06:41:05.124Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "https://data.sec.gov/submissions/CIK0001361113.json"
@@ -4893,7 +4871,7 @@
       "supplierId": "zscaler",
       "field": "identity.name",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.811Z",
+      "checkedAt": "2026-11-20T06:41:05.643Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4906,7 +4884,7 @@
       "supplierId": "zscaler",
       "field": "identity.ticker",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.811Z",
+      "checkedAt": "2026-11-20T06:41:05.643Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4919,7 +4897,7 @@
       "supplierId": "zscaler",
       "field": "identity.kind",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.811Z",
+      "checkedAt": "2026-11-20T06:41:05.643Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4932,7 +4910,7 @@
       "supplierId": "zscaler",
       "field": "revenue.latest.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.812Z",
+      "checkedAt": "2026-11-20T06:41:05.644Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4945,7 +4923,7 @@
       "supplierId": "zscaler",
       "field": "revenue.latest.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.812Z",
+      "checkedAt": "2026-11-20T06:41:05.644Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4958,7 +4936,7 @@
       "supplierId": "zscaler",
       "field": "revenue.latest.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.812Z",
+      "checkedAt": "2026-11-20T06:41:05.644Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4971,7 +4949,7 @@
       "supplierId": "zscaler",
       "field": "revenue.latest.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.812Z",
+      "checkedAt": "2026-11-20T06:41:05.644Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4984,7 +4962,7 @@
       "supplierId": "zscaler",
       "field": "revenue.latest.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.812Z",
+      "checkedAt": "2026-11-20T06:41:05.644Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -4997,7 +4975,7 @@
       "supplierId": "zscaler",
       "field": "revenue.latest.releaseDate",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.812Z",
+      "checkedAt": "2026-11-20T06:41:05.644Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5010,7 +4988,7 @@
       "supplierId": "zscaler",
       "field": "revenue.prior.value",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.816Z",
+      "checkedAt": "2026-11-20T06:41:05.651Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5023,7 +5001,7 @@
       "supplierId": "zscaler",
       "field": "revenue.prior.priorYearValue",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.816Z",
+      "checkedAt": "2026-11-20T06:41:05.651Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5036,7 +5014,7 @@
       "supplierId": "zscaler",
       "field": "revenue.prior.yoyGrowth",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.816Z",
+      "checkedAt": "2026-11-20T06:41:05.651Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5049,7 +5027,7 @@
       "supplierId": "zscaler",
       "field": "revenue.prior.period",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.816Z",
+      "checkedAt": "2026-11-20T06:41:05.651Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5062,7 +5040,7 @@
       "supplierId": "zscaler",
       "field": "revenue.prior.periodEnd",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.816Z",
+      "checkedAt": "2026-11-20T06:41:05.651Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5075,7 +5053,7 @@
       "supplierId": "zscaler",
       "field": "secEvents",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.816Z",
+      "checkedAt": "2026-11-20T06:41:05.651Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5166,7 +5144,7 @@
       "supplierId": "zscaler",
       "field": "revenue.history",
       "status": "checked-no-change",
-      "checkedAt": "2026-11-19T06:38:12.817Z",
+      "checkedAt": "2026-11-20T06:41:05.652Z",
       "sourceUrls": [
         "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "https://data.sec.gov/submissions/CIK0001713683.json"
@@ -5234,8 +5212,8 @@
     }
   ],
   "summary": {
-    "updated": 0,
-    "checked-no-change": 256,
+    "updated": 13,
+    "checked-no-change": 243,
     "failed": 0
   }
 }
