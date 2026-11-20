@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import originals from '../src/data/tracker/originals.json' with { type: 'json' }
 import market from '../../contracts/market.json' with { type: 'json' }
-import { trackerDomainIds } from '../src/data/tracker/domains.ts'
+import { knownDomains } from '../src/data/tracker/domains.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import { onboardingEvidence, onboardingRows, onboardingSuppliers, showOnboarding } from '../src/data/tracker/onboarding.ts'
 
@@ -26,7 +26,7 @@ describe('onboarding suppliers', () => {
   it('cite a specific, dated source for every fact', () => {
     const evidence = new Map(onboardingEvidence.map(e => [e.id, e]))
     for (const supplier of onboardingSuppliers) {
-      assert.ok(supplier.domainIds.length > 0 && supplier.domainIds.every(id => trackerDomainIds.includes(id)), `${supplier.id} domain`)
+      assert.ok(supplier.domainIds.length > 0 && supplier.domainIds.every(id => knownDomains.some(d => d.id === id)), `${supplier.id} domain`)
       const fields = [supplier.revenue?.latest, supplier.headlineMetric, supplier.lastRound, supplier.ownership].filter(Boolean)
       assert.ok(fields.length > 0, `${supplier.id} has no facts`)
       for (const field of fields) {

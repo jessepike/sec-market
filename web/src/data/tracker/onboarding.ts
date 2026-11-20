@@ -9,8 +9,9 @@
 import { displayDomainIds } from './domains'
 import onboarding from './onboarding.json' with { type: 'json' }
 import { graduatedSupplierIds } from './graduation'
-import { coverageTierFor, coverageTiers, supplierKindLabel } from './coverage'
-import { trackerDomains } from './domains'
+import { coverageTierFor, coverageTiers, supplierTypeLabel } from './coverage'
+import { knownDomains } from './domains'
+import { partnerLine, type PartnerLine } from './partners'
 import { shortSupplierName } from './derive'
 import type { EvidenceRecordLike } from './onboardingTypes'
 import type { TrackerSupplier } from './suppliers'
@@ -33,7 +34,7 @@ export const onboardingSuppliers = (onboarding.suppliers as TrackerSupplier[]).f
 export const onboardingEvidence = onboarding.evidence as EvidenceRecordLike[]
 
 const evidenceById = new Map(onboardingEvidence.map((record) => [record.id, record]))
-const domainName = new Map(trackerDomains.map((d) => [d.id, d.name]))
+const domainName = new Map(knownDomains.map((d) => [d.id, d.name]))
 
 export interface OnboardingRow {
   supplier: TrackerSupplier
@@ -44,13 +45,15 @@ export interface OnboardingRow {
   targetTier: number
   facts: string[]
   sources: { label: string; url: string }[]
+  /** Dated vendor statements naming this provider (D-153), or null. */
+  partners: PartnerLine | null
 }
 
 function factsFor(supplier: TrackerSupplier): string[] {
   const out: string[] = []
   if (supplier.revenue) {
     const latest = supplier.revenue.latest
-    out.push(`Revenue ${latest.value}, ${latest.yoyGrowth} year over year (${latest.period})`)
+    out.push(`${supplier.revenue.scope === 'company' ? 'Total company revenue' : 'Revenue'} ${latest.value}, ${latest.yoyGrowth} year over year (${latest.period})`)
   }
   if (supplier.headlineMetric) out.push(`${supplier.headlineMetric.label} ${supplier.headlineMetric.value} (${supplier.headlineMetric.period})`)
   if (supplier.lastRound) {
@@ -78,10 +81,11 @@ export const onboardingRows: OnboardingRow[] = onboardingSuppliers
   .map((supplier) => ({
     supplier,
     displayName: shortSupplierName(supplier.name),
-    typeLabel: supplierKindLabel[supplier.kind],
+    typeLabel: supplierTypeLabel(supplier),
     domains: displayDomainIds(supplier).map((id) => domainName.get(id) ?? id),
     targetTier: supplier.cik ? 1 : (coverageTiers.find((t) => t.id === coverageTierFor(supplier))?.number ?? 4),
     facts: factsFor(supplier),
     sources: sourcesFor(supplier),
+    partners: partnerLine(supplier.id),
   }))
   .sort((a, b) => a.targetTier - b.targetTier || a.displayName.localeCompare(b.displayName))

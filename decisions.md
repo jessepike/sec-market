@@ -1711,3 +1711,20 @@ answered "Yes". Decided: Phase 1 of D-153 reads the free daily Companies House A
 (iXBRL, no sign-up, no credential) for the company numbers of tracked UK firms only, plus the public
 filing history for registered charges. Figures are read from the tagged values without model calls
 and labeled as filed annual accounts. No API key is created.
+
+**D-155 · 2026-11-20 — Security solution providers, Phase 1, built on preview.**
+The owner said "Build it" on 2026-11-20 for Phase 1 of D-153 and D-154. Built: ten providers join
+the additive roster transition as onboarding suppliers (97 suppliers, 429 sources; the contract
+still inverts to J): CDW, Insight Enterprises and ePlus (public; total company net sales from the
+latest quarterly release, labeled "Total company revenue" as in D-145; SEC sources and
+`edgarRegistry.ts` entries added), Presidio, World Wide Technology, GuidePoint Security and Trace3
+(ownership and latest dated deal or funding from their own releases), and Xalient, TekStream and
+bitsIO (Xalient's FY2024 turnover and loss from its Companies House group accounts). ePlus is
+covered exactly like CDW and Insight. The domain "Security solution providers and services" is
+defined with two sub-areas and no revenue bars; it stays pending, so pages do not list it, until
+three of its companies graduate, and graduation releases them only together. Vendor partner tags
+(vendor pairing v1) show on preview only, each a dated statement on a listed vendor's own page:
+Splunk's 2026 regional awards (Trace3, bitsIO, TekStream), Zscaler's 2026 Americas awards (CDW,
+GuidePoint, Presidio, WWT) and CrowdStrike's 2026 Americas Partner of the Year (GuidePoint). Not
+built: SHI, Epic Cyber and Carbon 9 Defense (no source the collector can read) and the Companies
+House daily-file reader (SEC-090). Production renders are pixel-identical.

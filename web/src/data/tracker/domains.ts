@@ -12,6 +12,11 @@
  * suppliers.ts, not a code change.
  */
 
+import { graduatedSuppliers } from './graduation'
+import { PENDING_DOMAIN_MIN_LIVE, pendingDomains } from './pendingDomains'
+
+export { pendingDomains }
+
 export interface TrackerDomain {
   id: string
   /** Short display name, e.g. "Endpoint and XDR". */
@@ -129,6 +134,13 @@ export const trackerDomains: TrackerDomain[] = [
     ],
   },
 ]
+
+const liveCount = (domainId: string) => graduatedSuppliers.filter((s) => s.domainIds.includes(domainId)).length
+// A pending domain joins once its companies graduate; graduation.ts releases them only three at a time or more.
+trackerDomains.push(...pendingDomains.filter((d) => liveCount(d.id) >= PENDING_DOMAIN_MIN_LIVE))
+
+/** Live domains plus pending ones: every domain id a supplier record may name. */
+export const knownDomains: TrackerDomain[] = [...trackerDomains, ...pendingDomains.filter((d) => !trackerDomains.includes(d))]
 
 export const trackerDomainIds = trackerDomains.map((domain) => domain.id)
 

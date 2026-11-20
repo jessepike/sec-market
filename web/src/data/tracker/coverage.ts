@@ -93,6 +93,15 @@ export const supplierKindLabel: Record<SupplierKind, string> = {
   acquired: 'Acquired',
 }
 
+/**
+ * The company type a reader sees. Solution providers and service firms (D-153) are mostly founder-owned
+ * or privately held without venture funding, so a private one reads "Private company" there.
+ */
+export function supplierTypeLabel(supplier: Pick<TrackerSupplier, 'id' | 'kind' | 'domainIds'>): string {
+  if (supplier.kind === 'private' && displayDomainIds(supplier).includes('solution-providers')) return 'Private company'
+  return supplierKindLabel[supplier.kind]
+}
+
 export function coverageTierFor(supplier: TrackerSupplier): CoverageTierId {
   if (isCertifiedSupplier(supplier.id)) return 'sec'
   if (supplier.revenue) return 'reported'
@@ -155,7 +164,7 @@ export const coverageRows: CoverageRow[] = trackerSuppliers
       supplier,
       displayName: shortSupplierName(supplier.name),
       tier,
-      typeLabel: supplierKindLabel[supplier.kind],
+      typeLabel: supplierTypeLabel(supplier),
       domains: displayDomainIds(supplier).map((id) => domainName.get(id) ?? id),
       holdings: holdingsFor(supplier, tier, events12m),
       latestFact: latestFactFor(supplier),

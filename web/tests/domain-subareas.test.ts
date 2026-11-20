@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { trackerDomains } from '../src/data/tracker/domains.ts'
+import { knownDomains } from '../src/data/tracker/domains.ts'
 import { domainMomentum } from '../src/data/tracker/momentum.ts'
 import { onboardingSuppliers } from '../src/data/tracker/onboarding.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
@@ -8,7 +8,7 @@ import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 // AI security is split into named parts and shows no revenue bars (owner, 2026-11-07).
 describe('domain sub-areas', () => {
   const all = [...trackerSuppliers, ...onboardingSuppliers]
-  for (const domain of trackerDomains.filter(d => d.subareas)) {
+  for (const domain of knownDomains.filter(d => d.subareas)) {
     it(`${domain.id}: every listed company is in the domain, once`, () => {
       const ids = domain.subareas!.flatMap(a => a.supplierIds)
       assert.equal(new Set(ids).size, ids.length)

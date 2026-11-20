@@ -297,6 +297,305 @@
           "OB-noma-1"
         ]
       }
+    },
+    {
+      "id": "cdw",
+      "name": "CDW",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "public",
+      "ticker": "CDW",
+      "cik": "0001402057",
+      "revenue": {
+        "scope": "company",
+        "latest": {
+          "value": "$6,755 million",
+          "priorYearValue": "$5,737 million",
+          "yoyGrowth": "+17.7%",
+          "period": "Q3 2026",
+          "periodEnd": "2026-09-30",
+          "releaseDate": "2026-11-04",
+          "evidenceIds": [
+            "OB-cdw-1"
+          ]
+        }
+      },
+      "ownership": {
+        "status": "Independent, publicly traded on Nasdaq.",
+        "evidenceIds": [
+          "OB-cdw-1"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "zscaler",
+          "program": "2026 Americas Partner of the Year",
+          "date": "2026-04-22",
+          "evidenceIds": [
+            "OB-partner-zscaler-cdw"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "insight",
+      "name": "Insight Enterprises",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "public",
+      "ticker": "NSIT",
+      "cik": "0000932696",
+      "revenue": {
+        "scope": "company",
+        "latest": {
+          "value": "$2,441.5 million",
+          "priorYearValue": "$2,003.8 million",
+          "yoyGrowth": "+21.8%",
+          "period": "Q3 2026",
+          "periodEnd": "2026-09-30",
+          "releaseDate": "2026-11-05",
+          "evidenceIds": [
+            "OB-insight-1"
+          ]
+        }
+      },
+      "ownership": {
+        "status": "Independent, publicly traded on Nasdaq.",
+        "evidenceIds": [
+          "OB-insight-1"
+        ]
+      }
+    },
+    {
+      "id": "eplus",
+      "name": "ePlus",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "public",
+      "ticker": "PLUS",
+      "cik": "0001022408",
+      "revenue": {
+        "scope": "company",
+        "latest": {
+          "value": "$667.9 million",
+          "priorYearValue": "$608.8 million",
+          "yoyGrowth": "+9.7%",
+          "period": "Q2 FY2027",
+          "periodEnd": "2026-09-30",
+          "releaseDate": "2026-11-05",
+          "evidenceIds": [
+            "OB-eplus-1"
+          ]
+        }
+      },
+      "ownership": {
+        "status": "Independent, publicly traded on Nasdaq.",
+        "evidenceIds": [
+          "OB-eplus-1"
+        ]
+      }
+    },
+    {
+      "id": "presidio",
+      "name": "Presidio",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "pe-owned",
+      "ownership": {
+        "status": "PE-owned. Clayton Dubilier & Rice agreed to buy a majority stake from BC Partners, announced April 2, 2024; BC Partners kept a minority stake.",
+        "announced": "2024-04-02",
+        "evidenceIds": [
+          "OB-presidio-2"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "zscaler",
+          "program": "2026 Americas New Logo Partner of the Year",
+          "date": "2026-04-22",
+          "evidenceIds": [
+            "OB-partner-zscaler-presidio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wwt",
+      "name": "World Wide Technology",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "private",
+      "ownership": {
+        "status": "Private company, founded in 1990. Completed its purchase of Softchoice, about US$1.3 billion, on March 13, 2025.",
+        "evidenceIds": [
+          "OB-wwt-1"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "zscaler",
+          "program": "2026 Americas Public Sector Partner of the Year",
+          "date": "2026-04-22",
+          "evidenceIds": [
+            "OB-partner-zscaler-wwt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guidepoint",
+      "name": "GuidePoint Security",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "private",
+      "lastRound": {
+        "date": "2023-10-10",
+        "stage": "Growth funding round",
+        "amount": "terms not disclosed",
+        "lead": "Audax Private Equity",
+        "evidenceIds": [
+          "OB-guidepoint-1"
+        ]
+      },
+      "ownership": {
+        "status": "Private company. Audax Private Equity led a funding round that closed October 10, 2023.",
+        "evidenceIds": [
+          "OB-guidepoint-1"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "crwd",
+          "program": "2026 Americas Partner of the Year",
+          "date": "2026-05-06",
+          "evidenceIds": [
+            "OB-partner-crwd-guidepoint"
+          ]
+        },
+        {
+          "vendorId": "zscaler",
+          "program": "2026 Americas AMS Partner of the Year",
+          "date": "2026-04-22",
+          "evidenceIds": [
+            "OB-partner-zscaler-guidepoint"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trace3",
+      "name": "Trace3",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "pe-owned",
+      "ownership": {
+        "status": "PE-owned. Funds managed by affiliates of Apollo completed the purchase from American Securities on November 3, 2025; American Securities kept a significant minority stake.",
+        "closed": "2025-11-03",
+        "evidenceIds": [
+          "OB-trace3-2"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "splunk",
+          "program": "2026 Partner of the Year, AMER",
+          "date": "2026-09-16",
+          "evidenceIds": [
+            "OB-partner-splunk-trace3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xalient",
+      "name": "Xalient",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "pe-owned",
+      "revenue": {
+        "scope": "company",
+        "latest": {
+          "value": "£85.0 million",
+          "priorYearValue": "£52.2 million",
+          "yoyGrowth": "+62.9%",
+          "period": "FY2024, filed annual accounts",
+          "periodEnd": "2024-12-31",
+          "releaseDate": "2025-09-09",
+          "evidenceIds": [
+            "OB-xalient-1"
+          ]
+        }
+      },
+      "headlineMetric": {
+        "label": "Loss for the year",
+        "value": "£1.6 million",
+        "period": "FY2024, filed annual accounts",
+        "evidenceIds": [
+          "OB-xalient-1"
+        ]
+      },
+      "ownership": {
+        "status": "PE-owned. Its FY2024 group accounts name Volpi Capital LLP as the ultimate controlling party.",
+        "evidenceIds": [
+          "OB-xalient-1"
+        ]
+      }
+    },
+    {
+      "id": "tekstream",
+      "name": "TekStream",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "private",
+      "ownership": {
+        "status": "Private company, launched in Atlanta in July 2011.",
+        "evidenceIds": [
+          "OB-tekstream-1"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "splunk",
+          "program": "2026 Services Partner of the Year, Public Sector",
+          "date": "2026-09-16",
+          "evidenceIds": [
+            "OB-partner-splunk-tekstream"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bitsio",
+      "name": "bitsIO",
+      "domainIds": [
+        "solution-providers"
+      ],
+      "kind": "private",
+      "ownership": {
+        "status": "Private company headquartered in Springfield, Illinois, co-founded by its chief executive, Kalpana Krishnamurthi.",
+        "evidenceIds": [
+          "OB-bitsio-1"
+        ]
+      },
+      "partners": [
+        {
+          "vendorId": "splunk",
+          "program": "2026 Services Partner of the Year, AMER",
+          "date": "2026-09-16",
+          "evidenceIds": [
+            "OB-partner-splunk-bitsio"
+          ]
+        }
+      ]
     }
   ],
   "evidence": [
@@ -619,6 +918,414 @@
         "data"
       ],
       "retrievedAt": "2026-11-07"
+    },
+    {
+      "id": "OB-cdw-1",
+      "title": "CDW Reports Third Quarter 2026 Earnings",
+      "organization": "CDW Corporation",
+      "publicationDate": "2026-11-04",
+      "economicPeriod": "Quarter ended 2026-09-30",
+      "canonicalUrl": "https://investor.cdw.com/news/news-details/2026/CDW-Reports-Third-Quarter-2026-Earnings/default.aspx",
+      "excerpt": "Net sales in the third quarter of 2026 were $6,755 million, compared to $5,737 million in the third quarter of 2025, an increase of 17.7 percent.",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release. Total company net sales, not security revenue. Not yet re-derived from the 10-Q; the 10-Q reports $6,754.5 million.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-cdw-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-insight-1",
+      "title": "Insight Enterprises, Inc. Reports Third Quarter Results",
+      "organization": "Insight Enterprises, Inc.",
+      "publicationDate": "2026-11-05",
+      "economicPeriod": "Quarter ended 2026-09-30",
+      "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/932696/000093269626000076/nsit-20261105xerx8kex991.htm",
+      "excerpt": "In the third quarter of 2026, net sales increased 22%, year over year, to $2.4 billion",
+      "sourceClass": "FILING",
+      "interpretation": "",
+      "limitations": "Exhibit 99.1 to Form 8-K. Total company net sales, not security revenue: $2,441,510 thousand against $2,003,845 thousand a year earlier. The company page refuses automated readers, so the SEC copy is cited.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-insight-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-eplus-1",
+      "title": "ePlus Reports Second Quarter and First Half Financial Results Fiscal Year 2027",
+      "organization": "ePlus inc.",
+      "publicationDate": "2026-11-05",
+      "economicPeriod": "Quarter ended 2026-09-30",
+      "canonicalUrl": "https://www.eplus.com/who-we-are/investor-relations/press-releases/2026/11/eplus-reports-second-quarter-and-first-half-financial-results-fiscal-year-2027",
+      "excerpt": "Net sales increased 9.7% to $667.9 million, from $608.8 million due to higher product sales",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release. Total company net sales, not security revenue. Fiscal year ends March 31.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-eplus-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-presidio-1",
+      "title": "Presidio Completes Acquisition of LookingPoint",
+      "organization": "Presidio",
+      "publicationDate": "2026-07-13",
+      "economicPeriod": "July 2026",
+      "canonicalUrl": "https://www.presidio.com/who-we-are/newsroom-press/presidio-acquires-lookingpoint/",
+      "excerpt": "a California-based IT solutions provider specializing in networking, security, cloud, and AI infrastructure solutions for enterprise companies",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release. No price stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-presidio-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-presidio-2",
+      "title": "CD&R to Acquire Presidio from BC Partners",
+      "organization": "Presidio",
+      "publicationDate": "2024-04-02",
+      "economicPeriod": "April 2024",
+      "canonicalUrl": "https://www.presidio.com/who-we-are/newsroom-press/cdr-to-acquire-presidio-from-bc-partners/",
+      "excerpt": "funds affiliated with CD&R will acquire a majority ownership position in Presidio, a leading technology services and solutions provider, from BC Partners",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Announcement of the agreement; terms were not disclosed. The closing is not in this release.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-presidio-2",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-wwt-1",
+      "title": "World Wide Technology Announces Completion of Softchoice Acquisition",
+      "organization": "World Wide Technology",
+      "publicationDate": "2025-03-13",
+      "economicPeriod": "March 2025",
+      "canonicalUrl": "https://www.wwt.com/press-release/world-wide-technology-announces-completion-of-softchoice-acquisition-expanding-software-cloud-cybersecurity-and-ai-capabilities",
+      "excerpt": "today announced it has completed the acquisition of Softchoice, a software and cloud-focused IT solutions provider. The approximately US$1.3 billion acquisition",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release. The founding year is from the release's About section: \"Founded in 1990, World Wide Technology (WWT)\".",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-wwt-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-guidepoint-1",
+      "title": "GuidePoint Security Attracts New Round of Growth Capital",
+      "organization": "GuidePoint Security",
+      "publicationDate": "2023-10-10",
+      "economicPeriod": "October 2023",
+      "canonicalUrl": "https://www.guidepointsecurity.com/newsroom/guidepoint-security-attracts-new-round-of-growth-capital/",
+      "excerpt": "today announced the closing of a funding round led by Audax Private Equity",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release. Terms of the investment were not disclosed.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-guidepoint-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-trace3-1",
+      "title": "Trace3 Completes Purchase of Calian Group's U.S. Commercial IT Assets",
+      "organization": "Trace3",
+      "publicationDate": "2026-10-01",
+      "economicPeriod": "October 2026",
+      "canonicalUrl": "https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Acquisition%20of%20Calian%20US%20Final.pdf",
+      "excerpt": "Trace3 announced it has completed its purchase of the U.S. Commercial IT asset of Calian Group",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release as a PDF linked from trace3.com/announcements. No price stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-trace3-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-trace3-2",
+      "title": "Trace3 Enters New Era of Growth, Innovation with Completion of Acquisition by Apollo Funds from American Securities",
+      "organization": "Trace3",
+      "publicationDate": "2025-11-03",
+      "economicPeriod": "November 2025",
+      "canonicalUrl": "https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Announces%20Acquisition%20by%20Apollo%20-%20Names%20New%20CEO.pdf",
+      "excerpt": "completed the acquisition of the company from American Securities, which will retain a significant minority equity interest",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release as a PDF linked from trace3.com/announcements. The buyer is \"funds managed by affiliates of Apollo\". No price stated.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-trace3-2",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-xalient-1",
+      "title": "Xalient Holdings Limited: group accounts made up to 31 December 2024",
+      "organization": "Companies House",
+      "publicationDate": "2025-09-09",
+      "economicPeriod": "Year ended 2024-12-31",
+      "canonicalUrl": "https://find-and-update.company-information.service.gov.uk/company/09714903/filing-history/MzQ4MDIzMzI2OWFkaXF6a2N4/document?format=xhtml&download=1",
+      "excerpt": "Revenue from contracts with customers 3 84,996 52,163",
+      "sourceClass": "FILING",
+      "interpretation": "",
+      "limitations": "Filed annual accounts (iXBRL), company 09714903, figures in GBP thousands, tagged core:TurnoverRevenue: 84,996 for 2024 and 52,163 for 2023. Loss for the financial year 1,554 (2023: profit 151). Read from the tagged values, no model. The link redirects to a short-lived copy on the Companies House document store.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-xalient-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-tekstream-1",
+      "title": "New Technology Solutions Company Launches in Atlanta",
+      "organization": "TekStream Solutions",
+      "publicationDate": "2011-07-28",
+      "economicPeriod": "July 2011",
+      "canonicalUrl": "https://www.tekstream.com/resources/newsroom/new-technology-solutions-company-launches-in-atlanta/",
+      "excerpt": "announced today its launch as a new Atlanta-based information technology services firm",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Company release (PR Newswire copy on its own site). No later ownership change found in its newsroom.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-tekstream-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-bitsio-1",
+      "title": "About bitsIO",
+      "organization": "bitsIO",
+      "publicationDate": "2026-11-20",
+      "economicPeriod": "As of November 2026",
+      "canonicalUrl": "https://www.bitsioinc.com/about-us",
+      "excerpt": "bitsIO is a data, security, and observability services company headquartered in Springfield, Illinois",
+      "sourceClass": "IR",
+      "interpretation": "",
+      "limitations": "Undated company page, read 2026-11-20. The same page names Kalpana Krishnamurthi as co-founder and CEO. No funding or ownership change found on its site.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-bitsio-1",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-splunk-trace3",
+      "title": "Announcing the 2026 Splunk Regional Partner Award Winners",
+      "organization": "Splunk",
+      "publicationDate": "2026-09-16",
+      "economicPeriod": "September 2026",
+      "canonicalUrl": "https://www.splunk.com/en_us/blog/partners/2026-splunk-regional-partner-award-winners.html",
+      "excerpt": "AMER Winners: Partner of the Year: Trace3",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post naming its 2026 regional partner award winners. Splunk refuses automated readers, so it is not a collected source.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-splunk-trace3",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-splunk-bitsio",
+      "title": "Announcing the 2026 Splunk Regional Partner Award Winners",
+      "organization": "Splunk",
+      "publicationDate": "2026-09-16",
+      "economicPeriod": "September 2026",
+      "canonicalUrl": "https://www.splunk.com/en_us/blog/partners/2026-splunk-regional-partner-award-winners.html",
+      "excerpt": "Services Partner of the Year: bitsIO",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post naming its 2026 regional partner award winners. Splunk refuses automated readers, so it is not a collected source. Listed under \"AMER Winners\".",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-splunk-bitsio",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-splunk-tekstream",
+      "title": "Announcing the 2026 Splunk Regional Partner Award Winners",
+      "organization": "Splunk",
+      "publicationDate": "2026-09-16",
+      "economicPeriod": "September 2026",
+      "canonicalUrl": "https://www.splunk.com/en_us/blog/partners/2026-splunk-regional-partner-award-winners.html",
+      "excerpt": "Public Sector Winners: Partner of the Year: Carbon 9 Defense Distributor Partner of the Year: Carahsoft Services Partner of the Year: TekStream",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post naming its 2026 regional partner award winners. Splunk refuses automated readers, so it is not a collected source.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-splunk-tekstream",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-zscaler-cdw",
+      "title": "Americas Executive Partner Summit 2026 Recap: Partnering with Impact",
+      "organization": "Zscaler",
+      "publicationDate": "2026-04-22",
+      "economicPeriod": "April 2026",
+      "canonicalUrl": "https://www.zscaler.com/blogs/partner/americas-executive-partner-summit-2026-recap-partnering-impact",
+      "excerpt": "Partner of the Year: CDW",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post listing its 2026 Americas partner award winners.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-zscaler-cdw",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-zscaler-guidepoint",
+      "title": "Americas Executive Partner Summit 2026 Recap: Partnering with Impact",
+      "organization": "Zscaler",
+      "publicationDate": "2026-04-22",
+      "economicPeriod": "April 2026",
+      "canonicalUrl": "https://www.zscaler.com/blogs/partner/americas-executive-partner-summit-2026-recap-partnering-impact",
+      "excerpt": "AMS Partner of the Year: GuidePoint Security",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post listing its 2026 Americas partner award winners.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-zscaler-guidepoint",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-zscaler-presidio",
+      "title": "Americas Executive Partner Summit 2026 Recap: Partnering with Impact",
+      "organization": "Zscaler",
+      "publicationDate": "2026-04-22",
+      "economicPeriod": "April 2026",
+      "canonicalUrl": "https://www.zscaler.com/blogs/partner/americas-executive-partner-summit-2026-recap-partnering-impact",
+      "excerpt": "New Logo Partner of the Year: Presidio",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post listing its 2026 Americas partner award winners.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-zscaler-presidio",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-zscaler-wwt",
+      "title": "Americas Executive Partner Summit 2026 Recap: Partnering with Impact",
+      "organization": "Zscaler",
+      "publicationDate": "2026-04-22",
+      "economicPeriod": "April 2026",
+      "canonicalUrl": "https://www.zscaler.com/blogs/partner/americas-executive-partner-summit-2026-recap-partnering-impact",
+      "excerpt": "Public Sector Partner of the Year: World Wide Technology",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor blog post listing its 2026 Americas partner award winners.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-zscaler-wwt",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
+    },
+    {
+      "id": "OB-partner-crwd-guidepoint",
+      "title": "CrowdStrike Recognizes 2026 Americas Partners Driving Growth with the Falcon Platform",
+      "organization": "CrowdStrike",
+      "publicationDate": "2026-05-06",
+      "economicPeriod": "May 2026",
+      "canonicalUrl": "https://www.crowdstrike.com/en-us/press-releases/2026-americas-partner-awards-winners/",
+      "excerpt": "GuidePoint Security – Americas Partner of the Year",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Vendor press release. GuidePoint Security's own release of May 7, 2026 states the same award.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-ONBOARDING-2026-11 / OB-partner-crwd-guidepoint",
+      "tags": [
+        "tracker",
+        "onboarding",
+        "solution-providers",
+        "partner"
+      ],
+      "retrievedAt": "2026-11-20"
     }
   ],
   "events": [
@@ -654,6 +1361,28 @@
         "OB-straiker-1"
       ],
       "rung": 4
+    },
+    {
+      "id": "EV-ob-presidio-1",
+      "supplierId": "presidio",
+      "date": "2026-07-13",
+      "type": "acquisition",
+      "text": "Presidio completed its acquisition of LookingPoint, a California-based IT solutions provider.",
+      "evidenceIds": [
+        "OB-presidio-1"
+      ],
+      "rung": 2
+    },
+    {
+      "id": "EV-ob-trace3-1",
+      "supplierId": "trace3",
+      "date": "2026-10-01",
+      "type": "acquisition",
+      "text": "Trace3 completed its purchase of Calian Group's U.S. Commercial IT assets.",
+      "evidenceIds": [
+        "OB-trace3-1"
+      ],
+      "rung": 2
     }
   ],
   "graduated": {

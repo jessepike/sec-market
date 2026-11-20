@@ -6,7 +6,7 @@ import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import { runStatus } from '../src/data/runStatus.ts'
 import { edgarFilingsInLast30Days } from '../src/data/tracker/derive.ts'
-import { displayDomainIds, notCoveredByTracker, trackerDomains } from '../src/data/tracker/domains.ts'
+import { displayDomainIds, knownDomains, notCoveredByTracker, trackerDomains } from '../src/data/tracker/domains.ts'
 import { retainedTrackerEvents, trackerEvents } from '../src/data/tracker/events.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 
@@ -441,8 +441,9 @@ for (const event of trackerEvents) {
 
 // --- 5. Banned words in domain scope lines and the not-covered list ---
 
-for (const domain of trackerDomains) {
+for (const domain of knownDomains) {
   checkBanned(`domain "${domain.id}" scope`, domain.scope)
+  for (const area of domain.subareas ?? []) checkBanned(`domain "${domain.id}" sub-area "${area.id}" scope`, `${area.name}. ${area.scope}`)
 }
 for (const line of notCoveredByTracker) {
   checkBanned('notCoveredByTracker entry', line)

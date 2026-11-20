@@ -8686,6 +8686,573 @@
       ],
       "supplierId": "bigid",
       "url": "https://www.prnewswire.com/news/bigid/"
+    },
+    {
+      "allowedHosts": [
+        "investor.cdw.com"
+      ],
+      "family": "official_announcements",
+      "id": "cdw:official:1",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news/news-details/"
+      ],
+      "seedEvidenceUrls": [
+        "https://investor.cdw.com/news/news-details/2026/CDW-Reports-Third-Quarter-2026-Earnings/default.aspx"
+      ],
+      "supplierId": "cdw",
+      "url": "https://investor.cdw.com/rss/pressrelease.aspx"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "cdw:sec_facts",
+      "kind": "sec_facts",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "cdw",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001402057.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "cdw:sec_submissions",
+      "kind": "sec_submissions",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "cdw",
+      "url": "https://data.sec.gov/submissions/CIK0001402057.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "cik": "0001402057",
+      "family": "filing_documents",
+      "id": "cdw:sec_documents",
+      "kind": "sec_documents",
+      "lookbackDays": 365,
+      "maxPages": 100,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "cdw",
+      "url": "https://data.sec.gov/submissions/CIK0001402057.json"
+    },
+    {
+      "allowedHosts": [
+        "investor.cdw.com"
+      ],
+      "evidenceId": "OB-cdw-1",
+      "family": "citation_integrity",
+      "id": "cdw:citation:OB-cdw-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "cdw",
+      "url": "https://investor.cdw.com/news/news-details/2026/CDW-Reports-Third-Quarter-2026-Earnings/default.aspx"
+    },
+    {
+      "allowedHosts": [
+        "investor.insight.com"
+      ],
+      "family": "official_announcements",
+      "id": "insight:official:1",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/news-releases/news-release-details/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "insight",
+      "url": "https://investor.insight.com/rss/pressrelease.aspx"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "insight:sec_facts",
+      "kind": "sec_facts",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "insight",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000932696.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "insight:sec_submissions",
+      "kind": "sec_submissions",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "insight",
+      "url": "https://data.sec.gov/submissions/CIK0000932696.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "cik": "0000932696",
+      "family": "filing_documents",
+      "id": "insight:sec_documents",
+      "kind": "sec_documents",
+      "lookbackDays": 365,
+      "maxPages": 100,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "insight",
+      "url": "https://data.sec.gov/submissions/CIK0000932696.json"
+    },
+    {
+      "allowedHosts": [
+        "www.sec.gov"
+      ],
+      "evidenceId": "OB-insight-1",
+      "family": "citation_integrity",
+      "id": "insight:citation:OB-insight-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "insight",
+      "url": "https://www.sec.gov/Archives/edgar/data/932696/000093269626000076/nsit-20261105xerx8kex991.htm"
+    },
+    {
+      "allowedHosts": [
+        "www.eplus.com"
+      ],
+      "family": "official_announcements",
+      "id": "eplus:official:1",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/who-we-are/investor-relations/press-releases/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.eplus.com/who-we-are/investor-relations/press-releases/2026/11/eplus-reports-second-quarter-and-first-half-financial-results-fiscal-year-2027"
+      ],
+      "supplierId": "eplus",
+      "url": "https://www.eplus.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "eplus:sec_facts",
+      "kind": "sec_facts",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "eplus",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001022408.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov"
+      ],
+      "family": "regulatory_filings",
+      "id": "eplus:sec_submissions",
+      "kind": "sec_submissions",
+      "maxPages": 40,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "eplus",
+      "url": "https://data.sec.gov/submissions/CIK0001022408.json"
+    },
+    {
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "cik": "0001022408",
+      "family": "filing_documents",
+      "id": "eplus:sec_documents",
+      "kind": "sec_documents",
+      "lookbackDays": 365,
+      "maxPages": 100,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "eplus",
+      "url": "https://data.sec.gov/submissions/CIK0001022408.json"
+    },
+    {
+      "allowedHosts": [
+        "www.eplus.com"
+      ],
+      "evidenceId": "OB-eplus-1",
+      "family": "citation_integrity",
+      "id": "eplus:citation:OB-eplus-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "eplus",
+      "url": "https://www.eplus.com/who-we-are/investor-relations/press-releases/2026/11/eplus-reports-second-quarter-and-first-half-financial-results-fiscal-year-2027"
+    },
+    {
+      "allowedHosts": [
+        "www.presidio.com"
+      ],
+      "family": "official_announcements",
+      "htmlCompleteness": "rel-next-exhaustion-v1",
+      "id": "presidio:official:1",
+      "kind": "html_index",
+      "maxPages": 5,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/who-we-are/newsroom-press/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.presidio.com/who-we-are/newsroom-press/presidio-acquires-lookingpoint/"
+      ],
+      "supplierId": "presidio",
+      "url": "https://www.presidio.com/who-we-are/newsroom-press/"
+    },
+    {
+      "allowedHosts": [
+        "www.presidio.com"
+      ],
+      "evidenceId": "OB-presidio-1",
+      "family": "citation_integrity",
+      "id": "presidio:citation:OB-presidio-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "presidio",
+      "url": "https://www.presidio.com/who-we-are/newsroom-press/presidio-acquires-lookingpoint/"
+    },
+    {
+      "allowedHosts": [
+        "www.presidio.com"
+      ],
+      "evidenceId": "OB-presidio-2",
+      "family": "citation_integrity",
+      "id": "presidio:citation:OB-presidio-2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "presidio",
+      "url": "https://www.presidio.com/who-we-are/newsroom-press/cdr-to-acquire-presidio-from-bc-partners/"
+    },
+    {
+      "allowedHosts": [
+        "www.wwt.com"
+      ],
+      "family": "official_announcements",
+      "id": "wwt:official:1",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/press-release/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.wwt.com/press-release/world-wide-technology-announces-completion-of-softchoice-acquisition-expanding-software-cloud-cybersecurity-and-ai-capabilities"
+      ],
+      "supplierId": "wwt",
+      "url": "https://www.wwt.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.wwt.com"
+      ],
+      "evidenceId": "OB-wwt-1",
+      "family": "citation_integrity",
+      "id": "wwt:citation:OB-wwt-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "wwt",
+      "url": "https://www.wwt.com/press-release/world-wide-technology-announces-completion-of-softchoice-acquisition-expanding-software-cloud-cybersecurity-and-ai-capabilities"
+    },
+    {
+      "allowedHosts": [
+        "www.guidepointsecurity.com"
+      ],
+      "family": "official_announcements",
+      "id": "guidepoint:official:1",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/newsroom/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.guidepointsecurity.com/newsroom/guidepoint-security-wins-2026-crowdstrike-americas-partner-of-the-year-award/"
+      ],
+      "supplierId": "guidepoint",
+      "url": "https://www.guidepointsecurity.com/newsroom/feed/"
+    },
+    {
+      "allowedHosts": [
+        "www.guidepointsecurity.com"
+      ],
+      "evidenceId": "OB-guidepoint-1",
+      "family": "citation_integrity",
+      "id": "guidepoint:citation:OB-guidepoint-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "guidepoint",
+      "url": "https://www.guidepointsecurity.com/newsroom/guidepoint-security-attracts-new-round-of-growth-capital/"
+    },
+    {
+      "allowedHosts": [
+        "www.trace3.com",
+        "4142176.fs1.hubspotusercontent-na1.net"
+      ],
+      "family": "official_announcements",
+      "htmlCompleteness": "rel-next-exhaustion-v1",
+      "id": "trace3:official:1",
+      "kind": "html_index",
+      "maxPages": 5,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/hubfs/4142176/"
+      ],
+      "seedEvidenceUrls": [
+        "https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Acquisition%20of%20Calian%20US%20Final.pdf"
+      ],
+      "supplierId": "trace3",
+      "url": "https://www.trace3.com/announcements"
+    },
+    {
+      "allowedHosts": [
+        "4142176.fs1.hubspotusercontent-na1.net"
+      ],
+      "evidenceId": "OB-trace3-1",
+      "family": "citation_integrity",
+      "id": "trace3:citation:OB-trace3-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "trace3",
+      "url": "https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Acquisition%20of%20Calian%20US%20Final.pdf"
+    },
+    {
+      "allowedHosts": [
+        "4142176.fs1.hubspotusercontent-na1.net"
+      ],
+      "evidenceId": "OB-trace3-2",
+      "family": "citation_integrity",
+      "id": "trace3:citation:OB-trace3-2",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "trace3",
+      "url": "https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Announces%20Acquisition%20by%20Apollo%20-%20Names%20New%20CEO.pdf"
+    },
+    {
+      "allowedHosts": [
+        "xalient.com"
+      ],
+      "family": "official_announcements",
+      "id": "xalient:official:1",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "xalient",
+      "url": "https://xalient.com/feed/"
+    },
+    {
+      "allowedHosts": [
+        "find-and-update.company-information.service.gov.uk",
+        "s3.eu-west-2.amazonaws.com"
+      ],
+      "evidenceId": "OB-xalient-1",
+      "family": "citation_integrity",
+      "id": "xalient:citation:OB-xalient-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "xalient",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/09714903/filing-history/MzQ4MDIzMzI2OWFkaXF6a2N4/document?format=xhtml&download=1"
+    },
+    {
+      "allowedHosts": [
+        "www.tekstream.com"
+      ],
+      "family": "official_announcements",
+      "id": "tekstream:official:1",
+      "kind": "rss",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog/",
+        "/resources/newsroom/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "tekstream",
+      "url": "https://www.tekstream.com/feed/"
+    },
+    {
+      "allowedHosts": [
+        "www.tekstream.com"
+      ],
+      "evidenceId": "OB-tekstream-1",
+      "family": "citation_integrity",
+      "id": "tekstream:citation:OB-tekstream-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "tekstream",
+      "url": "https://www.tekstream.com/resources/newsroom/new-technology-solutions-company-launches-in-atlanta/"
+    },
+    {
+      "allowedHosts": [
+        "www.bitsioinc.com"
+      ],
+      "family": "official_announcements",
+      "id": "bitsio:official:1",
+      "kind": "sitemap",
+      "maxPages": 60,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/blog-post/"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.bitsioinc.com/blog-post/bitsio-splunkie-award-2025"
+      ],
+      "supplierId": "bitsio",
+      "url": "https://www.bitsioinc.com/sitemap.xml"
+    },
+    {
+      "allowedHosts": [
+        "www.bitsioinc.com"
+      ],
+      "evidenceId": "OB-bitsio-1",
+      "family": "citation_integrity",
+      "id": "bitsio:citation:OB-bitsio-1",
+      "kind": "citation",
+      "maxPages": 1,
+      "registration": "verified",
+      "required": true,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "supplierId": "bitsio",
+      "url": "https://www.bitsioinc.com/about-us"
     }
   ],
   "suppliers": [
@@ -11805,6 +12372,352 @@
         "zscaler:citation:TR-zscaler-5",
         "zscaler:citation:TR-zscaler-6",
         "zscaler:sec_documents"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [
+        "CDW Corporation"
+      ],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "cdw",
+      "kind": "public",
+      "name": "CDW",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "regulatory_filings",
+        "filing_documents"
+      ],
+      "sourceIds": [
+        "cdw:official:1",
+        "cdw:sec_facts",
+        "cdw:sec_submissions",
+        "cdw:sec_documents",
+        "cdw:citation:OB-cdw-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [
+        "Insight"
+      ],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "insight",
+      "kind": "public",
+      "name": "Insight Enterprises",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "regulatory_filings",
+        "filing_documents"
+      ],
+      "sourceIds": [
+        "insight:official:1",
+        "insight:sec_facts",
+        "insight:sec_submissions",
+        "insight:sec_documents",
+        "insight:citation:OB-insight-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [
+        "ePlus inc."
+      ],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "eplus",
+      "kind": "public",
+      "name": "ePlus",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "regulatory_filings",
+        "filing_documents"
+      ],
+      "sourceIds": [
+        "eplus:official:1",
+        "eplus:sec_facts",
+        "eplus:sec_submissions",
+        "eplus:sec_documents",
+        "eplus:citation:OB-eplus-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "presidio",
+      "kind": "pe-owned",
+      "name": "Presidio",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "presidio:official:1",
+        "presidio:citation:OB-presidio-1",
+        "presidio:citation:OB-presidio-2"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [
+        "WWT"
+      ],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "wwt",
+      "kind": "private",
+      "name": "World Wide Technology",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "wwt:official:1",
+        "wwt:citation:OB-wwt-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "guidepoint",
+      "kind": "private",
+      "name": "GuidePoint Security",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "guidepoint:official:1",
+        "guidepoint:citation:OB-guidepoint-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "trace3",
+      "kind": "pe-owned",
+      "name": "Trace3",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "trace3:official:1",
+        "trace3:citation:OB-trace3-1",
+        "trace3:citation:OB-trace3-2"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [
+        "Xalient Holdings Limited"
+      ],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "xalient",
+      "kind": "pe-owned",
+      "name": "Xalient",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "xalient:official:1",
+        "xalient:citation:OB-xalient-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [
+        "TekStream Solutions"
+      ],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "tekstream",
+      "kind": "private",
+      "name": "TekStream",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "tekstream:official:1",
+        "tekstream:citation:OB-tekstream-1"
+      ],
+      "startupStatus": "unclassified"
+    },
+    {
+      "aliases": [],
+      "domainIds": [
+        "solution-providers"
+      ],
+      "fundingStage": null,
+      "id": "bitsio",
+      "kind": "private",
+      "name": "bitsIO",
+      "requiredCategories": [
+        "identity_listing",
+        "revenue_growth_history",
+        "operating_metrics",
+        "funding_valuation",
+        "ownership_acquisitions",
+        "leadership",
+        "distress_debt_restructuring",
+        "announcements_results"
+      ],
+      "requiredFamilies": [
+        "official_announcements",
+        "release_distribution",
+        "independent_reporting",
+        "citation_integrity",
+        "investor_acquirer"
+      ],
+      "sourceIds": [
+        "bitsio:official:1",
+        "bitsio:citation:OB-bitsio-1"
       ],
       "startupStatus": "unclassified"
     }

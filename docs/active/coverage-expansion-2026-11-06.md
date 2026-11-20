@@ -97,3 +97,34 @@ The test that settles each one is the company's own press release.
 
 Newer facts the daily run should pick up from official sources: Checkmarx bought Tromzo (Dec 2025)
 and Endor Labs bought Autonomous Plane (2026); both are in search results only, not yet sourced here.
+
+## Third batch (2026-11-20, D-153, D-155): security solution providers
+
+Domain: Security solution providers and services (pending until three companies graduate). Facts
+read 2026-11-20 from the linked pages.
+
+| Company | Kind | Sub-area | Seed fact | Source |
+|---|---|---|---|---|
+| CDW | public (CDW, CIK 0001402057) | Large solution providers | Q3 2026 net sales $6,755M, +17.7% year over year (total company) | [CDW release](https://investor.cdw.com/news/news-details/2026/CDW-Reports-Third-Quarter-2026-Earnings/default.aspx) |
+| Insight Enterprises | public (NSIT, CIK 0000932696) | Large solution providers | Q3 2026 net sales $2,441.5M against $2,003.8M, +21.8% (total company) | [8-K ex. 99.1](https://www.sec.gov/Archives/edgar/data/932696/000093269626000076/nsit-20261105xerx8kex991.htm) |
+| ePlus | public (PLUS, CIK 0001022408) | Large solution providers | Q2 FY2027 net sales $667.9M against $608.8M, +9.7% (total company) | [ePlus release](https://www.eplus.com/who-we-are/investor-relations/press-releases/2026/11/eplus-reports-second-quarter-and-first-half-financial-results-fiscal-year-2027) |
+| Presidio | PE-owned (CD&R, BC Partners minority) | Large solution providers | CD&R majority stake announced Apr 2 2024; completed LookingPoint acquisition Jul 13 2026 | [CD&R release](https://www.presidio.com/who-we-are/newsroom-press/cdr-to-acquire-presidio-from-bc-partners/), [LookingPoint](https://www.presidio.com/who-we-are/newsroom-press/presidio-acquires-lookingpoint/) |
+| World Wide Technology | private, founded 1990 | Large solution providers | Completed Softchoice purchase, about US$1.3B, Mar 13 2025 | [WWT release](https://www.wwt.com/press-release/world-wide-technology-announces-completion-of-softchoice-acquisition-expanding-software-cloud-cybersecurity-and-ai-capabilities) |
+| GuidePoint Security | private | Large solution providers | Funding round led by Audax Private Equity closed Oct 10 2023, terms not disclosed | [GuidePoint release](https://www.guidepointsecurity.com/newsroom/guidepoint-security-attracts-new-round-of-growth-capital/) |
+| Trace3 | PE-owned (Apollo funds; American Securities minority) | Large solution providers | Apollo purchase completed Nov 3 2025; Calian U.S. commercial IT assets bought Oct 1 2026 | [Apollo PDF](https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Announces%20Acquisition%20by%20Apollo%20-%20Names%20New%20CEO.pdf), [Calian PDF](https://4142176.fs1.hubspotusercontent-na1.net/hubfs/4142176/_MARKETING/_ARCHIVE/Webflow%20PDFs/Announcements/Trace3%20Acquisition%20of%20Calian%20US%20Final.pdf) |
+| Xalient | PE-owned (Volpi Capital, controlling party) | Specialist boutiques | FY2024 turnover £84.996M against £52.163M, loss £1.554M | [Companies House accounts](https://find-and-update.company-information.service.gov.uk/company/09714903/filing-history/MzQ4MDIzMzI2OWFkaXF6a2N4/document?format=xhtml&download=1) |
+| TekStream | private, launched 2011 | Specialist boutiques | Launch as an Atlanta IT services firm, Jul 28 2011 | [TekStream release](https://www.tekstream.com/resources/newsroom/new-technology-solutions-company-launches-in-atlanta/) |
+| bitsIO | private | Specialist boutiques | Services company headquartered in Springfield, Illinois; co-founder Kalpana Krishnamurthi is CEO | [About bitsIO](https://www.bitsioinc.com/about-us) |
+
+Official sources added: CDW and Insight Q4 RSS (`/rss/pressrelease.aspx`; the Q4 JSON list kind is
+pinned to its two authorized sources), ePlus and WWT sitemaps, Presidio newsroom page, Trace3
+announcements page (release PDFs), GuidePoint newsroom RSS, Xalient and TekStream feeds, bitsIO
+sitemap. Each dry-ran through `discovery.discover()` on 2026-11-20 and completed.
+
+Partner tags (preview only): Splunk 2026 regional awards, Sep 16 2026 (Trace3 AMER Partner of the
+Year, bitsIO AMER Services, TekStream Public Sector Services); Zscaler 2026 Americas awards, Apr 22
+2026 (CDW, GuidePoint AMS, Presidio New Logo, WWT Public Sector); CrowdStrike 2026 Americas Partner
+of the Year, May 6 2026 (GuidePoint).
+
+Deferred: SHI, Epic Cyber, Carbon 9 Defense (SEC-090).
+

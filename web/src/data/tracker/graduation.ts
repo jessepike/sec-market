@@ -12,6 +12,7 @@ import onboarding from './onboarding.json' with { type: 'json' }
 import type { TrackerSupplier } from './suppliers'
 import type { TrackerEvent } from './events'
 import type { EvidenceRecord } from '../types'
+import { PENDING_DOMAIN_MIN_LIVE, pendingDomains } from './pendingDomains'
 
 export interface OnboardingFile {
   suppliers: Array<{ id: string }>
@@ -24,6 +25,8 @@ function evidenceIdsIn(value: unknown, out: Set<string>): Set<string> {
   if (Array.isArray(value)) value.forEach((v) => evidenceIdsIn(v, out))
   else if (value && typeof value === 'object') {
     for (const [key, v] of Object.entries(value)) {
+      // Vendor partner tags (D-153) are preview-only, so their evidence does not go live with the company.
+      if (key === 'partners') continue
       if (key === 'evidenceIds' && Array.isArray(v)) v.forEach((id) => out.add(String(id)))
       else evidenceIdsIn(v, out)
     }
@@ -32,10 +35,16 @@ function evidenceIdsIn(value: unknown, out: Set<string>): Set<string> {
 }
 
 /** Pure split of onboarding.json into held and graduated parts. verify-current-facts uses it on fresh bytes. */
-export function splitOnboarding<S extends { id: string }, V extends { id: string }, E extends { supplierId: string }>(
+export function splitOnboarding<S extends { id: string; domainIds?: readonly string[] }, V extends { id: string }, E extends { supplierId: string }>(
   file: { suppliers: S[]; evidence: V[]; events: E[]; graduated?: Record<string, unknown> },
 ) {
-  const graduatedIds = new Set(Object.keys(file.graduated ?? {}))
+  const marked = new Set(Object.keys(file.graduated ?? {}))
+  // A company in a pending domain (D-153) stays held until enough of that domain's companies have
+  // passed, so the domain and its companies go live together.
+  const pendingIds = new Set(pendingDomains.map((d) => d.id))
+  const readyIn = (domainId: string) => file.suppliers.filter((s) => marked.has(s.id) && (s.domainIds ?? []).includes(domainId)).length
+  const held = (s: S) => (s.domainIds ?? []).some((d) => pendingIds.has(d) && readyIn(d) < PENDING_DOMAIN_MIN_LIVE)
+  const graduatedIds = new Set([...marked].filter((id) => !file.suppliers.some((s) => s.id === id && held(s))))
   const suppliers = file.suppliers.filter((s) => graduatedIds.has(s.id))
   const events = file.events.filter((e) => graduatedIds.has(e.supplierId))
   const used = evidenceIdsIn([suppliers, events], new Set())

@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-090.
+stands. New items continue from SEC-091.
 
 ## Next
 
@@ -219,6 +219,26 @@ would allow a stronger claim. **Authorization:** proposed; the wording change ne
 200 (some are sites that block automated requests, some have moved). Re-point moved sources to a
 working copy or an archived snapshot; leave the cited text unchanged. **Authorization:** routine
 maintenance; any change to what a record says goes through a correction.
+
+### SEC-090 · Security solution providers: what Phase 1 left out (D-153, D-155)
+
+Phase 1 (2026-11-20) added ten providers on preview. Still open:
+1. SHI, Epic Cyber and Carbon 9 Defense: no source the collector can read (SHI refuses every
+   automated request; Epic Cyber's feed holds one 2022 post; Carbon 9 has no news pages). Add each
+   when a readable official source appears. Carbon 9 is already named by Splunk (2026 Public Sector
+   Partner of the Year).
+2. More vendor partner tags from pages already checked on 2026-11-17 and 2026-11-20: CrowdStrike
+   named Presidio its 2026 Americas Specialized Solutions Partner of the Year; the Phase 0 check found
+   GuidePoint, Presidio, WWT, Trace3, CDW and Insight in the text of Palo Alto Networks' 2026 North
+   America partner awards page (award categories not yet read or checked). Only listed vendors' own pages count.
+3. The D-154 reader for the Companies House daily accounts file (company numbers of tracked UK
+   firms only). Xalient's FY2024 figures are seeded by hand from its filing for now.
+4. Insight's own release pages refuse the collector (HTTP 403, counted as blocked, not failed); its
+   seed record cites the SEC copy of the release.
+5. Automatic proposal of boutiques a listed vendor names (D-153 point 1).
+
+**Authorization:** points 1, 2 and 5 add suppliers or facts on the site and need the owner; 3 is
+approved (D-154); 4 needs no change.
 
 ## Later (implementation authority noted per item)
 

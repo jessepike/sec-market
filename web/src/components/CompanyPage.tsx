@@ -1,6 +1,8 @@
 import { typeName } from '../data/tracker/typeNames'
 import { companyView, eventWindow } from '../data/companyPages'
 import { CompanyMomentum } from './CompanyMomentum'
+import { showOnboarding } from '../data/tracker/onboarding'
+import { partnerLine } from '../data/tracker/partners'
 
 /**
  * `/companies/<id>/` (D-139): every figure and dated event the site holds for
@@ -11,6 +13,8 @@ import { CompanyMomentum } from './CompanyMomentum'
 export function CompanyPage({ id }: { id: string }) {
   const view = companyView(id)
   if (!view) return null
+  // Vendor partner tags (D-153) show on preview builds only.
+  const partners = showOnboarding ? partnerLine(id) : null
   return (
     <section id="company" className="coverage-page" aria-labelledby="company-heading">
       <h1 id="company-heading">
@@ -21,6 +25,14 @@ export function CompanyPage({ id }: { id: string }) {
         Coverage tier {view.tierNumber}: {view.tierName}.
         Every figure keeps the period it is true for and the source it is cited to.
       </p>
+      {partners ? (
+        <p className="coverage-page__note">
+          {partners.text}.
+          {partners.sources.map((source) => (
+            <span key={source.url}> <a href={source.url} rel="noopener">Source: {source.label}</a></span>
+          ))}
+        </p>
+      ) : null}
 
       <CompanyMomentum id={id} />
 

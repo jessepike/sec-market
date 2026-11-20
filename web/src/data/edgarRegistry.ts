@@ -204,6 +204,33 @@ export const edgarRegistry: EdgarSupplier[] = [
     fiscalYearEnd: '1231',
     revenueConcepts: STANDARD_REVENUE_CONCEPTS,
   },
+  // Security solution providers (D-153), onboarding. Total company net sales, labeled as company
+  // revenue on the page, the same way as Akamai (D-145). CIK and fiscal year end checked on
+  // 2026-11-20 against company_tickers.json and each filer's own submissions record.
+  {
+    id: 'cdw',
+    name: 'CDW',
+    ticker: 'CDW',
+    cik: '0001402057',
+    fiscalYearEnd: '1231',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
+  {
+    id: 'insight',
+    name: 'Insight Enterprises',
+    ticker: 'NSIT',
+    cik: '0000932696',
+    fiscalYearEnd: '1231',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
+  {
+    id: 'eplus',
+    name: 'ePlus',
+    ticker: 'PLUS',
+    cik: '0001022408',
+    fiscalYearEnd: '0331',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
 ]
 
 /**

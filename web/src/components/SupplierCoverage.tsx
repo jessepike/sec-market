@@ -125,6 +125,14 @@ export function SupplierCoverage() {
                     {row.sources.map((source) => (
                       <span key={source.url}> <a href={source.url} rel="noopener noreferrer">Source: {source.label}</a></span>
                     ))}
+                    {row.partners ? (
+                      <span className="coverage-table__domains">
+                        {row.partners.text}.
+                        {row.partners.sources.map((source) => (
+                          <span key={source.url}> <a href={source.url} rel="noopener noreferrer">Source: {source.label}</a></span>
+                        ))}
+                      </span>
+                    ) : null}
                   </td>
                   <td data-label="Target tier">Tier {row.targetTier}</td>
                 </tr>

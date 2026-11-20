@@ -1,10 +1,12 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-11-15
+updated: 2026-11-20
 ---
 
 # Current state
+
+**Security solution providers, Phase 1 (2026-11-20, D-155, on preview, owner review).** Ten providers are onboarding: CDW, Insight and ePlus (total company revenue from their quarterly releases, SEC sources and registry entries added), Presidio, WWT, GuidePoint and Trace3 (ownership and latest deal), and Xalient, TekStream and bitsIO (Xalient's FY2024 turnover from Companies House). The contract now holds 97 suppliers and 429 sources. The domain "Security solution providers and services" stays pending until three of its companies graduate together; partner tags from Splunk, Zscaler and CrowdStrike awards show on preview only. Production renders are pixel-identical. Preview's generated data was reset to the base-contract set main held on Nov 14, because the copied data is stamped with the previous contract; preview figures look older until the first release after this is promoted. Deferred: SHI, Epic Cyber, Carbon 9 and the Companies House file reader (SEC-090).
 
 **Repair loop (2026-11-12, on preview, owner asked).** Nov 11 and 12 did not publish: the 05:17 collection hit the 45-minute limit both days, GitHub's backup collected 7 to 8 h late, and the gate then failed a test on the registry change (fixed in aa4b7d5 after both attempts were used). The health check and watchdog saw it and only reported. Now `ops/timer/lib/doctor.js` (Vercel Cron every 10 min, live once `main` advances) sorts each day into a known case and takes one bounded step (one extra collection, a publisher start after the 00:05 UTC gate reset), and a Claude scheduled task "Pipeline repair" fixes what the doctor hands on. Runbook: `docs/reference/repair-loop.md`. Open: the owner's answer on how far the repair step may promote on its own; the finish-gate loop fix belongs to the architecture thread.
 
