@@ -919,14 +919,15 @@ def verify_receipt(receipt, plan, contract, source, at, store):
         found = {'complete': False, 'items': [], 'itemModified': {}, 'itemDates': {}}
     else:
         found = discover(source, request)
-    if (REHEARSAL_PARSER_CHANGES is not None and found['items'] != manifest['items'] and
-            found['complete'] == receipt.get('discoveryComplete')):
+    if (REHEARSAL_PARSER_CHANGES is not None and
+            (found['items'] != manifest['items'] or found['complete'] != receipt.get('discoveryComplete'))):
         # Rehearsal only: the candidate changed a discovery parser, so its replay of
-        # receipts made by main's parser can differ. Record the source and continue
-        # with what the archived parser found. The release gate never sets this.
+        # receipts made by main's parser can differ, in items or in completeness (Nov 21:
+        # Barracuda went from 0 items, incomplete, to 125, complete). Record the source and
+        # continue with what the archived parser found. The release gate never sets this.
         REHEARSAL_PARSER_CHANGES.append(source['id'])
-        found = {**found, 'items': manifest['items'], 'itemModified': manifest.get('itemModified', {}),
-                 'itemDates': manifest.get('itemDates', {})}
+        found = {**found, 'complete': receipt.get('discoveryComplete'), 'items': manifest['items'],
+                 'itemModified': manifest.get('itemModified', {}), 'itemDates': manifest.get('itemDates', {})}
     require(found['complete'] == receipt.get('discoveryComplete') and
             (separated(contract) or found['complete'] is True) and found['items'] == manifest['items'],
             'Retained current discovery replay differs')
