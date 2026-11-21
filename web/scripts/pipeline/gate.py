@@ -86,6 +86,30 @@ def rehearsal_contract(repo, store):
             "restoredFrom": restored}
 
 
+DISCOVERY_PARSER_FILES = ("web/scripts/pipeline/discovery.py", "web/scripts/pipeline/*_press_list.py")
+
+
+def rehearsal_parser_changes(repo, store, run_id):
+    """Name the archived collection's code revision if the candidate changed a discovery parser since.
+
+    The archive's receipts were discovered by the parser on main at collection time. A
+    candidate that fixes a parser replays them differently, so its rehearsal could never
+    pass until main collects with the fix (Nov 19-21, Barracuda 7bfb81a). In that case
+    only, the rehearsal tolerates and reports replay differences. The release gate keeps
+    the strict replay.
+    """
+    runs = sorted((store.root / "ci/collection-runs").glob("*.json"))
+    revisions = {json.loads(path.read_text()).get("appRevision") for path in runs
+                 if json.loads(path.read_text()).get("runId") == run_id}
+    revisions.discard(None)
+    if len(revisions) != 1:
+        return None
+    revision = revisions.pop()
+    changed = subprocess.run(["git", "-C", str(repo), "diff", "--quiet", revision, "HEAD", "--", *DISCOVERY_PARSER_FILES],
+                             capture_output=True)
+    return revision if changed.returncode == 1 else None
+
+
 PAIRED_CONTRACT_FILES = ("contracts/roster-transition.json", "web/src/data/tracker/factualCorrectionPolicy.json")
 
 
@@ -207,6 +231,14 @@ def failure_excerpt(name, body, context=200):
 def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=False):
     destination.mkdir(parents=True, exist_ok=True)
     substitution = rehearsal_contract(repo, store) if rehearsal else None
+    parser_revision = None
+    if rehearsal:
+        latest = store.read("heads/latest-run.json")
+        if latest is not None:
+            parser_revision = rehearsal_parser_changes(repo, store, json.loads(store.get(latest["receipt"]))["runId"])
+        if parser_revision:
+            import retained_audit
+            retained_audit.REHEARSAL_PARSER_CHANGES = []
     with stage("prepare-data"):
         if rehearsal:
             # Rehearsals profile the data rebuild (97% of gate time on Nov 17) so the
@@ -251,6 +283,11 @@ def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=Fa
         # gate receipt, build or release input, so nothing can publish from it.
         receipt = {"result": "rehearsal_pass", "executedTests": executed, "checks": checks, "githubRunId": github_run_id,
                    "appRevision": app_revision, "runId": coverage["runId"], "contract": substitution}
+        if parser_revision:
+            import retained_audit
+            receipt["parserChanges"] = {"archivedRevision": parser_revision,
+                                        "replayDiffers": sorted(set(retained_audit.REHEARSAL_PARSER_CHANGES))}
+            print(json.dumps({"rehearsalParserChanges": receipt["parserChanges"]}), file=sys.stderr, flush=True)
         (destination / "rehearsal-receipt.json").write_bytes(canonical(receipt))
         cache.unlink()
         print(json.dumps({"result": "rehearsal_pass", "executedTests": executed, "contractSubstituted": substitution["substituted"]}))

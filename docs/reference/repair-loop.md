@@ -71,6 +71,10 @@ The owner allowed this on 2026-11-14 (D-151: "Yes, including workflow limits").
 - Never dispatch workflows from the repair step: cloud tokens are refused (403), and the doctor
   owns every start so its limits hold.
 - Never promote while preview's web CI or gate rehearsal is red or still running on the commit.
+- A candidate that changes a discovery parser (`discovery.py` or a `*_press_list.py`) replays the archive's
+  receipts differently, because main's parser made them. The rehearsal then tolerates those replay
+  differences and lists the sources in `rehearsal-receipt.json` under `parserChanges` (and in the job log).
+  The release gate keeps the strict replay. Before this (Nov 19-21) such a fix deadlocked preview.
 - One promotion per incident. Do not promote while the gate or publisher is running.
 - The repair step and the daily 08:43 loop both promote. Both use `--ff-only`; whichever runs second
   promotes what is new or nothing.

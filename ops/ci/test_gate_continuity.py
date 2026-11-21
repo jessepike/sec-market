@@ -258,6 +258,34 @@ class GateContinuityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'REHEARSAL_ARCHIVED_CONTRACT_MISSING'):
             gate.rehearsal_contract(repo,self.store)
 
+    def parser_repo(self, change):
+        import subprocess
+        repo=Path(self.temp.name)/'parser-repo';pipeline=repo/'web/scripts/pipeline';pipeline.mkdir(parents=True)
+        git=lambda *a: subprocess.run(['git','-C',str(repo),*a],check=True,capture_output=True).stdout.decode().strip()
+        git('init','-q');git('config','user.email','t@example.com');git('config','user.name','t')
+        (pipeline/'discovery.py').write_text('A = 1\n');(pipeline/'gate.py').write_text('B = 1\n')
+        git('add','-A');git('commit','-qm','main');revision=git('rev-parse','HEAD')
+        (pipeline/change).write_text('changed = 2\n');git('add','-A');git('commit','-qm','candidate')
+        self.store.write_once('ci/collection-runs/41-1.json',{'runId':'actual-run','appRevision':revision})
+        self.store.write_once('ci/collection-runs/40-1.json',{'runId':'older-run','appRevision':'f'*40})
+        return repo,revision
+
+    def test_rehearsal_names_the_archived_revision_when_the_candidate_changed_a_discovery_parser(self):
+        for change in ('discovery.py','acme_press_list.py'):
+            with self.subTest(change=change):
+                self.temp=tempfile.TemporaryDirectory();self.store=LocalStore(Path(self.temp.name)/'state')
+                repo,revision=self.parser_repo(change)
+                self.assertEqual(gate.rehearsal_parser_changes(repo,self.store,'actual-run'),revision)
+
+    def test_rehearsal_keeps_strict_replay_when_no_discovery_parser_changed(self):
+        repo,_=self.parser_repo('gate.py')
+        self.assertIsNone(gate.rehearsal_parser_changes(repo,self.store,'actual-run'))
+        self.assertIsNone(gate.rehearsal_parser_changes(repo,self.store,'missing-run'))
+
+    def test_release_gate_never_enables_the_parser_tolerance(self):
+        import retained_audit
+        self.assertIsNone(retained_audit.REHEARSAL_PARSER_CHANGES)
+
     def test_rehearsal_writes_only_a_rehearsal_receipt(self):
         repo=Path(self.temp.name)/'run-repo';data=repo/'web/src/data/generated';data.mkdir(parents=True)
         (data/'certifiedCoverage.json').write_text('{"state":"complete"}')
