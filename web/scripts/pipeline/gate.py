@@ -254,6 +254,11 @@ def run_gate(repo, store, destination, github_run_id, app_revision, rehearsal=Fa
             result = prepare_data(repo, store, destination)
         contract, coverage, snapshot, raw, cache, collection_hash = result
     env = dict(os.environ, VERCEL_GIT_COMMIT_SHA=app_revision)
+    if substitution and substitution["substituted"]:
+        # The checkout now holds the archived contract, which predates suppliers the
+        # candidate adds through onboarding (Nov 21, D-155). Tests that tie onboarding
+        # seed records to the contract read this flag. The release gate never sets it.
+        env["SMP_REHEARSAL_CONTRACT_SUBSTITUTED"] = "1"
     checks, logs = {}, []
     for name in ("refresh:edgar", "refresh:filing-events", "certify:sec", "test"):
         child_env = dict(env)
