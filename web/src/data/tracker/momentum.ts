@@ -44,7 +44,12 @@ export interface MomentumRow {
   trend: { periodEnd: string; growth: number }[]
   /** Revenue for the latest quarter in US dollars, from the SEC series. */
   revenue: number | null
+  /** Tracked companies it bought between the year-ago quarter and the latest one. */
+  bought: Bought[]
 }
+
+/** A tracked company a filer acquired, with the date the deal closed. */
+export interface Bought { supplierId: string; name: string; closed: string }
 
 /**
  * A public company whose growth comes from its own results release, not re-derived from SEC
@@ -60,6 +65,7 @@ export interface ReportedRow {
   periodEnd: string
   /** The basis the company reports on, where it differs from US dollars. */
   basis: string | null
+  bought: Bought[]
 }
 
 export interface OtherCompany {
@@ -125,8 +131,25 @@ export function reportedGrowth(domainId: string): ReportedRow[] {
     if (supplier.kind !== 'public' || !rev || rev.scope === 'segment' || isCertifiedSupplier(supplier.id)) return []
     const latest = parseGrowth(rev.latest.yoyGrowth)
     if (latest === null) return []
-    return [{ supplier, latest, revenue: parseUsd(rev.latest.value), periodEnd: rev.latest.periodEnd, basis: rev.latest.growthBasis ?? null }]
+    return [{ supplier, latest, revenue: parseUsd(rev.latest.value), periodEnd: rev.latest.periodEnd, basis: rev.latest.growthBasis ?? null, bought: boughtWithin(supplier, rev.latest.periodEnd) }]
   }).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
+}
+
+const roster = trackerDomains.flatMap(d => suppliersForDomain(d.id)).filter((s, i, all) => all.findIndex(o => o.id === s.id) === i)
+const yearBefore = (date: string) => `${Number(date.slice(0, 4)) - 1}${date.slice(4)}`
+/**
+ * Tracked companies the supplier acquired whose deal closed after the year-ago quarter ended and on
+ * or before the latest quarter end: the latest quarter holds their revenue and the year-ago quarter
+ * does not. Matched on the acquirer named in each company's own ownership record.
+ */
+export function boughtWithin(supplier: TrackerSupplier, periodEnd: string | undefined): Bought[] {
+  if (!periodEnd || !/^\d{4}-\d{2}-\d{2}$/.test(periodEnd)) return []
+  const buyer = shortSupplierName(supplier.name)
+  const from = yearBefore(periodEnd)
+  return roster.filter(m => m.id !== supplier.id && m.ownership?.acquirer && shortSupplierName(m.ownership.acquirer) === buyer
+    && !!m.ownership.closed && /^\d{4}-\d{2}-\d{2}$/.test(m.ownership.closed) && m.ownership.closed > from && m.ownership.closed <= periodEnd)
+    .map(m => ({ supplierId: m.id, name: shortSupplierName(m.name), closed: m.ownership!.closed! }))
+    .sort((a, b) => a.closed.localeCompare(b.closed) || a.name.localeCompare(b.name))
 }
 
 const yearItems = yearChanges().filter(item => item.type !== 'filing')
@@ -199,6 +222,7 @@ export function domainMomentum(): DomainMomentum[] {
       vsMedian: med === null ? null : round1(r.latest - med),
       health: healthFacts.suppliers[r.supplier.id] ?? null,
       ...series(r.supplier),
+      bought: boughtWithin(r.supplier, r.supplier.revenue?.latest.periodEnd),
     })).sort((a, b) => b.latest - a.latest || a.supplier.name.localeCompare(b.supplier.name))
     // Company-reported rows sit beside certified ones only where the domain draws bars and has a filer to compare with.
     const reported = revenueBars && rows.length > 0 ? reportedGrowth(domain.id) : []

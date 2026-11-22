@@ -4,7 +4,7 @@ import { shortSupplierName } from '../data/tracker/names'
 import { certifiedGrowth, domainMomentum, formatPercent, formatNetCash, formatPoints, formatUsd, healthFacts, marketMedian, signalAge } from '../data/tracker/momentum'
 import { formatMonthYear } from '../data/tracker/derive'
 import { shortUsd } from '../data/tracker/eventFacts'
-import type { DomainMomentum, MomentumRow, OtherCompany, ReportedRow } from '../data/tracker/momentum'
+import type { Bought, DomainMomentum, MomentumRow, OtherCompany, ReportedRow } from '../data/tracker/momentum'
 import { trackerDomains } from '../data/tracker/domains'
 import { typeName } from '../data/tracker/typeNames'
 import { companyPath } from '../data/companyPages'
@@ -75,13 +75,21 @@ function Spark({ trend }: { trend: MomentumRow['trend'] }) {
   </svg>
 }
 
+/** Tracked companies bought after the year-ago quarter: their revenue is in the latest quarter only. */
+function BoughtNote({ bought, periodEnd }: { bought: Bought[]; periodEnd: string }) {
+  if (bought.length === 0) return null
+  const list = bought.map(b => `${b.name} ${formatMonthYear(b.closed)}`).join(', ')
+  return <span className="momentum__rev momentum__bought" title={`Bought ${bought.map(b => `${b.name} (closed ${b.closed})`).join(', ')}: after the year-ago quarter, so in the quarter ended ${periodEnd} and not in the quarter it is compared with`}>bought {list}</span>
+}
+
 function Row({ row, median, market, openSupplier, highlight }: { row: MomentumRow; median: number | null; market?: number | null; openSupplier: Open; highlight?: string }) {
   const { supplier, latest, change, trend } = row
   const rev = supplier.revenue!.latest
   const trendText = trend.map(t => `${formatPercent(t.growth)} for the quarter ended ${t.periodEnd}`).join(', ')
   return <li className={`momentum__row${highlight === supplier.id ? ' is-highlight' : ''}`} aria-current={highlight === supplier.id ? 'true' : undefined}>
     <span className="momentum__who"><Name supplier={supplier} open={openSupplier} className="momentum__name" />
-      {row.revenue !== null && <span className="momentum__rev" title={`Revenue for the quarter ended ${rev.periodEnd}, from the SEC filing`}><span className="momentum__metric-label">Quarterly revenue </span>{shortUsd(row.revenue)}</span>}</span>
+      {row.revenue !== null && <span className="momentum__rev" title={`Revenue for the quarter ended ${rev.periodEnd}, from the SEC filing`}><span className="momentum__metric-label">Quarterly revenue </span>{shortUsd(row.revenue)}</span>}
+      <BoughtNote bought={row.bought} periodEnd={rev.periodEnd} /></span>
     <div className="momentum__bar" role="img" aria-label={`${supplier.name}: ${formatPercent(latest)} year-over-year revenue growth, quarter ended ${rev.periodEnd}${median !== null ? `; domain median ${formatPercent(median)}` : ''}${market != null ? `; all SEC filers median ${formatPercent(market)}` : ''}`}>
       <i className="momentum__zero" style={{ left: pos(0) }} />
       <i className="momentum__fill" style={{ left: pos(Math.min(0, latest)), width: `${(Math.abs(latest) / (hi - lo)) * 100}%` }} />
@@ -108,7 +116,8 @@ function Reported({ row, openSupplier, highlight }: { row: ReportedRow; openSupp
   const dash = (kind: string, label: string) => <span className={`momentum__metric momentum__metric--${kind}`} title={note}><span className="momentum__metric-label">{label}</span><span className="momentum__na">–</span></span>
   return <li className={`momentum__row is-reported${highlight === supplier.id ? ' is-highlight' : ''}`} aria-current={highlight === supplier.id ? 'true' : undefined}>
     <span className="momentum__who"><Name supplier={supplier} open={openSupplier} className="momentum__name" />
-      <span className="momentum__rev" title={note}>{row.revenue !== null && <><span className="momentum__metric-label">Quarterly revenue </span>{shortUsd(row.revenue)} · </>}company-reported</span></span>
+      <span className="momentum__rev" title={note}>{row.revenue !== null && <><span className="momentum__metric-label">Quarterly revenue </span>{shortUsd(row.revenue)} · </>}company-reported</span>
+      <BoughtNote bought={row.bought} periodEnd={row.periodEnd} /></span>
     <div className="momentum__bar" role="img" aria-label={`${supplier.name}: ${formatPercent(latest)} year-over-year revenue growth, company-reported, quarter ended ${row.periodEnd}`}>
       <i className="momentum__zero" style={{ left: pos(0) }} />
       <i className="momentum__fill momentum__fill--reported" style={{ left: pos(Math.min(0, clamped)), width: `${(Math.abs(clamped) / (hi - lo)) * 100}%` }} />
@@ -225,7 +234,7 @@ export function MomentumByDomain({ openSupplier }: { openSupplier: (id: string) 
         <button type="button" aria-pressed={all} onClick={() => setAll(true)}>All domains</button>
       </div></div>
     <p className="desk-note">Whole-company revenue growth, year over year, for the latest quarter, re-derived from SEC filings. The small line is the growth rate of the last quarters on file, followed by the change from the prior quarter. The dark tick is the domain median; the light tick is the median of all SEC filers. Outlined bars are growth a public company reports in its own results, not re-derived from SEC filings and not in either median.</p>
-    <details className="momentum__how"><summary>How to read this</summary><p className="desk-note">Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. Growth is for the whole company, not for its business in one domain, so a company can appear in more than one domain card. A domain median is shown only with three or more filers. Every trend line uses one vertical scale: its full height is 16 percentage points, widened only when a company moved more. The SEC series holds eight quarters, so up to four growth rates can be compared.
+    <details className="momentum__how"><summary>How to read this</summary><p className="desk-note">Quarters end {ends[0]} to {ends.at(-1)}; fiscal calendars differ. Growth is for the whole company, not for its business in one domain, so a company can appear in more than one domain card. A domain median is shown only with three or more filers. Every trend line uses one vertical scale: its full height is 16 percentage points, widened only when a company moved more. The SEC series holds eight quarters, so up to four growth rates can be compared. A line that starts “bought” names a tracked company the filer acquired after the year-ago quarter ended: its revenue is in the latest quarter and not in the quarter it is compared with.
       {hasHealth && <> Operating margin and free cash flow margin cover the four quarters to the same quarter end. They come from the same SEC filings but are not yet part of the certified check.{hasBalance ? ' Net cash is cash and short-term investments minus the carrying value of debt, at the same quarter end; where a filer tags no borrowing for that date, cash is shown alone.' : ' Debt is not shown yet.'}</>}
       {' '}Private companies, segments and non-SEC filers have no comparable financials here; they are listed under each domain with their latest funding, ownership or deal and their latest event. AI security shows no bars: no public company sells only AI security, so a whole-company growth rate would not describe it.</p></details>
     {all ? <div className="momentum__grid momentum__grid--one"><AllDomains openSupplier={openSupplier} /></div> : <>

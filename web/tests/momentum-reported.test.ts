@@ -26,3 +26,18 @@ test('company-reported rows are public, never certified, never in a median, and 
   }
   assert.ok(domainMomentum().some(d => d.reported.length > 0), 'at least one domain shows company-reported growth')
 })
+
+test('a "bought" note names only tracked companies whose deal closed after the year-ago quarter', () => {
+  for (const d of domainMomentum()) {
+    for (const r of [...d.rows, ...d.reported]) {
+      const end = r.supplier.revenue!.latest.periodEnd
+      const from = `${Number(end.slice(0, 4)) - 1}${end.slice(4)}`
+      for (const b of r.bought) {
+        assert.ok(b.closed > from && b.closed <= end, `${r.supplier.id} bought ${b.supplierId} on ${b.closed}, outside ${from}..${end}`)
+        assert.notEqual(b.supplierId, r.supplier.id)
+      }
+    }
+  }
+  const panw = domainMomentum().flatMap(d => d.rows).find(r => r.supplier.id === 'panw')
+  if (panw && panw.supplier.revenue!.latest.periodEnd <= '2027-02-11') assert.deepEqual(panw.bought.map(b => b.supplierId), ['cyberark'])
+})
