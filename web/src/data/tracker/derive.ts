@@ -96,13 +96,20 @@ export function formatFiledDate(dateStr: string | undefined): string {
 /**
  * "$5.84 billion" -> "$5.84B", "$651.4 million" -> "$651.4M", preserving any
  * leading qualifier (">$1.7 billion" -> ">$1.7B"). Text with no
- * billion/million unit passes through unchanged.
+ * billion/million unit passes through unchanged, except a whole-dollar figure
+ * of a million or more written out in full ("$140,000,000" -> "$140M").
  */
 export function abbreviateDollar(text: string | undefined): string {
   if (!text) return ''
   return text
     .replace(/([\d.,]+)\s*billion/gi, '$1B')
     .replace(/([\d.,]+)\s*million/gi, '$1M')
+    // A whole-dollar figure written out in full ("$140,000,000") reads in the same unit as the rest.
+    .replace(/\$(\d{1,3}(?:,\d{3}){2,})(?![\d.,]*\d)/g, (_, digits: string) => {
+      const n = Number(digits.replace(/,/g, ''))
+      const [unit, div] = n >= 1e9 ? ['B', 1e9] : ['M', 1e6]
+      return `$${Number((n / div).toFixed(2))}${unit}`
+    })
 }
 
 /** Pulls "2026-07-31" out of a period string like "Q2 FY2027, ended 2026-07-31". */

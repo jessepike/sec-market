@@ -277,6 +277,11 @@ describe('density-pass display helpers (fixtures)', () => {
     assert.equal(abbreviateDollar('$250 million'), '$250M')
     assert.equal(abbreviateDollar('over $200 million'), 'over $200M')
     assert.equal(abbreviateDollar(undefined), '')
+    assert.equal(abbreviateDollar('$140,000,000'), '$140M')
+    assert.equal(abbreviateDollar('more than $1,300,000,000'), 'more than $1.3B')
+    assert.equal(abbreviateDollar('$15,500,000'), '$15.5M')
+    assert.equal(abbreviateDollar('$999,999'), '$999,999')
+    assert.equal(abbreviateDollar('$1,234,567.89'), '$1,234,567.89')
   })
 
   it('formats the own-metric cell as "label value · Q mon yy"', () => {
