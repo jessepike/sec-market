@@ -27,9 +27,9 @@
       "text": "checkpoint-email:official:3 fails on alternate runs (Nov 16, 17, 19; collected Nov 18) with \"Unexpected source response status\": one page answers with a 2xx other than 200. Finding which page and whether a second feed avoids it."
     },
     "barracuda": {
-      "state": "fixing",
-      "since": "2026-11-19",
-      "text": "barracuda:official:2 reached Barracuda's newsroom file on the Nov 19 run (no more 404), but one press-release row pointed off the newsroom and the strict parser refused the whole file. The parser now skips such rows (preview); live after the next promotion."
+      "state": "watching",
+      "since": "2026-11-22",
+      "text": "barracuda:official:2 collected on the Nov 22 run with the fixed parser: 27 newsroom pages found, now queued for AI review. Watching for the first facts."
     },
     "axonius": {
       "state": "fixing",
