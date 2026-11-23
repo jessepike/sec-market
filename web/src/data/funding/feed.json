@@ -1,6 +1,82 @@
 {
   "held": [
     {
+      "amountUsd": null,
+      "checkedAt": "2026-11-23",
+      "company": "ResQuant",
+      "companyUrl": "https://www.resquant.com",
+      "confirmation": "no amount in the funding list",
+      "country": "PL",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "resquant:2026-11-16:venture-round-led-by-billennium",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.pb.pl/polski-potentat-it-inwestuje-w-bezpieczenstwo-postkwantowe-wszedl-do-akcjonariatu-resquantu-1270483",
+      "stage": "Venture round led by Billennium",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": 15600000,
+      "checkedAt": "2026-11-23",
+      "company": "Cyabra",
+      "companyUrl": "https://cyabra.com/",
+      "confirmation": "Form D total amount sold not found",
+      "country": "IL",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "cyabra:2026-11-16:convertible-notes-from-alpha-capital-anstalt",
+      "lead": null,
+      "sourceKind": "sec-form-d",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026120252/ea0312370-8k_cyabra.htm",
+      "stage": "Convertible notes from Alpha Capital Anstalt",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": null,
+      "checkedAt": "2026-11-23",
+      "company": "AI-Z",
+      "companyUrl": "https://www.ai-z.group/",
+      "confirmation": "no amount in the funding list",
+      "country": "DE",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "ai-z:2026-11-16:venture-round-led-by-mars-shot",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.startup-region-stuttgart.de/news/stuttgarter-start-up-ai-z-schliesst-finanzierungsrunde-bei-185-millionen-euro-bewertung-ab/",
+      "stage": "Venture round led by Mars Shot",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": 1500000,
+      "checkedAt": "2026-11-23",
+      "company": "Cyabra",
+      "companyUrl": "https://cyabra.com/",
+      "confirmation": "Form D total amount sold not found",
+      "country": "IL",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "cyabra:2026-11-09:credit-facility",
+      "lead": "Alpha Capital Anstalt",
+      "sourceKind": "sec-form-d",
+      "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2032341/000121390026118128/ea0311735-8k_cyabra.htm",
+      "stage": "Credit facility",
+      "weekOf": "2026-11-09"
+    },
+    {
       "amountUsd": 3000000,
       "checkedAt": "2026-11-16",
       "company": "CyberKord",
@@ -842,9 +918,203 @@
     268
   ],
   "retries": {
-    "enginsight:2026-11-02:venture-round": 1
+    "akamai-technologies:2026-11-09:convertible-notes": 1,
+    "dreeze:2026-11-09:seed": 1,
+    "enginsight:2026-11-02:venture-round": 1,
+    "extrordinas:2026-11-16:angel": 1,
+    "metano:2026-11-16:seed-led-by-sierra-ventures": 1
   },
   "rounds": [
+    {
+      "amountUsd": 125000000,
+      "checkedAt": "2026-11-23",
+      "company": "Corma",
+      "companyUrl": "https://corma.ai",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "corma:2026-11-16:series-a-led-by-new-enterprise-associates",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.corma.ai/blog/three-months-in",
+      "stage": "Series A led by New Enterprise Associates",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": 20000000,
+      "checkedAt": "2026-11-23",
+      "company": "StepSecurity",
+      "companyUrl": "http://www.stepsecurity.io",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "stepsecurity:2026-11-16:series-a-led-by-elephant",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.stepsecurity.io/blog/stepsecurity-20-million-series-a",
+      "stage": "Series A led by Elephant",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": 11000000,
+      "checkedAt": "2026-11-23",
+      "company": "Vero Security",
+      "companyUrl": "https://www.vero.security/",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "vero-security:2026-11-16:seed-led-by-tlv-partners",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.vero.security/blog/vero-raises-11m-to-shape-how-ai-security-engineering-is-done",
+      "stage": "Seed led by TLV Partners",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": 2500000,
+      "checkedAt": "2026-11-23",
+      "company": "Endeem",
+      "companyUrl": "https://endeem.ai/",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 271,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-271"
+      },
+      "id": "endeem:2026-11-16:pre-seed-led-by-beta-boom-and-auriga-cyber-ventures",
+      "lead": null,
+      "sourceKind": "announcement",
+      "sourceUrl": "https://endeem.ai/blog/endeem-emerges-from-stealth/",
+      "stage": "Pre-Seed led by Beta Boom and Auriga Cyber Ventures",
+      "weekOf": "2026-11-16"
+    },
+    {
+      "amountUsd": 80000000,
+      "checkedAt": "2026-11-23",
+      "company": "Daylight Security",
+      "companyUrl": "https://daylight.ai",
+      "confirmation": "company and amount stated together on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "daylight-security:2026-11-09:series-b",
+      "lead": "Goldman Sachs Growth Equity",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://daylight.ai/blog/as-ai-threats-surge-daylight-raises-80m-led-by-goldman-sachs-alternatives",
+      "stage": "Series B",
+      "weekOf": "2026-11-09"
+    },
+    {
+      "amountUsd": 37000000,
+      "checkedAt": "2026-11-23",
+      "company": "Bay",
+      "companyUrl": "https://www.bay.io",
+      "confirmation": "company and amount stated on the source",
+      "country": "IL",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "bay:2026-11-09:series-a",
+      "lead": "Battery Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.bay.io/blog/bay-emerges-from-stealth-with-50m-after-fortune-100-companies-used-its-platform-to-triple-autonomous-ai-agent-use-2",
+      "stage": "Series A",
+      "weekOf": "2026-11-09"
+    },
+    {
+      "amountUsd": 30000000,
+      "checkedAt": "2026-11-23",
+      "company": "Kindo",
+      "companyUrl": "https://kindo.ai",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "kindo:2026-11-09:venture-round",
+      "lead": "Crosspoint Capital Partners and Forgepoint Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.kindo.ai/resources/press-kindo-raises-57-million-ai-agent-management",
+      "stage": "Venture round",
+      "weekOf": "2026-11-09"
+    },
+    {
+      "amountUsd": 27000000,
+      "checkedAt": "2026-11-23",
+      "company": "Finite State",
+      "companyUrl": "http://www.finitestate.io",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "finite-state:2026-11-09:series-c",
+      "lead": "The O.H.I.O. Fund",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://finitestate.io/news/finite-state-raises-27-million-to-help-device-makers-fight-the-vulnpocalypse-with-ai-powered-product-security",
+      "stage": "Series C",
+      "weekOf": "2026-11-09"
+    },
+    {
+      "amountUsd": 20000000,
+      "checkedAt": "2026-11-23",
+      "company": "WhiteMatter (formerly QuilrAI)",
+      "companyUrl": "https://whitematter.io/",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "whitematter-formerly-quilrai:2026-11-09:series-a",
+      "lead": "Blumberg Capital",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/whitematter-raises-20m-series-a-to-close-the-growing-gap-between-ai-autonomy-and-enterprise-governance-302934477.html",
+      "stage": "Series A",
+      "weekOf": "2026-11-09"
+    },
+    {
+      "amountUsd": 6200000,
+      "checkedAt": "2026-11-23",
+      "company": "Helix",
+      "companyUrl": "https://helix.id/",
+      "confirmation": "company and amount stated on the source",
+      "country": "US",
+      "foundVia": {
+        "issue": 270,
+        "name": "Return on Security",
+        "url": "https://www.returnonsecurity.com/p/security-funded-270"
+      },
+      "id": "helix:2026-11-09:pre-seed",
+      "lead": "Chicago Ventures",
+      "sourceKind": "announcement",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/helix-secures-6-2-million-in-pre-seed-capital-and-launches-voice-based-human-verification-for-the-ai-era-302936742.html",
+      "stage": "Pre-Seed",
+      "weekOf": "2026-11-09"
+    },
     {
       "amountUsd": 150000000,
       "checkedAt": "2026-11-16",
@@ -1094,5 +1364,5 @@
     }
   ],
   "schemaVersion": 1,
-  "updatedAt": "2026-11-16"
+  "updatedAt": "2026-11-23"
 }
