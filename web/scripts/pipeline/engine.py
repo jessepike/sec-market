@@ -3,6 +3,7 @@ import json
 import subprocess
 import threading
 import time
+import xml.etree.ElementTree as ET
 from datetime import timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -558,8 +559,10 @@ class Pipeline:
             head = {"observations": observations, "items": found["items"], "itemDates": found.get("itemDates", {}), "validatedHashes": validated_hashes, "manifest": manifest}
             self.store.compare_and_swap(f"source-{digest(source['id'])}", previous_head, head)
             receipt.update(outcome="updated" if accepted else "checked_no_change", newFactIds=accepted)
-        except (ValueError, KeyError, OSError, TimeoutError, RuntimeError, subprocess.SubprocessError) as exc:
+        except (ValueError, KeyError, OSError, TimeoutError, RuntimeError, subprocess.SubprocessError, ET.ParseError) as exc:
             # Persist bounded reason codes, never model logs, tokens or response headers.
+            # ET.ParseError is a SyntaxError: before Nov 23 one unparseable feed escaped
+            # here and stopped the whole collection (twice). It now fails only its source.
             receipt.update(outcome="failed", errorCode=str(exc)[:160] if isinstance(exc, (ValueError, ModelUnavailable)) else type(exc).__name__)
         return self._finish(receipt)
 

@@ -235,6 +235,16 @@ class CycleTests(unittest.TestCase):
         self.assertEqual(sum(o["transportReused"] for o in observations), 1)
         self.assertEqual(self.store.read("heads/budget-2026-10-25.json")["fetches"], 2)
 
+    def test_unparseable_xml_feed_fails_its_source_without_stopping_the_collection(self):
+        # Nov 23: xml ParseError (a SyntaxError) escaped the per-source handler, and both
+        # daily collections stopped right after restore with reason "ParseError".
+        import engine
+        import xml.etree.ElementTree as ET
+        with patch.object(engine, "discover", side_effect=ET.ParseError("mismatched tag: line 1, column 30")):
+            result = self.run_cycle()
+        self.assertFalse(result["complete"])
+        self.assertEqual([(r["outcome"], r["errorCode"]) for r in result["receipts"]], [("failed", "ParseError")])
+
     def test_depleted_allowance_never_reuses_old_transport_or_refunds_capacity(self):
         self.contract["schedule"]["maxFetchesPerRun"] = 1
         early = self.run_cycle()
