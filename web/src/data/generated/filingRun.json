@@ -1,101 +1,113 @@
 {
-  "checkedAt": "2026-10-21T04:45:24.489Z",
-  "windowEnd": "2026-10-21",
+  "checkedAt": "2026-11-24T09:14:11.077Z",
+  "windowEnd": "2026-11-24",
   "checks": [
     {
       "supplierId": "crwd",
       "url": "https://data.sec.gov/submissions/CIK0001535527.json",
-      "checkedAt": "2026-10-21T04:45:18.215Z",
+      "checkedAt": "2026-11-24T05:28:46.285672Z",
       "status": "checked"
     },
     {
       "supplierId": "zscaler",
       "url": "https://data.sec.gov/submissions/CIK0001713683.json",
-      "checkedAt": "2026-10-21T04:45:18.534Z",
+      "checkedAt": "2026-11-24T05:28:55.116551Z",
       "status": "checked"
     },
     {
       "supplierId": "panw",
       "url": "https://data.sec.gov/submissions/CIK0001327567.json",
-      "checkedAt": "2026-10-21T04:45:18.862Z",
+      "checkedAt": "2026-11-24T05:28:42.194414Z",
       "status": "checked"
     },
     {
       "supplierId": "fortinet",
       "url": "https://data.sec.gov/submissions/CIK0001262039.json",
-      "checkedAt": "2026-10-21T04:45:19.877Z",
+      "checkedAt": "2026-11-24T05:28:54.017867Z",
       "status": "checked"
     },
     {
       "supplierId": "cloudflare",
       "url": "https://data.sec.gov/submissions/CIK0001477333.json",
-      "checkedAt": "2026-10-21T04:45:20.190Z",
+      "checkedAt": "2026-11-24T05:28:45.092676Z",
       "status": "checked"
     },
     {
       "supplierId": "okta",
       "url": "https://data.sec.gov/submissions/CIK0001660134.json",
-      "checkedAt": "2026-10-21T04:45:20.508Z",
+      "checkedAt": "2026-11-24T05:28:40.933314Z",
       "status": "checked"
     },
     {
       "supplierId": "sailpoint",
       "url": "https://data.sec.gov/submissions/CIK0002030781.json",
-      "checkedAt": "2026-10-21T04:45:20.838Z",
+      "checkedAt": "2026-11-24T05:28:44.667421Z",
       "status": "checked"
     },
     {
       "supplierId": "s1",
       "url": "https://data.sec.gov/submissions/CIK0001583708.json",
-      "checkedAt": "2026-10-21T04:45:21.149Z",
+      "checkedAt": "2026-11-24T05:28:42.325407Z",
       "status": "checked"
     },
     {
       "supplierId": "rubrik",
       "url": "https://data.sec.gov/submissions/CIK0001943896.json",
-      "checkedAt": "2026-10-21T04:45:21.908Z",
+      "checkedAt": "2026-11-24T05:28:40.241534Z",
       "status": "checked"
     },
     {
       "supplierId": "varonis",
       "url": "https://data.sec.gov/submissions/CIK0001361113.json",
-      "checkedAt": "2026-10-21T04:45:22.220Z",
+      "checkedAt": "2026-11-24T05:28:45.543573Z",
       "status": "checked"
     },
     {
       "supplierId": "netskope",
       "url": "https://data.sec.gov/submissions/CIK0002063196.json",
-      "checkedAt": "2026-10-21T04:45:22.550Z",
+      "checkedAt": "2026-11-24T05:28:39.428919Z",
       "status": "checked"
     },
     {
       "supplierId": "tenable",
       "url": "https://data.sec.gov/submissions/CIK0001660280.json",
-      "checkedAt": "2026-10-21T04:45:22.984Z",
+      "checkedAt": "2026-11-24T05:28:41.731592Z",
       "status": "checked"
     },
     {
       "supplierId": "qualys",
       "url": "https://data.sec.gov/submissions/CIK0001107843.json",
-      "checkedAt": "2026-10-21T04:45:23.300Z",
+      "checkedAt": "2026-11-24T05:28:42.794204Z",
       "status": "checked"
     },
     {
       "supplierId": "rapid7",
       "url": "https://data.sec.gov/submissions/CIK0001560327.json",
-      "checkedAt": "2026-10-21T04:45:23.726Z",
+      "checkedAt": "2026-11-24T05:28:37.873447Z",
       "status": "checked"
     },
     {
       "supplierId": "commvault",
       "url": "https://data.sec.gov/submissions/CIK0001169561.json",
-      "checkedAt": "2026-10-21T04:45:24.174Z",
+      "checkedAt": "2026-11-24T05:28:50.492426Z",
       "status": "checked"
     },
     {
       "supplierId": "jfrog",
       "url": "https://data.sec.gov/submissions/CIK0001800667.json",
-      "checkedAt": "2026-10-21T04:45:24.486Z",
+      "checkedAt": "2026-11-24T05:28:48.617922Z",
+      "status": "checked"
+    },
+    {
+      "supplierId": "f5",
+      "url": "https://data.sec.gov/submissions/CIK0001048695.json",
+      "checkedAt": "2026-11-24T05:28:38.247128Z",
+      "status": "checked"
+    },
+    {
+      "supplierId": "akamai",
+      "url": "https://data.sec.gov/submissions/CIK0001086222.json",
+      "checkedAt": "2026-11-24T05:28:57.288089Z",
       "status": "checked"
     }
   ]
