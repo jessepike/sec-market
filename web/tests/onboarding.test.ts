@@ -101,3 +101,24 @@ describe('onboarding graduation', () => {
     for (const s of onboardingSuppliers) assert.ok(!live.has(s.id), s.id)
   })
 })
+
+// Nov 24 gate: the filing-event generator read every edgarRegistry filer, so CDW, Insight and ePlus
+// (held in onboarding) got 8-K events that named unknown suppliers and failed verify:tracker.
+describe('filing events for onboarding filers', () => {
+  it('every SEC filer is a live tracker supplier or is held in onboarding', async () => {
+    const { edgarRegistry } = await import('../src/data/edgarRegistry.ts')
+    const { heldOnboardingIds } = await import('../src/data/tracker/graduation.ts')
+    const live = new Set(trackerSuppliers.map(s => s.id))
+    const held = new Set(heldOnboardingIds)
+    for (const filer of edgarRegistry) assert.ok(live.has(filer.id) || held.has(filer.id), `${filer.id} is neither live nor held`)
+  })
+
+  it('the generator skips held filers before reading their filings', async () => {
+    const { readFile } = await import('node:fs/promises')
+    const source = await readFile(new URL('../scripts/filing-events.ts', import.meta.url), 'utf8')
+    const loop = source.indexOf('for (const [index, supplier] of edgarRegistry.entries())')
+    const skip = source.indexOf('if (heldOnboarding.has(supplier.id))', loop)
+    const fetchAt = source.indexOf('fetchText(url)', loop)
+    assert.ok(loop > 0 && skip > loop && skip < fetchAt, 'held onboarding filers must be skipped before any event is built')
+  })
+})

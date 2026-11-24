@@ -3,6 +3,7 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { effectiveHandCollectedEvents } from '../src/data/tracker/events.ts'
+import { heldOnboardingIds } from '../src/data/tracker/graduation.ts'
 import { debtExcerpt } from './sec-verify/debt-excerpt.mjs'
 import { quoteProblems } from './sec-verify/event-text.mjs'
 import type { TrackerEvent, TrackerEventType } from '../src/data/tracker/events.ts'
@@ -143,6 +144,7 @@ interface GeneratedEvidence {
 // AUTO-002 Phase 0: dedupe by supplier, date AND type. A same-day hand-collected
 // event of a different type (e.g. an acquisition announced alongside an officer
 // change in one 8-K) must not hide the filing's own tracked item.
+const heldOnboarding = new Set(heldOnboardingIds)
 const existingEventKeys = new Set(effectiveHandCollectedEvents.map((event) => `${event.supplierId}|${event.date}|${event.type}`))
 
 async function main() {
@@ -154,6 +156,14 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10)
 
   for (const [index, supplier] of edgarRegistry.entries()) {
+    // A filer still held in onboarding (D-138, D-153) is not a tracker supplier yet, so an event
+    // for it would name an unknown supplier and fail verify:tracker (Nov 24 gate). Its events
+    // appear on the first gate run after it graduates.
+    if (heldOnboarding.has(supplier.id)) {
+      console.log(`held  ${supplier.id.padEnd(12)} onboarding; no events until it graduates`)
+      continue
+    }
+
     if (index > 0) await sleep(REQUEST_INTERVAL_MS)
     const url = `https://data.sec.gov/submissions/CIK${supplier.cik}.json`
     let data: SubmissionsResponse
