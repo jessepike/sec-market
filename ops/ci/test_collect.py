@@ -98,11 +98,27 @@ class StepBudgetTests(unittest.TestCase):
 
     def test_slow_restore_shortens_collection(self):
         from collect import collection_seconds, STEP_SECONDS, POST_COLLECTION_RESERVE_SECONDS
-        left = collection_seconds(1200, 0, 900)
-        self.assertEqual(left, STEP_SECONDS - 900 - POST_COLLECTION_RESERVE_SECONDS)
+        left = collection_seconds(1200, 0, 2400)
+        self.assertEqual(left, STEP_SECONDS - 2400 - POST_COLLECTION_RESERVE_SECONDS)
         self.assertLess(left, 1200)
 
-    def test_no_collection_when_too_little_time_is_left(self):
+    def test_nov_26_restore_keeps_the_full_collection(self):
+        # Nov 26: restore took 658 s and collection was cut to 841 s, leaving 39 sources unread.
         from collect import collection_seconds
+        self.assertEqual(collection_seconds(1200, 0, 658), 1200)
+
+    def test_step_and_measured_closing_work_fit_the_job_limit(self):
+        # Measured worst case after the budget: 1170 s in-flight overrun plus 1450 s closing work.
+        import re
+        from collect import STEP_SECONDS, POST_COLLECTION_RESERVE_SECONDS
+        workflow = (Path(__file__).resolve().parents[2] / '.github/workflows/subscription-collector.yml').read_text()
+        job = workflow.split('collect-and-reconcile:', 1)[1]
+        minutes = int(re.search(r'timeout-minutes: (\d+)', job).group(1))
+        self.assertLessEqual(minutes, 120)  # D-151 cap on collector job limits
+        self.assertLessEqual(STEP_SECONDS + 300, minutes * 60)  # setup and cleanup outside the step
+        self.assertGreaterEqual(POST_COLLECTION_RESERVE_SECONDS, 1170 + 1450)
+
+    def test_no_collection_when_too_little_time_is_left(self):
+        from collect import collection_seconds, STEP_SECONDS, POST_COLLECTION_RESERVE_SECONDS
         with self.assertRaisesRegex(ValueError, 'CI_STEP_TIME_EXHAUSTED_BEFORE_COLLECTION'):
-            collection_seconds(1200, 0, 1300)
+            collection_seconds(1200, 0, STEP_SECONDS - POST_COLLECTION_RESERVE_SECONDS - 299)

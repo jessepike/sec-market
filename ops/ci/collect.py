@@ -52,7 +52,14 @@ spec.loader.exec_module(session_runtime)
 # The job now has 90 minutes (minutes are free for a public repository), the
 # closing work has an hour, and each phase prints its duration so the next
 # change to these numbers is measured, not guessed.
-STEP_SECONDS = 5100
+# November 26: restore grew from 370 to 658 seconds in nine days (about 25 a
+# day), so collection fell from 1130 to 841 seconds and 39 sources went unread
+# for want of time. Measured after-budget work was at most 2620 seconds
+# (in-flight overrun up to 1170, closing work 1350-1450), so the hour reserve
+# stays. The job limit rose to 120 minutes (D-151 allows up to 120) and the step
+# to 6900 seconds, which restores the full 20-minute collection with about 25
+# minutes of spare time. restore now prints each part, so its growth is measured.
+STEP_SECONDS = 6900
 POST_COLLECTION_RESERVE_SECONDS = 3600
 MINIMUM_COLLECTION_SECONDS = 300
 
@@ -386,9 +393,12 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
     writer = os.environ.pop("SMP_AUTH_STORE_TOKEN", "")
     root = Path(root).resolve()
     revision = session_runtime.git("rev-parse", "HEAD")
+    part = phase_timer(started)
     recover(root / 'abandoned-lease-recovery')
+    part('restore:recover')
     profile = {'checkpoint_profile': 'source_probe'} if source_probe else {}
     session_runtime.bootstrap(root, "collector", identifier, revision, execution_mode="github_subscription", **profile)
+    part('restore:bootstrap')
     state = LocalStore(root / "state")
     session = LocalStore(root).read("session.json")
     if source_probe:
@@ -414,6 +424,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         else:
             from html_qualification_seed import seed_before_collection
         seed_before_collection(REPO, root, state, session, authority, session_runtime)
+        part('restore:seed')
         corrections_enabled = (REPO / 'contracts/factual-corrections.json').exists()
         reused=reuse_scheduled_collection(state,contract,utcnow(),corrections_enabled=corrections_enabled)
         if reused:
@@ -422,10 +433,12 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
             return reused
         require(auth and writer, "DEDICATED_ACCOUNT_AND_SECRET_WRITER_REQUIRED")
         keeper.restore(auth)
+        part('restore:account')
         os.environ["CODEX_HOME"] = str(keeper.home)
         guarded = GuardedRunner(keeper)
         agent = SubscriptionAgent(contract["model"], runner=guarded)
         work = correction_work(REPO, state, contract, agent)
+        part('restore:corrections')
         budget = collection_seconds(maximum_seconds, started, time.monotonic())
         print(json.dumps({"collectionSeconds": budget, "restoreSeconds": round(time.monotonic() - started)}), flush=True)
         collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=budget,

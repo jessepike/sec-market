@@ -46,7 +46,7 @@ export function doctorConfig(cfg) {
     // Preview checks: the web CI and the gate rehearsal (the gate's own checks run
     // on the candidate code against the newest archived run).
     ci: (cfg.BUILD_FILE ?? 'web.yml,market-gate-rehearsal.yml').split(',').map(s => s.trim()).filter(Boolean),
-    collectLimit: Number(cfg.COLLECT_LIMIT_MINUTES || 90),
+    collectLimit: Number(cfg.COLLECT_LIMIT_MINUTES || 120),
     gatesPerDay: Number(cfg.GATES_PER_DAY || 2),
     // One extra collection a day at most, on top of the 05:17 timer start.
     collectRetries: Number(cfg.COLLECT_RETRIES_PER_DAY || 1),
