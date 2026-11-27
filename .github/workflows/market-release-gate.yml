@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     # The reconstruct step grows with the archive: 23 min on Nov 15, 32.5 min on Nov 17,
     # when the 35-minute cap cancelled the gate during its review capture.
-    timeout-minutes: 60
+    timeout-minutes: 90
     permissions:
       contents: read
     steps:
