@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "enabled": true,
   "policySha256": "b5c64ee9f14f4da3a651673afa7617c16250009b806143bda9b6c3b30a4a4beb",
-  "checkedAt": "2026-11-26T06:47:40.486559Z",
+  "checkedAt": "2026-11-27T06:56:19.574970Z",
   "groups": [
     {
       "id": "FC-20261023-checkpoint-sase",
