@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "enabled": true,
   "runId": "5234e24ba30afb6c363bc71c489c7b59141d3850c51d0327054962dfd187bba1",
-  "checkedAt": "2026-11-27T06:56:19.802132Z",
+  "checkedAt": "2026-11-28T00:45:10.085314Z",
   "contractSha256": "29fd9835a46898610b58855f21c0b567afb7c2b0dc08fcdd3277115ef112b04f",
   "supplierUpdates": {
     "cyera": {
@@ -1706,7 +1706,7 @@
     "runId": "5234e24ba30afb6c363bc71c489c7b59141d3850c51d0327054962dfd187bba1",
     "contractSha256": "29fd9835a46898610b58855f21c0b567afb7c2b0dc08fcdd3277115ef112b04f",
     "inventorySha256": "34066e324642152a081879c53b1a9f8b835c36e6aa9ae1423b0053da1fd5e72e",
-    "checkedAt": "2026-11-27T06:40:55.447240Z",
+    "checkedAt": "2026-11-28T00:29:37.926857Z",
     "supplierCount": 97,
     "requiredTasks": 738,
     "successfulTasks": 331,
@@ -64615,7 +64615,7 @@
       ]
     }
   },
-  "parentSnapshotSha256": "d2c784c72af344c387be21b78eaf2e57a0b048bfa3504938f361724ddce5cfdc",
+  "parentSnapshotSha256": "01a9056291a92678e62ddf37db4ef849ea68f23c802fae60d68827628c61efa4",
   "pendingFacts": [
     {
       "factId": "224b00aa63a063098804d0c66a4a94e3c2dfd2ccfde21cec84f6b5cf90bdbf14",
@@ -65406,5 +65406,5 @@
       "bytes": 1239
     }
   },
-  "snapshotSha256": "9943b398a8e289ed2109d36d661972c3a720e1b5bcca57cda1cbacdb28fe8f4a"
+  "snapshotSha256": "f66ea1735a3f68cd59200377f461ba06ce70432b4682be1164e2d58f89b7a3c8"
 }
